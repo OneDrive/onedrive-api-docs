@@ -1,0 +1,203 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Note: This is a draft of the odata metadata. Final version forthcoming.
+-->
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="oneDrive" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="drive">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="quota" Type="oneDrive.quota" />
+        <NavigationProperty Name="items" Type="Collection(oneDrive.item)" ContainsTarget="true" />
+        <NavigationProperty Name="jumps" Type="Collection(oneDrive.jump)" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="item">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="name" Type="Edm.String" />
+        <Property Name="content" Type="Edm.Stream" />
+        <Property Name="audio" Type="oneDrive.audio" />
+        <Property Name="diagnostic" Type="oneDrive.diagnostic" />
+        <Property Name="document" Type="oneDrive.document" />
+        <Property Name="file" Type="oneDrive.file" />
+        <Property Name="folder" Type="oneDrive.folder" />
+        <Property Name="hashes" Type="oneDrive.hashes" />
+        <Property Name="image" Type="oneDrive.image" />
+        <Property Name="itemInfo" Type="oneDrive.itemInfo" />
+        <Property Name="jumpInfo" Type="oneDrive.jumpInfo" />
+        <Property Name="location" Type="oneDrive.location" />
+        <Property Name="parentInfo" Type="oneDrive.parentInfo" />
+        <Property Name="photo" Type="oneDrive.photo" />
+        <Property Name="sharing" Type="oneDrive.sharing" />
+        <Property Name="video" Type="oneDrive.video" />
+        <NavigationProperty Name="children" Type="Collection(oneDrive.child)" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="jump">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="jumpInfo" Type="oneDrive.jumpInfo" />
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="name" Type="Edm.String" />
+        <Property Name="content" Type="Edm.Stream" />
+        <Property Name="audio" Type="oneDrive.audio" />
+        <Property Name="diagnostic" Type="oneDrive.diagnostic" />
+        <Property Name="document" Type="oneDrive.document" />
+        <Property Name="file" Type="oneDrive.file" />
+        <Property Name="folder" Type="oneDrive.folder" />
+        <Property Name="hashes" Type="oneDrive.hashes" />
+        <Property Name="image" Type="oneDrive.image" />
+        <Property Name="itemInfo" Type="oneDrive.itemInfo" />
+        <Property Name="location" Type="oneDrive.location" />
+        <Property Name="parentInfo" Type="oneDrive.parentInfo" />
+        <Property Name="photo" Type="oneDrive.photo" />
+        <Property Name="sharing" Type="oneDrive.sharing" />
+        <Property Name="video" Type="oneDrive.video" />
+        <NavigationProperty Name="children" Type="Collection(oneDrive.child)" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="child">
+        <Key>
+          <PropertyRef Name="name" />
+        </Key>
+        <Property Name="name" Type="Edm.String" Nullable="false" />
+        <Property Name="id" Type="Edm.String" />
+        <Property Name="content" Type="Edm.Stream" />
+        <Property Name="audio" Type="oneDrive.audio" />
+        <Property Name="diagnostic" Type="oneDrive.diagnostic" />
+        <Property Name="document" Type="oneDrive.document" />
+        <Property Name="file" Type="oneDrive.file" />
+        <Property Name="folder" Type="oneDrive.folder" />
+        <Property Name="hashes" Type="oneDrive.hashes" />
+        <Property Name="image" Type="oneDrive.image" />
+        <Property Name="itemInfo" Type="oneDrive.itemInfo" />
+        <Property Name="jumpInfo" Type="oneDrive.jumpInfo" />
+        <Property Name="location" Type="oneDrive.location" />
+        <Property Name="parentInfo" Type="oneDrive.parentInfo" />
+        <Property Name="photo" Type="oneDrive.photo" />
+        <Property Name="sharing" Type="oneDrive.sharing" />
+        <Property Name="video" Type="oneDrive.video" />
+      </EntityType>
+      <ComplexType Name="audio">
+        <Property Name="album" Type="Edm.String" />
+        <Property Name="albumArtist" Type="Edm.String" />
+        <Property Name="artist" Type="Edm.String" />
+        <Property Name="bitrate" Type="Edm.Int64" />
+        <Property Name="composers" Type="Edm.String" />
+        <Property Name="copyright" Type="Edm.String" />
+        <Property Name="disc" Type="Edm.Int32" />
+        <Property Name="discCount" Type="Edm.Int32" />
+        <Property Name="duration" Type="Edm.Int64" />
+        <Property Name="genre" Type="Edm.String" />
+        <Property Name="hasDrm" Type="Edm.Boolean" />
+        <Property Name="isVariableBitrate" Type="Edm.Boolean" />
+        <Property Name="title" Type="Edm.String" />
+        <Property Name="track" Type="Edm.Int64" />
+        <Property Name="trackCount" Type="Edm.Int64" />
+        <Property Name="year" Type="Edm.Int64" />
+      </ComplexType>
+      <ComplexType Name="diagnostic">
+        <Property Name="trace" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="document">
+        <Property Name="author" Type="Edm.String" />
+        <Property Name="title" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="file">
+        <Property Name="contentUrl" Type="Edm.String" />
+        <Property Name="copyFromUrl" Type="Edm.String" />
+        <Property Name="hashes" Type="oneDrive.hashes" />
+        <Property Name="mimeType" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="hashes">
+        <Property Name="crc32Hash" Type="Edm.String" />
+        <Property Name="sha1Hash" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="folder">
+        <Property Name="color" Type="Edm.Int64" />
+      </ComplexType>
+      <ComplexType Name="identity">
+        <Property Name="applicationId" Type="Edm.Int64" />
+        <Property Name="customName" Type="Edm.String" />
+        <Property Name="customValue" Type="Edm.String" />
+        <Property Name="deviceId" Type="Edm.Int64" />
+        <Property Name="userCid" Type="Edm.Int64" />
+        <Property Name="userPassportId" Type="Edm.Int64" />
+        <Property Name="userName" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="image">
+        <Property Name="height" Type="Edm.Int32" />
+        <Property Name="width" Type="Edm.Int32" />
+      </ComplexType>
+      <ComplexType Name="itemInfo">
+        <Property Name="createdBy" Type="Collection(oneDrive.identity)" />
+        <Property Name="createdDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="eTag" Type="Edm.String" />
+        <Property Name="isDeleted" Type="Edm.Boolean" />
+        <Property Name="lastModifiedBy" Type="Collection(oneDrive.identity)" />
+        <Property Name="lastModifiedDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="size" Type="Edm.Int64" />
+      </ComplexType>
+      <ComplexType Name="jumpInfo">
+        <Property Name="jumpId" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="location">
+        <Property Name="altitude" Type="Edm.Double" />
+        <Property Name="latitude" Type="Edm.Double" />
+        <Property Name="longitude" Type="Edm.Double" />
+      </ComplexType>
+      <ComplexType Name="parentInfo">
+        <Property Name="parentId" Type="Edm.String" />
+        <Property Name="path" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="photo">
+        <Property Name="cameraMake" Type="Edm.String" />
+        <Property Name="cameraModel" Type="Edm.String" />
+        <Property Name="exposureDenominator" Type="Edm.Double" />
+        <Property Name="exposureNumerator" Type="Edm.Double" />
+        <Property Name="focalLength" Type="Edm.Double" />
+        <Property Name="focalRatio" Type="Edm.Double" />
+        <Property Name="whenTaken" Type="Edm.DateTimeOffset" />
+      </ComplexType>
+      <ComplexType Name="quota">
+        <Property Name="deleted" Type="Edm.Int64" />
+        <Property Name="remaining" Type="Edm.Int64" />
+        <Property Name="state" Type="Edm.String" />
+        <Property Name="total" Type="Edm.Int64" />
+        <Property Name="used" Type="Edm.Int64" />
+      </ComplexType>
+      <ComplexType Name="sharing" />
+      <ComplexType Name="video">
+        <Property Name="bitrate" Type="Edm.Int64" />
+        <Property Name="duration" Type="Edm.Int64" />
+        <Property Name="height" Type="Edm.Int64" />
+        <Property Name="width" Type="Edm.Int64" />
+      </ComplexType>
+      <Function Name="allPhotos" IsBound="true">
+        <Parameter Name="bindingParameter" Type="oneDrive.item" Nullable="false" />
+        <ReturnType Type="Collection(oneDrive.item)" Nullable="false" />
+      </Function>
+      <Function Name="allPhotos" IsBound="true">
+        <Parameter Name="bindingParameter" Type="oneDrive.drive" Nullable="false" />
+        <ReturnType Type="Collection(oneDrive.item)" Nullable="false" />
+      </Function>
+      <Function Name="recentDocs" IsBound="true">
+        <Parameter Name="bindingParameter" Type="oneDrive.drive" Nullable="false" />
+        <ReturnType Type="Collection(oneDrive.item)" Nullable="false" />
+      </Function>
+      <Function Name="sharedByMe" IsBound="true">
+        <Parameter Name="bindingParameter" Type="oneDrive.drive" Nullable="false" />
+        <ReturnType Type="Collection(oneDrive.item)" Nullable="false" />
+      </Function>
+      <EntityContainer Name="drivesContainer">
+        <EntitySet Name="drives" EntityType="oneDrive.drive" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
+```
