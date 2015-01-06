@@ -4,11 +4,12 @@ It is used to represent a set of thumbnails associated with a single file.
 
 ### JSON representation
 
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.thumbnailSet" } -->
 ```json
 {
-  "small": {Thumbnail},
-  "medium": {Thumbnail},
-  "large": {Thumbnail}
+  "small": { "@odata.type": "oneDrive.thumbnail" },
+  "medium": { "@odata.type": "oneDrive.thumbnail" },
+  "large": { "@odata.type": "oneDrive.thumbnail" }
 }
 ```
 ## Properties

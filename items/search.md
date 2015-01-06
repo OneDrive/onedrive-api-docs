@@ -25,8 +25,9 @@ Name | Value  | Description
 
 ##### Example
 
+<!-- { "blockType": "request", "name": "search" } -->
 ```
-GET /drive/root/view.search?q=vacation
+GET /drive/root/view.search?q={search-text}
 ```
 
 ##### Response
@@ -38,7 +39,7 @@ empty array is returned.
 If there are too many matches the response will be paged and an
 `@odata.nextLink` property will contain URL to the next page of results.
 
-
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -79,5 +80,5 @@ HTTP Code | HTTP Error Message| Error Code               | Error Message
 404       | Not Found         | SourceDoesNotExist       | Source resource specified in the request does not exist
 404       | Not Found         | DestinationDoesNotExist  | Destination folder specified in the request does not exist
 
-[item-resource]: README.md
+[item-resource]: ../resources/item.md
 [odata-query-parameters]: ../odata/optional-query-parameters.md

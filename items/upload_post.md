@@ -40,8 +40,9 @@ specify a `name` value in the `Content-Dispostion` header that indicates which
 part it is. Parts can be in either order, but SHOUlD specify the metadata part
 first.
 
+<!-- { "blockType": "request", "name": "upload-multipart" } -->
 ```
-POST /me/items/{folder-id}/children
+POST /drive/items/{folder-id}/children
 Content-Type: multipart/form-data; boundary="A100x"
 
 --A100x
@@ -49,32 +50,34 @@ Content-Dispostion: form-data; name="metadata"
 Content-Type: application/json
 
 {
-  "name": "newfile.jpg",
+  "name": "newfile.txt",
   "@name.conflictBehavior": "rename"
 }
 
 --A100x
 Content-Disposition: form-data; name="content"
-Content-Type: image/jpeg
+Content-Type: text/plain
 
-{jpeg image data}
+Contents of the file to be uploaded.
 
 --A100x--
 ```
 
 ##### Response
 
-If successful, this method returns a [Files resource](../resource/file.md) in
+If successful, this method returns a [item resource](../resources/item.md) in
 the response body for the newly created file.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Length: length
 
 {
-	id: "0123456789abc",
-	name: "newfile.jpg"
+  "id": "0123456789abc",
+  "name": "newfile.txt",
+  "file": { }
 }
 ```
 

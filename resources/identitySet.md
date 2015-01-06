@@ -5,11 +5,12 @@ created by.
 
 ### JSON representation
 
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.identitySet", "optionalProperties": ["user", "application", "device"] } -->
 ```json
 {
-	"user": {Identity},
-	"application": {Identity},
-	"device": {Identity}
+	"user": { "@odata.type": "oneDrive.identity" },
+	"application": { "@odata.type": "oneDrive.identity" },
+	"device": { "@odata.type": "oneDrive.identity" }
 }
 ```
 ## Properties

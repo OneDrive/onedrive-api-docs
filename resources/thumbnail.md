@@ -3,14 +3,14 @@ Represents a thumbnail for an image, video, document, or any file or folder that
 may have a graphical representation.
 
 ## JSON representation
-<br/> (ODB-Support: coming soon)
 
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.thumbnail" } -->
 ```json
 {
-	"width": {integer},
-	"height": {integer},
-	"id": {string},
-	"url": {string}
+	"width": 100,
+	"height": 100,
+	"id": "string",
+	"url": "url"
 }
 ```
 ### Properties

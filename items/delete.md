@@ -10,6 +10,8 @@ To call the Delete API, the user must have granted the application write access
 to the item to be deleted.
 
 ##### HTTP Request
+
+<!-- { "blockType": "ignored" } -->
 ```
 DELETE /drive/items/{item-id}
 DELETE /drive/root:/{item-path}
@@ -30,8 +32,9 @@ Do not supply a request body with this method.
 
 
 #### Example
+<!-- { "blockType": "request", "name": "delete-item" } -->
 ```
-DELETE /drive/items/123456789ABC
+DELETE /drive/items/{item-id}
 ```
 
 ##### Response
@@ -39,6 +42,7 @@ DELETE /drive/items/123456789ABC
 If successful, this call returns a `204 No Content` response to indicate that
 resource was deleted and there was nothing to return.
 
+<!-- { "blockType": "response" } -->
 ```http
 HTTP/1.1 204 No Content
 ```

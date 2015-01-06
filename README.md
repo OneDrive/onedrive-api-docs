@@ -13,10 +13,9 @@ be available via the OData metadata or generated content. See the topic on
 ## URL Roots
 OneDrive API URLs are relative to the following roots unless otherwise noted:
 
-Service               | URL Root
-----------------------|----------------------------
-OneDrive              | `https://api.onedrive.com/`
-OneDrive for Business | `https://{tenant}-my.sharepoint.com/_api/` <br>Use the [Office 365 Discovery Service APIs][o365discoveryapi] to discover the URL root
+ Service                 | URL Root
+:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------
+ OneDrive                | `https://api.onedrive.com/`
 
 [o365discoveryapi]: http://msdn.microsoft.com/en-us/library/office/dn776441(v=office.15).aspx
 
@@ -27,6 +26,7 @@ is used for the sake of clarity. The path needs to be prefixed with correct root
 ## Authentication
 OneDrive uses OAuth 2.0 for authentication. An authentication token must be
 provided on every API call via one of the following:
+
 * An HTTP header: `Authorization: bearer {token}`
 * A query parameter: `?access_token={token}`
 
@@ -51,7 +51,6 @@ future. All API URLs must include a version immediately after the hostname:
 
 ```
 https://api.onedrive.com/v1.0/drive/
-https://{tenant}-my.sharepoint.com/v2.0/me/drive/
 ```
 
 Although this syntax is omitted throughout this document, it is required to make
@@ -63,6 +62,7 @@ There are two major resource types exposed in the OneDrive API:
 * [Item](#item) _(files, folders, etc.)_
 
 Example resource:
+<!-- {"blockType": "ignored", "@odata.type": "oneDrive.item"} -->
 ```json
 {
   "id":"D4648F06C91D9D3D!54927",
@@ -83,6 +83,7 @@ Example resource:
 ```
 
 Resources expose data through three ways:
+
 * _Properties_ (like `id` and `name`) expose simple values.
 * _Facets_ (like `file` and `photo`) expose complex values. The presence of
 `file` or `folder` facets indicates the type of an Item.
@@ -129,62 +130,50 @@ Business accounts.
 In the examples below, `/drive` is used as the root for brevity, but
 `/drives/{drive-id}` is valid too.
 
-Common task                                                      | HTTP Method
------------------------------------------------------------------|------------
-[Get metadata for user's default Drive][drive-get]               | `GET /drive`
-[List children under the Drive][item-children]                   | `GET /drive/root/children`
-[List changes for all Items in the Drive][item-changes]          | `GET /drive/root/view.changes`
-[Search for Items in the Drive][item-search]                     | `GET /drive/root/view.search`
-[Access Special Folder](#special-folders)                        | `GET /drive/special/{name}`
-[Access Shared Items][drive-shares]                              | `GET /drive/shares`
+| Common task                                             | HTTP Method                    |
+|:--------------------------------------------------------|:-------------------------------|
+| [Get metadata for user's default Drive][drive-get]      | `GET /drive`                   |
+| [List children under the Drive][item-children]          | `GET /drive/root/children`     |
+| [List changes for all Items in the Drive][item-changes] | `GET /drive/root/view.changes` |
+| [Search for Items in the Drive][item-search]            | `GET /drive/root/view.search`  |
+| [Access Special Folder](#special-folders)               | `GET /drive/special/{name}`    |
+| [Access Shared Items][drive-shares]                     | `GET /drive/shares`            |
 
 See the [Drive][drive-resource] section for more details.
 
 ## Item
-[Items](resource/item.md) are the objects inside the OneDrive file system. They
+[Items][item-resource] are the objects inside the OneDrive file system. They
 can be accessed by their `id` using the `/items/{item-id}` syntax, or by their
 file system path using the `/drive:/path/to/file` syntax. Items have
-[Facets](resource/readme.md) that expose data about their identities and
+[Facets](facets/readme.md) that expose data about their identities and
 capabilities. Folders have a Folder facet and Files have a File facet. Photos
 have a Photo facet in addition to their File facet.
 
 Folders act as containers of Items, and have a `children` reference pointing to
 a collection of Items under the Folder.
 
-Common Task                        | HTTP Method (by ID)                                     | HTTP Method (by Path)
----------------------------------- | ------------------------------------------------------- | ------------------------------------------------
-[Get metadata](items/get.md)       | `GET /drive/items/{id}`                                 | `GET /drive/root:/{path}`
-[List children](items/list.md)     | `GET /drive/items/{id}/children`                        | `GET /drive/root:/{path}:/children`
-[Create](items/create.md)          | `PUT /drive/items/{parent-id}/children/{name}`          | `PUT /drive/root:/{parent-path}/{name}`
-[Upload](items/upload.md)          | `PUT /drive/items/{parent-id}/children/{name}/content`  | `PUT /drive/root:/{parent-path}/{name}:/content`
-[Update](items/update.md)          | `PATCH /drive/items/{id}`                               | `PATCH /drive/root:/{path}`
-[Delete](items/delete.md)          | `DELETE /drive/items/{id}`                              | `DELETE /drive/root:/{path}`
-[Move](items/move.md)              | _same as update_                                        | _same as update_
-[Copy](items/copy.md)              | `POST /drive/items/{id}/action.copy`                    | `POST /drive/root:/{path}:/action.copy`
-[Download](items/download.md)      | `GET /drive/items/{id}/content`                         | `GET /drive/root:/{path}:/content`
-[Search](items/search.md)          | `GET /drive/items/{id}/view.search`                     | `GET /drive/root:/{path}:/view.search`
-[View Changes][item-changes]       | `GET /drive/items/{id}/view.changes`                    | `GET /drive/root:/{path}:/view.changes`
+| Common Task                    | HTTP Method (by ID)                                    | HTTP Method (by Path)                            |
+|:-------------------------------|:-------------------------------------------------------|:-------------------------------------------------|
+| [Get metadata](items/get.md)   | `GET /drive/items/{id}`                                | `GET /drive/root:/{path}`                        |
+| [List children](items/list.md) | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
+| [Create](items/create.md)      | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
+| [Upload](items/upload.md)      | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
+| [Update](items/update.md)      | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
+| [Delete](items/delete.md)      | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |
+| [Move](items/move.md)          | _same as update_                                       | _same as update_                                 |
+| [Copy](items/copy.md)          | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |
+| [Download](items/download.md)  | `GET /drive/items/{id}/content`                        | `GET /drive/root:/{path}:/content`               |
+| [Search](items/search.md)      | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
+| [View Changes][item-changes]   | `GET /drive/items/{id}/view.changes`                   | `GET /drive/root:/{path}:/view.changes`          |
 
 [item-changes]: items/view_changes.md
 
 ## Special Folders
 Commonly-used folders like Documents and Photos can be accessed with static
 names regardless of the folder's actual name and location in a user's OneDrive.
-Special folders are automatically created the first time an application attempts
-to write to one, if it doesn't already exist. If a user deletes one, it will
-get recreated when written to again. If a special folder is renamed or moved
-to another location within the Drive, this syntax will continue to find that
-folder.
 
-
-Folder      | HTTP Request              | Description
-------------| ------------------------- | -------------------------------
-Documents   | `GET /special/documents`  | The Documents folder
-Photos      | `GET /special/photos`     | The Photos folder
-Music       | `GET /special/music`      | The Music folder
-Camera Roll | `GET /special/cameraroll` | The Camera Roll Backup folder.
-Public      | `GET /special/public`     | The default Public folder
-App Folder  | `GET /special/appfolder`  | The application's personal folder. Usually in `/Apps/{Application Name}`
+See [special folders](items/special_folders.md) for more information on addressing
+a folder using this method.
 
 # Related Topics
 The following topics contain high level overviews of other concepts that apply
@@ -196,7 +185,8 @@ to the OneDrive API.
 * [HTTP Verb Tunneling](misc/verb-tunneling.md)
 
 
-[drive-resource]: drives/README.md
+[drive-resource]: resources/drive.md
+[item-resource]: resources/item.md
 [drive-get]: drives/get.md
 [item-changes]: items/view_changes.md
 [item-search]: items/search.md

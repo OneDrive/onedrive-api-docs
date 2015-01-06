@@ -19,3 +19,5 @@ following order:
 ```
 $filter, $orderby, $skiptoken, $skip, $top, $expand, $select
 ```
+
+[odatav4minconformance]: http://docs.oasis-open.org/odata/odata/v4.0/os/part1-protocol/odata-v4.0-os-part1-protocol.html#_Toc372793759

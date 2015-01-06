@@ -7,16 +7,15 @@ To call the get item metadata API, the user must have granted the application
 read access to the specified folder.
 
 ##### HTTP Request
+
 ```
 GET /drive/items/{item-id}
-GET /drive/root:/{item-path}
 ```
 
 ##### Optional Query Parameters
 
 You can use the [OData query parameters][odata-parameters] to restrict
 the shape of the objects returned from this call.
-
 
 ##### Optional Request Headers
 
@@ -28,8 +27,10 @@ Name            | Value  | Description
 Do not supply a request body with this method.
 
 #### Example
+
+<!-- { "blockType": "request", "name": "get-documents-folder" } -->
 ```
-GET /drive/items/123456789ABC
+GET /drive/items/root:/Documents
 ```
 
 ##### Response
@@ -37,15 +38,25 @@ GET /drive/items/123456789ABC
 If successful, this method returns an [Item][item-resource] resource in
 the response body.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item" } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
 Content-length: length
 
 {
-	"id": "0123456789abc",
-	"name": "example.xlsx",
-    "folder": { "childrenCount" : 4 }
+  "id": "0123456789abc",
+  "name": "example.xlsx",
+  "eTag": "etag",
+  "cTag": "etag",
+  "createdBy": { "user": { "id": "1234", "displayName": "Ryan Gregg" } },
+  "createdDateTime": "datetime",
+  "lastModifiedBy": { "user": { "id": "1234", "displayName": "Ryan Gregg" } },
+  "lastModifiedDateTime": "datetime",
+  "size": 1234,
+  "webUrl": "http://onedrive.com/...",
+  "parentReference": { "driveId": "12345", "id": "root", "path": "/" },
+  "folder": { "childCount": 4, "color": 1234 }
 }
 ```
 
@@ -66,4 +77,4 @@ HTTP Code|HTTP Error Message|Error Code|Error Message|Notes
 501|Not Implemented|NotImplemented|Requested feature is not implemented|
 
 [odata-parameters]: ../odata/optional-query-parameters.md
-[item-resource]: README.md
+[item-resource]: ../resources/item.md

@@ -8,7 +8,7 @@ There are two common tasks related to getting thumbnails:
 
 Getting a single standard thumbnail for an item is easy. Thumbnails for an item
 can be addressed via the `thumbnails` reference property which returns an array
-of [ThumbnailSets](../resource/thumbnail_set.md) resources.
+of [ThumbnailSets](../resources/thumbnailSet.md) resources.
 
 Every file can have zero or more thumbnail sets associated with it. Each
 thumbnail set is a collection of different sized versions of the same image.
@@ -18,18 +18,44 @@ properties of the thumbnail set.
 For information on the standard thumbnail sizes, see
 [Standard Thumbnail Sizes](#standardthumbnailsizes).
 
-For example, to get the "medium" thumbnail for a file:
+For example, to get the "medium" thumbnail metadata for a file:
+
+<!-- { "blockType": "request", "name": "get-medium-thumbnail" } -->
 ```
-GET /drive/items/{item-id}/thumbnails/0/medium/content
+GET /drive/items/{item-id}/thumbnails/0/medium
 ```
 
-Note that `/me/items/{item-id}/thumbnails/0/medium` above addresses a
-[Thumbnail](../resource/thumbnail.md) resource. Referencing the `content`
-relationship on the Thumbnail resource returns the binary content.
-
-Another sample using path based addressing, getting the 'large' thumbnail:
+<!-- { "blockType": "response", "@odata.type": "oneDrive.thumbnail" } -->
 ```
-GET /drive/root:/Photos/Summer%202013/DSCN1234.JPG:/thumbnails/0/large/content
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "width": 100,
+  "height": 100,
+  "id": "A1023010!101",
+  "url": "http://onedrive.com/asdjlkasjdkasdjlk.jpg"
+}
+```
+
+Note that `/drive/items/{item-id}/thumbnails/0/medium` above addresses a
+[Thumbnail](../resources/thumbnail.md) resource. Referencing the `content`
+relationship on the Thumbnail resource returns the binary content, as in the
+following exmaple:
+
+<!-- { "blockType": "request", "name":"get-large-thumbnail-content" } -->
+```
+GET /drive/root:{item-path}:/thumbnails/0/large/content
+```
+
+The service responses with the binary content of the thumbnail:
+
+<!-- { "blockType": "response", "@odata.type": "stream" } -->
+```
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+
+{binary-content}
 ```
 
 ## Getting a single custom thumbnail
@@ -57,8 +83,18 @@ Instead of asking for a single thumbnail at a time, you can also expand
 the collection of available thumbnails for an image. The three standard
 thumbnails will be returned for every item that supports thumbnails.
 
+##### HTTP Request
+<!-- {"blockType": "request", "name": "expand-thumbnails"} -->
 ```
-GET /me/items/{file-id}?$expand=thumbnails
+GET /drive/items/{file-id}?$expand=thumbnails
+```
+
+##### HTTP Response
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: length
 
 {
   "id": "12903019809a!109bac",
@@ -208,8 +244,8 @@ OneDrive defines the following values as known thumbnail sizes. While you can
 request any arbitrary size thumbnail, the following are likely to exist and
 return a value quickly:
 
- Name     | Resolution   | Aspect Ratio        | Description
-:---------|:-------------|:--------------------|:---------------------------------------------------------------------
- `small`  | 48x48        | Cropped - Square    | Small, highly compressed thumbnail cropped to a square aspect ratio.
- `medium` | 176 x 1117   | Cropped - Rectangle | Cropped to the standard item size for the OneDrive web view.
- `large`  | 1920 longest | Original            | Thumbnail with the longest edge resized to 1920 pixels.
+| Name     | Resolution   | Aspect Ratio        | Description                                                          |
+|:---------|:-------------|:--------------------|:---------------------------------------------------------------------|
+| `small`  | 48x48        | Cropped - Square    | Small, highly compressed thumbnail cropped to a square aspect ratio. |
+| `medium` | 176 x 1117   | Cropped - Rectangle | Cropped to the standard item size for the OneDrive web view.         |
+| `large`  | 1920 longest | Original            | Thumbnail with the longest edge resized to 1920 pixels.              |

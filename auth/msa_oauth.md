@@ -10,7 +10,7 @@ your application.
 
 ### To register your app
 
-1. Go to the [Live SDK app management site](http://go.microsoft.com/fwlink/p/?LinkId=193157).
+1. Go to the [Live SDK app management site][app-portal].
 2. When prompted, sign in with your Microsoft account credentials.
 3. Click **Create application**
 4. Type in your app's display name and select the app's primary language
@@ -161,7 +161,8 @@ Parameter Name | Value | Description
 `code` | `string` | The authorization code you received in the first authentication request.
 
 **Note**  For web apps, the domain portion of the redirect URI must match the
-domain portion of the redirect URI that you specified in the [Live SDK app management site]().
+domain portion of the redirect URI that you specified in the
+[Live SDK app management site][app-portal].
 
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
@@ -217,7 +218,8 @@ Parameter Name | Value | Description
 `refresh_token` | `string` | The refresh token you received previously.
 
 **Note**  For web apps, the domain portion of the redirect URI must match the
-domain portion of the redirect URI that you specified in the [Live SDK app management site]().
+domain portion of the redirect URI that you specified in the
+[Live SDK app management site][app-portal].
 
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
@@ -278,3 +280,6 @@ Parameter Name | Value | Description
 `lc` | `integer` | Langauge identifier for the client's language.
 `error` | `string` | Error code identifying the error that occurred.
 `error_description` | `string` | A description of the error.
+
+
+[app-portal]: http://go.microsoft.com/fwlink/p/?LinkId=193157

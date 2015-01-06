@@ -35,12 +35,14 @@ that have not changed.
 ### Example
 
 The following example renames and moves a folder to a new parent path:
+
+<!-- { "blockType": "request", "name": "update-item" } -->
 ```
-PATCH /drive/root:/Documents/AFolder
+PATCH /drive/items/{item-id}
 Content-Type: application/json
 
 {
-	"name": "BFolder"
+	"name": "NewFolderName"
 	"parentInfo" : {"path": "/Archive"}
 }
 ```
@@ -50,6 +52,7 @@ Content-Type: application/json
 If successful, this method returns an [Item][item-resource] resource in
 the response body.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -58,7 +61,7 @@ Content-Length: length
 {
 	"id": "0123456789abc",
 	"name": "BFolder",
-	"folder": { "childrenCount": 3 }
+	"folder": { "childCount": 3 }
 }
 ```
 
@@ -82,4 +85,4 @@ HTTP Code|HTTP Error Message|Error Code|Error Message|Notes
 412|Pre Condition Failed|ResourceModified|The server does not meet one of the preconditions that the requester put on the request.|
 
 
-[item-resource]: README.md
+[item-resource]: ../resources/item.md

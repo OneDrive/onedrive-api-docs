@@ -8,6 +8,7 @@ the specified folder to be copied and write access to the destination parent fol
 
 ##### HTTP Request
 
+<!-- { "blockType": "ignored" } -->
 ```
 POST /drive/items/{item-id}/action.copy
 POST /drive/root:/{item-path}:/action.copy
@@ -28,8 +29,9 @@ both values.
 
 ##### Example
 
-```
-POST /me/items/101231asbed/action.copy
+<!-- { "blockType": "request", "name": "copy-item" } -->
+```http
+POST /drive/items/{item-id}/action.copy
 Content-Type: application/json
 
 {
@@ -43,6 +45,7 @@ Content-Type: application/json
 If successful, this method returns an [Item][item-resource] in the response
 body.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -76,3 +79,5 @@ HTTP Code|HTTP Error Message|Error Code|Error Message|Notes
 403|Forbidden|QuotaLimitReached|The maximum storage quota has been reached|
 403|Forbidden|InsufficientSpaceAvailable|The intended operation would exceed the quota|
 409|Conflict|ItemAlreadyExists|Target resource already exists |
+
+[item-resource]: ../resources/item.md

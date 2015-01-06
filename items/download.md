@@ -8,6 +8,7 @@ To call the download API, the user must have granted the application read access
 to the file the app wishes to download.
 
 ##### HTTP Request
+<!-- { "blockType": "ignored" } -->
 ````
 GET /drive/items/{item-id}/content
 GET /drive/root:/{path and filename}/:content
@@ -25,8 +26,9 @@ Do not supply a request body with this method.
 
 #### Example
 
+<!-- { "blockType": "request", "name": "download-item-content" } -->
 ```
-GET /drive/items/1234567890ABC/content
+GET /drive/items/{item-id}/content
 ```
 
 ##### Response
@@ -40,6 +42,7 @@ redirection.
 
 If successful, this method returns the binary contents of the file being requested.
 
+<!-- { "blockType": "response", "@odata.type": "stream" } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: image/jpeg

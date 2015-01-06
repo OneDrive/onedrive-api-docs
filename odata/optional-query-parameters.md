@@ -49,3 +49,6 @@ is always returned even if not specified.
  `$top`       | `int`    | available     | Specify the number of items to return in a result set. The API may have a hard limit that prevents you from asking for more items per response.
  `$orderby`   | `string` | available     | Comma-separated list of properties that are used to sort the order of items in the response collection. Works for `name`, `size`, and `dateLastModified` fields.
  `$filter`    | `string` | not available | Filter string that lets you filter the response based on a set of criteria
+
+
+ [item-resource]: ../resources/item.md

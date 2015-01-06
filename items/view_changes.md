@@ -13,27 +13,30 @@ GET /drive/root:/{item-path}:/view.changes
 
 ##### Optional query string parameters
 
-Name    | Value    | Description
-------- | -------- | -----------
-`token` | `string` | The last token returned from the previous call to `view.changes`. If omitted, `view.changes` will return the current state of the hierarchy.
+| Name    | Value    | Description                                                                                                                                  |
+|:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| `token` | `string` | The last token returned from the previous call to `view.changes`. If omitted, `view.changes` will return the current state of the hierarchy. |
 
 ##### Example
 
+<!-- { "blockType": "request", "name": "get-changes" } -->
 ```
-GET /drive/items/101231asbed/view.changes?token=Ec4thauyr097932
+GET /drive/items/{item-id}/view.changes?token={token}
+Accept: application/json
 ```
 
 ##### Response
 
-If successful, this call will return a JSON object with the following
-properties defined:
+If successful, this call returns a collection of Item resources representing
+the current state of each item. The collection also includes these additional
+properties:
 
-Name | Value | Description
---- | --- | ---
-`value` | `array` | An array of [Item][item-resource] objects which have been created, modified, or deleted.
-`@odata.nextLink` | `url` | A URL that can be used to retrieve the next page of changes.
-`hasMoreChanges` | `boolean` | A value that indicates if there are additional changes available.
-`nextToken` | `string` | A token value that can be used on the next call to `view.changes` to retrieve the next set of changes. This matches the value in the `@odata.nextLink` property.
+| Name              | Value     | Description                                                                                                                                                      |
+|:------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `value`           | `array`   | An array of [Item][item-resource] objects which have been created, modified, or deleted.                                                                         |
+| `@odata.nextLink` | `url`     | A URL that can be used to retrieve the next page of changes.                                                                                                     |
+| `hasMoreChanges`  | `boolean` | A value that indicates if there are additional changes available.                                                                                                |
+| `nextToken`       | `string`  | A token value that can be used on the next call to `view.changes` to retrieve the next set of changes. This matches the value in the `@odata.nextLink` property. |
 
 Your application should continue to call `view.changes` until the
 `hasMoreChanges` value is set to `false` or until you make a request that
@@ -45,6 +48,8 @@ removed from your local state.
 
 
 ###### Example
+
+<!-- { "blockType": "response", "@odata.type": "oneDrive.viewChanges", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -55,16 +60,16 @@ Content-length: length
     {
         "id": "0123456789abc",
         "name": "folder2",
-        "folder": { ... }
+        "folder": { }
     },
     {
         "id": "123010204abac",
-        "name": "file.txt"
-        "file": { ... }
+        "name": "file.txt",
+        "file": { }
     }
-    ]
+    ],
     "@odata.nextLink": "https://api.onedrive.com/drive/root/view.changes?token=1230919asd190410jlka",
-    "hasMoreChanges": "true",
+    "hasMoreChanges": true,
     "nextToken": "1230919asd190410jlka"
 }
 ```
@@ -85,11 +90,13 @@ Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 [error-response]: ../misc/errors.md
 
-HTTP Code|HTTP Error Message|Error Code|Error Message|Notes
----|---|---|---|---|---|
-400|Bad Request|MissingBody|Request Body is required|
-400|Bad Request|InvalidBody|Supplied request body is invalid or incomplete|
-400|Bad Request|TotalAffectCountTooLarge|Operation is not allowed because the number of affected items exceeds threshold.|
-403|Forbidden|AccessRestricted|Resource has been restricted in use|
-404|Not Found|SourceDoesNotExist|Source resource specified in the request does not exist|
-404|Not Found|DestinationDoesNotExist|Destination folder specified in the request does not exist|
+| HTTP Code | HTTP Error Message | Error Code               | Error Message                                                                    | Notes |  |
+|:----------|:-------------------|:-------------------------|:---------------------------------------------------------------------------------|:------|:-|
+| 400       | Bad Request        | MissingBody              | Request Body is required                                                         |       |  |
+| 400       | Bad Request        | InvalidBody              | Supplied request body is invalid or incomplete                                   |       |  |
+| 400       | Bad Request        | TotalAffectCountTooLarge | Operation is not allowed because the number of affected items exceeds threshold. |       |  |
+| 403       | Forbidden          | AccessRestricted         | Resource has been restricted in use                                              |       |  |
+| 404       | Not Found          | SourceDoesNotExist       | Source resource specified in the request does not exist                          |       |  |
+| 404       | Not Found          | DestinationDoesNotExist  | Destination folder specified in the request does not exist                       |       |  |
+
+[item-resource]: ../resources/item.md

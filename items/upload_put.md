@@ -30,11 +30,12 @@ The contents of the request body should be the binary stream of the file to be u
 
 #### Example
 
+<!-- { "blockType": "request", "name": "upload-via-put" } -->
 ```
-PUT /drive/root:/myfile.jpg:/content
-Content-Type: image/jpeg
+PUT /drive/root:{path-to-file}:/content
+Content-Type: text/plain
 
-{file content}
+The contents of the file go here.
 ```
 
 ##### Response
@@ -42,6 +43,7 @@ Content-Type: image/jpeg
 If successful, this method returns an [Item][item-resource] resource in
 the response body for the newly created file.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -72,3 +74,5 @@ HTTP Code|HTTP Error Message|Error Code|Error Message|Notes
 409|Conflict|ItemAlreadyExists|File already Exists |
 413|Request Entity Too Large|SizeTooLarge|File size is larger than the maximum size allowed for this operation|
 417|Expectation Failed|InvalidExpectValue|Invalid Expect header value supplied
+
+[item-resource]: ../resources/item.md

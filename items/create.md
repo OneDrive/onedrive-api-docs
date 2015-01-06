@@ -11,8 +11,9 @@ contents in an API call.
 To call the Create Item API, the user must have granted the application write
 access to the parent folder of the new folder.
 
-#### HTTP Request
+##### HTTP Request
 
+<!-- { "blockType": "ignored" } -->
 ```
 POST /drive/items/{parent-id}/children
 POST /drive/root:/{parent-path}:/children
@@ -39,13 +40,14 @@ below.
 
 
 ###### Folder Example
+<!-- { "blockType": "request", "name": "create-folder" } -->
 ```
-POST /me/items/123456789ABC/children
+POST /drive/root/children
 Content-Type: application/json
 
 {
   "name": "FolderA"
-  "folder": {}
+  "folder": { }
 }
 ```
 
@@ -65,6 +67,7 @@ provide metadata and file contents at the same time.
 If successful, this method returns returns an [Item][item-resource] in
 the response body.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json; charset=utf-8
@@ -73,7 +76,7 @@ Content-length: length
 {
   "id": "0123456789abc",
   "name": "FolderA",
-  "folder": { }
+  "folder": { "childCount": 0 }
 }
 ```
 
@@ -97,3 +100,5 @@ HTTP Code|HTTP Error Message  | Error Code          |Error Message
 404      | Not Found          | ParentDoesNotExist  | Target parent for current operation does not exist
 405      | Method Not Allowed | NotAllowed          | Method not allowed for the specified resource
 409      | Conflict           | ItemAlreadyExists   | Resource already exists
+
+[item-resource]: ../resources/item.md

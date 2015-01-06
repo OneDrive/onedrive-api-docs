@@ -32,6 +32,7 @@ Do not supply a request body with this method.
 
 #### Example
 
+<!-- { "blockType": "request", "name": "list-children-root" } -->
 ```
 GET /drive/root/children
 ```
@@ -42,22 +43,24 @@ If successful, this method returns the Items in the Children collection of the
 target Item. The children collection will be composed of
 [Item][item-resource] resources.
 
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-length: length
 
 {
-	"children": [
-		{"name": "myfile.jpg", "size": 2048 },
-		{"name": "Documents", "folder": { "childrenCount": 4} },
-		{"name": "Photos", "folder": { "childrenCount": 203} },
-		{"name": "my sheet(1).xlsx", "size": 197 }
-	]
+  "value": [
+    {"name": "myfile.jpg", "size": 2048 },
+    {"name": "Documents", "folder": { "childCount": 4} },
+    {"name": "Photos", "folder": { "childCount": 203} },
+    {"name": "my sheet(1).xlsx", "size": 197 }
+  ]
 }
 ```
 
-**Note:** Response objects are truncated for clarity. All default properties will be returned from the actual call.
+**Note:** Response objects are truncated for clarity. All default properties
+will be returned from the actual call.
 
 ##### Error Response
 
@@ -74,4 +77,4 @@ HTTP Code|HTTP Error Message|Error Code|Error Message|Notes
 501|Not Implemented|NotImplemented|Requested feature is not implemented|
 
 
-[item-resource]: ../resource/item.md
+[item-resource]: ../resources/item.md
