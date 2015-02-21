@@ -1,0 +1,95 @@
+﻿# Accessing special folders on OneDrive
+
+Special folders provide simple aliases to access well-known folders in OneDrive
+without the need to look up the folder by path (which would require localization),
+or reference the folder with an ID. If a special folder is renamed or moved
+to another location within the drive, this syntax will continue to find that
+folder.
+
+Special folders are automatically created the first time an application attempts
+to write to one, if it doesn't already exist. If a user deletes one, it is
+recreated when written to again.
+
+Here are the special folders available to all clients.
+
+| Name        | Folder id    | Description                                                               |
+|:------------|:-------------|:--------------------------------------------------------------------------|
+| Documents   | `documents`  | The Documents folder.                                                     |
+| Photos      | `photos`     | The Photos folder.                                                        |
+| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                            |
+| Public      | `public`     | The default Public folder.                                                |
+
+
+## Example
+
+<!-- {"blockType": "request", "name": "get-special-folder"} -->
+```http
+GET /drive/special/{special-folder-name}
+```
+
+## Response
+The response to a GET for the special folder will be the folder's **Item**
+resource. You can use this method of addressing a special folder with any OneDrive API
+call you would normally make to a folder, instead of addressing the folder
+by id or path.
+
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+  "id": "0123456789abc",
+  "name": "Documents",
+  "eTag": "012345819293.1",
+  "specialFolder": {
+    "name": "documents"
+  }
+}
+```
+
+**Note:** Special folders will return a `specialFolder` facet that
+describes the identifier used for accessing the special folder.
+
+To request the children of a special folder, you can request the `children`
+collection or use the [expand](../odata/optional-query-parameters.md) option to expand the children collection.
+
+<!-- {"blockType": "request", "name": "get-special-children"} -->
+```http
+GET /drive/special/{special-folder-name}/children
+```
+
+The next example will return the standard children collection as you would see from other
+ways of addressing the folder.
+
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-length: length
+
+{
+  "value": [
+    {"name": "myfile.jpg", "size": 2048 },
+    {"name": "Documents", "folder": { "childCount": 4} },
+    {"name": "Photos", "folder": { "childCount": 203} },
+    {"name": "my sheet(1).xlsx", "size": 197 }
+  ]
+}
+```
+
+The last example uses [path addressing](../misc/addressing.md) for children of
+the special folder by using the colon to separate the path from the special
+folder URL:
+
+To retrieve the contents of myfile.docx in the Documents folder:
+```http
+GET /drive/special/documents:/myfile.docx:/content
+```
+
+## Error responses
+
+See [Error Responses][error-response] for details about
+how errors are returned.
+
+[error-response]: ../misc/errors.md
