@@ -241,7 +241,7 @@ the upload by manually committing the upload session.
 
 To manually commit the upload session, your app must make a PUT request with a new
 Item resource that will be used to commit the file. Inside the Item resource
-include an [Instance Attribute](../resources/item.md#instance-attributes) for
+include an [Instance Attribute](../resources/item.htm#instance-attributes) for
 `@content.sourceUrl` with the value of your upload session URL.
 
 ```http
