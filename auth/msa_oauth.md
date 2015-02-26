@@ -63,7 +63,7 @@ and go straight to the authorization flow.
 | wl.signin          | Allows your application to take advantage of single sign-on capabilities.                                                                              | No       |
 | wl.offline_access  | Allows your application to receive a refresh token so it can work offline even when the user isn't active. This scope is not available for token flow. | No       |
 | onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                   | Yes      |
-| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user.                                              | Yes      |
+| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                              | Yes      |
 
 
 ## Token flow
