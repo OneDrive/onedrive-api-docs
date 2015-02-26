@@ -4,7 +4,7 @@ To use the OneDrive APIs, you need to have an access token that authenticates
 your app to a particular set of permissions for a user. In this section, you'll learn how to:
 
 1. Register your application to get a client ID and a client secret.
-2. Sign your user in to OneDrive with the specified scopes using the token flow or code flow.
+2. Sign your user in to OneDrive with the specified [scopes](#authentication-scopes) using the token flow or code flow.
 3. Sign the user out (optional).
 
 The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. You must provide an authentication token for every API call via one of the following.
