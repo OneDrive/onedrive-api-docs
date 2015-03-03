@@ -152,8 +152,8 @@ tokens that allow you to authenticate with the OneDrive API. To redeem the code,
 POST https://login.live.com/oauth20_token.srf
 Content-Type: application/x-www-form-urlencoded
 
-client_id={client_id}&redirect_uri={redirect_uri}}&client_secret={client_secret}
-&code={code}}&grant_type=authorization_code
+client_id={client_id}&redirect_uri={redirect_uri}&client_secret={client_secret}
+&code={code}&grant_type=authorization_code
 ```
 
 #### Required request body parameters
@@ -208,7 +208,7 @@ POST https://login.live.com/oauth20_token.srf
 Content-Type: application/x-www-form-urlencoded
 
 client_id={client_id}&redirect_uri={redirect_uri}&client_secret={client_secret}
-&refresh_token={refresh_token}}&grant_type=refresh_token
+&refresh_token={refresh_token}&grant_type=refresh_token
 ```
 
 #### Required request body parameters
