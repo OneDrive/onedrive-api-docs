@@ -10,7 +10,7 @@ The following resources are defined in the OneDrive API:
 * [thumbnail](thumbnail.md)
 * [thumbnailSet](thumbnailSet.md)
 
-The following reset facets are system-defined:
+The following facets are system-defined:
 
 * [audio](../facets/audio_facet.md)
 * [file](../facets/file_facet.md)
