@@ -99,7 +99,7 @@ will be redirected to your redirect URL with additional parameters added to the 
 ```
 https://login.live.com/oauth20_authorize.srf#access_token=EwC...EB
   &authentication_token=eyJ...3EM&token_type=bearer&expires_in=3600
-  &scope=onedrive.info%20onedrive.full&user_id=3626...1d
+  &scope=onedrive.readwrite&user_id=3626...1d
 ```
 
 Values for `access_token`, `authentication_token`, and `user_id` are truncated
@@ -228,13 +228,13 @@ domain portion of the redirect URI that you specified in the
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
 that includes several properties including `access_token`, `authentication_token` and
-`refresh_token` if you requested the **onedrive.offline** scope.
+`refresh_token` if you requested the **wl.offline_access** scope.
 
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope": "wl.basic onedrive.readwrite",
+  "scope": "wl.basic onedrive.readwrite wl.offline_access",
   "access_token":"EwCo...AA==",
   "authentication_token":"eyJh...93G4",
   "refresh_token":"eyJh...9323"
