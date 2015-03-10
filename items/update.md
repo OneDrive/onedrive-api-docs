@@ -12,7 +12,7 @@ the application write access to the item.
 ## HTTP request
 ```
 PATCH /drive/items/{item-id}
-PATCH /drive/root:/{folder-path}
+PATCH /drive/root:/{item-path}
 ```
 
 ### Optional request headers
