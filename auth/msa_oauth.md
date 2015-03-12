@@ -108,7 +108,7 @@ are quite long.
 
 You can use the value of `access_token` to make requests to the OneDrive API.
 
-**Note:** `authentication_token` parameter and value returned as part of response redirect in Token flow is a legacy token that Microsoft Account OAuth flow returns and is not used anywhere in OneDrive API. We recommend you to ignore it.
+**Note:** `authentication_token` parameter and value returned as part of response redirect in Token flow is a legacy token that Microsoft Account OAuth flow returns and is not used anywhere in OneDrive API Version 1. We recommend you to ignore it.
 
 ## Code flow
 
@@ -253,7 +253,7 @@ specified in the **expires_in** property. You can request a new access token
 by using the refresh token (if available) or by repeating the authentication
 request from the beginning.
 
-**Note:** `authentication_token` value returned as part of response in Code flow - Step 2 and 3 is a legacy token that Microsoft Account OAuth flow returns and is not used anywhere in OneDrive API. We recommend you to ignore it.
+**Note:** `authentication_token` value returned as part of response in Code flow - Step 2 and 3 is a legacy token that Microsoft Account OAuth flow returns and is not used anywhere in OneDrive API Version 1. We recommend you to ignore it.
 
 ## Sign the user out
 To sign a user out, make a call to the authorization web service using this URL.
