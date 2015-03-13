@@ -216,6 +216,11 @@ to the OneDrive API.
 * [Terms of use](terms-of-use.md)
 
 
+### Documentation Validation Status
+[![Build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](https://ci.appveyor.com/project/rgregg/onedrive-api-docs)
+
+Our documentation is tested against the service on every change.
+
 [drive-default]: drives/default.md
 [drive-resource]: resources/drive.md
 [item-resource]: resources/item.md
