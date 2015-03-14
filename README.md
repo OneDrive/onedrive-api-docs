@@ -10,6 +10,7 @@ be available via the OData metadata or generated content. For more information, 
 
 ### Prerequisites
 To use the OneDrive API, we assume that:
+
 * You have an app to which you want to provide OneDrive support. Your app can be a [Windows Universal app](https://dev.windows.com/en-us/develop), [iOS](https://developer.apple.com/devcenter/ios/index.action), [Android](http://developer.android.com/index.html), or [Web app](http://www.microsoft.com/web/).
 * You have a development environment, like [Visual Studio](https://msdn.microsoft.com/en-us/vstudio/aa718325.aspx) or [Android Studio](http://developer.android.com/tools/studio/index.html), that is set up and ready for you to write code.
 * You are familiar with [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) and [OAuth 2.0](http://oauth.net/2/).
@@ -25,7 +26,7 @@ provide an authentication token for each API call in two different ways:
 * An HTTP header: `Authorization: bearer {token}`
 * A query parameter: `?access_token={token}`
 
-See [authentication](auth/msa_oauth.md) to obtain an authentication token and sign the user in. 
+See [authentication](auth/msa_oauth.md) to obtain an authentication token and sign the user in.
 
 ### 2. URL root
 Now that you've authenticated your app, you can call the OneDrive API with your access token against the URL root below, combined with one of the [root resources](#root-resources). See [Drive resource](#drive-resource) and [Item resource](#item-resource) for examples on how to make calls to the OneDrive API. OneDrive API URLs are relative to the following root unless otherwise noted.
