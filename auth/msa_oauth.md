@@ -72,6 +72,11 @@ There are two supported authentication flows to choose from:
 * [Token flow](#token-flow)
 * [Code flow](#code-flow)
 
+Scope example
+
+```
+w1.offline_access onedrive.readwrite
+```
 
 ## Token flow
 The easiest authentication flow is the token flow. This flow is useful for quickly
@@ -150,6 +155,21 @@ will be redirected to your redirect URL with additional parameters added to the 
 ```
 https://login.live.com/oauth20_authorize.srf?code=df6aa589-1080-b241-b410-c4dff65dbf7c
 ```
+
+#### Errors
+
+If there are errors with authentication, the web browser will be redirected to an error page.
+
+```
+https://login.live.com/err.srf?lc=1033#error={error_type}&error_description={error_message}
+```
+
+#### Troubleshooting
+| Error        | Notes                                                                              |
+|:-------------|:-----------------------------------------------------------------------------------|
+| client_id    | The client id must be the ID created for your app, and not the app name.           |
+| scope        | The correct scope values are defined above, in the Authentication Scopes section.  |
+| redirect_uri |                                                                                    |
 
 ### Step 2. Redeem the code for access tokens
 After you have received the `code` value, you can redeem this code for a set of
