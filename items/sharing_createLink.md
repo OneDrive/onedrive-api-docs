@@ -1,10 +1,15 @@
 ﻿# Create a sharing link for an item in OneDrive
 
 You can use **createLink** action to share an existing item via a link. This is
-a developer-friendly shortcut for creating common sharing links.
+a friendly shortcut for creating common sharing links.
 
-The **action.createLink** method will create a new sharing link if the specified link type
-doesn't already exist. If a sharing link of the specified type already exists, the existing sharing link will be returned.
+The **action.createLink** method will create a new sharing link if the specified
+link type doesn't already exist. If a sharing link of the specified type already
+exists, the existing sharing link will be returned.
+
+**Note:** Your application must be granted read-write permissions to the item
+to be able to create a sharing link. This maps to the `onedrive.readwrite` scope
+when requesting user consent.
 
 ## HTTP request
 
