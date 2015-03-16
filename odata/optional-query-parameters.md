@@ -16,8 +16,8 @@ GET /drive/root/children?select=name,size
 ```
 
 By submitting the request with the `select=name,size` query string, the objects
-in the response will only have those property values included. However, by default, the **id** value
-will always be returned even if its not specified.
+in the response will only have those property values included. When using the
+select statement, you need to specify all properties to return in the statement.
 
 <!-- { "blockType": "example", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
 ```json
