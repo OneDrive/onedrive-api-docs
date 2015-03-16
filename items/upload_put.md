@@ -17,7 +17,7 @@ to the folder that the file will be uploaded to.
 ```
 PUT /drive/items/{parent-id}:/{filename}:/content
 PUT /drive/root:/{parent-path}/{filename}:/content
-PUT /drive/items/{parent-id}/children/filename/content
+PUT /drive/items/{parent-id}/children/{filename}/content
 ```
 
 ### Request body
