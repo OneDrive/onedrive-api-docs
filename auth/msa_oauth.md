@@ -29,9 +29,9 @@ statement, and then choose **I accept** to accept the terms of use.
 After you've completed these steps, a client ID and client secret are created for your
 app. Choose **App Settings** to view the values associated with your app.
 
-**Important** Treat the values of client ID and client secret the same
-as you would a user's password. They represent the keys to your application and, if
-made available, can be used to impersonate your application.
+**Important** Treat the value of client secret the same
+as you would a user's password. The secret represents the key to your
+application and, if made available, can be used to impersonate your application.
 
 On the **API Settings** page, configure details about your application.
 For example, is your application a mobile, desktop, or web application?
@@ -43,14 +43,9 @@ must be on the same root domain.
 
 ## Sign users in
 Your app must initiate the sign-in process by contacting the
-Microsoft account authorization web service with a specified scope, and receive an access token. The flow
-follows standard OAuth 2.0 authentication flows and requires calls from a web browser
-or web-browser control.
-
-There are two authentication flows to choose from:
-
-* [Token flow](#token-flow)
-* [Code flow](#code-flow)
+Microsoft account authorization web service with a specified scope, and receive
+an access token. The flow follows standard OAuth 2.0 authentication flows and
+requires calls from a web browser or web-browser control.
 
 ## Authentication scopes
 
@@ -58,12 +53,24 @@ Scopes determine what type of access the app is granted when the user is signed 
 and go straight to the authorization flow.
 
 
-| Scope name         | Description                                                                                                                                            | Required |
-|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
-| wl.signin          | Allows your application to take advantage of single sign-on capabilities.                                                                              | No       |
-| wl.offline_access  | Allows your application to receive a refresh token so it can work offline even when the user isn't active. This scope is not available for token flow. | No       |
-| onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                   | Yes      |
-| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                              | Yes      |
+| Scope name         | Description                                                                                                                                                | Required |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
+| wl.signin          | Allows your application to take advantage of single sign-on capabilities.                                                                                  | No       |
+| wl.offline_access  | Allows your application to receive a refresh token so it can work offline even when the user isn't active. This scope is not available for token flow.     | No       |
+| onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                       | Yes      |
+| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required. | Yes      |
+
+As an example, a typical application might request the following scopes:
+```
+wl.signin wl.offline_access onedrive.readwrite
+```
+
+## Supported Authentication flows
+
+There are two supported authentication flows to choose from:
+
+* [Token flow](#token-flow)
+* [Code flow](#code-flow)
 
 
 ## Token flow
@@ -286,6 +293,19 @@ the user.
 
 
 [app-portal]: http://go.microsoft.com/fwlink/p/?LinkId=193157
+
+
+#### Errors
+
+If there are errors with authentication, the web browser will be redirected to
+an error page. While the error page always presents an end-user friendly message
+the URL for the error page includes additional information that may help you
+debug what happened. This information is not always shown in the content of the
+error page displayed in the browser.
+
+```
+https://login.live.com/err.srf?lc=1033#error={error_type}&error_description={error_message}
+```
 
 ## Related topics
 
