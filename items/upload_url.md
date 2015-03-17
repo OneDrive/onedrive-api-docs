@@ -67,4 +67,24 @@ If an error occurs and the transfer can't continue, the status URL will return:
 HTTP/1.1 500 Internal Server Error
 ```
 
+One reason for `HTTP 500` is because the file already exists. (The `@name.conflictBehavior`
+parameter to chose an action based on filename conflict, allowed by some other upload
+methods, is not allowed for URL uploads.)
+
+<!-- { "blockType": "response" } -->
+```http
+HTTP/1.1 500 Internal Server Error
+Content-type: application/json
+Content-length: length
+
+{
+  "operation": "DownloadUrl",
+  "percentageComplete": 0.0,
+  "status": "failed",
+  "statusDescription": "Cannot create item that already exists"
+}
+
+```
+
+
 [item-resource]: ../resources/item.md
