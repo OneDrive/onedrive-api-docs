@@ -271,31 +271,7 @@ GET https://login.live.com/oauth20_logout.srf?client_id={client_id}&redirect_uri
 | *client_id*    | string | The client ID value created for your application.                                                                                                           |
 | *redirect_uri* | string | The redirect URL that the browser is sent to when authentication is complete. This must match exactly the redirect_uri value used in the get token request. |
 
-## Error codes
-If an error occurs during the request for authentication or authorization, the
-web browser will be redirected to an error page.
-
-```
-https://login.live.com/err.srf?lc=1033#error=unauthorized_client&error_description=The%20client%20does%20not%20exist.%20If%20you%20are%20the%20application%20developer%2c%20configure%20a%20new%20application%20through%20the%20application%20management%20site%20at%20https://manage.dev.live.com/.
-```
-
-The URL includes query parameters that you can use to parse the error and respond
-accordingly. The page content will always display a generic error message for
-the user.
-
-### Query string parameters
-
-| Parameter name      | Value   | Description                                     |
-|:--------------------|:--------|:------------------------------------------------|
-| *lc*                | integer | Langauge identifier for the client's language.  |
-| *error*             | string  | Error code identifying the error that occurred. |
-| *error_description* | string  | A description of the error.                     |
-
-
-[app-portal]: http://go.microsoft.com/fwlink/p/?LinkId=193157
-
-
-#### Errors
+## Errors
 
 If there are errors with authentication, the web browser will be redirected to
 an error page. While the error page always presents an end-user friendly message
@@ -304,8 +280,25 @@ debug what happened. This information is not always shown in the content of the
 error page displayed in the browser.
 
 ```
-https://login.live.com/err.srf?lc=1033#error={error_type}&error_description={error_message}
+https://login.live.com/err.srf?lc=1033#error={error_code}&error_description={message}
 ```
+
+The URL includes query parameters that you can use to parse the error and respond
+accordingly. These parameters are always included as a bookmark (after the `#`
+character). The page content will always display a generic error message for
+the user.
+
+If the user selects not to provide consent to your application, the flow will
+redirect to your redirect_uri and include the same error parameters.
+
+### Error parameters
+
+| Parameter name      | Value  | Description                                     |
+|:--------------------|:-------|:------------------------------------------------|
+| *error*             | string | Error code identifying the error that occurred. |
+| *error_description* | string | A description of the error.                     |
+
+[app-portal]: http://go.microsoft.com/fwlink/p/?LinkId=193157
 
 ## Related topics
 
