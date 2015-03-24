@@ -12,7 +12,7 @@ represent videos.
   "bitrate": 1234,
   "duration": 1234,
   "height": 720,
-  "width": 480,
+  "width": 480
 }
 ```
 ## Properties

@@ -12,7 +12,7 @@ Here is a JSON representation of an itemReference type.
 {
   "driveId": "string (identifier)",
   "id": "string (identifier)",
-  "path": "string (path)",
+  "path": "string (path)"
 }
 ```
 
