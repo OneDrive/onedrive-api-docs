@@ -6,7 +6,7 @@ The **Hashes** facet groups different types of hashes into a single structure, f
 A set of hash values for the file.
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.hashes" } -->
-```
+```json
 {
 	"crc32Hash": "string (hex)",
 	"sha1Hash": "string (hex)"

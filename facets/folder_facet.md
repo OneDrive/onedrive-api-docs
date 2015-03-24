@@ -8,7 +8,7 @@ It is available on the folder property of [Item][item-resource] resources that r
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.folder" } -->
 ```json
 {
-  "childCount": 0,
+  "childCount": 0
 }
 ```
 ## Properties
