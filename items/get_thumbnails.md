@@ -150,8 +150,8 @@ Content-Type: application/json
         {
           "id": "0",
           "large": {
-            "width": 1920,
-            "height": 1280,
+            "width": 800,
+            "height": 533,
             "url": "https://bn2_0095.livefilestore.com/ASpofswjras9uflkhg/image.jpg"
           }
         }
@@ -164,8 +164,8 @@ Content-Type: application/json
         {
           "id": "0",
           "large": {
-            "width": 1920,
-            "height": 1280,
+            "width": 800,
+            "height": 533,
             "url": "https://bn2_0095.livefilestore.com/ASpofswjras9uflkhg/image.jpg"
           }
         }
@@ -186,7 +186,7 @@ return a value quickly:
 |:---------------|:------------|:-------------|:---------------------------------------------------------------------|
 | `small`        | 96 longest  | Original     | Small, highly compressed thumbnail cropped to a square aspect ratio. |
 | `medium`       | 176 longest | Original     | Cropped to the standard item size for the OneDrive web view.         |
-| `large`        | 800 longest | Original     | Thumbnail with the longest edge resized to 1920 pixels.              |
+| `large`        | 800 longest | Original     | Thumbnail with the longest edge resized to 800 pixels.              |
 | `smallSquare`  | 96x96       | Square Crop  | Small square thumbnail                                               |
 | `mediumSquare` | 176x176     | Square Crop  | Small square thumbnail                                               |
 | `largeSquare`  | 800x800     | Square Crop  | Large square thumbnail                                               |
