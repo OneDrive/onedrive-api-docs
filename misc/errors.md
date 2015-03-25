@@ -29,6 +29,8 @@ property named **error**, which includes all of the details of the error message
 Additional information is included in the body of the failed call. Here is an example
 of a full JSON error body.
 
+**Note**: The **innererror** object is recursive, i.e., it can also have an **innererror** property. 
+
 <!-- { "blockType": "example", "@odata.type": "oneDrive.error" } -->
 ```json
 {
