@@ -29,7 +29,7 @@ property named **error**, which includes all of the details of the error message
 Additional information is included in the body of the failed call. Here is an example
 of a full JSON error body.
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.error" } -->
+<!-- { "blockType": "example", "@odata.type": "oneDrive.error", "expectError": true } -->
 ```json
 {
   "error": {
