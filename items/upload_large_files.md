@@ -54,7 +54,8 @@ the remainder of the requests should be sent as an [UploadSession](../resources/
 resource. This resource provides details about where the next fragment should
 be uploaded and when the session expires.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession" } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession",
+       "optionalProperties": [ "nextExpectedRanges" ] } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -89,8 +90,6 @@ size, the PUT request will fail.
 
 When the request is complete, the server will respond with HTTP
 `202 Accepted` if there are more fragments of the file that need to be uploaded.
-The response also includes a subset of the `uploadSession` resource with a
-new expected byte range.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession", "truncated": true } -->
 ```http
@@ -99,7 +98,6 @@ Content-Type: application/json
 
 {
   "expirationDateTime": "2015-01-29T09:21:55.523Z",
-  "nextExpectedRanges": ["2355-"]
 }
 ```
 
