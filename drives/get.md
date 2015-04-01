@@ -1,4 +1,4 @@
-﻿# Get metadata for a drive on OneDrive
+# Get metadata for a drive on OneDrive
 
 Use the OneDrive API to get metadata for a user's drive using its unique identifier.
 
@@ -31,7 +31,6 @@ the matching drive in the response body.
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: length
 
 {
   "id": "0123456789abc",
@@ -62,3 +61,11 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [drive-resource]: ../resources/drive.md
 [odata-query-parameters]: ../odata/optional-query-parameters.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Retrieve metadata for a OneDrive based on a unique ID.",
+  "keywords": "drive,onedrive.drive,default drive",
+  "section": "documentation",
+  "tocPath": "Drives/Get Drive"
+} -->

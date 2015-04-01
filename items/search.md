@@ -1,4 +1,4 @@
-﻿# Search for items in OneDrive (Preview)
+# Search for items in OneDrive (Preview)
 
 Search the hierarchy of items in OneDrive for items matching a query. You can search for filenames and item content
 by using a query.
@@ -44,7 +44,6 @@ If there are too many matches, the response will be paged and an
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: length
 
 {
     "value": [
@@ -74,3 +73,11 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
 [odata-query-parameters]: ../odata/optional-query-parameters.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Search for a file across a OneDrive.",
+  "keywords": "search,query,bing,filename,content",
+  "section": "documentation",
+  "tocPath": "Items/Search"
+} -->

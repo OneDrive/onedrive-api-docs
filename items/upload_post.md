@@ -1,4 +1,4 @@
-﻿# Multipart upload to OneDrive using POST
+# Multipart upload to OneDrive using POST
 
 The multipart upload method allows you to provide metadata about an item and the
 contents of the item in a single API call. This method only supports requests up to
@@ -78,7 +78,6 @@ the response body for the newly created file.
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: length
 
 {
   "id": "0123456789abc",
@@ -96,3 +95,10 @@ Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Create a new item with custom metadata and content upload.",
+  "keywords": "create,upload,post,custom metadata",
+  "section": "documentation"
+} -->

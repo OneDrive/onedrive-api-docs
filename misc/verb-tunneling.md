@@ -1,4 +1,4 @@
-﻿# Verb tunneling
+# Verb tunneling
 
 There are some cases where apps can't make HTTP requests with verbs other than
 GET or POST. For example, some proxies, firewalls, etc. might be configured by
@@ -27,3 +27,10 @@ X-HTTP-Method-Override: DELETE
 This request will delete the resource identified. The response from the service
 will match the response that would have been returned if the HTTP method had
 DELETE.
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Verb tunneling enables a client that doesn't support all HTTP verbs to work.",
+  "keywords": "verb,tunneling,tunnelling,post",
+  "section": "documentation"
+} -->

@@ -1,4 +1,4 @@
-﻿# Path encoding
+# Path encoding
 
 OneDrive supports addressing files and folders using the path of the item in the
 user's OneDrive. However, because the path contains user specified content which
@@ -135,3 +135,12 @@ To address each of Ryan's files, you use percent encoding, as follows:
 | `\...\estimate%.docx`    | `/root:/Ryan's%20Files/estimate%25s.docx` |
 | `\Break#Out`             | `/root:/Break%23Out`                     |
 | `\...\saved_game[1].bin` | `/root:/Break%23Out/saved_game[1].bin`   |
+
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Learn how to properly encode paths for the OneDrive API",
+  "keywords": "constructing urls, path encoding",
+  "section": "documentation",
+  "tocPath": "Misc/Encoding Paths"
+} -->

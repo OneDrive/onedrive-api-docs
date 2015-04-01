@@ -1,4 +1,4 @@
-﻿# OneDrive API Terms and Conditions
+# OneDrive API Terms and Conditions
 
 Last Updated: February 16, 2015.
 
@@ -244,3 +244,10 @@ Last Updated: February 16, 2015.
     irrevocably consent to the exclusive jurisdiction and venue of the state
     or federal courts in King County, Washington, USA for all disputes arising
     out of or relating to this Agreement.
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Terms of Use and License Agreement for the OneDrive API",
+  "keywords": "onedrive api license agreement tos terms of use",
+  "section": "documentation"
+} -->

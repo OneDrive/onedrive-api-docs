@@ -1,4 +1,4 @@
-﻿# Download a OneDrive Item contents
+# Download a OneDrive Item contents
 
 Use this API to download the contents (default stream) for an Item on OneDrive, with the
 [File][file-facet] facet.
@@ -54,3 +54,11 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [file-facet]: ../facets/file_facet.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Download the contents of an item in OneDrive",
+  "keywords": "download,item,contents",
+  "section": "documentation",
+  "tocPath": "Items/Download"
+} -->

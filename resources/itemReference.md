@@ -1,4 +1,4 @@
-﻿# itemReference type
+# itemReference type
 
 The itemReference type groups data needed to reference a OneDrive item across the service into a single structure.
 
@@ -29,3 +29,9 @@ The itemReference type has these properties.
 **Note:** The **path** value is a OneDrive API path, for example: `/drive/root:/Documents/myfile.docx`.
 To retrieve the human-readable path for a breadcrumb, you can safely ignore
 everything up to the first `:` in the path string.
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "ItemReference returns a pointer to another item.",
+  "section": "documentation"
+} -->

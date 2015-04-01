@@ -1,4 +1,4 @@
-﻿# Update an item on OneDrive
+# Update an item on OneDrive
 
 Update the metadata for an item in OneDrive by ID or path. You can also use update to move
 an item to another parent by updating the item's **parentReference** facet.
@@ -55,7 +55,6 @@ the response body.
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: length
 
 {
 	"id": "0123456789abc",
@@ -73,3 +72,11 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Update or replace the contents or properties of an item.",
+  "keywords": "update,replace,contents,item",
+  "section": "documentation",
+	"tocPath": "Items/Update"
+} -->

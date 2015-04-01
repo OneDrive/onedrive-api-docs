@@ -1,4 +1,4 @@
-﻿# Upload contents for an item on OneDrive
+# Upload contents for an item on OneDrive
 
 Items on OneDrive with a [File facet][file-facet] have one or more streams of content
 associated with the item. The default stream represents the contents of the
@@ -22,3 +22,11 @@ the contents of the item are.
     file by providing a URL where the contents of the file can be retrieved.
 
 [file-facet]: ../facets/file_facet.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Methods for how files can be uploaded to OneDrive.",
+  "keywords": "upload,upload methods,simple,resumable,multipart,from url",
+  "section": "documentation",
+  "tocPath": "Items/Upload"
+} -->

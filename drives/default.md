@@ -1,4 +1,4 @@
-﻿# Get the default drive for a user on OneDrive
+# Get the default drive for a user on OneDrive
 
 Get metadata about a user's default drive on OneDrive.
 
@@ -26,7 +26,6 @@ the matching drive in the response body.
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: length
 
 {
   "id": "0123456789abc",
@@ -57,3 +56,11 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [drive-resource]: ../resources/drive.md
 [odata-query-parameters]: ../odata/optional-query-parameters.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Get metadata about a user's default OneDrive.",
+  "keywords": "drive,onedrive.drive,default drive",
+  "section": "documentation",
+  "tocPath": "Drives/Get Default Drive"
+} -->

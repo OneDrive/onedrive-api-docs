@@ -1,4 +1,4 @@
-﻿# Sync response object
+# Sync response object
 
 The **view.changes** method returns the following resource from each call. The resource includes a collection of items that have changes and information about how to retrieve the next set of changes.
 
@@ -38,3 +38,9 @@ This table describes the instructions based on the value of **@changes.resync**.
 
 
 [item-resource]: item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Get the changes since a previous moment in time defined by a token.",
+  "section": "documentation"
+} -->

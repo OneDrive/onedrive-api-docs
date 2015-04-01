@@ -1,4 +1,4 @@
-﻿# Create a sharing link for an item in OneDrive
+# Create a sharing link for an item in OneDrive
 
 You can use **createLink** action to share an existing item via a link. This is
 a friendly shortcut for creating common sharing links.
@@ -70,7 +70,6 @@ Content-Type: application/json
   "link": {
     "type": "view",
     "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
-    "token": "AL7N1QAfSWcjNU8",
     "application": {
       "id": "1234",
       "displayName": "Sample Application"
@@ -86,3 +85,11 @@ See [Error Responses][error-response] for details about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Create a new sharing link for an item.",
+  "keywords": "create,sharing,sharing link",
+  "section": "documentation",
+  "tocPath": "Sharing/Create Link"
+} -->

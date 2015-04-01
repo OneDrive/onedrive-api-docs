@@ -1,4 +1,4 @@
-﻿# Upload an item to OneDrive from a URL (Preview)
+# Upload an item to OneDrive from a URL (Preview)
 
 Your app can upload an item to OneDrive by providing a URL. OneDrive will
 download the file directly from a remote server so your app doesn't have to
@@ -68,3 +68,10 @@ HTTP/1.1 500 Internal Server Error
 ```
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Upload a file to OneDrive from a URL",
+  "keywords": "upload, upload from url",
+  "section": "documentation"
+} -->

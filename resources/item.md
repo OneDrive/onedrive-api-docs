@@ -1,4 +1,4 @@
-﻿# Item resource type
+# Item resource type
 The Item resource type represents metadata for an item in OneDrive.
 All top-level filesystem objects in OneDrive are Item resources.
 If an item is a [Folder](../facets/folder_facet.md) or [File](../facets/file_facet.md) facet, the Item resource will contain a value for either the **folder** or **file** property, respectively.
@@ -88,3 +88,11 @@ The following table defines the relationships that the Item resource has to othe
 | **content**       | octet-stream                               | The content stream, if the Item represents a file.                                                                                                           |
 | **children**      | [Item](item.md) collection                 | Collection containing Item objects for the immediate children of Item. Only items representing folders have children.                                        |
 | **thumbnails**    | [ThumbnailSet](thumbnailSet.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../items/get_thumbnails.md). |
+
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Item is the main data model in the OneDrive API. Everything is an item.",
+  "keywords": "item,facet,resource",
+  "section": "documentation"
+} -->

@@ -1,4 +1,4 @@
-﻿# Permission object
+# Permission object
 Represents a permission on a OneDrive item.
 
 Permissions in OneDrive have a number of different forms. The **Permission**
@@ -18,14 +18,14 @@ object represents these different forms through facets on the **Permission** obj
 
 ## Properties
 
-| Property name     | Type                                             | Description                                                                                                         |
-|:------------------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|
-| **id**            | string                                           | **Read Only** The unique identifier of the permission among all permissions on the item.                            |
-| **role**          | Array of strings                                 | The type of permission, e.g. `read`. See below for the full list of roles.                                          |
-| **link**          | [SharingLink](sharinglink_facet.md)              | **Read Only** Provides the link details of the current permission, if it is a link type permissions.                |
-| **inheritedFrom** | [`ItemReference`](../resources/itemReference.md) | **Read Only** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor.  |
+| Property name     | Type                                             | Description                                                                                                        |
+|:------------------|:-------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
+| **id**            | string                                           | **Read Only** The unique identifier of the permission among all permissions on the item.                           |
+| **role**          | Array of strings                                 | The type of permission, e.g. `read`. See below for the full list of roles.                                         |
+| **link**          | [SharingLink](sharinglink_facet.md)              | **Read Only** Provides the link details of the current permission, if it is a link type permissions.               |
+| **inheritedFrom** | [`ItemReference`](../resources/itemReference.md) | **Read Only** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. |
 
-## Permission roles
+## Roles enumeration
 
 | Role    | Details                                                                        |
 |:--------|:-------------------------------------------------------------------------------|
@@ -49,7 +49,6 @@ A view link provides read-only access to an item.
   "roles": ["read"],
   "link": {
     "type": "view",
-    "token": "!AL7N1QAfSWcjNU8",
     "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
     "application": { "id": "1234", "displayName": "Sample Application" }
   }
@@ -66,9 +65,15 @@ An edit link provides read and write access to an item.
   "roles": ["write"],
   "link": {
     "type": "write",
-    "token": "!AL7N1QAfSWcjNU8",
     "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
     "application": { "id": "1234", "displayName": "Sample Application" }
   }
 }
 ```
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The permission object provides information about permissions and roles and sharing information.",
+  "keywords": "sharing,permissions,read,write,acl",
+  "section": "documentation"
+} -->

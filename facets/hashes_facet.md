@@ -1,15 +1,16 @@
-﻿# Hashes facet
+# Hashes facet
 
 The **Hashes** facet groups different types of hashes into a single structure, for an item on OneDrive.
 
 ## JSON representation
+
 A set of hash values for the file.
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.hashes" } -->
 ```json
 {
-	"crc32Hash": "string (hex)",
-	"sha1Hash": "string (hex)"
+  "crc32Hash": "string (hex)",
+  "sha1Hash": "string (hex)"
 }
 ```
 ## Properties
@@ -21,3 +22,10 @@ A set of hash values for the file.
 
 **Note:** In some cases hash values may not be available. If this is the case,
 the hash values on an item will be updated after the item is downloaded.
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The hashes facet provides hash identifiers for a file in OneDrive",
+  "keywords": "hash,sha1,crc32,item,facet",
+  "section": "documentation"
+} -->

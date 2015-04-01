@@ -8,8 +8,17 @@ in UTC time.
 For example, if a file was modified at midnight UTC on Jan 1, 2014, the metadata
 would look like this.
 
+<!-- {"blockType": "ignored"} -->
 ```json
 {
   "dateTimeLastModified": "2014-01-01T00:00:00Z"
 }
 ```
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Timestamps in OneDrive as in ISO 8601 format.",
+  "keywords": "timestamp,iso8601",
+  "section": "documentation",
+  "tocPath": "Misc/Timestamps"
+} -->

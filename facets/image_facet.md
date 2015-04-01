@@ -1,4 +1,4 @@
-﻿# Image facet
+# Image facet
 
 The **Image** groups image-related data on OneDrive into a single structure.
 
@@ -22,3 +22,10 @@ represent images.
 | **height**    | integer | Height of the image, in pixels. |
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The image facet describes properties of an image like width and height",
+  "keywords": "image,width,height,item,facet",
+  "section": "documentation"
+} -->

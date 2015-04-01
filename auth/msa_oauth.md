@@ -1,4 +1,4 @@
-﻿# OneDrive authentication and sign-in
+# OneDrive authentication and sign-in
 
 To use the OneDrive APIs, you need to have an access token that authenticates
 your app to a particular set of permissions for a user. In this section, you'll learn how to:
@@ -49,7 +49,9 @@ requires calls from a web browser or web-browser control.
 
 ## Authentication scopes
 
-Scopes determine what type of access the app is granted when the user is signed in. All scopes support single sign-on on the web, which means that if a user is already signed in to OneDrive, then the user can skip the authentication flow
+Scopes determine what type of access the app is granted when the user is signed
+in. All scopes support single sign-on on the web, which means that if a user is
+already signed in to OneDrive, then the user can skip the authentication flow
 and go straight to the authorization flow.
 
 
@@ -59,6 +61,7 @@ and go straight to the authorization flow.
 | wl.offline_access  | Allows your application to receive a refresh token so it can work offline even when the user isn't active. This scope is not available for token flow.     | No       |
 | onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                       | Yes      |
 | onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required. | Yes      |
+| onedrive.appfolder | Grants read and write permissions to a specific folder for your application.                                                                               | Yes      |
 
 As an example, a typical application might request the following scopes:
 ```
@@ -71,7 +74,6 @@ There are two supported authentication flows to choose from:
 
 * [Token flow](#token-flow)
 * [Code flow](#code-flow)
-
 
 ## Token flow
 The easiest authentication flow is the token flow. This flow is useful for quickly
@@ -182,13 +184,13 @@ If the call is successful, the response for the POST request contains a JSON str
 that includes several properties, including `access_token`, `authentication_token`, and
 `refresh_token` (if you requested the **wl.offline_access** scope).
 
+<!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse" } -->
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
   "scope":"wl.basic onedrive.readwrite",
   "access_token":"EwCo...AA==",
-  "authentication_token":"eyJh...93G4",
   "refresh_token":"eyJh...9323"
 }
 ```
@@ -237,13 +239,13 @@ If the call is successful, the response for the POST request contains a JSON str
 that includes several properties including `access_token`, `authentication_token` and
 `refresh_token` if you requested the **wl.offline_access** scope.
 
+<!-- {"blockType": "example", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example" } -->
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
   "scope": "wl.basic onedrive.readwrite wl.offline_access",
   "access_token":"EwCo...AA==",
-  "authentication_token":"eyJh...93G4",
   "refresh_token":"eyJh...9323"
 }
 ```
@@ -251,7 +253,8 @@ that includes several properties including `access_token`, `authentication_token
 You can now store and use the `access_token` to make authenticated
 requests to the OneDrive API.
 
-**Important:** Treat the values of `access_token`, `authentication_token`, and `refresh_token` in this response as securely as you would a user's password.
+**Important:** Treat the values of `access_token` and `refresh_token` in this
+response as securely as you would a user's password.
 
 The access token is valid for only the number of seconds that is
 specified in the **expires_in** property. You can request a new access token
@@ -306,3 +309,10 @@ The following topics contain high-level overviews of other concepts that apply
 to the OneDrive API.
 
 * [Develop with the OneDrive API](readme.md)
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Learn how to authenticate your app with Microsoft Account and get access to OneDrive",
+  "keywords": "authentication,oauth,microsoft account,msa,onedrive,api",
+  "section": "documentation"
+} -->

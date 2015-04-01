@@ -49,7 +49,6 @@ target item. The children collection will be composed of
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-length: length
 
 {
   "value": [
@@ -71,3 +70,11 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "List the children of an item.",
+  "keywords": "list,children,collection",
+  "section": "documentation",
+  "tocPath": "Items/List Children"
+} -->

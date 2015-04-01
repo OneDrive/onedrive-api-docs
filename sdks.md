@@ -1,0 +1,37 @@
+# SDKs for OneDrive integration
+
+Use the OneDrive software development kits to quickly get OneDrive integrated
+into your apps. While programming with REST APIs is pretty easy, the OneDrive
+SDKs aim to make this even easier.
+
+## Picker and saver SDKs
+Add OneDrive to your app in minutes with a few lines of code!
+
+Get link from OneDrive for sharing or downloading the contents of a file.
+Save a file on the user's local device to OneDrive so it's available on all your users' devices.
+
+| Platform | OneDrive | OneDrive for Business | Documentation                                                     |
+|:---------|:---------|:----------------------|:------------------------------------------------------------------|
+| Android  | Yes      | Yes                   | [Picker and saver SDK][android-picker]                            |
+| iOS      | Yes      | Yes                   | [UIDocumentPicker][ios-picker]                                    |
+| Web      | Yes      | Not yet               | [Picker and saver SDK][web-picker]                                |
+| Windows  | Yes      | Not yet               | [FileOpenPicker][windows-picker], [FileSavePicker][windows-saver] |
+
+[android-picker]:https://msdn.microsoft.com/EN-US/library/dn833235.aspx
+[ios-picker]:https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
+[web-picker]:sdk/javascript-picker-saver.md
+[windows-picker]:https://msdn.microsoft.com/library/windows/apps/br207847
+[windows-saver]:https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
+
+## Full API SDKs
+
+_Coming soon_
+
+Don't see your favorite platform?   [Suggest it on UserVoice](http://onedrive.uservoice.com/forums/262982-onedrive/category/89523-developer).
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "SDKs to make integrating with OneDrive easy.",
+  "keywords": "sdk,windows,ios,android,js,javascript,C#,c-sharp,java,objective-c",
+  "section": "sdks"
+} -->

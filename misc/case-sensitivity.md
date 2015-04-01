@@ -1,4 +1,4 @@
-﻿## Case sensitivity notes
+## Case sensitivity notes
 
 This topic describes the case sensitivity for parts of the OneDrive REST API in detail.
 
@@ -44,3 +44,12 @@ In the JSON response, the property names are camel-cased. The value of the
 property (such as item name) is returned as stored in OneDrive.
 
 [http-protocol]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Understand which parts of the OneDrive API are case sensitive and which are not.",
+  "keywords": "constructing urls, case sensitive",
+  "section": "documentation",
+  "tocPath": "Misc/Case Sensitivity"
+} -->

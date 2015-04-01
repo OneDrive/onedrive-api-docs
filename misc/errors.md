@@ -1,4 +1,4 @@
-﻿# Error response
+# Error response
 
 Errors are returned using standard HTTP error code syntax. The following
 HTTP status codes should be expected.
@@ -29,19 +29,34 @@ property named **error**, which includes all of the details of the error message
 Additional information is included in the body of the failed call. Here is an example
 of a full JSON error body.
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.error", "expectError": true } -->
+<!-- { "blockType": "example", "@odata.type": "oneDrive.error", "expectError": true, "name": "example-error-response"} -->
 ```json
 {
   "error": {
     "code": "invalidRange",
     "message": "Uploaded fragment overlaps with existing data.",
     "innererror": {
-      "code": "fragmentOverlap"
+      "code": "fragmentOverlap",
+      "innererror": { }
     }
   }
 }
-
 ```
 
 **Important:** Error messages are not localized and are intended for the developer
 to reference. They shouldn't be displayed directly to the user.
+
+**Note:** The resource returned for `innererror` can contain recursive
+`innererror` responses in some scenarios. These additional inner error messages
+may provide more specific error codes for the particular error.
+
+For more information on the resource types returned in the error response, see
+the [Error resource type](../resources/error.md) topic.
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Understand the error format for the OneDrive API and error codes.",
+  "keywords": "error response, error, error codes, innererror, message, code",
+  "section": "documentation",
+  "tocPath": "Misc/Error Responses"
+} -->

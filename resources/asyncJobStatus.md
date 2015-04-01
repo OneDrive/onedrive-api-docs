@@ -1,4 +1,4 @@
-﻿# AsyncOperationStatus resource
+# AsyncOperationStatus resource
 
 This resource provides information on the status of a asynchronous job progress.
 
@@ -25,3 +25,10 @@ The following API calls return AsyncOperationStatus resources:
 | `operation`          | string | The type of job being run.                                                                 |
 | `percentageComplete` | string | An float value between 0 and 100 that indicates the percentage complete.                   |
 | `status`             | string | A string value that maps to an enumeration of possible values about the status of the job. |
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "AsyncJobResource provides details about how to poll for an async completion.",
+  "keywords": "async,job status,async status,copy,upload from url",
+  "section": "documentation"
+} -->

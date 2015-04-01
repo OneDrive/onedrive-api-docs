@@ -1,4 +1,4 @@
-﻿# Delete an Item in OneDrive
+# Delete an Item in OneDrive
 
 Deletes a Onedrive item by using its ID or path. Note that deleting items using this method
 will move the items to the Recycle Bin, instead of permanently deleting them.
@@ -48,3 +48,11 @@ See [Error Responses][error-response] for more info about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Delete an item from OneDrive",
+  "keywords": "delete,existing item,onedrive",
+  "section": "documentation",
+  "tocPath": "Items/Delete"
+} -->

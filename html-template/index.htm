@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>OneDrive Dev Center - OneDrive API, Pickers and Savers</title>
+  <meta name="description" content="OneDrive API works on every platform, so you don't have to.">
+  <meta name="keywords" content="onedrive dev center,onedrive api,onedrive,files api">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheet.nav.css" />
+  <link rel="shortcut icon" href="https://p.sfx.ms/about/v20/non-localizable/img/chrome/favicon.ico" />
+</head>
+<body>
+
+<div id="holder">
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="onedrive_api_blue.png" height="24" alt="OneDrive API" align="absmiddle">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="README.htm">Documentation</a></li>
+                <li><a href="sdks.htm">SDKs</a></li>
+                <li><a href="sample-code.htm">Samples</a></li>
+
+                <li><a href="https://apigee.com/OneDrive/embed/console/OneDrive" target="_new">Console</a></li>
+                <li><a href="https://account.live.com/developers/applications/" target="_new">App Registration</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right hidden-sm visible-md visible-lg">
+                <li><a href="https://github.com/onedrive/onedrive-api-docs/">Read on GitHub</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!-- HTML Page Content Start -->
+    <div id="body" style="padding-bottom: 300px !important">
+        <div class="header-image hidden-xs visible-sm visible-md visible-lg">
+            <img src="background-banner-150.png">
+        </div>
+
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1>Connect your app today</h1>
+                        <p>Hundreds of millions of people store documents, photos, and videos in OneDrive.</p>
+                        <p>
+                            <a class="btn btn-default btn-lg" href="README.htm" role="button">Get started &raquo;</a>
+                            <a class="btn btn-default btn-lg" href="https://apigee.com/OneDrive/embed/console/OneDrive" role="button">Try the API &raquo;</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 visible-md visible-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>OneDrive API</h2>
+                    <p>
+                        OneDrive API provides access more of what OneDrive has to offer for your
+                        app. Use the API to richly integrate your app with OneDrive.
+                    </p>
+
+                    <div class="page-tile">
+                        <a href="misc/appfolder.htm">
+                            <img src="tiles/Tile.AppFolder.png">
+                            <h4>App Folders</h4>
+                        </a>
+                        <p>Give your app its own folder in OneDrive</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <a href="items/view_changes.htm">
+                            <img src="tiles/Tile.Sync.png">
+                            <h4>Efficient file sync</h4>
+                        </a>
+                        <p>List changes to files and folders, to keep large sets of files in sync efficiently.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <a href="items/upload_large_files.htm">
+                            <img src="tiles/Tile.Upload.png">
+                            <h4>Large file support</h4>
+                        </a>
+                        <p>Reliably upload large files up to 10 GBs.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <img src="tiles/Tile.CORS.png">
+                        <h4>CORS support</h4>
+                        <p>Call the OneDrive API from your own web app.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <p><a class="btn btn-default" href="README.htm" role="button">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2>Picker SDK</h2>
+                    <p>
+                        Picker SDKs enable your app to open and
+                        save files on OneDrive with hardly any code.
+                    </p>
+
+                    <div class="page-tile">
+                        <a target="_blank" href="https://msdn.microsoft.com/en-us/library/dn833235.aspx">
+                            <img src="tiles/Tile.Android.png" />
+                            <h4>Android Picker SDK</h4>
+                        </a>
+                        <p>Open and save files to OneDrive with ease from your Android app.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <a href="sdk/javascript-picker-saver.htm">
+                            <img src="tiles/Tile.JavaScript.png" />
+                            <h4>JavaScript Picker SDK</h4>
+                        </a>
+                        <p>Quickly open and save files with your JavaScript app.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <a target="_blank" href="https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html#//apple_ref/doc/uid/TP40014451-CH2-SW4">
+                            <img src="tiles/Tile.Apple.png" />
+                            <h4>Apple iOS</h4>
+                        </a>
+                        <p>Use the document picker view with OneDrive.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <a target="_blank" href="https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh771180.aspx">
+                            <img src="tiles/Tile.Windows.png" />
+                            <h4>Windows Store and Phone Apps</h4>
+                        </a>
+                        <p>Use the File Picker classes to open and save in Windows apps.</p>
+                    </div>
+
+                    <div class="page-tile">
+                        <p><a class="btn btn-default" href="sdks.htm" role="button">View details &raquo;</a></p>
+                    </div>
+
+
+                    <div>&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>More resources</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="page-tile">
+                        <h5><a href="https://apigee.com/OneDrive/embed/console/OneDrive">API Console</a></h5>
+                        <p>Try out the new OneDrive API in an interactive API console.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="page-tile">
+                        <h5><a href="http://aka.ms/onedriveapisamples">Sample Code</a></h5>
+                        <p>Learn more about the OneDrive API through code samples.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="page-tile">
+                        <h5><a href="README.htm">OneDrive API documentation</a></h5>
+                        <p>Get started using the OneDrive API.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="page-tile">
+                        <h5><a target="_blank" href="https://msdn.microsoft.com/en-us/library/hh826521.aspx">Live SDK</a></h5>
+                        <p>Still using Live SDK? Find the reference and sample code here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-background visible-md visible-lg">
+            <div class="container">
+
+                <h2>Apps that work with OneDrive</h2>
+                <div class="carousel slide" data-ride="carousel" data-interval="3000">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://cloudhq.net/skydrive"><img src="logos/apps-cloudhq.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://apps.microsoft.com/windows/app/docusign-ink/833bc15c-6a74-4e8f-b0be-74088d7d7cea"><img src="logos/apps-docusign-ink.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/us/app/ifttt/id660944635?mt=8"><img src="logos/apps-ifttt.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/us/app/phatpad/id406459946?mt=8"><img src="logos/apps-phatpad-win.jpg"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/us/app/cooliris/id294479487?mt=8"><img src="logos/apps-cooliris.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://go.microsoft.com/fwlink/?LinkID=392257"><img src="logos/apps-handyscan.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://www.neat.com/neatconnect"><img src="logos/apps-neatconnect.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://rightsignature.com/"><img src="logos/apps-rightsignature.jpg"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/app/docscan/id453312964?mt=8"><img src="logos/apps-docscan.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://www.hellosign.com/"><img src="logos/apps-hellosign.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://apps.microsoft.com/windows/app/onenote/f022389f-f3a6-417e-ad23-704fbdf57117"><img src="logos/apps-onenote-8.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://apps.microsoft.com/windows/app/work-notes-pro/3d084cc4-90b6-44cc-8cd7-1fd746cd0707"><img src="logos/apps-worknotes-pro.jpg"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/app/id364901807?mt=8"><img src="logos/apps-documents.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="http://go.microsoft.com/fwlink/?LinkID=392248"><img src="logos/apps-iannotate-pdf.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/app/pdf-expert-fill-forms-annotate/id393316844?mt=8"><img src="logos/apps-pdf-expert.jpg"></a></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="parter-logo"><a target="_new" href="https://itunes.apple.com/app/writepad/id293033512?mt=8"><img src="logos/apps-writepad.jpg"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Carousel -->
+            </div>
+        </div>
+        <!-- HTML Page Content End -->
+</div>
+<!-- Fixed footer-->
+<div class="custom-footer">
+    <div class="container footer">
+        <div class="row">
+            <div class="col-md-4" style="z-index:50;">
+                <div class="heading">Community Resources</div>
+                <ul class="links">
+                    <li><a href="http://onedrive.supportportal.com/ics/support/feedback.asp" target="_blank">Support</a></li>
+                    <li><a href="http://onedrive.uservoice.com/" target="_blank">UserVoice</a></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/onedrive" target="_blank">Stack Overflow</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12 bottom-footer-zone">
+            <div class="row">
+                <div class="col-xs-6 hidden-md hidden-lg">
+                    <ul class="contact-us">
+                        <li>
+                            <a href="http://www.microsoft.com/info/privacy.mspx" target="_blank">Privacy</a>
+                        </li>
+                        <li>
+                            <a href="http://msdn.microsoft.com/en-US/cc300389" target="_blank">Terms of use</a>
+                        </li>
+                        <li>
+                            <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" target="_blank">Trademarks</a>
+                        </li>
+                        <li>&copy; 2015 Microsoft</li>
+                    </ul>
+                </div>
+                <div>
+                    <img class="microsoft-logo" src="http://dev.office.com/Themes/DevOffice/Content/Images/microsoftLogo.png" alt="Microsoft logo" />
+                </div>
+                <div class="col-xs-6 col-md-12 col-lg-12 visible-md visible-lg privacy-links">
+                    <ul class="contact-us contact-us-inline">
+                        <li>&copy; 2015 Microsoft</li>
+                        <li>
+                            <a href="http://www.microsoft.com/info/privacy.mspx" target="_blank">Privacy Statement</a>
+                        </li>
+                        <li>
+                            <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" target="_blank">Trademarks</a>
+                        </li>
+                        <li>
+                            <a href="http://msdn.microsoft.com/en-US/cc300389" target="_blank">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End fixed footer-->
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{ie10-viewport-bug-workaround.js}"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54271502-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/JavaScript">
+var varSegmentation = 0;
+var varClickTracking = 1;
+var varCustomerTracking = 0;
+var varAutoFirePV = 1;
+var Route = "";
+var Ctrl = "";
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.src = window.location.protocol + "//c.microsoft.com/ms.js";
+document.getElementsByTagName("head")[0].appendChild(script);
+</script>
+
+</body>
+</html>

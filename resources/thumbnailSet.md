@@ -23,3 +23,9 @@ The ThumbnailSet type has these properties.
 | **small**     | Thumbnail object | A 48x48 cropped thumbnail.    |
 | **medium**    | Thumbnail object | A 176x176 scaled thumbnail.   |
 | **large**     | Thumbnail object | A 1920x1920 scaled thumbnail. |
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "ThumbnailSet enables access to thumbnails of different sizes",
+  "section": "documentation"
+} -->

@@ -1,10 +1,10 @@
-﻿# Audio facet
+# Audio facet
 
 The **Audio** facet groups audio-related data on OneDrive into a single structure.
 It is available on the audio property of [Item][item-resource] resources that
 have associated audio.
 
-## Sample JSON representation
+## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.audio" } -->
 ```json
@@ -50,3 +50,10 @@ have associated audio.
 | **year**              | number  | The year the audio file was recorded.                                |
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The audio facet provides information about music or audio metadata.",
+  "keywords": "music,audio,metadata,onedrive",
+  "section": "documentation"
+} -->

@@ -1,4 +1,4 @@
-﻿# Uploading large files on OneDrive
+# Uploading large files on OneDrive
 
 To support the upload of larger files on OneDrive, a resumable upload method is necessary.
 This ensures that the whole file can be uploaded in pieces and easily resumed if
@@ -55,7 +55,7 @@ resource. This resource provides details about where the next fragment should
 be uploaded and when the session expires.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession",
-       "optionalProperties": [ "nextExpectedRanges" ] } -->
+       "optionalProperties": [ "nextExpectedRanges" ]  } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -162,7 +162,6 @@ the last fragment is uploaded.
 ```http
 HTTP/1.1 409 Conflict
 Content-Type: application/json
-Content-Length: length
 
 {
   "error":
@@ -289,3 +288,10 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Upload files larger than 100MB using fragment upload.",
+  "keywords": "upload,large file,fragment,BITS",
+  "section": "documentation"
+} -->

@@ -1,4 +1,4 @@
-﻿# Simple item upload to OneDrive using PUT
+# Simple item upload to OneDrive using PUT
 
 The simple upload API allows you to provide the contents of a new file or update
 the contents of an existing file in a single API call. This method only supports
@@ -41,7 +41,6 @@ the response body for the newly created file.
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: length
 
 {
   "id": "0123456789abc",
@@ -61,3 +60,10 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Create a new file with content or update a file's content.",
+  "keywords": "insert,upsert,update,upload",
+  "section": "documentation"
+} -->

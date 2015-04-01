@@ -16,3 +16,10 @@ may be populated with additional properties.
 ## Properties
 
 None. This facet is a null or not-null value and contains no properties.
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The deleted facet providers properties about deleted items",
+  "keywords": "deleted,delete,item,facet",
+  "section": "documentation"
+} -->

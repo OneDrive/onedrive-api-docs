@@ -1,4 +1,4 @@
-﻿# Drive resource type
+# Drive resource type
 The Drive resource represents a drive in OneDrive.
 It provides information about the owner of the drive, total and available
 storage space, and exposes a collection of all the [Items][item-resource] contained
@@ -42,3 +42,10 @@ The following table defines the relationships that the Drive resource has to oth
 [item-resource]: ../README.md#item-resource
 [identity-set]: ../resources/identitySet.md
 [quota-facet]: ../facets/quotainfo_facet.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Drive is a top level object for OneDrive API that provides access to the contents of a drive. ",
+  "keywords": "drive,objects,resources",
+  "section": "documentation"
+} -->

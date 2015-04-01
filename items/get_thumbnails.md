@@ -1,4 +1,4 @@
-﻿# Get thumbnails for an item on OneDrive
+# Get thumbnails for an item on OneDrive
 
 There are three common tasks related to getting thumbnails:
 
@@ -207,7 +207,7 @@ You can specify the following options after the size of the thumbnail requested:
 | Thumbnail identifier | Resolution             | Aspect ratio | Description                                                                                                                                         |
 |:---------------------|:-----------------------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | c300x400             | Bounded by 300x400 box | Original     | Generate a thumbnail that fits inside a 300x400 pixel box, maintaining aspect ratio                                                                 |
-| c300x400_Crop        | 300x300                | Cropped      | Generate a thumbnail that is 300x300 pixels. This works by resizing the image to fill the 300x300 box and cropping whatever spills outside the box. |
+| c300x400_Crop        | 300x400                | Cropped      | Generate a thumbnail that is 300x400 pixels. This works by resizing the image to fill the 300x300 box and cropping whatever spills outside the box. |
 
 ### Error responses
 
@@ -215,3 +215,12 @@ See [Error Responses][error-response] for more info about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Get metadata and content for thumbnails of multiple sizes for OneDrive items.",
+  "keywords": "thumbnail,content,download,sizes",
+  "section": "documentation",
+  "tocPath": "Items/Thumbnails"
+} -->

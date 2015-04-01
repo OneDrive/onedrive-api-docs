@@ -1,4 +1,4 @@
-﻿# Folder facet
+# Folder facet
 
 The **Folder** facet groups folder-related data on OneDrive into a single structure.
 It is available on the folder property of [Item][item-resource] resources that represent folders.
@@ -18,3 +18,10 @@ It is available on the folder property of [Item][item-resource] resources that r
 | **childCount** | int64 | Number of children contained immediately within this container. |
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The Folder facet describes properties of a folder",
+  "keywords": "folder,item,facet",
+  "section": "documentation"
+} -->

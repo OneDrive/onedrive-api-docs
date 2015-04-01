@@ -1,4 +1,4 @@
-﻿# View changes for a OneDrive Item and its children
+# View changes for a OneDrive Item and its children
 
 This method allows your app to enumerate the changes under a Onedrive folder from a specified state, represented by a
 change token. This enables your app to maintain a local representation of the contents of a drive and update the local state efficiently.
@@ -65,7 +65,6 @@ the returned items with your local state and follow these instructions.
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: length
 
 {
     "value": [
@@ -99,3 +98,11 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Sync changes from the service to your client state.",
+  "keywords": "sync,view.changes,$delta",
+  "section": "documentation",
+  "tocPath": "Items/Sync Changes"
+} -->

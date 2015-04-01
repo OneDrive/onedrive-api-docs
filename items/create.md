@@ -1,4 +1,4 @@
-﻿# Create an Item in OneDrive
+# Create an Item in OneDrive
 
 Add a new item under an existing parent item in OneDrive.
 
@@ -19,20 +19,6 @@ POST /drive/items/{parent-id}/children
 POST /drive/root:/{parent-path}:/children
 ```
 
-### Optional query string parameters
-| Parameter name           | Value  | Description                                                                                                                                                 |
-|:-------------------------|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| _@name.conflictBehavior_ | string | Determines what to do if a file with a matching filename already exists in this folder. Accepted values are: **rename**, **replace**, and **fail** (the default). |
-
-
-If _@name.conflictBehavior_ is set to **rename** and a file with the same name already
-exists in the destination, the new filename will be updated to be unique. OneDrive
-will append a number to the end of the filename (before the file extension).
-
-For example, `Service Report.docx` would be renamed `Service Report 1.docx`.
-If `Service Report 1.docx` is taken, then the number would be incremented
-again until a unique filename is discovered.
-
 ### Request body
 In the request body, supply a JSON representation of a [Folder][folder-facet] Item, as shown
 below.
@@ -49,14 +35,24 @@ Content-Type: application/json
 
 {
   "name": "FolderA",
-  "folder": { }
+  "folder": { },
+  "@name.conflictBehavior": "rename"
 }
 ```
 
-| Name     | Value                       | Description                                                                         |
-|:---------|:----------------------------|:------------------------------------------------------------------------------------|
-| _name_   | string                      | Name of the folder to be created.                                                   |
-| _folder_ | [FolderFacet][folder-facet] | Empty *Folder* facet to indicate that folder is the type of resource to be created. |
+| Name                     | Value                       | Description                                                                                                                                                    |
+|:-------------------------|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _name_                   | string                      | Name of the folder to be created.                                                                                                                              |
+| _folder_                 | [FolderFacet][folder-facet] | Empty *Folder* facet to indicate that folder is the type of resource to be created.                                                                            |
+| _@name.conflictBehavior_ | string                      | Determines what to do if an item with a matching name already exists in this folder. Accepted values are: **rename**, **replace**, and **fail** (the default). |
+
+If _@name.conflictBehavior_ is set to **rename** and an item with the same name already
+exists in the destination, the new item name will be updated to be unique. OneDrive
+will append a number to the end of the item name (for files - before the extension).
+
+For example, `My Folder` would be renamed `My Folder 1`.
+If `My Folder 1` is taken, then the number would be incremented
+again until a unique filename is discovered.
 
 ### File example
 
@@ -73,7 +69,6 @@ the response body.
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json
-Content-length: length
 
 {
   "id": "0123456789abc",
@@ -92,3 +87,11 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
 [folder-facet]: ../facets/folder_facet.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Create a new item, like a folder.",
+  "keywords": "create,folder,new item",
+  "section": "documentation",
+  "tocPath": "Items/Create"
+} -->

@@ -1,4 +1,4 @@
-﻿# Location facet
+# Location facet
 
 The **Location** facet groups geographic location-related data on OneDrive into a single structure.
 
@@ -25,3 +25,10 @@ an associated geographic location.
 
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The location facet provides geographic location related properties for an item",
+  "keywords": "location,geographic,item,onedrive",
+  "section": "documentation"
+} -->

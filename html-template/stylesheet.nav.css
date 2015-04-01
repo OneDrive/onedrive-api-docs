@@ -1,5 +1,25 @@
-body {
-  padding-bottom: 20px;
+html,body{
+    height: 100%
+}
+
+#holder{
+    min-height: 100%;
+    position:relative;
+}
+
+#body{
+    padding-bottom: 325px;    /* height of footer */
+}
+
+.custom-footer {
+  height: 300px;
+  width:100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #000;
+  color: #FFF;
+  padding-top: 25px;
 }
 
 .header-image img {
@@ -9,7 +29,16 @@ body {
 
 .container-background {
   background-color: #EEE;
+  padding-bottom: 24pt;
+}
 
+.container-black {
+  background-color: #000;
+  color: #FFF;
+  padding-bottom:12pt;
+  margin-bottom: 0;
+  padding-top: 24pt;
+  margin-top: 0;
 }
 
 .navbar-default {
@@ -203,4 +232,65 @@ body {
 a:link
 {
   color: #094ab2
+}
+
+.contact-us {
+  font-size: 14px;
+  font-family: 'Segoe UI',Tahoma,Helvetica,sans-serif;
+}
+
+.contact-us.contact-us-inline li {
+  display: inline-block;
+  margin-right: 20px;
+  float: right;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.custom-footer a, .custom-footer a:hover, .custom-footer a:visited, .custom-footer a:visited:hover {
+  text-decoration: none;
+  color: #FFF;
+  outline: none;
+}
+
+.microsoft-logo {
+  margin-bottom: 20px;
+  height: 25px;
+  float: right;
+  margin-right: 35px;
+}
+
+.heading {
+  font-size: 17px;
+  font-weight: 600;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.links {
+  font-family: 'Segoe UI',Tahoma,Helvetica,sans-serif;
+  font-size: 21px;
+}
+
+.links li
+{
+  padding: 6px 0 6px 0;
+}
+
+.footer ul, .footer ol {
+  padding: 0;
+  list-style: none;
+}
+
+#tocbar ul
+{
+  padding-left: 20px;
+  list-style: none;
+}
+
+#tocbar ul ul
+{
+  padding-left: 30px;
+  list-style: square;
 }

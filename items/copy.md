@@ -1,4 +1,4 @@
-﻿# Copy an Item on OneDrive (Preview)
+# Copy an Item on OneDrive (Preview)
 
 Creates a copy of an [Item][item-resource] (including any children) on OneDrive, under a new parent.
 
@@ -71,3 +71,11 @@ See [Error Responses][error-response] for more info about
 how errors are returned.
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Create a copy of an existing item.",
+  "keywords": "copy existing item",
+  "section": "documentation",
+  "tocPath": "Items/Copy"
+} -->

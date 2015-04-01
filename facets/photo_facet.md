@@ -1,4 +1,4 @@
-﻿# Photo facet
+# Photo facet
 
 The **Photo** facet groups photo-related data on OneDrive, for example, EXIF metadata, into a single structure.
 
@@ -33,3 +33,10 @@ It is available on the photo property of [Item][item-resource] resources that re
 | **iso**                 | number                    | The ISO value from the camera.                                  |
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The photo facet provides details about the camera and settings on the camera for photos.",
+  "keywords": "camera make,camera model, exposure, f-stop, iso",
+  "section": "documentation"
+} -->

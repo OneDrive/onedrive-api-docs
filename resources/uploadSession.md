@@ -18,3 +18,10 @@ session.
 | `uploadUrl`          | string                              | URL where fragment PUT requests should be directed.                                                             |
 | `expirationDateTime` | [timestamp](../facets/timestamp.md) | Date and time when the upload session expires.                                                                  |
 | `nextExpectedRanges` | string array                        | An array of byte ranges the server is missing. Not always a full list of the missing ranges.                    |
+
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "UploadSession is used to provide information about large file uploads.",
+  "section": "documentation"
+} -->

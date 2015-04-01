@@ -1,4 +1,4 @@
-﻿# SharingLink type
+# SharingLink type
 
 The **SharingLink** type groups sharing link-related data on OneDrive into a single structure.
 
@@ -8,7 +8,6 @@ The **SharingLink** type groups sharing link-related data on OneDrive into a sin
 ```json
 {
   "type": "view | edit | embed | mail",
-  "token": "string",
   "webUrl": "string",
   "application": { "@odata.type": "oneDrive.identity" }
 }
@@ -22,11 +21,18 @@ The **SharingLink** type groups sharing link-related data on OneDrive into a sin
 | **type**        | string                               | The type of the link created.                                                                                                                                                    |
 | **application** | [Identity](../resources/identity.md) | The app the link is associated with. The value is missing or `null` if the link is associated with an official Microsoft app.                                                    |
 
-## Link types
+## Type enumeration
 
 This table defines the possible values for the **type** property.
 
-| type   | Role    | Description                                          |
+| Value  | Role    | Description                                          |
 |:-------|:--------|:-----------------------------------------------------|
 | `view` | `read`  | A view-only sharing link, allowing read-only access. |
 | `edit` | `write` | An edit sharing link, allowing read-write access.    |
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The sharing link facet provides information about how a file is shared.",
+  "keywords": "sharing,sharing link, sharing url, webUrl",
+  "section": "documentation"
+} -->

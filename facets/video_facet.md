@@ -1,4 +1,4 @@
-﻿# Video facet
+# Video facet
 The **Video** facet groups video-related data on OneDrive into a single complex type.
 
 It is available on the video property of [Item][item-resource] resources that
@@ -25,3 +25,10 @@ represent videos.
 | **width**     | number | Width of the video, in pixels.            |
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The video facet provides information about the properties of a video file.",
+  "keywords": "bitrate,duration,size,video",
+  "section": "documentation"
+} -->

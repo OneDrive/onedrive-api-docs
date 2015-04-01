@@ -260,21 +260,6 @@
       }
     ]
   },
-  {
-    "name": "Public folder",
-    "method": "get-special-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "public"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "PATCH /drive/special/public:/2014-08-27pub.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}"
-      }
-    ]
-  },
 
   {
     "name": "Application Folder",

@@ -1,4 +1,4 @@
-﻿# Move an Item on OneDrive
+﻿# Move an item on OneDrive
 Changes the parent folder for a OneDrive Item resource.
 
 This is a special case of the [update](update.md) method. You can combine
@@ -68,3 +68,11 @@ See [Error Responses][error-response] for more info about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Move an item to another location or rename the item.",
+  "keywords": "move,rename,mv,change location",
+  "section": "documentation",
+  "tocPath": "Items/Move"
+} -->

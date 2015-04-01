@@ -1,4 +1,4 @@
-﻿# Accessing special folders on OneDrive
+# Accessing special folders on OneDrive
 
 Special folders provide simple aliases to access well-known folders in OneDrive
 without the need to look up the folder by path (which would require localization),
@@ -12,13 +12,13 @@ recreated when written to again.
 
 Here are the special folders available to all clients.
 
-| Name        | Folder id    | Description                                                               |
-|:------------|:-------------|:--------------------------------------------------------------------------|
-| Documents   | `documents`  | The Documents folder.                                                     |
-| Photos      | `photos`     | The Photos folder.                                                        |
-| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                            |
-| Public      | `public`     | The default Public folder.                                                |
-
+| Name        | Folder id    | Description                                                              |
+|:------------|:-------------|:-------------------------------------------------------------------------|
+| Documents   | `documents`  | The Documents folder.                                                    |
+| Photos      | `photos`     | The Photos folder.                                                       |
+| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
+| App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}` |
+| Music       | `music`      | The Music folder.                                                        |
 
 ## Example
 
@@ -66,7 +66,6 @@ ways of addressing the folder.
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-length: length
 
 {
   "value": [
@@ -93,3 +92,11 @@ See [Error Responses][error-response] for details about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Access known folders in OneDrive through the special folder collection",
+  "keywords": "known folders",
+  "section": "documentation",
+  "tocPath": "Concepts/Special Folders"
+} -->

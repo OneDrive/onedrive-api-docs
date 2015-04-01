@@ -1,4 +1,4 @@
-﻿# Addressing resources in a drive on OneDrive
+# Addressing resources in a drive on OneDrive
 
 The OneDrive API allows a single URL to address two aspects of a resource:
 * The Item resource
@@ -55,3 +55,11 @@ All of these URLs are logically equivalent and return the content of MyFile.xlsx
 | `/drive/special/documents:/MyFile.xlsx:/content`  | Specified by filename in the `documents` special folder. |
 | `/drive/items/0123456789AB/content`               | Specified by item-id.                                    |
 | `/drives/AB0987654321/items/0123456789AB/content` | Specified by drive-id and item-id.                       |
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Learn how to address items in OneDrive by path or unique ID.",
+  "keywords": "addressing,create url, path, unique id, file id, id",
+  "section": "documentation",
+  "tocPath": "Misc/Addressing Items"
+} -->

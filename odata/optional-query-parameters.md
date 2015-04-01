@@ -1,4 +1,4 @@
-﻿# OneDrive API optional query parameters
+# OneDrive API optional query parameters
 
 The OneDrive API provides several optional query parameters that can be used
 to control the specify the data returned in a response.
@@ -19,7 +19,7 @@ By submitting the request with the `select=name,size` query string, the objects
 in the response will only have those property values included. When using the
 select statement, you need to specify all properties to return in the statement.
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
+<!-- { "blockType": "example", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true, "name": "item-select-example" } -->
 ```json
 {
   "value": [
@@ -129,3 +129,12 @@ Here is a table of optional OData query parameters you can use in your OneDrive 
 
 
  [item-resource]: ../resources/item.md
+
+
+ <!-- {
+   "type": "#page.annotation",
+   "description": "Details about optional query string parameters you can use to shape results.",
+   "keywords": "constructing urls, query string, query value, query parameter",
+   "section": "documentation",
+   "tocPath": "Misc/Query String Parameters"
+ } -->

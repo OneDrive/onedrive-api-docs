@@ -1,4 +1,4 @@
-﻿# Develop with the OneDrive API
+# Develop with the OneDrive API
 The OneDrive API provides access to data stored within a user's OneDrive. Most
 interactions with OneDrive API resources follow RESTful patterns, but some
 function calls are also available for simplicity.
@@ -9,27 +9,45 @@ be available via the OData metadata or generated content. For more information, 
 [OData Support](odata/odata-support.md).
 
 ### Prerequisites
+
 To use the OneDrive API, we assume that:
 
-* You have an app to which you want to provide OneDrive support. Your app can be a [Windows Universal app](https://dev.windows.com/en-us/develop), [iOS](https://developer.apple.com/devcenter/ios/index.action), [Android](http://developer.android.com/index.html), or [Web app](http://www.microsoft.com/web/).
-* You have a development environment, like [Visual Studio](https://msdn.microsoft.com/en-us/vstudio/aa718325.aspx) or [Android Studio](http://developer.android.com/tools/studio/index.html), that is set up and ready for you to write code.
-* You are familiar with [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) and [OAuth 2.0](http://oauth.net/2/).
+
+* You have an app to which you want to provide OneDrive support. Your app can be
+  a [Windows Universal app](https://dev.windows.com/en-us/develop),
+  [iOS](https://developer.apple.com/devcenter/ios/index.action),
+  [Android](http://developer.android.com/index.html), or
+  [Web app](http://www.microsoft.com/web/).
+* You have a development environment, like
+  [Visual Studio](https://msdn.microsoft.com/en-us/vstudio/aa718325.aspx) or
+  [Android Studio](http://developer.android.com/tools/studio/index.html), that
+  is set up and ready for you to write code.
+* You are familiar with
+  [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) and
+  [OAuth 2.0](http://oauth.net/2/).
 
 ## Getting started with OneDrive API
 To get started, follow these steps.
 
 ### 1. Authenticate your app
-OneDrive uses [OAuth 2.0](http://oauth.net/2/) for [authentication](auth/msa_oauth.md). You get an access token that authenticates your app
-with a particular set of permissions for a user. You can
+OneDrive uses [OAuth 2.0](http://oauth.net/2/) for
+[authentication](auth/msa_oauth.md). You get an access token that authenticates
+your app with a particular set of permissions for a user. You can
 provide an authentication token for each API call in two different ways:
 
 * An HTTP header: `Authorization: bearer {token}`
 * A query parameter: `?access_token={token}`
 
-See [authentication](auth/msa_oauth.md) to obtain an authentication token and sign the user in.
+See [authentication](auth/msa_oauth.md) to obtain an authentication token and
+sign the user in.
 
 ### 2. URL root
-Now that you've authenticated your app, you can call the OneDrive API with your access token against the URL root below, combined with one of the [root resources](#root-resources). See [Drive resource](#drive-resource) and [Item resource](#item-resource) for examples on how to make calls to the OneDrive API. OneDrive API URLs are relative to the following root unless otherwise noted.
+Now that you've authenticated your app, you can call the OneDrive API with your
+access token against the URL root below, combined with one of the
+[root resources](#root-resources). See [Drive resource](#drive-resource) and
+[Item resource](#item-resource) for examples on how to make calls to the
+OneDrive API. OneDrive API URLs are relative to the following root unless
+otherwise noted.
 
 | Service  | URL Root                        |
 |:---------|:--------------------------------|
@@ -43,7 +61,8 @@ immediately after the host name, or the URL won't work.
 https://api.onedrive.com/v1.0/
 ```
 
-**Note:** Throughout this documentation, only partial syntax such as: `GET /drive/items/{item-id}`
+**Note:** Throughout this documentation, only partial syntax such as:
+`GET /drive/items/{item-id}`
 is used for the sake of brevity. Prefix the path with the correct root
 URL and version in order to obtain the full resource path or URL.
 
@@ -54,7 +73,7 @@ The OneDrive API exposes two major resource types:
 * [Item](#item-resource) _(files, folders, and so on.)_
 
 The following is an example of a resource.
-<!-- {"blockType": "ignored", "@odata.type": "oneDrive.item"} -->
+<!-- {"blockType": "example", "@odata.type": "oneDrive.item", "truncated": true, "name": "item-example"} -->
 ```json
 {
   "@content.downloadUrl":"http://public-sn3302.files.1drv.com/y2pcT7OaUEExF7EHOlpTjCE55mIUoiX7H3sx1ff6I-nP35XUTBqZlnkh9FJhWb_pf9sZ7LEpEchvDznIbQig0hWBeidpwFkOqSKCwQylisarN6T0ecAeMvantizBUzM2PA1",
@@ -97,7 +116,8 @@ _select_ query parameter, for example, `?select=id,name`. By default, all proper
 and facets are returned, and all references are hidden. For efficiency, we
 recommend that you specify _select_ and _expand_ for the data you care about.
 
-For details about resources, see [Resources](resources/resources.md).
+For details about resources and facets, see [Resources](resources/resources.md)
+and [Facets](facets/facets.md).
 
 ### Root resources
 
@@ -156,20 +176,20 @@ have an Image facet in addition to their File facet.
 Folders act as containers of items, and have a `children` reference pointing to
 a collection of items under the folder.
 
-| Common task                                      | HTTP method (by ID)                                    | HTTP method (by path)                            |
-|:-------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------|
-| [Get metadata for an Item](items/get.md)         | `GET /drive/items/{id}`                                | `GET /drive/root:/{path}`                        |
-| [List an Item's children](items/list.md)         | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
-| [Create an Item](items/create.md)                | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
-| [Upload an Item's contents](items/upload.md)     | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
-| [Update an Item's contents](items/update.md)     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
-| [Delete an Item](items/delete.md)                | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |
-| [Move an Item](items/move.md)                    | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
-| [Copy an Item](items/copy.md)                    | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |
-| [Download an Item's contents](items/download.md) | `GET /drive/items/{id}/content`                        | `GET /drive/root:/{path}:/content`               |
-| [Search for an Item](items/search.md)            | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
-| [View changes on an Item][item-changes]          | `GET /drive/items/{id}/view.changes`                   | `GET /drive/root:/{path}:/view.changes`          |
-| [Get thumbnails for an Item][get-thumbnails]     | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
+| Common task                                       | HTTP method (by ID)                                    | HTTP method (by path)                            |
+|:--------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------|
+| [Get metadata for an Item](items/get.md)          | `GET /drive/items/{id}`                                | `GET /drive/root:/{path}`                        |
+| [List an Item's children](items/list.md)          | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
+| [Create an Item](items/create.md)                 | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
+| [Upload an Item's contents](items/upload.md)      | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
+| [Update an Item's contents](items/update.md)      | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
+| [Delete an Item](items/delete.md)                 | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |
+| [Move an Item](items/move.md)                     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
+| [Copy an Item](items/copy.md)                     | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |
+| [Download an Item's contents](items/download.md)  | `GET /drive/items/{id}/content`                        | `GET /drive/root:/{path}:/content`               |
+| [Search for an Item](items/search.md)             | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
+| [View changes on an Item][item-changes]           | `GET /drive/items/{id}/view.changes`                   | `GET /drive/root:/{path}:/view.changes`          |
+| [Get thumbnails for an Item][get-thumbnails]      | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
 
 [item-changes]: items/view_changes.md
 [get-thumbnails]: items/get_thumbnails.md
@@ -193,6 +213,25 @@ a unique link for the recipient to access the shared items.
 | [Create a sharing link](items/sharing_createLink.md) | `POST /drive/items/{id}/action.createLink` | `POST /drive/root:/{path}:/action.createLink` |
 
 ## Programming notes
+
+### API Compatibility
+The OneDrive API will continue to evolve and gain additional functionality. The API
+includes a version number as part of the URL path, to ensure that we can make
+breaking changes to the API without impacting existing implementations. Breaking
+changes will be made by incrementing
+the version number in the URL, for calls that work differently than before.
+
+We define a breaking change as a change in the format of a request or response
+that removes an existing behavior, or alters an existing behavior.
+
+We will continue to make non-breaking changes to the existing version of the API,
+including adding facets, properties, and resources to the API. As such, any code
+calling the OneDrive API needs to:
+
+* Be resilient to additional properties being added to JSON responses. Ignoring them is OK.
+* Have no dependency on the order of properties returned in JSON responses.
+* Use documented API paths, resources, properties, and enumerated values only.
+  Non-documented values are not guaranteed to remain consistent.
 
 ### Throttling
 OneDrive has limits in place to make sure that individuals and apps do not
@@ -233,3 +272,10 @@ Our documentation is tested against the service on every change.
 [item-children]: items/list.md
 [permission-resource]: facets/permission_facet.md
 [item-get]: items/get.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Getting started programming with the OneDrive REST API",
+  "keywords": "getting started onedrive rest api programming C# ios android rest http",
+  "section": "documentation"
+} -->

@@ -1,4 +1,4 @@
-﻿# Get metadata for a OneDrive Item
+﻿# Get metadata for a OneDrive item
 
 Retrieve the metadata for an Item on OneDrive by path or ID.
 
@@ -43,7 +43,6 @@ the response body.
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: length
 
 {
   "id": "0123456789abc",
@@ -110,3 +109,11 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [odata-parameters]: ../odata/optional-query-parameters.md
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Retrieve metadata about an item and its children in OneDrive",
+  "keywords": "retrieve,item,metadata",
+  "section": "documentation",
+  "tocPath": "Items/Get Metadata"
+} -->
