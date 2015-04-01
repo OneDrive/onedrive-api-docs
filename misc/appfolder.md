@@ -47,18 +47,18 @@ Your app's folder supports all the standard `item` operations.
 
 | Common task                                         | HTTP method (by path)                               |
 |:----------------------------------------------------|:----------------------------------------------------|
-| [Get metadata for an Item](../items/get.md)         | `GET /drive/approot:/{path}`                        |
-| [List an Item's children](../items/list.md)         | `GET /drive/approot:/{path}:/children`              |
-| [Create an Item](../items/create.md)                | `PUT /drive/approot:/{parent-path}/{name}`          |
-| [Upload an Item's contents](../items/upload.md)     | `PUT /drive/approot:/{parent-path}/{name}:/content` |
-| [Update an Item's contents](../items/update.md)     | `PATCH /drive/approot:/{path}`                      |
-| [Delete an Item](../items/delete.md)                | `DELETE /drive/approot:/{path}`                     |
-| [Move an Item](../items/move.md)                    | `PATCH /drive/approot:/{path}`                      |
-| [Copy an Item](../items/copy.md)                    | `POST /drive/approot:/{path}:/action.copy`          |
-| [Download an Item's contents](../items/download.md) | `GET /drive/approot:/{path}:/content`               |
-| [Search for an Item](../items/search.md)            | `GET /drive/approot:/{path}:/view.search`           |
-| [View changes on an Item][item-changes]             | `GET /drive/approot:/{path}:/view.changes`          |
-| [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/approot:/{path}:/thumbnails`            |
+| [Get metadata for an Item](../items/get.md)         | `GET /drive/special/approot:/{path}`                        |
+| [List an Item's children](../items/list.md)         | `GET /drive/special/approot:/{path}:/children`              |
+| [Create an Item](../items/create.md)                | `PUT /drive/special/approot:/{parent-path}/{name}`          |
+| [Upload an Item's contents](../items/upload.md)     | `PUT /drive/special/approot:/{parent-path}/{name}:/content` |
+| [Update an Item's contents](../items/update.md)     | `PATCH /drive/special/approot:/{path}`                      |
+| [Delete an Item](../items/delete.md)                | `DELETE /drive/special/approot:/{path}`                     |
+| [Move an Item](../items/move.md)                    | `PATCH /drive/special/approot:/{path}`                      |
+| [Copy an Item](../items/copy.md)                    | `POST /drive/special/approot:/{path}:/action.copy`          |
+| [Download an Item's contents](../items/download.md) | `GET /drive/special/approot:/{path}:/content`               |
+| [Search for an Item](../items/search.md)            | `GET /drive/special/approot:/{path}:/view.search`           |
+| [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/view.changes`          |
+| [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/special/approot:/{path}:/thumbnails`            |
 
 [item-changes]: ../items/view_changes.md
 [get-thumbnails]: ../items/get_thumbnails.md
