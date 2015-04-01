@@ -176,20 +176,20 @@ have an Image facet in addition to their File facet.
 Folders act as containers of items, and have a `children` reference pointing to
 a collection of items under the folder.
 
-| Common task                                       | HTTP method (by ID)                                    | HTTP method (by path)                            |
-|:--------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------|
-| [Get metadata for an Item](items/get.md)          | `GET /drive/items/{id}`                                | `GET /drive/root:/{path}`                        |
-| [List an Item's children](items/list.md)          | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
-| [Create an Item](items/create.md)                 | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
-| [Upload an Item's contents](items/upload.md)      | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
-| [Update an Item's contents](items/update.md)      | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
-| [Delete an Item](items/delete.md)                 | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |
-| [Move an Item](items/move.md)                     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
-| [Copy an Item](items/copy.md)                     | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |
-| [Download an Item's contents](items/download.md)  | `GET /drive/items/{id}/content`                        | `GET /drive/root:/{path}:/content`               |
-| [Search for an Item](items/search.md)             | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
-| [View changes on an Item][item-changes]           | `GET /drive/items/{id}/view.changes`                   | `GET /drive/root:/{path}:/view.changes`          |
-| [Get thumbnails for an Item][get-thumbnails]      | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
+| Common task                                      | HTTP method (by ID)                                    | HTTP method (by path)                            |
+|:-------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------|
+| [Get metadata for an Item](items/get.md)         | `GET /drive/items/{id}`                                | `GET /drive/root:/{path}`                        |
+| [List an Item's children](items/list.md)         | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
+| [Create an Item](items/create.md)                | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
+| [Upload an Item's contents](items/upload.md)     | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
+| [Update an Item's contents](items/update.md)     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
+| [Delete an Item](items/delete.md)                | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |
+| [Move an Item](items/move.md)                    | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
+| [Copy an Item](items/copy.md)                    | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |
+| [Download an Item's contents](items/download.md) | `GET /drive/items/{id}/content`                        | `GET /drive/root:/{path}:/content`               |
+| [Search for an Item](items/search.md)            | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
+| [View changes on an Item][item-changes]          | `GET /drive/items/{id}/view.changes`                   | `GET /drive/root:/{path}:/view.changes`          |
+| [Get thumbnails for an Item][get-thumbnails]     | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
 
 [item-changes]: items/view_changes.md
 [get-thumbnails]: items/get_thumbnails.md
@@ -259,7 +259,7 @@ to the OneDrive API.
 
 
 ### Documentation Validation Status
-[![Build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](https://ci.appveyor.com/project/rgregg/onedrive-api-docs)
+[![Build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](https://ci.appveyor.com/project/OneDrive/onedrive-api-docs)
 
 Our documentation is tested against the service on every change.
 
