@@ -1,6 +1,6 @@
 # View changes for a OneDrive Item and its children
 
-This method allows your app to enumerate the changes under a Onedrive folder from a specified state, represented by a
+This method allows your app to enumerate the changes under a OneDrive folder from a specified state, represented by a
 change token. This enables your app to maintain a local representation of the contents of a drive and update the local state efficiently.
 
 ## HTTP request
