@@ -33,12 +33,12 @@ To get started, follow these steps.
 OneDrive uses [OAuth 2.0](http://oauth.net/2/) for
 [authentication](auth/msa_oauth.md). You get an access token that authenticates
 your app with a particular set of permissions for a user. You can
-provide an authorization token for each API call in two different ways:
+provide an access token for each API call in two different ways:
 
 * An HTTP header: `Authorization: bearer {token}`
 * A query parameter: `?access_token={token}`
 
-See [authentication](auth/msa_oauth.md) to obtain an authorization token and
+See [authentication](auth/msa_oauth.md) to obtain an access token and
 sign the user in.
 
 ### 2. URL root
