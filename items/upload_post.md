@@ -25,7 +25,7 @@ with the contents of the file at the same time. OneDrive detects this scenario
 when the `Content-Type: multipart/related` header is included in the request.
 
 For more information about multipart/related encoding, see
-[RFC 2388](https://www.ietf.org/rfc/rfc2388.txt) multipart/related documents.
+[RFC 2387](https://www.ietf.org/rfc/rfc2387.txt) multipart/related documents.
 
 The uploaded document must contain exactly two parts:
 
