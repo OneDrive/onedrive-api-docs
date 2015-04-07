@@ -278,8 +278,10 @@ If the file can be committed using the new metadata, an `HTTP 201 Created` or
 * Use resumable file transfers for files larger than 10 MB.
 * A fragment size of 10 MB for stable high speed connections is optimal. For slower
   or less reliable connections you may get better results from a smaller
-  fragment size. The recommended fragment size is 4 MB.
-* Use a fragment size that is a multiple of 320 KB.
+  fragment size. The recommended fragment size is between 5-10 MB.
+* Use a fragment size that is a multiple of 320 KB. Failing to use a fragment
+  size that is a multiple of 320 KB can result in large file transfers failing
+  after the last fragment is uploaded.
 
 ## Error responses
 
