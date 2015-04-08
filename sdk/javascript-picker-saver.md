@@ -168,6 +168,9 @@ your app by using the **OneDrive.createSaveButton** method, or create a more
 personalized experience by using the **OneDrive.save** method.
 Both methods require a **saverOptions** object with the following parameters.
 
+**Note:** A user can only save files up to 100 MB using the OneDrive JavaScript saver
+SDK.
+
 **Example of a saverOptions object**
 
 ```javascript
