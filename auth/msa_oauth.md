@@ -262,17 +262,32 @@ by using the refresh token (if available) or by repeating the authentication
 request from the beginning.
 
 ## Sign the user out
-To sign a user out, make a call to the authorization web service using this URL.
+To sign a user out, the following steps should be performed:
+
+1. Delete any cached access_token or refresh_token values you've previously
+   received from the OAuth 2 flow.
+2. Perform any sign out actions in your application (cleaning up local state,
+   removing any cached items, etc).
+3. Make a call to the authorization web service using this URL:
 
 ```
 GET https://login.live.com/oauth20_logout.srf?client_id={client_id}&redirect_uri={redirect_uri}
 ```
+
+This call will remove any cookies that enable single sign-on to occur and ensure
+next time your app launches the sign in experience the user will be requested to
+enter a username and password to continue.
 
 ### Required query string parameters
 | Parameter name | Value  | Description                                                                                                                                                 |
 |:---------------|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *client_id*    | string | The client ID value created for your application.                                                                                                           |
 | *redirect_uri* | string | The redirect URL that the browser is sent to when authentication is complete. This must match exactly the redirect_uri value used in the get token request. |
+
+After removing the cookie, the browser will be redirected to the redirect URL
+you provided. When the browser loads your redirect page, no authentication query
+string parameters will be set, and you can infer the user has been logged out.
+
 
 ## Errors
 
