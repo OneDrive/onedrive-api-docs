@@ -35,7 +35,7 @@ Do not supply a request body with this method.
 ### Example
 
 <!-- { "blockType": "request", "name": "list-children-root" } -->
-```
+```http
 GET /drive/root/children
 ```
 
@@ -52,7 +52,7 @@ Content-Type: application/json
 
 {
   "value": [
-    {"name": "myfile.jpg", "size": 2048 },
+    {"name": "myfile.jpg", "size": 2048, "file": {} },
     {"name": "Documents", "folder": { "childCount": 4} },
     {"name": "Photos", "folder": { "childCount": 203} },
     {"name": "my sheet(1).xlsx", "size": 197 }
