@@ -8,8 +8,6 @@ Some of the features of the OneDrive API might not
 be available via the OData metadata or generated content. For more information, see
 [OData Support](odata/odata-support.md).
 
-**Note:** Although OneDrive in general will store a user's OneNote, you shouldn't use the OneDrive API to work with OneNote. Instead, use the [OneNote API](http://dev.onenote.com).
-
 ### Prerequisites
 
 To use the OneDrive API, we assume that:
@@ -244,6 +242,12 @@ before sending more requests.
 HTTP/1.1 429 Too Many Requests  
 Retry-After: 3600
 ```
+
+## Working with OneNote Notebooks
+**Note:** Although OneDrive stores OneNote notebooks, you shouldn't use the
+OneDrive API to work with OneNote notebooks. Instead, use the
+[OneNote API](http://dev.onenote.com).
+
 
 # Related topics
 The following topics contain high level overviews of other concepts that apply

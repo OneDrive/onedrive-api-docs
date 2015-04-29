@@ -243,7 +243,7 @@ by using the refresh token (if available) or by repeating the authentication
 request from the beginning.
 
 ## Sign the user out
-To sign a user out, the perform the following steps:
+To sign a user out, perform the following steps:
 
 1. Delete any cached `access_token` or `refresh_token` values you've previously
    received from the OAuth flow.

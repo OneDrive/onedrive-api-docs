@@ -72,6 +72,7 @@ The thumbnails collection does not exist for OneDrive for Business currently.
 Calls that expand the thumbnails collection or refer to it directly will fail:
 
 `GET /drive/root?expand=thumbnails`
+
 `GET /drive/root:/my_photo.jpg:/thumbnails`
 
 ### No support for item searching
@@ -90,7 +91,7 @@ directly as the response of the API call.
 
 ### No special folders
 
-The collection of special folders for a drive `/special` is not implemented.
+The collection of special folders for a drive (`/special`) is not implemented.
 
 ### Uploading items
 
@@ -120,7 +121,7 @@ for Business.
 
 ### Extra OData metadata is returned
 
-The OneDrive API currently returns all available OData v4.0 metadata for an item on OneDrive for Business. You can reduce the metadata returned, if it is not useful, by using the **Accept** header: 
+The OneDrive API currently returns all available OData v4.0 metadata for an item on OneDrive for Business. You can reduce the metadata returned, if it is not useful, by using the **Accept** header:
 ```
 Accept: application/json; odata.metadata=none
 ```

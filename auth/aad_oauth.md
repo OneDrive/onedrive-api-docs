@@ -22,7 +22,7 @@ You access the API by sending HTTP requests to a specific endpoint URL. The root
 URL is based on the host name of the server that serves as the REST endpoint.
 You can [use the Discovery Service API to find endpoints for your Office 365
 app](https://msdn.microsoft.com/en-us/office/office365/howto/discover-service-endpoints).
-Your root URL appears in the next example, where `{tenant}` is your endpoint URL:
+Your root URL appears in the next example, where `{tenant}` comes from your discovered endpoint URL:
 
 `https://{tenant}-my.sharepoint.com/_api/v2.0/`
 

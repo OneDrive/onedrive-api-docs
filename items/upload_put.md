@@ -23,6 +23,15 @@ PUT /drive/items/{parent-id}/children/{filename}/content
 ### Request body
 The contents of the request body should be the binary stream of the file to be uploaded.
 
+### Optional query string parameters
+
+You can use these optional query string parameters to change the behavior of
+the PUT request:
+
+| Parameter Name             | Value  | Description                                                                                                                                      |
+|:---------------------------|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **@name.conflictBehavior** | string | Specify the behavior to use if the file already exists. You can use the values *fail*, *replace*, or *rename*. The default for PUT is *replace*. |
+
 ### Example
 
 <!-- { "blockType": "request", "name": "upload-via-put" } -->
@@ -52,6 +61,8 @@ Content-Type: application/json
 
 **Note:** The Response object is truncated for clarity. All default properties will
 be returned from the actual call.
+
+
 
 ### Error responses
 
