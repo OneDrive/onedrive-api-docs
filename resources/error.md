@@ -3,7 +3,7 @@
 The error resource is returned whenever an error occurs in the processing
 of a request.
 
-Our error response follows the definition in the
+Error responses follow the definition in the
 [OData v4](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.html#_Toc372793091)
 specification for error responses.
 
@@ -37,7 +37,7 @@ properties:
 }
 ```
 
-| Property Name  | Value                  | Description\                                                                                               |
+| Property name  | Value                  | Description\                                                                                               |
 |:---------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------|
 | **code**       | string                 | An error code string for the error that occured                                                            |
 | **message**    | string                 | A developer ready message about the error that occured. This should not be displayed to the user directly. |
@@ -60,9 +60,9 @@ The details property is a collection of resources using this definition:
 }
 ```
 
-| Property Name | Value  | Description\                                                                                               |
+| Property name | Value  | Description\                                                                                               |
 |:--------------|:-------|:-----------------------------------------------------------------------------------------------------------|
-| **code**      | string | An error code string for the error that occured                                                            |
+| **code**      | string | An error code string for the error that occured.                                                            |
 | **message**   | string | A developer ready message about the error that occured. This should not be displayed to the user directly. |
 | **target**    | string | Optional. Provides more information on the targer resource that generated the error.                       |
 

@@ -12,7 +12,7 @@ The following is a summary of how to properly encode paths for the OneDrive API.
 The following characters are OneDrive reserved characters, and can't be used in OneDrive folder and file names.
 
 ```
-  onedrive-reserved  = "/" / "\" / "*" / "<" / ">" / "?" / ":"
+  onedrive-reserved  = "/" / "\" / "*" / "<" / ">" / "?" / ":" / "|" / ","
 ```
 
 **Note:** Additionally, folder names can't begin with two periods (`..`) or end with a period (`.`)
@@ -128,13 +128,13 @@ OneDrive
 
 To address each of Ryan's files, you use percent encoding, as follows:
 
-| Path                     | Encoded URL for path                     |
-|:-------------------------|:-----------------------------------------|
-| `\Ryan's Files`          | `/root:/Ryan's%20Files`                  |
-| `\...\doc (1).docx`      | `/root:/Ryan's%20Files/doc%20(1).docx`   |
+| Path                     | Encoded URL for path                      |
+|:-------------------------|:------------------------------------------|
+| `\Ryan's Files`          | `/root:/Ryan's%20Files`                   |
+| `\...\doc (1).docx`      | `/root:/Ryan's%20Files/doc%20(1).docx`    |
 | `\...\estimate%.docx`    | `/root:/Ryan's%20Files/estimate%25s.docx` |
-| `\Break#Out`             | `/root:/Break%23Out`                     |
-| `\...\saved_game[1].bin` | `/root:/Break%23Out/saved_game[1].bin`   |
+| `\Break#Out`             | `/root:/Break%23Out`                      |
+| `\...\saved_game[1].bin` | `/root:/Break%23Out/saved_game[1].bin`    |
 
 
 <!-- {

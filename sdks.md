@@ -2,12 +2,12 @@
 
 Use the OneDrive software development kits to quickly get OneDrive integrated
 into your apps. While programming with REST APIs is pretty easy, the OneDrive
-SDKs aim to make this even easier.
+SDKs aim to make it even easier.
 
 ## Picker and saver SDKs
-Add OneDrive to your app in minutes with a few lines of code!
+Add OneDrive to your app in minutes with a few lines of code.
 
-Get link from OneDrive for sharing or downloading the contents of a file.
+Get a link from OneDrive for sharing or downloading the contents of a file.
 Save a file on the user's local device to OneDrive so it's available on all your users' devices.
 
 | Platform | OneDrive | OneDrive for Business | Documentation                                                     |

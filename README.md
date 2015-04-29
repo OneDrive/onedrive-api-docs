@@ -8,6 +8,8 @@ Some of the features of the OneDrive API might not
 be available via the OData metadata or generated content. For more information, see
 [OData Support](odata/odata-support.md).
 
+**Note:** Although OneDrive in general will store a user's OneNote, you shouldn't use the OneDrive API to work with OneNote. Instead, use the [OneNote API](http://dev.onenote.com).
+
 ### Prerequisites
 
 To use the OneDrive API, we assume that:
@@ -31,15 +33,16 @@ To get started, follow these steps.
 
 ### 1. Authenticate your app
 OneDrive uses [OAuth 2.0](http://oauth.net/2/) for
-[authentication](auth/msa_oauth.md). You get an access token that authenticates
+[authentication](auth/readme.md). You get an access token that authenticates
 your app with a particular set of permissions for a user. You can
 provide an access token for each API call in two different ways:
 
 * An HTTP header: `Authorization: bearer {token}`
 * A query parameter: `?access_token={token}`
 
-See [authentication](auth/msa_oauth.md) to obtain an access token and
-sign the user in.
+To obtain an access token and sign the user in, see
+[OneDrive authentication](auth/msa_oauth.md) or
+[OneDrive for Business authentication](auth/aad_oauth.md).
 
 ### 2. URL root
 Now that you've authenticated your app, you can call the OneDrive API with your
@@ -49,22 +52,19 @@ access token against the URL root below, combined with one of the
 OneDrive API. OneDrive API URLs are relative to the following root unless
 otherwise noted.
 
-| Service  | URL Root                        |
-|:---------|:--------------------------------|
-| OneDrive | `https://api.onedrive.com/v1.0` |
-
-#### API versions
-OneDrive uses a version number in the URL. Be sure to include the version
-immediately after the host name, or the URL won't work.
-
-```
-https://api.onedrive.com/v1.0/
-```
+| Service                         | URL Root                                       |
+|:--------------------------------|:-----------------------------------------------|
+| OneDrive                        | `https://api.onedrive.com/v1.0`                |
+| OneDrive for Business (preview) | `https://{tenant}-my.sharepoint.com/_api/v2.0` |
 
 **Note:** Throughout this documentation, only partial syntax such as:
 `GET /drive/items/{item-id}`
 is used for the sake of brevity. Prefix the path with the correct root
-URL and version in order to obtain the full resource path or URL.
+URL and version number in order to obtain the full resource path or URL.
+
+**Note:** OneDrive API for OneDrive for Business (preview) is a preview and may
+not work exactly like the documentation. Do not assume that current behavior
+that deviates from the documentation will persist.
 
 ## Resource model
 The OneDrive API exposes two major resource types:
@@ -249,7 +249,7 @@ Retry-After: 3600
 The following topics contain high level overviews of other concepts that apply
 to the OneDrive API.
 
-* [Authentication and sign in](auth/msa_oauth.md)
+* [Authentication and sign in](auth/readme.md)
 * [Addressing resources](misc/addressing.md)
 * [Case sensitivity](misc/case-sensitivity.md)
 * [Error responses](misc/errors.md)

@@ -294,3 +294,54 @@ a:link
   padding-left: 30px;
   list-style: square;
 }
+table.requestParameters {
+  width: 90%;
+  background-color: #EEE;
+  border-spacing: 5px;
+  margin-bottom: 10px;
+}
+table.requestParaemters td {
+  padding: 10px;
+}
+div.buttonGroup {
+  text-align: right;
+}
+pre code.expanded {
+  overflow: auto;
+  height: auto;
+}
+pre code.collapsed {
+  overflow: hidden;
+  max-height: 200px;
+}
+pre.withExpandCollapseButton {
+  margin-bottom: 0;
+}
+.expandCollapseButton {
+  cursor: pointer;
+}
+.expandCollapseButton+p {
+  clear: both;
+}
+a.expandCollapseButton {
+  border: solid thin #ccc;
+  border-top: 0;
+  display: inline-block;
+  width: 90%;
+  height: 41px;
+  margin: 0 0 32px 0;
+}
+a.expandCollapseButton.collapse
+{
+  visibility: visible;
+}
+a.expandCollapseButton.collapse:before {
+  background: url('/images/deltaForExpandUp.gif') no-repeat center left 16px;
+}
+a.expandCollapseButton:before {
+  content: "";
+  background: url('/images/deltaForExpandDown.gif') no-repeat center left 16px;
+  width: 41px;
+  height: 41px;
+  float: left;
+}

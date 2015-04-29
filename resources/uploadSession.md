@@ -1,4 +1,4 @@
-﻿# UploadSession Resource
+﻿# UploadSession resource
 
 Provides information about a [large file upload](../items/upload_large_files.md)
 session.
@@ -13,7 +13,7 @@ session.
 }
 ```
 
-| Property Name        | Value                               | Description                                                                                                     |
+| Property name        | Value                               | Description                                                                                                     |
 |:---------------------|:------------------------------------|:----------------------------------------------------------------------------------------------------------------|
 | `uploadUrl`          | string                              | URL where fragment PUT requests should be directed.                                                             |
 | `expirationDateTime` | [timestamp](../facets/timestamp.md) | Date and time when the upload session expires.                                                                  |

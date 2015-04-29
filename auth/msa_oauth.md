@@ -1,13 +1,13 @@
 # OneDrive authentication and sign-in
 
-To use the OneDrive APIs, you need to have an access token that authenticates
+To use the OneDrive API, you need to have an access token that authenticates
 your app to a particular set of permissions for a user. In this section, you'll learn how to:
 
 1. Register your application to get a client ID and a client secret.
 2. Sign your user in to OneDrive with the specified [scopes](#authentication-scopes) using the token flow or code flow.
 3. Sign the user out (optional).
 
-The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. You must provide an authentication token for every API call via one of the following.
+The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. You must provide an access token for every API call via one of the following.
 
 * An HTTP header: `Authorization: bearer {token}`
 * A query parameter: `?access_token={token}`
@@ -19,27 +19,8 @@ your app.
 
 ### To register your app
 
-1. Go to the [Microsoft account Developer Center][app-portal].
-2. When prompted, sign in with your Microsoft account credentials.
-3. Choose **Create application**.
-4. Enter your app's display name and choose the app's primary language.
-5. Read the **Live Connect terms of use** and the **Privacy and Cookies**
-statement, and then choose **I accept** to accept the terms of use.
-
-After you've completed these steps, a client ID and client secret are created for your
-app. Choose **App Settings** to view the values associated with your app.
-
-**Important** Treat the value of client secret the same
-as you would a user's password. The secret represents the key to your
-application and, if made available, can be used to impersonate your application.
-
-On the **API Settings** page, configure details about your application.
-For example, is your application a mobile, desktop, or web application?
-For mobile or desktop applications, change the setting **Mobile or desktop client app** to **Yes**.
-
-For web apps, configure the **Redirect URLs** that your app will use
-during the login process. For security purposes, all redirect URLs
-must be on the same root domain.
+See the topic on [registering your app for OneDrive API](../app-registration.md)
+for details on how to register your app.
 
 ## Sign users in
 Your app must initiate the sign-in process by contacting the
@@ -128,7 +109,7 @@ use of the API in some scenarios, to allow access when the user isn't actively u
 ![Authorization Code Flow Diagram](../site-images/authorization_code_flow.png)
 
 
-### Step 1. Get an authentication code
+### Step 1. Get an authorization code
 To start the sign-in process with the code flow, use a web browser or web-browser
 control to load this URL request.
 
@@ -177,11 +158,11 @@ The request body is a properly encoded URL string, with some required parameters
 
 **Note**  For web apps, the domain portion of the redirect URI must match the
 domain portion of the redirect URI that you specified in the
-[Live SDK app management site][app-portal].
+[Microsoft account Developer Center][app-portal].
 
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
-that includes several properties, including `access_token`, `authentication_token`, and
+that includes several properties, including `access_token`, `token_type`, and
 `refresh_token` (if you requested the **wl.offline_access** scope).
 
 <!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse" } -->
@@ -198,7 +179,7 @@ that includes several properties, including `access_token`, `authentication_toke
 You can now store and use the `access_token` provided to make authenticated
 requests to the OneDrive API.
 
-**Important:** Treat the values of `access_token`, `authentication_token`, and `refresh_token` in this response as securely as you would a user's password.
+**Important:** Treat the values of `access_token` and `refresh_token` in this response as securely as you would a user's password.
 
 The access token is valid for only the number of seconds that is
 specified in the **expires_in** property. You can request a new access token
@@ -262,12 +243,12 @@ by using the refresh token (if available) or by repeating the authentication
 request from the beginning.
 
 ## Sign the user out
-To sign a user out, the following steps should be performed:
+To sign a user out, the perform the following steps:
 
-1. Delete any cached access_token or refresh_token values you've previously
-   received from the OAuth 2 flow.
-2. Perform any sign out actions in your application (cleaning up local state,
-   removing any cached items, etc).
+1. Delete any cached `access_token` or `refresh_token` values you've previously
+   received from the OAuth flow.
+2. Perform any sign out actions in your application (for example, cleaning up local state,
+   removing any cached items, etc.).
 3. Make a call to the authorization web service using this URL:
 
 ```
@@ -275,10 +256,11 @@ GET https://login.live.com/oauth20_logout.srf?client_id={client_id}&redirect_uri
 ```
 
 This call will remove any cookies that enable single sign-on to occur and ensure
-next time your app launches the sign in experience the user will be requested to
+that next time your app launches the sign in experience, the user will be requested to
 enter a username and password to continue.
 
 ### Required query string parameters
+
 | Parameter name | Value  | Description                                                                                                                                                 |
 |:---------------|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *client_id*    | string | The client ID value created for your application.                                                                                                           |
@@ -288,6 +270,16 @@ After removing the cookie, the browser will be redirected to the redirect URL
 you provided. When the browser loads your redirect page, no authentication query
 string parameters will be set, and you can infer the user has been logged out.
 
+
+## Revoking Access
+
+Users can revoke an app's access to their account by visiting the
+[Microsoft account manage consent](https://account.live.com/consent/Manage) page.
+
+
+When consent for your app is revoked, any refresh token previously provided to your application
+will no longer be valid. You will need to repeat the authentication flow to
+request a new access and refresh token from scratch.
 
 ## Errors
 
@@ -329,5 +321,8 @@ to the OneDrive API.
   "type": "#page.annotation",
   "description": "Learn how to authenticate your app with Microsoft Account and get access to OneDrive",
   "keywords": "authentication,oauth,microsoft account,msa,onedrive,api",
-  "section": "documentation"
+  "section": "documentation",
+  "footerAdditions": [
+    "<script type=\"text/javascript\" src=\"get-token.js\"></script>",
+    "<script type=\"text/javascript\">tokenFetcher.addToPage(\"register-your-app\");</script>"]
 } -->
