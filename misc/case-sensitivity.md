@@ -33,7 +33,7 @@ Per [HTTP 1.1 protocol][http-protocol], request header names are not case-sensit
 For example, `Content-Type` would be treated the same as `content-type`.
 
 The request header values are case-sensitive. For example, when providing an
-eTag value in an `if-match` header, the eTag is case-sensitive.
+eTag or cTag value in an `if-match` header, the tag is case-sensitive.
 
 ## JSON request body
 The keys of the JSON object suppled in the request body are case-sensitive. The

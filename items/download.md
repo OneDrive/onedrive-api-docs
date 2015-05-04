@@ -16,10 +16,10 @@ GET /drive/root:/{path and filename}:/content
 
 ### Optional request headers
 
-| Name            | Value | Description                                                                                                                                     |
-|:----------------|:------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| _if-none-match_ | etag  | If this request header is included and the etag provided matches the current etag on the file, an `HTTP 304 Not Modified` response is returned. |
-| _range_         | range | Range of bytes that should be returned in the request.                                                                                          |
+| Name            | Value | Description                                                                                                                                              |
+|:----------------|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _if-none-match_ | etag  | If this request header is included and the eTag (or cTag) provided matches the current tag on the file, an `HTTP 304 Not Modified` response is returned. |
+| _range_         | range | Range of bytes that should be returned in the request.                                                                                                   |
 
 ### Request body
 

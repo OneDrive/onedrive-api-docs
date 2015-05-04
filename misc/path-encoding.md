@@ -15,7 +15,7 @@ The following characters are OneDrive reserved characters, and can't be used in 
   onedrive-reserved  = "/" / "\" / "*" / "<" / ">" / "?" / ":" / "|" / ","
 ```
 
-**Note:** Additionally, folder names can't begin with two periods (`..`) or end with a period (`.`)
+**Note:** Additionally, folder names can't end with a period (`.`)
 
 ### URI path characters
 

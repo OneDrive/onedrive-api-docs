@@ -57,9 +57,12 @@ children collection are not supported:
 ### Delete requires an If-Match header
 
 When using the delete action with OneDrive for Business you must specify an
-`If-Match` header in the request. The `If-Match` header must match the etag of the Item. If the header is missing the delete call will fail.
+`If-Match` header in the request. The `If-Match` header must match the eTag of the Item. If the header is missing the delete call will fail.
 
 You can work around this by including: `If-Match: *` in your delete request.
+
+### CTag not implemented
+The **cTag** property of an item is not returned for OneDrive for Business.
 
 ### Cannot reference a drive by drive-id
 

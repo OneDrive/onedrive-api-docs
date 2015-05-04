@@ -20,9 +20,9 @@ the shape of the objects returned from this call.
 
 ### Optional request headers
 
-| Name            | Value | Description                                                                                                                                     |
-|:----------------|:------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| _if-none-match_ | etag  | If this request header is included and the etag provided matches the current etag on the file, an `HTTP 304 Not Modified` response is returned. |
+| Name            | Value | Description                                                                                                                                              |
+|:----------------|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _if-none-match_ | etag  | If this request header is included and the eTag (or cTag) provided matches the current tag on the file, an `HTTP 304 Not Modified` response is returned. |
 
 ### Request body
 Do not supply a request body with this method.

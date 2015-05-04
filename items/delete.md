@@ -18,9 +18,9 @@ DELETE /drive/root:/{item-path}
 
 ### Optional request headers
 
-| Name       | Value | Description                                                                                                                                                                              |
-|:-----------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| _if-match_ | etag  | If this request header is included and the etag provided does not match the current etag on the item, a `412 Precondition Failed` response is returned and the item will not be deleted. |
+| Name       | Value | Description                                                                                                                                                                                       |
+|:-----------|:------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _if-match_ | etag  | If this request header is included and the eTag (or cTag) provided does not match the current tag on the item, a `412 Precondition Failed` response is returned and the item will not be deleted. |
 
 ### Request body
 Do not supply a request body with this method.

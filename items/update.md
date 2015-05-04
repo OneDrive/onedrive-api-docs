@@ -17,9 +17,9 @@ PATCH /drive/root:/{item-path}
 
 ### Optional request headers
 
-| Name       | Value | Description                                                                                                                                               |
-|:-----------|:------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *if-match* | etag  | If this request header is included and the etag provided does not match the current etag on the folder, a `412 Precondition Failed` response is returned. |
+| Name       | Value | Description                                                                                                                                                         |
+|:-----------|:------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *if-match* | etag  | If this request header is included and the eTag (or cTag) provided does not match the current eTag on the folder, a `412 Precondition Failed` response is returned. |
 
 
 

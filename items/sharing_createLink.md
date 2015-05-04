@@ -5,7 +5,7 @@ a friendly shortcut for creating common sharing links.
 
 The **action.createLink** method will create a new sharing link if the specified
 link type doesn't already exist. If a sharing link of the specified type already
-exists, the existing sharing link will be returned.
+exists for the app, the existing sharing link will be returned.
 
 **Note:** Your application must be granted read-write permissions to the item
 to be able to create a sharing link. This maps to the `onedrive.readwrite` scope
@@ -78,6 +78,12 @@ Content-Type: application/json
 }
 
 ```
+
+### Programming Notes
+Sharing links created using this action do not expire. They are visible in the
+sharing permissions for the item on the OneDrive website and can be removed by
+an owner of the item. Sharing links always point to the "current" version of a
+item.
 
 ### Error responses
 

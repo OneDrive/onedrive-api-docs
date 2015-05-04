@@ -45,9 +45,9 @@ Content-Type: application/json
 
 ### Optional request headers
 
-| Name       | Value | Description                                                                                                                                                  |
-|:-----------|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *if-match* | etag  | If this request header is included and the etag provided does not match the current etag on the item, a `412 Precondition Failed` errr response is returned. |
+| Name       | Value | Description                                                                                                                                                            |
+|:-----------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *if-match* | etag  | If this request header is included and the eTag (or cTag) provided does not match the current etag on the item, a `412 Precondition Failed` errr response is returned. |
 
 The response to this request, if successful, will provide the details for where
 the remainder of the requests should be sent as an [UploadSession](../resources/uploadSession.md)
@@ -106,6 +106,12 @@ fragment. You may see multiple ranges specified, indicating parts of the file
 that the server has not yet received. This is especially useful if you need to
 resume a transfer that was interrupted and your client is unsure of the state
 on the service.
+
+You should always determine the fragment size according to the best practices
+below. Do not assume that **nextExpectedRanges** will return reanges of proper
+size for an upload fragment. The **nextExpectedRanges** property indicates
+ranges of the file that have not been received and not a pattern for how you
+should upload the file.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -245,7 +251,7 @@ include an [Instance Attribute](../resources/item.md#instance-attributes) for
 PUT /drive/root:/{path_to_parent}
 Content-Type: application/json
 Content-Length: length
-If-Match: {etag}
+If-Match: {etag or ctag}
 
 {
   "name": "largefile_2.vhd",
