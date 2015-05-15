@@ -1,4 +1,5 @@
-[
+{
+  "scenarios": [
   {
     "name": "Get default drive",
     "method": "get-default-drive",
@@ -683,3 +684,4 @@
     ]
   }
 ]
+}
