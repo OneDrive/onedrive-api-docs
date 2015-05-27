@@ -39,7 +39,7 @@ GET /drive/items/{item-id}
 If successful, this method returns an [Item][item-resource] resource in
 the response body.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item" } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -60,7 +60,8 @@ Content-type: application/json
 }
 ```
 
-**Note:** The response object is truncated for clarity. All default properties will be returned from the actual call.
+**Note:** The response object is truncated for clarity. All default properties
+will be returned from the actual call.
 
 
 ## Get an Item and its children in a single call

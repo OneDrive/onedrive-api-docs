@@ -5,6 +5,7 @@ Some of the features of the OneDrive API might not be
 available via the OData metadata or generated content.
 
 Some of the key supported features include:
+
 * _$metadata_ - Service document at the service root.
 * Support _upserts_ - A single command for insert and update.
 * JSON objects - Returns data in one of the OData defined formats.
