@@ -32,12 +32,11 @@ The Drive resource has these properties.
 
 The following table defines the relationships that the Drive resource has to other resources.
 
-| Relationship name | Type            | Description                                                          |
-|:------------------|:----------------|:---------------------------------------------------------------------|
-| **items**         | Item collection | All items contained in the drive.                                    |
-| **root**          | Item resource   | The root folder of the drive.                                        |
-| **special**       | Item collection | Collection of common folders available in OneDrive.                  |
-| **shares**        | Item collection | Collection of items that have been shared with the signed-in user. | |
+| Relationship name | Type            | Description                                         |
+|:------------------|:----------------|:----------------------------------------------------|
+| **items**         | Item collection | All items contained in the drive.                   |
+| **root**          | Item resource   | The root folder of the drive.                       |
+| **special**       | Item collection | Collection of common folders available in OneDrive. |
 
 [item-resource]: ../README.md#item-resource
 [identity-set]: ../resources/identitySet.md

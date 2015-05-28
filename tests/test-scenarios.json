@@ -1,687 +1,793 @@
 {
-  "scenarios": [
-  {
-    "name": "Get default drive",
-    "method": "get-default-drive",
-    "enabled": true
-  },
-  {
-    "name": "Use Default Drive ID",
-    "method": "get-drive-by-id",
-    "enabled": true,
-    "test-setup": [
-      {
-        "method": "get-default-drive",
-        "http-request": "GET /drive",
-        "capture":
-        {
-          "[read-drive-id]": "$.id"
-        }
-      }
-    ],
-    "request-parameters":
+  "scenarios":
+  [
     {
-      "{drive-id}": "[read-drive-id]"
-    }
-  },
-  {
-    "name": "Copy test_copy_file to a new location",
-    "method": "copy-item",
-    "enabled": true,
-    "test-setup": [
-      {
-        "method": "upload-via-put",
-        "http-request": "PUT /drive/root:/test_copy_file.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will copy to another location",
-        "request-parameters":
+      "name": "Get default drive",
+      "method": "get-default-drive",
+      "enabled": true
+    },
+    {
+      "name": "Use Default Drive ID",
+      "method": "get-drive-by-id",
+      "enabled": true,
+      "test-setup": [
         {
-          "{item-path}": "/test_copy.file.txt",
-          "$body": "Test file that we will copy to another location",
-          "Content-Type:": "application/octet-stream"
+          "method": "get-default-drive",
+          "http-request": "GET /drive",
+          "capture":
+          {
+            "[read-drive-id]": "$.id"
+          }
+        }
+      ],
+      "request-parameters":
+      {
+        "{drive-id}": "[read-drive-id]"
+      }
+    },
+    {
+      "name": "Copy test_copy_file to a new location",
+      "method": "copy-item",
+      "enabled": true,
+      "test-setup": [
+        {
+          "method": "upload-via-put",
+          "http-request": "PUT /drive/root:/test_copy_file.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will copy to another location",
+          "request-parameters":
+          {
+            "{item-path}": "/test_copy.file.txt",
+            "$body": "Test file that we will copy to another location",
+            "Content-Type:": "application/octet-stream"
+          },
+          "capture": {
+             "[source-file-id]": "$.id"
+             }
+        }
+      ],
+      "request-parameters":
+      {
+        "{item-id}": "[source-file-id]",
+        "$.parentReference.id": null
+      }
+    },
+    {
+      "name": "Get first medium thumbnail",
+      "method": "get-one-thumbnail",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]",
+        "{thumb-id}": "0",
+        "{size}": "medium"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/root:/pictures/2014-08-25med.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
+          "capture": {
+            "[new-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get many thumbnails",
+      "method": "get-many-thumbnails",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{item-id}": "root"
+      }
+    },
+    {
+      "name": "Enumerate thumbnails",
+      "method": "enum-thumbnails",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{item-id}": "[folder-item-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "GET /drive/special/photos",
+          "capture": {
+            "[folder-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "",
+      "method": "get-thumbnail-content",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[read-item-id]",
+        "{thumb-id}": "0",
+        "{size}": "large"
+
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/root:/pictures/2014-08-26lrg.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
+          "capture":
+          {
+            "[read-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Find items with 2014 in the keywords",
+      "method": "search",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{search-text}": "2014"
+      }
+    },
+
+    {
+      "name": "Get root folder changes",
+      "method": "get-changes",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "root",
+        "{token}": "a"
+      }
+    },
+
+    {
+      "name": "Delete a Folder",
+      "method": "delete-item",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "POST /drive/root/children\r\nContent-Type: application/json\r\n\r\n{\r\n  \"name\": \"Folder_To_Delete\",\r\n  \"folder\": { }\r\n}\n",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Get a list of available thumbnails",
+      "method": "expand-thumbnails",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[stored-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/root:/pictures/2014-08-27exp.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
+          "capture":
+          {
+            "[stored-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "New request configuration.",
+      "method": "upload-via-put",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-path}": "/Pictures/newfile.txt"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/pictures/newfile.txt",
+          "allowed-status-codes": [204, 404]
+        }
+      ]
+    },
+
+    {
+      "name": "Download a text file",
+      "method": "download-item-content",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "PUT /drive/root:/Documents/foobar.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will download",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Documents folder",
+      "method": "get-special-folder",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "documents"
+      }
+    },
+    {
+      "name": "Photos folder",
+      "method": "get-special-folder",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "photos"
+      }
+    },
+    {
+      "name": "Camera Roll folder",
+      "method": "get-special-folder",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "cameraroll"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/special/cameraroll:/2014-08-27camroll.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}"
+        }
+      ]
+    },
+
+    {
+      "name": "Application Folder",
+      "method": "get-special-folder",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "approot"
+      }
+    },
+
+    {
+      "name": "Documents folder",
+      "method": "get-special-children",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "documents"
+      }
+    },
+    {
+      "name": "Photos folder",
+      "method": "get-special-children",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "photos"
+      }
+    },
+    {
+      "name": "Camera Roll folder",
+      "method": "get-special-children",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "cameraroll"
+      }
+    },
+    {
+      "name": "Public folder",
+      "method": "get-special-children",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "public"
+      }
+    },
+    {
+      "name": "Application folder",
+      "method": "get-special-children",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{special-folder-name}": "approot"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/special/approot/children/2014-08-27approot.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}"
+        }
+      ]
+    },
+    {
+      "name": "Create ApiTestTool folder",
+      "method": "create-folder",
+      "enabled": true,
+      "request-parameters":
+      {
+        "$.name": "ApiTestTool"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/ApiTestTool",
+          "allowed-status-codes": [204, 404]
+        }
+      ]
+    },
+    {
+      "name": "Move test_move_file.txt from root to documents folder",
+      "method": "move-item",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/test_move_file.txt",
+          "allowed-status-codes": [204, 404]
         },
-        "capture": {
-           "[source-file-id]": "$.id"
-           }
-      }
-    ],
-    "request-parameters":
-    {
-      "{item-id}": "[source-file-id]",
-      "$.parentReference.id": null
-    }
-  },
-  {
-    "name": "Get first medium thumbnail",
-    "method": "get-one-thumbnail",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{item-id}": "[new-item-id]",
-      "{thumb-id}": "0",
-      "{size}": "medium"
-    },
-
-    "test-setup":
-    [
-      {
-        "http-request": "PATCH /drive/root:/pictures/2014-08-25med.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
-        "capture": {
-          "[new-item-id]": "$.id"
-        }
-      }
-    ]
-  },
-  {
-    "name": "Get many thumbnails",
-    "method": "get-many-thumbnails",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{item-id}": "root"
-    }
-  },
-  {
-    "name": "Enumerate thumbnails",
-    "method": "enum-thumbnails",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{item-id}": "[folder-item-id]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "GET /drive/special/photos",
-        "capture": {
-          "[folder-item-id]": "$.id"
-        }
-      }
-    ]
-  },
-  {
-    "name": "",
-    "method": "get-thumbnail-content",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-id}": "[read-item-id]",
-      "{thumb-id}": "0",
-      "{size}": "large"
-
-    },
-
-    "test-setup":
-    [
-      {
-        "http-request": "PATCH /drive/root:/pictures/2014-08-26lrg.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
-        "capture":
         {
-          "[read-item-id]": "$.id"
-        }
-      }
-    ]
-  },
-  {
-    "name": "Find items with 2014 in the keywords",
-    "method": "search",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{search-text}": "2014"
-    }
-  },
-
-  {
-    "name": "Get root folder changes",
-    "method": "get-changes",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-id}": "root",
-      "{token}": "a"
-    }
-  },
-
-  {
-    "name": "Delete a Folder",
-    "method": "delete-item",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-id}": "[new-item-id]"
-    },
-
-    "test-setup":
-    [
-      {
-        "http-request": "POST /drive/root/children\r\nContent-Type: application/json\r\n\r\n{\r\n  \"name\": \"Folder_To_Delete\",\r\n  \"folder\": { }\r\n}\n",
-        "capture":
+          "http-request": "DELETE /drive/root:/documents/test_move_file.txt",
+          "allowed-status-codes": [204, 404]
+        },
         {
-          "[new-item-id]": "$.id"
+          "http-request": "PUT /drive/root:/test_move_file.txt:/content\r\n\r\nTest file that we will move to another location",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
         }
-      }
-    ]
-  },
-
-  {
-    "name": "Get a list of available thumbnails",
-    "method": "expand-thumbnails",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-id}": "[stored-item-id]"
+      ]
     },
-
-    "test-setup":
-    [
+    {
+      "name": "Move folder from root to Documents folder",
+      "method": "update-item-move-folder",
+      "enabled": true,
+      "request-parameters":
       {
-        "http-request": "PATCH /drive/root:/pictures/2014-08-27exp.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
-        "capture":
-        {
-          "[stored-item-id]": "$.id"
-        }
-      }
-    ]
-  },
-
-  {
-    "name": "New request configuration.",
-    "method": "upload-via-put",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-path}": "/Pictures/newfile.txt"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/pictures/newfile.txt",
-        "allowed-status-codes": [204, 404]
-      }
-    ]
-  },
-
-  {
-    "name": "Download a text file",
-    "method": "download-item-content",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-id}": "[new-item-id]"
-    },
-
-    "test-setup":
-    [
-      {
-        "http-request": "PUT /drive/root:/Documents/foobar.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will download",
-        "capture":
-        {
-          "[new-item-id]": "$.id"
-        }
-      }
-    ]
-  },
-
-  {
-    "name": "Documents folder",
-    "method": "get-special-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "documents"
-    }
-  },
-  {
-    "name": "Photos folder",
-    "method": "get-special-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "photos"
-    }
-  },
-  {
-    "name": "Camera Roll folder",
-    "method": "get-special-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "cameraroll"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "PATCH /drive/special/cameraroll:/2014-08-27camroll.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}"
-      }
-    ]
-  },
-
-  {
-    "name": "Application Folder",
-    "method": "get-special-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "approot"
-    }
-  },
-
-  {
-    "name": "Documents folder",
-    "method": "get-special-children",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "documents"
-    }
-  },
-  {
-    "name": "Photos folder",
-    "method": "get-special-children",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "photos"
-    }
-  },
-  {
-    "name": "Camera Roll folder",
-    "method": "get-special-children",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "cameraroll"
-    }
-  },
-  {
-    "name": "Public folder",
-    "method": "get-special-children",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "public"
-    }
-  },
-  {
-    "name": "Application folder",
-    "method": "get-special-children",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{special-folder-name}": "approot"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "PATCH /drive/special/approot/children/2014-08-27approot.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}"
-      }
-    ]
-  },
-  {
-    "name": "Create ApiTestTool folder",
-    "method": "create-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "$.name": "ApiTestTool"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/ApiTestTool",
-        "allowed-status-codes": [204, 404]
-      }
-    ]
-  },
-  {
-    "name": "Move test_move_file.txt from root to documents folder",
-    "method": "move-item",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "{item-id}": "[new-item-id]"
-    },
-
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/test_move_file.txt",
-        "allowed-status-codes": [204, 404]
+        "{item-id}": "[new-item-id]"
       },
-      {
-        "http-request": "DELETE /drive/root:/documents/test_move_file.txt",
-        "allowed-status-codes": [204, 404]
-      },
-      {
-        "http-request": "PUT /drive/root:/test_move_file.txt:/content\r\n\r\nTest file that we will move to another location",
-        "capture":
+      "test-setup":
+      [
         {
-          "[new-item-id]": "$.id"
+          "http-request": "DELETE /drive/root:/documents/newFolderName",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PATCH /drive/root:/test_folder_to_move\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
         }
-      }
-    ]
-  },
-  {
-    "name": "Move folder from root to Documents folder",
-    "method": "update-item-move-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{item-id}": "[new-item-id]"
+      ]
     },
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/documents/newFolderName",
-        "allowed-status-codes": [204, 404]
-      },
-      {
-        "http-request": "PATCH /drive/root:/test_folder_to_move\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}",
-        "capture":
-        {
-          "[new-item-id]": "$.id"
-        }
-      }
-    ]
-  },
-  {
-    "name": "Multipart upload into a children collection",
-    "method": "upload-multipart",
-    "enabled": true,
-
-    "request-parameters":
     {
-      "{folder-id}": "[new-folder-id]"
+      "name": "Multipart upload into a children collection",
+      "method": "upload-multipart",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{folder-id}": "[new-folder-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/root:/test_folder\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}",
+          "capture":
+          {
+            "[new-folder-id]": "$.id"
+          }
+        }
+      ]
     },
 
-    "test-setup":
-    [
-      {
-        "http-request": "PATCH /drive/root:/test_folder\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}",
-        "capture":
-        {
-          "[new-folder-id]": "$.id"
-        }
-      }
-    ]
-  },
-
-  {
-    "name": "Upload a file from URL",
-    "method": "upload-from-url",
-    "enabled": true,
-    "request-parameters":
     {
-      "{parent-item}": "root:/pictures:"
+      "name": "Upload a file from URL",
+      "method": "upload-from-url",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{parent-item}": "root:/pictures:"
+      }
+    },
+
+    {
+      "name": "Create a sharing link for an item",
+      "method": "create-link",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/sharedfile.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/sharedfile.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will share",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Get list of items shared with me",
+      "method": "shared-with-me",
+      "enabled": false
+    },
+
+    {
+      "name": "Get a shared item from another drive",
+      "method": "get-shared-item",
+      "enabled": false
+    },
+
+    {
+      "name": "Enumerate an item's permissions",
+      "method": "get-item-permissions",
+      "enabled": false,
+
+      "request-parameters":
+      {
+        "{item-id}": "root:/documents:"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "POST /drive/root:/Documents:/action.createLink\r\nContent-Type: application/json\r\n\r\n{\"type\":\"view\"}"
+        }
+      ]
+    },
+
+
+    {
+      "name": "Enumerate items shared by me",
+      "method": "shared-by-me",
+      "enabled": true,
+
+      "test-setup":
+      [
+        {
+          "http-request": "POST /drive/root:/Documents:/action.createLink\r\nContent-Type: application/json\r\n\r\n{\"type\":\"view\"}"
+        }
+      ]
+    },
+
+
+    {
+      "name": "Update an item's permissions",
+      "method": "update-permissions",
+      "enabled": false
+    },
+
+
+    {
+      "name": "Share an item by sending an email invitation",
+      "method": "send-sharing-invite",
+      "enabled": false
+    },
+
+
+    {
+      "name": "Create a chunked upload session",
+      "method": "upload-fragment-create-session",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-path}": "largefile.vhd"
+      }
+    },
+
+    {
+      "name": "Upload a file fragment",
+      "method": "upload-fragment-piece",
+      "enabled": true,
+      "request-parameters":
+      {
+        "!url": "[upload-url]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "capture":
+          {
+            "[upload-url]": "$.uploadUrl"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Cancel a chunked upload session",
+      "method": "upload-fragment-cancel",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "!url": "[upload-url]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "capture":
+          {
+            "[upload-url]": "$.uploadUrl"
+          }
+        }
+      ]
+    },
+
+
+    {
+      "name": "Resume a chunked upload session",
+      "method": "upload-fragment-resume",
+      "enabled": true,
+      "request-parameters":
+      {
+        "!url": "[upload-url]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "capture":
+          {
+            "[upload-url]": "$.uploadUrl"
+          }
+        }
+      ]
+    },
+
+
+    {
+      "name": "Upload a file fragment",
+      "method": "upload-fragment-final",
+      "enabled": true,
+      "request-parameters":
+      {
+        "!url": "[upload-url]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/chunky.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "capture":
+          {
+            "[upload-url]": "$.uploadUrl"
+          }
+        },
+        {
+          "http-request": "PUT {upload-url}\r\nContent-Type: application/octet-stream\r\nContent-Range: bytes 0-100/128\r\n\r\nuuuuupppppllllloooooaaaaaddddduuuuupppppllllloooooaaaaaddddduuuuupppppllllloooooaaaaaddddd!!!!!!!!!",
+          "request-parameters":
+          {
+            "!url": "[upload-url]"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "View MRU list",
+      "method": "view-recent-files",
+      "enabled": false,
+      "test-setup":
+      [
+        {
+          "http-request": "PUT /drive/root:/Documents/vrmtest.docx:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file for the mru",
+          "capture":
+          {
+            "[download-url]": "$.['@content.downloadUrl']"
+          }
+        },
+        {
+          "http-request": "GET {download-url}?mru=skydrive",
+          "request-parameters":
+          {
+            "{download-url}": "[download-url]"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Enumerate children of an empty folder",
+      "method": "enumerate-empty-folder",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{folder-name}": "[folder-name]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/EmptyFolder",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/EmptyFolder\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}",
+          "capture":
+          {
+            "[folder-name]": "$.name"
+          }
+        }
+      ]
     }
-  },
-
-  {
-    "name": "Create a sharing link for an item",
-    "method": "create-link",
-    "enabled": true,
-
-    "request-parameters":
+    ,
     {
-      "{item-id}": "[new-item-id]"
-    },
-
-    "test-setup":
-    [
+      "name": "Get an item's metadata",
+      "method": "get-item-metadata",
+      "enabled": true,
+      "request-parameters":
       {
-        "http-request": "DELETE /drive/root:/Documents/sharedfile.txt",
-        "allowed-status-codes": [204, 404]
+        "{item-id}": "[new-item-id]"
       },
-      {
-        "http-request": "PUT /drive/root:/Documents/sharedfile.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will share",
-        "capture":
+      "test-setup":
+      [
         {
-          "[new-item-id]": "$.id"
+          "http-request": "DELETE /drive/root:/Documents/sharedfile2.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/sharedfile2.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will share",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
         }
-      }
-    ]
-  },
-
-  {
-    "name": "Get list of items shared with me",
-    "method": "shared-with-me",
-    "enabled": false
-  },
-
-  {
-    "name": "Get a shared item from another drive",
-    "method": "get-shared-item",
-    "enabled": false
-  },
-
-  {
-    "name": "Enumerate an item's permissions",
-    "method": "get-item-permissions",
-    "enabled": false,
-
-    "request-parameters":
-    {
-      "{item-id}": "root:/documents:"
+      ]
     },
-
-    "test-setup":
-    [
-      {
-        "http-request": "POST /drive/root:/Documents:/action.createLink\r\nContent-Type: application/json\r\n\r\n{\"type\":\"view\"}"
-      }
-    ]
-  },
-
-
-  {
-    "name": "Enumerate items shared by me",
-    "method": "shared-by-me",
-    "enabled": true,
-
-    "test-setup":
-    [
-      {
-        "http-request": "POST /drive/root:/Documents:/action.createLink\r\nContent-Type: application/json\r\n\r\n{\"type\":\"view\"}"
-      }
-    ]
-  },
-
-
-  {
-    "name": "Update an item's permissions",
-    "method": "update-permissions",
-    "enabled": false
-  },
-
-
-  {
-    "name": "Share an item by sending an email invitation",
-    "method": "send-sharing-invite",
-    "enabled": false
-  },
-
-
-  {
-    "name": "Create a chunked upload session",
-    "method": "upload-fragment-create-session",
-    "enabled": true,
-
-    "request-parameters":
     {
-      "{item-path}": "largefile.vhd"
+      "name": "Get File Versions",
+      "method": "get-previous-versions",
+      "enabled": false,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will make multiple versions of.",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will."
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will look at old versions of."
+        }
+      ]
+    },
+    {
+      "name": "Get Version Content",
+      "method": "get-version-content",
+      "enabled": false,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]",
+        "{version-id}": "[new-version-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent A",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent BB"
+        },
+        {
+          "http-request": "GET /drive/items/{item-id}/versions",
+          "request-parameters":
+          {
+            "{item-id}": "[new-item-id]"
+          },
+          "capture":
+          {
+            "[new-version-id]": "$.value[0].id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Single Version",
+      "method": "get-single-version",
+      "enabled": false,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]",
+        "{version-id}": "[new-version-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent A",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent BB"
+        },
+        {
+          "http-request": "GET /drive/items/{item-id}/versions",
+          "request-parameters":
+          {
+            "{item-id}": "[new-item-id]"
+          },
+          "capture":
+          {
+            "[new-version-id]": "$.value[0].id"
+          }
+        }
+      ]
     }
-  },
-
-  {
-    "name": "Upload a file fragment",
-    "method": "upload-fragment-piece",
-    "enabled": true,
-    "request-parameters":
-    {
-      "!url": "[upload-url]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-        "capture":
-        {
-          "[upload-url]": "$.uploadUrl"
-        }
-      }
-    ]
-  },
-
-  {
-    "name": "Cancel a chunked upload session",
-    "method": "upload-fragment-cancel",
-    "enabled": true,
-
-    "request-parameters":
-    {
-      "!url": "[upload-url]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-        "capture":
-        {
-          "[upload-url]": "$.uploadUrl"
-        }
-      }
-    ]
-  },
-
-
-  {
-    "name": "Resume a chunked upload session",
-    "method": "upload-fragment-resume",
-    "enabled": true,
-    "request-parameters":
-    {
-      "!url": "[upload-url]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-        "capture":
-        {
-          "[upload-url]": "$.uploadUrl"
-        }
-      }
-    ]
-  },
-
-
-  {
-    "name": "Upload a file fragment",
-    "method": "upload-fragment-final",
-    "enabled": true,
-    "request-parameters":
-    {
-      "!url": "[upload-url]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/Documents/chunky.txt",
-        "allowed-status-codes": [204, 404]
-      },
-      {
-        "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-        "capture":
-        {
-          "[upload-url]": "$.uploadUrl"
-        }
-      },
-      {
-        "http-request": "PUT {upload-url}\r\nContent-Type: application/octet-stream\r\nContent-Range: bytes 0-100/128\r\n\r\nuuuuupppppllllloooooaaaaaddddduuuuupppppllllloooooaaaaaddddduuuuupppppllllloooooaaaaaddddd!!!!!!!!!",
-        "request-parameters":
-        {
-          "!url": "[upload-url]"
-        }
-      }
-    ]
-  },
-
-  {
-    "name": "View MRU list",
-    "method": "view-recent-files",
-    "enabled": false,
-    "test-setup":
-    [
-      {
-        "http-request": "PUT /drive/root:/Documents/vrmtest.docx:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file for the mru",
-        "capture":
-        {
-          "[download-url]": "$.['@content.downloadUrl']"
-        }
-      },
-      {
-        "http-request": "GET {download-url}?mru=skydrive",
-        "request-parameters":
-        {
-          "{download-url}": "[download-url]"
-        }
-      }
-    ]
-  },
-
-  {
-    "name": "Enumerate children of an empty folder",
-    "method": "enumerate-empty-folder",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{folder-name}": "[folder-name]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/EmptyFolder",
-        "allowed-status-codes": [204, 404]
-      },
-      {
-        "http-request": "PUT /drive/root:/EmptyFolder\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}",
-        "capture":
-        {
-          "[folder-name]": "$.name"
-        }
-      }
-    ]
-  }
-  ,
-  {
-    "name": "Get an item's metadata",
-    "method": "get-item-metadata",
-    "enabled": true,
-    "request-parameters":
-    {
-      "{item-id}": "[new-item-id]"
-    },
-    "test-setup":
-    [
-      {
-        "http-request": "DELETE /drive/root:/Documents/sharedfile2.txt",
-        "allowed-status-codes": [204, 404]
-      },
-      {
-        "http-request": "PUT /drive/root:/Documents/sharedfile2.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will share",
-        "capture":
-        {
-          "[new-item-id]": "$.id"
-        }
-      }
-    ]
-  }
-]
+  ]
 }

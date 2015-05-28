@@ -43,28 +43,28 @@ Here is a JSON representation of an Item.
 ## Properties
 The Item object has these properties.
 
-| Property name            | Type                                           | Description                                                                                               |
-|:-------------------------|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------|
-| **id**                   | string                                         | The unique identifier of the item within the Drive. Read-only.                                            |
-| **name**                 | string                                         | The name of the item (filename and extension). Writable.                                                  |
-| **eTag**                 | string                                         | eTag for the entire item (metadata + content). Read-only.                                                 |
-| **cTag**                 | string                                         | An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Read-only. |
-| **createdBy**            | [IdentitySet](identitySet.md)                  | Identity of the user, device, and application which created the item. Read-only.                          |
-| **lastModifiedBy**       | [IdentitySet](identitySet.md)                  | Identity of the user, device, and application which last modified the item. Read-only.                    |
-| **createdDateTime**      | [timestamp](../facets/timestamp.md)            | Date and time of item creation. Read-only.                                                                |
-| **lastModifiedDateTime** | [timestamp](../facets/timestamp.md)            | Date and time the item was last modified. Read-only.                                                      |
-| **size**                 | 64-bit integer                                 | Size of the item in bytes. Read-only.                                                                     |
-| **parentReference**      | [ItemReference](itemReference.md)              | Parent information, if the item has a parent. Writeable                                                   |
-| **webUrl**               | string                                         | URL that displays the resource in the browser. Read-only.                                                 |
-| **folder**               | [FolderFacet](../facets/folder_facet.md)       | Folder metadata, if the item is a folder. Read-only.                                                      |
-| **file**                 | [FileFacet](../facets/file_facet.md)           | File metadata, if the item is a file. Read-only.                                                          |
-| **fileSystemInfo**       | [FileSystemInfoFacet](../facets/file_facet.md) | File system information on client. Read-only.                                                             |
-| **image**                | [ImageFacet](../facets/image_facet.md)         | Image metadata, if the item is an image. Read-only.                                                       |
-| **photo**                | [PhotoFacet](../facets/photo_facet.md)         | Photo metadata, if the item is a photo. Read-only.                                                        |
-| **audio**                | [AudioFacet](../facets/audio_facet.md)         | Audio metadata, if the item is an audio file. Read-only.                                                  |
-| **video**                | [VideoFacet](../facets/video_facet.md)         | Video metadata, if the item is a video. Read-only.                                                        |
-| **location**             | [LocationFacet](../facets/location_facet.md)   | Location metadata, if the item has location data. Read-only.                                              |
-| **deleted**              | [DeletedFacet](../facets/deleted_facet.md)     | Information about the deleted state of the item. Read-only.                                               |
+| Property name            | Type                                                     | Description                                                                                               |
+|:-------------------------|:---------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
+| **id**                   | string                                                   | The unique identifier of the item within the Drive. Read-only.                                            |
+| **name**                 | string                                                   | The name of the item (filename and extension). Writable.                                                  |
+| **eTag**                 | string                                                   | eTag for the entire item (metadata + content). Read-only.                                                 |
+| **cTag**                 | string                                                   | An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Read-only. |
+| **createdBy**            | [IdentitySet](identitySet.md)                            | Identity of the user, device, and application which created the item. Read-only.                          |
+| **lastModifiedBy**       | [IdentitySet](identitySet.md)                            | Identity of the user, device, and application which last modified the item. Read-only.                    |
+| **createdDateTime**      | [timestamp](../facets/timestamp.md)                      | Date and time of item creation. Read-only.                                                                |
+| **lastModifiedDateTime** | [timestamp](../facets/timestamp.md)                      | Date and time the item was last modified. Read-only.                                                      |
+| **size**                 | 64-bit integer                                           | Size of the item in bytes. Read-only.                                                                     |
+| **parentReference**      | [ItemReference](itemReference.md)                        | Parent information, if the item has a parent. Writeable                                                   |
+| **webUrl**               | string                                                   | URL that displays the resource in the browser. Read-only.                                                 |
+| **folder**               | [FolderFacet](../facets/folder_facet.md)                 | Folder metadata, if the item is a folder. Read-only.                                                      |
+| **file**                 | [FileFacet](../facets/file_facet.md)                     | File metadata, if the item is a file. Read-only.                                                          |
+| **fileSystemInfo**       | [FileSystemInfoFacet](../facets/filesysteminfo_facet.md) | File system information on client. Read-only.                                                             |
+| **image**                | [ImageFacet](../facets/image_facet.md)                   | Image metadata, if the item is an image. Read-only.                                                       |
+| **photo**                | [PhotoFacet](../facets/photo_facet.md)                   | Photo metadata, if the item is a photo. Read-only.                                                        |
+| **audio**                | [AudioFacet](../facets/audio_facet.md)                   | Audio metadata, if the item is an audio file. Read-only.                                                  |
+| **video**                | [VideoFacet](../facets/video_facet.md)                   | Video metadata, if the item is a video. Read-only.                                                        |
+| **location**             | [LocationFacet](../facets/location_facet.md)             | Location metadata, if the item has location data. Read-only.                                              |
+| **deleted**              | [DeletedFacet](../facets/deleted_facet.md)               | Information about the deleted state of the item. Read-only.                                               |
 
 ## Instance Attributes
 

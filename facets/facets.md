@@ -4,6 +4,7 @@ The following facets are defined in the OneDrive API:
 
 * [audio](../facets/audio_facet.md)
 * [file](../facets/file_facet.md)
+* [fileSystemInfo](../facets/filesysteminfo_facet.md)
 * [folder](../facets/folder_facet.md)
 * [hashes](../facets/hashes_facet.md)
 * [image](../facets/image_facet.md)
