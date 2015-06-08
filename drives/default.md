@@ -29,7 +29,7 @@ Content-Type: application/json
 
 {
   "id": "0123456789abc",
-  "driveType": "consumer",
+  "driveType": "personal",
   "owner": {
     "user": {
       "id": "12391913bac",

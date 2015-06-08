@@ -13,7 +13,7 @@ Save a file on the user's local device to OneDrive so it's available on all your
 | Platform | OneDrive | OneDrive for Business | Documentation                                                     |
 |:---------|:---------|:----------------------|:------------------------------------------------------------------|
 | Android  | Yes      | Yes                   | [Picker and saver SDK][android-picker]                            |
-| iOS      | Yes      | Yes                   | [UIDocumentPicker][ios-picker]                                    |
+| iOS      | Yes      | Not yet               | [UIDocumentPicker][ios-picker]                                    |
 | Web      | Yes      | Not yet               | [Picker and saver SDK][web-picker]                                |
 | Windows  | Yes      | Not yet               | [FileOpenPicker][windows-picker], [FileSavePicker][windows-saver] |
 

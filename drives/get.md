@@ -47,7 +47,7 @@ Content-Type: application/json
     "deleted": 0,
     "state": "normal"
   },
-  "driveType": "consumer"
+  "driveType": "personal"
 }
 
 ```
