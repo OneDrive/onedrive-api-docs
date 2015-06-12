@@ -43,7 +43,7 @@ Business](../app-registration.md#register-your-app-for-onedrive-for-business).
 To sign into OneDrive for Business the first time, your app needs the following
 values:
 
-* Client ID and secret as registered with Azure Active Directory (AAD)
+* Client ID and Key (client secret) as registered with Azure Active Directory (AAD)
 * Authorization code received from OAuth 2 authorization code flow
 * OneDrive for Business API endpoint URL
 * Access token for the OneDrive for Business resource
@@ -129,7 +129,7 @@ required parameters:
 |:----------------|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------|
 | *client_id*     | string | The client ID value created for your application.                                                                                        |
 | *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete. This should match the *redirect_uri* in the first request. |
-| *client_secret* | string | The client secret created for your application.                                                                                          |
+| *client_secret* | string | One of the Key values created for your application.                                                                                      |
 | *code*          | string | The authorization code you received in the first authentication request.                                                                 |
 | *resource*      | string | The resource you want to access.                                                                                                         |
 
@@ -244,7 +244,7 @@ The request body is a URL encoded string, with the following parameters:
 |:----------------|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | *client_id*     | string | The client ID created for your application.                                                                                                         |
 | *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete. This should match the *redirect_uri* value used in the first request. |
-| *client_secret* | string | The client secret created for your application.                                                                                                     |
+| *client_secret* | string | One of the Keys values created for your application.                                                                                                     |
 | *refresh_token* | string | The refresh token you received previously.                                                                                                          |
 | *resource_id*   | string | The resource you want to access. This should be the previously discovered **serviceResourceId** value.                                              |
 
