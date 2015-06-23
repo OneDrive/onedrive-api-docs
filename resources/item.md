@@ -58,7 +58,7 @@ The Item object has these properties.
 | **webUrl**               | string                                                   | URL that displays the resource in the browser. Read-only.                                                 |
 | **folder**               | [FolderFacet](../facets/folder_facet.md)                 | Folder metadata, if the item is a folder. Read-only.                                                      |
 | **file**                 | [FileFacet](../facets/file_facet.md)                     | File metadata, if the item is a file. Read-only.                                                          |
-| **fileSystemInfo**       | [FileSystemInfoFacet](../facets/filesysteminfo_facet.md) | File system information on client. Read-only.                                                             |
+| **fileSystemInfo**       | [FileSystemInfoFacet](../facets/filesysteminfo_facet.md) | File system information on client. Read-write.                                                            |
 | **image**                | [ImageFacet](../facets/image_facet.md)                   | Image metadata, if the item is an image. Read-only.                                                       |
 | **photo**                | [PhotoFacet](../facets/photo_facet.md)                   | Photo metadata, if the item is a photo. Read-only.                                                        |
 | **audio**                | [AudioFacet](../facets/audio_facet.md)                   | Audio metadata, if the item is an audio file. Read-only.                                                  |
@@ -89,7 +89,7 @@ The following table defines the relationships that the Item resource has to othe
 |:------------------|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **content**       | octet-stream                               | The content stream, if the Item represents a file.                                                                                                           |
 | **children**      | [Item](item.md) collection                 | Collection containing Item objects for the immediate children of Item. Only items representing folders have children.                                        |
-| **thumbnails**    | [ThumbnailSet](thumbnailSet.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../items/get_thumbnails.md). |
+| **thumbnails**    | [ThumbnailSet](thumbnailSet.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../items/thumbnails.md). |
 
 
 <!-- {

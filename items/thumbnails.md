@@ -1,16 +1,21 @@
-# Get thumbnails for an item on OneDrive
+# Thumbnails for an item on OneDrive
 
-There are three common tasks related to getting thumbnails:
+An item in OneDrive can be represented by zero or more **ThumbnailSet** objects.   Each **ThumbnailSet** can have one or more **Thumbnail** objects, which are images that represent the item.   For example, a **ThumbnailSet** may include **Thumbnail** objects, such as common ones including `small`, `medium`, or `large` and customly defined ones such as `c300x400_Crop`.   Items have **ThumbnailSet** objects that are either generated automatically by OneDrive based off the item or that are defined by a customly uploaded image.
+
+There are many ways to work with thumbnails on OneDrive.   Here are the most common ones:
 
 * Enumerate available thumbnails for an item
 * Retrieve a single thumbnail for an item
+* Retrieve thumbnail content
 * Retrieve thumbnails for multiple items in a single request
+* Retrieve custom thumbnail sizes
+* Upload a custom thumbnail for an item
+* Determine if a custom uploaded thumbnail exists
 
 ## Enumerate available thumbnails
 
-To enumerate the available thumbnails for an item, you make a request to the
-**thumbnails** collection on any item. This returns an array of available
-**thumbnailSets** for the item. Any item in OneDrive can have zero or more thumbnails.
+To enumerate the available thumbnails for an item, you make the following request using the
+**thumbnails** collection on any item. 
 
 ### HTTP request
 
@@ -18,6 +23,8 @@ To enumerate the available thumbnails for an item, you make a request to the
 ```http
 GET /drive/items/{item-id}/thumbnails
 ```
+
+This returns an array of available **thumbnailSets** for the item. Any item in OneDrive can have zero or more thumbnails.
 
 **Note:** You can use the _select_ query string parameter to control which
 thumbnail sizes are returned in the **ThumbnailSet**. For example, `/thumbnails?select=medium` retrieves only the medium sized thumbnails.
@@ -68,7 +75,7 @@ GET /drive/items/{item-id}/thumbnails/{thumb-id}/{size}
 | Name       | Type   | Description                                                                              |
 |:-----------|:-------|:-----------------------------------------------------------------------------------------|
 | _item-id_  | string | The unique identifier for the item referenced.                                           |
-| _thumb-id_ | number | The index of the thumbnail, usually 0-4.                                                 |
+| _thumb-id_ | number | The index of the thumbnail, usually 0-4. If there is a custom thumbnail, its index is 0. |
 | _size_     | string | The size of the thumbnail requested. This can be one of the standard sizes listed below. |
 
 
@@ -192,7 +199,8 @@ return a value quickly:
 | `largeSquare`  | 800x800     | Square Crop  | Large square thumbnail                                               |
 
 
-## Custom Thumbnail Sizes
+## Custom thumbnail sizes
+
 In addition to the defined sizes, your app can request a custom thumbnail size
 by specifying the dimensions of the thumbnail prefixed with `c`. For example
 if you need thumbnails that are 300x400, you can request that size like this:
@@ -203,11 +211,84 @@ GET /drive/items/{item-id}/thumbnails?select=c300x400_Crop
 
 You can specify the following options after the size of the thumbnail requested:
 
-#### Examples of Custom identifiers
+#### Examples of custom identifiers
 | Thumbnail identifier | Resolution             | Aspect ratio | Description                                                                                                                                         |
 |:---------------------|:-----------------------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | c300x400             | Bounded by 300x400 box | Original     | Generate a thumbnail that fits inside a 300x400 pixel box, maintaining aspect ratio                                                                 |
 | c300x400_Crop        | 300x400                | Cropped      | Generate a thumbnail that is 300x400 pixels. This works by resizing the image to fill the 300x300 box and cropping whatever spills outside the box. |
+
+
+## Upload a custom thumbnail on an item
+
+This request allows your app to upload a custom thumbnail, which persists with the file
+even if the file's contents is updated, to any item that has the `file` facet.   If a 
+custom uploaded thumbnail is already set, then this request will overwrite that existing 
+custom uploaded thumbnail.   
+
+### HTTP request
+
+```
+PUT /drive/items/{item-id}/thumbnails/0/source/content
+Content-Type: image/jpeg
+
+The contents of the image goes here.
+```
+
+### Response
+```http
+HTTP/1.1 200 OK
+```
+
+If successful, this call returns a `200 OK` response to indicate that custom thumbnail was
+upload successfully. In the response, the `Content-Location` and the `Location` response 
+header will return the URL to that custom thumbnail.
+
+
+
+## Determine if a custom uploaded thumbnail exists
+
+To determine if a custom uploaded thumbnail exists on a file, look for the `source` property 
+on the thumbnail set. If it has a value, then the value represents the custom uploaded 
+thumbnail. If it is not present, then no custom uploaded thumbnail exists.
+
+```
+GET /drive/items/{item-id}/?expand=thumbnails(select=large,medium,small,source)
+```
+### Response
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+```http
+HTTP/1.1 200 OK
+
+{
+   "thumbnails":[
+      {
+         "id":"0",
+         "large":{
+            "height":800,
+            "url":"https://dhbkba-sn3302.files.1drv.com/y2mfq7dB...IlE9xeFMPb0jZMt7SI",
+            "width":753
+         },
+         "medium":{
+            "height":176,
+            "url":"https://dhbkba-sn3302.files.1drv.com/y2m...Gx3-VnOqMmoW4l15cjX9ADw",
+            "width":166
+         },
+         "small":{
+            "height":96,
+            "url":"https://dhbkba-sn3302.files.1drv.com/y2m2T1...SLCIKpScctlzybSdNXxE",
+            "width":90
+         },
+         "source":{
+            "height":500,
+            "url":"https://dhbkba-sn3302.files.1drv.com/y2m2T1...89mxla9x7OeLhMdbIteg",
+            "width":500
+         }         
+      }
+   ]
+}
+```
+**Note:** The response object is truncated for clarity. All default properties will be returned from the actual call.
+
 
 ### Error responses
 

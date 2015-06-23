@@ -33,13 +33,19 @@ To start an upload session, POST a request to the path to the file or to the par
 item's item ID and name of the file to be uploaded. No request body is required.
 **Note:** the parent folder must exist before you call createSession.
 
+To specify a non-default conflict behavior provide the `item` parameter in the
+request body with the appropriate value for the `@name.conflictBehavior` instance annotation.
+
 <!-- { "blockType": "request", "name": "upload-fragment-create-session" } -->
 ```http
 POST /drive/root:/{item-path}:/upload.createSession
 Content-Type: application/json
 
 {
-  "@name.conflictBehavior": "rename"
+  "item": {
+    "@name.conflictBehavior": "rename",
+    "name": "largefile.dat"
+  }
 }
 ```
 

@@ -72,7 +72,8 @@ should always use the default drive syntax: `/drive/`.
 ### No thumbnails collection
 
 The thumbnails collection does not exist for OneDrive for Business currently.
-Calls that expand the thumbnails collection or refer to it directly will fail:
+Calls that expand the thumbnails collection or refer to it directly including 
+custom uploaded thumbnails  will fail:
 
 `GET /drive/root?expand=thumbnails`
 

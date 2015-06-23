@@ -190,7 +190,7 @@ a collection of items under the folder.
 | [Get thumbnails for an Item][get-thumbnails]     | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
 
 [item-changes]: items/view_changes.md
-[get-thumbnails]: items/get_thumbnails.md
+[get-thumbnails]: items/thumbnails.md
 
 ## Special folders
 Commonly used folders like Documents and Photos can be accessed with static

@@ -34,12 +34,14 @@ GET /drive/items/{item-id}/content
 
 ## Response
 
-Returns a `302 Found` response redirecting to `@content.downloadUrl` for file download on success.
+Returns a `302 Found` response redirecting to a download URL for the file. This
+is the same URL available through the `@content.downloadUrl` property on an item.
+
 To download the contents of the file your application will need to follow
-the `Location` header in the response and include the `Authorization` header
-to have access to download the file. Not all HTTP client libraries will
-automatically include the headers of the original request when following a 302
-redirection.
+the `Location` header in the response.
+
+Download URLs are only valid for a short time period and do not require an
+`Authorization` header to download.
 
 <!-- { "blockType": "response", "@odata.type": "stream" } -->
 ```http

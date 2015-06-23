@@ -11,7 +11,7 @@ Here is a JSON representation of a Drive resource.
 ```json
 {
   "id": "string",
-  "driveType": "string",
+  "driveType": "personal | business",
   "owner": { "@odata.type": "oneDrive.identitySet" },
   "quota": { "@odata.type": "oneDrive.quota" }
 }

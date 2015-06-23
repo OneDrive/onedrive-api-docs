@@ -61,7 +61,7 @@ Your app's folder supports all the standard `item` operations.
 | [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/special/approot:/{path}:/thumbnails`            |
 
 [item-changes]: ../items/view_changes.md
-[get-thumbnails]: ../items/get_thumbnails.md
+[get-thumbnails]: ../items/thumbnails.md
 
 <!-- {
   "type": "#page.annotation",

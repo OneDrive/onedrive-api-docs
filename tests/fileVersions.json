@@ -1,0 +1,109 @@
+{
+  "scenarios":[
+    {
+      "name": "Get File Versions",
+      "method": "get-previous-versions",
+      "enabled": false,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will make multiple versions of.",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will."
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will look at old versions of."
+        }
+      ]
+    },
+    {
+      "name": "Get Version Content",
+      "method": "get-version-content",
+      "enabled": false,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]",
+        "{version-id}": "[new-version-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent A",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent BB"
+        },
+        {
+          "http-request": "GET /drive/items/{item-id}/versions",
+          "request-parameters":
+          {
+            "{item-id}": "[new-item-id]"
+          },
+          "capture":
+          {
+            "[new-version-id]": "$.value[0].id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Single Version",
+      "method": "get-single-version",
+      "enabled": false,
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]",
+        "{version-id}": "[new-version-id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent A",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent BB"
+        },
+        {
+          "http-request": "GET /drive/items/{item-id}/versions",
+          "request-parameters":
+          {
+            "{item-id}": "[new-item-id]"
+          },
+          "capture":
+          {
+            "[new-version-id]": "$.value[0].id"
+          }
+        }
+      ]
+    }
+  ]
+}
