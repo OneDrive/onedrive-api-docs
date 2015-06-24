@@ -31,8 +31,6 @@ properties:
 {
   "code": "string",
   "message": "string",
-  "target": "string",
-  "details": [{"@odata.type": "error.detail"}],
   "innererror": { "@odata.type": "odata.error" }
 }
 ```
@@ -41,30 +39,7 @@ properties:
 |:---------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------|
 | **code**       | string                 | An error code string for the error that occured                                                            |
 | **message**    | string                 | A developer ready message about the error that occured. This should not be displayed to the user directly. |
-| **target**     | string                 | Optional. Provides more information on the targer resource that generated the error.                       |
-| **details**    | array of error details | Optional. Provides more information on the specifics of the error message.                                 |
-| **innererror** | error object           | Optional. Additional error messages that may be more specific than the top level error.                    |
-
-
-
-#### error.detail resource type
-
-The details property is a collection of resources using this definition:
-
-<!-- { "blockType": "resource", "@odata.type": "error.detail" } -->
-```json
-{
-  "code": "string",
-  "message": "string",
-  "target": "string"
-}
-```
-
-| Property name | Value  | Description\                                                                                               |
-|:--------------|:-------|:-----------------------------------------------------------------------------------------------------------|
-| **code**      | string | An error code string for the error that occured.                                                            |
-| **message**   | string | A developer ready message about the error that occured. This should not be displayed to the user directly. |
-| **target**    | string | Optional. Provides more information on the targer resource that generated the error.                       |
+| **innererror** | error object           | Optional. Additional error objects that may be more specific than the top level error.                     |
 
 
 <!-- {

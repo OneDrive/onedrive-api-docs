@@ -1,4 +1,4 @@
-## Case sensitivity notes
+# Case sensitivity notes
 
 This topic describes the case sensitivity for parts of the OneDrive REST API in detail.
 

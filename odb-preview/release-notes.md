@@ -72,7 +72,7 @@ should always use the default drive syntax: `/drive/`.
 ### No thumbnails collection
 
 The thumbnails collection does not exist for OneDrive for Business currently.
-Calls that expand the thumbnails collection or refer to it directly including 
+Calls that expand the thumbnails collection or refer to it directly including
 custom uploaded thumbnails  will fail:
 
 `GET /drive/root?expand=thumbnails`
@@ -125,10 +125,18 @@ for Business.
 
 ### Extra OData metadata is returned
 
-The OneDrive API currently returns all available OData v4.0 metadata for an item on OneDrive for Business. You can reduce the metadata returned, if it is not useful, by using the **Accept** header:
+The OneDrive API currently returns all available OData v4.0 metadata for an item
+on OneDrive for Business. You can reduce the metadata returned, if it is not
+useful, by using the **Accept** header:
+
 ```
 Accept: application/json; odata.metadata=none
 ```
+
+### File transfers do not support range header
+
+When downloading files from OneDrive for Business the `Range` header is not
+implemented and the entire file is always returned with an HTTP 200 status code.
 
 ## Pickers and savers
 

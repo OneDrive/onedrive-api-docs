@@ -3,6 +3,12 @@
 The OneDrive API provides several optional query parameters that can be used
 to control the specify the data returned in a response.
 
+Covered in this topic:
+
+* [Selecting properties](#selecting-properties)
+* [Expanding collections](#expanding-collections)
+* [Sorting collections](#sorting-collections)
+
 ## Selecting properties
 You can use the _select_ query string parameter to provide a comma-separated
 list of properties to return on [Items][item-resource].
@@ -98,7 +104,7 @@ Content-Type: application/json
 }
 ```
 
-## Sorting objects
+## Sorting collections
 
 You can use the _orderby_ query string to control the sort order of the items
 returned from the OneDrive API. For a collection of items, use the following fields in the _orderby_ parameter.

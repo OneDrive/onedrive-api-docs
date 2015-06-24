@@ -1,4 +1,4 @@
-# Path encoding
+# Path encoding and reserved characters
 
 OneDrive supports addressing files and folders using the path of the item in the
 user's OneDrive. However, because the path contains user specified content which
@@ -12,15 +12,21 @@ The following is a summary of how to properly encode paths for the OneDrive API.
 The following characters are OneDrive reserved characters, and can't be used in OneDrive folder and file names.
 
 ```
-  onedrive-reserved  = "/" / "\" / "*" / "<" / ">" / "?" / ":" / "|" / ","
+  onedrive-reserved  = "/" / "\" / "*" / "<" / ">" / "?" / ":" / "|"
+  onedrive-business-reserved
+                     = "/" / "\" / "*" / "<" / ">" / "?" / ":" / "|" / "#" / "%"
 ```
 
-**Note:** Additionally, folder names can't end with a period (`.`)
+**Note:** Folder names can't end with a period (`.`).
+
+**Note:** OneDrive for Business file or folder names cannot begin with a
+tilde ('~'). See [Restrictions and limitations with OneDrive for Business](https://support.microsoft.com/en-us/kb/2933738)
+for more information.
 
 ### URI path characters
 
 When constructing the path segment of a URL for the OneDrive API, the following
-characeters are allowed for path names, based on the URI RFC.
+characters are allowed for path names, based on the URI RFC.
 
 ```
   pchar       = unreserved / pct-encoded / sub-delims / ":" / "@"
@@ -43,19 +49,24 @@ example:
 
 ### Common URL encoding mistakes
 You can't encode an entire URL in one call, because the encoding rules for
-each segment of a URL are different. Without proper encoding, the unencoded URL will be ambiguous for which segments contain which content.
+each segment of a URL are different. Without proper encoding, the unencoded URL
+will be ambiguous for which segments contain which content.
 As such, you need to encode the URL path when building your URL string.
 
 For example, instead of writing this:
+
 ```
 string url = url_encode("https://api.onedrive.com/v1.0/drive/root:/" + path + ":/children")
 ```
+
 Write this:
+
 ```
 string url = "https://api.onedrive.com/v1.0/drive/root:/" + url_path_encode(path) + ":/children")
 ```
 
-However, not all URL encoding libraries respect all the requirements of standard URL path encoding.
+However, not all URL encoding libraries respect all the requirements of standard
+URL path encoding.
 
 ### .NET / C-Sharp / Visual Basic
 
@@ -139,8 +150,8 @@ To address each of Ryan's files, you use percent encoding, as follows:
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Learn how to properly encode paths for the OneDrive API",
-  "keywords": "constructing urls, path encoding",
+  "description": "Information on path name encoding and restrictions on characters for file and folder names in OneDrive API.",
+  "keywords": "constructing urls, path encoding, restrictions, file name limits",
   "section": "documentation",
-  "tocPath": "Misc/Encoding Paths"
+  "tocPath": "Misc/Filename encoding"
 } -->
