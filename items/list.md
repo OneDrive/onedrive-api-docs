@@ -56,12 +56,18 @@ Content-Type: application/json
     {"name": "Documents", "folder": { "childCount": 4} },
     {"name": "Photos", "folder": { "childCount": 203} },
     {"name": "my sheet(1).xlsx", "size": 197 }
-  ]
+  ],
+  "@odata.nextLink": "https://..."
 }
 ```
 
 **Note:** Response objects are truncated for clarity. All default properties
 will be returned from the actual call.
+
+**Note:** If a collection exceeds the default page size, the **@odata.nextLink**
+property is returned in the response that can be used to request the next page
+of items in the collection. You can control the page size through
+[optional query string parameters](../odata/optional-query-parameters.md).
 
 ### Error responses
 
