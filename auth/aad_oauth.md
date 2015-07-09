@@ -327,7 +327,7 @@ The following topics contain high-level overviews of other concepts that apply
 to the OneDrive API.
 
 * [Develop with the OneDrive API](../readme.md)
-* [Using Azure Active Directory for Authorization](https://msdn.microsoft.com/en-us/library/azure/dn385718.aspx)
+* [Using Azure Active Directory for authentication](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/)
 * [OneDrive authentication and sign-in using Microsoft accounts](msa_oauth.md)
 * [Office 365 authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks)
 * [OAuth 2.0 in Auzure AD](https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx)
