@@ -15,7 +15,7 @@ There are many ways to work with thumbnails on OneDrive.   Here are the most com
 ## Enumerate available thumbnails
 
 To enumerate the available thumbnails for an item, you make the following request using the
-**thumbnails** collection on any item. 
+**thumbnails** collection on any item.
 
 ### HTTP request
 
@@ -193,7 +193,7 @@ return a value quickly:
 |:---------------|:------------|:-------------|:---------------------------------------------------------------------|
 | `small`        | 96 longest  | Original     | Small, highly compressed thumbnail cropped to a square aspect ratio. |
 | `medium`       | 176 longest | Original     | Cropped to the standard item size for the OneDrive web view.         |
-| `large`        | 800 longest | Original     | Thumbnail with the longest edge resized to 800 pixels.              |
+| `large`        | 800 longest | Original     | Thumbnail with the longest edge resized to 800 pixels.               |
 | `smallSquare`  | 96x96       | Square Crop  | Small square thumbnail                                               |
 | `mediumSquare` | 176x176     | Square Crop  | Small square thumbnail                                               |
 | `largeSquare`  | 800x800     | Square Crop  | Large square thumbnail                                               |
@@ -215,15 +215,15 @@ You can specify the following options after the size of the thumbnail requested:
 | Thumbnail identifier | Resolution             | Aspect ratio | Description                                                                                                                                         |
 |:---------------------|:-----------------------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | c300x400             | Bounded by 300x400 box | Original     | Generate a thumbnail that fits inside a 300x400 pixel box, maintaining aspect ratio                                                                 |
-| c300x400_Crop        | 300x400                | Cropped      | Generate a thumbnail that is 300x400 pixels. This works by resizing the image to fill the 300x300 box and cropping whatever spills outside the box. |
+| c300x400_Crop        | 300x400                | Cropped      | Generate a thumbnail that is 300x400 pixels. This works by resizing the image to fill the 300x400 box and cropping whatever spills outside the box. |
 
 
 ## Upload a custom thumbnail on an item
 
 This request allows your app to upload a custom thumbnail, which persists with the file
-even if the file's contents is updated, to any item that has the `file` facet.   If a 
-custom uploaded thumbnail is already set, then this request will overwrite that existing 
-custom uploaded thumbnail.   
+even if the file's contents is updated, to any item that has the `file` facet.   If a
+custom uploaded thumbnail is already set, then this request will overwrite that existing
+custom uploaded thumbnail.
 
 ### HTTP request
 
@@ -240,19 +240,20 @@ HTTP/1.1 200 OK
 ```
 
 If successful, this call returns a `200 OK` response to indicate that custom thumbnail was
-upload successfully. In the response, the `Content-Location` and the `Location` response 
+upload successfully. In the response, the `Content-Location` and the `Location` response
 header will return the URL to that custom thumbnail.
 
 
 
 ## Determine if a custom uploaded thumbnail exists
 
-To determine if a custom uploaded thumbnail exists on a file, look for the `source` property 
-on the thumbnail set. If it has a value, then the value represents the custom uploaded 
+To determine if a custom uploaded thumbnail exists on a file, look for the `source` property
+on the thumbnail set. If it has a value, then the value represents the custom uploaded
 thumbnail. If it is not present, then no custom uploaded thumbnail exists.
 
+<!-- { "blockType": "request", "name": "get-custom-thumbnail" } -->
 ```
-GET /drive/items/{item-id}/?expand=thumbnails(select=large,medium,small,source)
+GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,source)
 ```
 ### Response
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
@@ -282,7 +283,7 @@ HTTP/1.1 200 OK
             "height":500,
             "url":"https://dhbkba-sn3302.files.1drv.com/y2m2T1...89mxla9x7OeLhMdbIteg",
             "width":500
-         }         
+         }
       }
    ]
 }

@@ -22,6 +22,7 @@ Here is a JSON representation of an Item.
   "lastModifiedDateTime": "string (timestamp)",
   "size": 1024,
   "webUrl": "url",
+  "description": "string",
   "parentReference": { "@odata.type": "oneDrive.itemReference"},
   "children": [ { "@odata.type": "oneDrive.item" } ],
   "folder": { "@odata.type": "oneDrive.folder" },
@@ -46,7 +47,7 @@ The Item object has these properties.
 | Property name            | Type                                                     | Description                                                                                               |
 |:-------------------------|:---------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
 | **id**                   | string                                                   | The unique identifier of the item within the Drive. Read-only.                                            |
-| **name**                 | string                                                   | The name of the item (filename and extension). Writable.                                                  |
+| **name**                 | string                                                   | The name of the item (filename and extension). Read-write.                                                |
 | **eTag**                 | string                                                   | eTag for the entire item (metadata + content). Read-only.                                                 |
 | **cTag**                 | string                                                   | An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Read-only. |
 | **createdBy**            | [IdentitySet](identitySet.md)                            | Identity of the user, device, and application which created the item. Read-only.                          |
@@ -54,8 +55,9 @@ The Item object has these properties.
 | **createdDateTime**      | [timestamp](../facets/timestamp.md)                      | Date and time of item creation. Read-only.                                                                |
 | **lastModifiedDateTime** | [timestamp](../facets/timestamp.md)                      | Date and time the item was last modified. Read-only.                                                      |
 | **size**                 | 64-bit integer                                           | Size of the item in bytes. Read-only.                                                                     |
-| **parentReference**      | [ItemReference](itemReference.md)                        | Parent information, if the item has a parent. Writeable                                                   |
+| **parentReference**      | [ItemReference](itemReference.md)                        | Parent information, if the item has a parent. Read-write.                                                 |
 | **webUrl**               | string                                                   | URL that displays the resource in the browser. Read-only.                                                 |
+| **description**          | string                                                   | Provide a user-visible description of the item. Read-write.                                               |
 | **folder**               | [FolderFacet](../facets/folder_facet.md)                 | Folder metadata, if the item is a folder. Read-only.                                                      |
 | **file**                 | [FileFacet](../facets/file_facet.md)                     | File metadata, if the item is a file. Read-only.                                                          |
 | **fileSystemInfo**       | [FileSystemInfoFacet](../facets/filesysteminfo_facet.md) | File system information on client. Read-write.                                                            |
@@ -65,6 +67,13 @@ The Item object has these properties.
 | **video**                | [VideoFacet](../facets/video_facet.md)                   | Video metadata, if the item is a video. Read-only.                                                        |
 | **location**             | [LocationFacet](../facets/location_facet.md)             | Location metadata, if the item has location data. Read-only.                                              |
 | **deleted**              | [DeletedFacet](../facets/deleted_facet.md)               | Information about the deleted state of the item. Read-only.                                               |
+
+
+**Note:** The `eTag` and `cTag` properties work differently on
+containers (folders). The `cTag` value is modified when content or metadata of
+any descendant of the folder is changed. The `eTag` value is only modified when
+the folder's properties are changed, except for properties that are derived
+from descendants (like `childCount` or `lastModifiedDateTime`).
 
 ## Instance Attributes
 
@@ -85,10 +94,10 @@ URL will only be available for a short period of time before it is invalidated.
 
 The following table defines the relationships that the Item resource has to other resources.
 
-| Relationship name | Type                                       | Description                                                                                                                                                  |
-|:------------------|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **content**       | octet-stream                               | The content stream, if the Item represents a file.                                                                                                           |
-| **children**      | [Item](item.md) collection                 | Collection containing Item objects for the immediate children of Item. Only items representing folders have children.                                        |
+| Relationship name | Type                                       | Description                                                                                                                                              |
+|:------------------|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **content**       | octet-stream                               | The content stream, if the Item represents a file.                                                                                                       |
+| **children**      | [Item](item.md) collection                 | Collection containing Item objects for the immediate children of Item. Only items representing folders have children.                                    |
 | **thumbnails**    | [ThumbnailSet](thumbnailSet.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../items/thumbnails.md). |
 
 

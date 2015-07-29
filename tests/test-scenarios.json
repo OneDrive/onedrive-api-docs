@@ -23,6 +23,10 @@
       "request-parameters":
       {
         "{drive-id}": "[read-drive-id]"
+      },
+      "expectations":
+      {
+        "$.driveType": ["personal", "business"],
       }
     },
     {
@@ -158,6 +162,10 @@
       "test-setup":
       [
         {
+          "http-request": "DELETE /drive/root:/Folder_To_Delete",
+          "allowed-status-codes": [204, 404]
+        },
+        {
           "http-request": "POST /drive/root/children\r\nContent-Type: application/json\r\n\r\n{\r\n  \"name\": \"Folder_To_Delete\",\r\n  \"folder\": { }\r\n}\n",
           "capture":
           {
@@ -188,7 +196,27 @@
         }
       ]
     },
+    {
+      "name": "Select custom source thumbnail",
+      "method": "get-custom-thumbnail",
+      "enabled": true,
 
+      "request-parameters":
+      {
+        "{item-id}": "[stored-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "PATCH /drive/root:/pictures/2014-08-27exp.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
+          "capture":
+          {
+            "[stored-item-id]": "$.id"
+          }
+        }
+      ]
+    },
     {
       "name": "New request configuration.",
       "method": "upload-via-put",
@@ -685,6 +713,48 @@
         }
       ]
     }
-
+    ,
+    {
+      "name": "Test expand option",
+      "method": "expand-folder",
+      "enabled": true,
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Test/FolderWithChildren",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Test/FolderWithChildren\r\nContent-Type: application/json\r\n\r\n{\"folder\":{}}"
+        },
+        {
+          "http-request": "PUT /drive/root:/Test/FolderWithChildren/testfile.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file for expand option"
+        }
+      ]
+    }
+    ,
+    {
+      "name": "Test select option",
+      "method": "select-properties",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{id}": "[id]"
+      },
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Test/FolderForSelect",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Test/FolderForSelect/testfile.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file for select option",
+          "capture":
+          {
+            "[id]": "$.id"
+          }
+        }
+      ]
+    }
   ]
 }

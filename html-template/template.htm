@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{#url stylesheet.nav.css}}" />
+  <link rel="stylesheet" href="{{#url 'stylesheet.nav.css'}}" />
   <link rel="shortcut icon" href="https://p.sfx.ms/about/v20/non-localizable/img/chrome/favicon.ico" />
   {{#each HtmlHeaderAdditions}}{{Value}}
   {{/each}}
@@ -28,19 +28,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{#url index.htm}}">
-                <img src="{{#url onedrive_api_blue.png}}" height="24" alt="OneDrive API" align="absmiddle">
+            <a class="navbar-brand" href="{{#url 'index.htm'}}">
+                <img src="{{#url 'onedrive_api_blue.png'}}" height="24" alt="OneDrive API" align="absmiddle">
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{#url index.htm}}">Home</a></li>
-                <li {{#ifmatch Page.Section documentation }} class="active" {{/ifmatch}}><a href="{{#url README.htm}}">Documentation</a></li>
-                <li {{#ifmatch Page.Section sdks }} class="active" {{/ifmatch}}><a href="{{#url sdks.htm}}">SDKs</a></li>
-                <li {{#ifmatch Page.Section samples}} class="active" {{/ifmatch}}><a href="{{#url sample-code.htm}}">Samples</a></li>
+                <li><a href="{{#url 'index.htm'}}">Home</a></li>
+                <li {{#ifmatch Page.Section 'documentation' }} class="active" {{/ifmatch}}><a href="{{#url 'README.htm'}}">Documentation</a></li>
+                <li {{#ifmatch Page.Section 'sdks' }} class="active" {{/ifmatch}}><a href="{{#url 'sdks.htm'}}">SDKs</a></li>
+                <li {{#ifmatch Page.Section 'samples'}} class="active" {{/ifmatch}}><a href="{{#url 'sample-code.htm'}}">Samples</a></li>
 
                 <li><a href="https://apigee.com/OneDrive/embed/console/OneDrive" target="_new">Console</a></li>
-                <li {{#ifmatch Page.Section appreg}} class="active" {{/ifmatch}}><a href="{{#url app-registration.htm}}">App Registration</a></li>
+                <li {{#ifmatch Page.Section 'appreg'}} class="active" {{/ifmatch}}><a href="{{#url 'app-registration.htm'}}">App Registration</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-sm visible-md visible-lg">
                 <li><a href="https://github.com/onedrive/onedrive-api-docs/">Read on GitHub</a></li>
@@ -52,13 +52,13 @@
 
 <!-- HTML Page Content Start -->
 <div class="container wrapper" id="body">
-    {{#ifmatch Page.Section documentation }}
+    {{#ifmatch Page.Section 'documentation' }}
     <div class="row">
         <div class="col-md-9">
             {{Body}}
         </div>
         <div id="tocbar" class="col-md-3 visible-md visible-lg">
-            <p><a href="{{#url README.htm}}">Getting Started</a></p>
+            <p><a href="{{#url 'README.htm'}}">Getting Started</a></p>
             <ul>
                 {{#each Headers}}
                 <li>{{#if Url}}<a href="{{Url}}">{{Title}}</a>{{#else}}{{Title}}{{/if}}</li>
@@ -138,8 +138,8 @@
 {{/each}}
 
 <!--
-<script src="{{#url get-token.js}}"></script>
-<script src="{{#url api_runner.js}}"></script>
+<script src="{{#url 'get-token.js'}}"></script>
+<script src="{{#url 'api_runner.js'}}"></script>
 -->
 
 <!-- Bootstrap core JavaScript
@@ -148,7 +148,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{#url ie10-viewport-bug-workaround.js}}"></script>
+<script src="{{#url 'ie10-viewport-bug-workaround.js'}}"></script>
 
 
 <script>

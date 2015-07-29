@@ -64,9 +64,9 @@ Content-Type: application/json
 **Note:** Response objects are truncated for clarity. All default properties
 will be returned from the actual call.
 
-**Note:** If a collection exceeds the default page size, the **@odata.nextLink**
-property is returned in the response that can be used to request the next page
-of items in the collection. You can control the page size through
+**Note:** If a collection exceeds the default page size (200 items), the **@odata.nextLink**
+property is returned in the response to indicate more items are available and
+provide the request URL for the next page of items. You can control the page size through
 [optional query string parameters](../odata/optional-query-parameters.md).
 
 ### Error responses

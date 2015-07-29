@@ -1,0 +1,39 @@
+{
+  "scenarios":[
+    {
+      "name": "Resume a download with Range",
+      "method": "download-item-partial",
+      "enabled": true,
+      "request-parameters":
+      {
+        "!url": "[download-url]",
+        "Range:": "bytes=4-"
+      },
+      "test-setup": [
+        {
+          "method": "delete-item",
+          "request-parameters":
+          {
+            "{item-id}": "root:/test-folder/test-file-range.txt"
+          },
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "method": "upload-via-put",
+          "request-parameters": {
+            "{item-path}": "/test-folder/test-file-range.txt"
+          },
+          "capture": {
+            "[stored-item-id]": "$.id"
+          }
+        },
+        {
+          "method": "download-item-content",
+          "request-parameters": {"{item-id}": "[stored-item-id]" },
+          "allowed-status-codes": [302],
+          "capture": { "[download-url]": "Location:" }
+        }
+      ]
+    }
+  ]
+}

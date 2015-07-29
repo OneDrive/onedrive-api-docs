@@ -1,7 +1,7 @@
 # OneDrive API optional query parameters
 
 The OneDrive API provides several optional query parameters that can be used
-to control the specify the data returned in a response.
+to control the specific data returned in a response.
 
 Covered in this topic:
 

@@ -1,7 +1,7 @@
 # View changes for a OneDrive Item and its children
 
-This method allows your app to enumerate the changes under a OneDrive folder from a specified state, represented by a
-change token. This enables your app to maintain a local representation of the contents of a drive and update the local state efficiently.
+This method allows your app to enumerate the sync changes under a OneDrive folder from a specified state. Each change is represented by a
+change token. This enables your app to maintain a local copy of the drive, and update the local state efficiently.
 
 ## HTTP request
 
@@ -54,6 +54,11 @@ In these cases the service returns **@changes.resync** with a value of either
 of items, as if you had started without a sync token. After finishing the full resync, compare
 the returned items with your local state and follow these instructions.
 
+**Note:** When using `view.changes` the `parentReference` property will not
+include a value for `path`. This occurs because renaming a folder does not result
+in any descendants of the folder being returned from `view.changes`. When using
+`view.changes` you should always track items by `id`.
+
 | Value of **@changes.resync** | Instructions                                                                                                                                                                                                                    |
 |:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `applyDifferences`           | Replace any local items with the server's version (including deletes) if you're sure that the service was up to date with your local changes when you last sync'd. Upload any local changes that the server doesn't know about. |
@@ -86,6 +91,7 @@ Content-type: application/json
 ```
 
 **Notes:**
+
 * The Response object is truncated for clarity. All default properties will be returned from the actual call.
 * The parent item will always be returned before any child items.
 * By default each response will include the next 200 changes available on the service. You can modify the number of changes returned in a single call by using the _$top_ query string parameter.

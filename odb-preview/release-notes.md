@@ -7,14 +7,14 @@ we're heading with the OneDrive developer platform.
 For production applications that need to work flawlessly, you should
 continue to use the [Office 365 Files API v1.0](https://msdn.microsoft.com/en-us/office/office365/api/files-rest-operations) for now.
 
-## API Differences
+## API differences
 
 While our end goal is that the OneDrive API works uniformly for OneDrive and
 OneDrive for Business, we're not there yet. There are several important
 differences you'll need to be aware of until the API is fully released.
 
 Aspects of OneDrive API that are not available for OneDrive for Business
-are called out below:
+are listed below:
 
 ### Authentication
 
@@ -138,6 +138,40 @@ Accept: application/json; odata.metadata=none
 When downloading files from OneDrive for Business the `Range` header is not
 implemented and the entire file is always returned with an HTTP 200 status code.
 
+## Blocked file extensions
+
+OneDrive for Business and SharePoint online block several file extensions from
+being uploaded to the server.
+
+* .ashx - ASP.NET Web handler file
+* .asmx - ASP.NET Web Services source file
+* .json - JavaScript Object Notation file
+* .soap - Simple Object Access Protocol file
+* .svc - Windows Communication Foundation (WCF) service file
+* .xamlx - Visual Studio Workflow service file
+
+See [Types of files that cannot be added to a list or library][blocked-extensions]
+for more information on blocked file extensions.
+
+[blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
+
+## Chunked-encoding
+
+OneDrive for Business always sends download requests as chunked-encoded
+transfers. Even if you send the `Accept-Encoding: identity` header for the
+request the response will use chunked encoding.
+
+## Parent reference path
+
+OneDrive for Business returns a parent path that is only relative to the
+root of the OneDrive. It does not include the `/drive/root:` syntax that
+is returned in OneDrive consumer.
+
+## Image and photo facets
+
+OneDrive for Business never returns the `photo` facet. The `image` facet is
+returned, but only includes a single property: `dateTimeTaken`.
+
 ## Pickers and savers
 
 The OneDrive pickers and savers support OneDrive and OneDrive for Business
@@ -150,6 +184,7 @@ Picking and saving files to OneDrive only, is supported on these platforms:
 * Apple iOS
 * Windows Universal Apps
 * Web (JavaScript)
+
 
 
 ## Send us feedback!

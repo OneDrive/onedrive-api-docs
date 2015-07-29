@@ -1,0 +1,28 @@
+{
+  "scenarios":[
+    {
+      "name": "Ensure parent path is valid",
+      "method": "upload-via-put",
+      "enabled": true,
+      "request-parameters":
+      {
+        "{item-path}": "/test-folder/test-file.txt",
+        "!body": "This is a test file uploaded to test-folder."
+      },
+      "test-setup": [
+        {
+          "method": "delete-item",
+          "request-parameters":
+          {
+            "{item-id}": "root:/test-folder/test-file.txt"
+          },
+          "allowed-status-codes": [204, 404]
+        }
+      ],
+      "expectations":
+      {
+        "$.parentReference.path": "/drive/root:/test-folder"
+      }
+    }
+  ]
+}
