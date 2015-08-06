@@ -23,9 +23,18 @@ Save a file on the user's local device to OneDrive so it's available on all your
 [windows-picker]:https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]:https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 
-## Full API SDKs
+## OneDrive API SDKs
 
-_Coming soon_
+Use the OneDrive SDK for your platform to quickly start using the OneDrive API
+without the need to get into all the details of authentication, JSON parsing,
+HTTP connections and more. Just install the SDK into your project and get going.
+
+| Platform | OneDrive | OneDrive for Business | Documentation                                                            |
+|:---------|:---------|:----------------------|:-------------------------------------------------------------------------|
+| iOS      | Yes      | Yes                   | [OneDriveSDK on cocoadocs.org](http://cocoadocs.org/docsets/OneDriveSDK) |
+
+We're working hard to bring SDKs for Android, Windows universal apps, and more
+as soon as possible. Stay tuned!
 
 Don't see your favorite platform?   [Suggest it on UserVoice](http://onedrive.uservoice.com/forums/262982-onedrive/category/89523-developer).
 
