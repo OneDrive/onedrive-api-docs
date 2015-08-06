@@ -29,9 +29,11 @@ Use the OneDrive SDK for your platform to quickly start using the OneDrive API
 without the need to get into all the details of authentication, JSON parsing,
 HTTP connections and more. Just install the SDK into your project and get going.
 
-| Platform | OneDrive | OneDrive for Business | Documentation                                                            |
-|:---------|:---------|:----------------------|:-------------------------------------------------------------------------|
-| iOS      | Yes      | Yes                   | [OneDriveSDK on cocoadocs.org](http://cocoadocs.org/docsets/OneDriveSDK) |
+| Platform       | OneDrive | OneDrive for Business | Documentation                                                            |
+|:---------------|:---------|:----------------------|:-------------------------------------------------------------------------|
+| [iOS][ios-sdk] | Yes      | Yes                   | [OneDriveSDK on cocoadocs.org](http://cocoadocs.org/docsets/OneDriveSDK) |
+
+[ios-sdk]: https://github.com/onedrive/onedrive-sdk-ios
 
 We're working hard to bring SDKs for Android, Windows universal apps, and more
 as soon as possible. Stay tuned!
