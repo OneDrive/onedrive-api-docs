@@ -31,7 +31,7 @@ HTTP connections and more. Just install the SDK into your project and get going.
 
 | Platform       | OneDrive | OneDrive for Business | Documentation                                                            |
 |:---------------|:---------|:----------------------|:-------------------------------------------------------------------------|
-| [iOS][ios-sdk] | Yes      | Yes                   | [OneDriveSDK on cocoadocs.org](http://cocoadocs.org/docsets/OneDriveSDK) |
+| [iOS][ios-sdk] | Yes      | Preview               | [OneDriveSDK](https://github.com/OneDrive/onedrive-sdk-ios/blob/master/README.md) |
 
 [ios-sdk]: https://github.com/onedrive/onedrive-sdk-ios
 
