@@ -1,0 +1,15 @@
+{
+  "scenarios":[
+    {
+      "name": "Get root folder deltas",
+      "method": "get-delta",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "root",
+        "{token}": "a"
+      }
+    }
+  ]
+}

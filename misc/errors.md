@@ -12,6 +12,7 @@ response object. The following HTTP status codes should be expected.
 | 405         | Method Not Allowed              | The HTTP method in the request is not allowed on the resource.                                                                         |
 | 406         | Not Acceptable                  | This service doesn’t support the format requested in the Accept header.                                                                |
 | 409         | Conflict                        | The current state conflicts with what the request expects. For example, the specified parent folder might not exist.                   |
+| 410         | Gone                            | The requested resource is no longer available at the server.                                               |
 | 411         | Length Required                 | A Content-Length header is required on the request.                                                                                    |
 | 412         | Precondition Failed             | A precondition provided in the request (such as an if-match header) does not match the resource's current state.                       |
 | 413         | Request Entity Too Large        | The request size exceeds the maximum limit.                                                                                            |

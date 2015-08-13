@@ -3,6 +3,11 @@
 This method allows your app to enumerate the sync changes under a OneDrive folder from a specified state. Each change is represented by a
 change token. This enables your app to maintain a local copy of the drive, and update the local state efficiently.
 
+
+**Note: `view.changes` has been replaced with [`view.delta`](view_delta.md),
+which has new features and simplifications to error-handling and paging.
+Please use [`view.delta``](view_delta.md) instead.**
+
 ## HTTP request
 
 ````
