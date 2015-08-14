@@ -16,7 +16,7 @@ The Identity type represents an identity of an _actor_. For example, and actor c
 | Property name   | Type   | Description                                                                                                                                                                                                                                                                              |
 |:----------------|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **id**          | string | Unique identifier for the identity.                                                                                                                                                                                                                                                      |
-| **displayName** | string | The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, OneDrive may show the new value in a future response, but the items associated with the user won't show up as having changed in `view.changes` |
+| **displayName** | string | The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, OneDrive may show the new value in a future response, but the items associated with the user won't show up as having changed in `view.delta` |
 
 
 <!-- {

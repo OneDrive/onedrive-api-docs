@@ -73,7 +73,7 @@ that looks like this:
 
 You'll notice that the notification does not include any information about the
 changes that triggered the notification. Your app is expected
-to use the **view.changes** verb to detect any changes to the state of items in
+to use the **view.delta** verb to detect any changes to the state of items in
 OneDrive and store the `syncToken` value for the next time you are notified.
 
 #### Error handling

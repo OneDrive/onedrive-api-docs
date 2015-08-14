@@ -85,7 +85,7 @@ The **view.search** action is not yet implemented for OneDrive for Business.
 
 ### No support for deltas
 
-The **view.changes** action is not yet implemented for OneDrive for Business.
+The **view.changes/view.delta** actions are not yet implemented for OneDrive for Business.
 
 ### Downloading file content
 

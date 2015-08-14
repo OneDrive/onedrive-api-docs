@@ -109,11 +109,3 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
-
-<!-- {
-  "type": "#page.annotation",
-  "description": "Sync changes from the service to your client state.",
-  "keywords": "sync,view.changes,$delta",
-  "section": "documentation",
-  "tocPath": "Items/Sync Changes"
-} -->

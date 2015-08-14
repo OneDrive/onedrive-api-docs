@@ -57,10 +57,10 @@ Your app's folder supports all the standard `item` operations.
 | [Copy an Item](../items/copy.md)                    | `POST /drive/special/approot:/{path}:/action.copy`          |
 | [Download an Item's contents](../items/download.md) | `GET /drive/special/approot:/{path}:/content`               |
 | [Search for an Item](../items/search.md)            | `GET /drive/special/approot:/{path}:/view.search`           |
-| [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/view.changes`          |
+| [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/view.delta`            |
 | [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/special/approot:/{path}:/thumbnails`            |
 
-[item-changes]: ../items/view_changes.md
+[item-changes]: ../items/view_delta.md
 [get-thumbnails]: ../items/thumbnails.md
 
 <!-- {

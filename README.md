@@ -157,7 +157,7 @@ In the next table, the examples use `/drive`, but
 | [Get Drive metadata of another Drive][drive-get]        | `GET /drives/{drive-id}`       |
 | [Get root folder for user's default Drive][item-get]    | `GET /drive/root`              |
 | [List children under the Drive][item-children]          | `GET /drive/root/children`     |
-| [List changes for all Items in the Drive][item-changes] | `GET /drive/root/view.changes` |
+| [List changes for all Items in the Drive][item-changes] | `GET /drive/root/view.delta`   |
 | [Search for Items in the Drive][item-search] (preview)  | `GET /drive/root/view.search`  |
 | [Access special folder](#special-folders)               | `GET /drive/special/{name}`    |
 
@@ -186,10 +186,10 @@ a collection of items under the folder.
 | [Copy an Item](items/copy.md)                    | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |
 | [Download an Item's contents](items/download.md) | `GET /drive/items/{id}/content`                        | `GET /drive/root:/{path}:/content`               |
 | [Search for an Item](items/search.md)            | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
-| [View changes on an Item][item-changes]          | `GET /drive/items/{id}/view.changes`                   | `GET /drive/root:/{path}:/view.changes`          |
+| [View changes on an Item][item-changes]          | `GET /drive/items/{id}/view.delta`                     | `GET /drive/root:/{path}:/view.delta`            |
 | [Get thumbnails for an Item][get-thumbnails]     | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
 
-[item-changes]: items/view_changes.md
+[item-changes]: items/view_delta.md
 [get-thumbnails]: items/thumbnails.md
 
 ## Special folders
@@ -271,7 +271,7 @@ Our documentation is tested against the service on every change.
 [drive-resource]: resources/drive.md
 [item-resource]: resources/item.md
 [drive-get]: drives/get.md
-[item-changes]: items/view_changes.md
+[item-changes]: items/view_delta.md
 [item-search]: items/search.md
 [item-children]: items/list.md
 [permission-resource]: facets/permission_facet.md
