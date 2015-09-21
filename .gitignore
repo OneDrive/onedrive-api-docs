@@ -1,3 +1,6 @@
+# Custom configuration files
+appveyor.yml
+
 ## Ignore Mac File System files
 .DS_Store
 
