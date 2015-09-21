@@ -9,7 +9,7 @@ function createTokenFetcher()
   var appInfo = {
     "clientId": "0000000044148889",
     "scopes": "onedrive.readwrite wl.signin",
-    "redirectUri": "https://dev-staging.onedrive.com/auth/callback.htm"
+    "redirectUri": "https://dev.onedrive.com/auth/callback.htm"
   };
   this.addToPage = function(afterElementId) {
 
