@@ -66,6 +66,13 @@
                 <ul>
                     {{#each NextLevel}}
                     <li><a href="{{Url}}">{{Title}}</a></li>
+                    {{#if NextLevel}}
+                    <ul>
+                        {{#each NextLevel}}
+                        <li><a href="{{Url}}">{{Title}}</a></li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
                     {{/each}}
                 </ul>
                 {{/if}}
@@ -73,7 +80,7 @@
             </ul>
         </div>
     </div>
-    {{#else}}
+    {{#elsematch}}
     {{Body}}
     {{/ifmatch}}
 </div>
