@@ -44,7 +44,7 @@ Both methods require a **pickerOptions** object with the following parameters.
 var pickerOptions = {
   success: function(files) {
     // Handle returned file object(s)
-    alert("You picked " + file.values[0].fileName);
+    alert("You picked " + files.values[0].fileName);
   },
 
   cancel: function() {
