@@ -1,20 +1,43 @@
 # Release notes for using OneDrive API with OneDrive for Business (preview)
 
-The OneDrive API with OneDrive for Business is still a work in progress. We've
-released this preview to give developers an early look at the direction
-we're heading with the OneDrive developer platform.
+The OneDrive API now works with OneDrive for Business!
 
-For production applications that need to work flawlessly, you should
-continue to use the [Office 365 Files API v1.0](https://msdn.microsoft.com/en-us/office/office365/api/files-rest-operations) for now.
+We're still working on fully converging the developer experience for
+OneDrive and OneDrive for Business, but the OneDrive API now supports a common
+set of API calls that can be used with OneDrive, OneDrive for Business, and
+SharePoint document libraries.
 
-## API differences
+We'll continue to release updates to align the implementation of the
+OneDrive API between OneDrive and OneDrive for Business. To ensure that your
+application maintains functionality you must develop your OneDrive API
+integration based on this documentation. Do not assume that undocumented
+behavior will remain functional as we make these updates.
+
+## API differences between OneDrive and OneDrive for Business
 
 While our end goal is that the OneDrive API works uniformly for OneDrive and
 OneDrive for Business, we're not there yet. There are several important
-differences you'll need to be aware of until the API is fully released.
+differences you'll need to be aware right now.
 
-Aspects of OneDrive API that are not available for OneDrive for Business
+Differences in the OneDrive API between OneDrive and OneDrive for Business
 are listed below:
+
+* [Authentication](#authentication)
+* [API End Point](#api-end-point)
+* [CTag implemention](#ctag-implementation)
+* [Custom thumbnails](#custom-thumbnails)
+* [Thumbnails collection](#thumbnails-collection)
+* [Item searching](#item-searching)
+* [View deltas](#view-deltas)
+* [Downloading file content](#downloading-file-content)
+* [Special folders](#special-folders)
+* [Uploading items](#uploading-items)
+* [Rename on upload is not supported](#rename-on-upload-is-not-supported)
+* [Hashes are not returned for files](#hashes-are-not-returned-for-files)
+* [Extra OData metadata is returned](#extra-odata-metadata-is-returned)
+* [Blocked file extensions](#blocked-file-extensions)
+* [Image and photo facets](#image-and-photo-facets)
+* [Pickers and savers](#pickers-and-savers)
 
 ### Authentication
 
@@ -34,84 +57,66 @@ To use the OneDrive API with OneDrive for Business, your app needs to discover t
 tenant specific root URL to use. You can use the [Office discovery service API][discover-api]
 to find the correct root URL for the signed-in user.
 
-**Note**: The discovery API does not yet include the v2.0 API URL. You will need
-to discover the v1.0 URL and then modify the version number in the URL until
-the v2.0 service is included.
-
 [discover-api]: https://msdn.microsoft.com/en-us/office/office365/api/discovery-service-rest-operations
 
-### Cannot combine ID-based and Path-based addressing in a single HTTP call
+### CTag implementation
 
-URL path expressions that are a combination of ID-based and path-based
-addressing are not supported, such as:
+The **cTag** property of an item in OneDrive for Business returns only files and not folders.
 
-`GET /drive/items/{parent-item-id}:/my_file.docx:/content`
+### Custom thumbnails
 
-### Cannot use filename as key
+Setting a custom thumbnail for an item is not available in OneDrive for Business.
 
-URL path expressions that use the filename (instead of ID) as the key in the
-children collection are not supported:
+### Thumbnails collection
 
-`GET /drive/root/children/my_file.docx/content`
+Certain calls that expand the thumbnails collection or refer to it directly, including
+custom uploaded thumbnails will fail:
 
-### Delete requires an If-Match header
+`GET /drive/root:/{item-path}?expand=children(expand=thumbnails)`
 
-When using the delete action with OneDrive for Business you must specify an
-`If-Match` header in the request. The `If-Match` header must match the eTag of the Item. If the header is missing the delete call will fail.
+`GET /drive/items:/{item-id}/children?expand=thumbnails`
 
-You can work around this by including: `If-Match: *` in your delete request.
+However, you can access the thumbnails directly for a single item at a time:
+`GET /drive/items/{item-id}/thumbnails`
 
-### CTag not implemented
-The **cTag** property of an item is not returned for OneDrive for Business.
+### Item searching
 
-### Cannot reference a drive by drive-id
+Search will not return the following properties in OneDrive for Business:
 
-The `/drives/{drive-id}` syntax is not supported for OneDrive for Business. You
-should always use the default drive syntax: `/drive/`.
+* **createdBy**
+* **modifiedBy**
+* **parentReference**
 
-### No thumbnails collection
+### View deltas
 
-The thumbnails collection does not exist for OneDrive for Business currently.
-Calls that expand the thumbnails collection or refer to it directly including
-custom uploaded thumbnails  will fail:
+The **view.changes/view.delta** actions do not return the following properties in OneDrive for Business:
 
-`GET /drive/root?expand=thumbnails`
-
-`GET /drive/root:/my_photo.jpg:/thumbnails`
-
-### No support for item searching
-
-The **view.search** action is not yet implemented for OneDrive for Business.
-
-### No support for deltas
-
-The **view.changes/view.delta** actions are not yet implemented for OneDrive for Business.
+* **createdBy**
+* **lastModifiedBy**
+* **cTag**
+* **eTag**
+* **parentReference**
+* **size**
+* **fileSystemInfo**
 
 ### Downloading file content
 
-When downloading an item's content from OneDrive for Business, instead of
-receiving a `302` redirect to the download URL, the content will be returned
-directly as the response of the API call.
+When requesting the `/content` property of an item to download the file, you
+must provide the Authorization header, in order to be granted access to
+download. The response will always return a `302` redirect to the URL where the
+file can be downloaded from. This URL is pre-authenticated and does not require
+the Authorization header. If you specify an authorization header to this
+download URL when downloading an item's content from OneDrive for Business, you
+will receive a `401` error.
 
-### No special folders
+### Special folders
 
 The collection of special folders for a drive (`/special`) is not implemented.
 
 ### Uploading items
 
-The only available way to upload items with OneDrive for Business is to use the
-[Simple item upload](../items/upload_put.md) method.
-
-OneDrive for Business does not yet support upload from URL, multipart upload, or
-resumable item upload.
-
-### Creating sharing links
-
-The **action.createLink** action is not yet implemented for OneDrive for Business.
-
-### Copy is not supported
-
-The **action.copy** action is not yet implemented for OneDrive for Business.
+OneDrive for Business does not yet support upload from URL or multipart upload
+for item uploads.
 
 ### Rename on upload is not supported
 
@@ -133,12 +138,7 @@ useful, by using the **Accept** header:
 Accept: application/json; odata.metadata=none
 ```
 
-### File transfers do not support range header
-
-When downloading files from OneDrive for Business the `Range` header is not
-implemented and the entire file is always returned with an HTTP 200 status code.
-
-## Blocked file extensions
+### Blocked file extensions
 
 OneDrive for Business and SharePoint online block several file extensions from
 being uploaded to the server.
@@ -155,33 +155,25 @@ for more information on blocked file extensions.
 
 [blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
 
-## Chunked-encoding
+### Image and photo facets
 
-OneDrive for Business always sends download requests as chunked-encoded
-transfers. Even if you send the `Accept-Encoding: identity` header for the
-request the response will use chunked encoding.
+OneDrive for Business has a subset of information about images and photos
+available compared to OneDrive personal. The `photo` facet only provides the
+`takenDateTime` property.
 
-## Parent reference path
+The `image` facet is returned on items that are expected to be images, but has
+no properties.
 
-OneDrive for Business returns a parent path that is only relative to the
-root of the OneDrive. It does not include the `/drive/root:` syntax that
-is returned in OneDrive consumer.
-
-## Image and photo facets
-
-OneDrive for Business never returns the `photo` facet. The `image` facet is
-returned, but only includes a single property: `dateTimeTaken`.
-
-## Pickers and savers
+### Pickers and savers
 
 The OneDrive pickers and savers support OneDrive and OneDrive for Business
 on these platforms:
 
 * Android
+* iOS
 
 Picking and saving files to OneDrive only, is supported on these platforms:
 
-* Apple iOS
 * Windows Universal Apps
 * Web (JavaScript)
 
@@ -198,5 +190,5 @@ from you about the OneDrive API for OneDrive for Business.
   "description": "Read more about the differences in using OneDrive API with OneDrive for Business",
   "keywords": "release,notes,onedrive,onedrive for business,od4b,odb,files api,files api v2",
   "section": "documentation",
-  "tocPath": "OneDrive for Business (preview)/Release Notes"
+  "tocPath": "OneDrive for Business/Release Notes"
 } -->
