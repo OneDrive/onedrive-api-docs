@@ -338,5 +338,5 @@ to the OneDrive API.
   "description": "Learn how to authenticate your app with Azure Active Directory and get access to OneDrive for Business",
   "keywords": "authentication,oauth,azure active directory,aad,onedrive,api, onedrive for business",
   "section": "documentation",
-  "tocPath": "OneDrive for Business (preview)/Auth"
+  "tocPath": "OneDrive for Business/Auth"
 } -->
