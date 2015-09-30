@@ -11,6 +11,7 @@ function createTokenFetcher()
     "scopes": "onedrive.readwrite wl.signin",
     "redirectUri": "https://dev.onedrive.com/auth/callback.htm"
   };
+    
   this.addToPage = function(afterElementId) {
 
     if (!this.isPageSecure) {
