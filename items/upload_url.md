@@ -67,6 +67,10 @@ If an error occurs and the transfer can't continue, the status URL will return:
 HTTP/1.1 500 Internal Server Error
 ```
 
+## Remarks
+
+Uploading an item to OneDrive for Business using a URL is not yet supported. However, uploading an item to OneDrive for Business using data URI's is supported.
+
 [item-resource]: ../resources/item.md
 
 <!-- {

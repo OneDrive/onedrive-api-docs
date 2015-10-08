@@ -174,6 +174,18 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
 
+## Remarks
+
+In OneDrive for Business, `view.delta` will not return the following Item properties:
+
+* `createdBy`
+* `lastModifiedBy`
+* `cTag`
+* `eTag`
+* `parentReference`
+* `size`
+* `fileSystemInfo`
+
 <!-- {
   "type": "#page.annotation",
   "description": "Sync changes from the service to your client state.",

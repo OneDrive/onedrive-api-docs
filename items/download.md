@@ -34,13 +34,13 @@ GET /drive/items/{item-id}/content
 
 ## Response
 
-Returns a `302 Found` response redirecting to a download URL for the file. This
+Returns a `302 Found` response redirecting to a pre-authenticated download URL for the file. This
 is the same URL available through the `@content.downloadUrl` property on an item.
 
 To download the contents of the file your application will need to follow
 the `Location` header in the response.
 
-Download URLs are only valid for a short time period and do not require an
+Pre-authenticated download URLs are only valid for a short period of time (a few minutes) and do not require an
 `Authorization` header to download.
 
 <!-- { "blockType": "response", "@odata.type": "stream" } -->
@@ -81,6 +81,10 @@ Content-Range: bytes 0-1023/2048
 
 See [Error Responses][error-response] for more info about
 how errors are returned.
+
+## Remarks
+
+When you download an item's content by requesting its `/content` property, you must provide the Authorization header, in order to be granted access to download. The response would normally return a `302` redirect to the URL where the file can be downloaded from. This URL is pre-authenticated and does not require the Authorization header. However, if you specify an Authorization header to this download URL when downloading an item's content from OneDrive for Business, you will receive a `401` error.
 
 [error-response]: ../misc/errors.md
 [file-facet]: ../facets/file_facet.md

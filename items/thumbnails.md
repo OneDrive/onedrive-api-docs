@@ -1,6 +1,6 @@
 # Thumbnails for an item on OneDrive
 
-An item in OneDrive can be represented by zero or more **ThumbnailSet** objects.   Each **ThumbnailSet** can have one or more **Thumbnail** objects, which are images that represent the item.   For example, a **ThumbnailSet** may include **Thumbnail** objects, such as common ones including `small`, `medium`, or `large` and customly defined ones such as `c300x400_Crop`.   Items have **ThumbnailSet** objects that are either generated automatically by OneDrive based off the item or that are defined by a customly uploaded image.
+An item in OneDrive can be represented by zero or more **ThumbnailSet** objects.   Each **ThumbnailSet** can have one or more **Thumbnail** objects, which are images that represent the item.   For example, a **ThumbnailSet** may include **Thumbnail** objects, such as common ones including `small`, `medium`, or `large` and custom defined ones such as `c300x400_Crop`.   Items have **ThumbnailSet** objects that are either generated automatically by OneDrive based off the item or that are defined by a custom uploaded image.
 
 There are many ways to work with thumbnails on OneDrive.   Here are the most common ones:
 
@@ -19,7 +19,7 @@ To enumerate the available thumbnails for an item, you make the following reques
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "enum-thumbnails" } -->
+<!-- { "blockType": "request", "name": "enum-item-thumbnails" } -->
 ```http
 GET /drive/items/{item-id}/thumbnails
 ```
@@ -297,6 +297,17 @@ See [Error Responses][error-response] for more info about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+## Remarks
+
+In OneDrive for Business:
+
+* Custom thumbnails are not available.
+* Using these calls to expand the thumbnails collection will not work:
+
+`GET /drive/root:/{item-path}?expand=children(expand=thumbnails)`
+
+`GET /drive/items/{item-id}/children?expand=thumbnails`
 
 
 <!-- {
