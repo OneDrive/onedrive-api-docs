@@ -7,8 +7,8 @@ If an item is a [Folder](../facets/folder_facet.md) or [File](../facets/file_fac
 Here is a JSON representation of an Item.
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.item",
-       "optionalProperties": ["children", "folder", "file", "image", "audio",
-       "video", "location", "deleted", "specialFolder", "photo", "thumbnails",
+       "optionalProperties": ["children", "folder", "file", "image", "audio", "video",
+       "location", "deleted", "specialFolder", "photo", "thumbnails", "searchResult",
        "@name.conflictBehavior", "@content.downloadUrl", "@content.sourceUrl"] } -->
 ```json
 {
@@ -33,9 +33,11 @@ Here is a JSON representation of an Item.
   "audio": { "@odata.type": "oneDrive.audio" },
   "video": { "@odata.type": "oneDrive.video" },
   "location": { "@odata.type": "oneDrive.location" },
+  "searchResult": { "@odata.type": "oneDrive.searchResult"},
   "deleted": { "@odata.type": "oneDrive.deleted"},
   "specialFolder": { "@odata.type": "oneDrive.specialFolder" },
   "thumbnails": [ {"@odata.type": "oneDrive.thumbnailSet"} ],
+  "shared": {"@odata.type": "oneDrive.shared" },
   "@name.conflictBehavior": "string",
   "@content.downloadUrl": "url",
   "@content.sourceUrl": "url"
@@ -66,7 +68,8 @@ The Item object has these properties.
 | **audio**                | [AudioFacet](../facets/audio_facet.md)                   | Audio metadata, if the item is an audio file. Read-only.                                                  |
 | **video**                | [VideoFacet](../facets/video_facet.md)                   | Video metadata, if the item is a video. Read-only.                                                        |
 | **location**             | [LocationFacet](../facets/location_facet.md)             | Location metadata, if the item has location data. Read-only.                                              |
-| **deleted**              | [DeletedFacet](../facets/deleted_facet.md)               | Information about the deleted state of the item. Read-only.                                               |
+| **searchResult**         | [SearchResultFacet](../facets/searchresult_facet.md) | Search metadata, if the item is from a search result.                                                |
+| **deleted**              | [DeletedFacet](../facets/deleted_facet.md)     | Information about the deleted state of the item. Read-only.                                               |
 
 
 **Note:** The `eTag` and `cTag` properties work differently on
@@ -100,6 +103,9 @@ The following table defines the relationships that the Item resource has to othe
 | **children**      | [Item](item.md) collection                 | Collection containing Item objects for the immediate children of Item. Only items representing folders have children.                                    |
 | **thumbnails**    | [ThumbnailSet](thumbnailSet.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../items/thumbnails.md). |
 
+## Remarks
+
+In OneDrive for Business, the **cTag** property is not returned, if the Item is a [folder](../facets/folder_facet.md). 
 
 <!-- {
   "type": "#page.annotation",

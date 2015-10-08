@@ -189,6 +189,7 @@ a collection of items under the folder.
 | [View changes on an Item][item-changes]          | `GET /drive/items/{id}/view.delta`                     | `GET /drive/root:/{path}:/view.delta`            |
 | [Get thumbnails for an Item][get-thumbnails]     | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
 
+
 [item-changes]: items/view_delta.md
 [get-thumbnails]: items/thumbnails.md
 
@@ -250,6 +251,7 @@ OneDrive API to work with OneNote notebooks. Instead, use the
 
 
 # Related topics
+
 The following topics contain high level overviews of other concepts that apply
 to the OneDrive API.
 

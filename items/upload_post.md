@@ -94,6 +94,10 @@ be returned from the actual call.
 Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
+## Remarks
+
+The multipart upload method is not supported in OneDrive for Business.
+
 [error-response]: ../misc/errors.md
 
 <!-- {

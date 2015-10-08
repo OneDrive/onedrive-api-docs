@@ -10,6 +10,8 @@ Special folders are automatically created the first time an application attempts
 to write to one, if it doesn't already exist. If a user deletes one, it is
 recreated when written to again.
 
+**Note:**  If you have read-only permissions and request a special folder that doesn't exist, you'll receive a `403 Forbidden` error.
+
 Here are the special folders available to all clients.
 
 | Name        | Folder id    | Description                                                              |
@@ -86,12 +88,51 @@ To retrieve the contents of myfile.docx in the Documents folder:
 GET /drive/special/documents:/myfile.docx:/content
 ```
 
+## HEAD requests for special folders
+
+If you request a special folder that doesn't exist by using a GET request,
+the special folder will be automatically created for you. You can test to see if the special folder
+exists by using a HEAD request. If the folder doesn't exist, the
+HEAD request will return a `404` error.
+
+<!-- {"blockType": "request", "name": "head-does-not-create-special-folder"} -->
+```
+HEAD /drive/special/documents
+```
+
+<!-- {"blockType": "response"} -->
+```
+HTTP/1.1 404 Not Found
+```
+
+On the other hand, sending the same request when the folder already exists will
+return a `200 OK` response.
+
+<!-- {"blockType": "request", "name": "head-existing-special-folder"} -->
+```
+HEAD /drive/special/documents
+```
+
+<!-- {"blockType": "response"} -->
+```
+HTTP/1.1 200 OK
+```
+<!-- 
+{
+	"isEmpty": "true"
+}
+-->
+
 ## Error responses
 
 See [Error Responses][error-response] for details about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+## Remarks
+
+In OneDrive for Business, the collection of special folders for a drive `GET /drive/special` is not implemented.
 
 <!-- {
   "type": "#page.annotation",

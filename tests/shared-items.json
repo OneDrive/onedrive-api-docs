@@ -1,0 +1,69 @@
+{
+  "scenarios":
+  [
+    {
+      "name": "Create a sharing link for an item",
+      "method": "create-link",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/sharedfile.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/sharedfile.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will share",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Verify shared item facet",
+      "method": "get-item-metadata",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[new-item-id]"
+      },
+
+      "expectations":
+      {
+        "$.shared.scope": "users"
+      },
+
+      "test-setup":
+      [
+        {
+          "http-request": "DELETE /drive/root:/Documents/sharedfile.txt",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "PUT /drive/root:/Documents/sharedfile.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will share",
+          "capture":
+          {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "method": "create-link",
+          "request-parameters":
+          {
+            "{item-id}": "[new-item-id]"
+          }
+        }
+      ]
+
+    }
+  ]
+}

@@ -69,6 +69,10 @@ be returned from the actual call.
 See [Error Responses][error-response] for details about
 how errors are returned.
 
+## Remarks
+
+In OneDrive for Business, the `rename` value in the **@name.conflictBehavior** property is not supported.
+
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
 

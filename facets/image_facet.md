@@ -21,6 +21,10 @@ represent images.
 | **width**     | integer | Width of the image, in pixels.  |
 | **height**    | integer | Height of the image, in pixels. |
 
+## Remarks
+
+In OneDrive for Business, this facet is returned on items that are expected to be images. This facet has no properties in OneDrive for Business.
+
 [item-resource]: ../resources/item.md
 
 <!-- {

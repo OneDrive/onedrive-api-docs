@@ -1,4 +1,4 @@
-﻿# Get metadata for a OneDrive item
+# Get metadata for a OneDrive item
 
 Retrieve the metadata for an Item on OneDrive by path or ID.
 
@@ -102,6 +102,41 @@ Content-Type: application/json
 **Note:** Response objects are truncated for clarity. All default properties will
 be returned from the actual call.
 
+## HEAD requests
+
+In most cases, a HEAD request will behave the same way as a GET request. There are a
+couple differences:
+
+1. HEAD requests will only return the corresponding GET request's headers. This is 
+standard practice for a HEAD response. 
+2. HEAD requests will not automatically provision a 
+[special folder][special-folder]. Instead, if a special folder is not present,
+a `404` error will be returned.
+
+In this example, you can see that requesting the root of your OneDrive will respond with
+simply `200 OK`.
+
+### HTTP request
+
+<!-- {"blockType": "request", "name": "head-root"} -->
+```
+HEAD /drive/root
+Accept: application/json
+```
+
+### Response
+
+<!-- {"blockType": "response", "@odata.type": "oneDrive.item", "truncated": true} -->
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+<!-- 
+{
+	"isEmpty": "true"
+}
+-->
+
 ## Error responses
 
 See [Error Responses][error-response] for more info about
@@ -110,6 +145,7 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [odata-parameters]: ../odata/optional-query-parameters.md
 [item-resource]: ../resources/item.md
+[special-folder]: ../items/special_folders.md
 
 <!-- {
   "type": "#page.annotation",

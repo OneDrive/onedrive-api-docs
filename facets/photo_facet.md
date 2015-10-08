@@ -32,6 +32,11 @@ It is available on the photo property of [Item][item-resource] resources that re
 | **focalLength**         | number                    | The focal length from the camera.                               |
 | **iso**                 | number                    | The ISO value from the camera.                                  |
 
+
+## Remarks
+
+In OneDrive for Business, this facet is returned if it includes the **takenDateTime** property.
+
 [item-resource]: ../resources/item.md
 
 <!-- {

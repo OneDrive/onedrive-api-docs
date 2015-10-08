@@ -82,7 +82,7 @@ which prompts the user to log in with her credentials. This URL uses the common
 tenant endpoint and is valid for any application.
 
 ```http
-GET https://login.windows.net/common/oauth2/authorize?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}
+GET https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}
 ```
 
 #### Required query string parameters
@@ -115,7 +115,7 @@ tokens that allow you to authenticate with various Office 365 APIs. To redeem
 the code make a request to the token endpoint for Azure Active Directory, as in the example:
 
 ```http
-POST https://login.windows.net/common/oauth2/token
+POST https://login.microsoftonline.com/common/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id={client_id}&redirect_uri={redirect_uri}&client_secret={client_secret}
@@ -231,7 +231,7 @@ token that can be used with the OneDrive API.
 To redeem the refresh token for a new access token, make the following request:
 
 ```http
-POST https://login.windows.net/common/oauth2/token
+POST https://login.microsoftonline.com/common/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id={client_id}&redirect_uri={redirect_uri}&client_secret={client_secret}
