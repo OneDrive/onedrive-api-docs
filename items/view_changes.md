@@ -102,6 +102,34 @@ Content-type: application/json
 * By default each response will include the next 200 changes available on the service. You can modify the number of changes returned in a single call by using the _$top_ query string parameter.
 
 
+### Fetch current token
+
+In some scenarios your app may need the current token value without seeing the
+current state of items. If you send a request with the **token** parameter set
+to `latest` the response will include only the latest **token** and **nextLink**
+parameters.
+
+<!-- { "blockType": "request", "name": "get-changes-latest" } -->
+```http
+GET /drive/items/{item-id}/view.changes?token=latest
+```
+
+Which returns an empty **value** collection and a **nextLink** and **token** value
+that can be used to pick up changes from this point forward.
+
+<!-- { "blockType": "response", "@odata.type": "oneDrive.viewChanges", "truncated": true } -->
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "value": [],
+    "@odata.nextLink": "https://api.onedrive.com/drive/root/view.changes?token=1230919asd190410jlka",
+    "@changes.hasMoreChanges": true,
+    "@changes.token": "1230919asd190410jlka"
+}
+```
+
 ### Error responses
 
 See [Error Responses][error-response] for details about
