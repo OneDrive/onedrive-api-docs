@@ -188,10 +188,12 @@ a collection of items under the folder.
 | [Search for an Item](items/search.md)            | `GET /drive/items/{id}/view.search`                    | `GET /drive/root:/{path}:/view.search`           |
 | [View changes on an Item][item-changes]          | `GET /drive/items/{id}/view.delta`                     | `GET /drive/root:/{path}:/view.delta`            |
 | [Get thumbnails for an Item][get-thumbnails]     | `GET /drive/items/{id}/thumbnails`                     | `GET /drive/root:/{path}:/thumbnails`            |
+| [Get previous versions of an Item][item-versions] | `GET /drive/items/{id}/versions`                       | `GET /drive/root:/{path}:/versions`              |
 
 
 [item-changes]: items/view_delta.md
 [get-thumbnails]: items/thumbnails.md
+[item-versions]: items/versions.md
 
 ## Special folders
 Commonly used folders like Documents and Photos can be accessed with static

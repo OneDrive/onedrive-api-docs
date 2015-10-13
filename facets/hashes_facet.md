@@ -23,6 +23,10 @@ A set of hash values for the file.
 **Note:** In some cases hash values may not be available. If this is the case,
 the hash values on an item will be updated after the item is downloaded.
 
+## Remarks
+
+In OneDrive for Business, **SHA1** and **CRC32** hash values are not returned for files.
+
 <!-- {
   "type": "#page.annotation",
   "description": "The hashes facet provides hash identifiers for a file in OneDrive",

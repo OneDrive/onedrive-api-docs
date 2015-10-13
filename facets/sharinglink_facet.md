@@ -7,7 +7,7 @@ The **SharingLink** type groups sharing link-related data on OneDrive into a sin
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.sharingLink", "optionalProperties": ["application"] } -->
 ```json
 {
-  "type": "view | edit",
+  "type": "view | edit | embed | mail",
   "webUrl": "string",
   "application": { "@odata.type": "oneDrive.identity" }
 }

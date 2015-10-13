@@ -176,7 +176,8 @@ how errors are returned.
 
 ## Remarks
 
-In OneDrive for Business, `view.delta` will not return the following Item properties:
+In OneDrive for Business, `view.delta` is only supported on the `root` folder, not on other folders.
+It also will not return the following Item properties:
 
 * `createdBy`
 * `lastModifiedBy`
