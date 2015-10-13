@@ -9,14 +9,16 @@ contents in an API call.
 ## Prerequisites
 
 To create an item in OneDrive, the user must have granted the app write
-access to the parent folder of the new item.
+access to the parent folder of the new item. There are 3 ways to create,
+but all end in the same result.
 
 ## HTTP request
 
 <!-- { "blockType": "ignored" } -->
 ```
+PUT /drive/items/{parent-id}/children/{name}
+PUT /drive/items/{parent-id}:/{name}
 POST /drive/items/{parent-id}/children
-POST /drive/root:/{parent-path}:/children
 ```
 
 ### Request body
