@@ -89,7 +89,9 @@ Search will not return the following properties in OneDrive for Business:
 
 ### View deltas
 
-The **view.changes/view.delta** actions do not return the following properties in OneDrive for Business:
+The **view.delta** action is currently only supported on the `root` folder,
+not on other folders. Also, the **view.delta** action does not return the
+following properties:
 
 * **createdBy**
 * **lastModifiedBy**

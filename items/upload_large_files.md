@@ -78,8 +78,8 @@ Content-Type: application/json
 
 To upload the file, or a portion of the file, make a PUT request to the **uploadUrl**
 received when the session was created. You can either upload the entire file
-in one fragment (up to 60 MB), or you can break the file into multiple fragments
-and upload each one separately. Fragments must be uploaded in order.
+in one fragment up to 60 MiB (60 \* 1024 \* 1024 bytes), or you can break the file into
+multiple fragments and upload each one separately. Fragments must be uploaded in order.
 
 <!-- { "blockType": "request", "name": "upload-fragment-piece" } -->
 ```
@@ -287,12 +287,12 @@ If the file can be committed using the new metadata, an `HTTP 201 Created` or
   limit the number of retry attempts made.
 * Handle `404 Not Found` errors when doing resumable uploads by starting the
   entire upload over.
-* Use resumable file transfers for files larger than 10 MB.
-* A fragment size of 10 MB for stable high speed connections is optimal. For slower
+* Use resumable file transfers for files larger than 10 MiB (10 \* 1024 \* 1024 bytes).
+* A fragment size of 10 MiB for stable high speed connections is optimal. For slower
   or less reliable connections you may get better results from a smaller
-  fragment size. The recommended fragment size is between 5-10 MB.
-* Use a fragment size that is a multiple of 320 KB. Failing to use a fragment
-  size that is a multiple of 320 KB can result in large file transfers failing
+  fragment size. The recommended fragment size is between 5-10 MiB.
+* Use a fragment size that is a multiple of 320 KiB (320 \* 1024 bytes). Failing to use a fragment
+  size that is a multiple of 320 KiB can result in large file transfers failing
   after the last fragment is uploaded.
 
 ## Error responses
