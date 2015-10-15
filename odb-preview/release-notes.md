@@ -38,6 +38,7 @@ are listed below:
 * [Blocked file extensions](#blocked-file-extensions)
 * [Image and photo facets](#image-and-photo-facets)
 * [Pickers and savers](#pickers-and-savers)
+* [Enumerating drives](#enumerating-drives)
 
 ### Authentication
 
@@ -89,9 +90,7 @@ Search will not return the following properties in OneDrive for Business:
 
 ### View deltas
 
-The **view.delta** action is currently only supported on the `root` folder,
-not on other folders. Also, the **view.delta** action does not return the
-following properties:
+The **view.delta** action is currently only supported on the `root` folder, not on other folders. Also, the **view.delta** action does not return the following properties:
 
 * **createdBy**
 * **lastModifiedBy**
@@ -179,7 +178,9 @@ Picking and saving files to OneDrive only, is supported on these platforms:
 * Windows Universal Apps
 * Web (JavaScript)
 
+### Enumerating drives
 
+In OneDrive for Business, using `/drives` to enumerate all drives available to the user is not supported.
 
 ## Send us feedback!
 
