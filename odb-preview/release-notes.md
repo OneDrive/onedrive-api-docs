@@ -28,6 +28,8 @@ are listed below:
 * [Custom thumbnails](#custom-thumbnails)
 * [Thumbnails collection](#thumbnails-collection)
 * [Item searching](#item-searching)
+* [Filtering](#filtering)
+* [Sorting](#sorting)
 * [View deltas](#view-deltas)
 * [Downloading file content](#downloading-file-content)
 * [Special folders](#special-folders)
@@ -87,6 +89,14 @@ Search will not return the following properties in OneDrive for Business:
 * **createdBy**
 * **modifiedBy**
 * **parentReference**
+
+### Filtering
+
+OneDrive for Business currently supports filtering by `name` and `url` only.
+
+### Sorting
+
+In OneDrive for Business, the _orderby_ query string only works with `name` and `url`. `size` and `lastModifiedDateTime` works only with OneDrive consumer.
 
 ### View deltas
 
