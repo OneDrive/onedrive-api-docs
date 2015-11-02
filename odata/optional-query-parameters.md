@@ -1,7 +1,6 @@
 # OneDrive API optional query parameters
 
-The OneDrive API provides several optional query parameters that can be used
-to control the specific data returned in a response.
+The OneDrive API provides several optional query parameters that can be used to control the specific data returned in a response.
 
 Covered in this topic:
 
@@ -54,7 +53,7 @@ You can use the _expand_ query string parameter to instruct the OneDrive API to 
 a children collection and include those results.
 
 For example, to retrieve the root drive information and the top level items in
-a drive you use _expand_ parameter as in the example below. This example also uses a _select_
+a drive you use the _expand_ parameter as in the example below. This example also uses a _select_
 statement to only return the **id** and **name** properties of the children items.
 
 <!-- { "blockType": "request", "name": "drive-plus-children" } -->
@@ -112,6 +111,8 @@ returned from the OneDrive API. For a collection of items, use the following fie
 * name
 * size
 * lastModifiedDateTime
+
+Note that in OneDrive for Business, the _orderby_ query string only works with **name** and **url**.
 
 To sort the results in ascending or descending order, append
 either `asc` or `desc` to the field name, separated by a space, for example,
