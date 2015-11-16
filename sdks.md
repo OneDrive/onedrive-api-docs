@@ -15,7 +15,7 @@ Save a file on the user's local device to OneDrive so it's available on all your
 | Android  | Yes      | Yes                   | [Picker and saver SDK][android-picker]                            |
 | iOS      | Yes      | Yes                   | [UIDocumentPicker][ios-picker]                                    |
 | Web      | Yes      | Coming soon           | [Picker and saver SDK][web-picker]                                |
-| Windows  | Yes      | Not yet               | [FileOpenPicker][windows-picker], [FileSavePicker][windows-saver] |
+| Windows  | Yes      | Yes                   | [FileOpenPicker][windows-picker], [FileSavePicker][windows-saver] |
 
 [android-picker]: https://msdn.microsoft.com/EN-US/library/dn833235.aspx
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
@@ -29,15 +29,17 @@ Use the OneDrive SDK for your platform to quickly start using the OneDrive API
 without the need to get into all the details of authentication, JSON parsing,
 HTTP connections and more. Just install the SDK into your project and get going.
 
-| Platform                                  | OneDrive | OneDrive for Business | Documentation                         |
-|:------------------------------------------|:---------|:----------------------|:--------------------------------------|
-| [Windows .NET / C# / Xamarin][csharp-sdk] | Yes      | Not Yet               | [OneDrive SDK C#][csharp-sdk]         |
-| [iOS][ios-sdk]                            | Yes      | Preview               | [OneDrive SDK for iOS][ios-sdk]       |
-| [Python][python-sdk]                      | Yes      | Not Yet               | [OneDrive SDK for Python][python-sdk] |
+| Platform                                  | OneDrive | OneDrive for Business | Documentation                          |
+|:------------------------------------------|:---------|:----------------------|:---------------------------------------|
+| [Windows .NET / C# / Xamarin][csharp-sdk] | Yes      | Not Yet               | [OneDrive SDK C#][csharp-sdk]          |
+| [iOS][ios-sdk]                            | Yes      | Preview               | [OneDrive SDK for iOS][ios-sdk]        |
+| [Python][python-sdk]                      | Yes      | Not Yet               | [OneDrive SDK for Python][python-sdk]  |
+| [Android][android-sdk]                    | Yes      | Preview               | [OneDrive SDK for Android][android-sdk]|
 
 [ios-sdk]: https://github.com/onedrive/onedrive-sdk-ios
 [csharp-sdk]: https://github.com/onedrive/onedrive-sdk-csharp
 [python-sdk]: https://github.com/onedrive/onedrive-sdk-python
+[android-sdk]: https://github.com/onedrive/onedrive-sdk-android
 
 We're working hard to bring SDKs for more platforms in the future. Stay tuned!
 
