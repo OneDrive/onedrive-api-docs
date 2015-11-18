@@ -1,4 +1,4 @@
-# Release notes for using OneDrive API with OneDrive for Business (preview)
+# Release notes for using OneDrive API with OneDrive for Business
 
 The OneDrive API now works with OneDrive for Business!
 

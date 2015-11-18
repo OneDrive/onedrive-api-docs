@@ -13,7 +13,7 @@ OneDrive uses [Microsoft accounts](https://account.live.com/developers/applicati
 | [Refresh](msa_oauth.md#step-3-get-a-new-access-token-or-refresh-token) | Refresh your access token.                           |
 | [Sign out](msa_oauth.md#sign-the-user-out)                             | Sign out of Microsoft account and OneDrive personal. |
 
-## OneDrive For Business (preview)
+## OneDrive For Business
 
 OneDrive for Business uses [Azure Active Directory](https://manage.windowsazure.com/) to authenticate users and applications.
 
