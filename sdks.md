@@ -14,12 +14,12 @@ Save a file on the user's local device to OneDrive so it's available on all your
 |:---------|:---------|:----------------------|:------------------------------------------------------------------|
 | Android  | Yes      | Yes                   | [Picker and saver SDK][android-picker]                            |
 | iOS      | Yes      | Yes                   | [UIDocumentPicker][ios-picker]                                    |
-| Web      | Yes      | Coming soon           | [Picker and saver SDK][web-picker]                                |
+| Web      | Yes      | Preview               | [Picker and saver SDK][web-picker]                                |
 | Windows  | Yes      | Yes                   | [FileOpenPicker][windows-picker], [FileSavePicker][windows-saver] |
 
 [android-picker]: https://msdn.microsoft.com/EN-US/library/dn833235.aspx
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
-[web-picker]: sdk/javascript-picker-saver.md
+[web-picker]: sdk/javascript-sdk.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 

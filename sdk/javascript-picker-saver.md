@@ -1,8 +1,8 @@
-# OneDrive Web picker SDK (Javascript)
+# OneDrive Web picker SDK (JavaScript)
 
 The OneDrive picker and saver SDK for Web apps is the fastest way to integrate
-OneDrive into your website. Open and save files to OneDrive using a button, or
-use a few lines of Javascript - all without handling authentication. The
+OneDrive into your website. Open and save files to OneDrive by using a button, or
+just a few lines of Javascript - all without handling authentication. The
 OneDrive picker and saver SDK for Web apps is different from other
 OneDrive picker and saver SDKs because you can start using it without
 downloading anything.
@@ -13,7 +13,7 @@ downloadable links, which are great for getting the contents of a file. You also
 get thumbnails of image and video files for simple, fast displays.
 
 In this guide, we’ll show you how to get your app quickly
-[opening](#opening-files-on-onedrive) and
+[opening](#opening-files-from-onedrive) and
 [saving files](#saving-files-to-onedrive) on OneDrive.
 
 ## Setting up
@@ -21,7 +21,7 @@ In this guide, we’ll show you how to get your app quickly
 [Register your app](https://account.live.com/developers/applications) to get
 an app ID (client ID), if you haven't already done so.  Ensure that the web
 page that is going to reference the SDK is a *Redirect URL* under
-**Application Settings**.   You can also upload your application logo, which
+**API Settings**.   You can also upload your application logo, which
 OneDrive will display in the picker and saver experience.
 
 Then, to start opening or saving files, include this reference in your web
@@ -31,12 +31,20 @@ page, replacing *APP_ID* with your app's ID or client ID.
 <script type="text/javascript" src="https://js.live.net/v5.0/OneDrive.js" id="onedrive-js" client-id="APP_ID"></script>
 ```
 
-## Opening files on OneDrive
+## Opening files from OneDrive
 
 To open files from OneDrive, your app can either embed an "Open from OneDrive"
 button, or provide a customized button and programmatically start the OneDrive
 picker experience.
 Both methods require a **pickerOptions** object with the following parameters.
+
+| Parameter name  | Description                                                                                                                                                                                                                                                                                                                                                                  |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **success**     | Required. Called when the user finishes picking files and passes an array of file objects to the provided function.                                                                                                                                                                                                                                                          |
+| **cancel**      | Called if the user cancels the picker.                                                                                                                                                                                                                                                                                                                                       |
+| **linkType**    | The type of link to create for access to the file. The default value is **webViewLink**, which returns a URL to a sharing link that provides a web preview of the file. This link is valid until the user deletes the shared link through OneDrive. The **downloadLink** gets a URL that provides access for one hour directly to the contents of the file. You can use this URL to download the file into your application. |
+| **multiSelect** | The default value is **false**, which allows the user to select a single file. **true** enables the user to select multiple files.                                                                                                                                                                                                                                           |
+| **theme**       | The color theme of the button. The default value is **blue**. Available values are **blue** and **white**. Used only with the **OneDrive.createOpenButton** method.                                                                                                                                                                                                          |
 
 ### Example of a pickerOptions object
 
@@ -55,15 +63,6 @@ var pickerOptions = {
   multiSelect: false // or true
 }
 ```
-
-| Parameter name  | Description                                                                                                                                                                                                                                                                                                                                                                  |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **success**     | Required. Called when the user finishes picking files and passes an array of file objects to the provided function.                                                                                                                                                                                                                                                          |
-| **cancel**      | Called if the user cancels the picker.                                                                                                                                                                                                                                                                                                                                       |
-| **linkType**    | The default value is **webViewLink**, which returns a URL to a sharing link that provides a web preview of the file. The link is valid until the user deletes the shared link through OneDrive.   Use **downloadLink** to get a URL that provides access for one hour directly to the contents of the file. You can use this URL to download the file into your application. |
-| **multiSelect** | The default value is **false**, which allows the user to select a single file. **true** enables the user to select multiple files.                                                                                                                                                                                                                                           |
-| **theme**       | The color theme of the button. The default value is **blue**. Available values are **blue** and **white**. Used only with the **OneDrive.createOpenButton** method.                                                                                                                                                                                                          |
-
 
 ### Open files using a button
 
@@ -264,8 +263,8 @@ The OneDrive picker and saver supports the following web browsers:
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Use the JavaScript picker and saver to connect your web app to OneDrive.",
-  "keywords": "js,javascript,onedrive,picker,saver,open,save",
+  "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
+  "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
   "headerAdditions": [
     "<script type=\"text/javascript\" src=\"https://js.live.net/v5.0/OneDrive.js\" id=\"onedrive-js\" client-id=\"000000004C142703\"></script>"
