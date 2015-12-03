@@ -1,0 +1,65 @@
+{
+  "scenarios": [
+    {
+      "name": "Add shared folder to OneDrive",
+      "method": "add-mountpoint",
+      "enabled": true,
+      "request-parameters": {
+        "$.name": "mds-test-add-to-onedrive",
+        "$.remoteItem.id": "F04AA961744A809!177222",
+        "$.remoteItem.parentReference.driveId": "F04AA961744A809"
+      },
+      "test-setup": [
+        {
+          "http-request": "DELETE /drive/root:/mds-test-add-to-onedrive",
+          "allowed-status-codes": [204, 404]
+        }
+      ]
+    },
+
+    {
+      "name": "Remove a shared folder from OneDrive",
+      "method": "delete-mountpoint",
+      "enabled": true,
+      "request-parameters": {
+        "{local-item-id}": "[mountpoint-id]"
+      },
+      "test-setup": [
+        {
+          "http-request": "DELETE /drive/root:/shared-folder-to-delete",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "http-request": "DELETE /drive/root:/mds-test-add-to-onedrive",
+          "allowed-status-codes": [204, 404]
+        },
+        {
+          "method": "add-mountpoint",
+          "request-parameters": {
+            "$.name": "shared-folder-to-delete",
+            "$.remoteItem.id": "F04AA961744A809!177222",
+            "$.remoteItem.parentReference.driveId": "F04AA961744A809"
+          },
+          "capture": {
+            "[mountpoint-id]": "$.id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Enumerate another drive's items",
+      "method": "enum-mountpoint",
+      "enabled": true,
+      "request-parameters": {
+        "{drive-id}": "F04AA961744A809",
+        "{item-id}": "F04AA961744A809!177222"
+      },
+      "expectations": {
+        "$.value[0].name": "z_test_folder",
+        "$.value[1].name": "readme.txt"
+      }
+    }
+
+  ]
+}
