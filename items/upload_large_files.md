@@ -133,7 +133,6 @@ Content-Type: application/json
 ```
 
 **Notes:**
-
 * The `nextExpectedRanges` property won't always list all of the missing ranges.
 * On successful fragment writes, it will return the next range to start from (eg. "523-").
 * On failures when the client sent a fragment the server had already received, the

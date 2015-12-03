@@ -31,17 +31,16 @@ To get started, follow these steps.
 ### 1. Authenticate your app
 OneDrive uses [OAuth 2.0](http://oauth.net/2/) for
 [authentication](auth/readme.md). You get an access token that authenticates
-your app with a particular set of permissions for a user. You can
-provide an access token for each API call in two different ways:
+your app with a particular set of permissions for a user. You provide an
+access token through an HTTP header:
 
-* An HTTP header: `Authorization: bearer {token}`
-* A query parameter: `?access_token={token}`
+`Authorization: bearer {token}`
 
 To obtain an access token and sign the user in, see
 [OneDrive authentication](auth/msa_oauth.md) or
 [OneDrive for Business authentication](auth/aad_oauth.md).
 
-### 2. Make calls against a URL root
+### 2. URL root
 Now that you've authenticated your app, you can call the OneDrive API with your
 access token against the URL root below, combined with one of the
 [root resources](#root-resources). See [Drive resource](#drive-resource) and
@@ -146,15 +145,15 @@ A user will always have at least one Drive available--the default Drive.
 In the next table, the examples use `/drive`, but
 `/drives/{drive-id}` is valid too.
 
-| Common task                                             | HTTP method                   |
-|:--------------------------------------------------------|:------------------------------|
-| [Get user's default Drive metadata][drive-default]      | `GET /drive`                  |
-| [Get Drive metadata of another Drive][drive-get]        | `GET /drives/{drive-id}`      |
-| [Get root folder for user's default Drive][item-get]    | `GET /drive/root`             |
-| [List children under the Drive][item-children]          | `GET /drive/root/children`    |
-| [List changes for all Items in the Drive][item-changes] | `GET /drive/root/view.delta`  |
-| [Search for Items in the Drive][item-search] (preview)  | `GET /drive/root/view.search` |
-| [Access special folder](#special-folders)               | `GET /drive/special/{name}`   |
+| Common task                                             | HTTP method                    |
+|:--------------------------------------------------------|:-------------------------------|
+| [Get user's default Drive metadata][drive-default]      | `GET /drive`                   |
+| [Get Drive metadata of another Drive][drive-get]        | `GET /drives/{drive-id}`       |
+| [Get root folder for user's default Drive][item-get]    | `GET /drive/root`              |
+| [List children under the Drive][item-children]          | `GET /drive/root/children`     |
+| [List changes for all Items in the Drive][item-changes] | `GET /drive/root/view.delta`   |
+| [Search for Items in the Drive][item-search] (preview)  | `GET /drive/root/view.search`  |
+| [Access special folder](#special-folders)               | `GET /drive/special/{name}`    |
 
 For more info about Drives, see [Drive][drive-resource].
 
@@ -194,14 +193,6 @@ names regardless of the folder's actual name and location in a user's OneDrive.
 
 To learn more about addressing a folder, see [special folders](items/special_folders.md).
 
-## Shared folders and remote items
-Users can add one or more shared items from another drive to their OneDrive.
-These shared items appear as an item in the `children` collection
-with a [remoteItem facet](facets/remoteitem_facet.md).
-
-For more information on working with shared folders and remote items, see
-[Remote items and shared folders](misc/working-with-links.md).
-
 ## Sharing and permissions
 
 [Items][item-resource] can be shared with other people through a
@@ -224,11 +215,7 @@ changes will be made by incrementing
 the version number in the URL, for calls that work differently than before.
 
 We define a breaking change as a change in the format of a request or response
-that removes an existing documented behavior, or alters an existing documented behavior.
-
-It is possible that the API will expose additional undocumented features from
-time to time. These features should not be depended on until they are documented.
-Do not assume that current behavior that deviates from the documentation will persist.
+that removes an existing behavior, or alters an existing behavior.
 
 We will continue to make non-breaking changes to the existing version of the API,
 including adding facets, properties, and resources to the API. As such, any code
