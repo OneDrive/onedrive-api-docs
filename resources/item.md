@@ -33,6 +33,7 @@ Here is a JSON representation of an Item.
   "audio": { "@odata.type": "oneDrive.audio" },
   "video": { "@odata.type": "oneDrive.video" },
   "location": { "@odata.type": "oneDrive.location" },
+  "remoteItem": { "@odata.type": "oneDrive.remoteItem"},
   "searchResult": { "@odata.type": "oneDrive.searchResult"},
   "deleted": { "@odata.type": "oneDrive.deleted"},
   "specialFolder": { "@odata.type": "oneDrive.specialFolder" },
@@ -51,7 +52,7 @@ The Item object has these properties.
 | **id**                   | string                                                   | The unique identifier of the item within the Drive. Read-only.                                            |
 | **name**                 | string                                                   | The name of the item (filename and extension). Read-write.                                                |
 | **eTag**                 | string                                                   | eTag for the entire item (metadata + content). Read-only.                                                 |
-| **cTag**                 | string                                                   | An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Read-only. |
+| **cTag**                 | string                                                   | An eTag for the content of the item. This eTag is not changed if only the metadata is changed. **Note** This property is not returned if the Item is a folder. Read-only. |
 | **createdBy**            | [IdentitySet](identitySet.md)                            | Identity of the user, device, and application which created the item. Read-only.                          |
 | **lastModifiedBy**       | [IdentitySet](identitySet.md)                            | Identity of the user, device, and application which last modified the item. Read-only.                    |
 | **createdDateTime**      | [timestamp](../facets/timestamp.md)                      | Date and time of item creation. Read-only.                                                                |
@@ -64,12 +65,13 @@ The Item object has these properties.
 | **file**                 | [FileFacet](../facets/file_facet.md)                     | File metadata, if the item is a file. Read-only.                                                          |
 | **fileSystemInfo**       | [FileSystemInfoFacet](../facets/filesysteminfo_facet.md) | File system information on client. Read-write.                                                            |
 | **image**                | [ImageFacet](../facets/image_facet.md)                   | Image metadata, if the item is an image. Read-only.                                                       |
+| **remoteItem**                 | [remoteItemFacet](../facets/remoteitem_facet.md)                     | Remote item data, if the item is shared from a remote OneDrive.                                           |
 | **photo**                | [PhotoFacet](../facets/photo_facet.md)                   | Photo metadata, if the item is a photo. Read-only.                                                        |
 | **audio**                | [AudioFacet](../facets/audio_facet.md)                   | Audio metadata, if the item is an audio file. Read-only.                                                  |
 | **video**                | [VideoFacet](../facets/video_facet.md)                   | Video metadata, if the item is a video. Read-only.                                                        |
 | **location**             | [LocationFacet](../facets/location_facet.md)             | Location metadata, if the item has location data. Read-only.                                              |
-| **searchResult**         | [SearchResultFacet](../facets/searchresult_facet.md) | Search metadata, if the item is from a search result.                                                |
-| **deleted**              | [DeletedFacet](../facets/deleted_facet.md)     | Information about the deleted state of the item. Read-only.                                               |
+| **searchResult**         | [SearchResultFacet](../facets/searchresult_facet.md)     | Search metadata, if the item is from a search result.                                                |
+| **deleted**              | [DeletedFacet](../facets/deleted_facet.md)               | Information about the deleted state of the item. Read-only.                                            |
 
 
 **Note:** The `eTag` and `cTag` properties work differently on
@@ -105,7 +107,7 @@ The following table defines the relationships that the Item resource has to othe
 
 ## Remarks
 
-In OneDrive for Business, the **cTag** property is not returned, if the Item is a [folder](../facets/folder_facet.md). 
+In OneDrive for Business, the **cTag** property is not returned, if the Item is a [folder](../facets/folder_facet.md).
 
 <!-- {
   "type": "#page.annotation",
