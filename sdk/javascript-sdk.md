@@ -18,15 +18,8 @@ differences you'll need to be aware of until the SDK is fully released.
 Aspects of SDK that are not available in the unified version
 are listed below:
 
-* [Web Links](#web-links)
 * [Save from IE9](#save-from-ie9) 
 * [OneDrive buttons](#onedrive-buttons)
-
-### Web Links
-The [unified OneDrive picker SDK](unified-javascript-picker-saver.md) does 
-not support getting a URL to a sharing link that provides a web preview of the file.
-It only supports getting a URL that provides access for one hour directly to the 
-contents of the file 
 
 ### Save from IE9
 The [unified OneDrive picker SDK](unified-javascript-picker-saver.md) does 
