@@ -9,11 +9,16 @@ experience.
 and may not work exactly as documented. Do not assume that the current behavior
 won't deviate from this documentation.
 
-When using the picker to open files from OneDrive, you get download links are 
+When using the picker to open files from OneDrive, you get shareable links to
+files - which are great for web viewing and sending to co-workers, friends, or family - or
+downloadable links, which are great for getting the contents of a file. Download links are 
 useful for your app if you apps plans to download the contents of the file within a relatively short 
 amount of time. These links should not be cached or persisted since they are only valid for a 
 limited duration. With OneDrive consumer, you also receive thumbnails for some types of files 
 for easy displaying.
+
+**Note:** You can only get shareable links for files in OneDrive for Business if the user's tenant 
+admin has enabled external sharing. For OneDrive consumer, you can get shareable links for all files. 
 
 In this guide, we'll show you how to get your app quickly
 [opening](#opening-files-from-onedrive) and
@@ -40,15 +45,6 @@ flow*. You can do that by downloading your app's manifest, modifying it so that
 * The Reply URL is the *Redirect URL*, which is the web page that is going to reference the SDK.
 * Your app has read permissions if your app only opens from OneDrive and write permissions if your 
 app saves to OneDrive.
-
-**Important:** There is a known issue where to ensure that the SDK works with your OneDrive for 
-Business, your tenant must be using the new OneDrive for Business end user experience. To work 
-around this known issue, your tenant admin can opt in your tenant to the new end user experience in 
-the Office 365 admin portal at https://portal.office.com/admin/default.aspx by going to 
-`Service Settings`, clicking on `Updates`, and selecting `Entire organization` under 
-`First release`. Alternatively, you may contact us with your tenant name, and we can opt you in 
-manually. Note that opting in to the new OneDrive for Business end user experience will update the 
-OneDrive for Business experience for all users within the tenant.
 
 ### Putting it all together
 
@@ -85,7 +81,7 @@ The **pickerOptions** object is defined with the following parameters.
 | **success**     | Required. Called when the user finishes picking files and passes an array of file objects to the provided function.                      |
 | **cancel**      | Called if the user cancels the picker.                                   |
 | **error**       | Called when an error occurred on the server or the user doesn't have permission to get a link to the chosen file.      |
-| **linkType**    | The type of link to create for access to the file. The default value is **downloadLink**, which returns a URL that provides access for one hour directly to the contents of the file. You can use this URL to download the file into your application.  |
+| **linkType**    | The type of link to create for access to the file. The default value is **downloadLink**, which returns a URL that provides access for one hour directly to the contents of the file. You can use this URL to download the file into your application.  You can also request a **webLink**, which returns a URL to a sharing link that provides a web preview of the file. This link is valid until the user deletes the shared link through OneDrive. |
 | **multiSelect** | The default value is **false**, which allows the user to select a single file. **true** enables the user to select multiple files. |
 | **openInNewWindow** | The default value is **true**, which opens the OneDrive picking experience in a popup window. **false** opens the OneDrive picking experience in the same window. |
 
@@ -108,7 +104,7 @@ var pickerOptions = {
 	// Handle when there is an error getting a link to the selected file
   },
 
-  linkType: "downloadLink", 
+  linkType: "downloadLink", // or webLink
   multiSelect: false, // or true
   openInNewWindow: true // or false
 }
@@ -125,6 +121,7 @@ a `values` property, which includes is an array of `file` objects, with length 1
 
 ```javascript
 {
+  link: "https://...",
   values: [
     {
       fileName: "file.txt",
@@ -140,6 +137,7 @@ The **response** object has the following properties:
 
 | Property name | Value                     | Description                                                                                                                                                             |
 |:--------------|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **link**      | string - url              | If the **linkType** is `webLink`, **multiSelect** is `true`, and the file is stored on OneDrive - consumer, then **link** will return a **webLink** for viewing all files. If not, then **link** is *null*. |
 | **values**    | Array of **file** objects | Collection of file objects for each file selected by the user.                                                                                                          |
 
 ### Example of a file object
@@ -159,8 +157,8 @@ The **file** object has the following properties:
 | Property name  | Values                  | Description                                                                                                                           |
 |:---------------|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | **fileName**   | string                  | Name of the file including its extension.                                                                                             |
-| **link**       | string - url            | A URL that provides access for one hour directly to the contents of the file                                                                                                         |
-| **linkType**   | string                  | Type of link generated, which is `downloadLink`.                                                                       |
+| **link**       | string - url            | A URL that provides access to the selected file                                                                                       |
+| **linkType**   | string                  | Type of link generated, which is `downloadLink` or `webLink`.                                                                         |
 | **size**       | integer                 | Size of the file, in bytes.                                                                                                           |
 | **thumbnails** | Array of thumbnail urls | Array of thumbnail links for image or video files in OneDrive consumer (large, medium, and small, in that order). This value is null for other file types. |
 
@@ -240,14 +238,10 @@ The OneDrive picker and saver supports the following web browsers:
 
 
 ## Known issues
-* For some OneDrive for Business users, the file object's link value may be undefined.
-* The SDK does not properly handle the Open and Save responses on IE.
 * The SDK does not support saving files through a form upload on IE9.
 * The SDK returns thumbnail links that require authentication for image and video files selected from a user's OneDrive for Business.
 * The SDK will fail to upload a file to OneDrive for Business if the file name is taken.
 * Data URIs uploaded to OneDrive for Business through the SDK appear to succeed but show up as 0 byte files.
-* To use the OneDrive for Business picking experience, the user's tenant must have enabled the new OneDrive for Business end user experience. To work around this, the user's tenant admin can opt the user's tenant into the new end user experience in the Office 365 admin portal.
-
 
 <!-- {
   "type": "#page.annotation",

@@ -45,7 +45,9 @@ var pickerOptions = {
 
     /*
 	 * Optional. The default is the downloadLink which can be used to get a URL 
-	 * to the file content directly that expires in 1 hour.
+	 * to the file content directly that expires in 1 hour.   You may also use 
+	 * webLink, which gets a link that's valid until the user deletes the shared 
+	 * link through OneDrive.
 	 */
     linkType: "downloadLink", 
 
@@ -141,13 +143,15 @@ function initializeDemo() {
     pickerHtml += "<div class='row'>";
     pickerHtml += "<span class='cell heading'>Link Type</span>";
     pickerHtml += "<span class='cell'>";
-    /*
-	pickerHtml += "<input id='webViewLink' type='radio' value='webViewLink' name='linkType'  />";
-    pickerHtml += "<label for='webViewLink'>Web View Link</label><br />";
-	*/
-	
+ 
     pickerHtml += "<input id='downloadLink' type='radio' value='downloadLink' name='linkType' checked='checked' />";
-    pickerHtml += "<label for='downloadLink'>Download link</label>";
+    pickerHtml += "<label for='downloadLink'>Download link</label><br />";
+	
+    pickerHtml += "<input id='webLink' type='radio' value='webLink' name='linkType'  />";
+    pickerHtml += "<label for='webLink'>Web Link</label>";
+	
+ 
+	
     pickerHtml += "</span>";
     pickerHtml += "</div>";
     pickerHtml += "<div class='row'>";
