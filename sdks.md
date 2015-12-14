@@ -31,10 +31,10 @@ HTTP connections and more. Just install the SDK into your project and get going.
 
 | Platform                                  | OneDrive | OneDrive for Business | Documentation                          |
 |:------------------------------------------|:---------|:----------------------|:---------------------------------------|
-| [Windows .NET / C# / Xamarin][csharp-sdk] | Yes      | Not Yet               | [OneDrive SDK C#][csharp-sdk]          |
-| [iOS][ios-sdk]                            | Yes      | Preview               | [OneDrive SDK for iOS][ios-sdk]        |
+| [Windows .NET / C# / Xamarin][csharp-sdk] | Yes      | Yes                   | [OneDrive SDK C#][csharp-sdk]          |
+| [iOS][ios-sdk]                            | Yes      | Yes                   | [OneDrive SDK for iOS][ios-sdk]        |
 | [Python][python-sdk]                      | Yes      | Not Yet               | [OneDrive SDK for Python][python-sdk]  |
-| [Android][android-sdk]                    | Yes      | Preview               | [OneDrive SDK for Android][android-sdk]|
+| [Android][android-sdk]                    | Yes      | Yes                   | [OneDrive SDK for Android][android-sdk]|
 
 [ios-sdk]: https://github.com/onedrive/onedrive-sdk-ios
 [csharp-sdk]: https://github.com/onedrive/onedrive-sdk-csharp

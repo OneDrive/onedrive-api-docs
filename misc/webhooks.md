@@ -7,6 +7,8 @@ When files or folders that your app can access in a user's OneDrive
 are changed, the webhook URL you provide will be sent a request notifying it
 that changes have occurred.
 
+**Note:** Webhooks are only available for OneDrive Personal at this time.
+
 [wiki-webhooks]: http://en.wikipedia.org/wiki/Webhook
 
 ## Registering
