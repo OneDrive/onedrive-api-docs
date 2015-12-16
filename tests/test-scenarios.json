@@ -76,7 +76,7 @@
 
     { "name": "Get first medium thumbnail",
       "method": "get-one-thumbnail",
-      "enabled": true,
+      "enabled": false,
       "request-parameters":
       {
         "{item-id}": "[item-id]",
@@ -117,7 +117,7 @@
 
     { "name": "Enumerate thumbnails for a photo",
       "method": "enum-item-thumbnails",
-      "enabled": true,
+      "enabled": false,
 
       "request-parameters":
       {
@@ -130,7 +130,7 @@
 
     { "name": "Download large item thumbnail",
       "method": "get-thumbnail-content",
-      "enabled": true,
+      "enabled": false,
       "status-codes-to-retry": [ 404 ],
 
       "request-parameters":
