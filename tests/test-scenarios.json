@@ -510,21 +510,87 @@
     {
       "name": "Enumerate an item's permissions",
       "method": "get-item-permissions",
-      "enabled": false,
+      "enabled": true,
 
       "request-parameters":
       {
-        "{item-id}": "root:/documents:"
+        "{item-id}": "[item-id]"
       },
 
       "test-setup":
       [
+        { "canned-request": "create-file-item" },
         {
-          "http-request": "POST /drive/root:/Documents:/action.createLink\r\nContent-Type: application/json\r\n\r\n{\"type\":\"view\"}"
+          "method": "create-link",
+          "request-parameters": {
+              "{item-id}": "[item-id]"
+          },
+          "capture": {
+            "[perm-id]": "$.id"
+          }
+        }
+      ],
+      "expectations": {
+        "$.value[0].link.type": "view",
+        "$.value[0].roles[0]": "read"
+      }
+    },
+
+    {
+      "name": "Delete an item's permissions",
+      "method": "delete-permission",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[item-id]",
+        "{permission-id}": "[perm-id]"
+      },
+
+      "test-setup":
+      [
+        { "canned-request": "create-file-item" },
+        {
+          "method": "create-link",
+          "request-parameters": {
+              "{item-id}": "[item-id]"
+          },
+          "capture": {
+            "[perm-id]": "$.id"
+          }
         }
       ]
     },
 
+    {
+      "name": "Change read-only to read-write permissions",
+      "method": "update-permission",
+      "enabled": true,
+
+      "request-parameters":
+      {
+        "{item-id}": "[item-id]",
+        "{permission-id}": "[perm-id]"
+      },
+      "expectations": {
+        "$.roles[0]": "read"
+      },
+
+      "test-setup":
+      [
+        { "canned-request": "create-file-item" },
+        {
+          "method": "create-link",
+          "request-parameters": {
+              "{item-id}": "[item-id]",
+              "$.type": "edit"
+          },
+          "capture": {
+            "[perm-id]": "$.id"
+          }
+        }
+      ]
+    },
 
     {
       "name": "Enumerate items shared by me",
@@ -538,21 +604,6 @@
         }
       ]
     },
-
-
-    {
-      "name": "Update an item's permissions",
-      "method": "update-permissions",
-      "enabled": false
-    },
-
-
-    {
-      "name": "Share an item by sending an email invitation",
-      "method": "send-sharing-invite",
-      "enabled": false
-    },
-
 
     {
       "name": "Create a chunked upload session",

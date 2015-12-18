@@ -39,6 +39,7 @@ are listed below:
 * [Extra OData metadata is returned](#extra-odata-metadata-is-returned)
 * [Blocked file extensions](#blocked-file-extensions)
 * [Image and photo facets](#image-and-photo-facets)
+* [Sharing links](#sharing-links-and-permissions)
 * [Pickers and savers](#pickers-and-savers)
 * [Enumerating drives](#enumerating-drives)
 
@@ -122,7 +123,7 @@ will receive a `401` error.
 
 ### Special folders
 
-The collection of special folders for a drive (`/special`) is not implemented.
+The collection of special folders for a drive (`/special`) is not supported.
 
 ### Uploading items
 
@@ -174,6 +175,11 @@ available compared to OneDrive personal. The `photo` facet only provides the
 
 The `image` facet is returned on items that are expected to be images, but has
 no properties.
+
+
+### Sharing links and permissions
+
+OneDrive for Business does not yet support sharing links for folders, or permissions on an item.
 
 ### Pickers and savers
 
