@@ -12,7 +12,9 @@ object represents these different forms through facets on the **Permission** obj
   "id": "string",
   "roles": ["read|write"],
   "link": { "@odata.type": "oneDrive.sharingLink" },
-  "inheritedFrom": { "@odata.type": "oneDrive.itemReference" }
+  "grantedTo": { "@odata.type": "oneDrive.identitySet" },
+  "inheritedFrom": { "@odata.type": "oneDrive.itemReference" },
+  "shareId": "string"
 }
 ```
 
@@ -23,7 +25,9 @@ object represents these different forms through facets on the **Permission** obj
 | **id**            | string                                           | **Read Only** The unique identifier of the permission among all permissions on the item.                           |
 | **role**          | Array of strings                                 | The type of permission, e.g. `read`. See below for the full list of roles.                                         |
 | **link**          | [SharingLink](sharinglink_facet.md)              | **Read Only** Provides the link details of the current permission, if it is a link type permissions.               |
+| **grantedTo**     | [`IdentitySet`](../resources/identity.md)        | **Read Only** For user type permissions, the details of the users & applications for this permission.              |
 | **inheritedFrom** | [`ItemReference`](../resources/itemReference.md) | **Read Only** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. |
+| **shareId**       | string                                           | **Read Only** A unique token that can be used to access this shared item via the **shares** entity set.            |
 
 ## Roles enumeration
 
@@ -51,7 +55,8 @@ A view link provides read-only access to an item.
     "type": "view",
     "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
     "application": { "id": "1234", "displayName": "Sample Application" }
-  }
+  },
+  "shareId": "!LKj1lkdlals90j1nlkascl"
 }
 ```
 
@@ -67,7 +72,8 @@ An edit link provides read and write access to an item.
     "type": "write",
     "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
     "application": { "id": "1234", "displayName": "Sample Application" }
-  }
+  },
+  "shareId": "!LKj1lkdlals90j1nlkascl"
 }
 ```
 

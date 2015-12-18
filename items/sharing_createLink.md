@@ -74,7 +74,8 @@ Content-Type: application/json
       "id": "1234",
       "displayName": "Sample Application"
     }
-  }
+  },
+  "shareId": "!LKj1lkdlals90j1nlkascl"
 }
 
 ```

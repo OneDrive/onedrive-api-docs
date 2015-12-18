@@ -209,9 +209,12 @@ a unique link for the recipient to access the shared items.
 * New permissions can only be created with the
   [createLink](items/sharing_createLink.md) action.
 
-| Task                                                 | HTTP method (by ID)                        | HTTP method (by Path)                         |
-|:-----------------------------------------------------|:-------------------------------------------|:----------------------------------------------|
-| [Create a sharing link](items/sharing_createLink.md) | `POST /drive/items/{id}/action.createLink` | `POST /drive/root:/{path}:/action.createLink` |
+| Task                                                 | HTTP method (by ID)                              | HTTP method (by Path)                          |
+|:-----------------------------------------------------|:-------------------------------------------------|:-----------------------------------------------|
+| [Create a sharing link](items/sharing_createLink.md) | `POST /drive/items/{item-id}/action.createLink`  | `POST /drive/root:/{path}:/action.createLink`  |
+| [Read permissions](items/permissions.md)             | `GET /drive/items/{item-id}/permissions`         | `GET /drive/root:/{path}:/permisisons`         |
+| [Remove permissions](items/permission_delete.md)    | `DELETE /drive/items/{item-id}/permissions/{id}` | `DELETE /drive/root:/{path}:/permissions/{id}` |
+| [Update permissions](items/permission_update.md)    | `PATCH /drive/items/{item-id}/permissions/{id}`  | `PATCH /drive/root:/{path}:/permissions/{id}`  |
 
 ## Programming notes
 
