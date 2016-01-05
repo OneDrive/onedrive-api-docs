@@ -238,7 +238,7 @@ that includes several properties including `access_token`, `authentication_token
   "expires_in": 3600,
   "scope": "wl.basic onedrive.readwrite wl.offline_access",
   "access_token":"EwCo...AA==",
-  "refresh_token":"eyJh...9323"
+  "refresh_token":"eyJh...9323",
   "user_id": "a5e5...f4ee"
 }
 ```
