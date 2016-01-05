@@ -81,6 +81,8 @@ GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={sc
 
 Use this redirect URL for mobile and desktop applications `https://login.live.com/oauth20_desktop.srf`.
 
+You may also include an optional `state` parameter, an arbitrary string representing the state of your application, used to maintain state between the request and the callback (usually information about what page to redirect the user back to after authentication).
+
 ### Response
 
 Upon successful authentication and authorization of your application, the web browser
@@ -97,6 +99,10 @@ in the previous example. The values for `access_token` and `authentication_token
 are quite long.
 
 You can use the value of `access_token` to make requests to the OneDrive API.
+
+The `user_id` parameter is a unique identifier for the signed in user that is generated for the application. This user ID is anonymized between apps, and so will be different for each client application registered with OneDrive, even if the same user is signing in.
+
+If you included a `state` parameter in the request, the response URL will also contain a `state` parameter containing that same value. This value is used for recovering the state of your application at the point the request was made (usually information about what page to redirect the user back to after authentication).
 
 ## Code flow
 
@@ -125,10 +131,12 @@ GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={sc
 | *scope*        | string | A space-separated list of scopes that your app requires.                      |
 | *redirect_uri* | string | The redirect URL that the browser is sent to when authentication is complete. |
 
+You may also include an optional `state` parameter, an arbitrary string representing the state of your application, used to maintain state between the request and the callback (usually information about what page to redirect the user back to after authentication).
+
 #### Response
 
 Upon successful authentication and authorization of your application, the web browser
-will be redirected to your redirect URL with additional parameters added to the URL.
+will be redirected to your redirect URL with additional parameters added to the URL: `code` (containing the requested authorization code) and `state` (if included in Step 1).
 
 ```
 https://login.live.com/oauth20_authorize.srf?code=df6aa589-1080-b241-b410-c4dff65dbf7c
@@ -162,8 +170,8 @@ domain portion of the redirect URI that you specified in the
 
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
-that includes several properties, including `access_token`, `token_type`, and
-`refresh_token` (if you requested the **wl.offline_access** scope).
+that includes several properties, including `access_token`, `token_type`,
+`refresh_token` (if you requested the **wl.offline_access** scope), `expires_in`, `scope` (containing the requested scopes), and `user_id`.
 
 <!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse", "optionalProperties": ["token_type", "scope"] } -->
 ```json
@@ -172,7 +180,8 @@ that includes several properties, including `access_token`, `token_type`, and
   "expires_in": 3600,
   "scope":"wl.basic onedrive.readwrite",
   "access_token":"EwCo...AA==",
-  "refresh_token":"eyJh...9323"
+  "refresh_token":"eyJh...9323",
+  "user_id": "8c68...0ae4"
 }
 ```
 
@@ -185,6 +194,8 @@ The access token is valid for only the number of seconds that is
 specified in the **expires_in** property. You can request a new access token
 by using the refresh token (if available), or by repeating the authentication
 request from the beginning.
+
+The `user_id` property is a unique identifier for the signed in user that is generated for the application. This user ID is anonymized between apps, and so will be different for each client application registered with OneDrive, even if the same user is signing in.
 
 ### Step 3. Get a new access token or refresh token
 If your app has requested access to **wl.offline_access** this step will
@@ -228,6 +239,7 @@ that includes several properties including `access_token`, `authentication_token
   "scope": "wl.basic onedrive.readwrite wl.offline_access",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
+  "user_id": "a5e5...f4ee"
 }
 ```
 
