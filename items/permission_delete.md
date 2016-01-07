@@ -45,3 +45,11 @@ Read the [Error responses][error-response] topic for more information about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Delete an item's permissions",
+  "keywords": "permission, permissions, sharing, remove permissions, delete permissions",
+  "section": "documentation",
+  "tocPath": "Sharing/Delete Permissions"
+} -->
