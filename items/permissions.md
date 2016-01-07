@@ -14,7 +14,8 @@ be available for every caller.
 * For a non-owner caller, only the permissions that apply to the caller are
   returned.
 * Permission properties that contain secrets (e.g. `shareId` and `webUrl`)
-  are only returned for callers that are able to create the Permission:
+  are only returned for callers that are able to create the Permission.
+
 
 ## HTTP request
 
@@ -113,3 +114,11 @@ Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "List an item's permissions",
+  "keywords": "permission, permissions, sharing",
+  "section": "documentation",
+  "tocPath": "Sharing/Permissions"
+} -->

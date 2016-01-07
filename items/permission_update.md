@@ -67,3 +67,11 @@ Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "Update an item's permissions",
+  "keywords": "permission, permissions, sharing, change permissions, update permission",
+  "section": "documentation",
+  "tocPath": "Sharing/Update Permissions"
+} -->
