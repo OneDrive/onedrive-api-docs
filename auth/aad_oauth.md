@@ -29,7 +29,7 @@ Service API](https://msdn.microsoft.com/en-us/office/office365/howto/discover-se
 Your root URL appears in the next example, where `{tenant}` comes from your
 discovered endpoint URL:
 
-`https://{tenant}-my.sharepoint.com/_api/v2.0/me/`
+`https://{tenant}-my.sharepoint.com/_api/v2.0/`
 
 ## Register your app with Azure Active Directory
 
@@ -199,7 +199,7 @@ response to find the endpoint URL for the OneDrive for Business API.
       "@odata.type": "#Microsoft.DiscoveryServices.ServiceInfo",
       "capability": "MyFiles",
       "serviceApiVersion": "v2.0",
-      "serviceEndpointUri": "https:\/\/contoso-my.sharepoint.com\/_api\/v2.0\/me",
+      "serviceEndpointUri": "https:\/\/contoso-my.sharepoint.com\/_api\/v2.0",
       "serviceResourceId": "https:\/\/contoso-my.sharepoint.com\/"
     }
   ]
@@ -244,7 +244,7 @@ The request body is a URL encoded string, with the following parameters:
 |:----------------|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | *client_id*     | string | The client ID created for your application.                                                                                                         |
 | *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete. This should match the *redirect_uri* value used in the first request. |
-| *client_secret* | string | One of the Keys values created for your application.                                                                                                     |
+| *client_secret* | string | One of the Keys values created for your application.                                                                                                |
 | *refresh_token* | string | The refresh token you received previously.                                                                                                          |
 | *resource_id*   | string | The resource you want to access. This should be the previously discovered **serviceResourceId** value.                                              |
 
