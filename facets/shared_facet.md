@@ -1,4 +1,5 @@
 # Shared facet
+
 Indicates that an item has been shared with others. Includes information about
 how the item is shared.
 
@@ -6,8 +7,7 @@ how the item is shared.
 ```json
 {
   "owner": { "@odata.type": "oneDrive.identitySet" },
-  "scope": "anonymous | tenant | users",
-  "sharedDateTime": "2015-05-21T11:13:12Z"
+  "scope": "anonymous | organization | users",
 }
 ```
 
@@ -17,14 +17,12 @@ how the item is shared.
 |:-------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------|
 | **owner**          | [IdentitySet](../resources/identitySet.md) | The identity of the user who owns the item that is shared.                              |
 | **scope**          | **String**                                 | Indicates the scope of how the item is shared: `anonymous`, `organization`, or `users`. |
-| **sharedDateTime** | **DateTimeOffset**                         | The date and time the item was shared.                                                  |
-
 
 ## Scope values
 
 | Value          | Description                                                                           |
 |:---------------|:--------------------------------------------------------------------------------------|
-| `public`       | The item is shared by using a link that works for anyone with the link.               |
+| `anonymous`    | The item is shared by using a link that works for anyone with the link.               |
 | `organization` | The item is shared by using a link that works for anyone in the owner's organization. |
 | `users`        | The item is shared with specific users only.                                          |
 
