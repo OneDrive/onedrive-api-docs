@@ -69,7 +69,7 @@ An edit link provides read and write access to an item.
   "id": "2",
   "roles": ["write"],
   "link": {
-    "type": "write",
+    "type": "edit",
     "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
     "application": { "id": "1234", "displayName": "Sample Application" }
   },

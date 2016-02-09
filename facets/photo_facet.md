@@ -9,28 +9,28 @@ It is available on the photo property of [Item][item-resource] resources that re
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.photo" } -->
 ```json
 {
-  "takenDateTime": "timestamp",
+  "takenDateTime": "string (timestamp)",
   "cameraMake": "string",
   "cameraModel": "string",
   "fNumber": 1.8,
-  "exposureDenominator": 1000,
-  "exposureNumerator": 1,
+  "exposureDenominator": 1000.0,
+  "exposureNumerator": 1.0,
   "focalLength": 22.5,
   "iso": 100
 }
 ```
 ## Properties
 
-| Property name           | Type                      | Description                                                     |
-|:------------------------|:--------------------------|:----------------------------------------------------------------|
-| **takenDateTime**       | [timestamp](timestamp.md) | Represents the date and time the photo was taken.               |
-| **cameraMake**          | string                    | Camera manufacturer.                                            |
-| **cameraModel**         | string                    | Camera model.                                                   |
-| **fNumber**             | number                    | The F-stop value from the camera.                               |
-| **exposureDenominator** | number                    | The denominator for the exposure time fraction from the camera. |
-| **exposureNumerator**   | number                    | The numerator for the exposure time fraction from the camera.   |
-| **focalLength**         | number                    | The focal length from the camera.                               |
-| **iso**                 | number                    | The ISO value from the camera.                                  |
+| Property name           | Type           | Description                                                     |
+|:------------------------|:---------------|:----------------------------------------------------------------|
+| **takenDateTime**       | DateTimeOffset | Represents the date and time the photo was taken.               |
+| **cameraMake**          | String         | Camera manufacturer.                                            |
+| **cameraModel**         | String         | Camera model.                                                   |
+| **fNumber**             | Double         | The F-stop value from the camera.                               |
+| **exposureDenominator** | Double         | The denominator for the exposure time fraction from the camera. |
+| **exposureNumerator**   | Double         | The numerator for the exposure time fraction from the camera.   |
+| **focalLength**         | Double         | The focal length from the camera.                               |
+| **iso**                 | Int64          | The ISO value from the camera.                                  |
 
 
 ## Remarks

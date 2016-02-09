@@ -93,7 +93,7 @@ Content-Type: application/json
       "roles": ["write"],
       "link": {
         "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
-        "type": "application",
+        "type": "edit",
         "application": {
           "id": "12345",
           "displayName": "TimeTravelPlus"

@@ -50,9 +50,9 @@ Content-Type: application/json
   "value": [
     {
       "id": "0",
-      "small": { "height": 64, "width": 96, "url": "https://sn3302files..."},
-      "medium": { "height": 117, "width": 176, "url": "https://sn3302files..."},
-      "large": { "height": 533, "width": 800, "url": "https://sn3302files..."}
+      "small": { "height": 64, "width": 96, "url": "https://sn3302files.onedrive.com/123"},
+      "medium": { "height": 117, "width": 176, "url": "https://sn3302files.onedrive.com/234"},
+      "large": { "height": 533, "width": 800, "url": "https://sn3302files.onedrive.com/345"}
     }
   ]
 }
