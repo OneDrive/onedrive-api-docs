@@ -111,6 +111,7 @@ Content-type: application/json
 ```
 
 **Notes:**
+
 * The Response object is truncated for clarity. All default properties will be returned from the actual call.
 * The delta feed shows the latest state for each item, not each change. If an item were renamed twice, it would only show up once, with its latest name.
 * The same item may appear more than once in a delta feed, for various reasons. You should use the last occurrence you see.
