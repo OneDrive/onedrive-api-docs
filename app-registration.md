@@ -65,7 +65,7 @@ create one:
 * [An existing Office 365 subscription](https://msdn.microsoft.com/library/2ec857d5-dc6f-4cf6-ba45-adc845ef2a25%28Office.15%29.aspx) -
   You can use an existing Office 365 subscription, which can be any of the
   following: Office 365 Midsize Business, Office 365 Enterprise (E1, E3, E4,
-  or K1), Office 365 Education (A2, A3, or A4), Office 365 Government (G1, G3,
+  or K1), Office 365 Education, Office 365 Government (G1, G3,
   G4, or K1).
 * [Free trial](https://portal.microsoftonline.com/Signup/MainSignUp.aspx?OfferId=6881A1CB-F4EB-4db3-9F18-388898DAF510&DL=DEVELOPERPACK) -
   You can start with a free 30-day trial, or buy an Office 365 developer
