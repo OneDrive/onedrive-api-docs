@@ -4,22 +4,24 @@ Use the OneDrive software development kits to quickly get OneDrive integrated
 into your apps. While programming with REST APIs is pretty easy, the OneDrive
 SDKs aim to make it even easier.
 
-## Picker and saver SDKs
-Add OneDrive to your app in minutes with a few lines of code.
+## File picker SDKs
+Add OneDrive to your app in minutes with a few lines of code. File picker SDKs
+allow you to quickly download or link to files already in OneDrive, or save files
+into OneDrive without writing much code. Quickly integrate your app with OneDrive
+today!
 
-Get a link from OneDrive for sharing or downloading the contents of a file.
-Save a file on the user's local device to OneDrive so it's available on all your users' devices.
 
-| Platform | OneDrive | OneDrive for Business | Documentation                                                     |
-|:---------|:---------|:----------------------|:------------------------------------------------------------------|
-| Android  | Yes      | Yes                   | [Picker and saver SDK][android-picker]                            |
-| iOS      | Yes      | Yes                   | [UIDocumentPicker][ios-picker]                                    |
-| Web      | Yes      | Preview               | [Picker and saver SDK][web-picker]                                |
-| Windows  | Yes      | Yes                   | [FileOpenPicker][windows-picker], [FileSavePicker][windows-saver] |
+| Platform         | OneDrive | OneDrive for Business | Documentation                                                                     |
+|:-----------------|:---------|:----------------------|:----------------------------------------------------------------------------------|
+| Android          | Yes      | Yes                   | [Android File picker SDK][android-picker]                                         |
+| iOS              | Yes      | Yes                   | [Use iOS's UIDocumentPicker contract][ios-picker]                                 |
+| Web / JavaScript | Yes      | Yes                   | [JavaScript File picker SDK][web-picker]                                          |
+| Windows          | Yes      | Yes                   | [Use Windows' FileOpenPicker][windows-picker], or [FileSavePicker][windows-saver] |
+
 
 [android-picker]: https://msdn.microsoft.com/EN-US/library/dn833235.aspx
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
-[web-picker]: sdk/javascript-sdk.md
+[web-picker]: sdk/js-v6/js-picker-overview.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 
@@ -49,5 +51,12 @@ Don't see your favorite platform? [Suggest it on UserVoice](http://onedrive.user
   "type": "#page.annotation",
   "description": "SDKs to make integrating with OneDrive easy.",
   "keywords": "sdk,windows,ios,android,js,javascript,C#,c-sharp,java,objective-c,python",
-  "section": "sdks"
+  "section": "sdks",
+  "tocPath": "OneDrive SDKs",
+  "tocBookmarks": {
+    "OneDrive SDKs/.NET SDK": "#onedrive-api-sdks",
+    "OneDrive SDKs/iOS SDK": "#onedrive-api-sdks",
+    "OneDrive SDKs/Android": "#onedrive-api-sdks",
+    "OneDrive SDKs/Python": "#onedrive-api-sdks"
+  }
 } -->

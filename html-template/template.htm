@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{#url 'stylesheet.nav.css'}}" />
   <link rel="shortcut icon" href="https://p.sfx.ms/about/v20/non-localizable/img/chrome/favicon.ico" />
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
   {{#each HtmlHeaderAdditions}}{{Value}}
   {{/each}}
 </head>
@@ -43,7 +44,7 @@
                 <li {{#ifmatch Page.Section 'appreg'}} class="active" {{/ifmatch}}><a href="{{#url 'app-registration.htm'}}">App Registration</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-sm visible-md visible-lg">
-                <li><a href="https://github.com/onedrive/onedrive-api-docs/">Read it on GitHub</a></li>
+                <li><a href="https://github.com/OneDrive/onedrive-api-docs/blob/master/{{OriginalSourceRelativePath}}">Edit on GitHub</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->
@@ -52,37 +53,10 @@
 
 <!-- HTML Page Content Start -->
 <div class="container wrapper" id="body">
-    {{#ifmatch Page.Section 'documentation' }}
     <div class="row">
-        <div class="col-md-9">
-            {{Body}}
-        </div>
-        <div id="tocbar" class="col-md-3 visible-md visible-lg">
-            <p><a href="{{#url 'README.htm'}}">Getting Started</a></p>
-            <ul>
-                {{#each Headers}}
-                <li>{{#if Url}}<a href="{{Url}}">{{Title}}</a>{{#else}}{{Title}}{{/if}}</li>
-                {{#if NextLevel}}
-                <ul>
-                    {{#each NextLevel}}
-                    <li><a href="{{Url}}">{{Title}}</a></li>
-                    {{#if NextLevel}}
-                    <ul>
-                        {{#each NextLevel}}
-                        <li><a href="{{Url}}">{{Title}}</a></li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{/each}}
-                </ul>
-                {{/if}}
-                {{/each}}
-            </ul>
-        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9">{{Body}}</div>
+        <div id="tocbar" class="col-md-3 visible-md visible-lg" style="display: none" data-section="{{Page.Section}}"></div>
     </div>
-    {{#elsematch}}
-    {{Body}}
-    {{/ifmatch}}
 </div>
 <!-- HTML Page Content End -->
 
@@ -152,11 +126,10 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{#url 'ie10-viewport-bug-workaround.js'}}"></script>
-
+<script src="{{#url 'js/ie10-viewport-bug-workaround.js'}}"></script>
+<script src="{{#url 'js/toc.js'}}"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

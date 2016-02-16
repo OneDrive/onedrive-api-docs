@@ -16,18 +16,18 @@ The following sample code projects are available for the new OneDrive API:
   from an Android application.
 
 
-### OneDrive picker/saver samples
-OneDrive pickers and savers make it easy to open files from OneDrive and save
+### OneDrive file picker samples
+OneDrive file pickers make it easy to open files from OneDrive and save
 files back to OneDrive with minimal code. Just connect a button or flow up
-to the picker and saver SDK for your platform and in minutes your app will work
-with OneDrive.
+to the file picker SDK for your platform and in minutes your app will be connected
+to OneDrive.
 
-* [Picker and saver for Android](https://msdn.microsoft.com/EN-US/library/dn833235.aspx)
+* [File picker for Android](https://msdn.microsoft.com/EN-US/library/dn833235.aspx)
   Connect your Android app to OneDrive with a few lines of code. No need to
   use the API or build a user interface.
 
-* [Picker and saver for JavaScript](sdk/javascript-picker-saver.md)
-  Connect your JavaScript application or website to open and save files with
+* [File picker for JavaScript](sdk/js-v6/js-picker-overview.md)
+  Connect your JavaScript web application or website to open and save files with
   OneDrive without writing any user interface code.
 
 

@@ -40,7 +40,7 @@ are listed below:
 * [Blocked file extensions](#blocked-file-extensions)
 * [Image and photo facets](#image-and-photo-facets)
 * [Sharing links](#sharing-links-and-permissions)
-* [Pickers and savers](#pickers-and-savers)
+* [File picker SDKs](#file-picker-sdks)
 * [Enumerating drives](#enumerating-drives)
 
 ### Authentication
@@ -181,18 +181,18 @@ no properties.
 
 OneDrive for Business does not yet support sharing links for folders, or permissions on an item.
 
-### Pickers and savers
+### File picker SDKs
 
-The OneDrive pickers and savers support OneDrive and OneDrive for Business
+The OneDrive file picker SDKs support OneDrive and OneDrive for Business
 on these platforms:
 
 * Android
 * iOS
+* Web (JavaScript)
 
-Picking and saving files to OneDrive only, is supported on these platforms:
+Only OneDrive personal is available on these platforms:
 
 * Windows Universal Apps
-* Web (JavaScript)
 
 ### Enumerating drives
 
