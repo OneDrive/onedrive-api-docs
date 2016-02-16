@@ -6,10 +6,9 @@ Two versions of the OneDrive file picker SDK are now available:
 * [Version 5.0 - Supports OneDrive Personal only](js-v5/javascript-picker-saver.md).
 
 
-
 <!-- {
   "type": "#page.annotation",
-  "description": "Use the JavaScript file picker SDKs to connect your web app to OneDrive.",
+  "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks"
 } -->
