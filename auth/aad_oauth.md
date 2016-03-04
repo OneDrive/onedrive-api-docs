@@ -246,7 +246,7 @@ The request body is a URL encoded string, with the following parameters:
 | *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete. This should match the *redirect_uri* value used in the first request. |
 | *client_secret* | string | One of the Keys values created for your application.                                                                                                |
 | *refresh_token* | string | The refresh token you received previously.                                                                                                          |
-| *resource_id*   | string | The resource you want to access. This should be the previously discovered **serviceResourceId** value.                                              |
+| *resource*      | string | The resource you want to access. This should be the previously discovered **serviceResourceId** value.                                              |
 
 
 **Note**  The redirect URI must match the the redirect URI that you specified in the
