@@ -174,7 +174,7 @@ a collection of items under the folder.
 | [List an Item's children](items/list.md)         | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
 | [Create an Item](items/create.md)                | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
 | [Upload an Item's contents](items/upload.md)     | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
-| [Update an Item's contents](items/update.md)     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
+| [Update an Item's metadata](items/update.md)     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
 | [Delete an Item](items/delete.md)                | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |
 | [Move an Item](items/move.md)                    | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
 | [Copy an Item](items/copy.md)                    | `POST /drive/items/{id}/action.copy`                   | `POST /drive/root:/{path}:/action.copy`          |

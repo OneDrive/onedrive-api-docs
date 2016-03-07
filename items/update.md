@@ -1,4 +1,4 @@
-# Update an item on OneDrive
+# Update the metadata for an item in OneDrive
 
 Update the metadata for an item in OneDrive by ID or path. You can also use update to move
 an item to another parent by updating the item's **parentReference** facet.
