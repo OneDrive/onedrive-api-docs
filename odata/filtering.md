@@ -98,23 +98,23 @@ Content-length: length
 {
     "value": [
       {
-        id: "0123456789abc!123",
-        name: "Vacation.jpg",
-        image: { },
-        file: { },
-        searchResult:
+        "id": "0123456789abc!123",
+        "name": "Vacation.jpg",
+        "image": { },
+        "file": { },
+        "searchResult":
         {
-          onClickTelemetryUrl: "https://bing.com/0123456789abc!123"
+          "onClickTelemetryUrl": "https://bing.com/0123456789abc!123"
         }
       },
       {
-        id: "0123456789abc!456",
-        name: "Summer.jpg",
-        image: { },
-        file: { },
-        searchResult:
+        "id": "0123456789abc!456",
+        "name": "Summer.jpg",
+        "image": { },
+        "file": { },
+        "searchResult":
         {
-          onClickTelemetryUrl: "https://bing.com/0123456789abc!456"
+          "onClickTelemetryUrl": "https://bing.com/0123456789abc!456"
         }
       }
     ],

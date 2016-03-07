@@ -38,7 +38,7 @@ Content-Type: application/json
 ```
 
 You can also use the update API to move an item into another folder by updating the
-**parentInfo.id** or **parentInfo.path** property to the ID of the target parent.
+**parentReference.id** or **parentReference.path** property to the ID of the target parent.
 
 As with other `PATCH` actions, the entire item object will be included in the response.
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
