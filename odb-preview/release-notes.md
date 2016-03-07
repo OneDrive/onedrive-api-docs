@@ -35,7 +35,7 @@ are listed below:
 * [Special folders](#special-folders)
 * [Uploading items](#uploading-items)
 * [Rename on upload is not supported](#rename-on-upload-is-not-supported)
-* [Hashes are not returned for files](#hashes-are-not-returned-for-files)
+* [File facet is empty](#file-facet-is-empty)
 * [Extra OData metadata is returned](#extra-odata-metadata-is-returned)
 * [Blocked file extensions](#blocked-file-extensions)
 * [Image and photo facets](#image-and-photo-facets)
@@ -135,10 +135,11 @@ for item uploads.
 The **@name.conflictBehavior** property does not support the rename value in
 OneDrive for Business.
 
-### Hashes are not returned for files
+### File facet is empty
 
-SHA1 and/or CRC32 hash values are not returned for files stored in OneDrive
-for Business.
+The file facet is returned without any properties when using OneDrive API with
+OneDrive for Business or SharePoint. The SHA1, CRC32 hash values, and mime type
+are not available in this environment.
 
 ### Extra OData metadata is returned
 
