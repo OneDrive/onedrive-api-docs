@@ -1,7 +1,6 @@
 # Download a OneDrive Item contents
 
-Use this API to download the contents (default stream) for an Item on OneDrive, with the
-[File][file-facet] facet.
+Use this API to download the contents for an item with the [File][file-facet] facet.
 
 ## Prerequisites
 To call the download API, the user must have granted the application read access
@@ -9,10 +8,10 @@ to the file the app wishes to download.
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
-````
+```http
 GET /drive/items/{item-id}/content
 GET /drive/root:/{path and filename}:/content
-````
+```
 
 ### Optional request headers
 
@@ -27,21 +26,22 @@ Do not supply a request body with this method.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "download-item-content" } -->
+<!-- { "blockType": "request", "name": "download-item-content", "scopes": "files.read" } -->
 ```http
 GET /drive/items/{item-id}/content
 ```
 
 ## Response
 
-Returns a `302 Found` response redirecting to a pre-authenticated download URL for the file. This
-is the same URL available through the `@content.downloadUrl` property on an item.
+Returns a `302 Found` response redirecting to a pre-authenticated download URL
+for the file. This is the same URL available through the `@content.downloadUrl`
+property on an item.
 
 To download the contents of the file your application will need to follow
 the `Location` header in the response.
 
-Pre-authenticated download URLs are only valid for a short period of time (a few minutes) and do not require an
-`Authorization` header to download.
+Pre-authenticated download URLs are only valid for a short period of time (a few
+minutes) and do not require an `Authorization` header to download.
 
 <!-- { "blockType": "response", "@odata.type": "stream" } -->
 ```http
@@ -53,7 +53,7 @@ Location: https://b0mpua-by3301.files.1drv.com/y23vmagahszhxzlcvhasdhasghasodfi
 
 To download a partial range of an item, you use the `Range` HTTP header
 as specified in [RFC 2616][rfc-2616]. Note that you must append the `Range`
-header to the HTTP request after receiving the `302 Found`.
+header to the HTTP request after receiving the `302 Found` redirection.
 
 [rfc-2616]: https://www.ietf.org/rfc/rfc2616.txt
 
@@ -76,7 +76,6 @@ Content-Range: bytes 0-1023/2048
 <first 1024 bytes of file>
 ```
 
-
 ### Error responses
 
 See [Error Responses][error-response] for more info about
@@ -84,7 +83,11 @@ how errors are returned.
 
 ## Remarks
 
-When you download an item's content by requesting its `/content` property, you must provide the Authorization header, in order to be granted access to download. The response would normally return a `302` redirect to the URL where the file can be downloaded from. This URL is pre-authenticated and does not require the Authorization header. However, if you specify an Authorization header to this download URL when downloading an item's content from OneDrive for Business, you will receive a `401` error.
+When you download an item's content by requesting its `/content` property, you
+must provide the Authorization header, in order to be granted access to download.
+The response would normally return a `302` redirect to the URL where the file
+can be downloaded from. This URL is pre-authenticated and does not require the
+Authorization header.
 
 [error-response]: ../misc/errors.md
 [file-facet]: ../facets/file_facet.md

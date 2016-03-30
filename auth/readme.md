@@ -33,5 +33,5 @@ OneDrive for Business uses [Azure Active Directory](https://manage.windowsazure.
   "description": "OneDrive uses the standard OAuth 2.0 authentication scheme for users and apps",
   "keywords": "authentication,sign in, sign out, logout, login, oauth, msa",
   "section": "documentation",
-  "tocPath": "Concepts/Auth"
+  "tocPath": "Getting Started/Authentication"
 } -->

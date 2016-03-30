@@ -1,16 +1,17 @@
-﻿# List children for a OneDrive item
+﻿# List children for an item
 
-Items with the folder facet may contain one or more child items. This API
-lists the contents of the item's `children` collection using either the item ID
-or path to the item.
+Items with the [folder facet](../facets/folder_facet.md) or [package facet](../facets/package_facet.md)
+may contain one or more child items. This API lists the contents of the item's
+**children** collection using either the item ID or path to the item.
 
 
 ## Prerequisites
-To call this API, the user must have granted the application read
-access to the folder.
+To call this API, the user must have granted the application read access to the drive.
 
 ## HTTP request
-```
+
+<!-- { "blockType": "ignored" } -->
+```http
 GET /drive/items/{item-id}/children
 GET /drive/root:/{item-path}:/children
 ```
@@ -34,7 +35,7 @@ Do not supply a request body with this method.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "list-children-root" } -->
+<!-- { "blockType": "request", "name": "list-children-root", "scopes": "files.read" } -->
 ```http
 GET /drive/root/children
 ```

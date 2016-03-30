@@ -16,6 +16,7 @@ list of properties to return on [Items][item-resource].
 
 This example selects only the **name** and **size** properties to be returned, when retrieving the children of an item.
 
+<!-- { "name": "select-root-children", "scopes": "files.read" } -->
 ```http
 GET /drive/root/children?select=name,size
 ```
@@ -24,8 +25,11 @@ By submitting the request with the `select=name,size` query string, the objects
 in the response will only have those property values included. When using the
 select statement, you need to specify all properties to return in the statement.
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true, "name": "item-select-example" } -->
-```json
+<!-- { "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
 {
   "value": [
     {
@@ -56,7 +60,7 @@ For example, to retrieve the root drive information and the top level items in
 a drive you use the _expand_ parameter as in the example below. This example also uses a _select_
 statement to only return the **id** and **name** properties of the children items.
 
-<!-- { "blockType": "request", "name": "drive-plus-children" } -->
+<!-- { "blockType": "request", "name": "drive-plus-children", "scopes": "files.read" } -->
 ```http
 GET /drive/root?expand=children(select=id,name)
 ```
@@ -69,13 +73,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "createdBy": { },
-  "createdDateTime": "2008-01-10T20:16:28.017Z",
-  "cTag": "aZjpGMDRBQTk2MT...",
-  "eTag": "aRjA0QUE5NjE3ND...",
-  "id": "root",
-  "lastModifiedBy": { },
-  "lastModifiedDateTime": "2013-06-20T02:54:44.547Z",
+  "id": "12312312541",
   "name": "root",
   "size": 218753122201,
   "webUrl": "https://onedrive.live.com/?cid=0f040...",

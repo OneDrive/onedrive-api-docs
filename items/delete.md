@@ -27,7 +27,7 @@ Do not supply a request body with this method.
 
 
 ### Example
-<!-- { "blockType": "request", "name": "delete-item" } -->
+<!-- { "blockType": "request", "name": "delete-item", "scopes": "files.readwrite" } -->
 ```
 DELETE /drive/items/{item-id}
 ```

@@ -1,6 +1,6 @@
 # SpecialFolder facet
 
-The **SpecialFolder** facet provides information about how a folder on OneDrive can be accessed via the special
+The **SpecialFolder** facet provides information about how a folder can be accessed via the special
 folders collection.
 
 ## JSON representation
@@ -20,5 +20,6 @@ folders collection.
   "type": "#page.annotation",
   "description": "The SpecialFolder facet provides information about folders accessible as special folders.",
   "keywords": "special folder,item,facet",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Special folder"
 } -->

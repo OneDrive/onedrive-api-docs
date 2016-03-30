@@ -7,7 +7,7 @@ remote item might have its `id` changed.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.remoteItem" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.remoteItem", optionalProperties: ["name"] } -->
 ```json
 {
   "id": "string",
@@ -15,6 +15,7 @@ remote item might have its `id` changed.
   "folder": { "@odata.type": "oneDrive.folder" },
   "file": { "@odata.type": "oneDrive.file" },
   "fileSystemInfo": { "@odata.type": "oneDrive.fileSystemInfo" },
+  "name": "string",
   "size": 1024,
   "webUrl": "https://1drv.ms/voo/bar"
 }
@@ -29,5 +30,14 @@ remote item might have its `id` changed.
 | **file**            | [File](file_facet.md)                          | Indicates that the remote item is a file.                     |
 | **fileSystemInfo**  | [FileSystemInfo](filesysteminfo_facet.md)      | Information about the remote item from the local file system. |
 | **size**            | Int64                                          | Size of the remote item.                                      |
+| **name**            | String                                         | Optional. Filename of the remote item.                        |
 
 [item-resource]: ../resources/item.md
+
+<!-- {
+  "type": "#page.annotation",
+  "description": "The quota facet provides information about how much space the OneDrive has available.",
+  "keywords": "quota,available,remaining,used",
+  "section": "documentation",
+  "tocPath": "Facets/Remote item"
+} -->

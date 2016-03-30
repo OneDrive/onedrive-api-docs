@@ -7,12 +7,16 @@ contents of the item in a single API call. This method only supports requests up
 See [Uploading item contents](upload.md) for details about how to upload
 the contents of an item.
 
+**Note:** Multipart upload is only available on OneDrive Personal.
+
 ## Prerequisites
 
 To use this method, the user must have granted the application write access
 to the folder that the file will be uploaded to.
 
 ## HTTP request
+
+<!-- {"blockType": "ignored" } -->
 ```
 POST /drive/items/{item-id}/children
 POST /drive/root:/{item-path}/:children
@@ -39,7 +43,7 @@ specify a **name** value in the `Content-Disposition` header that indicates whic
 part it is. Parts can be in either order, but should specify the metadata part
 first.
 
-<!-- { "blockType": "request", "name": "upload-multipart" } -->
+<!-- { "blockType": "request", "name": "upload-multipart", "scopes": "files.readwrite service.onedrive" } -->
 ```
 POST /drive/items/{folder-id}/children
 Content-Type: multipart/related; boundary="A100x"
@@ -89,6 +93,8 @@ Content-Type: application/json
 **Note:** The Response object is truncated for clarity. All default properties will
 be returned from the actual call.
 
+
+
 ### Error responses
 
 Read the [Error Responses][error-response] topic for more information about
@@ -96,7 +102,8 @@ how errors are returned.
 
 ## Remarks
 
-The multipart upload method is not supported in OneDrive for Business.
+The multipart upload method is not supported in OneDrive for Business or SharePoint.
+
 
 [error-response]: ../misc/errors.md
 

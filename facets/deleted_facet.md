@@ -11,7 +11,9 @@ may be populated with additional properties.
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.deleted" } -->
 ```json
-{ }
+{
+  "state": "string"
+}
 ```
 ## Properties
 
@@ -21,5 +23,6 @@ None. This facet is a null or not-null value and contains no properties.
   "type": "#page.annotation",
   "description": "The deleted facet providers properties about deleted items",
   "keywords": "deleted,delete,item,facet",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Deleted"
 } -->

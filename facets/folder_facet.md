@@ -23,5 +23,6 @@ It is available on the folder property of [Item][item-resource] resources that r
   "type": "#page.annotation",
   "description": "The Folder facet describes properties of a folder",
   "keywords": "folder,item,facet",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Folder"
 } -->

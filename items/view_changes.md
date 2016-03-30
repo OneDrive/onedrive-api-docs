@@ -1,12 +1,11 @@
 # View changes for a OneDrive Item and its children
 
-This method allows your app to enumerate the sync changes under a OneDrive folder from a specified state. Each change is represented by a
-change token. This enables your app to maintain a local copy of the drive, and update the local state efficiently.
-
-
 **Note: `view.changes` has been replaced with [`view.delta`](view_delta.md),
 which has new features and simplifications to error-handling and paging.
-Please use [`view.delta``](view_delta.md) instead.**
+Please use [`view.delta`](view_delta.md) instead.**
+
+This method allows your app to enumerate the sync changes under a OneDrive folder from a specified state. Each change is represented by a
+change token. This enables your app to maintain a local copy of the drive, and update the local state efficiently.
 
 ## HTTP request
 
@@ -23,7 +22,7 @@ GET /drive/root:/{item-path}:/view.changes
 
 ### Example
 
-<!-- { "blockType": "request", "name": "get-changes" } -->
+<!-- { "blockType": "request", "name": "get-changes", "idempotent": true, "scopes": "files.read service.onedrive" } -->
 ```
 GET /drive/items/{item-id}/view.changes?token={token}
 Accept: application/json
@@ -109,7 +108,7 @@ current state of items. If you send a request with the **token** parameter set
 to `latest` the response will include only the latest **token** and **nextLink**
 parameters.
 
-<!-- { "blockType": "request", "name": "get-changes-latest" } -->
+<!-- { "blockType": "request", "name": "get-changes-latest", "scopes": "files.read service.onedrive" } -->
 ```http
 GET /drive/items/{item-id}/view.changes?token=latest
 ```

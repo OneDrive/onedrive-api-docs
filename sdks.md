@@ -19,9 +19,9 @@ today!
 | Windows          | Yes      | Yes                   | [Use Windows' FileOpenPicker][windows-picker], or [FileSavePicker][windows-saver] |
 
 
-[android-picker]: https://msdn.microsoft.com/EN-US/library/dn833235.aspx
+[android-picker]: sdk/android-picker/android-picker-overview.md
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
-[web-picker]: sdk/js-v6/js-picker-overview.md
+[web-picker]: sdk/js-v7/js-picker-overview.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 
@@ -54,9 +54,9 @@ Don't see your favorite platform? [Suggest it on UserVoice](http://onedrive.user
   "section": "sdks",
   "tocPath": "OneDrive SDKs",
   "tocBookmarks": {
-    "OneDrive SDKs/.NET SDK": "#onedrive-api-sdks",
+    "OneDrive SDKs/Windows .NET SDK": "#onedrive-api-sdks",
     "OneDrive SDKs/iOS SDK": "#onedrive-api-sdks",
-    "OneDrive SDKs/Android": "#onedrive-api-sdks",
-    "OneDrive SDKs/Python": "#onedrive-api-sdks"
+    "OneDrive SDKs/Python SDK": "#onedrive-api-sdks",
+    "OneDrive SDKs/Android SDK": "#onedrive-api-sdks"
   }
 } -->

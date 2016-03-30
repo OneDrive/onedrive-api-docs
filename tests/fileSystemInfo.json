@@ -4,6 +4,7 @@
       "name": "Patch FileSystemInfo facet",
       "method": "update-item-move-folder",
       "enabled": true,
+      "scopes": ["service.onedrive"],
       "request-parameters":
       {
         "{item-id}": "[new-item-id]",

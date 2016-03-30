@@ -20,7 +20,7 @@
         "Content-Range",
         "Range"
       ],
-      "contentTypes": ["application/json", "multipart/related", "text/plain"]
+      "contentTypes": ["application/json", "multipart/related", "text/plain", "application/octet-stream"]
     },
     "httpResponse": {
       "contentTypes": ["application/json", "multipart/related", "text/plain"],

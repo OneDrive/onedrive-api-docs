@@ -13,8 +13,8 @@ resources.
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.fileSystemInfo" } -->
 ```json
 {
-  "createdDateTime" : "string (timestamp)",
-  "lastModifiedDateTime" : "string (timestamp)"
+  "createdDateTime" : "datetime",
+  "lastModifiedDateTime" : "datetime"
 }
 ```
 
@@ -39,11 +39,16 @@ the `fileSystemInfo` facet will show the orignal created date on Monday.
 These properties are read/write. If you are uploading a file and know the
 local client values for these fields, you should include them in the request.
 
+## Remarks
+
+The **FileSystemInfo** property is not available for items in SharePoint or OneDrive for Business.
+
 [item-resource]: ../resources/item.md
 
 <!-- {
   "type": "#page.annotation",
   "description": "The fileSystemInfo facet provides information about date created and modified by clients.",
   "keywords": "fileSystemInfo,client,system info,onedrive",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/File system info"
 } -->

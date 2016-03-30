@@ -23,10 +23,11 @@
       },
       "implicit-variable": "{file-item-id}"
     },
+
     { "name": "create-folder-item",
       "method": "create-folder",
       "request-parameters": {
-        "$.name": "!random-filename"
+        "$.name": "!random-filename!"
       },
       "capture": {
         "[item-id]": "$.id"
@@ -63,16 +64,35 @@
       }
     },
 
-    { "name": "Copy file",
+    { "name": "Copy file to new filename",
       "method": "copy-item",
       "enabled": true,
       "request-parameters":
       {
         "{item-id}": "[item-id]",
-        "$.parentReference.id": null
+        "$.parentReference.id": null,
+        "$.name": "!random-filename-txt"
       },
       "test-setup": [ { "canned-request": "create-file-item" } ]
     },
+
+    { "name": "Copy file and replace",
+      "method": "copy-item",
+      "enabled": true,
+      "scopes": ["service.onedrive"],
+      "request-parameters":
+      {
+        "{item-id}": "[item-id]",
+        "$.parentReference.id": null,
+        "$.parentReference.path": "/drive/root:/Documents",
+        "$.name": "foobar.txt",
+        "$.['@name.conflictBehavior']": "replace"
+      },
+      "test-setup": [
+         { "canned-request": "create-file-item" }
+       ]
+    },
+
 
     { "name": "Get first medium thumbnail",
       "method": "get-one-thumbnail",
@@ -98,6 +118,7 @@
 
     { "name": "Enumerate thumbnails for photo folder",
       "method": "enum-item-thumbnails",
+      "scopes": ["service.onedrive"],
       "enabled": true,
 
       "request-parameters":
@@ -110,6 +131,13 @@
           "http-request": "GET /drive/special/photos",
           "capture": {
             "[folder-item-id]": "$.id"
+          }
+        },
+        {
+          "http-request": "PUT /drive/special/photos:{filename}:/content",
+          "request-parameters": {
+            "{filename}": "!random-filename-png",
+            "!body.base64": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
           }
         }
       ]
@@ -150,6 +178,29 @@
       "request-parameters":
       {
         "{search-text}": "2014"
+      }
+    },
+
+    { "name": "Add custom thumbnail to non-image file",
+      "method": "add-custom-thumbnail",
+      "enabled": true,
+
+      "test-setup": [ { "canned-request": "create-file-item" } ],
+
+      "request-parameters": {
+        "{item-id}": "[item-id]",
+        "!body.base64": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+      }
+    },
+
+    { "name": "Get custom thumbnail size",
+      "method": "get-thumbnail-custom-size",
+      "enabled": true,
+
+      "test-setup": [ { "canned-request": "create-photo-item" } ],
+
+      "request-parameters": {
+        "{item-id}": "[item-id]"
       }
     },
 
@@ -237,6 +288,7 @@
     { "name": "Documents folder",
       "method": "get-special-folder",
       "enabled": true,
+      "scopes": ["service.onedrive"],
       "request-parameters":
       {
         "{special-folder-name}": "documents"
@@ -311,6 +363,7 @@
     { "name": "Public folder",
       "method": "get-special-children",
       "enabled": true,
+      "scopes": ["service.onedrive"],
       "request-parameters":
       {
         "{special-folder-name}": "public"
@@ -340,10 +393,12 @@
       "name": "Set up for testing that HEAD doesn't auto-provision special folders",
       "method": "head-does-not-create-special-folder",
       "enabled": true,
-      "request-parameters": { },
+      "request-parameters": {
+         "{special-folder-name}": "approot"
+       },
       "test-setup": [
         {
-          "http-request": "DELETE /drive/special/documents",
+          "http-request": "DELETE /drive/special/approot",
           "allowed-status-codes": [
             204,
             404
@@ -351,24 +406,17 @@
         }
       ]
     },
-	{
-      "name": "Set up to test that HEAD works on existing special folders",
+
+    { "name": "Set up to test that HEAD works on existing special folders",
       "method": "head-existing-special-folder",
       "enabled": true,
-      "request-parameters": { },
+      "request-parameters": {
+        "{special-folder-name}": "approot"
+      },
       "test-setup": [
-        {
-          "http-request": "DELETE /drive/special/documents",
-          "allowed-status-codes": [
-            204,
-            404
-          ]
-        },
-		{
-          "http-request": "GET /drive/special/documents",
-          "allowed-status-codes": [
-            200
-          ]
+		    {
+          "http-request": "GET /drive/special/approot",
+          "allowed-status-codes": [ 200 ]
         }
       ]
     },
@@ -391,6 +439,16 @@
           "allowed-status-codes": [204, 404]
         }
       ]
+    },
+
+    {
+      "name": "Create folder with conflict behavior",
+      "method": "create-folder",
+      "enabled": true,
+      "scopes": ["service.onedrive"],
+      "request-parameters": {
+        "$.['@name.conflictBehavior']": "rename"
+      }
     },
 
     {
@@ -498,13 +556,7 @@
     {
       "name": "Get list of items shared with me",
       "method": "shared-with-me",
-      "enabled": false
-    },
-
-    {
-      "name": "Get a shared item from another drive",
-      "method": "get-shared-item",
-      "enabled": false
+      "enabled": true
     },
 
     {
@@ -562,10 +614,34 @@
       ]
     },
 
+    { "name": "Get single permission on item",
+      "method": "get-single-permission",
+      "enabled": true,
+
+      "request-parameters": {
+        "{item-id}": "[item-id]",
+        "{permission-id}": "[perm-id]"
+      },
+
+      "test-setup": [
+        { "canned-request": "create-file-item" },
+        {
+          "method": "create-link",
+          "request-parameters": {
+              "{item-id}": "[item-id]"
+          },
+          "capture": {
+            "[perm-id]": "$.id"
+          }
+        }
+      ]
+    },
+
     {
       "name": "Change read-only to read-write permissions",
       "method": "update-permission",
       "enabled": true,
+      "scopes":["service.onedrive"],
 
       "request-parameters":
       {
@@ -593,27 +669,14 @@
     },
 
     {
-      "name": "Enumerate items shared by me",
-      "method": "shared-by-me",
-      "enabled": true,
-
-      "test-setup":
-      [
-        {
-          "http-request": "POST /drive/root:/Documents:/action.createLink\r\nContent-Type: application/json\r\n\r\n{\"type\":\"view\"}"
-        }
-      ]
-    },
-
-    {
       "name": "Create a chunked upload session",
       "method": "upload-fragment-create-session",
       "enabled": true,
 
       "request-parameters":
       {
-        "{item-path}": "largefile.vhd",
-        "$.item.name": "largefile.vhd"
+        "{item-path}": "!random-filename-vnd",
+        "$.item.name": null
       }
     },
 
@@ -628,11 +691,9 @@
       "test-setup":
       [
         {
-          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-          "capture":
-          {
-            "[upload-url]": "$.uploadUrl"
-          }
+          "http-request": "POST /drive/root:/Documents/{filename}:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "request-parameters": { "{filename}": "!random-filename-txt!" },
+          "capture": {  "[upload-url]": "$.uploadUrl" }
         }
       ]
     },
@@ -670,11 +731,9 @@
       "test-setup":
       [
         {
-          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-          "capture":
-          {
-            "[upload-url]": "$.uploadUrl"
-          }
+          "http-request": "POST /drive/root:/Documents/{filename}:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "request-parameters": { "{filename}": "!random-filename-txt!" },
+          "capture": { "[upload-url]": "$.uploadUrl" }
         }
       ]
     },
@@ -688,6 +747,7 @@
       {
         "!url": "[upload-url]"
       },
+      "allowed-status-codes": [201, 200],
       "test-setup":
       [
         {
@@ -714,7 +774,7 @@
     {
       "name": "View MRU list",
       "method": "view-recent-files",
-      "enabled": false,
+      "enabled": true,
       "test-setup":
       [
         {

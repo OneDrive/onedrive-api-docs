@@ -1,6 +1,12 @@
 {
   "scenarios":
   [
+    { "name": "Send a sharing invitation",
+      "method": "send-sharing-invite",
+      "enabled": false
+    },
+
+
     {
       "name": "Create a sharing link for an item",
       "method": "create-link",
@@ -28,9 +34,27 @@
     },
 
     {
+      "name": "Create a scoped sharing link for an item",
+      "method": "create-link-scoped",
+      "enabled": true,
+      "allowed-status-codes": [201, 200],
+
+      "request-parameters":
+      {
+        "{item-id}": "[item-id]"
+      },
+
+      "test-setup":
+      [
+        { "canned-request": "create-file-item" }
+      ]
+    },
+
+    {
       "name": "Verify shared item facet",
       "method": "get-item-metadata",
       "enabled": true,
+      "scopes": ["service.onedrive"],
 
       "request-parameters":
       {
@@ -64,6 +88,88 @@
         }
       ]
 
+    },
+
+    {
+      "name": "Share root with encoded sharing URL",
+      "method": "get-shared-root",
+      "enabled": true,
+      "request-parameters": {
+        "{sharingTokenOrUrl}": "#\"u!\" + System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(values[\"[webUrl]\"]))",
+        "Authorization:": null
+      },
+      "test-setup": [
+        { "canned-request": "create-file-item"},
+        {
+          "method": "create-link",
+          "request-parameters": {
+            "{item-id}": "[item-id]"
+          },
+          "capture": { "[webUrl]": "$.link.webUrl" }
+        }
+      ]
+
+    },
+
+    {
+      "name": "Share root with sharing token",
+      "method": "get-shared-root",
+      "enabled": true,
+      "request-parameters": {
+        "{sharingTokenOrUrl}": "[shareId]",
+        "Authorization:": null
+      },
+      "test-setup": [
+        { "canned-request": "create-file-item"},
+        {
+          "method": "create-link",
+          "request-parameters": {
+            "{item-id}": "[item-id]"
+          },
+          "capture": { "[shareId]": "$.shareId" }
+        }
+      ]
+    },
+
+    {
+      "name": "Shared single item with encoded sharing URL",
+      "method": "get-shared-item",
+      "enabled": true,
+      "request-parameters": {
+        "{sharingTokenOrUrl}": "#\"u!\" + System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(values[\"[webUrl]\"]))",
+        "Authorization:": null
+      },
+      "test-setup": [
+        { "canned-request": "create-photo-item"},
+        {
+          "method": "create-link",
+          "request-parameters": {
+            "{item-id}": "[item-id]"
+          },
+          "capture": { "[webUrl]": "$.link.webUrl" }
+        }
+      ]
+    },
+
+    {
+      "name": "Shared single item with sharing token",
+      "method": "get-shared-item",
+      "enabled": true,
+      "request-parameters": {
+        "{sharingTokenOrUrl}": "[shareId]",
+        "Authorization:": null
+      },
+      "test-setup": [
+        { "canned-request": "create-file-item"},
+        {
+          "method": "create-link",
+          "request-parameters": {
+            "{item-id}": "[item-id]"
+          },
+          "capture": { "[shareId]": "$.shareId" }
+        }
+      ]
     }
+
   ]
 }

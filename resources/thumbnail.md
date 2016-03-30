@@ -1,4 +1,4 @@
-# Thumbnail resource type
+# Thumbnail resource
 The Thumbnail resource type represents a thumbnail for an image, video, document, or any file or folder on OneDrive that
 has a graphical representation.
 
@@ -35,5 +35,6 @@ The Item resource has the following relationships defined:
 <!-- {
   "type": "#page.annotation",
   "description": "Thumbnail resource represents a single thumbnail for an item.",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Resources/Thumbnail"
 } -->

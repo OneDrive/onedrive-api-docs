@@ -31,5 +31,6 @@ In OneDrive for Business, this facet is returned on items that are expected to b
   "type": "#page.annotation",
   "description": "The image facet describes properties of an image like width and height",
   "keywords": "image,width,height,item,facet",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Image"
 } -->

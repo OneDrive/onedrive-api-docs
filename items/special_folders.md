@@ -24,7 +24,7 @@ Here are the special folders available to all clients.
 
 ## Example
 
-<!-- {"blockType": "request", "name": "get-special-folder"} -->
+<!-- { "blockType": "request", "name": "get-special-folder", "scopes": "files.read" } -->
 ```http
 GET /drive/special/{special-folder-name}
 ```
@@ -56,7 +56,7 @@ describes the identifier used for accessing the special folder.
 To request the children of a special folder, you can request the `children`
 collection or use the [expand](../odata/optional-query-parameters.md) option to expand the children collection.
 
-<!-- {"blockType": "request", "name": "get-special-children"} -->
+<!-- { "blockType": "request", "name": "get-special-children", "scopes": "files.read" } -->
 ```http
 GET /drive/special/{special-folder-name}/children
 ```
@@ -93,11 +93,11 @@ GET /drive/special/documents:/myfile.docx:/content
 If you request a special folder that doesn't exist by using a GET request,
 the special folder will be automatically created for you. You can test to see if the special folder
 exists by using a HEAD request. If the folder doesn't exist, the
-HEAD request will return a `404` error.
+HEAD request will return a `404` response.
 
-<!-- {"blockType": "request", "name": "head-does-not-create-special-folder"} -->
+<!-- { "blockType": "request", "name": "head-does-not-create-special-folder", "scopes": "files.read service.onedrive" } -->
 ```
-HEAD /drive/special/documents
+HEAD /drive/special/{special-folder-name}
 ```
 
 <!-- {"blockType": "response"} -->
@@ -108,20 +108,15 @@ HTTP/1.1 404 Not Found
 On the other hand, sending the same request when the folder already exists will
 return a `200 OK` response.
 
-<!-- {"blockType": "request", "name": "head-existing-special-folder"} -->
+<!-- { "blockType": "request", "name": "head-existing-special-folder", "scopes": "files.read" } -->
 ```
-HEAD /drive/special/documents
+HEAD /drive/special/{special-folder-name}
 ```
 
-<!-- {"blockType": "response"} -->
+<!-- {"blockType": "response", "isEmpty": true } -->
 ```
 HTTP/1.1 200 OK
 ```
-<!-- 
-{
-	"isEmpty": "true"
-}
--->
 
 ## Error responses
 
@@ -132,7 +127,11 @@ how errors are returned.
 
 ## Remarks
 
-In OneDrive for Business, the collection of special folders for a drive `GET /drive/special` is not implemented.
+If your app has read-only permissions, the request to get a special folder or
+the children of a special folder may fail with a `404 Not Found` or a `403 Forbidden`
+error if the special folder does not already exist. It is recommended to use the
+[HEAD request](#head-requests-for-special-folders) to check for the existence
+of a special folder first in this scenario.
 
 <!-- {
   "type": "#page.annotation",

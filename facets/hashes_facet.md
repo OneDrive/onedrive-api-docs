@@ -31,5 +31,6 @@ In OneDrive for Business, **SHA1** and **CRC32** hash values are not returned fo
   "type": "#page.annotation",
   "description": "The hashes facet provides hash identifiers for a file in OneDrive",
   "keywords": "hash,sha1,crc32,item,facet",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Hashes"
 } -->

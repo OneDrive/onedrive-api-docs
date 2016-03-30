@@ -1,6 +1,12 @@
-# Sync response object
+# View Changes Response resource
 
-The **view.changes** method returns the following resource from each call. The resource includes a collection of items that have changes and information about how to retrieve the next set of changes.
+The **view.changes** method returns the following resource from each call. The
+resource includes a collection of items that have changes and information about
+how to retrieve the next set of changes.
+
+**Note:** This resource has been replaced by the [viewDeltaResource](viewDeltaResource.md) returned
+from the [view.delta](../items/view_delta.md) action, which should be used instead
+of **view.changes**.
 
 ## JSON representation
 Here is a JSON representation of a Sync response object.
@@ -19,15 +25,17 @@ Here is a JSON representation of a Sync response object.
 }
 ```
 ## Properties
-The Sync response object has these properties.
+The view changes response resource has these properties.
 
-| Property name               | Value   | Description                                                                                                                                                     |
-|:----------------------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **value**                   | array   | An array of [Item][item-resource] objects that have been created, modified, or deleted.                                                                         |
-| **@odata.nextLink**         | url     | A URL that is used to retrieve the next page of changes.                                                                                                        |
-| **@changes.hasMoreChanges** | boolean | A value that indicates if there are additional changes available.                                                                                               |
-| **@changes.token**          | string  | A token value that is used on the next call to `view.changes`, to retrieve the next set of changes. This matches the value in the **@odata.nextLink** property. |
-| **@changes.resync**         | string  | A value that indicates a delta can't be computed for the provided token, and the client needs to restart synchronizing the data as described in the next table. |
+| Property name               | Value            | Description                                                                                                                                                     |
+|:----------------------------|:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **value**                   | Collection(Item) | An array of [Item][item-resource] objects that have been created, modified, or deleted.                                                                         |
+| **@odata.nextLink**         | String           | A URL that is used to retrieve the next page of changes.                                                                                                        |
+| **@changes.hasMoreChanges** | Boolean          | A value that indicates if there are additional changes available.                                                                                               |
+| **@changes.token**          | String           | A token value that is used on the next call to `view.changes`, to retrieve the next set of changes. This matches the value in the **@odata.nextLink** property. |
+| **@changes.resync**         | String           | A value that indicates a delta can't be computed for the provided token, and the client needs to restart synchronizing the data as described in the next table. |
+
+### Enumeration
 
 This table describes the instructions based on the value of **@changes.resync**.
 

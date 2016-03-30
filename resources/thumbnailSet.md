@@ -1,11 +1,13 @@
-﻿# ThumbnailSet type
-The ThumbnailSet type is a keyed collection of [Thumbnail](thumbnail.md) objects.
+﻿# ThumbnailSet resource
+The ThumbnailSet resource is a keyed collection of [Thumbnail](thumbnail.md) objects.
 It is used to represent a set of thumbnails associated with a single file on OneDrive.
 
 ## JSON representation
 Here is a JSON representation of a ThumbnailSet type.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.thumbnailSet", "optionalProperties": ["source"] } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.thumbnailSet",
+       "optionalProperties": ["source", "small", "medium", "large"],
+       "openType": true } -->
 ```json
 {
   "id": "0",
@@ -29,5 +31,6 @@ The ThumbnailSet type has these properties.
 <!-- {
   "type": "#page.annotation",
   "description": "ThumbnailSet enables access to thumbnails of different sizes",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Resources/Thumbnail set"
 } -->

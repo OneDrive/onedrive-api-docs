@@ -163,7 +163,6 @@ The **file** object has the following properties:
   "description": "Use the JavaScript file picker SDK to open files from OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
-  "tocPath": "OneDrive SDKs/JavaScript SDK/Open a File",
   "headerAdditions": [
     "<script type=\"text/javascript\" src=\"https://js.live.net/v6.0/OneDrive.js\" id=\"onedrive-js\" client-id=\"000000004C181C1C,99594742-f258-449f-af3b-a259f65d6072\"></script>"
   ],

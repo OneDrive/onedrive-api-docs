@@ -3,7 +3,7 @@
 Provides information about a [large file upload](../items/upload_large_files.md)
 session.
 
-### JSON representation
+## JSON representation
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.uploadSession" } -->
 ```json
 {
@@ -13,15 +13,18 @@ session.
 }
 ```
 
-| Property name        | Value                               | Description                                                                                                     |
-|:---------------------|:------------------------------------|:----------------------------------------------------------------------------------------------------------------|
-| `uploadUrl`          | string                              | URL where fragment PUT requests should be directed.                                                             |
-| `expirationDateTime` | [timestamp](../facets/timestamp.md) | Date and time when the upload session expires.                                                                  |
-| `nextExpectedRanges` | string array                        | An array of byte ranges the server is missing. Not always a full list of the missing ranges.                    |
+## Properties
+
+| Property name          | Value                               | Description                                                                                  |
+|:-----------------------|:------------------------------------|:---------------------------------------------------------------------------------------------|
+| **uploadUrl**          | string                              | URL where fragment PUT requests should be directed.                                          |
+| **expirationDateTime** | [timestamp](../facets/timestamp.md) | Date and time when the upload session expires.                                               |
+| **nextExpectedRanges** | string array                        | An array of byte ranges the server is missing. Not always a full list of the missing ranges. |
 
 
 <!-- {
   "type": "#page.annotation",
   "description": "UploadSession is used to provide information about large file uploads.",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Resources/Upload session"
 } -->

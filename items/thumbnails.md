@@ -1,16 +1,12 @@
 # Thumbnails for an item on OneDrive
 
-An item in OneDrive can be represented by zero or more **ThumbnailSet** objects.   Each **ThumbnailSet** can have one or more **Thumbnail** objects, which are images that represent the item.   For example, a **ThumbnailSet** may include **Thumbnail** objects, such as common ones including `small`, `medium`, or `large` and custom defined ones such as `c300x400_Crop`.   Items have **ThumbnailSet** objects that are either generated automatically by OneDrive based off the item or that are defined by a custom uploaded image.
-
-There are many ways to work with thumbnails on OneDrive.   Here are the most common ones:
-
-* Enumerate available thumbnails for an item
-* Retrieve a single thumbnail for an item
-* Retrieve thumbnail content
-* Retrieve thumbnails for multiple items in a single request
-* Retrieve custom thumbnail sizes
-* Upload a custom thumbnail for an item
-* Determine if a custom uploaded thumbnail exists
+An item in OneDrive can be represented by zero or more **ThumbnailSet** objects.
+Each **ThumbnailSet** can have one or more **Thumbnail** objects, which are
+images that represent the item. For example, a **ThumbnailSet** may include
+**Thumbnail** objects, such as common ones including `small`, `medium`, or
+`large` and custom defined ones such as `c300x400_Crop`.
+Items have **ThumbnailSet** objects that are either generated automatically by
+OneDrive based off the item or that are defined by a custom uploaded image.
 
 ## Enumerate available thumbnails
 
@@ -19,7 +15,7 @@ To enumerate the available thumbnails for an item, you make the following reques
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "enum-item-thumbnails" } -->
+<!-- { "blockType": "request", "name": "enum-item-thumbnails", "scopes": "files.read" } -->
 ```http
 GET /drive/items/{item-id}/thumbnails
 ```
@@ -63,20 +59,23 @@ Content-Type: application/json
 Retrieve the metadata for a single thumbnail and size by addressing
 it directly in a request.
 
+**Note:** custom sizes are only supported on OneDrive Personal.
+
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-one-thumbnail" } -->
+<!-- { "blockType": "request", "name": "get-one-thumbnail", "scopes": "files.read" } -->
 ```http
 GET /drive/items/{item-id}/thumbnails/{thumb-id}/{size}
 ```
 
 ### Path parameters
 
-| Name       | Type   | Description                                                                              |
-|:-----------|:-------|:-----------------------------------------------------------------------------------------|
-| _item-id_  | string | The unique identifier for the item referenced.                                           |
-| _thumb-id_ | number | The index of the thumbnail, usually 0-4. If there is a custom thumbnail, its index is 0. |
-| _size_     | string | The size of the thumbnail requested. This can be one of the standard sizes listed below. |
+
+| Name         | Type   | Description                                                                              |
+|:-------------|:-------|:-----------------------------------------------------------------------------------------|
+| **item-id**  | string | The unique identifier for the item referenced.                                           |
+| **thumb-id** | number | The index of the thumbnail, usually 0-4. If there is a custom thumbnail, its index is 0. |
+| **size**     | string | The size of the thumbnail requested. This can be one of the standard sizes listed below. |
 
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.thumbnail" } -->
@@ -98,7 +97,7 @@ You can directly retrieve the content of the thumbnail directly by requesting th
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name":"get-thumbnail-content" } -->
+<!-- { "blockType": "request", "name":"get-thumbnail-content", "scopes": "files.read" } -->
 ```http
 GET /drive/items/{item-id}/thumbnails/{thumb-id}/{size}/content
 ```
@@ -127,12 +126,14 @@ of your application and reduce the number of API calls your app makes.
 When retrieving a collection of items, expand the thumbnails collection to also
 get the thumbnail URLs for those items.
 
+**Note:** Expanding the thumbnails collection only available for OneDrive Personal.
+
 ### HTTP request
 
 This request returns the **id** and **name** property for each item, along with a
 the **large** thumbnail size for any item that has a thumbnail available.
 
-<!-- { "blockType": "request", "name":"get-many-thumbnails" } -->
+<!-- { "blockType": "request", "name":"get-many-thumbnails", "scopes": "files.read service.onedrive" } -->
 ```http
 GET /drive/items/{item-id}/children?select=id,name&expand=thumbnails(select=large)
 ```
@@ -205,8 +206,26 @@ In addition to the defined sizes, your app can request a custom thumbnail size
 by specifying the dimensions of the thumbnail prefixed with `c`. For example
 if you need thumbnails that are 300x400, you can request that size like this:
 
+<!-- { "name": "get-thumbnail-custom-size", "scopes": "files.read service.onedrive" } -->
 ```http
 GET /drive/items/{item-id}/thumbnails?select=c300x400_Crop
+```
+
+Which responds with just the custom thumbnail size selected:
+
+<!-- { "blockType": "response", "@odata.type": "oneDrive.thumbnailSet", "isCollection": true } -->
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "value": [
+    {
+      "id": "0",
+      "c300x400_Crop": { "height": 300, "width": 400, "url": "https://sn3302files.onedrive.com/123"},
+    }
+  ]
+}
 ```
 
 You can specify the following options after the size of the thumbnail requested:
@@ -217,6 +236,7 @@ You can specify the following options after the size of the thumbnail requested:
 | c300x400             | Bounded by 300x400 box | Original     | Generate a thumbnail that fits inside a 300x400 pixel box, maintaining aspect ratio                                                                 |
 | c300x400_Crop        | 300x400                | Cropped      | Generate a thumbnail that is 300x400 pixels. This works by resizing the image to fill the 300x400 box and cropping whatever spills outside the box. |
 
+**Note:** Custom thumbnail sizes are only available on OneDrive Personal.
 
 ## Upload a custom thumbnail on an item
 
@@ -225,16 +245,21 @@ even if the file's contents is updated, to any item that has the `file` facet.  
 custom uploaded thumbnail is already set, then this request will overwrite that existing
 custom uploaded thumbnail.
 
+**Note:** Custom thumbnails are only available on OneDrive Personal.
+
 ### HTTP request
 
+<!-- { "blockType": "request", "name": "add-custom-thumbnail", "scopes": "files.readwrite service.onedrive" } -->
 ```
 PUT /drive/items/{item-id}/thumbnails/0/source/content
-Content-Type: image/jpeg
+Content-Type: application/octet-stream
 
-The contents of the image goes here.
+<<The contents of the image goes here.>>
 ```
 
 ### Response
+
+<!-- { "blockType": "response", "isEmpty": true } -->
 ```http
 HTTP/1.1 200 OK
 ```
@@ -244,18 +269,21 @@ upload successfully. In the response, the `Content-Location` and the `Location` 
 header will return the URL to that custom thumbnail.
 
 
-
 ## Determine if a custom uploaded thumbnail exists
 
 To determine if a custom uploaded thumbnail exists on a file, look for the `source` property
 on the thumbnail set. If it has a value, then the value represents the custom uploaded
 thumbnail. If it is not present, then no custom uploaded thumbnail exists.
 
-<!-- { "blockType": "request", "name": "get-custom-thumbnail" } -->
+**Note:** Custom thumbnails are only available on OneDrive Personal.
+
+<!-- { "blockType": "request", "name": "get-custom-thumbnail", "scopes": "files.read service.onedrive" } -->
 ```
 GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,source)
 ```
+
 ### Response
+
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
@@ -288,7 +316,9 @@ HTTP/1.1 200 OK
    ]
 }
 ```
-**Note:** The response object is truncated for clarity. All default properties will be returned from the actual call.
+
+**Note:** The response object is truncated for clarity. All default properties
+will be returned from the actual call.
 
 
 ### Error responses
@@ -297,18 +327,6 @@ See [Error Responses][error-response] for more info about
 how errors are returned.
 
 [error-response]: ../misc/errors.md
-
-## Remarks
-
-In OneDrive for Business:
-
-* Custom thumbnails are not available.
-* Using these calls to expand the thumbnails collection will not work:
-
-`GET /drive/root:/{item-path}?expand=children(expand=thumbnails)`
-
-`GET /drive/items/{item-id}/children?expand=thumbnails`
-
 
 <!-- {
   "type": "#page.annotation",

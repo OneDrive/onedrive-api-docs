@@ -4,7 +4,7 @@ Use the OneDrive API to get metadata for a user's drive using its unique identif
 
 ## HTTP request
 
-<!-- { "blockType": "request", "name": "get-drive-by-id" } -->
+<!-- { "blockType": "request", "name": "get-drive-by-id", "scopes": "files.read" } -->
 ```
 GET /drives/{drive-id}
 ```

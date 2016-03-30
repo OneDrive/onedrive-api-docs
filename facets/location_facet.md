@@ -19,9 +19,9 @@ an associated geographic location.
 ## Properties
 | Property name | Type   | Description                                                    |
 |:--------------|:-------|:---------------------------------------------------------------|
-| **altitude**  | number | The altitude (height), in feet,  above sea level for the item. |
-| **latitude**  | number | The latitude, in decimal, for the item.                       |
-| **longitude** | number | The longitude, in decimal, for the item.                      |
+| **altitude**  | Double | The altitude (height), in feet,  above sea level for the item. |
+| **latitude**  | Double | The latitude, in decimal, for the item.                        |
+| **longitude** | Double | The longitude, in decimal, for the item.                       |
 
 
 [item-resource]: ../resources/item.md
@@ -30,5 +30,6 @@ an associated geographic location.
   "type": "#page.annotation",
   "description": "The location facet provides geographic location related properties for an item",
   "keywords": "location,geographic,item,onedrive",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Location"
 } -->
