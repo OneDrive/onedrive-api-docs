@@ -7,12 +7,15 @@ add-ins, where the file contents aren't available, or are expensive to transfer.
 
 See [Uploading item contents](upload.md) for other ways to upload an item.
 
+**Note:** You can only upload items from a URL to OneDrive Personal.
+
 ## HTTP request
 
 ### Request headers
-| Header name | Value  | Description                                                                                    |
-|:------------|:-------|:-----------------------------------------------------------------------------------------------|
-| _Prefer_    | string | Set to `respond-async` to enable asynchronous item transfer. Otherwise the request is aborted. |
+
+| Header name   | Value  | Description                                                                                    |
+|:--------------|:-------|:-----------------------------------------------------------------------------------------------|
+| **Prefer**    | string | Set to `respond-async` to enable asynchronous item transfer. Otherwise the request is aborted. |
 
 ### Request body
 The contents of the request body should be the JSON representation of the item
@@ -22,7 +25,7 @@ publicly accessible.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "upload-from-url" } -->
+<!-- { "blockType": "request", "name": "upload-from-url", "scopes": "files.readwrite service.onedrive" } -->
 ```
 POST /drive/items/{parent-item}/children
 Content-Type: application/json
@@ -69,7 +72,7 @@ HTTP/1.1 500 Internal Server Error
 
 ## Remarks
 
-Uploading an item to OneDrive for Business using a URL is not yet supported. However, uploading an item to OneDrive for Business using data URI's is supported.
+Uploading an item to OneDrive for Business using a URL is not supported.
 
 [item-resource]: ../resources/item.md
 

@@ -36,9 +36,9 @@ item's item ID and name of the file to be uploaded. No request body is required.
 To specify a non-default conflict behavior provide the `item` parameter in the
 request body with the appropriate value for the `@name.conflictBehavior` instance annotation.
 
-<!-- { "blockType": "request", "name": "upload-fragment-create-session" } -->
+<!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite" } -->
 ```http
-POST /drive/root:/{item-path}:/upload.createSession
+POST /drive/root:{item-path}:/upload.createSession
 Content-Type: application/json
 
 {
@@ -81,7 +81,7 @@ received when the session was created. You can either upload the entire file
 in one fragment up to 60 MiB (60 \* 1024 \* 1024 bytes), or you can break the file into
 multiple fragments and upload each one separately. Fragments must be uploaded in order.
 
-<!-- { "blockType": "request", "name": "upload-fragment-piece" } -->
+<!-- { "blockType": "request", "name": "upload-fragment-piece", "scopes": "files.readwrite" } -->
 ```
 PUT https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337
 Content-Length: 26
@@ -145,7 +145,7 @@ the server will respond with `HTTP 201 Created` (for a new file) or `HTTP 200 OK
 for an updated file and include an [Item][item-resource] resource for the
 uploaded file:
 
-<!-- { "blockType": "request", "name": "upload-fragment-final" } -->
+<!-- { "blockType": "request", "name": "upload-fragment-final", "scopes": "files.readwrite" } -->
 ```
 PUT https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337
 Content-Length: 21
@@ -192,7 +192,7 @@ Content-Type: application/json
 To cancel an upload session (e.g. the user has aborted the upload),
 send a DELETE request to the upload URI.
 
-<!-- { "blockType": "request", "name": "upload-fragment-cancel" } -->
+<!-- { "blockType": "request", "name": "upload-fragment-cancel", "scopes": "files.readwrite" } -->
 ```http
 DELETE https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337
 ```
@@ -215,7 +215,7 @@ upload status, and then upload remaining data.
 ### Request upload status
 Query the status of the upload by sending a GET request to the `uploadUrl`.
 
-<!-- { "blockType": "request", "name": "upload-fragment-resume" } -->
+<!-- { "blockType": "request", "name": "upload-fragment-resume", "scopes": "files.readwrite" } -->
 ```
 GET https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF86633784148bb98a1zjcUhf7b0mpUadahs
 ```
@@ -243,6 +243,7 @@ following the steps in [upload fragments](#upload-fragments) of the file.
 
 
 ## Handle commit errors
+
 When the last fragment of a file is uploaded and OneDrive starts to commit the
 file to the user's drive, it is possible for an error to occur. This can be due
 to a name conflict or quota limitation being exceeded. OneDrive will

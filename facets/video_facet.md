@@ -30,5 +30,6 @@ represent videos.
   "type": "#page.annotation",
   "description": "The video facet provides information about the properties of a video file.",
   "keywords": "bitrate,duration,size,video",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Video"
 } -->

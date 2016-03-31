@@ -1,6 +1,6 @@
-# Copy an Item on OneDrive (Preview)
+# Copy an Item on OneDrive (preview)
 
-Creates a copy of an [Item][item-resource] (including any children) on OneDrive, under a new parent.
+Creates a copy of an [Item][item-resource] (including any children), under a new parent item.
 
 ## Prerequisites
 To call the copy API, the user must have granted the application read access to
@@ -15,12 +15,12 @@ POST /drive/root:/{item-path}:/action.copy
 ```
 
 ### Request body
-In the request body, provide a JSON object that with the following parameters.
+In the request body, provide a JSON object with the following parameters.
 
 
-| Name              | Value                                            | Description                                                                                        |
-|:------------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| _parentReference_ | [ItemReference](../resources/itemReference.md) | Reference to the parent item the copy will be created in.                                          |
+| Name              | Value                                          | Description                                                                                                 |
+|:------------------|:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------|
+| _parentReference_ | [ItemReference](../resources/itemReference.md) | Reference to the parent item the copy will be created in.                                                   |
 | _name_            | string                                         | **Optional** The new name for the copy. If this isn't provided, the same name will be used as the original. |
 
 **Note:** The _parentReference_ should include either an `id` or `path` but not
@@ -29,7 +29,7 @@ will occur.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "copy-item" } -->
+<!-- { "blockType": "request", "name": "copy-item", "scopes": "files.readwrite" } -->
 ```http
 POST /drive/items/{item-id}/action.copy
 Content-Type: application/json
@@ -40,7 +40,7 @@ Prefer: respond-async
     "id": "{new-parent-id}",
     "path": "/drive/root:/Documents"
   },
-  "name": "foobar"
+  "name": "foobar.txt"
 }
 ```
 

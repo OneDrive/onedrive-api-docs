@@ -14,6 +14,7 @@ to the folder that the file will be uploaded to.
 
 ## HTTP request
 
+<!-- {"blockType": "ignored" } -->
 ```
 PUT /drive/items/{parent-id}:/{filename}:/content
 PUT /drive/root:/{parent-path}/{filename}:/content
@@ -34,7 +35,7 @@ the PUT request:
 
 ### Example
 
-<!-- { "blockType": "request", "name": "upload-via-put" } -->
+<!-- { "blockType": "request", "name": "upload-via-put", "scopes": "files.readwrite" } -->
 ```
 PUT /drive/root:{item-path}:/content
 Content-Type: text/plain
@@ -62,16 +63,10 @@ Content-Type: application/json
 **Note:** The Response object is truncated for clarity. All default properties will
 be returned from the actual call.
 
-
-
 ### Error responses
 
 See [Error Responses][error-response] for details about
 how errors are returned.
-
-## Remarks
-
-In OneDrive for Business, the `rename` value in the **@name.conflictBehavior** property is not supported.
 
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md

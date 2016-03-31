@@ -35,19 +35,19 @@ have associated audio.
 | **album**             | string  | The title of the album for this audio file.                          |
 | **albumArtist**       | string  | The artist named on the album for the audio file.                    |
 | **artist**            | string  | The performing artist for the audio file.                            |
-| **bitrate**           | string  | Bitrate expressed in kbps.                                           |
+| **bitrate**           | Int32   | Bitrate expressed in kbps.                                           |
 | **composers**         | string  | The name of the composer of the audio file.                          |
 | **copyright**         | string  | Copyright information for the audio file.                            |
-| **disc**              | number  | The number of the disc this audio file came from.                    |
-| **discCount**         | number  | The total number of discs in this album.                             |
-| **duration**          | number  | Duration of the audio file, expressed in milliseconds                |
+| **disc**              | Int32   | The number of the disc this audio file came from.                    |
+| **discCount**         | Int32   | The total number of discs in this album.                             |
+| **duration**          | Int64   | Duration of the audio file, expressed in milliseconds                |
 | **genre**             | string  | The genre of this audio file.                                        |
 | **hasDrm**            | boolean | Indicates if the file is protected with digital rights management.   |
 | **isVariableBitrate** | boolean | Indicates if the file is encoded with a variable bitrate.            |
 | **title**             | string  | The title of the audio file.                                         |
-| **track**             | number  | The number of the track on the original disc for this audio file.    |
-| **trackCount**        | number  | The total number of tracks on the original disc for this audio file. |
-| **year**              | number  | The year the audio file was recorded.                                |
+| **track**             | Int32   | The number of the track on the original disc for this audio file.    |
+| **trackCount**        | Int32   | The total number of tracks on the original disc for this audio file. |
+| **year**              | Int32   | The year the audio file was recorded.                                |
 
 [item-resource]: ../resources/item.md
 
@@ -55,5 +55,6 @@ have associated audio.
   "type": "#page.annotation",
   "description": "The audio facet provides information about music or audio metadata.",
   "keywords": "music,audio,metadata,onedrive",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Audio"
 } -->

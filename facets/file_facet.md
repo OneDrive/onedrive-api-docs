@@ -24,5 +24,6 @@ It is available on the file property of [Item][item-resource] resources that rep
   "type": "#page.annotation",
   "description": "The file facet describes properties of a file",
   "keywords": "file,item,facet",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/File"
 } -->

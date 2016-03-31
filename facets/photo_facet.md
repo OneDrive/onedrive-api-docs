@@ -43,5 +43,6 @@ In OneDrive for Business, this facet is returned if it includes the **takenDateT
   "type": "#page.annotation",
   "description": "The photo facet provides details about the camera and settings on the camera for photos.",
   "keywords": "camera make,camera model, exposure, f-stop, iso",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Photo"
 } -->

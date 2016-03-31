@@ -83,7 +83,7 @@ Below is an example of filtering search results for only items that have a
 **file** and **image** facet.
 
 #### Request
-<!-- { "blockType": "request", "name": "filtering-image-file" } -->
+<!-- { "blockType": "request", "name": "filtering-image-file", "scopes": "files.read service.onedrive" } -->
 ```
 GET /drive/root/view.search?q=vacation&filter=image%20ne%20null%20and%20file%20ne%20null
 ```

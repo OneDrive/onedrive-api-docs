@@ -1,4 +1,4 @@
-# Error resource type
+# Error resource
 
 The error resource is returned whenever an error occurs in the processing
 of a request.
@@ -46,5 +46,6 @@ properties:
   "type": "#page.annotation",
   "description": "OneDrive API error resource definition.",
   "keywords": "onedrive,api,error,resource",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Resources/Error"
 } -->

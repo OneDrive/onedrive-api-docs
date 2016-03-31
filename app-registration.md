@@ -64,9 +64,8 @@ create one:
   Studio Premium.
 * [An existing Office 365 subscription](https://msdn.microsoft.com/library/2ec857d5-dc6f-4cf6-ba45-adc845ef2a25%28Office.15%29.aspx) -
   You can use an existing Office 365 subscription, which can be any of the
-  following: Office 365 Midsize Business, Office 365 Enterprise (E1, E3, E4,
-  or K1), Office 365 Education, Office 365 Government (G1, G3,
-  G4, or K1).
+  following: Office 365 Midsize Business, Office 365 Enterprise,
+  Office 365 Education, Office 365 Government.
 * [Free trial](https://portal.microsoftonline.com/Signup/MainSignUp.aspx?OfferId=6881A1CB-F4EB-4db3-9F18-388898DAF510&DL=DEVELOPERPACK) -
   You can start with a free 30-day trial, or buy an Office 365 developer
   subscription.
@@ -157,7 +156,11 @@ you will need to configure details about your application with the following ste
    tenancy you registered it in, or across multiple tenancies.
 4. For web apps, generate the app secret and its duration.
 5. Specify the permission levels your app requires from the Office 365 API
-   applications in Azure using [scopes](auth/msa_oauth.md#authentication-scopes).
+   applications in Azure using [app permissions](https://msdn.microsoft.com/office/office365/howto/application-manifest).
+   Using OneDrive API or the file picker requires at least **Read user files**. Uploading, editing, or sharing files
+   requires the **Read and write user files** permission.
+
+![Authentication scopes for OneDrive for Business and SharePoint](site-images/AuthScopesForSharePoint.png)
 
 To add, remove, or update an application on Azure AD, see
 [Adding, Updating, and Removing an Application](https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Native).
@@ -172,5 +175,6 @@ authentication and sign in](auth/aad_oauth.md).
   "type": "#page.annotation",
   "description": "How to register your app to work with OneDrive or OneDrive for Business and the OneDrive API.",
   "keywords": "authentication,oauth,msa,app registration,registration,azure active directory,aad,onedrive,api,onedrive for business",
-  "section": "appreg"
+  "section": "documentation",
+  "tocPath": "Getting Started/App Registration"
 } -->

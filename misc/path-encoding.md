@@ -153,5 +153,5 @@ To address each of Ryan's files, you use percent encoding, as follows:
   "description": "Information on path name encoding and restrictions on characters for file and folder names in OneDrive API.",
   "keywords": "constructing urls, path encoding, restrictions, file name limits",
   "section": "documentation",
-  "tocPath": "Misc/Filename encoding"
+  "tocPath": "Misc/Filename Encoding"
 } -->

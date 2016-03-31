@@ -1,6 +1,10 @@
 # Update a Permission
-Update an existing Permission on an Item. Only the `role` property can be
-modified.
+
+Update an existing permission on an item. Only the **roles** property can be
+modified by patching the permission resource.
+
+For other changes, [delete the existing permission](permission_delete.md) and use
+[invite to add new permissions](invite.md) to the item.
 
 ## HTTP request
 ````
@@ -12,20 +16,12 @@ PATCH /drive/root/:{item-path}:/permissions/{permission-id}
 None.  
 
 ### Request body
-In the request body, supply the values for the new `role`.
-
-#### Optional request headers
-| Name       | Value  | Description               |
-|:-----------|:-------|:--------------------------|
-| `if-match` | `etag` | If this request header is included and the etag provided does not match the current etag on the file, an `412 Precondition Failed` response is returned. |
-
-
+In the request body, supply the values for the new `roles`.
 
 ### Example
-
 The following example updates the Permission resource to a read-only permission.
 
-<!-- {"blockType": "request", "name": "update-permission", "@odata.type": "oneDrive.permission"} -->
+<!-- {"blockType": "request", "name": "update-permission", "@odata.type": "oneDrive.permission", "scopes": "files.readwrite"} -->
 ```http
 PATCH /drive/items/{item-id}/permissions/{permission-id}
 Content-Type: application/json
@@ -37,7 +33,7 @@ Content-Type: application/json
 
 ### Response
 
-If successful, this method returns a [Permission](../facets/permission_facet.md)
+If successful, this method returns a [Permission](../resources/permission.md)
 resource in the response body that represents the updated state of the
 permission.
 

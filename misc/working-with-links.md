@@ -23,7 +23,8 @@ requirements must be met:
 To add the shared folder to a drive, your app POSTs to the drive's root collection
 with the details of the shared folder in the **remoteItem** facet. For example:
 
-<!-- { "blockType": "request", "name": "add-mountpoint", "@odata.type": "oneDrive.item", "truncated": true} -->
+<!-- { "blockType": "request", "name": "add-mountpoint",
+       "@odata.type": "oneDrive.item", "truncated": true, "scopes": "files.readwrite service.onedrive" } -->
 ```http
 POST /drive/root/children
 Content-Type: application/json
@@ -52,7 +53,6 @@ Content-Type: application/json
   "name": "Team Documents",
   "remoteItem": {
     "id": "12345abcde!1221",
-    "name": "Shared Documents",
     "parentReference": {
       "driveId": "12345abcde"
     },
@@ -67,7 +67,7 @@ Content-Type: application/json
 
 To remove a shared folder, simply DELETE the remote item:
 
-<!-- { "blockType": "request", "name": "delete-mountpoint" } -->
+<!-- { "blockType": "request", "name": "delete-mountpoint", "scopes": "files.readwrite service.onedrive" } -->
 ```http
 DELETE /drive/items/{local-item-id}
 ```
@@ -111,7 +111,7 @@ To enumerate the contents of this shared folder, the **remoteItem** property is
 used to construct a request to the shared folder contained in the remote
 drive.
 
-<!-- { "blockType": "request", "name": "enum-mountpoint" } -->
+<!-- { "blockType": "request", "name": "enum-mountpoint", "scopes": "files.read service.onedrive" } -->
 ```http
 GET /drives/{drive-id}/items/{item-id}/children
 ```

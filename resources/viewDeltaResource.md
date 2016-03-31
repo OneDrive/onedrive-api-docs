@@ -1,6 +1,8 @@
 # Delta response object
 
-The **view.delta** method returns the following resource from each call. The resource includes a collection of items that have changes and information about how to retrieve the next set of changes.
+The **view.delta** method returns the following resource from each call. The
+resource includes a collection of items that have changes and information about
+how to retrieve the next set of changes.
 
 ## JSON representation
 Here is a JSON representation of a Sync response object.
@@ -34,5 +36,6 @@ The Delta response object has the following properties.
 <!-- {
   "type": "#page.annotation",
   "description": "Get the changes since a previous moment in time defined by a token.",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Resources/Delta"
 } -->

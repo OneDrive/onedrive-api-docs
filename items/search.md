@@ -14,7 +14,6 @@ children when using a collection.
 ```
 GET /drive/root/view.search?q=vacation
 GET /drive/items/{item-id}/view.search?q=vacation
-GET /drive/root:/{item-path}:/view.search?q=vacation
 ```
 
 This method supports [optional query string parameters][odata-query-parameters]
@@ -32,7 +31,7 @@ parameter.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "search-at-root" } -->
+<!-- { "blockType": "request", "name": "search-at-root", "idempotent": true, "scopes": "files.read" } -->
 ```
 GET /drive/root/view.search?q={search-text}
 ```

@@ -4,7 +4,7 @@ Get metadata about a user's default drive on OneDrive.
 
 ## HTTP request
 
-<!-- {"blockType": "request", "name": "get-default-drive"} -->
+<!-- {"blockType": "request", "name": "get-default-drive", "scopes": "files.read" } -->
 ```http
 GET /drive
 ```

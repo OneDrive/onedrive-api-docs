@@ -1,4 +1,4 @@
-# itemReference type
+# ItemReference type
 
 The itemReference type groups data needed to reference a OneDrive item across the service into a single structure.
 
@@ -33,5 +33,6 @@ everything up to the first `:` in the path string.
 <!-- {
   "type": "#page.annotation",
   "description": "ItemReference returns a pointer to another item.",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Resources/Item reference"
 } -->

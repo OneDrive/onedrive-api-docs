@@ -29,7 +29,7 @@ Do not supply a request body with this method.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "get-item-metadata" } -->
+<!-- { "blockType": "request", "name": "get-item-metadata", "scopes": "files.read" } -->
 ```
 GET /drive/items/{item-id}
 ```
@@ -47,12 +47,12 @@ Content-type: application/json
 {
   "id": "0123456789abc",
   "name": "example.xlsx",
-  "eTag": "etag",
-  "cTag": "etag",
+  "eTag": "123918093j1lk2jlkda",
+  "cTag": "k1ml4klkasljasidj1l2j34lkaslz",
   "createdBy": { "user": { "id": "1234", "displayName": "Ryan Gregg" } },
-  "createdDateTime": "datetime",
+  "createdDateTime": "string (timestamp)",
   "lastModifiedBy": { "user": { "id": "1234", "displayName": "Ryan Gregg" } },
-  "lastModifiedDateTime": "datetime",
+  "lastModifiedDateTime": "string (timestamp)",
   "size": 1234,
   "webUrl": "http://onedrive.com/...",
   "parentReference": { "driveId": "12345", "id": "root", "path": "/drive/root:" },
@@ -72,7 +72,7 @@ metadata of an item.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-root-folder-children" } -->
+<!-- { "blockType": "request", "name": "get-root-folder-children", "scopes": "files.read" } -->
 ```http
 GET /drive/items/root?expand=children
 ```
@@ -107,9 +107,9 @@ be returned from the actual call.
 In most cases, a HEAD request will behave the same way as a GET request. There are a
 couple differences:
 
-1. HEAD requests will only return the corresponding GET request's headers. This is 
-standard practice for a HEAD response. 
-2. HEAD requests will not automatically provision a 
+1. HEAD requests will only return the corresponding GET request's headers. This is
+standard practice for a HEAD response.
+2. HEAD requests will not automatically provision a
 [special folder][special-folder]. Instead, if a special folder is not present,
 a `404` error will be returned.
 
@@ -118,7 +118,7 @@ simply `200 OK`.
 
 ### HTTP request
 
-<!-- {"blockType": "request", "name": "head-root"} -->
+<!-- {"blockType": "request", "name": "head-root", "scopes": "files.read"} -->
 ```
 HEAD /drive/root
 Accept: application/json
@@ -126,16 +126,11 @@ Accept: application/json
 
 ### Response
 
-<!-- {"blockType": "response", "@odata.type": "oneDrive.item", "truncated": true} -->
+<!-- {"blockType": "response", "isEmpty": true } -->
 ```
 HTTP/1.1 200 OK
-Content-Type: application/json
 ```
-<!-- 
-{
-	"isEmpty": "true"
-}
--->
+
 
 ## Error responses
 

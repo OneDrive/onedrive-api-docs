@@ -1,4 +1,4 @@
-# Update an item on OneDrive
+# Update an item metadata
 
 Update the metadata for an item in OneDrive by ID or path. You can also use update to move
 an item to another parent by updating the item's **parentReference** facet.
@@ -10,6 +10,8 @@ the application write access to the item.
 
 
 ## HTTP request
+
+<!-- { "blockType": "ignored" } -->
 ```
 PATCH /drive/items/{item-id}
 PATCH /drive/root:/{item-path}
@@ -35,7 +37,7 @@ that haven't changed.
 
 This example renames and moves a folder to a new parent path.
 
-<!-- { "blockType": "request", "name": "update-item-move-folder" } -->
+<!-- { "blockType": "request", "name": "update-item-move-folder", "scopes": "files.readwrite" } -->
 ```
 PATCH /drive/items/{item-id}
 Content-Type: application/json
@@ -63,7 +65,8 @@ Content-Type: application/json
 }
 ```
 
-**Note:** The response object is truncated for clarity. All default properties will be returned from the actual call.
+**Note:** The response object is truncated for clarity. All default properties
+will be returned from the actual call.
 
 ### Error responses
 

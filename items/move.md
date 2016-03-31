@@ -1,5 +1,6 @@
 ﻿# Move an item on OneDrive
-Changes the parent folder for a OneDrive Item resource.
+
+Move an item from one parent to another.
 
 This is a special case of the [update](update.md) method. You can combine
 moving the folder with other metadata updates.
@@ -25,7 +26,7 @@ You can use the update API to move an item into another folder by updating the
 
 This example moves an item to the `Documents` folder.
 
-<!-- { "blockType": "request", "name": "move-item" } -->
+<!-- { "blockType": "request", "name": "move-item", "scopes": "files.readwrite" } -->
 ```
 PATCH /drive/items/{item-id}
 Content-Type: application/json

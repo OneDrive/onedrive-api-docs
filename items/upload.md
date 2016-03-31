@@ -17,9 +17,11 @@ the contents of the item are.
 
 * **[Multipart item upload](upload_post.md)** allows you to upload both the
     contents of an item and provide metadata about the item in the same call.
+    This is only available for OneDrive Personal.
 
 * **[Upload from URL (preview)](upload_url.md)** allows you to upload the contents of a
     file by providing a URL where the contents of the file can be retrieved.
+    This is only available for OneDrive Personal.
 
 [file-facet]: ../facets/file_facet.md
 

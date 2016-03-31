@@ -5,9 +5,9 @@ Remove a Permission from an Item.
 Only Permissions that are not inherited can be deleted. This means that the `inheritedFrom`
 property must be `null`.
 
-**Note:** Applications can only delete link permissions they have created.
-
 ## HTTP Request
+
+<!-- { "blockType": "ignored" } -->
 ```
 DELETE /drive/items/{item-id}/permissions/{permission-id}
 DELETE /drive/root:/{item-path}:/permissions/{permission-id}
@@ -28,7 +28,7 @@ Do not supply a request body with this method.
 
 ### Example
 
-<!-- {"blockType": "request", "name": "delete-permission" } -->
+<!-- {"blockType": "request", "name": "delete-permission", "scopes": "files.readwrite" } -->
 ```
 DELETE /drive/items/{item-id}/permissions/{permission-id}
 ```

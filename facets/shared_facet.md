@@ -30,5 +30,6 @@ how the item is shared.
   "type": "#page.annotation",
   "description": "The shared facet provides info about shared items.",
   "keywords": "shared,share,item,facet,onedrive",
-  "section": "documentation"
+  "section": "documentation",
+  "tocPath": "Facets/Shared"
 } -->

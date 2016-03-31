@@ -1,0 +1,86 @@
+{
+  "scenarios":[
+    {
+        "name": "Add a subscription",
+        "method": "add-subscription",
+        "enabled": true,
+        "request-parameters": {
+          "{item-id}": "root",
+          "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
+          "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+        }
+    },
+
+    {
+        "name": "Get subscriptions",
+        "method": "get-subscriptions",
+        "enabled": true,
+        "test-setup": [
+            {
+                "method": "add-subscription",
+                "request-parameters": {
+                  "{item-id}": "root",
+                  "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
+                  "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+                },
+                "capture": {
+                    "[subscription-id]": "$.id"
+                }
+            }
+        ],
+        "request-parameters": {
+            "{item-id}": "root"
+        }
+    },
+
+    {
+      "name": "Delete a Subscription",
+      "method": "delete-subscription",
+      "enabled": true,
+      "test-setup": [
+        {
+          "method": "add-subscription",
+          "request-parameters": {
+            "{item-id}": "root",
+            "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
+            "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+          },
+          "capture": {
+            "[subscription-id]": "$.id"
+          }
+        }
+      ],
+      "request-parameters":
+      {
+        "{item-id}": "root",
+        "{id}": "[subscription-id]"
+      }
+    },
+
+    {
+      "name": "Update a Subscription",
+      "method": "patch-subscription",
+      "enabled": true,
+      "test-setup": [
+        {
+          "method": "add-subscription",
+          "request-parameters": {
+            "{item-id}": "root",
+            "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
+            "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+          },
+          "capture": {
+            "[subscription-id]": "$.id"
+          }
+        }
+      ],
+      "request-parameters":
+      {
+        "{id}": "[subscription-id]",
+        "{item-id}": "root",
+        "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(15)",
+        "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+      }
+    }
+  ]
+}
