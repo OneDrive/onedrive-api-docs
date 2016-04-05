@@ -24,6 +24,11 @@ and are open source projects.
   Connect your JavaScript web application or website to open and save files with
   OneDrive without writing any user interface code.
 
+### Office Add-ins
+
+* [Outlook add-in for OneDrive sharing](https://github.com/OfficeDev/Outlook-Add-in-Sharing-to-OneDrive)
+  Share OneDrive files directly from Outlook and manage permissions on sharing
+  links using the OneDrive API and an Outlook add-in.
 
 ### ASP.NET MVC
 
