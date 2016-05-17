@@ -39,8 +39,7 @@ Content-Type: application/json
 
 {
  "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
- "expirationDateTime": "2016-01-01T11:23:00.000Z",
- "scenarios": ["Webhook"]
+ "expirationDateTime": "2016-01-01T11:23:00.000Z"
 }
 ```
 

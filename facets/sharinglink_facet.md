@@ -33,7 +33,7 @@ This table defines the possible values for the **type** property:
 |:--------|:--------|:--------------------------------------------------------------------------------|
 | `view`  | `read`  | A view-only sharing link, allowing read-only access.                            |
 | `edit`  | `write` | An edit sharing link, allowing read-write access.                               |
-| `embed` | `read`  | A view-only sharing link that can be used to embed content into a host webpage. |
+| `embed` | `read`  | A view-only sharing link that can be used to embed content into a host webpage. Embed links are not available for OneDrive for Business or SharePoint. |
 
 ## Scope enumeration
 

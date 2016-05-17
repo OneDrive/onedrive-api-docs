@@ -10,7 +10,6 @@ your app to a particular set of permissions for a user. In this section, you'll 
 The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. You must provide an access token for every API call via one of the following.
 
 * An HTTP header: `Authorization: bearer {token}`
-* A query parameter: `?access_token={token}`
 
 ## Register your app
 
@@ -36,17 +35,17 @@ already signed in to OneDrive, then the user can skip the authentication flow
 and go straight to the authorization flow.
 
 
-| Scope name         | Description                                                                                                                                                | Required |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
-| wl.signin          | Allows your application to take advantage of single sign-on capabilities.                                                                                  | No       |
-| wl.offline_access  | Allows your application to receive a refresh token so it can work offline even when the user isn't active. This scope is not available for token flow.     | No       |
-| onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                       | Yes      |
-| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required. | Yes      |
-| onedrive.appfolder | Grants read and write permissions to a specific folder for your application.                                                                               | Yes      |
+| Scope name         | Description                                                                                                                                                                                                                   | Required |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
+| offline_access     | Enables your app to work offline even when the user isn't active. This provides your app with a refresh_token that can be used to generate additional access tokens as necessary. This scope is not available for token flow. | No       |
+| files.read         | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                                                                                          | Yes      |
+| files.readwrite    | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                                                    | Yes      |
+| onedrive.appfolder | Grants read and write permissions to a specific folder for your application.                                                                                                                                                  | Yes      |
 
 As an example, a typical application might request the following scopes:
+
 ```
-wl.signin wl.offline_access onedrive.readwrite
+files.readwrite offline_access
 ```
 
 ## Supported Authentication flows

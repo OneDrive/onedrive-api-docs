@@ -104,12 +104,9 @@ GET /drive/root/view.delta
 Also, the **view.delta** action does not return the following properties:
 
 * **createdBy**
-* **lastModifiedBy**
 * **cTag**
-* **eTag**
-* **parentReference**
-* **size**
 * **fileSystemInfo**
+* **lastModifiedBy**
 
 ### Special folders
 

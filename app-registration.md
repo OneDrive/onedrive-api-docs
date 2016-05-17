@@ -16,30 +16,24 @@ Jump to:
 To register your app to connect with OneDrive, you'll need a Microsoft
 account.
 
-1. Go to the [Microsoft account Developer Center][app-portal].
+1. Go to the [Microsoft Application Registration Portal][1].
 2. When prompted, sign in with your Microsoft account credentials.
-3. Choose **Create application**.
-4. Enter your app's display name and choose the app's primary language.
-5. Read the **Live Connect terms of use** and the **Privacy and Cookies**
-statement, and then choose **I accept** to accept the terms of use.
+3. Find **Live SDK applications** and click **Add an app**.
+4. Enter your app's name and click **Create application**.
 
+[1]: https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm
 
-After you've completed these steps, a client ID and client secret are created
-for your app. Choose **App Settings** to view the values associated with your
-app.
+After you've completed these steps, an application ID and application secret are created
+for your app and displayed on your new app's properties page.
 
 **Important** Treat the value of client secret the same
 as you would a user's password. The secret represents the key to your
 application and, if made available, can be used to impersonate your application.
 
-On the **API Settings** page, configure details about your application.
-For example, is your application a mobile, desktop, or web application?
-For mobile or desktop applications, change the setting **Mobile or desktop
-client app** to **Yes**.
-
-For web apps, configure the **Redirect URLs** that your app will use
-during the login process. For security purposes, all redirect URLs
-must be on the same root domain.
+Under the **Platforms** header, configure details about your app. By default
+a new app is created as a **web** app and needs one or more redirect URIs. To
+enable native client flows for your app as well, click the **Add Platform** button
+and choose **Mobile**.
 
 Microsoft account uses scopes to determine which API your app can access, and
 these scopes are included in the OAuth flow when the user logs in. For
@@ -169,7 +163,7 @@ Phew. Now you have everything set up to connect to your app to OneDrive for
 Business. For information on how to authenticate, see [OneDrive for Business
 authentication and sign in](auth/aad_oauth.md).
 
-[app-portal]: http://go.microsoft.com/fwlink/p/?LinkId=193157
+
 
 <!-- {
   "type": "#page.annotation",

@@ -4,10 +4,6 @@ The OneDrive file picker SDK enables your web app to quickly integrate
 OneDrive for opening and saving files without a lot of code. The latest version
 of the file picker SDK works with any OneDrive account, Personal or Business.
 
-**Note:** The OneDrive File Picker for JavaScript is in preview and functionality
-may deviate from the documented. Do not assume current behavior that deviates from
-the documentation will persist.
-
 You can use the file picker SDK to integrate with OneDrive in the following ways:
 
 * Open a file and receive a short-lived URL to download the content of the file.
@@ -24,41 +20,23 @@ can get shareable links for all files.
 
 ## Setting up
 
-To get started you need to register for an app ID to identify your application
-to OneDrive. If you already have an existing app ID you can continue to use it.
+To get started you need to register your application and receive an app ID
+from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
 
-You will need to obtain separate app IDs for OneDrive Personal and OneDrive for
-Business because they currently use different authentication systems. This is
-only required if you wish to allow users of both services to use your integration.
-
-### OneDrive consumer
-
-[Register your app](../../app-registration.md) to get
-an app ID (client ID), if you haven't already done so. Ensure that the web
-page that is going to reference the SDK is a *Redirect URL* under
-**API Settings**.   You can also upload your application logo, which
-OneDrive will display in the picker and saver experience.
-
-### OneDrive for Business
-
-[Register your app](../../app-registration.md#register-your-app-for-onedrive-for-business) to get an
-app ID (client ID), if you haven't already done so. When registering your app, please ensure the
-following:
-
-* Your app is registered as a web application. Your app must be set to use the
-  *implict flow*. You can do that by downloading your app's manifest, modifying
-  it so that `oauth2AllowImplicitFlow` is set to `true`, and uploading it.
-* The Reply URL is the *Redirect URL*, which is the web page that is going to
-  reference the SDK.
-* Your app has read permissions if your app only opens from OneDrive and write
-  permissions if your app saves to OneDrive.
-
+1. Log in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com)
+   using your Microsoft account, or a work or school account.
+2. Click **Add an add** and enter a name for your app.
+3. After your application is created, configure it to support the JavaScript picker:
+   1. Click **Generate New Password** to create an **Application secret**. While this value is not necessary for the picker, it must have been created.
+   2. Click **Add Platform** and then select **Web**.
+   3. Enter one or more **URLs** where the picker will be hosted on your website. Each page that hosts the picker needs to have a redirect URL provided.
+   4. Click the **Save** button to save your changes.
+4. Copy the Application Id for your application and use it in the JavaScript options object you provided to [open](js-picker-open.md) or [save](js-picker-save.md) a file.
 
 ### Next Step
 
 Learn more about [opening files with the OneDrive file picker](js-picker-open.md) or
 [saving files with the OneDrive file picker SDK](js-picker-save.md).
-
 
 ## Supported browsers
 
@@ -75,12 +53,10 @@ The OneDrive picker and saver supports the following web browsers:
 
 ## Known issues
 * The SDK does not support saving files through a form upload on IE9.
-* The SDK returns thumbnail links that require authentication for image and
-  video files selected from a user's OneDrive for Business.
-* The SDK will fail to upload a file to OneDrive for Business if the file name
-  is taken.
-* Data URIs uploaded to OneDrive for Business through the SDK appear to succeed
-  but show up as 0 byte files.
+* The SDK returns thumbnail links that require authentication for image files selected from a user's OneDrive for Business.
+* Files selected from OneDrive for Business may not have a thumbnail collection available. You should check for a null value.
+* The SDK will fail to upload a file to OneDrive for Business if the filename is taken.
+* Data URIs uploaded to OneDrive for Business through the SDK appear to succeed but show up as 0 byte files.
 
 ## Previous versions
 
