@@ -204,7 +204,7 @@ the default redirect URI is always used.
   "section": "sdks",
   "tocPath": "OneDrive SDKs/JavaScript file picker/Save a File",
   "headerAdditions": [
-    "<script type=\"text/javascript\" src=\"OneDrive.7-0-rc.js\"></script>"
+    "<script type=\"text/javascript\" src=\"https://js.live.net/v7.0/OneDrive.js\"></script>"
   ],
   "footerAdditions": [
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"js-sample.css\" />",
