@@ -20,6 +20,7 @@ account.
 2. When prompted, sign in with your Microsoft account credentials.
 3. Find **My applications** and click **Add an app**.
 4. Enter your app's name and click **Create application**.
+5. Scroll to the bottom of the page and check the **Live SDK support** box.
 
 [1]: https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm
 
