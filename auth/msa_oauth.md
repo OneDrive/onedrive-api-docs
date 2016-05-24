@@ -38,14 +38,14 @@ and go straight to the authorization flow.
 | Scope name         | Description                                                                                                                                                                                                                   | Required |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
 | offline_access     | Enables your app to work offline even when the user isn't active. This provides your app with a refresh_token that can be used to generate additional access tokens as necessary. This scope is not available for token flow. | No       |
-| files.read         | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                                                                                          | Yes      |
-| files.readwrite    | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                                                    | Yes      |
+| onedrive.read         | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                                                                                          | Yes      |
+| onedrive.readwrite    | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                                                    | Yes      |
 | onedrive.appfolder | Grants read and write permissions to a specific folder for your application.                                                                                                                                                  | Yes      |
 
 As an example, a typical application might request the following scopes:
 
 ```
-files.readwrite offline_access
+onedrive.readwrite offline_access
 ```
 
 ## Supported Authentication flows
