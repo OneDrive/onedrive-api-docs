@@ -184,6 +184,9 @@ calling the OneDrive API needs to:
 * Have no dependency on the order of properties returned in JSON responses.
 * Use documented API paths, resources, properties, and enumerated values only.
   Non-documented values are not guaranteed to remain consistent.
+* All URLs returned by OneDrive API should be treated as opaque URLs. Your app should not
+  make any assumptions about format or parameters in these URLs. They are subject
+  to change without notice.
 
 ### Throttling
 OneDrive has limits in place to make sure that individuals and apps do not

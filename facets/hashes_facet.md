@@ -10,7 +10,8 @@ A set of hash values for the file.
 ```json
 {
   "crc32Hash": "string (hex)",
-  "sha1Hash": "string (hex)"
+  "sha1Hash": "string (hex)",
+  "quickXorHash": "string (hex)"
 }
 ```
 ## Properties
@@ -19,13 +20,15 @@ A set of hash values for the file.
 |:--------------|:--------------|:------------------------------------------------------|
 | **sha1Hash**  | base64 string | SHA1 hash for the contents of the file (if available) |
 | **crc32Hash** | base64 string | The CRC32 value of the file (if available)            |
+| **quickXorHash** | base64 string | A unique hash of the file that can be used to determine if the contents of the file have changed (if available). |
 
-**Note:** In some cases hash values may not be available. If this is the case,
-the hash values on an item will be updated after the item is downloaded.
+**Note:** In some cases hash values may not be available. Downloading the item
+can cause the hash values to be populated.
 
 ## Remarks
 
-In OneDrive for Business, **SHA1** and **CRC32** hash values are not returned for files.
+In OneDrive for Business, **sha1Hash** and **crc32Hash** are not available.
+In OneDrive Personal, **quickXorHash** is not available.
 
 <!-- {
   "type": "#page.annotation",

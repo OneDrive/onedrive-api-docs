@@ -60,6 +60,8 @@ Callers can differentiate if the permission is inherited or not by checking the
 [ItemReference](../resources/itemReference.md) resource referencing the ancestor that
 the permission is inherited from.
 
+SharePoint permission levels set on an item are returned with an 'SP' prefix. For example, SP.View Only, SP.Limited Access, SP.View Web Analytics Data. See [Full list of SharePoint roles](https://technet.microsoft.com/en-us/library/cc721640.aspx#section1).
+
 <!-- {"blockType": "response", "@odata.type": "oneDrive.permission", "isCollection": true, "truncated": true} -->
 ```http
 HTTP/1.1 200 OK
