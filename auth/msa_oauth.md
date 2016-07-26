@@ -38,14 +38,14 @@ and go straight to the authorization flow.
 | Scope name         | Description                                                                                                                                                                                                                   | Required |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
 | offline_access     | Enables your app to work offline even when the user isn't active. This provides your app with a refresh_token that can be used to generate additional access tokens as necessary. This scope is not available for token flow. | No       |
-| files.read         | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                                                                                          | Yes      |
-| files.readwrite    | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                                                    | Yes      |
+| onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                                                                                          | Yes      |
+| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                                                    | Yes      |
 | onedrive.appfolder | Grants read and write permissions to a specific folder for your application.                                                                                                                                                  | Yes      |
 
 As an example, a typical application might request the following scopes:
 
 ```
-files.readwrite offline_access
+onedrive.readwrite offline_access
 ```
 
 ## Supported Authentication flows
@@ -72,11 +72,12 @@ GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={sc
 ```
 
 ### Required query string parameters
-| Parameter name | Value  | Description                                                                   |
-|:---------------|:-------|:------------------------------------------------------------------------------|
-| *client_id*    | string | The client ID value created for your application.                             |
-| *scope*        | string | A space-separated list of scopes your application requires.                   |
-| *redirect_uri* | string | The redirect URL that the browser is sent to when authentication is complete. |
+| Parameter name  | Value  | Description                                                                              |
+|:----------------|:-------|:-----------------------------------------------------------------------------------------|
+| *client_id*     | string | The client ID value created for your application.                                        |
+| *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete.            |
+| *response_type* | string | The type of response expected from the authorization flow. For this flow, the value must be **token**. |
+| *scope*         | string | A space-separated list of scopes your application requires.                              |
 
 Use this redirect URL for mobile and desktop applications `https://login.live.com/oauth20_desktop.srf`.
 
@@ -123,6 +124,7 @@ GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={sc
 | *client_id*    | string | The client ID created for your app.                                           |
 | *scope*        | string | A space-separated list of scopes that your app requires.                      |
 | *redirect_uri* | string | The redirect URL that the browser is sent to when authentication is complete. |
+| *response_type* | string | The type of response expected from the authorization flow. For this flow, the value must be **code**. |
 
 #### Response
 

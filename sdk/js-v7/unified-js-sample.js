@@ -53,6 +53,9 @@ var saverOptions = {
    */
   "clientId": "71a9aa4d-ae38-45e5-aeff-6c4679120247",
 
+  /* Specify the action as saving a file */
+  action: "save",
+
   /*
    * Required. The id of a form input element of type file.
    */
