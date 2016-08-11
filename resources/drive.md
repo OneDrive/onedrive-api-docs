@@ -16,7 +16,7 @@ The following tasks are available for drive resources.
 | [Get root folder for user's default Drive][item-get]    | `GET /drive/root`             |
 | [List children under the Drive][item-children]          | `GET /drive/root/children`    |
 | [List changes for all Items in the Drive][item-changes] | `GET /drive/root/view.delta`  |
-| [Search for Items in the Drive][item-search] (preview)  | `GET /drive/root/view.search` |
+| [Search for Items in the Drive][item-search]            | `GET /drive/root/view.search` |
 | [Access special folder](../items/special_folders.md)    | `GET /drive/special/{name}`   |
 
 In the previous table, the examples use `/drive`, but `/drives/{drive-id}` is valid too.

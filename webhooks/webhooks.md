@@ -7,12 +7,6 @@ be aware of changes to a user's drive without polling the service.
 When items your app has access to in a user's drive are changed, the URL you
 provide will be sent a request notifying it that changes have occurred.
 
-**Note:** Webhooks in OneDrive for Business are rolling out to tenants
-over the next 2-3 weeks. If you are unable to create a subscription or receive
-a notification please try again in a few days. Once available, OneDrive for
-Business webhooks is a **limited preview** and should not be used in production
-applications until they are generally available.
-
 [wiki-webhooks]: http://en.wikipedia.org/wiki/Webhook
 
 ## Common tasks

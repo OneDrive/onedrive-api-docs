@@ -7,12 +7,6 @@ have created.
 **Note:** OneDrive for Business and SharePoint document libraries can only have
 subscriptions created on the drive's root item.
 
-**Note:** Webhooks in OneDrive for Business are rolling out to tenants
-over the next 2-3 weeks. If you are unable to create a subscription or receive
-a notification please try again in a few days. Once available, OneDrive for
-Business webhooks is a **limited preview** and should not be used in production
-applications until they are generally available.
-
 ## Prerequisites
 To create a subscription the app must have read-write access to the item the
 subscription will be created on.
