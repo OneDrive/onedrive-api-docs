@@ -42,6 +42,12 @@
       "enabled": true
     },
 
+    {
+      "method": "template-method-name",
+      "enabled": false,
+      "name": "Template method test"
+    },
+    
     { "name": "Get drive by drive ID",
       "method": "get-drive-by-id",
       "enabled": true,

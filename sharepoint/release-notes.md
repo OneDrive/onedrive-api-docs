@@ -36,7 +36,6 @@ are listed below:
 * [Image and photo facets](#image-and-photo-facets)
 * [Sharing links](#sharing-links-and-permissions)
 * [Shared By Me](#shared-by-me)
-* [Webhooks](#webhooks)
 
 ### Authentication
 
@@ -151,14 +150,6 @@ OneDrive for Business does not support sharing links for folders.
 ### Shared by me
 
 OneDrive for Business does not support [Shared by Me](../drives/shared_by_me.md).
-
-### Webhooks
-
-Webhooks in OneDrive for Business are being rolling out to tenants
-over the next 2-3 weeks. If you are unable to create a subscription or receive
-a notification please try again in a few days. Once available, OneDrive for
-Business webhooks only a **limited preview** and should not be used in production
-applications until they are released as generally available.
 
 ## Send us feedback!
 

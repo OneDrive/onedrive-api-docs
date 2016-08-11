@@ -21,7 +21,7 @@ The following tasks are available for item resources.
 |:----------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------|
 | [Get metadata for an Item](../items/get.md)         | `GET /drive/items/{id}`                                | `GET /drive/root:/{path}`                        |
 | [List an Item's children](../items/list.md)         | `GET /drive/items/{id}/children`                       | `GET /drive/root:/{path}:/children`              |
-| [Create a Folder](../items/create.md)               | `PUT /drive/items/{parent-id}/children/{name}`         | `PUT /drive/root:/{parent-path}/{name}`          |
+| [Create a Folder](../items/create.md)               | `POST /drive/items/{parent-id}/children`               | `POST /drive/root:/{parent-path}:/children`      |
 | [Upload an Item's contents](../items/upload.md)     | `PUT /drive/items/{parent-id}/children/{name}/content` | `PUT /drive/root:/{parent-path}/{name}:/content` |
 | [Update an Item's contents](../items/update.md)     | `PATCH /drive/items/{id}`                              | `PATCH /drive/root:/{path}`                      |
 | [Delete an Item](../items/delete.md)                | `DELETE /drive/items/{id}`                             | `DELETE /drive/root:/{path}`                     |

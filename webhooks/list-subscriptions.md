@@ -2,12 +2,6 @@
 
 Enumerate the remaining subscriptions on an item.
 
-**Note:** Webhooks in OneDrive for Business are rolling out to tenants
-over the next 2-3 weeks. If you are unable to create a subscription or receive
-a notification please try again in a few days. Once available, OneDrive for
-Business webhooks is a **limited preview** and should not be used in production
-applications until they are generally available.
-
 ## Prerequisites
 To view a list of subscriptions an app need read-write permissions to the item
 where the subscriptions exist. Only the subscriptions created by the calling
