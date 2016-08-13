@@ -11,14 +11,14 @@ registered URL in the following format:
 ## Example validation request
 
 ```http
-POST https://contoso.azurewebsites.net/your/webhook/service?validationToken={randomString}
+POST https://contoso.azurewebsites.net/your/webhook/service?validationtoken={randomString}
 Content-Length: 0
 ```
 
 ## Response
 
 For the subscription to be created successfully, your service must respond
-to this request by returning the value of the **validationToken** query string
+to this request by returning the value of the **validationtoken** query string
 parameter as a plain-text response.
 
 ```http
@@ -29,7 +29,7 @@ Content-Type: text/plain
 ```
 
 If your application returns a status code other than `200` or fails to respond
-with the value of the validationToken parameter, the request to create a new
+with the value of the validationtoken parameter, the request to create a new
 subscription will fail.
 
 <!-- {
