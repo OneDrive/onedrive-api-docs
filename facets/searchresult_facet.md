@@ -20,6 +20,10 @@ are part of a search result.
 
 [item-resource]: ../resources/item.md
 
+## Remarks
+
+The onClickTelemetryUrl property is not available on OneDrive for Business and SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "The search result facet indicates an item is from a search.",

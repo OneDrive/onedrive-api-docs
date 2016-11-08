@@ -3,18 +3,26 @@
 [![Documentation validation and build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](#continuous-documentation-validation)
 
 The OneDrive API provides a set of HTTP services to connect your application to
-files and folders in **OneDrive Personal**, **OneDrive for Business**, and document
-libraries in **SharePoint Online**. OneDrive API makes it easy to connect your app
-to your user's files across **Office 365** and access the advanced functionality of
+files and folders in Office 365 and SharePoint Server 2016. 
+
+This includes:
+
+* **OneDrive Personal**
+* **OneDrive for Business** 
+* **SharePoint Online** 
+* **SharePoint Server 2016**
+
+Not only does the OneDrive API make it easy to connect your app
+to your user's files, but you can also access the advanced functionality of
 files in OneDrive and SharePoint.
 
 Whenever possible, we recommend using a supported [OneDrive SDK](sdks.md) in
 your application. However, you can code your application directly to the HTTP
 endpoints if your preferred language/platform is unavailable.
 
-OneDrive API is also a part of the [Microsoft Graph](http://graph.microsoft.io).
-Microsoft Graph makes it easy to connect with data from many Office 365 services
-using a single API end point.
+The OneDrive API is also a part of the [Microsoft Graph](http://graph.microsoft.io).
+You can use Microsoft Graph, to easily connect your app to data from many Office 365 services
+by using a single API end point.
 
 ## Getting started
 

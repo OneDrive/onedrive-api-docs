@@ -26,6 +26,10 @@ represent videos.
 
 [item-resource]: ../resources/item.md
 
+## Remarks
+
+Video facet is not supported on OneDrive for Business and SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "The video facet provides information about the properties of a video file.",

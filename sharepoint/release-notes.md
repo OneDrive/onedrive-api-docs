@@ -66,15 +66,7 @@ Setting a [custom thumbnail](../items/thumbnails.md) on an item is not available
 
 ### Thumbnails collection
 
-Certain calls that expand the thumbnails collection or refer to it directly, including
-custom uploaded thumbnails will fail:
-
-`GET /drive/root:/{item-path}?expand=children(expand=thumbnails)`
-
-`GET /drive/items:/{item-id}/children?expand=thumbnails`
-
-However, you can access the thumbnails directly for a single item at a time:
-`GET /drive/items/{item-id}/thumbnails`
+Thumbnails are not supported on SharePoint Server 2016.
 
 ### Item searching
 
@@ -107,10 +99,12 @@ Also, the **view.delta** action does not return the following properties:
 * **fileSystemInfo**
 * **lastModifiedBy**
 
+view.delta is not supported on SharePoint Server 2016.
+
 ### Special folders
 
 Not all of the [defined special folders](../items/special_folders.md) are
-available in OneDrive for Business. The following special folders are available:
+available in OneDrive for Business, SharePoint Online and SharePoint Server 2016. The following special folders are available:
 
 * **approot**
 * **documents**
@@ -145,11 +139,11 @@ The `image` facet is returned on items that appear to be images, but has no prop
 
 ### Sharing links and permissions
 
-OneDrive for Business does not support sharing links for folders.
+OneDrive for Business, SharePoint Online and SharePoint Server 2016 does not support sharing links for folders.
 
 ### Shared by me
 
-OneDrive for Business does not support [Shared by Me](../drives/shared_by_me.md).
+OneDrive for Business, SharePoint Online and SharePoint Server 2016 does not support [Shared by Me](../drives/shared_by_me.md).
 
 ## Send us feedback!
 

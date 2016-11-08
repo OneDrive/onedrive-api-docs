@@ -1,6 +1,11 @@
 # Get metadata for a drive on OneDrive
 
-Use the OneDrive API to get metadata for a user's drive using its unique identifier.
+Use the OneDrive API to get metadata for a user's drive using an identifier.
+
+You can identify a [drive][drive-resource] using any of the following identifiers:
+
+* To access any drive, a drive ID returned from the `id` property on the drive resource, or the `driveId` property of a [ItemReference](../resources/itemReference.md) resource.
+* To access a user's default OneDrive, you can use the user's UPN (email) or User ID (guid).
 
 ## HTTP request
 
@@ -10,9 +15,9 @@ GET /drives/{drive-id}
 ```
 
 ### Path parameters
-| Parameter name | Value  | Description                               |
-|:---------------|:-------|:------------------------------------------|
-| _drive-id_     | string | Required. The ID for the drive requested. |
+| Parameter name | Value  | Description                                       |
+|:---------------|:-------|:--------------------------------------------------|
+| _drive-id_     | string | Required. The identifier for the drive requested. |
 
 ### Optional query parameters
 
@@ -24,8 +29,7 @@ Do not supply a request body with this method.
 
 ## HTTP response
 
-If successful, this method returns a [Drive resource][drive-resource] for
-the matching drive in the response body.
+If successful, this method returns a [Drive resource][drive-resource] for the matching drive in the response body.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.drive" } -->
 ```http
@@ -49,10 +53,10 @@ Content-Type: application/json
   },
   "driveType": "personal"
 }
-
 ```
-**Note:** The Response object is truncated for clarity. All default properties will
-be returned from the actual call.
+
+**Note:** The Response object is truncated for clarity.
+All default properties will be returned from the actual call.
 
 ### Error response
 

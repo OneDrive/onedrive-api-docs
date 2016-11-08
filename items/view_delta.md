@@ -194,6 +194,7 @@ not on other folders. It also will not return the following Item properties:
 * **fileSystemInfo**
 * **lastModifiedBy**
 
+`view.delta` is not supported on SharePoint Server 2016.
 <!-- {
   "type": "#page.annotation",
   "description": "Sync changes from the service to your client state.",

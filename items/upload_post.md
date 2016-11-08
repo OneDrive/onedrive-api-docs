@@ -102,7 +102,7 @@ how errors are returned.
 
 ## Remarks
 
-The multipart upload method is not supported in OneDrive for Business or SharePoint.
+The multipart upload method is not supported in OneDrive for Business, SharePoint Online and SharePoint Server 2016.
 
 
 [error-response]: ../misc/errors.md
