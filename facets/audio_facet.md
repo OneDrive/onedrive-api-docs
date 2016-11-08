@@ -51,6 +51,10 @@ have associated audio.
 
 [item-resource]: ../resources/item.md
 
+## Remarks
+
+Audio facet is not supported on SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "The audio facet provides information about music or audio metadata.",

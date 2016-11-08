@@ -110,7 +110,7 @@ returned from the OneDrive API. For a collection of items, use the following fie
 * size
 * lastModifiedDateTime
 
-Note that in OneDrive for Business, the _orderby_ query string only works with **name** and **url**.
+Note that in OneDrive for Business and SharePoint Server 2016, the _orderby_ query string only works with **name** and **url**.
 
 To sort the results in ascending or descending order, append
 either `asc` or `desc` to the field name, separated by a space, for example,

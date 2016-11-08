@@ -26,6 +26,10 @@ an associated geographic location.
 
 [item-resource]: ../resources/item.md
 
+## Remarks
+
+Location facet is not supported on SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "The location facet provides geographic location related properties for an item",

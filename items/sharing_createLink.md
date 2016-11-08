@@ -154,6 +154,7 @@ property contains the HTML code for an `<iframe>` to host the content.
   an owner of the item.
 * Sharing links always point to the current version of a item, unless the item is
   checked out (SharePoint only).
+* Sharing links are not supported on SharePoint Server 2016. 
 
 ### Error responses
 

@@ -328,6 +328,10 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 
+### Remarks
+
+Thumbnails are not supported on SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "Get metadata and content for thumbnails of multiple sizes for OneDrive items.",

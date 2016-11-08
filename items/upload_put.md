@@ -71,6 +71,23 @@ how errors are returned.
 [error-response]: ../misc/errors.md
 [item-resource]: ../resources/item.md
 
+### Remarks
+
+SharePoint Server 2016 blocks several file extensions from
+being uploaded to the server.
+
+* .ashx - ASP.NET Web handler file
+* .asmx - ASP.NET Web Services source file
+* .json - JavaScript Object Notation file
+* .soap - Simple Object Access Protocol file
+* .svc - Windows Communication Foundation (WCF) service file
+* .xamlx - Visual Studio Workflow service file
+
+See [Types of files that cannot be added to a list or library][blocked-extensions]
+for more information on blocked file extensions.
+
+[blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
+
 <!-- {
   "type": "#page.annotation",
   "description": "Create a new file with content or update a file's content.",

@@ -48,6 +48,10 @@ how errors are returned.
 
 [error-response]: ../misc/errors.md
 
+## Remarks
+
+Shared By Me is not supported on SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "List the items shared in the target drive.",

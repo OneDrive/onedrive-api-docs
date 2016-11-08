@@ -26,6 +26,10 @@ how the item is shared.
 | `organization` | The item is shared by using a link that works for anyone in the owner's organization. |
 | `users`        | The item is shared with specific users only.                                          |
 
+## Remarks
+
+Shared facet is not supported on SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "The shared facet provides info about shared items.",

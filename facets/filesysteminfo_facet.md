@@ -41,7 +41,7 @@ local client values for these fields, you should include them in the request.
 
 ## Remarks
 
-The **FileSystemInfo** property is not available for items in SharePoint or OneDrive for Business.
+The **FileSystemInfo** property is not available for items in SharePoint Online, OneDrive for Business and SharePoint Server 2016.
 
 [item-resource]: ../resources/item.md
 

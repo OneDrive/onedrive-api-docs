@@ -72,7 +72,7 @@ HTTP/1.1 500 Internal Server Error
 
 ## Remarks
 
-Uploading an item to OneDrive for Business using a URL is not supported.
+Uploading an item to OneDrive for Business, SharePoint Online and SharePoint Server 2016 using a URL is not supported.
 
 [item-resource]: ../resources/item.md
 

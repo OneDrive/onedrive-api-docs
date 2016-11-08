@@ -6,11 +6,11 @@ and are open source projects.
 
 ### Windows / .NET
 
-* [OneDrive API Explorer (Windows/C#)](https://github.com/OneDrive/onedrive-sdk-csharp/tree/master/samples/OneDriveApiBrowser)
+* [OneDrive API Explorer (Windows/C#)](https://github.com/OneDrive/onedrive-sample-apibrowser-dotnet)
   A Windows Forms application to browse the OneDrive API. Includes a sample
   .NET Portable Code Library SDK to use the OneDrive API.
 
-* [OneDrive Photo Browser (Windows/C#)](https://github.com/OneDrive/onedrive-sdk-csharp/tree/master/samples/OneDrivePhotoBrowser)
+* [OneDrive Photo Browser (Windows/C#)](https://github.com/OneDrive/onedrive-sample-photobrowser-uwp)
   An example Universal Windows App that uses the OneDrive SDK to browse images
   from a user's OneDrive.
 

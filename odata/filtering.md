@@ -59,7 +59,7 @@ and are evaluated from left-to-right.
 While the **filter** syntax can be used on any property of an item, we have
 optimized certain properties to be fast and efficient to filter on.
 
-**Note:** In OneDrive for Business, filtering support only **name** and **url** properties.
+**Note:** In OneDrive for Business, SharePoint Online and SharePoint Server 2016, filtering support only **name** and **url** properties.
 
 * audio
 * createdDateTime (for gt, ge, lt, le)

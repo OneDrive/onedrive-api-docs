@@ -96,14 +96,6 @@ how errors are returned.
 [item-resource]: ../resources/item.md
 [odata-query-parameters]: ../odata/optional-query-parameters.md
 
-## Remarks
-
-In OneDrive for Business, `view.search` will not return the following Item properties:
-
-* `createdBy`
-* `modifiedBy`
-* `parentReference`
-
 <!-- {
   "type": "#page.annotation",
   "description": "Search for a file across a OneDrive.",

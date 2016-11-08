@@ -9,14 +9,16 @@ It is available on the file property of [Item][item-resource] resources that rep
 ```json
 {
   "mimeType": "string",
-  "hashes":  { "@odata.type": "oneDrive.hashes" }
+  "hashes":  { "@odata.type": "oneDrive.hashes" },
+  "processingMetadata": false
 }
 ```
 
-| Property Name | Type                          | Description                                                                                                                                 |
-|:--------------|:------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
-| **mimeType**  | string                        | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. |
-| **hashes**    | [HashesType](hashes_facet.md) | Hashes of the file's binary content, if available.                                                                                          |
+| Property Name          | Type                          | Description                                                                                                                                 |
+|:-----------------------|:------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
+| **mimeType**           | string                        | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded.       |
+| **hashes**             | [HashesType](hashes_facet.md) | Hashes of the file's binary content, if available.                                                                                          |
+| **processingMetadata** | Boolean                       | Flag indicating if the item is still being processed to extract metadata                                                                    |
 
 [item-resource]: ../resources/item.md
 
