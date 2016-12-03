@@ -11,15 +11,15 @@ A set of hash values for the file.
 {
   "crc32Hash": "string (hex)",
   "sha1Hash": "string (hex)",
-  "quickXorHash": "string (hex)"
+  "quickXorHash": "string (base64)"
 }
 ```
 ## Properties
 
 | Property name | Type          | Description                                           |
 |:--------------|:--------------|:------------------------------------------------------|
-| **sha1Hash**  | base64 string | SHA1 hash for the contents of the file (if available). |
-| **crc32Hash** | base64 string | The CRC32 value of the file (if available).            |
+| **sha1Hash**  | hex string | SHA1 hash for the contents of the file (if available). |
+| **crc32Hash** | hex string | The CRC32 value of the file (if available).            |
 | **quickXorHash** | base64 string | A [proprietary hash](../snippets/quickxorhash.md) of the file that can be used to determine if the contents of the file have changed (if available).|
 
 **Note:** In some cases hash values may not be available. Downloading the item
