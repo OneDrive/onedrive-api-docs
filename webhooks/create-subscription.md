@@ -8,8 +8,7 @@ have created.
 subscriptions created on the drive's root item.
 
 ## Prerequisites
-To create a subscription the app must have read-write access to the item the
-subscription will be created on.
+To create a subscription the app must have access to the item the subscription will be created on.
 
 ## HTTP request
 
