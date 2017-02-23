@@ -39,7 +39,7 @@ and options object.
     OneDrive.open(odOptions);
   }
 </script>
-<button onClick="launchOneDrivePicker">Open from OneDrive</button>
+<button onClick="launchOneDrivePicker()">Open from OneDrive</button>
 ```
 
 ### Picker options
