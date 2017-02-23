@@ -69,5 +69,5 @@ The OneDrive picker and saver supports the following web browsers:
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
-  "tocPath": "OneDrive SDKs/JavaScript file picker"
+  "tocPath": "OneDrive SDKs/File pickers/JavaScript"
 } -->

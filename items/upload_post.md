@@ -43,7 +43,7 @@ specify a **name** value in the `Content-Disposition` header that indicates whic
 part it is. Parts can be in either order, but should specify the metadata part
 first.
 
-<!-- { "blockType": "request", "name": "upload-multipart", "scopes": "files.readwrite service.onedrive" } -->
+<!-- { "blockType": "request", "name": "upload-multipart", "@odata.type": "oneDrive.item", "scopes": "files.readwrite service.onedrive" } -->
 ```
 POST /drive/items/{folder-id}/children
 Content-Type: multipart/related; boundary="A100x"
@@ -55,8 +55,8 @@ Content-Type: application/json
 {
   "name": "newfile.txt",
   "file": {},
-  "@content.sourceUrl": "cid:content",
-  "@name.conflictBehavior": "rename"
+  "@microsoft.graph.sourceUrl": "cid:content",
+  "@microsoft.graph.conflictBehavior": "rename"
 }
 
 --A100x
@@ -75,7 +75,7 @@ item has the same name.
 
 ### Response
 
-If successful, this method returns a [Item resource](../resources/item.md) in
+If successful, this method returns a [driveItem resource](../resources/item.md) in
 the response body for the newly created file.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->

@@ -12,8 +12,8 @@ children when using a collection.
 
 <!-- { "blockType": "ignored" } -->
 ```
-GET /drive/root/view.search?q=vacation
-GET /drive/items/{item-id}/view.search?q=vacation
+GET /drive/root/search(q='vacation')
+GET /drive/items/{item-id}/search(q='vacation')
 ```
 
 This method supports [optional query string parameters][odata-query-parameters]
@@ -31,9 +31,9 @@ parameter.
 
 ### Example
 
-<!-- { "blockType": "request", "name": "search-at-root", "idempotent": true, "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "search-at-root", "idempotent": true, "scopes": "files.read", "target": "action" } -->
 ```
-GET /drive/root/view.search?q={search-text}
+GET /drive/root/search(q='{search-text}')
 ```
 
 ### Response
@@ -72,7 +72,7 @@ Content-type: application/json
       }
     ],
     "@search.approximateCount": 12,
-    "@odata.nextLink": "https://api.onedrive.com/drive/root/view.search?query=vacation&skipToken=1asdlnjnkj1nalkm!asd"
+    "@odata.nextLink": "https://api.onedrive.com/drive/root/search?query=vacation&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
 

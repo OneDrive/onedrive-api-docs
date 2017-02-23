@@ -2,12 +2,12 @@
 
 List the set of items that are shared with the current user.
 
-<!-- { "blockType": "request", "name": "shared-with-me", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "shared-with-me", "scopes": "files.read", "target": "action" } -->
 ```http
-GET /drive/view.sharedWithMe
+GET /drive/sharedWithMe
 ```
 
-This returns a collection of [Item resources](../resources/item.md) that enumerates
+This returns a collection of [driveItem resources](../resources/item.md) that enumerates
 the set of items that have been shared with the current user.
 
 <!-- {"blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->

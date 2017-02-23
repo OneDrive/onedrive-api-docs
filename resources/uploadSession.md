@@ -26,5 +26,5 @@ session.
   "type": "#page.annotation",
   "description": "UploadSession is used to provide information about large file uploads.",
   "section": "documentation",
-  "tocPath": "Resources/Upload session"
+  "tocPath": "Resources/UploadSession"
 } -->

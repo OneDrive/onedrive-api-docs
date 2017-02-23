@@ -83,9 +83,9 @@ Below is an example of filtering search results for only items that have a
 **file** and **image** facet.
 
 #### Request
-<!-- { "blockType": "request", "name": "filtering-image-file", "scopes": "files.read service.onedrive" } -->
+<!-- { "blockType": "request", "name": "filtering-image-file", "scopes": "files.read service.onedrive", "target": "action" } -->
 ```
-GET /drive/root/view.search?q=vacation&filter=image%20ne%20null%20and%20file%20ne%20null
+GET /drive/root/search?q=vacation&filter=image%20ne%20null%20and%20file%20ne%20null
 ```
 
 #### Response
@@ -119,7 +119,7 @@ Content-length: length
       }
     ],
     "@search.approximateCount": 12,
-    "@odata.nextLink": "https://api.onedrive.com/drive/root/view.search?query=vacation&skipToken=1asdlnjnkj1nalkm!asd"
+    "@odata.nextLink": "https://api.onedrive.com/drive/root/search?query=vacation&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
 

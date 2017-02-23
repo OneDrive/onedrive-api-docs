@@ -25,25 +25,25 @@ To begin a large file upload, you first create an
 upload session that will hold the contents of the file until it is committed.
 
 ```http
-POST /drive/root:/{path_to_item}:/upload.createSession
-POST /drive/items/{parent_item_id}:/{filename}:/upload.createSession
+POST /drive/root:/{path_to_item}:/createUploadSession
+POST /drive/items/{parent_item_id}:/{filename}:/createUploadSession
 ```
 
 To start an upload session, POST a request to the path to the file or to the parent
 item's item ID and name of the file to be uploaded. No request body is required.
-**Note:** the parent folder must exist before you call createSession.
+**Note:** the parent folder must exist before you call createUploadSession.
 
 To specify a non-default conflict behavior provide the `item` parameter in the
-request body with the appropriate value for the `@name.conflictBehavior` instance annotation.
+request body with the appropriate value for the `@microsoft.graph.conflictBehavior` instance annotation.
 
-<!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite", "target": "action" } -->
 ```http
-POST /drive/root:{item-path}:/upload.createSession
+POST /drive/root:/{item-path}:/createUploadSession
 Content-Type: application/json
 
 {
   "item": {
-    "@name.conflictBehavior": "rename",
+    "@microsoft.graph.conflictBehavior": "rename",
     "name": "largefile.dat"
   }
 }
@@ -142,7 +142,7 @@ server will respond with `HTTP 416 Requested Range Not Satisfiable`. You can
 
 When the last fragment is received and the server has all of the file's bytes,
 the server will respond with `HTTP 201 Created` (for a new file) or `HTTP 200 OK`
-for an updated file and include an [Item][item-resource] resource for the
+for an updated file and include an [driveItem][item-resource] resource for the
 uploaded file:
 
 <!-- { "blockType": "request", "name": "upload-fragment-final", "scopes": "files.readwrite" } -->
@@ -182,7 +182,7 @@ Content-Type: application/json
     "code": "upload_name_conflict",
     "message": "Another file exists with the same name as the uploaded session.
     You can redirect the upload session to use a new filename by calling PUT
-    with the new metadata and @content.sourceUrl attribute.",
+    with the new metadata and @microsoft.graph.sourceUrl attribute.",
   }
 }
 ```
@@ -251,9 +251,9 @@ preserve the upload session until the expiration time and allow your app to reco
 the upload by manually committing the upload session.
 
 To manually commit the upload session, your app must make a PUT request with a new
-Item resource that will be used to commit the file. Inside the Item resource
+**driveItem** resource that will be used to commit the file. Inside the **driveItem** resource
 include an [Instance Attribute](../resources/item.md#instance-attributes) for
-`@content.sourceUrl` with the value of your upload session URL.
+`@microsoft.graph.sourceUrl` with the value of your upload session URL.
 
 ```http
 PUT /drive/root:/{path_to_parent}
@@ -264,12 +264,12 @@ If-Match: {etag or ctag}
 {
   "name": "largefile_2.vhd",
   "description": "A 5GB virtual disk",
-  "@name.conflictBehavior": "rename",
-  "@content.sourceUrl": "{upload session URL}"
+  "@microsoft.graph.conflictBehavior": "rename",
+  "@microsoft.graph.sourceUrl": "{upload session URL}"
 }
 ```
 
-**Note:** You can use the `@name.conflictBehavior` and `if-match` headers as
+**Note:** You can use the `@microsoft.graph.conflictBehavior` and `if-match` headers as
 expected in this call.
 
 If the file can be committed using the new metadata, an `HTTP 201 Created` or
@@ -307,7 +307,7 @@ how errors are returned.
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Upload files larger than 100MB using fragment upload.",
+  "description": "Upload files larger than 100MB using fragment ",
   "keywords": "upload,large file,fragment,BITS",
   "section": "documentation"
 } -->

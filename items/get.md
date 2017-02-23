@@ -36,7 +36,7 @@ GET /drive/items/{item-id}
 
 ## Response
 
-If successful, this method returns an [Item][item-resource] resource in
+If successful, this method returns an [driveItem][item-resource] resource in
 the response body.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
@@ -147,5 +147,5 @@ how errors are returned.
   "description": "Retrieve metadata about an item and its children in OneDrive",
   "keywords": "retrieve,item,metadata",
   "section": "documentation",
-  "tocPath": "Items/Get Metadata"
+  "tocPath": "Items/Get Item"
 } -->

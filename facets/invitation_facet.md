@@ -27,5 +27,5 @@ This object is read-only.
   "description": "The sharing invitation facet describes details of a sharing invitation associated with a permission.",
   "keywords": "image,width,height,item,facet",
   "section": "documentation",
-  "tocPath": "Facets/Sharing invitation"
+  "tocPath": "Facets/SharingInvitation"
 } -->

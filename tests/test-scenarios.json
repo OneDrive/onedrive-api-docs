@@ -92,7 +92,7 @@
         "$.parentReference.id": null,
         "$.parentReference.path": "/drive/root:/Documents",
         "$.name": "foobar.txt",
-        "$.['@name.conflictBehavior']": "replace"
+        "$.['@microsoft.graph.conflictBehavior']": "replace"
       },
       "test-setup": [
          { "canned-request": "create-file-item" }
@@ -178,7 +178,7 @@
     },
 
     { "name": "Find items with 2014 in the keywords",
-      "method": "search",
+      "method": "search-at-root",
       "enabled": true,
 
       "request-parameters":
@@ -453,7 +453,7 @@
       "enabled": true,
       "scopes": ["service.onedrive"],
       "request-parameters": {
-        "$.['@name.conflictBehavior']": "rename"
+        "$.['@microsoft.graph.conflictBehavior']": "rename"
       }
     },
 
@@ -681,7 +681,7 @@
 
       "request-parameters":
       {
-        "{item-path}": "!random-filename-vnd",
+        "{item-path}": "!random-filename-vnd!",
         "$.item.name": null
       }
     },
@@ -697,8 +697,8 @@
       "test-setup":
       [
         {
-          "http-request": "POST /drive/root:/Documents/{filename}:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-          "request-parameters": { "{filename}": "!random-filename-txt!" },
+          "method": "upload-fragment-create-session",
+          "request-parameters": { "{item-path}": "!random-filename-txt!", "$.item.name": null },
           "capture": {  "[upload-url]": "$.uploadUrl" }
         }
       ]
@@ -716,7 +716,8 @@
       "test-setup":
       [
         {
-          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "method": "upload-fragment-create-session",
+          "request-parameters": { "{item-path}": "!random-filename-txt!", "$.item.name": null },
           "capture":
           {
             "[upload-url]": "$.uploadUrl"
@@ -737,8 +738,8 @@
       "test-setup":
       [
         {
-          "http-request": "POST /drive/root:/Documents/{filename}:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
-          "request-parameters": { "{filename}": "!random-filename-txt!" },
+          "method": "upload-fragment-create-session",
+          "request-parameters": { "{item-path}": "!random-filename-txt!", "$.item.name": null },
           "capture": { "[upload-url]": "$.uploadUrl" }
         }
       ]
@@ -757,11 +758,8 @@
       "test-setup":
       [
         {
-          "http-request": "DELETE /drive/root:/Documents/chunky.txt",
-          "allowed-status-codes": [204, 404]
-        },
-        {
-          "http-request": "POST /drive/root:/Documents/chunky.txt:/upload.createSession\r\nContent-Type: application/json\r\n\r\n{}",
+          "method": "upload-fragment-create-session",
+          "request-parameters": { "{item-path}": "!random-filename-txt!", "$.item.name": null },
           "capture":
           {
             "[upload-url]": "$.uploadUrl"
@@ -787,7 +785,7 @@
           "http-request": "PUT /drive/root:/Documents/vrmtest.docx:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file for the mru",
           "capture":
           {
-            "[download-url]": "$.['@content.downloadUrl']"
+            "[download-url]": "$.['@microsoft.graph.downloadUrl']"
           }
         },
         {
@@ -889,6 +887,30 @@
           }
         }
       ]
-    }
+    },
+    {
+      "name": "Upload to known folder",
+      "method": "upload-via-put-id",
+      "enabled": true,
+      "request-parameters": {
+          "{parent-id}": "[item-id]",
+          "{filename}": "!random-filename-txt",
+          "!body": "Test file that we will share"
+      },
+      "test-setup":[
+        {
+          "method": "get-special-folder",
+          "request-parameters": {
+            "{special-folder-name}": "documents"
+          },
+          "capture": { 
+            "[item-id]": "$.id"
+          }
+        }
+      ] 
+        
+      
+        
+      }
   ]
 }

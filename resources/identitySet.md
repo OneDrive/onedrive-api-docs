@@ -31,5 +31,5 @@ The IdentitySet type has these properties.
   "type": "#page.annotation",
   "description": "Identity set is a collection of identities",
   "section": "documentation",
-  "tocPath": "Resources/Identity set"
+  "tocPath": "Resources/IdentitySet"
 } -->

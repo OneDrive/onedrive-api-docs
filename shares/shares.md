@@ -6,8 +6,6 @@ sharing URL.
 Using the **shares API** allows you to access content shared with the signed in user
 or shared using an authenticated sharing URL.
 
-**Note:** The **shares API** is not available for SharePoint or OneDrive for Business.
-
 ## HTTP Request
 
 <!-- { "blockType": "request", "name": "get-shared-root", "scopes": "service.onedrive" } -->

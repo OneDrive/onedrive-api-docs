@@ -13,10 +13,9 @@ provide will be sent a request notifying it that changes have occurred.
 
 | Task                                                | HTTP method                        |
 |-----------------------------------------------------|------------------------------------|
-| [Create a new subscription](create-subscription.md) | `POST /drive/subscriptions`        |
-| [Delete subscription](delete-subscription.md)       | `DELETE /drive/subscriptions/{id}` |
-| [Enumerate subscriptions](list-subscriptions.md)    | `GET /drive/subscriptions`         |
-| [Update a subscription](update-subscription.md)     | `PATCH /drive/subscriptions/{id}`  |
+| [Create a new subscription](create-subscription.md) | `POST /subscriptions`              |
+| [Delete subscription](delete-subscription.md)       | `DELETE /subscriptions/{id}`       |
+| [Update a subscription](update-subscription.md)     | `PATCH /subscriptions/{id}`        |
 
 
 ## Registering
@@ -59,7 +58,9 @@ resource similar to the following:
   "value": [
     {
       "subscriptionId": "A640DFF3-0429-44FC-AF7E-30523A476864",
-      "userId": "bc614fasdaa1"
+      "expirationDateTime": "2017-02-22T16:00:00Z",
+      "resource": "/me/drive/root",
+      "clientState": "client-specific string"
     }
   ]
 }
@@ -67,7 +68,7 @@ resource similar to the following:
 
 You'll notice that the notification doesn't include any information about the
 changes that triggered it. Your app is expected
-to use the **view.delta** verb to detect any changes to the state of items in
+to use the **delta** verb to detect any changes to the state of items in
 OneDrive and store the `syncToken` value for the next time you are notified.
 
 

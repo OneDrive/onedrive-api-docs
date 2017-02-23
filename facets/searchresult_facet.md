@@ -1,6 +1,6 @@
 # SearchResultFacet facet
 The SearchResultFacet facet groups search result metadata into a single structure.
-It is available on the **searchResult** property of [Item][item-resource] resources that
+It is available on the **searchResult** property of [driveItem][item-resource] resources that
 are part of a search result.
 
 ### Sample JSON representation
@@ -29,5 +29,5 @@ The onClickTelemetryUrl property is not available on OneDrive for Business and S
   "description": "The search result facet indicates an item is from a search.",
   "keywords": "search result facet",
   "section": "documentation",
-  "tocPath": "Facets/Search result"
+  "tocPath": "Facets/SearchResult"
 } -->

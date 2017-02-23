@@ -37,9 +37,9 @@ Content-Type: application/json
 |:---------------------------|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **name**                   | string                      | Name of the folder to be created.                                                                                                                              |
 | **folder**                 | [FolderFacet][folder-facet] | Empty *Folder* facet to indicate that folder is the type of resource to be created.                                                                            |
-| **@name.conflictBehavior** | string                      | Determines what to do if an item with a matching name already exists in this folder. Accepted values are: **rename**, **replace**, and **fail** (the default). |
+| **@microsoft.graph.conflictBehavior** | string                      | Determines what to do if an item with a matching name already exists in this folder. Accepted values are: **rename**, **replace**, and **fail** (the default). |
 
-If _@name.conflictBehavior_ is set to **rename** and an item with the same name already
+If _@microsoft.graph.conflictBehavior_ is set to **rename** and an item with the same name already
 exists in the destination, the new item name will be updated to be unique. OneDrive
 will append a number to the end of the item name (for files - before the extension).
 
@@ -50,7 +50,7 @@ discovered.
 
 ## Response
 
-If successful, this method returns an [Item][item-resource] in
+If successful, this method returns an [driveItem][item-resource] in
 the response body.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->

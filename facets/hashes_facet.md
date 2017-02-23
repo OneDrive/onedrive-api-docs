@@ -18,12 +18,12 @@ A set of hash values for the file.
 
 | Property name | Type          | Description                                           |
 |:--------------|:--------------|:------------------------------------------------------|
-| **sha1Hash**  | hex string | SHA1 hash for the contents of the file (if available). |
-| **crc32Hash** | hex string | The CRC32 value of the file (if available).            |
-| **quickXorHash** | base64 string | A [proprietary hash](../snippets/quickxorhash.md) of the file that can be used to determine if the contents of the file have changed (if available).|
+| **sha1Hash**  | hex string | The bytes of the SHA1 hash of the file contents. |
+| **crc32Hash** | hex string | The bytes of the CRC32 value of the file contents, in little endian order.           |
+| **quickXorHash** | base64 string | A [proprietary hash](../snippets/quickxorhash.md) of the file contents.|
 
 **Note:** In some cases hash values may not be available. Downloading the item
-can cause the hash values to be populated.
+can cause the hash values to be populated, provided the hash is supported in the given context. See remarks for details.
 
 ## Remarks
 

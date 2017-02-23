@@ -16,8 +16,8 @@ to be able to create a sharing link.
 
 <!-- { "blockType": "ignored" } -->
 ```
-POST /drive/items/{item-id}/action.createLink
-POST /drive/root:/{item-path}:/action.createLink
+POST /drive/items/{item-id}/createLink
+POST /drive/root:/{item-path}:/createLink
 ```
 
 ### Request body
@@ -52,9 +52,9 @@ link available will be created.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "create-link", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "name": "create-link", "scopes": "files.readwrite", "target": "action" } -->
 ```
-POST /drive/items/{item-id}/action.createLink
+POST /drive/items/{item-id}/createLink
 Content-Type: application/json
 
 {
@@ -105,7 +105,7 @@ value of `organization`.
 
 <!-- { "blockType": "request", "name": "create-link-scoped", "scopes": "files.readwrite service.sharepoint" } -->
 ```
-POST /drive/items/{item-id}/action.createLink
+POST /drive/items/{item-id}/createLink
 Content-Type: application/json
 
 {

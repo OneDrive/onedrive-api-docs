@@ -1,11 +1,11 @@
 # File facet
 
 The **File** facet groups file-related data on OneDrive into a single structure.
-It is available on the file property of [Item][item-resource] resources that represent files.
+It is available on the file property of [driveItem][item-resource] resources that represent files.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.file", "optionalProperties": ["@downloadUrl", "@copyFromUrl"] } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.file" } -->
 ```json
 {
   "mimeType": "string",

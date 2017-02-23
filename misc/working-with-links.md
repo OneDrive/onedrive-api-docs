@@ -137,12 +137,12 @@ Content-Type: application/json
 }
 ```
 
-## Using view.delta with remote items
+## Using Delta with remote items
 
-When using **[view.delta](../items/view_changes.md)** in a drive with
+When using **[delta](../items/view_changes.md)** in a drive with
 shared folders, the shared folder themselves will be returned as part of the
 response but the items contained within a shared folder will not be returned. A
-separate call to **view.delta** and separate cached delta token is required for each shared folder.
+separate call to **delta** and separate cached delta token is required for each shared folder.
 
 ## Moving items into a shared folder
 

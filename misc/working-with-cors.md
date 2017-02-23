@@ -1,7 +1,6 @@
 # Using the OneDrive API in JavaScript apps (CORS support)
 
-The OneDrive API supports [HTTP access control (CORS)](http://www.w3.org/TR/cors/)
-to allow single page JavaScript applications to use the OneDrive API through the common [XMLHttpRequest pattern][xhr-scenario].
+The OneDrive API supports [HTTP access control (CORS)](http://www.w3.org/TR/cors/) to allow single page JavaScript applications to use the OneDrive API through the common [XMLHttpRequest pattern][xhr-scenario].
 
 You can read more about CORS (Cross-Origin Resource Sharing) on [Wikipedia](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) or the [W3C CORS Wiki](http://www.w3.org/wiki/CORS).
 
@@ -9,17 +8,15 @@ You can read more about CORS (Cross-Origin Resource Sharing) on [Wikipedia](http
 
 ## Sample code
 
-The OneDrive Explorer JS sample app demonstrates how to use the
-OneDrive API from a JavaScript app. This sample shows you how to browse and
-navigate the contents of a user's OneDrive in JavaScript.
+The OneDrive Explorer JS sample app demonstrates how to use the OneDrive API from a JavaScript app. 
+This sample shows you how to browse and navigate the contents of a user's OneDrive in JavaScript.
 
-You can try the [OneDrive explorer sample app](https://dev.onedrive.com/odx) or
-[view the source code](https://github.com/onedrive/onedrive-explorer-js).
+You can try the [OneDrive explorer sample app](https://dev.onedrive.com/odx) or [view the source code](https://github.com/onedrive/onedrive-explorer-js).
 
 ## Example request
 
-This example creates a CORS request that returns the items from a user's
-OneDrive, by sending a GET request to the `/drive/root/children` endpoint. The example was generated using [test-cors.org](http://test-cors.org).
+This example creates a CORS request that returns the items from a user's OneDrive, by sending a GET request to the `/drive/root/children` endpoint.
+The example was generated using [test-cors.org](http://test-cors.org).
 
 ```js
 var createCORSRequest = function(method, url) {
@@ -38,7 +35,7 @@ var createCORSRequest = function(method, url) {
   return xhr;
 };
 
-var url = 'https://api.onedrive.com/v1.0/drive/root/children';
+var url = 'https://graph.microsoft.com/v1.0/me/drive/root/children';
 var method = 'GET';
 var xhr = createCORSRequest(method, url);
 
@@ -56,23 +53,19 @@ xhr.send();
 
 ## Downloading OneDrive files in JavaScript apps
 
-To download files from OneDrive in a JavaScript app you cannot use the
-`/content` API, since this responds with a `302` redirect. A `302` redirect is explicitly
-prohibited when a CORS _preflight_ is required, such as when providing the
-**Authorization** header.
+To download files from OneDrive in a JavaScript app you cannot use the `/content` API, since this responds with a `302` redirect. 
+A `302` redirect is explicitly prohibited when a CORS _preflight_ is required, such as when providing the **Authorization** header.
 
-Instead, your app needs to select the `@content.downloadUrl` property, which
-returns the same URL that `/content` would have redirected to. This URL can then
-be requested directly using XMLHttpRequest. Because these URLs are
-pre-authenticated they can be retrieved without a CORS preflight request.
+Instead, your app needs to select the `@microsoft.graph.downloadUrl` property, which returns the same URL that `/content` would have redirected to.
+This URL can then be requested directly using XMLHttpRequest.
+Because these URLs are pre-authenticated they can be retrieved without a CORS preflight request.
 
 ### Example
 
-To retrieve the download URL for a file, first make a request that includes
-the `@content.downloadUrl` property:
+To retrieve the download URL for a file, first make a request that includes the `@microsoft.graph.downloadUrl` property:
 
 ```http
-GET /drive/items/{item-id}?select=id,@content.downloadUrl
+GET /drive/items/{item-id}?select=id,@microsoft.graph.downloadUrl
 ```
 
 This returns the id and download URL for a file:
@@ -83,12 +76,11 @@ Content-Type: application/json
 
 {
   "id": "12319191!11919",
-  "@content.downloadUrl": "https://..."
+  "@microsoft.graph.downloadUrl": "https://..."
 }
 ```
 
-You can then make an XMLHttpRequest for the URL provided in `@content.downloadUrl`
-to retrieve the file.
+You can then make an XMLHttpRequest for the URL provided in `@microsoft.graph.downloadUrl` to retrieve the file.
 
 <!-- {
   "type": "#page.annotation",

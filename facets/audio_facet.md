@@ -1,7 +1,7 @@
 # Audio facet
 
 The **Audio** facet groups audio-related data on OneDrive into a single structure.
-It is available on the audio property of [Item][item-resource] resources that
+It is available on the audio property of [driveItem][item-resource] resources that
 have associated audio.
 
 ## JSON representation

@@ -2,7 +2,7 @@
 
 The **Photo** facet groups photo-related data on OneDrive, for example, EXIF metadata, into a single structure.
 
-It is available on the photo property of [Item][item-resource] resources that represent photos.
+It is available on the photo property of [driveItem][item-resource] resources that represent photos.
 
 ## JSON representation
 

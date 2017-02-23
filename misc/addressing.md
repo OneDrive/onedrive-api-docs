@@ -1,7 +1,8 @@
 # Addressing resources in a drive on OneDrive
 
 The OneDrive API allows a single URL to address two aspects of a resource:
-* The Item resource
+
+* The **driveItem** resource
 * A property, facet, or relationship of the Item
 
 An Item facet represents an element of the resource, like the image metadata,
@@ -10,16 +11,20 @@ folder metadata, and so on.
 In this example, a canonical URL for a file might look like this.
 
 ```
-/drive/root:/Documents/MyFile.xlsx:/content
+https://graph.microsoft.com/v1.0/me/drive/root:/Documents/MyFile.xlsx:/content
 ```
+
 This example URL has these components:
-* `/drive` - The signed-in user's drive.
+
+* `https://graph.microsoft.com/v1.0` - The version of the Microsoft Graph being used.
+* `/me` - A top-level Microsoft Graph resource being addressed, in this case the current user.
+* `/drive` - The default drive for the previous resource, in this case the user's OneDrive.
 * `/root` - The root folder for the drive.
 * `:/Documents/MyFile.xlsx:` - The `: :` around `/Documents/MyFile.xlsx` represents
-a switch to the path-based addressing syntax. Everything between the two colons is
-treated as a path relative to the item before the path (in this case, the root).
+  a switch to the path-based addressing syntax. Everything between the two colons is
+  treated as a path relative to the item before the path (in this case, the root).
 * `/content` - Represents the default binary stream for the file. You can also
-address other properties or relationships on the item.
+  address other properties or relationships on the item.
 
 ## ID-based addressing
 OneDrive supports ID-based addressing of items. Items are assigned a unique

@@ -1,0 +1,57 @@
+{
+  "scenarios":[
+    {
+      "name": "Long-running copy",
+      "method": "lro-check-status-complete",
+      "enabled": true,
+      "scopes": ["service.onedrive"],
+      "request-parameters":
+      {
+        "!url": "[monitor-url]"
+      },
+      "status-codes-to-retry": [ 202 ],
+      // Expectations are not currently satisfied on the consumer service, so I'm commenting these out. Bug: 289579
+      /*
+      "expectations": {
+          "$.operation": "copy",
+          "$.percentageComplete": 100.0,
+          "$.status": "completed"
+      },*/
+      "test-setup":
+      [
+        {
+            // Create folder ( [item-id] output )
+            "canned-request": "create-folder-item"
+        },
+        {
+            // Create file in folder
+            "method": "upload-via-put-id",
+            "request-parameters": {
+                "{parent-id}": "[item-id]",
+                "{filename}": "!random-filename-txt"
+            }
+        },
+        {
+            "method": "copy-item",
+            "request-parameters": {
+                "{item-id}": "[item-id]",
+                "$.parentReference.path": "/drive/root:",
+                "$.name": "!random-filename"
+            },
+            "allowed-status-codes": [202],
+            "capture": {
+                "[monitor-url]": "Location:"
+            }
+        }
+      ]
+    },
+    {
+        "method": "lro-copy-item-example",
+        "enabled": false
+    },
+    {
+        "method": "lro-check-status",
+        "enabled": false
+    }
+  ]
+}

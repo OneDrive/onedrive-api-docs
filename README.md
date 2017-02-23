@@ -1,57 +1,41 @@
-# Develop with the OneDrive API
+# Connect to files in OneDrive and SharePoint
 
 [![Documentation validation and build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](#continuous-documentation-validation)
 
-The OneDrive API provides a set of HTTP services to connect your application to
-files and folders in Office 365 and SharePoint Server 2016. 
+The OneDrive developer platform provides services and tools to connect your application to files across Office 365, including:
 
-This includes:
-
-* **OneDrive Personal**
-* **OneDrive for Business** 
-* **SharePoint Online** 
+* **OneDrive personal**
+* **OneDrive for Business**
+* **SharePoint Online**
 * **SharePoint Server 2016**
 
-Not only does the OneDrive API make it easy to connect your app
-to your user's files, but you can also access the advanced functionality of
-files in OneDrive and SharePoint.
+The OneDrive developer platform allows your solution to work with files across the Office 365 ecosystem and write the same code to enable solutions for consumers to enterprise customers.
+OneDrive APIs are a part of the [Microsoft Graph](https://graph.microsoft.com), a common API for Microsoft services.
 
-Whenever possible, we recommend using a supported [OneDrive SDK](sdks.md) in
-your application. However, you can code your application directly to the HTTP
-endpoints if your preferred language/platform is unavailable.
+Our platform consists of several components, designed to build on one another to making building apps and solutions easy.
 
-The OneDrive API is also a part of the [Microsoft Graph](http://graph.microsoft.io).
-You can use Microsoft Graph, to easily connect your app to data from many Office 365 services
-by using a single API end point.
+* [OneDrive file pickers](sdks.md), which enable your app to open and save from OneDrive using the native OneDrive user experience and minimal code.
+* [Microsoft Graph SDKs](https://graph.microsoft.io/code-samples-and-sdks), a set of client libraries which make accessing files from the Microsoft Graph straightforward.
+* [Microsoft Graph APIs](https://graph.microsoft.io/docs), a collection of REST APIs your app can call directly instead of using an SDK.
+
+For existing solutions using OneDrive API outside of Microsoft Graph, or solutions targeting SharePoint Server 2016, see [direct endpoint differences](direct-endpoint-differences.md) for more context on reading this documentation.
 
 ## Getting started
 
-To quickly get started connecting your app to OneDrive or SharePoint document
-libraries, check out the SDK or getting started guide for your platform:
+To quickly experiment with Microsoft Graph and accessing files, check out the [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer?request=me%2Fdrive%2Froot%2Fchildren&method=GET&version=v1.0) and the [Microsoft Graph Quick Start](https://graph.microsoft.io/getting-started).
 
-<center>
-[**Windows / .NET**][sdk-csharp] |
-[**Apple iOS**][sdk-ios] |
-[**Android**][sdk-android] |
-[**Python**][sdk-python] |
-[**HTTP**](getting-started.md)
-</center>
+OneDrive provides two top-level types that represent addressible resources in the API:
 
-## Overview
+* [drive][drive-resource] _(top-level object)_
+* [driveItem][item-resource] _(files and folders)_
 
-The OneDrive API exposes two major resource types:
-
-* [Drive](#drive-resource) _(top-level object)_
-* [Item](#item-resource) _(files, folders, and so on.)_
-
-The following is an example of an item resource.
+The following is an example of a **driveItem** resource.
 
 <!-- {"blockType": "example", "@odata.type": "oneDrive.item", "truncated": true, "name": "item-example"} -->
 ```json
 {
-  "@content.downloadUrl":"http://public-sn3302.files.1drv.com/y2pcT7OaUEExF7EHOlpTjCE55mIUoiX7H3sx1ff6I-nP35XUTBqZlnkh9FJhWb_pf9sZ7LEpEchvDznIbQig0hWBeidpwFkOqSKCwQylisarN6T0ecAeMvantizBUzM2PA1",
+  "@microsoft.graph.downloadUrl":"http://public-sn3302.files.1drv.com/y2pcT7OaUEExF7EHOl",
   "createdDateTime": "2014-10-31T03:37:04.72Z",
-  "cTag": "aYzpENDY0OEYwNkM5MUQ5RDNEITU0OTI3LjI1Ng",
   "eTag": "aRDQ2NDhGMDZDOTFEOUQzRCE1NDkyNy4w",
   "id":"D4648F06C91D9D3D!54927",
   "lastModifiedBy": {
@@ -60,148 +44,136 @@ The following is an example of an item resource.
       "id": "d4648f06c91d9d3d"
     }
   },
-  "name":"BritishShorthair.jpg",
+  "name":"BritishShorthair.docx",
   "size":35212,
-  "image":{
-    "height":398,
-    "width":273
-  },
   "file": {
     "hashes":{
-      "crc32Hash":"omY5NA==",
-      "sha1Hash":"wmgPQ6jrSeMX7JP1XmstQEGM2fc="
-    },
-    "mimeType":"image/jpeg"
+      "sha1Hash":"cf23df2207d99a74fbe169e3eba035e633b65d94"
+    }
   }
 }
 ```
 
-Resources expose data in three different ways:
+Data about a resource is provided in three ways:
 
 * _Properties_ (like **id** and **name**) expose simple values.
-* _Facets_ (like **file** and **photo**) expose complex values. The presence of
-  **file** or **folder** facets indicates behaviors and properties of an item.
+* _Facets_ (like **file** and **photo**) expose complex values. 
+  The presence of facets on an item generally indicate behaviors or capabilities of an item and related properties.
 * _References_ (like **children**) point to collections of other resources.
 
-You can expand references in your URL with the _expand_ query parameter, for example,
-`?expand=children`. Request specific properties and facets with the
-_select_ query parameter, for example, `?select=id,name`. By default, most properties
-and facets are returned while all references are hidden. For efficiency, we
-recommend that you specify _select_ and _expand_ for the data you care about.
+Many requests can be tailored to include additional data or remove unused properties from the responses.
+OneDrive uses [optional query parameters](odata/optional-query-parameters.md) to enable this functionality.
+Throughout the documentation, each request provides more context about which parameters are supported.
 
-For details about resources and facets, see [Resources](resources/resources.md)
-and [Facets](facets/facets.md).
+By default, most properties and facets are returned while all references are hidden.
+For efficiency, we recommend that you specify _select_ and _expand_ for the data you care about.
 
-### OneDrive API root resources
+For details about resources and facets, see [Resources](resources/resources.md) and [Facets](facets/facets.md).
 
-Use these root API resources to access an item or drive.
+### Microsoft Graph root resources
 
-| Path                                                | Resource                                                              |
-|:----------------------------------------------------|:----------------------------------------------------------------------|
-| [`/drive`](drives/default.md)                       | User's default [Drive](#drive-resource).                              |
-| [`/drives`](drives/list-drives.md)                  | List [Drives](#drive-resource) available to the authenticated user.   |
-| [`/drives/{drive-id}`](drives/get.md)               | Access a specific [Drive](#drive-resource) by its ID.                 |
-| [`/drives/{drive-id}/root/children`](items/list.md) | List items in the root of a specific [Drive](#drive-resource).        |
-| [`/drive/items/{item-id}`](items/get.md)            | Access an [Item](#item-resource) by its ID.                           |
-| [`/drive/special/{special-id}`](items/special_folders.md) | Access a [special (named) folder](items/special_folders.md) by its known name.  |
-| [`/shares/{share-id}`](shares/shares.md)            | Access an [Item](#item-resource) by its **shareId** or a sharing URL. |
+Within the Microsoft Graph, the OneDrive functionality is available from several root resources.
+These resources correspond to where OneDrive and SharePoint document libraries are available within Office 365.
+The follow entities in Microsoft Graph may contain one or more drives:
+
+| Entity                   | Example Path                       |
+| ------------------------ | ---------------------------------- |
+| [User][graph-user]       | `/v1.0/users/{id}` or `/v1.0/me`   |
+| [Group][graph-group]     | `/v1.0/groups/{id}`                |
+| [Site][graph-site]       | `/beta/sharePoint/sites/{id}`      |
+
+[graph-user]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/users
+[graph-group]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/group
+[graph-site]: https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/sharepoint
+
+### OneDrive root resources
+
+When addressing a Microsoft Graph root resource, your app can address OneDrive resources using the following paths:
+
+| Path                                                      | Resource                                                                       |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [`/drive`](drives/default.md)                             | User's default [drive][drive-resource].                                        |
+| [`/drives`](drives/list-drives.md)                        | List [drive][drive-resource] resources available to the authenticated user.    |
+| [`/drives/{drive-id}`](drives/get.md)                     | Access a specific [drive][drive-resource] by its ID.                           |
+| [`/drives/{drive-id}/root/children`](items/list.md)       | List items in the root of a specific [drive][drive-resource].                  |
+| [`/drive/items/{item-id}`](items/get.md)                  | Access a [driveItem][item-resource] by its ID.                                 |
+| [`/drive/special/{special-id}`](items/special_folders.md) | Access a [known folder](items/special_folders.md) by its known name.           |
+| [`/shares/{share-id}`](shares/shares.md)                  | Access a [driveItem][item-resource] by its **shareId** or a sharing URL.       |
 
 
-Items can also be addressed by path, by putting a colon after any item
-or drive URL, and following it with the relative path to the item. The next
-table shows how to use a colon in the URL address. You might optionally
-transition back to addressing the resource model by putting another
-colon at the end. Ensure your request follows the
-[path encoding](misc/path-encoding.md) requirements.  
+### Path-based addressing within a drive
 
-| Path                                             | Resource                                                               |
-|:-------------------------------------------------|:-----------------------------------------------------------------------|
-| `/drive/root:/path/to/file`                      | Access an [Item](#item-resource) by path under the root.               |
-| `/drive/items/{item-id}:/path/to/file`           | Access an [Item](#item-resource) by its path relative to another item. |
-| `/drive/root:/path/to/file:/children`            | List children when accessing by path relative to the drive root.       |
-| `/drive/items/{item-id}:/path/to/file:/children` | List children when accessing by path relative to another item.         |
+A **driveItem** can be addressed by either a unique identifier or where that item exists in the drive's hierarchy (i.e. user path).
+Within an API request, a colon can be used to shift between *API path space* and *user path space*.
+This syntax is valid for any [driveItem](resources/item.md) addressed via the API space.
 
+You can also transition back to *API path space* by using a colon at the end of the *file system path space*.
+Ensure user data within the URL follows the [path encoding](misc/path-encoding.md) requirements.
 
-### Drive resource
+| Path                                               | Resource                                                               |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| `/drive/root:/path/to/file`                        | Access a [driveItem][item-resource] by path under the root.               |
+| `/drive/items/{item-id}:/path/to/file`             | Access a [driveItem][item-resource] by its path relative to another item. |
+| `/drive/root:/path/to/folder:/children`            | List children when accessing by path relative to the drive root.       |
+| `/drive/items/{item-id}:/path/to/folder:/children` | List children when accessing by path relative to another item.         |
 
-The [Drive resource][drive-resource] is the top level object within a user's
-OneDrive or a SharePoint document library. Nearly all API accesses will
-start by addressing a drive resource.
-
-### Item resource
-
-[Items][item-resource] are the objects inside the OneDrive file system. They
-can be accessed by their `id` using the `/items/{item-id}` syntax, or by their
-file system path using the `/drive/root:/path/to/file` syntax.
-
-Items have [Facets](facets/facets.md) that provide data about their identities and
-capabilities.
-
-Folders act as containers of items, and have a `children` reference pointing to
-a collection of items under the folder.
 
 ### Shared folders and remote items
 
-On OneDrive Personal users can add one or more shared items from another drive
-to their OneDrive. These shared items appear as an item in the `children` collection
-with a [remoteItem facet](facets/remoteitem_facet.md).
+OneDrive personal allows a user to add one or more shared items from another drive to their OneDrive.
+These shared items appear as a **driveItem** in the `children` collection with a [remoteItem facet](facets/remoteitem_facet.md).
 
-For more information on working with shared folders and remote items, see
-[Remote items and shared folders](misc/working-with-links.md).
+In addition, scenarios where items are returned from outside the target drive will also include a **remoteItem** facet.
+These items may also be returned from [search](items/search.md), [recent files](drives/recent_files.md), [shared with me](drives/shared_with_me.md).
+
+For more information on working with shared folders and remote items, see [Remote items and shared folders](misc/working-with-links.md).
 
 ### Sharing and permissions
 
-One of the most common actions for OneDrive and SharePoint is sharing content
-with other people. OneDrive API allows your app to create
-[sharing links](items/sharing_createLink.md), [add permissions, and send invitations](items/invite.md)
-to items stored in a drive.
+One of the most common actions for OneDrive and SharePoint is sharing items with other people.
+OneDrive allows your app to create [sharing links](items/sharing_createLink.md), [add permissions, and send invitations](items/invite.md) to items stored in a drive.
 
-OneDrive API also provides a way for your app to [access shared content](shares/shares.md)
-directly from the sharing link.
+OneDrive also provides a way for your app to [access shared content](shares/shares.md) directly from the sharing link.
 
-For more details on how to share and consume shared content, see
-[Sharing items in OneDrive API](items/sharing.md).
+For more details on how to share and consume shared content, see [Sharing items in OneDrive](items/sharing.md).
 
 ## Webhooks and notifications
 
-[OneDrive supports sending webhook-style push notifications](webhooks/webhooks.md)
-when the contents of a OneDrive is changed. Your app can use these notifications to track changes
-in near real-time instead of polling the server for changes.
+[OneDrive supports sending webhook-style push notifications](webhooks/webhooks.md) when the contents of a OneDrive is changed.
+Your app can use these notifications to track changes in near real-time instead of polling the server for changes.
 
 ## Programming notes
 
 ### API Compatibility
-The OneDrive API will continue to evolve and gain additional functionality. The API
-includes a version number as part of the URL path, to ensure that we can make
-breaking changes to the API without impacting existing implementations. Breaking
-changes will be made by incrementing
-the version number in the URL, for calls that work differently than before.
+OneDrive will continue to evolve and gain additional functionality.
+The API path includes a version number to protect your app against breaking changes.
+When a breaking change is required, the API version number will be incremented.
+Existing apps calling the original version number will remain unaffected by the change.
+See the [Microsoft Graph support policy](https://graph.microsoft.io) for information about how long a version of the API is supported.
 
-We define a breaking change as a change in the format of a request or response
-that removes an existing documented behavior, or alters an existing documented behavior.
+A breaking change is a change in the format of a request or response that removes or alters an existing _documented_ behavior or removes an element of a resource's definition.
+It is not a breaking change to add additional actions, properties, facets, or references to a resource.
 
-It is possible that the API will expose additional undocumented features from
-time to time. These features should not be depended on until they are documented.
+It is possible that the API will expose additional undocumented features from time to time.
+These features should not be utilized until they are documented.
 Do not assume that current behavior that deviates from the documentation will persist.
 
-We will continue to make non-breaking changes to the existing version of the API,
-including adding facets, properties, and resources to the API. As such, any code
-calling the OneDrive API needs to:
+We will continue to make non-breaking changes to the existing version of the API, including adding facets, properties, and resources to the API.
+As such, any code calling the API needs to:
 
-* Be resilient to additional properties being added to JSON responses. Ignoring them is OK.
+* Be resilient to additional properties being added to JSON responses.
+  Ignoring them is OK.
 * Have no dependency on the order of properties returned in JSON responses.
 * Use documented API paths, resources, properties, and enumerated values only.
   Non-documented values are not guaranteed to remain consistent.
-* All URLs returned by OneDrive API should be treated as opaque URLs. Your app should not
-  make any assumptions about format or parameters in these URLs. They are subject
-  to change without notice.
+* All URLs returned by OneDrive API should be treated as opaque URLs. 
+  Your app should not make any assumptions about format or parameters in these URLs.
+  They are subject to change without notice.
 
 ### Throttling
-OneDrive has limits in place to make sure that individuals and apps do not
-adversely affect the experience of other users. When an activity exceeds OneDrive's
-limits, API requests will be rejected for a period of time. OneDrive may also
-return a *Retry-After* header with the number of seconds your app should wait
-before sending more requests.
+OneDrive has limits in place to make sure that individuals and apps do not adversely affect the experience of other users.
+When an activity exceeds OneDrive's limits, API requests will be rejected for a period of time.
+OneDrive may also return a *Retry-After* header with the number of seconds your app should wait before sending more requests.
 
 ```
 HTTP/1.1 429 Too Many Requests  
@@ -209,35 +181,21 @@ Retry-After: 3600
 ```
 
 ### Working with OneNote Notebooks
-
-**Note:** Although OneDrive stores OneNote notebooks, you shouldn't use the
-OneDrive API to work with OneNote notebooks. Instead, use the
-[OneNote API](http://dev.onenote.com).
-
-### OData v4 compatibility
-This API supports OData V4 at the [minimum conformance level](http://docs.oasis-open.org/odata/odata/v4.0/os/part1-protocol/odata-v4.0-os-part1-protocol.html#_Toc372793759).
-Some of the features of the OneDrive API might not
-be available via the OData metadata or generated content. For more information, see
-[OData Support](odata/odata-support.md).
+**Note:** Although OneDrive stores OneNote notebooks, you shouldn't use the OneDrive API to work with OneNote notebooks.
+Instead, use the [OneNote API](http://dev.onenote.com).
 
 ## Continuous documentation validation
+As part of our commitment to high quality documentation, we've developed a process through which the samples and examples in our documentation are tested for validity as part of every check-in.
+We call this continuous documentation validation.
 
-As part of our commitment to high quality documentation, we've developed a process
-through which the samples and examples in our documentation are tested for validity
-as part of every check-in. We call this continuous documentation validation.
-
-Each time a change to our documentation is made, we validate that everything works
-as documented in the service. When we create a new build of the service, we validate
-that the examples in our documentation also continue to work. This helps us ensure
-that everything we document works and works as expected even as new updates
-are made available.
+Each time a change to our documentation is made, we validate that everything works as documented in the service.
+When we create a new build of the service, we validate that the examples in our documentation also continue to work.
+This helps us ensure that everything we document works and works as expected even as new updates are made available.
 
 For the latest build details, check out the [AppVeyor build status page for our documentation repository](https://ci.appveyor.com/project/OneDrive/onedrive-api-docs).
 
 ## Related topics
-
-The following topics contain high level overviews of other concepts that apply
-to the OneDrive API.
+The following topics contain high level overviews of other concepts that apply to the OneDrive API.
 
 * [Authentication and sign in](auth/readme.md)
 * [Addressing resources](misc/addressing.md)
@@ -255,10 +213,6 @@ to the OneDrive API.
 [item-children]: items/list.md
 [permission-resource]: resources/permission.md
 [item-get]: items/get.md
-[sdk-csharp]: http://github.com/onedrive/onedrive-sdk-csharp
-[sdk-ios]: https://github.com/onedrive/onedrive-sdk-ios
-[sdk-android]: https://github.com/onedrive/onedrive-sdk-android
-[sdk-python]: https://github.com/onedrive/onedrive-sdk-python
 
 <!-- {
   "type": "#page.annotation",

@@ -35,5 +35,5 @@ APIs in cases where a OneDrive REST API is not available.
   "description": "The Sharepoint_ids facet provides Sharepoint ids associated with an item.",
   "keywords": "item, unique, id, csom, facet",
   "section": "documentation",
-  "tocPath": "Facets/Sharepoint IDs"
+  "tocPath": "Facets/SharepointIds"
 } -->

@@ -1,5 +1,13 @@
 # OneDrive authentication and sign-in
 
+## Use Microsoft Graph
+
+> This topic contains information about authorizing an application using Microsoft accounts for OneDrive personal.
+> However, this approach is no longer recommended.
+> New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph_oauth.md).
+
+## Getting started
+
 To use the OneDrive API, you need to have an access token that authenticates
 your app to a particular set of permissions for a user. In this section, you'll learn how to:
 
