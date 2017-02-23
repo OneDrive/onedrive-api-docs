@@ -8,53 +8,47 @@ state efficiently.
 ## HTTP request
 
 ````
-GET /drive/items/{item-id}/view.delta
-GET /drive/root:/{item-path}:/view.delta
+GET /drive/items/{item-id}/delta
+GET /drive/root:/{item-path}:/delta
 ````
 
 ### Optional query string parameters
 
 | Name      | Value  | Description                                                                                                                          |
 |:----------|:-------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| **token** | string | The last token returned from the previous call to `view.delta`. If omitted, `view.delta` returns the current state of the hierarchy. |
-| **top**   | number | The desired number of items to return in the next page. Note: `view.delta` may end up returning more or fewer.                       |
+| **top**   | number | The desired number of items to return in the next page. Note: `delta` may end up returning more or fewer.                       |
 
 ### Example
 
-<!-- { "blockType": "request", "name": "get-delta", "idempotent": true, "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-delta", "idempotent": true, "scopes": "files.read", "target": "action" } -->
 ```
-GET /drive/items/{item-id}/view.delta
+GET /drive/items/{item-id}/delta
 Accept: application/json
 ```
 
 ### Response
 
 If successful, this call returns a [Delta Response object][delta-resource]
-which contains a collection of [Item resources][item-resource] representing the
+which contains a collection of [driveItem resources][item-resource] representing the
 current state of each item. The collection also includes the additional
 properties shown in the next table.
 
 | Name                 | Value  | Description                                                                                                                                      |
 |:---------------------|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **value**            | array  | An array of [Item][item-resource] objects which have been created, modified, or deleted.                                                         |
+| **value**            | array  | An array of [driveItem][item-resource] resources which have been created, modified, or deleted.                                                  |
 | **@odata.nextLink**  | url    | A URL to retrieve the next available page of changes, if there are additional changes in the current set.                                        |
 | **@odata.deltaLink** | url    | A URL returned instead of **@odata.nextLink** after all current changes have been returned. Used to read the next set of changes in the future.  |
-| **@delta.token**     | string | A token value that can be used in the query string on manually-crafted calls to `view.delta`. Not needed if you're using nextLink and deltaLink. |
 
-Your app begins by calling `view.delta` without the `token` query parameter.
-The service starts enumerating the folder's hierarchy, returning pages of items
-as well as a `@delta.token` and either an `@odata.nextLink` or an
-`@odata.deltaLink`, as described above. Your app should continue calling
-`view.delta` either with the `@odata.nextLink` or with the `token` parameter
-until you no longer see an `@odata.nextLink` returned, or you see a response
-with an empty set of changes. After you have finished receiving all the
-changes, you may apply them to your local state. To check for changes in the
-future, call `view.delta` again with the `@odata.deltaLink` or the latest
-`delta.token`.
+Your app begins by calling `delta` without any parameters.
+The service starts enumerating the folder's hierarchy, returning pages of items and either an `@odata.nextLink` or an `@odata.deltaLink`, as described above.
+Your app should continue calling `delta` either with the `@odata.nextLink` until you no longer see an `@odata.nextLink` returned, or you see a response with an empty set of changes.
+After you have finished receiving all the changes, you may apply them to your local state.
+To check for changes in the future, call `delta` by requesting the URL from `@odata.deltaLink`.
 
-Deleted items are returned with a `deleted` facet. Items with this facet should
-be removed from your local state. Note: you should only delete a folder locally
-if it is empty after syncing all the changes.
+Deleted items are returned with a `deleted` facet. 
+Items with this facet should be removed from your local state. 
+Note: you should only delete a folder locally if it is empty after syncing all the changes.
+If your local state indicates there are still items in the folder when it should be removed, a sync state error has occured and your app should start over to verify the local sync state.
 
 ### Example
 
@@ -83,8 +77,7 @@ Content-type: application/json
             "deleted": { }
         }
     ],
-    "@odata.nextLink": "https://api.onedrive.com/drive/root/view.delta?token=1230919asd190410jlka",
-    "@delta.token": "1230919asd190410jlka"
+    "@odata.nextLink": "https://api.onedrive.com/drive/root/delta?token=1230919asd190410jlka"
 }
 ```
 
@@ -108,8 +101,7 @@ Content-type: application/json
             "file": { }
         }
     ],
-    "@odata.deltaLink": "https://api.onedrive.com/drive/root/view.delta?token=52316919gghhd19041023kj",
-    "@delta.token": "52316919gghhd19041023kj"
+    "@odata.deltaLink": "https://api.onedrive.com/drive/root/delta?token=52316919gghhd19041023kj"
 }
 ```
 
@@ -123,7 +115,7 @@ Content-type: application/json
   You should use the last occurrence you see.
 * The `parentReference` property on items will not include a value for `path`.
   This occurs because renaming a folder does not result in any descendants of
-  the folder being returned from view.delta. When using view.delta you should
+  the folder being returned from delta. When using delta you should
   always track items by id.
 
 There may be cases when the service can't provide a list of changes for a given
@@ -141,25 +133,20 @@ returned items with your local state and follow these instructions.
 | `ResyncChangesUploadDifferences` | Upload any local items that the service did not return, and upload any files that differ from the server's version (keeping both copies if you're not sure which one is more up-to-date).                                       |
 
 
-### Retrieving just the latest delta token
-It is possible to retrieve just the latest delta token, without first
-enumerating all of the items. This can be useful if your app only wants to know
-about changes, and doesn't care about any existing items. To retrieve just the
-latest token, call `view.delta` with the string `latest` as the value for the
-`token` query parameter.
+### Retrieving just the latest deltaLink
+It is possible to retrieve just the latest deltaLink, without first enumerating all of the items.
+This can be useful if your app only wants to know about changes, and doesn't care about any existing items. 
+To retrieve the latest deltaLink, call `delta` with a query string parameter `token=latest`.
 
-**Note: If you are trying to maintain a full local representation of the items
-in a folder or a drive, you must use `view.delta` for the initial enumeration.
-Other approaches, such as paging through the `children` collection of a folder,
-are not guaranteed to return every single item if any writes take place during
-the enumeration. `view.delta` is the only way to guarantee that you've read all
-of the data you need to.**
+**Note: If you are trying to maintain a full local representation of the items in a folder or a drive, you must use `delta` for the initial enumeration.
+Other approaches, such as paging through the `children` collection of a folder, are not guaranteed to return every single item if any writes take place during the enumeration. 
+Using `delta` is the only way to guarantee that you've read all of the data you need to.**
 
 #### Example
 
-<!-- { "blockType": "request", "name": "get-delta-latest", "scope": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-delta-latest", "scope": "files.read", "target": "action" } -->
 ```
-GET /drive/root/view.delta?token=latest
+GET /drive/root/delta?token=latest
 Accept: application/json
 ```
 
@@ -170,15 +157,13 @@ Content-type: application/json
 
 {
     "value": [ ],
-    "@odata.deltaLink": "https://api.onedrive.com/drive/root/view.delta?token=1230919asd190410jlka",
-    "@delta.token": "1230919asd190410jlka"
+    "@odata.deltaLink": "https://graph.microsoft.com/v1.0/me/drive/root/delta?token=1230919asd190410jlka"
 }
 ```
 
 ### Error responses
 
-In addition to the resync errors detailed above, see [Error Responses][error-response] for details about
-how errors are returned.
+In addition to the resync errors detailed above, see [Error Responses][error-response] for details about how errors are returned.
 
 [delta-resource]: ../resources/viewDeltaResource.md
 [error-response]: ../misc/errors.md
@@ -186,19 +171,20 @@ how errors are returned.
 
 ## Remarks
 
-In OneDrive for Business, `view.delta` is only supported on the `root` folder,
-not on other folders. It also will not return the following Item properties:
+In OneDrive for Business, `delta` is only supported on the `root` folder, not on individual folders within a drive.
+The `delta` API will not return the following [Item properties](../resources/item.md):
 
 * **createdBy**
 * **eTag**
 * **fileSystemInfo**
 * **lastModifiedBy**
 
-`view.delta` is not supported on SharePoint Server 2016.
+The `delta` API is not supported on SharePoint Server 2016.
+
 <!-- {
   "type": "#page.annotation",
   "description": "Sync changes from the service to your client state.",
-  "keywords": "sync,view.delta,view.changes,$delta",
+  "keywords": "sync,delta,changes,$delta",
   "section": "documentation",
   "tocPath": "Items/Sync Changes"
 } -->

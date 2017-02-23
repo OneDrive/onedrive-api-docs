@@ -9,7 +9,7 @@ The following API calls return **AsyncOperationStatus** resources:
 
 ### JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.asyncOperationStatus" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.asyncOperationStatus", "optionalProperties": ["operation"] } -->
 ```json
 {
   "operation": "string",

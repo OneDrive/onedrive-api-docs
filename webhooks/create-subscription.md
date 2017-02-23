@@ -1,6 +1,6 @@
 # Adding a new subscription
 
-To add a new subscription, your app POSTs a request to the subscription
+To add a new subscription, your app posts a request to the subscription
 collection that includes the properties of the subscription you want to
 have created.
 
@@ -8,32 +8,33 @@ have created.
 subscriptions created on the drive's root item.
 
 ## Prerequisites
-To create a subscription the app must have read-write access to the item the
-subscription will be created on.
+To create a subscription the app must have read access to the item being subscribed to.
 
 ## HTTP request
 
 <!-- { "blockType": "ignored" } -->
 ```
-POST /drive/items/{item-id}/subscriptions
-POST /drive/root:/{item-path}:/subscriptions
+POST /subscriptions
 ```
 
 ### Example
 
 <!-- {
 "blockType": "request",
-"name": "add-subscription",
+"name": "add-subscription-graph",
 "@odata.type": "oneDrive.subscription",
-"scopes": "service.onedrive"
+"scopes": "service.graph"
 } -->
 ```http
-POST /drive/items/{item-id}/subscriptions
+POST /subscriptions
 Content-Type: application/json
 
 {
  "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
- "expirationDateTime": "2016-01-01T11:23:00.000Z"
+ "expirationDateTime": "2016-01-01T11:23:00.000Z",
+ "resource": "/me/drive/root",
+ "changeType": "updated",
+ "clientState": "client-specific string"
 }
 ```
 
@@ -51,17 +52,18 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "1039149811asbc",
-    "resource": "/drives/0/items/57705F13F13C3C0C!104",
+    "subscriptionId": "1039149811asbc",
+    "resource": "/me/drive/root",
     "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
+    "changeType": "updated",
     "expirationDateTime": "2016-01-01T11:23:00.000Z",
-    "createdBy": { "application": {"id": "1291919111", "displayName": "Contoso App" } }
+    "clientState": "client-specific string"
 }
 ```
 
 ## URL validation
 
-Before a new subscription is created, OneDrive will send a request to the
+Before a new subscription is created, Microsoft Graph will send a request to the
 URL provided in the request to create a new subscription. Your service must
 respond to this request by returning the validation key.
 

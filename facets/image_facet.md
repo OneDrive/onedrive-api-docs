@@ -2,7 +2,7 @@
 
 The **Image** groups image-related data on OneDrive into a single structure.
 
-It is available on the image property of [Item][item-resource] resources that
+It is available on the image property of [driveItem][item-resource] resources that
 represent images.
 
 ## JSON representation

@@ -1,11 +1,16 @@
 # OneDrive for Business authentication and sign in
 
-To use the [OneDrive API](readme.md) with OneDrive for Business, you need to have an
-access token that authenticates your app to a particular set of permissions
-for a user.
+## Use Microsoft Graph
 
-Getting an application configured for access to OneDrive for Business is a
-challenge. We're working on making this process easier, so please bear with us.
+This topic contains information about authorizing an application using Microsoft accounts for OneDrive personal.
+However, this approach is no longer recommended.
+New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph_oauth.md).
+
+## Using Azure Active Directory for authentication
+
+To use the [OneDrive API](readme.md) with OneDrive for Business, you need to have an access token that authenticates your app to a particular set of permissions for a user.
+
+Getting an application configured for access to OneDrive for Business is a challenge. We're working on making this process easier, so please bear with us.
 
 In this section, you'll learn how to:
 
@@ -15,33 +20,27 @@ In this section, you'll learn how to:
 1. [Register your app with Azure Active Directory][step1].
 2. [Sign into OneDrive for Business][step2]
 
-The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/)
-authentication scheme to authenticate users and generate access tokens. You
-provide an access token for every API call via an HTTP header:
+The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. 
+You provide an access token for every API call via an HTTP header:
 
 `Authorization: bearer {token}`
 
-You access the API by sending HTTP requests to a specific endpoint URL. The root
-URL is based on the host name of the server that serves as the REST endpoint.
-You can use the discovery API to find endpoints for Office 365 services. For
-more information see [Common endpoint discovery tasks using the Discovery
-Service API](https://msdn.microsoft.com/en-us/office/office365/howto/discover-service-endpoints).
-Your root URL appears in the next example, where `{tenant}` comes from your
-discovered endpoint URL:
+You access the API by sending HTTP requests to a specific endpoint URL.
+The root URL is based on the host name of the server that serves as the REST endpoint.
+You can use the discovery API to find endpoints for Office 365 services.
+For more information see [Common endpoint discovery tasks using the Discovery Service API](https://msdn.microsoft.com/en-us/office/office365/howto/discover-service-endpoints).
+Your root URL appears in the next example, where `{tenant}` comes from your discovered endpoint URL:
 
 `https://{tenant}-my.sharepoint.com/_api/v2.0/`
 
 ## Register your app with Azure Active Directory
 
-Before your can sign in, you need to register your app with Azure Active
-Directory and set the permissions your app needs. For more information see
-[Register your app for OneDrive for
-Business](../app-registration.md#register-your-app-for-onedrive-for-business).
+Before your can sign in, you need to register your app with Azure Active Directory and set the permissions your app needs.
+For more information see [Register your app for SharePoint Server 2016 or OneDrive for Business](../app-registration-server.md).
 
 ## Sign into OneDrive for Business
 
-To sign into OneDrive for Business the first time, your app needs the following
-values:
+To sign into OneDrive for Business the first time, your app needs the following values:
 
 * Client ID and Key (client secret) as registered with Azure Active Directory (AAD)
 * Authorization code received from OAuth 2 authorization code flow
@@ -49,70 +48,56 @@ values:
 * Access token for the OneDrive for Business resource
 * Refresh token to generate additional access tokens when the current token expires.
 
-The following steps will walk you through the requests necessary to get all
-of these values.
+The following steps will walk you through the requests necessary to get all of these values.
 
-The flow follows standard OAuth 2.0 authentication
-flows and requires calls from a web browser or web-browser control. See
-[Understanding Office 365 app authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks)
-for general Office 365 authentication info. However, getting all of the required
-values to use the OneDrive for Business API requires a few additional steps.
+The flow follows standard OAuth 2.0 authentication flows and requires calls from a web browser or web-browser control.
+See [Understanding Office 365 app authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks) for general Office 365 authentication info.
+However, getting all of the required values to use the OneDrive for Business API requires a few additional steps.
 
-The code flow for authentication is a three-step process with separate calls to
-authenticate and authorize the application and to generate an access token to
-use the OneDrive API. This process also creates and sends a refresh token to
-your application. With the refresh token, long-term use of the API is available
-when the user isn't actively using your application.
+The code flow for authentication is a three-step process with separate calls to authenticate and authorize the application and to generate an access token to use the OneDrive API.
+This process also creates and sends a refresh token to your application.
+With the refresh token, long-term use of the API is available when the user isn't actively using your application.
 
 ![Authorization Code Flow Diagram](../site-images/authorization_code_flow.png)
 
-Each access token generated by Azure Active Directory is specific to a single
-resource. To discover the OneDrive for Business API endpoint and to make calls
-to that endpoint you will need two access tokens, one for each API endpoint
-(resource).
+Each access token generated by Azure Active Directory is specific to a single resource.
+To discover the OneDrive for Business API endpoint and to make calls to that endpoint you will need two access tokens, one for each API endpoint (resource).
 
-A single refresh token can be used to generate access tokens for any endpoint
-your app has authorization to access.
-
+A single refresh token can be used to generate access tokens for any endpoint your app has authorization to access.
 
 ### Step 1. Log in and get an authorization code
 
-To start, your app loads the common Azure Active Directory OAuth 2 end point in a web browser
-which prompts the user to log in with her credentials. This URL uses the common
-tenant endpoint and is valid for any application.
+To start, your app loads the common Azure Active Directory OAuth 2 end point in a web browser which prompts the user to log in with her credentials.
+This URL uses the common tenant endpoint and is valid for any application.
 
 ```http
 GET https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}
 ```
 
 #### Required query string parameters
+
 | Parameter name  | Value  | Description                                                                                            |
 |:----------------|:-------|:-------------------------------------------------------------------------------------------------------|
 | *client_id*     | string | The client ID created for your app.                                                                    |
 | *response_type* | string | Specifies the requested response type. In an authorization code grant request, the value must be code. |
 | *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete.                          |
 
-**Note** The redirect URI must match one of the redirect URI that you specified
-in the [Azure Management Portal](https://manage.windowsazure.com/).
+**Note** The redirect URI must match one of the redirect URI that you specified in the [Azure Management Portal](https://manage.windowsazure.com/).
 
 #### Response
 
-Upon successful authentication of the user and authorization of your application,
-as shown in the next example, the web browser is redirected to your redirect
-URL with additional parameters added to the URL.
+Upon successful authentication of the user and authorization of your application, as shown in the next example, the web browser is redirected to your redirect URL with additional parameters added to the URL.
 
 ```url
 https://myapp.contoso.com/myapp/callback?code=AwABAAAAvPM...
 ```
 
-The **code** query string value is the authorization code you'll need for the
-next step.
+The **code** query string value is the authorization code you'll need for the next step.
 
 ### Step 2. Redeem the authorization code for tokens
 
-After you have received the `code` value, you can redeem this code for a set of
-tokens that allow you to authenticate with various Office 365 APIs. To redeem
-the code make a request to the token endpoint for Azure Active Directory, as in the example:
+After you have received the `code` value, you can redeem this code for a set of tokens that allow you to authenticate with various Office 365 APIs.
+To redeem the code make a request to the token endpoint for Azure Active Directory, as in the example:
 
 ```http
 POST https://login.microsoftonline.com/common/oauth2/token
@@ -122,8 +107,7 @@ client_id={client_id}&redirect_uri={redirect_uri}&client_secret={client_secret}
 &code={code}&grant_type=authorization_code&resource={resource_id}
 ```
 
-The body for this request is a URL encoded string, with the following
-required parameters:
+The body for this request is a URL encoded string, with the following required parameters:
 
 | Parameter name  | Value  | Description                                                                                                                              |
 |:----------------|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -133,16 +117,14 @@ required parameters:
 | *code*          | string | The authorization code you received in the first authentication request.                                                                 |
 | *resource*      | string | The resource you want to access.                                                                                                         |
 
-In most cases, the OneDrive for Business API endpoint URL will not be known. To
-discovery the endpoint URL, you need to make a call to the Office 365 Discovery
-API. To authenticate with the discovery API, you need to request an access token
-for resource `https://api.office.com/discovery/`. Make sure to include the trailing
-/ character, otherwise your app will be denied access to the discovery API.
+In most cases, the OneDrive for Business API endpoint URL will not be known. 
+To discovery the endpoint URL, you need to make a call to the Office 365 Discovery API.
+To authenticate with the discovery API, you need to request an access token for resource `https://api.office.com/discovery/`.
+Make sure to include the trailing / character, otherwise your app will be denied access to the discovery API.
 
 #### Response
 
-If the call is successful, the response body is a JSON string
-that includes `access_token`, `expires_in`, and `refresh_token` properties.
+If the call is successful, the response body is a JSON string that includes `access_token`, `expires_in`, and `refresh_token` properties.
 
 <!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse" } -->
 ```json
@@ -153,26 +135,20 @@ that includes `access_token`, `expires_in`, and `refresh_token` properties.
 }
 ```
 
-**Note:** there may be additional properties in the response. These properties
-are not required to use the APIs.
+**Note:** there may be additional properties in the response.
+These properties are not required to use the APIs.
 
-**Important:** Treat the values of `access_token` and `refresh_token` in this
-response as securely as you would a user's password.
+**Important:** Treat the values of `access_token` and `refresh_token` in this response as securely as you would a user's password.
 
-The access token is valid for only the number of seconds that is
-specified in the **expires_in** property. You can request a new access token
-by using the refresh token, or by repeating the authentication
-request from the beginning.
+The access token is valid for only the number of seconds that is specified in the **expires_in** property.
+You can request a new access token by using the refresh token, or by repeating the authentication request from the beginning.
 
 ### Step 3. Discover the OneDrive for Business resource URI
 
-Since different users and tenants use a different URL to provide API access your
-app will need to discover the URL for the signed in user's OneDrive for Business.
-To do this, your app can use the Office 365 Discovery API to request a list of
-services and API endpoints available to your app and the signed in user.
+Since different users and tenants use a different URL to provide API access your app will need to discover the URL for the signed in user's OneDrive for Business.
+To do this, your app can use the Office 365 Discovery API to request a list of services and API endpoints available to your app and the signed in user.
 
-Using an access token received for resource `https://api.office.com/discovery/`
-you can make a request to the discovery API to learn which services are available:
+Using an access token received for resource `https://api.office.com/discovery/` you can make a request to the discovery API to learn which services are available:
 
 ```http
 GET https://api.office.com/discovery/v2.0/me/services
@@ -185,9 +161,8 @@ Authorization: Bearer {access_token}
 
 #### Response
 
-If the call is successful, the response body contains JSON data with information
-about the services available for the user and your app. You can parse this
-response to find the endpoint URL for the OneDrive for Business API.
+If the call is successful, the response body contains JSON data with information about the services available for the user and your app.
+You can parse this response to find the endpoint URL for the OneDrive for Business API.
 
 <!-- { "blockType": "example", "@odata.type": "Microsoft.DiscoveryServices.ServiceInfo",
        "isCollection": true, "truncated": true} -->
@@ -206,27 +181,21 @@ response to find the endpoint URL for the OneDrive for Business API.
 }
 ```
 
-**Note:** Other properties will be returned on the **ServiceInfo** object. This
-example is truncated to the key properties.
+**Note:** Other properties will be returned on the **ServiceInfo** object.
+This example is truncated to the key properties.
 
-To locate the endpoint URL for the user's OneDrive for Business, you'll want to
-find the **ServiceInfo** object in the `value` collection that matches the
-following predicate:
+To locate the endpoint URL for the user's OneDrive for Business, you'll want to find the **ServiceInfo** object in the `value` collection that matches the following predicate:
 
 ```
 capability = "MyFiles" AND serviceApiVersion = "v2.0"
 ```
 
-When your app finds a matching **ServiceInfo** object for the user's OneDrive
-for Business, you need to store the value of two properties of that object:
-**serviceResourceId** and **serviceEndpointUri**. These values will used in the
-next step to resource a new access token and make OneDrive API calls.
+When your app finds a matching **ServiceInfo** object for the user's OneDrive for Business, you need to store the value of two properties of that object: **serviceResourceId** and **serviceEndpointUri**.
+These values will used in the next step to resource a new access token and make OneDrive API calls.
 
 ### Step 4. Redeem refresh token for an access token to call OneDrive API
 
-Now that your app knows the resource and endpoint URL for the user's OneDrive
-for Business, it can redeem the refresh token received in step 2 for an access
-token that can be used with the OneDrive API.
+Now that your app knows the resource and endpoint URL for the user's OneDrive for Business, it can redeem the refresh token received in step 2 for an access token that can be used with the OneDrive API.
 
 To redeem the refresh token for a new access token, make the following request:
 
@@ -249,13 +218,11 @@ The request body is a URL encoded string, with the following parameters:
 | *resource*      | string | The resource you want to access. This should be the previously discovered **serviceResourceId** value.                                              |
 
 
-**Note**  The redirect URI must match the the redirect URI that you specified in the
-[Azure Management Portal](https://manage.windowsazure.com/).
+**Note**  The redirect URI must match the the redirect URI that you specified in the [Azure Management Portal](https://manage.windowsazure.com/).
 
 #### Response
 
-If the call is successful, the response body is a JSON string
-that including `access_token`, `expires_in`, and `refresh_token`.
+If the call is successful, the response body is a JSON string that including `access_token`, `expires_in`, and `refresh_token`.
 
 <!-- {"blockType": "example", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example-2" } -->
 ```json
@@ -266,35 +233,25 @@ that including `access_token`, `expires_in`, and `refresh_token`.
 }
 ```
 
-**Note:** Replace refresh token values that you have previously stored with
-those returned from subsequent calls to the token service to ensure that your
-app has a token with the latest expiration.
+**Note:** Replace refresh token values that you have previously stored with those returned from subsequent calls to the token service to ensure that your app has a token with the latest expiration.
 
-The value of the **access_token** property can now be used to make authenticated
-requests to the OneDrive API. For more info about refresh tokens, see
-[Refresh Tokens for Multiple Resources](https://msdn.microsoft.com/en-us/library/azure/dn645538.aspx).
+The value of the **access_token** property can now be used to make authenticated requests to the OneDrive API.
+For more info about refresh tokens, see [Refresh Tokens for Multiple Resources](https://msdn.microsoft.com/en-us/library/azure/dn645538.aspx).
 
-**Important:** Treat the values of `access_token` and `refresh_token` in this
-response as securely as you would a user's password.
+**Important:** Treat the values of `access_token` and `refresh_token` in this response as securely as you would a user's password.
 
-The access token is valid for only the number of seconds that is
-specified in the **expires_in** property (typically 1 hour). You can request a
-new access token by using the refresh token (if available) or by repeating the
-authentication request from the beginning.
+The access token is valid for only the number of seconds that is specified in the **expires_in** property (typically 1 hour).
+You can request a new access token by using the refresh token (if available) or by repeating the authentication request from the beginning.
 
-If the access token expires, requests to the API will return a `401 Unauthorized`
-response. If you receive this response to an authenticated request you should
-generate a new access token using your stored refresh token.
+If the access token expires, requests to the API will return a `401 Unauthorized` response.
+If you receive this response to an authenticated request you should generate a new access token using your stored refresh token.
 
 #### Step 5. Make a request to the OneDrive API
 
-Now that your app has an access token valid for the user's OneDrive for Business
-API endpoint it can make an authenticated request to OneDrive API. To make the
-request you'll need the **serviceEndpointUri** value retrieved from the discovery
-API and the access token received from the token service.
+Now that your app has an access token valid for the user's OneDrive for Business API endpoint it can make an authenticated request to OneDrive API.\
+To make the request you'll need the **serviceEndpointUri** value retrieved from the discovery API and the access token received from the token service.
 
-For example, to get the details of the user's OneDrive for Business, you can make
-a request to the `/drive` API path:
+For example, to get the details of the user's OneDrive for Business, you can make a request to the `/drive` API path:
 
 ```http
 GET {serviceEndPointUri}/drive
@@ -303,19 +260,15 @@ Authorization: Bearer {access_token}
 
 ## Errors
 
-If there are errors with authentication, the web browser is redirected to
-an error page. While the error page always presents an end-user friendly message,
-the URL for the error page includes additional information that may help you
-debug what happened. This kind of information is not always shown in the content of the
-error page displayed in the browser.
+If there are errors with authentication, the web browser is redirected to an error page.
+While the error page always presents an end-user friendly message, the URL for the error page includes additional information that may help you debug what happened.
+This kind of information is not always shown in the content of the error page displayed in the browser.
 
-The URL includes query parameters that you can use to parse the error and respond
-accordingly. These parameters are always included as a bookmark (after the `#`
-character). The page content will always display a generic error message for
-the user.
+The URL includes query parameters that you can use to parse the error and respond accordingly.
+These parameters are always included as a bookmark (after the `#` character).
+The page content will always display a generic error message for the user.
 
-If the user selects not to provide consent to your application, the flow will
-redirect to your redirect_uri and include the same error parameters.
+If the user selects not to provide consent to your application, the flow will redirect to your redirect_uri and include the same error parameters.
 
 For more info about handling errors, see [Error Handling in OAuth 2.0](https://msdn.microsoft.com/en-us/library/azure/dn645540.aspx).
 
@@ -337,6 +290,5 @@ to the OneDrive API.
   "type": "#page.annotation",
   "description": "Learn how to authenticate your app with Azure Active Directory and get access to OneDrive for Business",
   "keywords": "authentication,oauth,azure active directory,aad,onedrive,api, onedrive for business",
-  "section": "documentation",
-  "tocPath": "OneDrive for Business/Auth"
+  "section": "documentation"
 } -->

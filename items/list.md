@@ -44,7 +44,7 @@ GET /drive/root/children
 
 If successful, this method returns the list of items in the children collection of the
 target item. The children collection will be composed of
-[Item][item-resource] resources.
+[driveItem][item-resource] resources.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
 ```http

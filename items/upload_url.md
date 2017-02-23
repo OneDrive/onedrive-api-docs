@@ -1,9 +1,8 @@
 # Upload an item to OneDrive from a URL (Preview)
 
-Your app can upload an item to OneDrive by providing a URL. OneDrive will
-download the file directly from a remote server so your app doesn't have to
-upload the file's bytes. This is especially useful for mobile clients or browser
-add-ins, where the file contents aren't available, or are expensive to transfer.
+Your app can upload an item to OneDrive by providing a URL.
+OneDrive will download the file directly from a remote server so your app doesn't have to upload the file's bytes.
+This is especially useful for mobile clients or browser add-ins, where the file contents aren't available, or are expensive to transfer.
 
 See [Uploading item contents](upload.md) for other ways to upload an item.
 
@@ -32,7 +31,7 @@ Content-Type: application/json
 Prefer: respond-async
 
 {
-  "@content.sourceUrl": "http://wscont2.apps.microsoft.com/winstore/1x/e33e38d9-d138-42a1-b252-27da1924ca87/Screenshot.225037.100000.jpg",
+  "@microsoft.graph.sourceUrl": "http://wscont2.apps.microsoft.com/winstore/1x/e33e38d9-d138-42a1-b252-27da1924ca87/Screenshot.225037.100000.jpg",
   "name": "halo-screenshot.jpg",
   "file": { }
 }
@@ -59,7 +58,7 @@ body of the response is an [AsyncJobStatus](../resources/asyncJobStatus.md)
 resource that defines the current status of the job.
 
 If the upload has completed, the GET request will return an `HTTP 303 See Other`
-response with a new `Location` header that will take you to the item resource for
+response with a new `Location` header that will take you to the **driveItem** resource for
 the uploaded item.
 
 

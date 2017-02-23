@@ -11,7 +11,7 @@ would look like this.
 <!-- {"blockType": "ignored"} -->
 ```json
 {
-  "dateTimeLastModified": "2014-01-01T00:00:00Z"
+  "lastModifiedDateTime": "2014-01-01T00:00:00Z"
 }
 ```
 

@@ -37,6 +37,7 @@
       "@odata.context",
       "@odata.type",
       "@odata.id",
+      "@odata.etag",
       "@odata.editLink",
       "@odata.navigationLink",
       "@odata.nextLink",

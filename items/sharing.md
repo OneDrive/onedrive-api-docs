@@ -15,12 +15,12 @@ OneDrive API supports creating both sharing links and item permissions.
 
 | Task                                           | HTTP method                                      |
 |:-----------------------------------------------|:-------------------------------------------------|
-| [Create a sharing link](sharing_createLink.md) | `POST /drive/items/{item-id}/action.createLink`  |
-| [Add permissions](invite.md)                   | `POST /drive/items/{item-id}/action.invite`      |
+| [Create a sharing link](sharing_createLink.md) | `POST /drive/items/{item-id}/createLink`         |
+| [Add permissions](invite.md)                   | `POST /drive/items/{item-id}/invite`             |
 | [Read permissions](permissions.md)             | `GET /drive/items/{item-id}/permissions`         |
 | [Remove permissions](permission_delete.md)     | `DELETE /drive/items/{item-id}/permissions/{id}` |
 | [Update permissions](permission_update.md)     | `PATCH /drive/items/{item-id}/permissions/{id}`  |
-| [Send sharing invitation](invite.md)           | `POST /drive/items/{item-id}/action.invite`      |
+| [Send sharing invitation](invite.md)           | `POST /drive/items/{item-id}/invite`             |
 
 <!-- {
   "type": "#page.annotation",

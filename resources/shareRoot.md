@@ -19,10 +19,10 @@ been shared.
 
 The following table defines the relationships that the Drive resource has to other resources.
 
-| Relationship name | Type            | Description                                                                                                                                                |
-|:------------------|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **items**         | Item collection | All items contained in the sharing root. This collection cannot be enumerated.                                                                             |
-| **root**          | Item resource   | The root item being shared. This is an [item](item.md) that represents either the shared item or a container of shared items, when multiple items have been shared. |
+| Relationship name | Type                     | Description                                                                                                                                                         |
+| ----------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **items**         | **driveItem** collection | All items contained in the sharing root. This collection cannot be enumerated.                                                                                      |
+| **root**          | **driveItem** resource   | The root item being shared. This is an [driveItem](item.md) that represents either the shared item or a container of shared items, when multiple items have been shared. |
 
 
 <!-- {

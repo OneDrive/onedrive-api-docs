@@ -2,7 +2,7 @@
 
 The **Location** facet groups geographic location-related data on OneDrive into a single structure.
 
-It is available on the location property of [Item][item-resource] resources that have
+It is available on the location property of [driveItem][item-resource] resources that have
 an associated geographic location.
 
 ## JSON representation

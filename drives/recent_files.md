@@ -1,16 +1,15 @@
 # Recently used files
 
-List a set of items that have been recently used by the signed in user. This list
-includes items that are in the user's drive as well as items they have access to
-from other drives.
+List a set of items that have been recently used by the signed in user.
+This list includes items that are in the user's drive as well as items they have access to from other drives.
 
-<!-- { "name": "view-recent-files", "idempotent": true, "scopes": "files.read service.onedrive" } -->
+<!-- { "name": "view-recent-files", "idempotent": true, "scopes": "files.read service.onedrive", "target": "action" } -->
 ```http
-GET /drive/view.recent
+GET /drive/recent
 ```
 
-The response is a collection of [Item resources](../resources/item.md). They are
-ordered by most recently used first.
+The response is a collection of [driveItem resources](../resources/item.md).
+They are ordered by most recently used first.
 
 <!-- { "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
 ```http
@@ -47,13 +46,12 @@ Content-Type: application/json
 }
 ```
 
-**Note:** The objects in the response are truncated for readability. The
-actual HTTP response will include all default properties of these items.
+**Note:** The objects in the response are truncated for readability.
+The actual HTTP response will include all default properties of these items.
 
 ### Error Responses
 
-Read the [Error Responses][error-response] topic for more information about
-how errors are returned.
+Read the [Error Responses][error-response] topic for more information about how errors are returned.
 
 [error-response]: ../misc/errors.md
 

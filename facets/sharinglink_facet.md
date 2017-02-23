@@ -47,5 +47,5 @@ This table defines the possible values for the **type** property:
   "description": "The sharing link facet provides information about how a file is shared.",
   "keywords": "sharing,sharing link, sharing url, webUrl",
   "section": "documentation",
-  "tocPath": "Facets/Sharing link"
+  "tocPath": "Facets/SharingLink"
 } -->

@@ -34,7 +34,7 @@ GET /drive/items/{item-id}/content
 ## Response
 
 Returns a `302 Found` response redirecting to a pre-authenticated download URL
-for the file. This is the same URL available through the `@content.downloadUrl`
+for the file. This is the same URL available through the `@microsoft.graph.downloadUrl`
 property on an item.
 
 To download the contents of the file your application will need to follow

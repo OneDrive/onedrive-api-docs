@@ -1,6 +1,6 @@
 # List available drives
 
-List the available drives for a user or SharePoint site.
+List the available drives for a user (OneDrive) or SharePoint site (document libraries).
 
 ## HTTP request
 
@@ -51,8 +51,8 @@ site.
 
 ### Error response
 
-See the [Error Responses][error-response] topic for more info about
-how errors are returned.
+See the [Error Responses][error-response] topic for more info about how errors are returned.
+
 [error-response]: ../misc/errors.md
 [drive-resource]: ../resources/drive.md
 

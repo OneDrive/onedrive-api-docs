@@ -58,7 +58,7 @@ the SharePoint site's URL.
 
 ### CTag implementation
 
-The **cTag** property of an [item](../resources/item.md) returns only files. This property is not available on folders.
+The **cTag** property of an [driveItem](../resources/item.md) returns only files. This property is not available on folders.
 
 ### Custom thumbnails
 
@@ -86,20 +86,20 @@ The **orderby** query string only works with **name** and **url** properties.
 
 ### View deltas
 
-The **view.delta** action is only available on the `root` folder:
+The **delta** action is only available on the `root` folder:
 
 ```http
-GET /drive/root/view.delta
+GET /drive/root/delta
 ```
 
-Also, the **view.delta** action does not return the following properties:
+Also, the **delta** action does not return the following properties:
 
 * **createdBy**
 * **cTag**
 * **fileSystemInfo**
 * **lastModifiedBy**
 
-view.delta is not supported on SharePoint Server 2016.
+Delta is not supported on SharePoint Server 2016.
 
 ### Special folders
 
@@ -139,7 +139,7 @@ The `image` facet is returned on items that appear to be images, but has no prop
 
 ### Sharing links and permissions
 
-OneDrive for Business, SharePoint Online and SharePoint Server 2016 does not support sharing links for folders.
+SharePoint Server 2016 does not support sharing links.
 
 ### Shared by me
 

@@ -2,7 +2,7 @@
 
 The simple upload API allows you to provide the contents of a new file or update
 the contents of an existing file in a single API call. This method only supports
-files up to 100MB in size. For larger files use [resumable upload](upload_large_files.md).
+files up to **4MB** in size. For larger files use [resumable upload](upload_large_files.md).
 
 See [Upload item contents](upload.md) for more information about how to upload
 the contents of an item.
@@ -31,9 +31,9 @@ the PUT request:
 
 | Parameter Name             | Value  | Description                                                                                                                                      |
 |:---------------------------|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **@name.conflictBehavior** | string | Specify the behavior to use if the file already exists. You can use the values *fail*, *replace*, or *rename*. The default for PUT is *replace*. |
+| **@microsoft.graph.conflictBehavior** | string | Specify the behavior to use if the file already exists. You can use the values *fail*, *replace*, or *rename*. The default for PUT is *replace*. |
 
-### Example
+### Example (path)
 
 <!-- { "blockType": "request", "name": "upload-via-put", "scopes": "files.readwrite" } -->
 ```
@@ -44,7 +44,7 @@ The contents of the file goes here.
 ```
 
 ### Response
-If successful, this method returns an [Item][item-resource] resource in
+If successful, this method returns an [driveItem][item-resource] resource in
 the response body for the newly created file.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
@@ -54,7 +54,38 @@ Content-Type: application/json
 
 {
   "id": "0123456789abc",
-  "name": "myfile.jpg",
+  "name": "myfile.txt",
+  "size": 10191,
+  "file": { }
+}
+```
+
+**Note:** The Response object is truncated for clarity. All default properties will
+be returned from the actual call.
+
+
+### Example (ID)
+
+<!-- { "blockType": "request", "name": "upload-via-put-id", "scopes": "files.readwrite" } -->
+```
+PUT /drive/items/{parent-id}/children/{filename}/content
+Content-Type: text/plain
+
+The contents of the file goes here.
+```
+
+### Response
+If successful, this method returns an [driveItem][item-resource] resource in
+the response body for the newly created file.
+
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "id": "0123456789abc",
+  "name": "myfile.txt",
   "size": 10191,
   "file": { }
 }

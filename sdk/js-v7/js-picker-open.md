@@ -100,7 +100,7 @@ are allowed:
 
 When the user is done picking file(s), the `success` callback receives
 `response` object. This object contains properties, include **value** property
-which is a collection of [Item resource](/resources/item.md) with a subset of
+which is a collection of [driveItem resources](/resources/item.md) with a subset of
 the item's properties.
 
 For OneDrive Personal, when multiple files are selected and a sharing link is
@@ -115,7 +115,7 @@ object. This is a URL points to a webpage that shows all of the selected files.
       "id": "123456",
       "name": "document1.docx",
       "size": 12340,
-      "@content.downloadUrl": "https://contoso-my.sharepoint.com/download.aspx?guid=1231231231a",
+      "@microsoft.graph.downloadUrl": "https://contoso-my.sharepoint.com/download.aspx?guid=1231231231a",
       "webUrl": "https://cotoso-my.sharepoint.com/personal/user_contoso_com/documents/document1.docx",
       "thumbnails": [
         {
@@ -145,6 +145,9 @@ properties:
 | **queryParameters**      | A set of additional query parameters as specified by the OneDrive API that define how an item is returned. This typically includes a select and/or expand value.                                                                                                                                                                                                                                |
 | **createLinkParameters** | Change the parameters used to generate a link for the share action.                                                                                                                                                                                                                                                                                                                             |
 | **redirectUri**          | By default the picker uses the page it was launched from as the redirect uri for authentication. This may not be desirable in all scenarios, so you can set a custom URL to use instead. This URL must be in the same root domain and use the same protocol as the page hosting the picker SDK. The target page must reference the OneDrive Picker SDK in the same fashion as the calling page. |
+| **filter**               | A set of file types could be applied to display the specific types only. We support system type 'photo' and 'folder', and custom types of any extension like '.docx'. One applicable filter setting is "folder,.png" which each filter is separated by a `,`.|
+
+**Note:** Currently filter type 'photo' is only supported in OneDrive Personal UI.
 
 ### Using the Picker and API together
 
@@ -159,7 +162,8 @@ var odOptions = {
   action: "query",
   multiSelect: false,
   advanced: {
-    queryParameters: "select=id,name,size,file,folder,photo,@microsoft.graph.downloadUrl"
+    queryParameters: "select=id,name,size,file,folder,photo,@microsoft.graph.downloadUrl",
+    filter: "folder,.png" /* display folder and files with extension '.png' only */
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
@@ -230,7 +234,7 @@ the default redirect URI is always used.
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
-  "tocPath": "OneDrive SDKs/JavaScript file picker/Open a File",
+  "tocPath": "OneDrive SDKs/File pickers/JavaScript/Open a File",
   "headerAdditions": [
     "<script type=\"text/javascript\" src=\"https://js.live.net/v7.0/OneDrive.js\"></script>"
   ],

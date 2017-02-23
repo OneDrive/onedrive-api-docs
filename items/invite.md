@@ -15,8 +15,8 @@ functionality is finally released.
 
 <!-- { "blockType": "ignored" } -->
 ```
-POST /drive/items/{item-id}/action.invite
-POST /drive/root:/{item-path}:/action.invite
+POST /drive/items/{item-id}/invite
+POST /drive/root:/{item-path}:/invite
 ```
 
 ##### Request Body
@@ -48,9 +48,10 @@ properties:
 
 ##### HTTP Request
 
-<!-- { "blockType": "request", "name": "send-sharing-invite", "@odata.type": "oneDrive.inviteParameters", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "name": "send-sharing-invite", "@odata.type": "oneDrive.inviteParameters", 
+"scopes": "files.readwrite", "target": "action" } -->
 ```http
-POST /drive/items/{item-id}/action.invite
+POST /drive/items/{item-id}/invite
 Content-Type: application/json
 
 {
@@ -101,7 +102,7 @@ how errors are returned.
 
 ## Remarks
 
-When sharing a container item using **action.invite** the added permissions are
+When sharing a container item using **invite** the added permissions are
 inherited to child items.
 
 ## Known issues

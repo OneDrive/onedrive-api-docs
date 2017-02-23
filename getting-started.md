@@ -1,55 +1,43 @@
 # Getting started with OneDrive API
 
-To get started, follow these steps.
+This page provides a quick overview of the steps required to use Microsoft Graph and the OneDrive API.
+For a more detailed walkthrough, check out the [Microsoft Graph Quick Start](https://graph.microsoft.io/en-us/getting-started).
 
-### 1. Authenticate your app
+If you are working with SharePoint Server 2016 or not using Microsoft Graph, see the [Using OneDrive API with SharePoint Server 2016](getting-started-server.md) topic.
 
-OneDrive uses [OAuth 2.0](http://oauth.net/2/) for
-[authentication](auth/readme.md). You get an access token that authenticates
-your app with a particular set of permissions for a user. You
-provide an access token through an HTTP header:
+### 1. User authentication and authorizing your app
+
+Microsoft Graph and OneDrive API use [OAuth 2.0](http://oauth.net/2/) for [authorization](auth/readme.md).
+By completing an OAuth flow, your app receives an access token that provides access to the Microsoft Graph a particular set of permissions for a user.
+
+Your app provides the access token in each request, through an HTTP header:
 
 `Authorization: bearer {token}`
 
-To obtain an access token and sign the user in, see
-[OneDrive authentication](auth/msa_oauth.md) or
-[OneDrive for Business authentication](auth/aad_oauth.md).
+For more information on authorizing your application and obtaining an access token, see [App authorization with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
 
-### 2. Make calls against a URL root
+### 2. Make calls to a resource
 
-Now that you've authenticated your app, you can call the OneDrive API with your
-access token against the URL root below, combined with one of the
-[root resources](README.md#onedrive-api-root-resources).
-See [Drive resource](resources/drive.md) and
-[Item resource](resources/item.md) for examples on how to make calls to the
-OneDrive API. OneDrive API URLs are relative to the following root unless
-otherwise noted.
+Once your app is authorized and received an access token, it can make requests to the Microsoft Graph endpoint for OneDrive or SharePoint resources.
+To construct the URL for a resource, you need to know the relative URL for the [root resource (like a user, group, or site)](README.md#microsoft-graph-root-resources) and the [drive resource](resources/drive.md) or [driveItem resource](resources/item.md) your request is targeting.
 
-| Service               | URL Root                                                    |
-|:----------------------|:------------------------------------------------------------|
-| OneDrive              | `https://api.onedrive.com/v1.0`                             |
-| OneDrive for Business | `https://{tenant}-my.sharepoint.com/_api/v2.0`              |
-| SharePoint Online     | `https://{tenant}.sharepoint.com/{site-relative-path}/_api/v2.0` |
+A request URL includes these components:
 
-**Note:** Throughout the documentation, only partial syntax such as:
-`GET /drive/items/{item-id}`
-is used for the sake of brevity. Prefix the path with the correct root
-URL and version number in order to obtain the full resource path or URL.
+* Microsoft Graph root URL and version (`https://graph.microsoft.com/v1.0`)
+* A root resource target (`/users/{id}`)
+* A OneDrive API resource target (`/drive` or `/drives/{id}/items/{item-id}` or `/drive/root:/path/to/item`)
+
+**Note:** Throughout the documentation, only partial syntax such as: `GET /drive/items/{item-id}` is used for the sake of brevity.
+Prefix the path with the correct root URL and root resource target in order to obtain the full resource path or URL.
 
 ### 3. Keep going
 
-Check out the [OneDrive samples on GitHub](https://github.com/onedrive) to learn more about using the OneDrive API.
+Check out the [OneDrive samples on GitHub](https://github.com/onedrive) and the [Microsoft Graph samples on GitHub](https://github.com/microsoftgraph) to learn more about using files in the Microsoft Graph.
 
-Read through the [OneDrive API HTTP documentation](README.md) to learn more about
-working with the [**drive**](resources/drive.md) and [**item**](resources/item.md)
-resources in OneDrive API HTTP end point.
+Read through the [OneDrive API HTTP documentation](README.md) to learn more about working with the [**drive**](resources/drive.md) and [**driveItem**](resources/item.md) resources.
+For more information about all resources in Microsoft Graph, see the [Microsoft Graph documentation](https://graph.microsoft.io/docs).
 
-Learn how to [address items in OneDrive](misc/addressing.md) using either
-**path** or **item id** syntax.
-
-Questions or need support? You can find us on [Stack Overflow](http://stackoverflow.com/questions/tagged/onedrive)
-and through the [GitHub issues page for our documentation](https://github.com/onedrive/onedrive-api-docs/issues).
-
+Questions or need support? You can find us on [Stack Overflow](http://stackoverflow.com/questions/tagged/onedrive) and through the [GitHub issues page for our documentation](https://github.com/onedrive/onedrive-api-docs/issues).
 
 <!-- {
   "type": "#page.annotation",

@@ -15,12 +15,11 @@ instance:
 } -->
 ```json
 {
-  "context": "string optional",
-  "expirationDateTime": "datetime",
-  "resource": "url",
   "subscriptionId": "string",
-  "tenantId": "string",
-  "userId": "string"
+  "expirationDateTime": "datetime",
+  "resource": "relative url",
+  "clientState": "string optional",
+  "changeType": "updated"
 }
 ```
 
@@ -33,11 +32,15 @@ request, these are combined together in an object with a single array **value**:
   "value": [
     {
       "subscriptionId": "101010111",
-      "userId": "987654321a"
+      "resource": "/me/drive/root",
+      "changeType": "updated",
+      "clientState": "sub2"
     },
     {
       "subscriptionId": "222020202",
-      "userId": "5643428191b"
+      "resource": "/me/drive/root",
+      "changeType": "updated",
+      "clientState": "sub1"
     }
   ]
 }
@@ -47,12 +50,11 @@ request, these are combined together in an object with a single array **value**:
 
 | Property Name          | Type              | description                                                                                                                         |
 |:-----------------------|:------------------|:------------------------------------------------------------------------------------------------------------------------------------|
-| **context**            | String - optional | An optional string value that is passed back in the notification message for this subscription.                                     |
-| **expirationDateTime** | DateTime          | The date and time when the subscription will expire if not updated or renewed.                                                      |
-| **resource**           | URL               | URL to the item where the subscription is registered.                                                                               |
 | **subscriptionId**     | String            | The unique identifier for the subscription resource                                                                                 |
-| **tenantId**           | String            | Unique identifier for the tenant which generated this notification. This is only returned for OneDrive for Business and SharePoint. |
-| **userId**             | String            | Unique identifier for the drive which generated this notification.                                                                  |
+| **expirationDateTime** | DateTime          | The date and time when the subscription will expire if not updated or renewed.                                                      |
+| **resource**           | Relative URL      | URL to the item where the subscription is registered.                                                                               |
+| **clientState**        | String - optional | An optional string value that is passed back in the notification message for this subscription.                                     |
+| **changeType**         | String            | Indicates the type of change that generated the notification. For OneDrive, this will always be `updated`.  |
 
 <!-- {
   "type": "#page.annotation",

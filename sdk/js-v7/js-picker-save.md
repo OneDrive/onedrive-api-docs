@@ -105,7 +105,7 @@ behaves. The following values are allowed for the `save()`` action:
 
 When the user is done picking file(s), the `success` callback receives
 `response` object. This object contains properties, include **value** property
-which is a collection of [Item resource](/resources/item.md) with a subset of
+which is a collection of [driveItem resources](/resources/item.md) with a subset of
 the item's properties.
 
 When using the `save` action, this collection provides the item metadata for
@@ -121,7 +121,7 @@ metadata for the selected folder.
       "id": "123456",
       "name": "document1.docx",
       "size": 12340,
-      "@content.downloadUrl": "https://contoso-my.sharepoint.com/download.aspx?guid=1231231231a",
+      "@microsoft.graph.downloadUrl": "https://contoso-my.sharepoint.com/download.aspx?guid=1231231231a",
       "webUrl": "https://cotoso-my.sharepoint.com/personal/user_contoso_com/documents/document1.docx",
       "thumbnails": [
         {
@@ -202,7 +202,7 @@ the default redirect URI is always used.
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
-  "tocPath": "OneDrive SDKs/JavaScript file picker/Save a File",
+  "tocPath": "OneDrive SDKs/File pickers/JavaScript/Save a File",
   "headerAdditions": [
     "<script type=\"text/javascript\" src=\"https://js.live.net/v7.0/OneDrive.js\"></script>"
   ],

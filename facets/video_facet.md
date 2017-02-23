@@ -1,7 +1,7 @@
 # Video facet
 The **Video** facet groups video-related data on OneDrive into a single complex type.
 
-It is available on the video property of [Item][item-resource] resources that
+It is available on the video property of [driveItem][item-resource] resources that
 represent videos.
 
 ## JSON representation

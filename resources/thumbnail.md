@@ -26,7 +26,7 @@ The Thumbnail resource has these properties.
 
 ## Relationships
 
-The Item resource has the following relationships defined:
+The **driveItem** resource has the following relationships defined:
 
 | Relationship name | Type         | Description         |
 |:------------------|:-------------|:--------------------|

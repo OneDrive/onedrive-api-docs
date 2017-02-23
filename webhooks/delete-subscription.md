@@ -12,15 +12,14 @@ subscription exists on.
 
 <!-- { "blockType": "ignored" } -->
 ```
-DELETE /drive/items/{item-id}/subscriptions/{id}
-DELETE /drive/root:/{item-path}:/subscriptions/{id}
+DELETE /subscriptions/{id}
 ```
 
 ### Example
 
-<!-- { "blockType": "request", "name": "delete-subscription", "scopes": "service.onedrive" } -->
+<!-- { "blockType": "request", "name": "delete-subscription-graph", "scopes": "service.graph" } -->
 ```http
-DELETE /drive/items/{item-id}/subscriptions/{id}
+DELETE /subscriptions/{id}
 ```
 
 ## Response

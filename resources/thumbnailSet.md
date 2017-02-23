@@ -32,5 +32,5 @@ The ThumbnailSet type has these properties.
   "type": "#page.annotation",
   "description": "ThumbnailSet enables access to thumbnails of different sizes",
   "section": "documentation",
-  "tocPath": "Resources/Thumbnail set"
+  "tocPath": "Resources/ThumbnailSet"
 } -->

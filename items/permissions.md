@@ -9,10 +9,8 @@ access the permissions property directly.
 The permissions collection includes potentially sensitive information and may not
 be available for every caller.
 
-* For the owner of the item, all permissions will be returned. This includes
-  co-owners.
-* For a non-owner caller, only the permissions that apply to the caller are
-  returned.
+* For the owner of the item, all permissions will be returned. This includes co-owners.
+* For a non-owner caller, only the permissions that apply to the caller are returned.
 * Permission properties that contain secrets (e.g. `shareId` and `webUrl`)
   are only returned for callers that are able to create the Permission.
 

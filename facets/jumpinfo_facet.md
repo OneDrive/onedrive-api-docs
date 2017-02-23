@@ -21,5 +21,5 @@ folders collection.
   "description": "The SpecialFolder facet provides information about folders accessible as special folders.",
   "keywords": "special folder,item,facet",
   "section": "documentation",
-  "tocPath": "Facets/Special folder"
+  "tocPath": "Facets/SpecialFolder"
 } -->

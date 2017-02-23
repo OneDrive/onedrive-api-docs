@@ -50,7 +50,7 @@ Content-Type: application/json
 
 ### Response
 
-If successful, this method returns an [Item][item-resource] resource in
+If successful, this method returns an [driveItem][item-resource] resource in
 the response body.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
