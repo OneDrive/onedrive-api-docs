@@ -57,5 +57,5 @@ Your app's folder supports all the standard `item` operations.
   "description": "Use the app root special folder to create a home for your app's user content.",
   "keywords": "approot, app folder, application folder, special folder, home folder",
   "section": "documentation",
-  "tocPath": "Concepts/App Folder"
+  "tocPath": "Concepts/App folder"
 } -->

@@ -69,5 +69,5 @@ how errors are returned.
   "description": "Update an item's permissions",
   "keywords": "permission, permissions, sharing, change permissions, update permission",
   "section": "documentation",
-  "tocPath": "Sharing/Update Permission"
+  "tocPath": "Sharing/Update permission"
 } -->

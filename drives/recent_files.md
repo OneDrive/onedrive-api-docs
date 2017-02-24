@@ -8,6 +8,8 @@ This list includes items that are in the user's drive as well as items they have
 GET /drive/recent
 ```
 
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+
 The response is a collection of [driveItem resources](../resources/item.md).
 They are ordered by most recently used first.
 
@@ -60,5 +62,5 @@ Read the [Error Responses][error-response] topic for more information about how 
   "description": "Retrieve a list of recently used files for the owner of the drive.",
   "keywords": "drive,onedrive.drive,default drive",
   "section": "documentation",
-  "tocPath": "Drives/Recent Files"
+  "tocPath": "Drives/Recent files"
 } -->

@@ -20,6 +20,8 @@ POST /drive/items/{item-id}/createLink
 POST /drive/root:/{item-path}:/createLink
 ```
 
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+
 ### Request body
 The body of the request defines the type of sharing link your application is
 looking for. The request should be a JSON object with this property.
@@ -168,5 +170,5 @@ how errors are returned.
   "description": "Create a new sharing link for an item.",
   "keywords": "create,sharing,sharing link",
   "section": "documentation",
-  "tocPath": "Sharing/Create Link"
+  "tocPath": "Sharing/Create link"
 } -->

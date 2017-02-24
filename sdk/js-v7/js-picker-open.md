@@ -39,7 +39,7 @@ and options object.
     OneDrive.open(odOptions);
   }
 </script>
-<button onClick="launchOneDrivePicker()">Open from OneDrive</button>
+<button onClick="launchOneDrivePicker">Open from OneDrive</button>
 ```
 
 ### Picker options
@@ -234,7 +234,7 @@ the default redirect URI is always used.
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
-  "tocPath": "OneDrive SDKs/File pickers/JavaScript/Open a File",
+  "tocPath": "OneDrive SDKs/File pickers/JavaScript/Open a file",
   "headerAdditions": [
     "<script type=\"text/javascript\" src=\"https://js.live.net/v7.0/OneDrive.js\"></script>"
   ],

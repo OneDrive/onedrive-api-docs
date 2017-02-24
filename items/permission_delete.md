@@ -51,5 +51,5 @@ how errors are returned.
   "description": "Delete an item's permissions",
   "keywords": "permission, permissions, sharing, remove permissions, delete permissions",
   "section": "documentation",
-  "tocPath": "Sharing/Delete Permissions"
+  "tocPath": "Sharing/Remove permissions"
 } -->

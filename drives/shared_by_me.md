@@ -57,5 +57,5 @@ Shared By Me is not supported on SharePoint Server 2016.
   "description": "List the items shared in the target drive.",
   "keywords": "drive,onedrive.drive,default drive",
   "section": "documentation",
-  "tocPath": "Drives/List Shared Files"
+  "tocPath": "Drives/List shared files"
 } -->

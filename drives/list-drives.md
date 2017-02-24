@@ -61,5 +61,5 @@ See the [Error Responses][error-response] topic for more info about how errors a
   "description": "List the available drives for a user or team site.",
   "keywords": "drive,onedrive.drive,list drives",
   "section": "documentation",
-  "tocPath": "Drives/List Drives"
+  "tocPath": "Drives/List drives"
 } -->

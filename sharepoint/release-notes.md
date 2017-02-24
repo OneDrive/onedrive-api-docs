@@ -1,28 +1,13 @@
-# Release notes for using OneDrive API with OneDrive for Business and SharePoint
+# Release notes for using Microsoft Graph with OneDrive for Business and SharePoint
 
-The OneDrive API now works with OneDrive for Business and SharePoint document libraries!
+Microsoft Graph provides a common API for accessing files from OneDrive personal, OneDrive for Business, and SharePoint.
+However, while the API surface is common, these services may have slight differences in how the API works that you need to account for.
+As much as possible the Microsoft Graph works to eliminate these differences, but this page calls out any that you may need to be aware of when working with Microsoft Graph.
 
-While we're still working on complete parity between the services, OneDrive API
-now provides a common set of API calls that can be used with OneDrive, OneDrive
-for Business, and SharePoint document libraries.
+## Differences between OneDrive Personal, OneDrive for Business, and SharePoint
 
-We'll continue to release updates to align the implementation of the
-OneDrive API between OneDrive and OneDrive for Business. To ensure that your
-application maintains functionality you must develop your OneDrive API
-integration based on this documentation. Do not assume that undocumented
-behavior will remain functional as we make these updates.
+Differences between OneDrive, OneDrive for Business, and SharePoint are listed below:
 
-## API differences between OneDrive Personal, OneDrive for Business, and SharePoint
-
-While our end goal is that the OneDrive API works uniformly across OneDrive Personal,
-OneDrive for Business, and SharePoint document libraries, we're not there yet.
-There are several important differences you'll need to be aware right now.
-
-Differences in the OneDrive API between OneDrive, OneDrive for Business, and SharePoint
-are listed below:
-
-* [Authentication](#authentication)
-* [API End Point](#api-end-point)
 * [CTag implemention](#ctag-implementation)
 * [Custom thumbnails](#custom-thumbnails)
 * [Thumbnails collection](#thumbnails-collection)
@@ -31,119 +16,97 @@ are listed below:
 * [Sorting](#sorting)
 * [View deltas](#view-deltas)
 * [Uploading items](#uploading-items)
-* [File facet is empty](#file-facet-is-empty)
-* [Extra OData metadata is returned](#extra-odata-metadata-is-returned)
+* [File facet is empty](#file-facet)
 * [Image and photo facets](#image-and-photo-facets)
 * [Sharing links](#sharing-links-and-permissions)
 * [Shared By Me](#shared-by-me)
 
-### Authentication
-
-To connect to OneDrive for Business or SharePoint, you'll need to use the Azure Active Directory
-common consent authentication. While still using OAuth 2.0, it uses different
-authentication and token endpoints than Microsoft account.
-
-For more information on authentication, see [Authentication for OneDrive API](../auth/readme.md).
-
-### API End Point
-
-To use the OneDrive API with OneDrive for Business or SharePoint, your app needs
-to discover the tenant specific root URL to use. You can use the [Office discovery service API][discover-api]
-to find the correct root URL for the signed-in user's OneDrive for Business.
-
-To use OneDrive API with SharePoint document libraries, you need to know
-the SharePoint site's URL.
-
-[discover-api]: https://msdn.microsoft.com/en-us/office/office365/api/discovery-service-rest-operations
 
 ### CTag implementation
 
-The **cTag** property of an [driveItem](../resources/item.md) returns only files. This property is not available on folders.
+* OneDrive for Business and SharePoint
+  * The **cTag** property of an [driveItem](../resources/item.md) returns only files. This property is not available on folders.
 
 ### Custom thumbnails
 
-Setting a [custom thumbnail](../items/thumbnails.md) on an item is not available.
+* OneDrive for Business and SharePoint
+  * Setting a [custom thumbnail](../items/thumbnails.md) on an item is not available.
 
 ### Thumbnails collection
 
-Thumbnails are not supported on SharePoint Server 2016.
+* SharePoint Server 2016
+  * Thumbnails for all driveItems are not available.
 
 ### Item searching
 
-Search will not return the following properties:
-
-* **createdBy**
-* **modifiedBy**
-* **parentReference**
+* OneDrive for Business and SharePoint
+  * [Search](../items/search.md) will not return the following properties:
+    * **createdBy**
+    * **modifiedBy**
+    * **parentReference**
 
 ### Filtering
 
-Filtering an item collection can only be done by the **name** and **url** properties only.
+* OneDrive for Business and SharePoint
+  * Filtering an item collection can only be done by the **name** and **url** properties only.
 
 ### Sorting
 
-The **orderby** query string only works with **name** and **url** properties.
+* OneDrive for Business and SharePoint
+  * The **orderby** query string only works with **name** and **url** properties.
 
 ### View deltas
 
-The **delta** action is only available on the `root` folder:
+* OneDrive for Business and SharePoint
+  * The **delta** action is only available on the `root` item of a drive e.g. `/drive/root`.
+  * The following properties are not returned:
+    * **createdBy**
+    * **cTag**
+    * **fileSystemInfo**
+    * **lastModifiedBy**
+* SharePoint Server 2016
+  * The **delta** function is not available.
 
-```http
-GET /drive/root/delta
-```
-
-Also, the **delta** action does not return the following properties:
-
-* **createdBy**
-* **cTag**
-* **fileSystemInfo**
-* **lastModifiedBy**
-
-Delta is not supported on SharePoint Server 2016.
 
 ### Special folders
 
-Not all of the [defined special folders](../items/special_folders.md) are
-available in OneDrive for Business, SharePoint Online and SharePoint Server 2016. The following special folders are available:
-
-* **approot**
-* **documents**
-* **photos**
+* OneDrive for Business and SharePoint
+  * Not all of the [defined special folders](../items/special_folders.md) are available.
+    The following special folders are available:
+    * **approot**
+    * **documents**
+    * **photos**
 
 ### Uploading items
 
-The [upload from URL](../items/upload_url.md) and [multipart upload](../items/upload_post.md)
-features are not available.
+* OneDrive for Business and SharePoint
+  * [Upload from URL](../items/upload_url.md) is only available for data URIs. It does not support uploading from HTTP or HTTPS URLs.
+  * [Multipart upload](../items/upload_post.md) is not available.
 
-### File facet is empty
+### File facet
 
-The file facet is returned without any properties. The SHA1, CRC32 hash values, and mime type are not available.
+* OneDrive for Business and SharePoiint
+  * The file facet does not include MIME type, SHA1 or CRC32 hash values.
 
-### Extra OData metadata is returned
-
-The OneDrive API returns all available OData v4.0 metadata on a request to
-OneDrive for Business or SharePoint. You can reduce the metadata returned, if
-it is not useful for your app, by using the **Accept** header and setting
-`odata.metadata=none`:
-
-```
-Accept: application/json; odata.metadata=none
-```
+* OneDrive personal
+  * The file facet does not include the QuickXOr hash value.
 
 ### Image and photo facets
 
-OneDrive for Business and SharePoint have a subset of information about images
-and photos available. The `photo` facet only provides the `takenDateTime` property.
-
-The `image` facet is returned on items that appear to be images, but has no properties.
+* OneDrive for Business and SharePoint
+  * A limited subset of properties for images and photos is available.
+  * The `photo` facet only provides the `takenDateTime` property.
+  * The `image` facet is returned on items that appear to be images, but has no properties.
 
 ### Sharing links and permissions
 
-SharePoint Server 2016 does not support sharing links.
+* SharePoint Server 2016
+  * Sharing links are not available.
 
 ### Shared by me
 
-OneDrive for Business, SharePoint Online and SharePoint Server 2016 does not support [Shared by Me](../drives/shared_by_me.md).
+* OneDrive for Business and SharePoint
+  * [Shared by Me](../drives/shared_by_me.md) is not available.
 
 ## Send us feedback!
 
@@ -156,5 +119,5 @@ from you about the OneDrive API for OneDrive for Business.
   "description": "Read more about the differences in using OneDrive API with OneDrive for Business",
   "keywords": "release,notes,onedrive,onedrive for business,od4b,odb,files api,files api v2",
   "section": "documentation",
-  "tocPath": "OneDrive for Business/Release Notes"
+  "tocPath": "Overview/Release notes"
 } -->

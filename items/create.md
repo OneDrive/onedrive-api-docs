@@ -81,5 +81,5 @@ how errors are returned.
   "description": "Create a folder item in a drive.",
   "keywords": "create,folder,new item",
   "section": "documentation",
-  "tocPath": "Items/Create Folder"
+  "tocPath": "Items/Create folder"
 } -->

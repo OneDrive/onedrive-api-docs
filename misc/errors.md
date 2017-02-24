@@ -160,5 +160,5 @@ time, so it is important that all apps be able to handle the basic 15 [above](#t
   "description": "Understand the error format for the OneDrive API and error codes.",
   "keywords": "error response, error, error codes, innererror, message, code",
   "section": "documentation",
-  "tocPath": "Misc/Error Responses"
+  "tocPath": "Concepts/Error responses"
 } -->

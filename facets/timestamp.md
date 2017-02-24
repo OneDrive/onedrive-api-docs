@@ -1,12 +1,8 @@
 ﻿# Timestamp type
 
-The **Timestamp** type represents date and time information for the
-OneDrive API, by using
-[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format and is always
-in UTC time.
+The **Timestamp** type represents date and time information, by using [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format and is always in UTC time.
 
-For example, if a file was modified at midnight UTC on Jan 1, 2014, the metadata
-would look like this.
+For example, if a file was modified at midnight UTC on Jan 1, 2014, the metadata would look like this.
 
 <!-- {"blockType": "ignored"} -->
 ```json
@@ -19,6 +15,5 @@ would look like this.
   "type": "#page.annotation",
   "description": "Timestamps in OneDrive as in ISO 8601 format.",
   "keywords": "timestamp,iso8601",
-  "section": "documentation",
-  "tocPath": "Misc/Timestamps"
+  "section": "documentation"
 } -->

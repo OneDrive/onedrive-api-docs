@@ -69,5 +69,5 @@ Find more details about AD FS authentication in [ADFS Scenarios for Developers](
   "description": "OneDrive uses the standard OAuth 2.0 authentication scheme for users and apps",
   "keywords": "authentication,sign in, sign out, logout, login, oauth, msa",
   "section": "documentation",
-  "tocPath": "Getting Started/Authentication"
+  "tocPath": "Overview/Authentication"
 } -->

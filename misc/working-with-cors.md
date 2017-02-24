@@ -87,5 +87,5 @@ You can then make an XMLHttpRequest for the URL provided in `@microsoft.graph.do
   "description": "Learn more about using the OneDrive API from a single page JavaScript app",
   "keywords": "cors, http access control, javascript, single, page, application, app",
   "section": "documentation",
-  "tocPath": "Misc/Working with CORS"
+  "tocPath": "Concepts/Working with CORS"
 } -->

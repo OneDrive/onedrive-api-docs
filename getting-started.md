@@ -41,9 +41,9 @@ Questions or need support? You can find us on [Stack Overflow](http://stackoverf
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Getting started using HTTP to access the OneDrive API",
+  "description": "Quick walkthrough for using Microsoft Graph to access files in OneDrive or SharePoint",
   "keywords": "http,auth,onedrive,api,sharepoint",
   "section": "documentation",
-  "tocPath": "Getting Started/Walkthrough"
-
+  "tocPath": "Overview/Getting started",
+  "tocIndex": -100
 } -->

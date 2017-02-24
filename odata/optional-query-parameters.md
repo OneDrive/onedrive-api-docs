@@ -145,5 +145,5 @@ OneDrive API supports using these query parameters either with or without the sp
    "description": "Details about optional query string parameters you can use to shape results.",
    "keywords": "constructing urls, query string, query value, query parameter",
    "section": "documentation",
-   "tocPath": "Misc/Query String Parameters"
+   "tocPath": "Concepts/Query string parameters"
  } -->

@@ -19,6 +19,8 @@ POST /drive/items/{item-id}/invite
 POST /drive/root:/{item-path}:/invite
 ```
 
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+
 ##### Request Body
 The body of the request defines the details of the sharing invitation that will
 be generated. The request body should be a JSON object with the following
@@ -116,5 +118,5 @@ inherited to child items.
   "description": "Add permissions to an item and optionally send a sharing notification.",
   "keywords": "retrieve,item,metadata",
   "section": "documentation",
-  "tocPath": "Sharing/Add Permissions"
+  "tocPath": "Sharing/Add permissions"
 } -->

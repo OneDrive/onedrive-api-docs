@@ -56,7 +56,7 @@ The following table defines the relationships that the Drive resource has to oth
 
 | Relationship name | Type             | Description                                                             |
 |:------------------|:-----------------|:------------------------------------------------------------------------|
-| **items**         | Collection(item) | All items contained in the drive. This collection cannot be enumerated. |
+| **items**         | Colletion(item)  | All items contained in the drive. This collection cannot be enumerated. |
 | **root**          | Item             | The root folder of the drive.                                           |
 | **special**       | Collection(item) | Collection of common folders available in OneDrive.                     |
 
