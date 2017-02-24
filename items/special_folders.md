@@ -138,5 +138,5 @@ of a special folder first in this scenario.
   "description": "Access known folders in OneDrive through the special folder collection",
   "keywords": "known folders",
   "section": "documentation",
-  "tocPath": "Concepts/Special Folders"
+  "tocPath": "Concepts/Special folders"
 } -->

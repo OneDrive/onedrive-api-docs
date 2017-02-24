@@ -147,5 +147,5 @@ how errors are returned.
   "description": "Retrieve metadata about an item and its children in OneDrive",
   "keywords": "retrieve,item,metadata",
   "section": "documentation",
-  "tocPath": "Items/Get Item"
+  "tocPath": "Items/Get item"
 } -->

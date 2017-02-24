@@ -50,6 +50,5 @@ property (such as item name) is returned as stored in OneDrive.
   "type": "#page.annotation",
   "description": "Understand which parts of the OneDrive API are case sensitive and which are not.",
   "keywords": "constructing urls, case sensitive",
-  "section": "documentation",
-  "tocPath": "Misc/Case Sensitivity"
+  "section": "documentation"
 } -->

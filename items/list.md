@@ -83,5 +83,5 @@ how errors are returned.
   "description": "List the children of an item.",
   "keywords": "list,children,collection",
   "section": "documentation",
-  "tocPath": "Items/List Children"
+  "tocPath": "Items/List children"
 } -->

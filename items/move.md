@@ -64,7 +64,7 @@ see the [update](update.md) topic.
 
 **Note:** When moving items to the root of a OneDrive you cannot use the
 `"id:" "root"` syntax. You either need to use the real ID of the root folder, or
-use `{"path": "/drive/root:"}` for the parent reference.
+use `{"path": "/drive/root"}` for the parent reference.
 
 
 ### Error responses

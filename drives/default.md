@@ -62,5 +62,5 @@ how errors are returned.
   "description": "Get metadata about a user's default OneDrive.",
   "keywords": "drive,onedrive.drive,default drive",
   "section": "documentation",
-  "tocPath": "Drives/Get Default Drive"
+  "tocPath": "Drives/Get default drive"
 } -->

@@ -108,7 +108,7 @@ Within an API request, a colon can be used to shift between *API path space* and
 This syntax is valid for any [driveItem](resources/item.md) addressed via the API space.
 
 You can also transition back to *API path space* by using a colon at the end of the *file system path space*.
-Ensure user data within the URL follows the [path encoding](misc/path-encoding.md) requirements.
+Ensure user data within the URL follows the [addressing and path encoding](misc/addressing.md) requirements.
 
 | Path                                               | Resource                                                               |
 | -------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -219,6 +219,6 @@ The following topics contain high level overviews of other concepts that apply t
   "description": "Getting started programming with the OneDrive REST API",
   "keywords": "getting started onedrive rest api programming C# ios android rest http",
   "section": "documentation",
-  "tocPath": "Getting Started",
+  "tocPath": "Overview",
   "tocIndex": -100
 } -->

@@ -29,6 +29,8 @@ POST /drive/root:/{path_to_item}:/createUploadSession
 POST /drive/items/{parent_item_id}:/{filename}:/createUploadSession
 ```
 
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+
 To start an upload session, POST a request to the path to the file or to the parent
 item's item ID and name of the file to be uploaded. No request body is required.
 **Note:** the parent folder must exist before you call createUploadSession.

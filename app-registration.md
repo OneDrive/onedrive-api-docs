@@ -43,5 +43,5 @@ Once you have your app registered, continue on to [learning how to authenticate 
   "description": "How to register your app to work with OneDrive or OneDrive for Business and the OneDrive API.",
   "keywords": "authentication,oauth,msa,app registration,registration,azure active directory,aad,onedrive,api,onedrive for business",
   "section": "documentation",
-  "tocPath": "Getting Started/App Registration"
+  "tocPath": "Overview/App registration"
 } -->

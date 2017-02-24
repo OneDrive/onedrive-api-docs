@@ -7,8 +7,7 @@ expression evaluates to true are included in the response. Items with
 expressions that evaluates to false or null, or Items that reference properties
 that are unavailable, are omitted from the response.
 
-OneDrive API supports only the following subset of the official [OData 4.0
-filter syntax grammar][odata-filter-grammar].
+OneDrive API supports only the following subset of the official [OData 4.0 filter syntax grammar][odata-filter-grammar].
 
 **Note:** Samples omit proper URL encoding for readability. Actual filter syntax
 usage must be URL encoded.

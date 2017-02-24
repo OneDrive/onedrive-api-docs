@@ -71,5 +71,5 @@ how errors are returned.
   "description": "Retrieve metadata for a OneDrive based on a unique ID.",
   "keywords": "drive,onedrive.drive,default drive",
   "section": "documentation",
-  "tocPath": "Drives/Get Drive"
+  "tocPath": "Drives/Get drive"
 } -->

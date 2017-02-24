@@ -153,5 +153,5 @@ You can update a schema definition, but only in ways that can't break old apps:
   "description": "Use custom facets to store your own metadata on items.",
   "keywords": "metadata,custom,schema,extension,extensibility,facet,facets,onedrive",
   "section": "documentation",
-  "tocPath": "Concepts/Custom Metadata"
+  "tocPath": "Concepts/Custom metadata"
 } -->
