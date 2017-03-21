@@ -265,8 +265,5 @@ The following topics contain high-level overviews of other concepts that apply t
   "type": "#page.annotation",
   "description": "Learn how to authenticate your app with Microsoft Account and get access to OneDrive",
   "keywords": "authentication,oauth,microsoft account,msa,onedrive,api",
-  "section": "documentation",
-  "footerAdditions": [
-    "<script type=\"text/javascript\" src=\"get-token.js\"></script>",
-    "<script type=\"text/javascript\">tokenFetcher.addToPage(\"register-your-app\");</script>"]
+  "section": "documentation"
 } -->
