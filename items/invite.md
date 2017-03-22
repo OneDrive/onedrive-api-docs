@@ -1,4 +1,4 @@
-# Sending a Sharing Invitation (Preview)
+# Sending a Sharing Invitation
 
 The invite action is used to add additional permissions to an existing item
 and optionally notify the recipient of those permissions they have access to
@@ -6,10 +6,6 @@ the item via email.
 
 Using the invite action is more secure than [creating a sharing link](sharing_createLink.md),
 because the permissions are only valid for the recipient and cannot be used by others.
-
-**Note:** This functionality is a preview and should only be used for evaluating
-and testing. Some details of this API are expected to be changed before this
-functionality is finally released.
 
 ##### HTTP Request
 
@@ -107,9 +103,6 @@ how errors are returned.
 When sharing a container item using **invite** the added permissions are
 inherited to child items.
 
-## Known issues
-
-* Email invitations will not be sent when using invite from OneDrive Personal.
 
 [error-response]: ../misc/errors.md
 
