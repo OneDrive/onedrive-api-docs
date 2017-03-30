@@ -15,7 +15,7 @@ Differences:
 ### Methods
 When using the direct endpoint, methods and actions require a namespace prefix.
 For example, to use `sharedWithMe` on the direct endpoint, you must prefix the action name with `oneDrive.`.
-Note, this prefix is case-sensative.
+Note, this prefix is case-sensitive.
 
 ```http
 https://{server}/_api/v2.0/drive/oneDrive.sharedWithMe
