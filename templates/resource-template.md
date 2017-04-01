@@ -38,7 +38,7 @@ The following table defines the relationships that the Drive resource has to oth
 
 | Relationship name | Type             | Description                                                             |
 |:------------------|:-----------------|:------------------------------------------------------------------------|
-| **items**         | Colletion(item)  | All items contained in the drive. This collection cannot be enumerated. |
+| **items**         | Collection(item) | All items contained in the drive. This collection cannot be enumerated. |
 
 <!--
  {
