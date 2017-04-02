@@ -86,7 +86,7 @@ how errors are returned.
 When you download an item's content by requesting its `/content` property, you
 must provide the Authorization header, in order to be granted access to download.
 The response would normally return a `302` redirect to the URL where the file
-can be downloaded from. This URL is pre-authenticated and does not require the
+can be downloaded from. This URL is pre-authenticated and must not include the
 Authorization header.
 
 [error-response]: ../misc/errors.md
