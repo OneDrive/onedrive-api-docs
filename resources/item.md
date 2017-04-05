@@ -149,7 +149,7 @@ The following table defines the relationships that the **driveItem** resource ha
 
 ## Remarks
 
-In OneDrive for Business, the **cTag** property is not returned, if the **driveItem** is a [folder](../facets/folder_facet.md).
+In OneDrive for Business, the **cTag** property is not returned if the **driveItem** is a [folder](../facets/folder_facet.md).
 
 In OneDrive Personal, the **sharepointIds** property is unavailable.
 
