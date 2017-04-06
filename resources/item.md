@@ -126,7 +126,7 @@ The `eTag` value is only modified when the folder's properties are changed, exce
 ## Instance Attributes
 
 Instance attributes are properties with special behaviors. 
-This properties are temporary and either a) define behavior the service should perform or b)provide short-term property values, like a download URL for an item that expires.
+These properties are temporary and either a) define behavior the service should perform or b)provide short-term property values, like a download URL for an item that expires.
 
 | Property name                         | Type   | Description                                                                                                                                                         |
 | ------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
