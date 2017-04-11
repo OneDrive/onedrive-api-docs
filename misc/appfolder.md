@@ -24,8 +24,8 @@ Below are the most common calls your app can make to create the folder for the f
 ### Naming your app's folder
 
 When OneDrive creates your app's folder, it uses the Application name set at that point for the calling app id.
-You may change your app's folder name in the [Microsoft Developer Center][1].
-If you choose to do so, you may localize your app's folder name by going to the [Microsoft Developer Center][1] and editing your app's localization settings.
+You may change your app's folder name in the [Microsoft Application Registration Portal][1].
+If you choose to do so, you may localize your app's folder name by going to the [Microsoft Application Registration Portal][1] and editing your app's localization settings.
 
 [1]: https://apps.dev.microsoft.com
 
