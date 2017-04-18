@@ -14,13 +14,15 @@ recreated when written to again.
 
 Here are the special folders available to all clients.
 
-| Name        | Folder id    | Description                                                              |
-|:------------|:-------------|:-------------------------------------------------------------------------|
-| Documents   | `documents`  | The Documents folder.                                                    |
-| Photos      | `photos`     | The Photos folder.                                                       |
-| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
-| App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}` |
-| Music       | `music`      | The Music folder.                                                        |
+| Name        | Folder id     | Description                                                              |
+|:------------|:--------------|:-------------------------------------------------------------------------|
+| Documents   | `documents`   | The Documents folder.                                                    |
+| Photos      | `photos`      | The Photos folder.                                                       |
+| Camera Roll | `cameraroll`  | The Camera Roll Backup folder.                                           |
+| App Root    | `approot`     | The application's personal folder. Usually in `/Apps/{Application Name}` |
+| Music       | `music`       | The Music folder.                                                        |
+| Attachments | `attachments` | The Attachments folder.                                                  |
+
 
 ## Example
 
