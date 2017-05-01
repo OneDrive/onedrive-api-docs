@@ -29,7 +29,9 @@ This example URL has these components:
 ## ID-based addressing
 OneDrive supports ID-based addressing of items. Items are assigned a unique
 identifier when they are created and the ID persists across the actions a user
-performs on the item. Renaming or moving the item will not change the item's ID.
+performs on the item. Renaming, moving or editing the item will not change the item's ID. Only deletion destroys the item's ID.
+
+**Note:** Even if an item recreated with the same path after a deletion, the ID would be different.
 
 ID-based addressing is a useful way to track items that might be moved by the user
 to different locations on OneDrive. As long as you have the item's ID and the item exists, you'll be
