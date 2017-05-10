@@ -103,6 +103,9 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
 * SharePoint Server 2016
   * Sharing links are not available.
 
+* OneDrive for Business and SharePoint
+  * The **inheritedFrom** property on the [**Permission**](../resources/permission.md) resource is not returned.
+
 ### Shared by me
 
 * OneDrive for Business and SharePoint

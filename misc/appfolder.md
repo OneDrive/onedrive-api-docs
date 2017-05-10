@@ -24,8 +24,8 @@ Below are the most common calls your app can make to create the folder for the f
 ### Naming your app's folder
 
 When OneDrive creates your app's folder, it uses the Application name set at that point for the calling app id.
-You may change your app's folder name in the [Microsoft Developer Center][1].
-If you choose to do so, you may localize your app's folder name by going to the [Microsoft Developer Center][1] and editing your app's localization settings.
+You may change your app's folder name in the [Microsoft Application Registration Portal][1].
+If you choose to do so, you may localize your app's folder name by going to the [Microsoft Application Registration Portal][1] and editing your app's localization settings.
 
 [1]: https://apps.dev.microsoft.com
 
@@ -45,6 +45,7 @@ Your app's folder supports all the standard `item` operations.
 | [Move an Item](../items/move.md)                    | `PATCH /drive/special/approot:/{path}`                      |
 | [Copy an Item](../items/copy.md)                    | `POST /drive/special/approot:/{path}:/action.copy`          |
 | [Download an Item's contents](../items/download.md) | `GET /drive/special/approot:/{path}:/content`               |
+| [Download specific file format](../items/download-format.md)   | `GET /drive/special/approot:/{path}:/content?format={format}` |
 | [Search for an Item](../items/search.md)            | `GET /drive/special/approot:/{path}:/search`                |
 | [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/delta`                 |
 | [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/special/approot:/{path}:/thumbnails`            |

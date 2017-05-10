@@ -1,5 +1,9 @@
 # Opening Files with the OneDrive File Picker JavaScript SDK v7.0
 
+**Note:** This version has been replaced by [file picker v7.2](../js-v72/js-picker-open.md).
+New integrations should use the latest version of the file picker SDK.
+
+
 The following walkthrough shows how to integrate the file picker SDK into your
 client-side JavaScript application.
 
@@ -234,7 +238,6 @@ the default redirect URI is always used.
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
   "section": "sdks",
-  "tocPath": "OneDrive SDKs/File pickers/JavaScript/Open a file",
   "headerAdditions": [
     "<script type=\"text/javascript\" src=\"https://js.live.net/v7.0/OneDrive.js\"></script>"
   ],

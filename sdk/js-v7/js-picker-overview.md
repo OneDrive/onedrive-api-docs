@@ -1,5 +1,8 @@
 # OneDrive file picker for JavaScript v7.0 overview
 
+**Note:** This version has been replaced by [file picker v7.2](../js-v72/js-picker-overview.md).
+New integrations should use the latest version of the file picker SDK.
+
 The OneDrive file picker SDK enables your web app to quickly integrate
 OneDrive for opening and saving files without a lot of code. The latest version
 of the file picker SDK works with any OneDrive account, Personal or Business.
@@ -68,6 +71,5 @@ The OneDrive picker and saver supports the following web browsers:
   "type": "#page.annotation",
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
   "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
-  "section": "sdks",
-  "tocPath": "OneDrive SDKs/File pickers/JavaScript"
+  "section": "sdks"
 } -->

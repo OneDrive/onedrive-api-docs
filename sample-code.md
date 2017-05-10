@@ -5,7 +5,12 @@ All of our samples are licensed under the [MIT license](https://opensource.org/l
 
 Additional samples for the Microsoft Graph are available from the [Microsoft Graph organization on GitHub](https://github.com/MicrosoftGraph/?q=sample).
 
-### Windows / .NET
+## File handlers
+
+* [Markdown file handlers](https://github.com/OneDrive/o365-markdown-file-handler-v2)
+  An ASP.NET MVC app that allows a rich preview and edit experience for Markdown text files from OneDrive and SharePoint using File Handlers 2.0
+
+## Windows / .NET
 
 * [OneDrive Explorer (Windows/C#)](https://github.com/OneDrive/onedrive-sample-apibrowser-dotnet)
   A Windows Forms application to browse the OneDrive.
@@ -13,31 +18,41 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
 * [OneDrive Photo Browser (Windows/C#)](https://github.com/OneDrive/graph-sample-photobrowser-uwp)
   An example Universal Windows App that uses the Microsoft Graph SDK to browse images from a user's OneDrive or OneDrive for Business.
 
-### HTML / Web apps
+* [Data Robot Azure Function](https://github.com/OneDrive/onedrive-data-robot-azure-function)
+  An example ASP.NET MVC application and Azure Function to handle webhook notifications and data collaboration in Excel files.
+
+## JavaScript
 
 * [OneDrive Explorer (JavaScript)](http://github.com/OneDrive/onedrive-explorer-js)
-  An HTML explorer for files in OneDrive and OneDrive for Business.
-  Highlights using Microsoft Graph to access files in OneDrive from a single page web application.
+  An HTML explorer for the OneDrive API. Highlights using the OneDrive API
+  from a single page web application.
 
 * [OneDrive Text Editor (JavaScript)](https://github.com/OneDrive/onedrive-texteditor-js)
   An example application that uses the OneDrive file picker and Microsoft Graph API to open, edit, and save text files from OneDrive and OneDrive for Business.
 
-* [File picker for JavaScript](sdk/js-v7/js-picker-overview.md)
-  Connect your JavaScript web application or website to open and save files with OneDrive without writing any user interface code.
+* [File picker for JavaScript](sdk/js-v72/js-picker-overview.md)
+  Connect your JavaScript web application or website to open and save files with
+  OneDrive without writing any user interface code.
 
-### Microsoft Office Add-ins
-
-* [Outlook add-in for OneDrive sharing](https://github.com/OfficeDev/Outlook-Add-in-Sharing-to-OneDrive)
-  Share OneDrive files directly from Outlook and manage permissions on sharing
-  links using the OneDrive API and an Outlook add-in.
-
-### ASP.NET MVC
+## ASP.NET MVC
 
 * [OneDrive Webhooks Example](https://github.com/OneDrive/onedrive-webhooks-aspnet)
   An ASP.NET MVC app that demonstrates how to use OneDrive webhooks to receive
   change notifications from OneDrive and retrieve files that have changed.
 
-### Apple iOS
+* [Markdown file handlers](https://github.com/OneDrive/o365-markdown-file-handler-v2)
+  An ASP.NET MVC app that allows a rich preview and edit experience for Markdown text files from OneDrive and SharePoint using File Handlers 2.0
+
+* [Data Robot Azure Function](https://github.com/OneDrive/onedrive-data-robot-azure-function)
+  An example ASP.NET MVC application and Azure Function to handle webhook notifications and data collaboration in Excel files.
+
+## Office Add-ins
+
+* [Outlook add-in for OneDrive sharing](https://github.com/OfficeDev/Outlook-Add-in-Sharing-to-OneDrive)
+  Share OneDrive files directly from Outlook and manage permissions on sharing
+  links using the OneDrive API and an Outlook add-in.
+
+## Apple iOS
 
 * [OneDrive Explorer (Objective-C)](https://github.com/OneDrive/onedrive-sdk-ios/tree/master/Examples/iOSExplorer)
   An iOS application to browse files using OneDrive API.
@@ -46,7 +61,7 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
   An example application using the [delta](items/view_delta.md) API to
   retrieve changes from the server and keep client state in sync.
 
-### Android
+## Android
 
 * [OneDrive Explorer (Android)](http://github.com/OneDrive/onedrive-explorer-android)
   This sample illustrates basic concepts for interacting with the OneDrive API

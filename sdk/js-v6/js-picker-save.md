@@ -1,5 +1,9 @@
 # Saving files with the OneDrive file picker SDK for JavaScript
 
+**Note:** This version has been replaced by [file picker v7.2](../js-v72/js-picker-save.md).
+New integrations should use the latest version of the file picker SDK.
+
+
 This topic walks you through embedding the file picker SDK into your JavaScript
 app and using it to save a file to OneDrive.
 

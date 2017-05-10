@@ -1,35 +1,49 @@
-# Sharepoint IDs facet
+# SharePointIds resource type
 
-The **Sharepoint IDs** facet returns a list of Sharepoint IDs associated with
-an item. This facet is returned only if it is specified via a select. The intent
-of this facet is to allow you to use CSOM IDs to implement scenarios using CSOM
-APIs in cases where a OneDrive REST API is not available.
+The **SharePointIds** resource groups the various identifiers for an item stored in a SharePoint site or OneDrive for Business into a single structure.
 
-### JSON representation
+**Note:** items returned from OneDrive personal will not include a **SharePointIds** facet.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.sharepointIds" } -->
+## JSON representation
+
+Here is a JSON representation of the resource
+
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ "listId", "listItemId", "listItemUniqueId", "siteId", "siteUrl", "webId" ],
+  "@odata.type": "oneDrive.sharepointIds"
+}-->
+
 ```json
 {
-  "siteId": "string",
-  "webId": "string",
-  "listId": "string",
-  "listItemId": 1234,
-  "listItemUniqueId": "string",
+    "listId": "string",
+    "listItemId": "string",
+    "listItemUniqueId": "string",
+    "siteId": "string",
+    "siteUrl": "url",
+    "webId": "string"
 }
 ```
+
 ## Properties
 
-| Property name        | Type   | Description                                                                           |
-|:---------------------|:-------|:--------------------------------------------------------------------------------------|
-| **siteId**           | string | Unique identifier of the SharePoint site collection (SPSite) that contains this item. |
-| **webId**            | string | Unique identifier of the Sharepoint site (SPWeb) that contains this document library. |
-| **listId**           | string | Unique identifier of the list within the SharePoint site for this document library.   |
-| **listItemId**       | int64  | Ordinal identifier for the current item in the SharePoint list.                       |
-| **listItemUniqueId** | string | Unique identifier for the current item in the SharePoint list.                        |
+| Property         | Type         | Description                                                                                  |
+| :--------------- | :----------- | :------------------------------------------------------------------------------------------- |
+| listId           | string       | The unique identifier (guid) for the item's list in SharePoint.                              |
+| listItemId       | string       | An integer identifier for the item within the containing list.                               |
+| listItemUniqueId | string       | The unique identifier (guid) for the item within OneDrive for Busienss or a SharePoint site. |
+| siteId           | string       | The unique identifier (guid) for the item's site collection (SPSite).                        |
+| siteUrl          | string (url) | The SharePoint URL for the site that contains the item.                                      |
+| webId            | string       | The unique identifier (guid) for the item's site (SPWeb).                                    |
+
+## Remarks
+
+For more information about the facets on a **driveItem**, see [**driveItem**](../resources/item.md).
 
 
-[item-resource]: ../resources/item.md
 
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "The Sharepoint_ids facet provides Sharepoint ids associated with an item.",

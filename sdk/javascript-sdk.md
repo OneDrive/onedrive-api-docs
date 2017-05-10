@@ -1,18 +1,18 @@
-# JavaScript Picker SDK
+# OneDrive file picker SDK for JavaScript
 
-### Current Version
+## Current Version
+
+* [Version 7.2 - Supports OneDrive and SharePoint document libraries](js-v72/js-picker-overview.md).
+
+## Previous Versions
 
 * [Version 7.0 - Supports OneDrive Personal and OneDrive for Business Using Microsoft Graph API](js-v7/js-picker-overview.md).
-
-### Previous Versions
-
 * [Version 6.0 - Supports OneDrive Personal and OneDrive for Business](js-v6/js-picker-overview.md).
 * [Version 5.0 - Supports OneDrive Personal only](js-v5/javascript-picker-saver.md).
 
-
 <!-- {
   "type": "#page.annotation",
-  "description": "Read more about the differences in using unified JavaScript Picker SDK",
-  "keywords": "release,notes,onedrive,onedrive for business,od4b,odb,files api,files api v2",
-  "section": "documentation",
+  "description": "Use the JavaScript file picker SDKs to connect your web app to OneDrive.",
+  "keywords": "js,javascript,onedrive,picker,saver,open,save,cloud",
+  "section": "sdks"
 } -->

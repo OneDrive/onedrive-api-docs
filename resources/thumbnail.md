@@ -1,37 +1,50 @@
-# Thumbnail resource
-The Thumbnail resource type represents a thumbnail for an image, video, document, or any file or folder on OneDrive that
-has a graphical representation.
+# Thumbnail resource type
+
+The **thumbnail** resource type represents a thumbnail for an image, video, document, or any item that has a bitmap representation.
 
 ## JSON representation
 
-Here is a JSON representation of a Thumbnail resource.
+Here is a JSON representation of the **thumbnail** resource.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.thumbnail" } -->
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": ["content", "height", "width", "sourceItemId"],
+  "@odata.type": "oneDrive.thumbnail"
+}-->
+
 ```json
 {
-  "width": 100,
-  "height": 100,
-  "url": "url"
+  "height": 1024,
+  "sourceItemId": "string",
+  "url": "string",
+  "width": 1024,
+
+  /* relationships */
+  "content": "stream"
 }
 ```
-## Properties
-The Thumbnail resource has these properties.
 
-| Property name | Type    | Description                                  |
-|:--------------|:--------|:---------------------------------------------|
-| **width**     | integer | The width of the thumbnail, in pixels.       |
-| **height**    | integer | The height of the thumbnail, in pixels.      |
-| **url**       | string  | The URL used to fetch the thumbnail content. |
+## Properties
+
+| Property     | Type   | Description                                                                                                                 |
+| :----------- | :----- | :-------------------------------------------------------------------------------------------------------------------------- |
+| height       | Int32  | The height of the thumbnail, in pixels.                                                                                     |
+| sourceItemId | String | The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested. |
+| url          | String | The URL used to fetch the thumbnail content.                                                                                |
+| width        | Int32  | The width of the thumbnail, in pixels.                                                                                      |
 
 
 ## Relationships
 
-The **driveItem** resource has the following relationships defined:
+| Name    | Type   | Description                           |
+| :------ | :----- | :------------------------------------ |
+| content | Stream | The content stream for the thumbnail. |
 
-| Relationship name | Type         | Description         |
-|:------------------|:-------------|:--------------------|
-| **content**       | octet-stream | The content stream. |
 
+
+
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "Thumbnail resource represents a single thumbnail for an item.",

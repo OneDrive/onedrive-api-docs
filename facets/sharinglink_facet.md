@@ -1,20 +1,29 @@
-# SharingLink type
+# SharingLink resource type
 
-The **SharingLink** type groups sharing link-related data on OneDrive into a
-single structure.
+The **SharingLink** resource groups link-related data items into a single structure.
+
+If a [**Permission**](../resources/permission.md) resource has a non-null **sharingLink** facet, the permission represents a sharing link (as opposed to permissions granted to a person or group).
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.sharingLink", "optionalProperties": ["application", "scope"] } -->
+Here is a JSON representation of the resource.
+
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ "application", "scope" ],
+  "@odata.type": "oneDrive.sharingLink"
+}-->
+
 ```json
 {
   "application": { "@odata.type": "oneDrive.identity" },
   "type": "view | edit | embed",
   "scope": "anonymous | organization",
   "webHtml": "string",
-  "webUrl": "string"
+  "webUrl": "url"
 }
 ```
+
 ## Properties
 
 | Property name   | Type                                 | Description                                                                                                                                                                                             |
@@ -42,6 +51,9 @@ This table defines the possible values for the **type** property:
 | `anonymous`    | The sharing link is available for anyone to use.                                                                            |
 | `organization` | The sharing link is available for anyone within the same organization (tenant) to use. Not available for OneDrive Personal. |
 
+
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "The sharing link facet provides information about how a file is shared.",

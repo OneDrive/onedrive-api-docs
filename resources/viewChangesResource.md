@@ -8,5 +8,5 @@ of **view.changes**.
   "type": "#page.annotation",
   "section": "documentation",
   "deprecated": true,
-  "redirectUrl": viewDeltaResource.md"
+  "redirectUrl": "viewDeltaResource.md"
 } -->

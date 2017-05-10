@@ -1,7 +1,7 @@
 # Copy an Item on OneDrive (preview)
 
 Creates a copy of an [driveItem][item-resource] (including any children), under a new parent item.
-Since the copy operation may taken an indeterminant amount of time (depending on how much data is being copied), this action is required to be asynchronous.
+Since the copy operation may take an indeterminant amount of time (depending on how much data is being copied), this action is required to be asynchronous.
 You can monitor the status of the copy action using the [long running action](../misc/long-running-actions.md) pattern.
 
 ## Prerequisites

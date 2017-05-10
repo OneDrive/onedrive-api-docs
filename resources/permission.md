@@ -1,41 +1,53 @@
-# Permission resource
+# Permission resource type
 
-Represents a single permission on an item.
+The **Permission** resource provides information about a permission granted for a [DriveItem](item.md) resource.
 
-Permissions have a number of different forms. The **permission**
-resource represents these different forms through facets on the
-**permission** resource.
+Permissions have a number of different forms.
+The **Permission** resource represents these different forms through facets on the resource.
 
 ## JSON representation
 
+Here is a JSON representation of the resource
+
 <!-- {
 "blockType": "resource",
-"@odata.type": "oneDrive.permission",
 "optionalProperties": ["link", "grantedTo", "invitation", "inheritedFrom", "shareId" ],
-"keyProperty": "id" } -->
+"keyProperty": "id",
+"@odata.type": "oneDrive.permission"
+} -->
 ```json
 {
   "id": "string",
-  "roles": ["read|write"],
-  "link": { "@odata.type": "oneDrive.sharingLink" },
   "grantedTo": { "@odata.type": "oneDrive.identitySet" },
   "inheritedFrom": { "@odata.type": "oneDrive.itemReference" },
   "invitation": { "@odata.type": "oneDrive.invitation" },
+  "link": { "@odata.type": "oneDrive.sharingLink" },
+  "roles": ["string"],
   "shareId": "string"
 }
 ```
 
 ## Properties
 
-| Property name     | Type                                               | Description                                                                                                                    |
-|:------------------|:---------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| **id**            | string                                             | The unique identifier of the permission among all permissions on the item. Read-only.                                       |
-| **role**          | Collection(String)                                 | The type of permission, e.g. `read`. See below for the full list of roles.                                                     |
-| **link**          | [SharingLink](../facets/sharinglink_facet.md)      | Provides the link details of the current permission, if it is a link type permissions. Read-only.                           |
-| **grantedTo**     | [IdentitySet](identity.md)                         | For user type permissions, the details of the users & applications for this permission. Read-only.                          |
-| **invitation**    | [SharingInvitation](../facets/invitation_facet.md) | Details of any associated sharing invitation for this permission. Read-only.                                                |
-| **inheritedFrom** | [ItemReference](itemReference.md)                  | Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.             |
-| **shareId**       | string                                             | A unique token that can be used to access this shared item via the [**shares** entity set](../shares/shares.md). Read-only. |
+| Property      | Type                                      | Description
+|:--------------|:------------------------------------------|:-----------------
+| id            | String                                    | The unique identifier of the permission among all permissions on the item. Read-only.
+| grantedTo     | [IdentitySet](identityset.md)             | For user type permissions, the details of the users & applications for this permission. Read-only.
+| invitation    | [SharingInvitation][]                     | Details of any associated sharing invitation for this permission. Read-only.
+| inheritedFrom | [ItemReference](itemreference.md)         | Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
+| link          | [SharingLink][]                           | Provides the link details of the current permission, if it is a link type permissions. Read-only.
+| role          | Collection of String                      | The type of permission, e.g. `read`. See below for the full list of roles. Read-only.
+| shareId       | string                                    | A unique token that can be used to access this shared item via the [**shares** API](../shares/shares.md). Read-only.
+
+The permission resource uses _facets_ to provide information about the kind of permission represented by the resource.
+
+Permissions with a [**link**][SharingLink] facet represent sharing links created on the item. 
+Sharing links contain a unique token that provides access to the item for anyone with the link.
+
+Permissions with an [**invitation**][SharingInvitation] facet represent permissions added by inviting specific users or groups to have access to the file.
+
+[SharingInvitation]: ../facets/invitation_facet.md
+[SharingLink]: ../facets/sharinglink_facet.md
 
 ## Roles enumeration
 
@@ -45,7 +57,6 @@ resource represents these different forms through facets on the
 | `write`     | Provides the ability to read and modify the metadata and contents of the item. |
 | `sp.owner`  | For SharePoint and OneDrive for Business this represents the owner role.       |
 | `sp.member` | For SharePoint and OneDrive for Business this represents the member role.      |
-
 
 ## Sharing links
 The most common type of permissions are sharing links.
@@ -135,7 +146,23 @@ property will contain the information about the account that redeemed the permis
 }
 ```
 
+## Methods
 
+| Method                                              | REST Path
+|:----------------------------------------------------|:-----------------------
+| [List permissions](../items/permissions.md)         | `GET /drive/items/{item-id}/permissions`
+| [Get permission](../items/permissions.md)           | `GET /drive/items/{item-id}/permissions/{id}`
+| [Add](../items/invite.md)                           | `POST /drive/items/{item-id}/invite`
+| [Update](../items/permission_update.md)             | `PATCH /drive/items/{item-id}/permissions/{id}`
+| [Delete](../items/permission_delete.md)             | `DELETE /drive/items/{item-id}/permissions/{id}`
+
+
+## Remarks
+
+OneDrive for Business and SharePoint document libraries do not return the **inheritedFrom** property.
+
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "The permission object provides information about permissions and roles and sharing information.",

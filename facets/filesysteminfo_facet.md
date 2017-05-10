@@ -39,7 +39,8 @@ If you are uploading a file and know the local client values for these fields, y
 
 ## Remarks
 
-The **FileSystemInfo** property is not available for items in SharePoint Online, OneDrive for Business and SharePoint Server 2016.
+* The **FileSystemInfo** property is not available for items in SharePoint Server 2016.
+* **lastAccessedDateTime** is not available for items in SharePoint online, OneDrive for Business, or SharePoint Server 2016.
 
 [item-resource]: ../resources/item.md
 

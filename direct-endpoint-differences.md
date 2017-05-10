@@ -13,9 +13,10 @@ Differences:
 ## Namespaces
 
 ### Methods
+
 When using the direct endpoint, methods and actions require a namespace prefix.
 For example, to use `sharedWithMe` on the direct endpoint, you must prefix the action name with `oneDrive.`.
-Note, this prefix is case-sensative.
+Note, this prefix is case-sensitive.
 
 ```http
 https://{server}/_api/v2.0/drive/oneDrive.sharedWithMe
@@ -38,12 +39,22 @@ Properties on items returned with an at-sign (`@`) also include a namespace.
 When using Microsoft Graph, the namespace is always `microsoft.graph`.
 However, when accessing the direct API endpoint, the namespace is different.
 
-| Documented Property Name            | Direct API Endpoint Name |
-| ----------------------------------- | ------------------------ |
-| `@microsoft.graph.downloadUrl`      | `@content.downloadUrl`   |
-| `@microsoft.graph.sourceUrl`        | `@content.sourceUrl`     |
-| `@microsoft.graph.conflictBehavior` | `@name.conflictBehavior` |
+| Documented property name (Microsoft Graph) | Direct API property name |
+| ------------------------------------------ | ------------------------ |
+| `@microsoft.graph.downloadUrl`             | `@content.downloadUrl`   |
+| `@microsoft.graph.sourceUrl`               | `@content.sourceUrl`     |
+| `@microsoft.graph.conflictBehavior`        | `@name.conflictBehavior` |
 
+### Property names
+
+Some property names on resources are changed when returned from Microsoft Graph.
+The following table contains resources and property names which are different between Microsoft Graph and OneDrive API.
+
+| Documented property name (Microsoft Graph) | Direct API property name |
+| ------------------------------------------ | ------------------------ |
+| [folder][].view                            | folder.folderView        |
+
+[folder]: facets/folder_facet.md
 
 ## Discovering an endpoint
 

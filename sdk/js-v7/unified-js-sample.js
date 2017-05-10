@@ -59,7 +59,7 @@ var saverOptions = {
   /*
    * Required. The id of a form input element of type file.
    */
-    file: "inputFile",
+    sourceInputElementId: "inputFile",
 
     /* Optional. Called when the file has completed uploading to server. */
     success: function saverSuccess() {

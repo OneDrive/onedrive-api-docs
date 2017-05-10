@@ -32,6 +32,9 @@ Content-Type: application/json
           "driveId": "1991210caf",
           "id": "1991210caf!104"
         }
+      },
+      "fileSystemInfo": {
+        "lastAccessedDateTime": "2017-02-20T19:13:00Z"
       }
     },
     {
@@ -42,6 +45,9 @@ Content-Type: application/json
       "parentReference": {
         "driveId": "1312def",
         "id": "1312def!123"
+      },
+      "fileSystemInfo": {
+        "lastAccessedDateTime": "2017-02-20T16:43:21Z"
       }
     }
   ]

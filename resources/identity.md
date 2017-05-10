@@ -1,28 +1,33 @@
-# Identity resource
+# Identity resource type
 
-The Identity resource represents an identity of an **actor**. For example, and
-actor can be a user, device, or application.
+The **Identity** resource represents an identity of an _actor_.
+For example, an actor can be a user, device, or application.
 
-### JSON representation
+## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.identity", "optionalProperties": ["displayName", "thumbnails"] } -->
 ```json
 {
-  "id": "string",
   "displayName": "string",
+  "id": "string",
   "thumbnails": { "@odata.type": "oneDrive.thumbnailSet" }
 }
-
 ```
+
 ## Properties
 
-| Property name   | Type         | Description                                                                                                                                                                                                                                                                            |
-|:----------------|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **id**          | string       | Unique identifier for the identity.                                                                                                                                                                                                                                                    |
-| **displayName** | string       | The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, OneDrive may show the new value in a future response, but the items associated with the user won't show up as having changed in `delta` |
-| **thumbnails**  | ThumbnailSet | A collection of thumbnail images that represents this identity. Profile photos are returned for people, icons are returned for other identity types.                                                                                                                                   |
+| Property    | Type   | Description                                                                                                                                                                                                                                                                                                           |
+|:------------|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| displayName | String | The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using [delta](../items/view_delta.md).     |
+| id          | String | Unique identifier for the identity.                                                                                                                                                                                                                                                                                   |
 
+## Remarks
 
+In some circumstances, the unique identifier for the actor may not be available.
+In this case, the **displayName** property for the identity will be returned, but the **id** property will be missing from the resource.
+
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "Identity contains information about an app, user, or group.",

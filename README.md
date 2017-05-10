@@ -80,11 +80,11 @@ The follow entities in Microsoft Graph may contain one or more drives:
 | ------------------------ | ---------------------------------- |
 | [User][graph-user]       | `/v1.0/users/{id}` or `/v1.0/me`   |
 | [Group][graph-group]     | `/v1.0/groups/{id}`                |
-| [Site][graph-site]       | `/beta/sharePoint/sites/{id}`      |
+| [Site][graph-site]       | `/v1.0/sites/{id}`      |
 
 [graph-user]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/users
 [graph-group]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/group
-[graph-site]: https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/sharepoint
+[graph-site]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/site
 
 ### OneDrive root resources
 
@@ -145,6 +145,7 @@ Your app can use these notifications to track changes in near real-time instead 
 ## Programming notes
 
 ### API Compatibility
+
 OneDrive will continue to evolve and gain additional functionality.
 The API path includes a version number to protect your app against breaking changes.
 When a breaking change is required, the API version number will be incremented.
@@ -171,6 +172,7 @@ As such, any code calling the API needs to:
   They are subject to change without notice.
 
 ### Throttling
+
 OneDrive has limits in place to make sure that individuals and apps do not adversely affect the experience of other users.
 When an activity exceeds OneDrive's limits, API requests will be rejected for a period of time.
 OneDrive may also return a *Retry-After* header with the number of seconds your app should wait before sending more requests.
@@ -181,10 +183,12 @@ Retry-After: 3600
 ```
 
 ### Working with OneNote Notebooks
+
 **Note:** Although OneDrive stores OneNote notebooks, you shouldn't use the OneDrive API to work with OneNote notebooks.
 Instead, use the [OneNote API](http://dev.onenote.com).
 
 ## Continuous documentation validation
+
 As part of our commitment to high quality documentation, we've developed a process through which the samples and examples in our documentation are tested for validity as part of every check-in.
 We call this continuous documentation validation.
 
@@ -195,6 +199,7 @@ This helps us ensure that everything we document works and works as expected eve
 For the latest build details, check out the [AppVeyor build status page for our documentation repository](https://ci.appveyor.com/project/OneDrive/onedrive-api-docs).
 
 ## Related topics
+
 The following topics contain high level overviews of other concepts that apply to the OneDrive API.
 
 * [Authentication and sign in](auth/readme.md)
