@@ -45,6 +45,7 @@ Your app's folder supports all the standard `item` operations.
 | [Move an Item](../items/move.md)                    | `PATCH /drive/special/approot:/{path}`                      |
 | [Copy an Item](../items/copy.md)                    | `POST /drive/special/approot:/{path}:/action.copy`          |
 | [Download an Item's contents](../items/download.md) | `GET /drive/special/approot:/{path}:/content`               |
+| [Download specific file format](../items/download-format.md)   | `GET /drive/special/approot:/{path}:/content?format={format}` |
 | [Search for an Item](../items/search.md)            | `GET /drive/special/approot:/{path}:/search`                |
 | [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/delta`                 |
 | [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/special/approot:/{path}:/thumbnails`            |

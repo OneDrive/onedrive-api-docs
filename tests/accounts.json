@@ -140,6 +140,6 @@
       "scopes": ["files.read", "files.readwrite", "service.onedrive"],
       "serviceUrl": "https://graph.microsoft.com/v1.0/me",
       "tokenService": "https://login.microsoftonline.com/common"
-    }
+    }    
   ]
 }

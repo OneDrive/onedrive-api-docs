@@ -1,4 +1,4 @@
-# Drive resource
+# Drive resource type
 
 The drive resource is the top level object within a user's OneDrive.
 A user will always have at least one Drive available--the default Drive.
@@ -25,17 +25,23 @@ In the previous table, the examples use `/drive`, but `/drives/{drive-id}` is va
 
 Here is a JSON representation of a Drive resource.
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.drive",
-       "keyProperty": "id", "optionalProperties": [ "items", "root", "special"] } -->
+       "keyProperty": "id", "optionalProperties": [ "createdBy", "createdDateTime", "description", "lastModifiedBy", "lastModifiedDateTime", "name", "webUrl", "items", "root", "special"] } -->
 ```json
 {
   "id": "string",
+  "createdBy": { "@odata.type": "oneDrive.identitySet" },
+  "createdDateTime": "string (timestamp)",
+  "description": "string",
   "driveType": "personal | business | documentLibrary",
+  "items": [ { "@odata.type": "oneDrive.item" } ],
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
+  "lastModifiedDateTime": "string (timestamp)",
+  "name": "string",
   "owner": { "@odata.type": "oneDrive.identitySet" },
   "quota": { "@odata.type": "oneDrive.quota" },
-
-  "items": [ { "@odata.type": "oneDrive.item" } ],
   "root": { "@odata.type": "oneDrive.item" },
-  "special": [ { "@odata.type": "oneDrive.item" }]
+  "special": [ { "@odata.type": "oneDrive.item" }],
+  "webUrl": "url"
 }
 ```
 
@@ -43,12 +49,21 @@ Here is a JSON representation of a Drive resource.
 
 The Drive resource has these properties.
 
-| Property name | Type                        | Description                                                                                          |
-|:--------------|:----------------------------|:-----------------------------------------------------------------------------------------------------|
-| **id**        | string                      | The unique identifier of the drive.                                                                  |
-| **driveType** | string                      | Enumerated value that identifies the type of drive account. OneDrive drives will show as `personal`, OneDrive for Business as `business` and SharePoint document libraries as `documentLibrary`. |
-| **owner**     | [IdentitySet][identity-set] | The user account that owns the drive. Owner may not be available in all scenarios, depending on permissions granted to the application.                                                                |
-| **quota**     | [Quota][quota-facet]        | Information about the drive's storage space quota. Quota is not available unless the calling user is the owner of the drive.                                                   |
+| Property name            | Type                                     | Description                                                                                                                                                                                      |
+| :----------------------- | :--------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **createdBy**            | [IdentitySet](identitySet.md)            | Identity of the user, device, and application which created the drive. Read-only.                                                                                                                |
+| **createdDateTime**      | [DateTimeOffset](../facets/timestamp.md) | Date and time of drive creation. Read-only.                                                                                                                                                      |
+| **description**          | string                                   | Provide a user-visible description of the drive. Read-write.                                                                                                                                     |
+| **driveType**            | string                                   | Enumerated value that identifies the type of drive account. OneDrive drives will show as `personal`, OneDrive for Business as `business` and SharePoint document libraries as `documentLibrary`. |
+| **id**                   | string                                   | The unique identifier of the drive.                                                                                                                                                              |
+| **lastModifiedBy**       | [IdentitySet](identitySet.md)            | Identity of the user, device, and application which last modified the drive. Read-only.                                                                                                          |
+| **lastModifiedDateTime** | [DateTimeOffset](../facets/timestamp.md) | Date and time the drive was last modified. Read-only.                                                                                                                                            |
+| **name**                 | string                                   | The name of the drive. Read-only.                                                                                                                                                                |
+| **owner**                | [IdentitySet][identity-set]              | The user account that owns the drive. Owner may not be available in all scenarios, depending on permissions granted to the application.                                                          |
+| **quota**                | [Quota][quota-facet]                     | Information about the drive's storage space quota. Quota is not available unless the calling user is the owner of the drive.                                                                     |
+| **webUrl**               | URL                                      | URL that displays the drive in the browser. Read-only.                                                                                                                                           |
+
+
 
 ## Relationships
 

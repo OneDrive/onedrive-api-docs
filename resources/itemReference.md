@@ -1,36 +1,54 @@
-# ItemReference type
+# ItemReference resource type
 
-The **itemReference** type groups data needed to reference a OneDrive item across the service into a single structure.
+The **ItemReference** resource provides information necessary to address a [DriveItem](item.md) via the API.
 
 ## JSON representation
 
-Here is a JSON representation of an itemReference type.
+Here is a JSON representation of the resource
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.itemReference" } -->
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ "path", "shareId", "sharepointIds" ],
+  "@odata.type": "oneDrive.itemReference"
+}-->
+
 ```json
 {
-  "driveId": "string (identifier)",
-  "id": "string (identifier)",
-  "path": "string (path)",
-  "name": "string"
+  "driveId": "string",
+  "id": "string",
+  "name": "string",
+  "path": "string",
+  "shareId": "string",
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" }
 }
 ```
 
 ## Properties
 
-The itemReference type has these properties.
+| Property      | Type                                              | Description                                                                                               |
+| :------------ | :------------------------------------------------ | :-------------------------------------------------------------------------------------------------------- |
+| driveId       | String                                            | Unique identifier of the drive instance that contains the item. Read-only.                                |
+| id            | String                                            | Unique identifier of the item in the drive. Read-only.                                                    |
+| name          | String                                            | The name of the item being referenced. Read-only.                                                         |
+| path          | String                                            | Path that can be used to navigate to the item. Read-only.                                                 |
+| shareId       | String                                            | A unique identifier for a shared resource that can be accessed via the [Shares](../shares/shares.md) API. |
+| sharepointIds | [sharepointIds](../facets/sharepointIds_facet.md) | Returns identifiers useful for SharePoint REST compatibility. Read-only.                                  |
 
-| Property name | Type   | Description                                             |
-|:--------------|:-------|:--------------------------------------------------------|
-| **driveId**   | string | Unique identifier for the Drive that contains the item. |
-| **id**        | string | Unique identifier for the item.                         |
-| **path**      | string | Path that used to navigate to the item.                 |
-| **name**      | string | The filename of the referenced item.                    |
-| **shareId**   | string | The unique identifier for shared items.                 |
 
-**Note:** The **path** value is a relative API path to the root of the drive, for example: `/drive/root:/Documents/myfile.docx`.
+## Remarks
+
+To address a **driveItem** from an **itemReference** resource, construct a URL of the format:
+
+```http
+GET https://graph.microsoft.com/v1.0/drives/{driveId}/items/{id}
+```
+
+The **path** value is an API path relative to the target drive, for example: `/drive/root:/Documents/myfile.docx`.
+
 To retrieve the human-readable path for a breadcrumb, you can safely ignore everything up to the first `:` in the path string.
 
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "ItemReference returns a pointer to another item.",

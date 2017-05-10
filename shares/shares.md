@@ -9,9 +9,11 @@ or shared using an authenticated sharing URL.
 ## HTTP Request
 
 <!-- { "blockType": "request", "name": "get-shared-root", "scopes": "service.onedrive" } -->
+
 ```http
 GET /shares/{sharingTokenOrUrl}
 ```
+
 ### Path Parameters
 
 | Parameter Name        | Value    | Description                                                                         |
@@ -20,6 +22,7 @@ GET /shares/{sharingTokenOrUrl}
 
 
 ### Encoding sharing URLs
+
 To encode a sharing URL, use the following logic:
 
 1. First, use base64 encode the URL.
@@ -36,6 +39,7 @@ string encodedUrl = "u!" + base64Value.TrimEnd('=').Replace('/','_').Replace('+'
 ```
 
 #### Request Body
+
 Do not supply a request body with this method.
 
 ## HTTP Response
@@ -45,6 +49,7 @@ the shared item(s). The items that are shared can be accessed using the `root`
 relationship of the Share resource.
 
 <!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.share" } -->
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -76,6 +81,7 @@ This example shows how to use a sharing URL to retrieve the items that have been
 shared.
 
 <!-- { "blockType": "request", "name": "get-shared-item", "scopes": "service.onedrive"} -->
+
 ```http
 GET /shares/{sharingTokenOrUrl}/root?expand=children
 ```
@@ -87,6 +93,7 @@ from a single call that will be useful for either single or multiple shared item
 
 <!-- { "blockType": "response",
        "@odata.type": "oneDrive.item", "truncated": true } -->
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

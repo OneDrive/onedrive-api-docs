@@ -1,7 +1,7 @@
 # OneDrive API Endpoint Differences
 
 OneDrive API is available from several different API endpoints.
-**Microsoft Graph is the preferred endpoint for accessing OneDrive personal, OneDrive for Business, and SharePoint online files.**
+Microsoft Graph is the preferred endpoint for accessing OneDrive personal, OneDrive for Business, and SharePoint online files.
 In some enterprise scenarios, like SharePoint Server 2016, it may be necessary to access OneDrive for Business and SharePoint data by using the direct API endpoint without using Microsoft Graph.
 The following notes provide details about differences you may notice between Microsoft Graph and the direct API endpoint.
 
@@ -13,6 +13,7 @@ Differences:
 ## Namespaces
 
 ### Methods
+
 When using the direct endpoint, methods and actions require a namespace prefix.
 For example, to use `sharedWithMe` on the direct endpoint, you must prefix the action name with `oneDrive.`.
 Note, this prefix is case-sensitive.
@@ -38,30 +39,40 @@ Properties on items returned with an at-sign (`@`) also include a namespace.
 When using Microsoft Graph, the namespace is always `microsoft.graph`.
 However, when accessing the direct API endpoint, the namespace is different.
 
-| Documented Property Name            | Direct API Endpoint Name |
-| ----------------------------------- | ------------------------ |
-| `@microsoft.graph.downloadUrl`      | `@content.downloadUrl`   |
-| `@microsoft.graph.sourceUrl`        | `@content.sourceUrl`     |
-| `@microsoft.graph.conflictBehavior` | `@name.conflictBehavior` |
+| Documented property name (Microsoft Graph) | Direct API property name |
+| ------------------------------------------ | ------------------------ |
+| `@microsoft.graph.downloadUrl`             | `@content.downloadUrl`   |
+| `@microsoft.graph.sourceUrl`               | `@content.sourceUrl`     |
+| `@microsoft.graph.conflictBehavior`        | `@name.conflictBehavior` |
 
+### Property names
+
+Some property names on resources are changed when returned from Microsoft Graph.
+The following table contains resources and property names which are different between Microsoft Graph and OneDrive API.
+
+| Documented property name (Microsoft Graph) | Direct API property name |
+| ------------------------------------------ | ------------------------ |
+| [folder][].view                            | folder.folderView        |
+
+[folder]: facets/folder_facet.md
 
 ## Discovering an endpoint
 
-Microsoft Graph provides a single API endpoint, `https://graph.microsoft.com` for consumer and work/school accounts.
-Microsoft Graph is the **preferred API endpoint** for OneDrive and OneDrive for Business API access.
-However, if you need to continue using the direct API endpoint for OneDrive or OneDrive for Business due to existing code, you can discover the correct OneDrive API endpoint using Microsoft Graph.
+Microsoft Graph provides a single API endpoint, `graph.microsoft.com` for consumer and work/school accounts.
+When using the OneDrive API directly, you must discover the correct OneDrive API endpoint.
+
+To discover the correct endpoint for OneDrive API, you must use Microsoft Graph.
 
 ### OneDrive personal accounts
 
-When not using Microsoft Graph, the API end point for OneDrive personal is always the same: `https://api.onedrive.com/v1.0`.
-OneDrive personal does not require any end point discovery.
+To access OneDrive API for OneDrive personal, your app must use the `https://api.onedrive.com/v1.0` endpoint for all requests.
 
 You can determine if the signed in user is a OneDrive personal user by checking the `id_token` for `tid: 9188040d-6c67-4c5b-b112-36a304b66dad`. 
 More information about this is available on the [Active Directory v2 protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-implicit) topic.
 
 ### OneDrive for Business and SharePoint
 
-When not using Microsoft Graph to access OneDrive for Business, your app must first discover the user's My Site URL.
+To access the direct API endpoint for OneDrive for Business, your app must first discover the user's My Site URL.
 You can make a request to Microsoft Graph to return this information:
 
 ```http
