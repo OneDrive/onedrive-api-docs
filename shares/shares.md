@@ -114,7 +114,7 @@ how errors are returned.
 
 ## Remarks
 
-* This API is not available for OneDrive for Business or SharePoint.
+* For OneDrive for Business and SharePoint, the Shares API always requires authentication and cannot be used to access anonymously shared content without a user context.
 
 [error-response]: ../misc/errors.md
 
