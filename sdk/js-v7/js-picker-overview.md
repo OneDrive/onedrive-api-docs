@@ -28,7 +28,7 @@ from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.
 
 1. Log in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com)
    using your Microsoft account, or a work or school account.
-2. Click **Add an add** and enter a name for your app.
+2. Click **Add an app** and enter a name for your app.
 3. After your application is created, configure it to support the JavaScript picker:
    1. Click **Generate New Password** to create an **Application secret**. While this value is not necessary for the picker, it must have been created.
    2. Click **Add Platform** and then select **Web**.
