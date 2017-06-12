@@ -25,8 +25,8 @@ To begin a large file upload, you first create an
 upload session that will hold the contents of the file until it is committed.
 
 ```http
-POST /drive/root:/{path_to_item}:/createUploadSession
-POST /drive/items/{parent_item_id}:/{filename}:/createUploadSession
+PUT /drive/root:/{path_to_item}:/createUploadSession
+PUT /drive/items/{parent_item_id}:/{filename}:/createUploadSession
 ```
 
 **Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
@@ -40,7 +40,7 @@ request body with the appropriate value for the `@microsoft.graph.conflictBehavi
 
 <!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite", "target": "action" } -->
 ```http
-POST /drive/root:/{item-path}:/createUploadSession
+PUT /drive/root:/{item-path}:/createUploadSession
 Content-Type: application/json
 
 {
