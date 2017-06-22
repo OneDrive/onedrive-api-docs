@@ -16,8 +16,8 @@ to be able to create a sharing link.
 
 <!-- { "blockType": "ignored" } -->
 ```
-POST /drive/items/{item-id}/createLink
-POST /drive/root:/{item-path}:/createLink
+POST /drive/items/{item-id}/action.createLink
+POST /drive/root:/{item-path}:/action.createLink
 ```
 
 **Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
