@@ -56,7 +56,7 @@ link available will be created.
 
 <!-- { "blockType": "request", "name": "create-link", "scopes": "files.readwrite", "target": "action" } -->
 ```
-POST /drive/items/{item-id}/createLink
+POST /drive/items/{item-id}/action.createLink
 Content-Type: application/json
 
 {
@@ -107,7 +107,7 @@ value of `organization`.
 
 <!-- { "blockType": "request", "name": "create-link-scoped", "scopes": "files.readwrite service.sharepoint" } -->
 ```
-POST /drive/items/{item-id}/createLink
+POST /drive/items/{item-id}/action.createLink
 Content-Type: application/json
 
 {
