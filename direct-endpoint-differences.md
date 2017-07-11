@@ -9,6 +9,7 @@ Differences:
 
 * [API namespaces](#namespaces)
 * [Endpoints](#discovering-an-endpoint)
+* [Permissions](#permissions)
 
 ## Namespaces
 
@@ -97,6 +98,22 @@ var apiEndPoint = response.mySite + '_api/v2.0';
 In some cases a work/school user may not have a `mySite` value returned.
 This occurs when the account has not created their OneDrive for Business yet.
 In this scenario, your app will need to use Microsoft Graph to provision the user's OneDrive by requesting the root folder of the drive from Microsoft Graph.
+
+## Permissions
+
+For calls to SharePoint and OneDrive for Business, you can assign these permission scopes to your application through the Azure Portal via the **Office 365 SharePoint Online** service.
+For OneDrive Personal, the scope string is passed into the OAuth workflow directly and do not need to be registered ahead of time.
+
+| Microsoft Graph Permission | OneDrive Personal | SharePoint and OneDrive for Business |
+| --- | --- | --- |
+| Files.Read      | OneDrive.Read | Files.Read |
+| Files.ReadWrite | OneDrive.ReadWrite | Files.ReadWrite |
+| Files.ReadWrite.All | OneDrive.ReadWrite | Files.ReadWrite.All |
+| Files.ReadWrite.AppFolder | OneDrive.AppFolder | Files.ReadWrite.AppFolder |
+| Sites.Read.All | N/A | Sites.Read.All |
+| Sites.ReadWrite.All | N/A | Sites.ReadWrite.All |
+
+
 
 <!-- {
   "type": "#page.annotation",
