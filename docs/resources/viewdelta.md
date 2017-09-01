@@ -4,6 +4,7 @@ The [**delta** method](../items/view_delta.md) returns the following resource fr
 The resource includes a collection of items that have changes and information about how to retrieve the next set of changes.
 
 ## JSON representation
+
 Here is a JSON representation of a Delta response object.
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.viewDelta",
@@ -19,7 +20,9 @@ Here is a JSON representation of a Delta response object.
   "@microsoft.graph.token": "string"
 }
 ```
+
 ## Properties
+
 The Delta response object has the following properties.
 
 | Name                       | Value  | Description                                                                                                                                                                                              |
