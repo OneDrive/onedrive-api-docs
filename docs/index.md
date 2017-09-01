@@ -24,7 +24,7 @@ For existing solutions using OneDrive API outside of Microsoft Graph, or solutio
 
 To quickly experiment with Microsoft Graph and accessing files, check out the [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer?request=me%2Fdrive%2Froot%2Fchildren&method=GET&version=v1.0) and the [Microsoft Graph Quick Start](https://graph.microsoft.io/getting-started).
 
-OneDrive provides two top-level types that represent addressible resources in the API:
+OneDrive provides two top-level types that represent addressable resources in the API:
 
 * [drive][drive-resource] _(top-level object)_
 * [driveItem][item-resource] _(files and folders)_
