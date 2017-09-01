@@ -20,7 +20,7 @@ POST /drive/items/{item-id}/createLink
 POST /drive/root:/{item-path}:/createLink
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
 
 ### Request body
 The body of the request defines the type of sharing link your application is

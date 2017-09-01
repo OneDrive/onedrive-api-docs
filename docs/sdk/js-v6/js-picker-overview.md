@@ -39,7 +39,7 @@ only required if you wish to allow users of both services to use your integratio
 
 ### OneDrive Personal
 
-[Register your app](/app-registration.md) to get
+[Register your app](../../app-registration.md) to get
 an app ID (client ID), if you haven't already done so. Ensure that the web
 page that is going to reference the SDK is a *Redirect URL* under
 **API Settings**.  You can also upload your application logo, which
@@ -47,7 +47,7 @@ OneDrive will display in the file picker experience.
 
 ### OneDrive for Business
 
-[Register your app](/app-registration-server.md) to get an
+[Register your app](../../app-registration-server.md) to get an
 app ID (client ID), if you haven't already done so. When registering your app, please ensure the
 following:
 

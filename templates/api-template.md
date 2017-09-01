@@ -38,7 +38,7 @@ All default properties will be returned from the actual call.
 
 See the [Error Responses][error-response] topic for more info about how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../docs/misc/errors.md
 
 <!--
  {

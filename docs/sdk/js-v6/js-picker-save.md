@@ -44,7 +44,7 @@ the picker should behave.
 
 **Note:** The maximum file size that can be saved using this method is 100 MB.
 To upload larger files, follow the API under
-[Uploading large files to OneDrive](/items/upload_large_files.md).
+[Uploading large files to OneDrive](../../items/upload_large_files.md).
 
 ### Picker options
 

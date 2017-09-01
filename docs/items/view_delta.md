@@ -12,7 +12,7 @@ GET /drive/items/{item-id}/delta
 GET /drive/root:/{item-path}:/delta
 ````
 
-**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
 
 ### Optional query string parameters
 

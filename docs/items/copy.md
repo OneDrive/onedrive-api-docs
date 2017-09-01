@@ -15,7 +15,7 @@ POST /drive/items/{item-id}/copy
 POST /drive/root:/{item-path}:/copy
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
 
 ### Request body
 In the request body, provide a JSON object with the following parameters.

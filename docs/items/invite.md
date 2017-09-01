@@ -15,7 +15,7 @@ POST /drive/items/{item-id}/invite
 POST /drive/root:/{item-path}:/invite
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
 
 ##### Request Body
 The body of the request defines the details of the sharing invitation that will

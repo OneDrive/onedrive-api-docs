@@ -94,7 +94,7 @@ The following values are allowed for the `save()` action:
 ## 4. Handling the picker response object
 
 When the user is done picking file(s), the `success` callback receives `response` object.
-This object contains properties, include **value** property which is a collection of [Item resource](/resources/item.md) with a subset of the item's properties.
+This object contains properties, include **value** property which is a collection of [Item resource](../../resources/item.md) with a subset of the item's properties.
 
 When using the `save` action, this collection provides the item metadata for the newly uploaded file.
 For the `query` action, this collection will contain metadata for the selected folder.

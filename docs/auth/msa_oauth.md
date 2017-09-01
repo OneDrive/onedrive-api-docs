@@ -324,7 +324,7 @@ redirect to your redirect_uri and include the same error parameters.
 The following topics contain high-level overviews of other concepts that apply
 to the OneDrive API.
 
-* [Develop with the OneDrive API](readme.md)
+* [Develop with the OneDrive API](index.md)
 
 <!-- {
   "type": "#page.annotation",

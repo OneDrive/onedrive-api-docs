@@ -16,7 +16,7 @@ GET /drive/root/search(q='vacation')
 GET /drive/items/{item-id}/search(q='vacation')
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
 
 This method supports [optional query string parameters][odata-query-parameters]
 to shape the response. The search results collection can be filtered using

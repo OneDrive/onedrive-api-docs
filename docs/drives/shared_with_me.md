@@ -7,7 +7,7 @@ List the set of items that are shared with the current user.
 GET /drive/sharedWithMe
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](/direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
 
 
 This returns a collection of [driveItem resources](../resources/item.md) that enumerates

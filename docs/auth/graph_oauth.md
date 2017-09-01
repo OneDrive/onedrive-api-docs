@@ -258,7 +258,7 @@ You will need to repeat the authentication flow to request a new access and refr
 
 The following topics contain high-level overviews of other concepts that apply to the OneDrive API.
 
-* [Develop with the OneDrive API](readme.md)
+* [Develop with the OneDrive API](index.md)
 * [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview)
 
 <!-- {

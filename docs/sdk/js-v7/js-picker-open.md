@@ -104,7 +104,7 @@ are allowed:
 
 When the user is done picking file(s), the `success` callback receives
 `response` object. This object contains properties, include **value** property
-which is a collection of [driveItem resources](/resources/item.md) with a subset of
+which is a collection of [driveItem resources](../../resources/item.md) with a subset of
 the item's properties.
 
 For OneDrive Personal, when multiple files are selected and a sharing link is
