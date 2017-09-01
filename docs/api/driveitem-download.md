@@ -89,8 +89,8 @@ The response would normally return a `302` redirect to the URL where the file
 can be downloaded from. This URL is pre-authenticated and must not include the
 Authorization header.
 
-[error-response]: ../misc/errors.md
-[file-facet]: ../facets/file_facet.md
+[error-response]: ../concepts/errors.md
+[file-facet]: ../resources/file.md
 
 <!-- {
   "type": "#page.annotation",

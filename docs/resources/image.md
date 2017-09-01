@@ -25,7 +25,7 @@ represent images.
 
 In OneDrive for Business, this facet is returned on items that are expected to be images. This facet has no properties in OneDrive for Business.
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

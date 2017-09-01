@@ -7,10 +7,10 @@ List the set of items that are shared with the current user.
 GET /drive/sharedWithMe
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 
-This returns a collection of [driveItem resources](../resources/item.md) that enumerates
+This returns a collection of [driveItem resources](../resources/driveitem.md) that enumerates
 the set of items that have been shared with the current user.
 
 <!-- {"blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
@@ -55,7 +55,7 @@ Content-Type: application/json
 Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

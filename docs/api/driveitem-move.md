@@ -2,7 +2,7 @@
 
 Move an item from one parent to another.
 
-This is a special case of the [update](update.md) method. You can combine
+This is a special case of the [update](driveitem-update.md) method. You can combine
 moving the folder with other metadata updates.
 
 ## Prerequisites
@@ -12,13 +12,16 @@ access to the original folder and write access to the parent folder of the
 specified destination.
 
 ## HTTP request
+
 <!-- { "blockType": "ignored" } -->
-```
+
+```http
 PATCH /drive/items/{item-id}
 PATCH /drive/root:/{item-path}
 ```
 
 ### Request body
+
 You can use the update API to move an item into another folder by updating the
 **parentReference** facet to point to the new parent.
 
@@ -27,7 +30,8 @@ You can use the update API to move an item into another folder by updating the
 This example moves an item to the `Documents` folder.
 
 <!-- { "blockType": "request", "name": "move-item", "scopes": "files.readwrite" } -->
-```
+
+```http
 PATCH /drive/items/{item-id}
 Content-Type: application/json
 
@@ -42,14 +46,16 @@ You can also use the update API to move an item into another folder by updating 
 **parentReference.id** or **parentReference.path** property to the ID of the target parent.
 
 As with other `PATCH` actions, the entire item object will be included in the response.
+
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
-```
+
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-	"id": "0123456789abc",
-	"name": "test-file.txt",
+  "id": "0123456789abc",
+  "name": "test-file.txt",
   "parentReference":
   {
     "driveId": "11231001",
@@ -60,7 +66,7 @@ Content-Type: application/json
 ```
 
 For more details, including example responses and error codes,
-see the [update](update.md) topic.
+see the [update](driveitem-update.md) topic.
 
 **Note:** When moving items to the root of a OneDrive you cannot use the
 `"id:" "root"` syntax. You either need to use the real ID of the root folder, or
@@ -72,7 +78,7 @@ use `{"path": "/drive/root"}` for the parent reference.
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

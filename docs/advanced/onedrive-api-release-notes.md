@@ -25,12 +25,12 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
 ### CTag implementation
 
 * OneDrive for Business and SharePoint
-  * The **cTag** property of an [driveItem](../resources/item.md) returns only files. This property is not available on folders.
+  * The **cTag** property of an [driveItem](../resources/driveitem.md) returns only files. This property is not available on folders.
 
 ### Custom thumbnails
 
 * OneDrive for Business and SharePoint
-  * Setting a [custom thumbnail](../items/thumbnails.md) on an item is not available.
+  * Setting a [custom thumbnail](../api/driveitem-thumbnails.md) on an item is not available.
 
 ### Thumbnails collection
 
@@ -40,7 +40,7 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
 ### Item searching
 
 * OneDrive for Business and SharePoint
-  * [Search](../items/search.md) will not return the following properties:
+  * [Search](../api/driveitem-search.md) will not return the following properties:
     * **createdBy**
     * **modifiedBy**
     * **parentReference**
@@ -71,7 +71,7 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
 ### Special folders
 
 * OneDrive for Business and SharePoint
-  * Not all of the [defined special folders](../items/special_folders.md) are available.
+  * Not all of the [defined special folders](../api/specialfolder-get.md) are available.
     The following special folders are available:
     * **approot**
     * **documents**
@@ -80,8 +80,8 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
 ### Uploading items
 
 * OneDrive for Business and SharePoint
-  * [Upload from URL](../items/upload_url.md) is only available for data URIs. It does not support uploading from HTTP or HTTPS URLs.
-  * [Multipart upload](../items/upload_post.md) is not available.
+  * [Upload from URL](../api/driveitem-upload-url.md) is only available for data URIs. It does not support uploading from HTTP or HTTPS URLs.
+  * [Multipart upload](../api/driveitem-upload-post.md) is not available.
 
 ### File facet
 
@@ -109,7 +109,7 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
 ### Shared by me
 
 * OneDrive for Business and SharePoint
-  * [Shared by Me](../drives/shared_by_me.md) is not available.
+  * [Shared by Me](../api/drive-shared-by-me.md) is not available.
 
 ## Send us feedback!
 

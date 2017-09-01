@@ -38,7 +38,7 @@ Here is a JSON representation of the resource
 
 ## Remarks
 
-For more information about the facets on a **driveItem**, see [**driveItem**](../resources/item.md).
+For more information about the facets on a **driveItem**, see [**driveItem**](../resources/driveitem.md).
 
 
 

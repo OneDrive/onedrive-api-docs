@@ -23,7 +23,7 @@ For more information see [App authentication with Microsoft Graph](https://graph
 The first step is to register an app with Microsoft and provide some details about your app.
 You can register your application and receive a new app ID from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
 
-For detailed steps on how to register your application, see [registering your app for OneDrive API](../app-registration.md).
+For detailed steps on how to register your application, see [registering your app for OneDrive API](../advanced/app-registration.md).
 
 ## Sign users in
 Your app must initiate the sign-in process by contacting the Azure Active Directory authorization endpoint with a specified scope.

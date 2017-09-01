@@ -44,7 +44,7 @@ HTTP/1.1 204 No Content
 Read the [Error responses][error-response] topic for more information about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

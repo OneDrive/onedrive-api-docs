@@ -1,6 +1,6 @@
 ﻿# List children for an item
 
-Items with the [folder facet](../facets/folder_facet.md) or [package facet](../facets/package_facet.md)
+Items with the [folder facet](../resources/folder.md) or [package facet](../resources/package.md)
 may contain one or more child items. This API lists the contents of the item's
 **children** collection using either the item ID or path to the item.
 
@@ -18,7 +18,7 @@ GET /drive/root:/{item-path}:/children
 
 ### Optional query parameters
 This method supports the
-[OData Query Parameters](../odata/optional-query-parameters.md) to filter and
+[OData Query Parameters](../concepts/optional-query-parameters.md) to filter and
 shape the response.
 
 
@@ -68,15 +68,15 @@ will be returned from the actual call.
 **Note:** If a collection exceeds the default page size (200 items), the **@odata.nextLink**
 property is returned in the response to indicate more items are available and
 provide the request URL for the next page of items. You can control the page size through
-[optional query string parameters](../odata/optional-query-parameters.md).
+[optional query string parameters](../concepts/optional-query-parameters.md).
 
 ### Error responses
 
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

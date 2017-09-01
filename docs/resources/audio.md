@@ -49,7 +49,7 @@ have associated audio.
 | **trackCount**        | Int32   | The total number of tracks on the original disc for this audio file. |
 | **year**              | Int32   | The year the audio file was recorded.                                |
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 ## Remarks
 

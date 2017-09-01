@@ -30,7 +30,7 @@ POST /drive/items/{parent_item_id}:/{filename}:/createUploadSession
 ```
 
 **Note:** This method has a different signature for Microsoft Graph and OneDrive API. 
-See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 To start an upload session, POST a request to the path to the file or to the parent
 item's item ID and name of the file to be uploaded. No request body is required.
@@ -255,7 +255,7 @@ the upload by manually committing the upload session.
 
 To manually commit the upload session, your app must make a PUT request with a new
 **driveItem** resource that will be used to commit the file. Inside the **driveItem** resource
-include an [Instance Attribute](../resources/item.md#instance-attributes) for
+include an [Instance Attribute](../resources/driveitem.md#instance-attributes) for
 `@microsoft.graph.sourceUrl` with the value of your upload session URL.
 
 ```http
@@ -305,8 +305,8 @@ If the file can be committed using the new metadata, an `HTTP 201 Created` or
 See the [Error Responses][error-response] topic for details about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

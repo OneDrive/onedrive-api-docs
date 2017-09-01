@@ -110,13 +110,13 @@ you will need to configure details about your application with the following ste
    Using OneDrive API or the file picker requires at least **Read user files**. Uploading, editing, or sharing files
    requires the **Read and write user files** permission.
 
-![Authentication scopes for OneDrive for Business and SharePoint](site-images/AuthScopesForSharePoint.png)
+![Authentication scopes for OneDrive for Business and SharePoint](../site-images/AuthScopesForSharePoint.png)
 
 To add, remove, or update an application on Azure AD, see
 [Adding, Updating, and Removing an Application](https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Native).
 
 Now you have everything set up to connect to your app to OneDrive for Business.
-For information on how to authenticate, see [OneDrive for Business authentication and sign in](auth/aad_oauth.md).
+For information on how to authenticate, see [OneDrive for Business authentication and sign in](../auth/aad-oauth.md).
 
 
 

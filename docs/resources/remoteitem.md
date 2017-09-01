@@ -29,18 +29,18 @@ remote item might have its `id` changed.
 | Property name            | Type                                             | Description                                                                                                                 |
 | ------------------------ | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | **createdBy**            | [identitySet](../resources/identitySet.md)                    | Identity of the user, device, and application which created the item. Read-only.                                            |
-| **file**                 | [file](file_facet.md)                            | Indicates that the remote item is a file.                                                                                   |
-| **fileSystemInfo**       | [fileSystemInfo](filesysteminfo_facet.md)        | Information about the remote item from the local file system.                                                               |
-| **folder**               | [folder](folder_facet.md)                        | Indicates that the remote item is a folder.                                                                                 |
+| **file**                 | [file](file.md)                            | Indicates that the remote item is a file.                                                                                   |
+| **fileSystemInfo**       | [fileSystemInfo](filesysteminfo.md)        | Information about the remote item from the local file system.                                                               |
+| **folder**               | [folder](folder.md)                        | Indicates that the remote item is a folder.                                                                                 |
 | **id**                   | string                                           | Unique identifier for the remote item in its drive.                                                                         |
 | **lastModifiedBy**       | [identitySet](../resources/identitySet.md)                    | Identity of the user, device, and application which last modified the item. Read-only.                                      |
-| **lastModifiedDateTime** | [dateTimeOffset](../facets/timestamp.md)         | Date and time the item was last modified. Read-only.                                                                        |
+| **lastModifiedDateTime** | [dateTimeOffset](../resources/timestamp.md)         | Date and time the item was last modified. Read-only.                                                                        |
 | **name**                 | string                                           | Optional. Filename of the remote item.                                                                                      |
 | **parentReference**      | [itemReference](../resources/itemReference.md)   | Properties of the parent of the remote item.                                                                                |
-| **shared**               | [sharedFacet](../facets/shared_facet.md)         | Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. |
+| **shared**               | [sharedFacet](../resources/shared.md)         | Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. |
 | **size**                 | Int64                                            | Size of the remote item.                                                                                                    |
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

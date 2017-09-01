@@ -4,7 +4,7 @@ The invite action is used to add additional permissions to an existing item
 and optionally notify the recipient of those permissions they have access to
 the item via email.
 
-Using the invite action is more secure than [creating a sharing link](sharing_createLink.md),
+Using the invite action is more secure than [creating a sharing link](driveitem-createlink.md),
 because the permissions are only valid for the recipient and cannot be used by others.
 
 ##### HTTP Request
@@ -15,7 +15,7 @@ POST /drive/items/{item-id}/invite
 POST /drive/root:/{item-path}:/invite
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 ##### Request Body
 The body of the request defines the details of the sharing invitation that will
@@ -104,7 +104,7 @@ When sharing a container item using **invite** the added permissions are
 inherited to child items.
 
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

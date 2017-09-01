@@ -18,9 +18,9 @@ It is available on the folder property of [driveItem][item-resource] resources t
 | Property name  | Type                                              | Description                                                              |
 | -------------- | ------------------------------------------------- | ------------------------------------------------------------------------ |
 | **childCount** | int64                                             | Number of children contained immediately within this container.          |
-| **view**       | [folderView facet](../facets/folderView_facet.md) | A collection of properties defining the recommended view for the folder. |
+| **view**       | [folderView facet](../resources/folderView.md) | A collection of properties defining the recommended view for the folder. |
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

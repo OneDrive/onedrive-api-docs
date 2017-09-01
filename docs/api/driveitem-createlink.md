@@ -20,7 +20,7 @@ POST /drive/items/{item-id}/createLink
 POST /drive/root:/{item-path}:/createLink
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 ### Request body
 The body of the request defines the type of sharing link your application is
@@ -163,7 +163,7 @@ property contains the HTML code for an `<iframe>` to host the content.
 See [Error Responses][error-response] for details about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

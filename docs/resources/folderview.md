@@ -63,8 +63,8 @@ The following values are defined for the **viewType** property.
 | `thumbnails` | A view that uses larger thumbnails of driveItems to represent the items.      |
 
 
-[item-resource]: ../resources/item.md
-[folder-facet]: ../facets/folder_facet.md
+[item-resource]: ../resources/driveitem.md
+[folder-facet]: ../resources/folder.md
 
 <!-- {
   "type": "#page.annotation",

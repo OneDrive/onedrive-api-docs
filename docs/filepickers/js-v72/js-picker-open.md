@@ -81,7 +81,7 @@ The following values are allowed:
 ## 4. Handling the picker response object
 
 When the user is done picking file(s), the `success` callback receives `response` object.
-This object contains properties, include **value** property which is a collection of [Item resource](../../resources/item.md) with a subset of the item's properties.
+This object contains properties, include **value** property which is a collection of [Item resource](../../resources/driveitem.md) with a subset of the item's properties.
 
 ```json
 {
@@ -111,7 +111,7 @@ This object contains properties, include **value** property which is a collectio
 
 | Property name   | Type                                      | Description                                                                                                                                                                       |
 | --------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **value**       | Array of [driveItems](../../resources/item.md) | Metadata about the files that were selected.                                                                                                                                      |
+| **value**       | Array of [driveItems](../../resources/driveitem.md) | Metadata about the files that were selected.                                                                                                                                      |
 | **webUrl**      | Url                                       | Returned for multiple selection scenarios from OneDrive Personal accounts.                                                                                                        |
 | **accessToken** | string                                    | The access token received by the file picker for your application. This can be used to make additional requests to Microsoft Graph without requiring another authentication flow. |
 | **apiEndpoint** | Url                                       | The API end point that the **accessToken** can be used with.                                                                                                                      |
@@ -164,7 +164,7 @@ This tells the picker SDK to select the **id**, **name**, **size**, **file**, **
 ### Returning a read-write company sharable link
 
 By default the OneDrive file picker returns a view-only sharing URL when **action** is set to `share`.
-However you can use the createLinkParameters property to change the parameters passed to the [createLink action](../../items/sharing_createLink.md).
+However you can use the createLinkParameters property to change the parameters passed to the [createLink action](../../api/driveitem-createlink.md).
 
 ```javascript
 var odOptions = {

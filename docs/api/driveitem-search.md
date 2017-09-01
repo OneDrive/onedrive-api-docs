@@ -16,11 +16,11 @@ GET /drive/root/search(q='vacation')
 GET /drive/items/{item-id}/search(q='vacation')
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 This method supports [optional query string parameters][odata-query-parameters]
 to shape the response. The search results collection can be filtered using
-the [filter query string parameter](../odata/filtering.md).
+the [filter query string parameter](../concepts/filtering-results.md).
 
 **Note:** Make sure to properly query string encode any characters in the query
 parameter.
@@ -85,7 +85,7 @@ are returned from the actual call.
 
 | Name                         | Value                                  | Description                                                               |
 |:-----------------------------|:---------------------------------------|:--------------------------------------------------------------------------|
-| **value**                    | Array of [Items](../resources/item.md) | A collection of results matching the query.                               |
+| **value**                    | Array of [Items](../resources/driveitem.md) | A collection of results matching the query.                               |
 | **@search.approximateCount** | Integer                                | An approximate count of the total number of items that matched the query. |
 | **@odata.nextLink**          | URL                                    | A URL that can be used to retrieve the next page of the results           |
 
@@ -94,9 +94,9 @@ are returned from the actual call.
 See [Error Responses][error-response] for more information about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
-[odata-query-parameters]: ../odata/optional-query-parameters.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
+[odata-query-parameters]: ../concepts/optional-query-parameters.md
 
 <!-- {
   "type": "#page.annotation",

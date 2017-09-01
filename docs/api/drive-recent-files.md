@@ -8,9 +8,9 @@ This list includes items that are in the user's drive as well as items they have
 GET /drive/recent
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
-The response is a collection of [driveItem resources](../resources/item.md).
+The response is a collection of [driveItem resources](../resources/driveitem.md).
 They are ordered by most recently used first.
 
 <!-- { "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
@@ -61,7 +61,7 @@ The actual HTTP response will include all default properties of these items.
 
 Read the [Error Responses][error-response] topic for more information about how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

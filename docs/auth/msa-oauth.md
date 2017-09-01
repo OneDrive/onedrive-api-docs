@@ -4,7 +4,7 @@
 
 > This topic contains information about authorizing an application using Microsoft accounts for OneDrive personal.
 > However, this approach is no longer recommended.
-> New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph_oauth.md).
+> New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph-oauth.md).
 
 ## Getting started
 
@@ -26,7 +26,7 @@ your app.
 
 ### To register your app
 
-See the topic on [registering your app for OneDrive API](../app-registration.md)
+See the topic on [registering your app for OneDrive API](../advanced/app-registration.md)
 for details on how to register your app.
 
 ## Sign users in

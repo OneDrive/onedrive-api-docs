@@ -109,7 +109,7 @@ behaves. The following values are allowed for the `save()`` action:
 
 When the user is done picking file(s), the `success` callback receives
 `response` object. This object contains properties, include **value** property
-which is a collection of [driveItem resources](../../resources/item.md) with a subset of
+which is a collection of [driveItem resources](../../resources/driveitem.md) with a subset of
 the item's properties.
 
 When using the `save` action, this collection provides the item metadata for

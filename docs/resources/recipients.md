@@ -1,11 +1,12 @@
-# Recipients resource (preview)
+# DriveRecipient resource
 
-The recipients resource represents a single recipient for the
-[invite](../items/invite.md) action and [item permissions](../items/permissions.md).
+The drive recipient resource represents a single recipient for an
+[invitation](../api/driveitem-invite.md) action and [item permissions](../api/permission-list.md).
 
 ## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.recipients", "optionalProperties": ["alias", "objectId", "email"] } -->
+
 ```json
 {
   "email": "string",
@@ -24,7 +25,8 @@ The recipients resource has these properties.
 | **objectId**             | String            | The unique identifier for the recipient in the directory. |
 
 ## Remarks
-When using [action.invite](../items/invite.md) to add permissions, the recipients type
+
+When using [invite](../api/driveitem-invite.md) to add permissions, the recipients type
 can specify **email**, **alias**, or **objectId**. Only one of these values is
 required.
 

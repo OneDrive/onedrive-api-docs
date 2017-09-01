@@ -53,7 +53,7 @@ site.
 
 See the [Error Responses][error-response] topic for more info about how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 [drive-resource]: ../resources/drive.md
 
 <!-- {

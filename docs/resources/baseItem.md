@@ -4,9 +4,9 @@ The **baseItem** resource is an abstract resource that contains a common set of 
 Resources that derive from **baseItem** include:
 
 * [drive](drive.md)
-* [driveItem](item.md)
+* [driveItem](driveitem.md)
 * [site](site.md)
-* [shares](../shares/shares.md)
+* [sharedDriveItem](shareddriveitem.md)
 
 ## JSON representation
 
@@ -48,7 +48,7 @@ Here is a JSON representation of a **baseItem** resource.
 | parentReference      | [itemReference][] | Parent information, if the item has a parent. Read-write.                              |
 | webUrl               | string (url)      | URL that displays the resource in the browser. Read-only.                              |
 
-[identitySet]: identitySet.md
+[identitySet]: identityset.md
 [itemReference]: itemreference.md
 
 ## Remarks

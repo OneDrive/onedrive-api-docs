@@ -7,7 +7,7 @@ Error responses follow the definition in the
 [OData v4](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.html#_Toc372793091)
 specification for error responses.
 
-See the topic on [Error response](../misc/errors.md) for more information about
+See the topic on [Error response](../concepts/errors.md) for more information about
 handling errors with the OneDrive API.
 
 ## JSON Representation

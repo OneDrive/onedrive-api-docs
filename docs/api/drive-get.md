@@ -62,9 +62,10 @@ All default properties will be returned from the actual call.
 
 See [Error responses][error-response] for more info about
 how errors are returned.
-[error-response]: ../misc/errors.md
+
+[error-response]: ../concepts/errors.md
 [drive-resource]: ../resources/drive.md
-[odata-query-parameters]: ../odata/optional-query-parameters.md
+[odata-query-parameters]: ../concepts/optional-query-parameters.md
 
 <!-- {
   "type": "#page.annotation",

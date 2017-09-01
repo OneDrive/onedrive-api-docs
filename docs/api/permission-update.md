@@ -3,8 +3,8 @@
 Update an existing permission on an item. Only the **roles** property can be
 modified by patching the permission resource.
 
-For other changes, [delete the existing permission](permission_delete.md) and use
-[invite to add new permissions](invite.md) to the item.
+For other changes, [delete the existing permission](permission-delete.md) and use
+[invite to add new permissions](driveitem-invite.md) to the item.
 
 ## HTTP request
 ````
@@ -62,7 +62,7 @@ be returned from the actual call.
 Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

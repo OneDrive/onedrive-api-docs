@@ -17,7 +17,7 @@ The following tasks are available for drive resources.
 | [List children under the Drive][item-children]          | `GET /drive/root/children`    |
 | [List changes for all Items in the Drive][item-changes] | `GET /drive/root/delta`  |
 | [Search for Items in the Drive][item-search]            | `GET /drive/root/search` |
-| [Access special folder](../items/special_folders.md)    | `GET /drive/special/{name}`   |
+| [Access special folder](../api/specialfolder-get.md)    | `GET /drive/special/{name}`   |
 
 In the previous table, the examples use `/drive`, but `/drives/{drive-id}` is valid too.
 
@@ -52,12 +52,12 @@ The Drive resource has these properties.
 | Property name            | Type                                     | Description                                                                                                                                                                                      |
 | :----------------------- | :--------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **createdBy**            | [IdentitySet](identitySet.md)            | Identity of the user, device, and application which created the drive. Read-only.                                                                                                                |
-| **createdDateTime**      | [DateTimeOffset](../facets/timestamp.md) | Date and time of drive creation. Read-only.                                                                                                                                                      |
+| **createdDateTime**      | [DateTimeOffset](../resources/timestamp.md) | Date and time of drive creation. Read-only.                                                                                                                                                      |
 | **description**          | string                                   | Provide a user-visible description of the drive. Read-write.                                                                                                                                     |
 | **driveType**            | string                                   | Enumerated value that identifies the type of drive account. OneDrive drives will show as `personal`, OneDrive for Business as `business` and SharePoint document libraries as `documentLibrary`. |
 | **id**                   | string                                   | The unique identifier of the drive.                                                                                                                                                              |
 | **lastModifiedBy**       | [IdentitySet](identitySet.md)            | Identity of the user, device, and application which last modified the drive. Read-only.                                                                                                          |
-| **lastModifiedDateTime** | [DateTimeOffset](../facets/timestamp.md) | Date and time the drive was last modified. Read-only.                                                                                                                                            |
+| **lastModifiedDateTime** | [DateTimeOffset](../resources/timestamp.md) | Date and time the drive was last modified. Read-only.                                                                                                                                            |
 | **name**                 | string                                   | The name of the drive. Read-only.                                                                                                                                                                |
 | **owner**                | [IdentitySet][identity-set]              | The user account that owns the drive. Owner may not be available in all scenarios, depending on permissions granted to the application.                                                          |
 | **quota**                | [Quota][quota-facet]                     | Information about the drive's storage space quota. Quota is not available unless the calling user is the owner of the drive.                                                                     |
@@ -86,16 +86,16 @@ views are defined for a Drive:
 | **shared** | Collection(item) | Item collection grouped by Owner that have been shared with the signed-in user. |
 | **recent** | Collection(item) | Item collection of recently accessed files                                      |
 
-[item-resource]: ../resources/item.md
-[identity-set]: ../resources/identitySet.md
-[quota-facet]: ../facets/quotainfo_facet.md
-[drive-default]: ../drives/default.md
+[item-resource]: ../resources/driveitem.md
+[identity-set]: ../resources/identityset.md
+[quota-facet]: ../resources/quotainfo.md
+[drive-default]: ../api/drive-get-default.md
 [drive-resource]: ../resources/drive.md
-[drive-get]: ../drives/get.md
-[item-get]: ../items/get.md
-[item-changes]: ../items/view_delta.md
-[item-search]: ../items/search.md
-[item-children]: ../items/list.md
+[drive-get]: ../api/drive-get.md
+[item-get]: ../api/driveitem-get.md
+[item-changes]: ../api/driveitem-delta.md
+[item-search]: ../api/driveitem-search.md
+[item-children]: ../api/driveitem-list.md
 
 
 <!-- {

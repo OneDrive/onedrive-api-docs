@@ -10,7 +10,7 @@ File handler manifests are stored along side your app manifest in Azure Active D
 The **addIns** property of the app manifest lists the add-in components of an application, like file handlers, and their associated properties.
 
 The manifest is made up of a set of key-value properties, which define the properties of the file handler.
-For more information about the file handler manifest, see [File handler overview](file-handler-overview.md).
+For more information about the file handler manifest, see [File handler overview](index.md).
 
 An example file handler manifest:
 

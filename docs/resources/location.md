@@ -24,7 +24,7 @@ an associated geographic location.
 | **longitude** | Double | The longitude, in decimal, for the item.                       |
 
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 ## Remarks
 

@@ -3,7 +3,7 @@
 Custom facets provide a way for you to store your own metadata on items.
 This can be used to keep track of custom state alongside an item, hold a link
 to a related item in another system, and various other things. Just like
-[OneDrive's own facets](../facets/facets.md), custom facets follow a schema
+[OneDrive's own facets](../resources/index.md#facets), custom facets follow a schema
 so that you can be sure the data stays consistent and valid, even when used
 with multiple apps.
 
@@ -13,16 +13,18 @@ OneDrive Personal at this time.
 ## Reading from custom facets
 
 To view custom facets on an item, you need to list the facet names explicitly
-in the [`select` query parameter](../odata/optional-query-parameters.md).
+in the [`select` query parameter](../concepts/optional-query-parameters.md).
 While custom facets appear alongside regular ones, they aren't returned unless
 included in the `select` statement.
 
 ### Example
+
 ```http
 GET /drive/items/{item-id}?select=id,name,image,contoso_oilChange
 ```
 
 ### Response
+
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -46,10 +48,11 @@ Content-Type: application/json
 ## Writing to custom facets
 
 Custom facets can be provided just like regular ones on
-[create](../items/create.md) or [update](../items/update.md) calls.
-You may provide both custom facets and regular ones in the same call.  
+[create](../api/driveitem-create.md) or [update](../api/driveitem-update.md) calls.
+You may provide both custom facets and regular ones in the same call.
 
 ### Example
+
 ```http
 PATCH /drive/items/{item-id}
 Content-Type: application/json
@@ -63,6 +66,7 @@ Content-Type: application/json
 ```
 
 ### Response
+
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -122,7 +126,7 @@ Below is an example schema definition.
 }
 ```
 
-**Schema definition**
+## Schema definition
 
 Field                   |Description
 ------------------------|-----------
@@ -130,7 +134,7 @@ Name                    | The schema name, of the form `{appDomain}_{schemaName}
 Description             | A human-readable description of the schema. For documentation purposes. Does not appear on the item.
 Properties              | The definitions of the properties in this schema. See table below.
 
-**Property definition**
+## Property definition
 
 Field      | Description
 -----------|-------------
@@ -141,7 +145,7 @@ Max        | If specified, the maximum allowed value. For strings, this is lengt
 Nullable   | If true, the value is optional.
 Indexed    | If true, OneDrive will allow you to query, sort, and filter based on this property's value.
 
-### Updating an existing schema definition
+## Updating an existing schema definition
 You can update a schema definition, but only in ways that can't break old apps:
 
 - Existing properties can't be removed

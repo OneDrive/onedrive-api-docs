@@ -20,7 +20,7 @@ A set of hash values for the file.
 |:--------------|:--------------|:------------------------------------------------------|
 | **sha1Hash**  | hex string | The bytes of the SHA1 hash of the file contents. |
 | **crc32Hash** | hex string | The bytes of the CRC32 value of the file contents, in little endian order.           |
-| **quickXorHash** | base64 string | A [proprietary hash](../snippets/quickxorhash.md) of the file contents.|
+| **quickXorHash** | base64 string | A [proprietary hash](../code-snippets/quickxorhash.md) of the file contents.|
 
 **Note:** In some cases hash values may not be available. Downloading the item
 can cause the hash values to be populated, provided the hash is supported in the given context. See remarks for details.
@@ -31,7 +31,7 @@ In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Has
 
 In OneDrive Personal, **quickXorHash** is not available.
 
-To calculate **quickXorHash** for a file, refer to the [QuickXorHash snippet](../snippets/quickxorhash.md).
+To calculate **quickXorHash** for a file, refer to the [QuickXorHash snippet](../code-snippets/quickxorhash.md).
 
 <!-- {
   "type": "#page.annotation",

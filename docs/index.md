@@ -14,11 +14,11 @@ OneDrive APIs are a part of the [Microsoft Graph](https://graph.microsoft.com), 
 
 Our platform consists of several components, designed to build on one another to making building apps and solutions easy.
 
-* [OneDrive file pickers](sdks.md), which enable your app to open and save from OneDrive using the native OneDrive user experience and minimal code.
+* [OneDrive file pickers](filepickers/index.md), which enable your app to open and save from OneDrive using the native OneDrive user experience and minimal code.
 * [Microsoft Graph SDKs](https://graph.microsoft.io/code-samples-and-sdks), a set of client libraries which make accessing files from the Microsoft Graph straightforward.
 * [Microsoft Graph APIs](https://graph.microsoft.io/docs), a collection of REST APIs your app can call directly instead of using an SDK.
 
-For existing solutions using OneDrive API outside of Microsoft Graph, or solutions targeting SharePoint Server 2016, see [direct endpoint differences](direct-endpoint-differences.md) for more context on reading this documentation.
+For existing solutions using OneDrive API outside of Microsoft Graph, or solutions targeting SharePoint Server 2016, see [direct endpoint differences](advanced/direct-endpoint-differences.md) for more context on reading this documentation.
 
 ## Getting started
 
@@ -62,13 +62,13 @@ Data about a resource is provided in three ways:
 * _References_ (like **children**) point to collections of other resources.
 
 Many requests can be tailored to include additional data or remove unused properties from the responses.
-OneDrive uses [optional query parameters](odata/optional-query-parameters.md) to enable this functionality.
+OneDrive uses [optional query parameters](concepts/optional-query-parameters.md) to enable this functionality.
 Throughout the documentation, each request provides more context about which parameters are supported.
 
 By default, most properties and facets are returned while all references are hidden.
 For efficiency, we recommend that you specify _select_ and _expand_ for the data you care about.
 
-For details about resources and facets, see [Resources](resources/resources.md) and [Facets](facets/facets.md).
+For details about resources and facets, see [Resources](resources/index.md) and [Facets](resources/index.md#facets).
 
 ### Microsoft Graph root resources
 
@@ -92,23 +92,23 @@ When addressing a Microsoft Graph root resource, your app can address OneDrive r
 
 | Path                                                      | Resource                                                                       |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [`/drive`](drives/default.md)                             | User's default [drive][drive-resource].                                        |
-| [`/drives`](drives/list-drives.md)                        | List [drive][drive-resource] resources available to the authenticated user.    |
-| [`/drives/{drive-id}`](drives/get.md)                     | Access a specific [drive][drive-resource] by its ID.                           |
-| [`/drives/{drive-id}/root/children`](items/list.md)       | List items in the root of a specific [drive][drive-resource].                  |
-| [`/drive/items/{item-id}`](items/get.md)                  | Access a [driveItem][item-resource] by its ID.                                 |
-| [`/drive/special/{special-id}`](items/special_folders.md) | Access a [known folder](items/special_folders.md) by its known name.           |
-| [`/shares/{share-id}`](shares/shares.md)                  | Access a [driveItem][item-resource] by its **shareId** or a sharing URL.       |
+| [`/drive`][drive-default]                             | User's default [drive][drive-resource].                                        |
+| [`/drives`][drive-list]                        | List [drive][drive-resource] resources available to the authenticated user.    |
+| [`/drives/{drive-id}`][drive-get]                     | Access a specific [drive][drive-resource] by its ID.                           |
+| [`/drives/{drive-id}/root/children`][item-children]       | List items in the root of a specific [drive][drive-resource].                  |
+| [`/drive/items/{item-id}`][item-get]                  | Access a [driveItem][item-resource] by its ID.                                 |
+| [`/drive/special/{special-id}`][specialfolder-get] | Access a [known folder][specialfolder-resource] by its known name.           |
+| [`/shares/{share-id}`][shares-get]                  | Access a [driveItem][item-resource] by its **shareId** or a sharing URL.       |
 
 
 ### Path-based addressing within a drive
 
 A **driveItem** can be addressed by either a unique identifier or where that item exists in the drive's hierarchy (i.e. user path).
 Within an API request, a colon can be used to shift between *API path space* and *user path space*.
-This syntax is valid for any [driveItem](resources/item.md) addressed via the API space.
+This syntax is valid for any [driveItem](resources/driveitem.md) addressed via the API space.
 
 You can also transition back to *API path space* by using a colon at the end of the *file system path space*.
-Ensure user data within the URL follows the [addressing and path encoding](misc/addressing.md) requirements.
+Ensure user data within the URL follows the [addressing and path encoding](concepts/addressing-driveitems.md) requirements.
 
 | Path                                               | Resource                                                               |
 | -------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -121,25 +121,25 @@ Ensure user data within the URL follows the [addressing and path encoding](misc/
 ### Shared folders and remote items
 
 OneDrive personal allows a user to add one or more shared items from another drive to their OneDrive.
-These shared items appear as a **driveItem** in the `children` collection with a [remoteItem facet](facets/remoteitem_facet.md).
+These shared items appear as a **driveItem** in the `children` collection with a [remoteItem facet](resources/remoteitem.md).
 
 In addition, scenarios where items are returned from outside the target drive will also include a **remoteItem** facet.
-These items may also be returned from [search](items/search.md), [recent files](drives/recent_files.md), [shared with me](drives/shared_with_me.md).
+These items may also be returned from [search](api/driveitem-search.md), [recent files](api/drive-recent-files.md), [shared with me](api/drive-shared-with-me.md).
 
-For more information on working with shared folders and remote items, see [Remote items and shared folders](misc/working-with-links.md).
+For more information on working with shared folders and remote items, see [Remote items and shared folders](concepts/using-sharing-links.md).
 
 ### Sharing and permissions
 
 One of the most common actions for OneDrive and SharePoint is sharing items with other people.
-OneDrive allows your app to create [sharing links](items/sharing_createLink.md), [add permissions, and send invitations](items/invite.md) to items stored in a drive.
+OneDrive allows your app to create [sharing links](api/driveitem-createLink.md), [add permissions, and send invitations](api/driveitem-invite.md) to items stored in a drive.
 
-OneDrive also provides a way for your app to [access shared content](shares/shares.md) directly from the sharing link.
+OneDrive also provides a way for your app to [access shared content](api/shares-get.md) directly from the sharing link.
 
-For more details on how to share and consume shared content, see [Sharing items in OneDrive](items/sharing.md).
+For more details on how to share and consume shared content, see [Sharing items in OneDrive](concepts/sharing.md).
 
 ## Webhooks and notifications
 
-[OneDrive supports sending webhook-style push notifications](webhooks/webhooks.md) when the contents of a OneDrive is changed.
+[OneDrive supports sending webhook-style push notifications](concepts/using-webhooks.md) when the contents of a OneDrive is changed.
 Your app can use these notifications to track changes in near real-time instead of polling the server for changes.
 
 ## Programming notes
@@ -150,7 +150,7 @@ OneDrive will continue to evolve and gain additional functionality.
 The API path includes a version number to protect your app against breaking changes.
 When a breaking change is required, the API version number will be incremented.
 Existing apps calling the original version number will remain unaffected by the change.
-See the [Microsoft Graph support policy](https://graph.microsoft.io) for information about how long a version of the API is supported.
+See the [Microsoft Graph support policy](https://graph.microsoft.com) for information about how long a version of the API is supported.
 
 A breaking change is a change in the format of a request or response that removes or alters an existing _documented_ behavior or removes an element of a resource's definition.
 It is not a breaking change to add additional actions, properties, facets, or references to a resource.
@@ -177,8 +177,8 @@ OneDrive has limits in place to make sure that individuals and apps do not adver
 When an activity exceeds OneDrive's limits, API requests will be rejected for a period of time.
 OneDrive may also return a *Retry-After* header with the number of seconds your app should wait before sending more requests.
 
-```
-HTTP/1.1 429 Too Many Requests  
+```http
+HTTP/1.1 429 Too Many Requests
 Retry-After: 3600
 ```
 
@@ -203,21 +203,26 @@ For the latest build details, check out the [AppVeyor build status page for our 
 The following topics contain high level overviews of other concepts that apply to the OneDrive API.
 
 * [Authentication and sign in](auth/index.md)
-* [Addressing resources](misc/addressing.md)
-* [Case sensitivity](misc/case-sensitivity.md)
-* [Error responses](misc/errors.md)
-* [HTTP verb tunneling](misc/verb-tunneling.md)
+* [Addressing resources](concepts/addressing-driveitems.md)
+* [Case sensitivity](advanced/case-sensitivity.md)
+* [Error responses](concepts/errors.md)
+* [HTTP verb tunneling](advanced/http-verb-tunneling.md)
 * [Terms of use](terms-of-use.md)
 
-[drive-default]: drives/default.md
+[drive-default]: api/drive-get-default.md
 [drive-resource]: resources/drive.md
-[item-resource]: resources/item.md
-[drive-get]: drives/get.md
-[item-changes]: items/view_delta.md
-[item-search]: items/search.md
-[item-children]: items/list.md
+[drive-list]: api/drive-list.md
+[item-resource]: resources/driveitem.md
+[drive-get]: api/drive-get.md
+[item-changes]: api/driveitem-delta.md
+[item-search]: api/driveitem-search.md
+[item-children]: api/driveitem-list.md
 [permission-resource]: resources/permission.md
-[item-get]: items/get.md
+[item-get]: api/driveitem-get.md
+[specialfolder-get]: api/specialfolder-get.md
+[specialfolder-resource]: api/specialfolder-get.md
+[shares-get]: api/shares-get.md
+
 
 <!-- {
   "type": "#page.annotation",

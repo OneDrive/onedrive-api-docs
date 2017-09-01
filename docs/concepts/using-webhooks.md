@@ -13,17 +13,16 @@ provide will be sent a request notifying it that changes have occurred.
 
 | Task                                                | HTTP method                        |
 |-----------------------------------------------------|------------------------------------|
-| [Create a new subscription](create-subscription.md) | `POST /subscriptions`              |
-| [Delete subscription](delete-subscription.md)       | `DELETE /subscriptions/{id}`       |
-| [Update a subscription](update-subscription.md)     | `PATCH /subscriptions/{id}`        |
-
+| [Create a new subscription](../api/subscription-create.md) | `POST /subscriptions`              |
+| [Delete subscription](../api/subscription-delete.md)       | `DELETE /subscriptions/{id}`       |
+| [Update a subscription](../api/subscription-update.md)     | `PATCH /subscriptions/{id}`        |
 
 ## Registering
 
 To register for webhooks, you add a new subscription to the item representing
 the top of the scope for which you wish to receive changes.
 
-See [adding a new subscription](create-subscription.md) for details on how to
+See [adding a new subscription](../api/subscription-create.md) for details on how to
 register a URL for notifications.
 
 ### Scope of notifications
@@ -48,7 +47,7 @@ request, if multiple users have changes that occur within the same time period.
 
 #### Example notification
 
-The body of the HTTP request to your notification URL will contain a [Webhook Notification](../resources/webhookNotifiation.md)
+The body of the HTTP request to your notification URL will contain a [Webhook Notification](../resources/webhooknotification.md)
 resource similar to the following:
 
 <!-- { "blockType": "example", "@odata.type": "oneDrive.webhookNotifiation",

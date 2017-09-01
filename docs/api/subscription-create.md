@@ -70,7 +70,7 @@ respond to this request by returning the validation key.
 If your service fails to validate the request in this way, the subscription
 will fail to be created.
 
-See [handling webhook validation requests](webhook-validation.md) for detailed
+See [handling webhook validation requests](../concepts/webhook-receiver-validation-request.md) for detailed
 information.
 
 ### Error responses
@@ -78,7 +78,7 @@ information.
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 
 <!-- {

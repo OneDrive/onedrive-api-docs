@@ -53,9 +53,9 @@ be returned from the actual call.
 
 See the [Error Responses][error-response] topic for more info about
 how errors are returned.
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 [drive-resource]: ../resources/drive.md
-[odata-query-parameters]: ../odata/optional-query-parameters.md
+[odata-query-parameters]: ../concepts/optional-query-parameters.md
 
 <!-- {
   "type": "#page.annotation",

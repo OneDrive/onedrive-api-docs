@@ -54,7 +54,7 @@ Content-type: application/json
 describes the identifier used for accessing the special folder.
 
 To request the children of a special folder, you can request the `children`
-collection or use the [expand](../odata/optional-query-parameters.md) option to expand the children collection.
+collection or use the [expand](../concepts/optional-query-parameters.md) option to expand the children collection.
 
 <!-- { "blockType": "request", "name": "get-special-children", "scopes": "files.read" } -->
 ```http
@@ -79,7 +79,7 @@ Content-Type: application/json
 }
 ```
 
-The last example uses [path addressing](../misc/addressing.md) for children of
+The last example uses [path addressing](../concepts/addressing-driveitems.md) for children of
 the special folder by using the colon to separate the path from the special
 folder URL:
 
@@ -123,7 +123,7 @@ HTTP/1.1 200 OK
 See [Error Responses][error-response] for details about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 ## Remarks
 

@@ -4,8 +4,8 @@ This resource provides information on the status of a asynchronous job progress.
 
 The following API calls return **AsyncOperationStatus** resources:
 
-* [Copy Item](../items/copy.md)
-* [Upload From URL](../items/upload_url.md)
+* [Copy Item](../api/driveitem-copy.md)
+* [Upload From URL](../api/driveitem-upload-url.md)
 
 ### JSON representation
 

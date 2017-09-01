@@ -1,6 +1,6 @@
 # Long running actions
 
-Some scenarios, like [copy](../items/copy.md) or [upload from URL](../items/upload_url.md) cannot always be completed in a finite amount of time.
+Some scenarios, like [copy](../api/driveitem-copy.md) or [upload from URL](../api/driveitem-upload-url.md) cannot always be completed in a finite amount of time.
 To handle these scenarios and keep API response latency low, these actions are implemented using a long running actions pattern.
 
 1. App requests a long running action via the API. The API accepts the action and returns a `202 Accepted` response along with a Location header for the API URL to retrieve action status reports.
@@ -10,7 +10,7 @@ To handle these scenarios and keep API response latency low, these actions are i
 # Example
 
 ## 1. Initial action request
-Let's walk through the steps for an example [copy](../items/copy.md) scenario.
+Let's walk through the steps for an example [copy](../api/driveitem-copy.md) scenario.
 In this scenario, an app requests to copy a folder with a large amount of data contained within.
 This request will likely take several seconds to complete since the amount of data is large.
 
@@ -28,7 +28,7 @@ Prefer: respond-async
 }
 ```
 
-The API responds that the action was accepted and the URL for retriving the status of the long running action.
+The API responds that the action was accepted and the URL for retrieving the status of the long running action.
 
 <!-- { "blockType": "response" } -->
 ```http

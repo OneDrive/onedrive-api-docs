@@ -17,10 +17,10 @@ It is available on the file property of [driveItem][item-resource] resources tha
 | Property Name          | Type                          | Description                                                                                                                                 |
 |:-----------------------|:------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
 | **mimeType**           | string                        | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded.       |
-| **hashes**             | [HashesType](hashes_facet.md) | Hashes of the file's binary content, if available.                                                                                          |
+| **hashes**             | [HashesType](hashes.md) | Hashes of the file's binary content, if available.                                                                                          |
 | **processingMetadata** | Boolean                       | Flag indicating if the item is still being processed to extract metadata                                                                    |
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

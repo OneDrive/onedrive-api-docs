@@ -104,7 +104,7 @@ are allowed:
 
 When the user is done picking file(s), the `success` callback receives
 `response` object. This object contains properties, include **value** property
-which is a collection of [driveItem resources](../../resources/item.md) with a subset of
+which is a collection of [driveItem resources](../../resources/driveitem.md) with a subset of
 the item's properties.
 
 For OneDrive Personal, when multiple files are selected and a sharing link is
@@ -182,7 +182,7 @@ This tells the picker SDK to select the **id**, **name**, **size**, **file**,
 
 By default the OneDrive file picker returns a view-only sharing URL when
 **action** is set to `share`. However you can use the createLinkParameters
-property to change the parameters passed to the [createLink action](../../items/sharing_createLink.md).
+property to change the parameters passed to the [createLink action](../../api/driveitem-createlink.md).
 
 ```javascript
 var odOptions = {

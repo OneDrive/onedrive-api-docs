@@ -73,8 +73,8 @@ will be returned from the actual call.
 See [Error Responses][error-response] for details about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

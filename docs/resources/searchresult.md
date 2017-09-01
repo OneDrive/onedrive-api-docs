@@ -18,7 +18,7 @@ are part of a search result.
 |:----------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
 | `onClickTelemetryUrl` | `string` | A callback URL that is used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item. |
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 ## Remarks
 

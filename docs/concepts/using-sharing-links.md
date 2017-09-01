@@ -5,7 +5,7 @@ content from a shared folder easier. When a shared folder is added to
 OneDrive, the folder appears in the root, and its contents are synchronized using the OneDrive sync client.
 
 When enumerating a collection of items, shared folders appear as items
-with the **[remoteItem](../facets/remoteitem_facet.md)** facet. This facet
+with the **[remoteItem](../resources/remoteitem.md)** facet. This facet
 includes the information necessary to access the contents of the shared folder
 using the OneDrive API.
 
@@ -139,7 +139,7 @@ Content-Type: application/json
 
 ## Using Delta with remote items
 
-When using **[delta](../items/view_changes.md)** in a drive with
+When using **[delta](../api/driveitem-delta.md)** in a drive with
 shared folders, the shared folder themselves will be returned as part of the
 response but the items contained within a shared folder will not be returned. A
 separate call to **delta** and separate cached delta token is required for each shared folder.
@@ -148,7 +148,7 @@ separate call to **delta** and separate cached delta token is required for each 
 
 The OneDrive API does not support moving or copying items into
 a shared folder. New items can be created in the folder by using the regular
-[upload actions](../items/upload.md) and targeting the remoteItem
+[upload actions](../concepts/upload.md) and targeting the remoteItem
 **driveId** and **id**.
 
 

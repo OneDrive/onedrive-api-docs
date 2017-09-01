@@ -4,7 +4,7 @@ The multipart upload method allows you to provide metadata about an item and the
 contents of the item in a single API call. This method only supports requests up to
 100MB in size.
 
-See [Uploading item contents](upload.md) for details about how to upload
+See [Uploading item contents](../concepts/upload.md) for details about how to upload
 the contents of an item.
 
 **Note:** Multipart upload is only available on OneDrive Personal.
@@ -68,14 +68,14 @@ Contents of the file to be uploaded.
 --A100x--
 ```
 
-**Note:** You can use an [Instance Attribute](../resources/item.md#instance-attributes)
+**Note:** You can use an [Instance Attribute](../resources/driveitem.md#instance-attributes)
 on the Item metadata to control what happens if you are uploading a file that
 matches an existing file's name. By default, the upload fails if an existing
 item has the same name.
 
 ### Response
 
-If successful, this method returns a [driveItem resource](../resources/item.md) in
+If successful, this method returns a [driveItem resource](../resources/driveitem.md) in
 the response body for the newly created file.
 
 <!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
@@ -105,7 +105,7 @@ how errors are returned.
 The multipart upload method is not supported in OneDrive for Business, SharePoint Online and SharePoint Server 2016.
 
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

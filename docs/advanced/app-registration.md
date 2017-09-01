@@ -26,16 +26,16 @@ For public client apps (native apps or JavaScript apps), you do not need to an a
 The secret represents the key to your application and, if made available, can be used to impersonate your application.
 
 Under the **Platforms** header, configure details about your app.
-By default a new app is created as a **web** app and needs one or more redirect URIs. 
+By default a new app is created as a **web** app and needs one or more redirect URIs.
 To enable native client flows for your app as well, click the **Add Platform** button and choose **Mobile**.
 
 Microsoft account uses scopes to determine which API your app can access, and these scopes are included in the OAuth flow when the user logs in.
-For more information about how to authenticate a user with your app, see [OneDrive authentication and sign-in](auth/msa_oauth.md).
+For more information about how to authenticate a user with your app, see [OneDrive authentication and sign-in](../auth/msa-oauth.md).
 
 
 ## Keep going
 
-Once you have your app registered, continue on to [learning how to authenticate a user and authorize your application](auth/graph_oauth.md).
+Once you have your app registered, continue on to [learning how to authenticate a user and authorize your application](../auth/graph-oauth.md).
 
 
 <!-- {

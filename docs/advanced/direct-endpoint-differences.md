@@ -25,14 +25,14 @@ https://{server}/_api/v2.0/drive/oneDrive.sharedWithMe
 
 The following actions or methods must be prefixed on the direct endpoint:
 
-* [Copy](items/copy.md)
-* [Create Sharing Link](items/sharing_createLink.md)
-* [Create Upload Session](items/upload_large_files.md)
-* [Delta](items/view_delta.md)
-* [Invite](items/invite.md)
-* [Recent Files](drives/recent_files.md)
-* [Search](items/search.md)
-* [Shared With Me](drives/shared_with_me.md)
+* [Copy](../api/driveitem-copy.md)
+* [Create Sharing Link](../api/driveitem-createLink.md)
+* [Create Upload Session](../api/driveitem-upload-large-files.md)
+* [Delta](../api/driveitem-delta.md)
+* [Invite](../api/driveitem-invite.md)
+* [Recent Files](../api/drive-recent-files.md)
+* [Search](../api/driveitem-search.md)
+* [Shared With Me](../api/drive-shared-with-me.md)
 
 ### Instance annotations
 
@@ -55,7 +55,7 @@ The following table contains resources and property names which are different be
 | ------------------------------------------ | ------------------------ |
 | [folder][].view                            | folder.folderView        |
 
-[folder]: facets/folder_facet.md
+[folder]: ../resources/folder.md
 
 ## Discovering an endpoint
 
@@ -104,14 +104,14 @@ In this scenario, your app will need to use Microsoft Graph to provision the use
 For calls to SharePoint and OneDrive for Business, you can assign these permission scopes to your application through the Azure Portal via the **Office 365 SharePoint Online** service.
 For OneDrive Personal, the scope string is passed into the OAuth workflow directly and do not need to be registered ahead of time.
 
-| Microsoft Graph Permission | OneDrive Personal | SharePoint and OneDrive for Business |
-| --- | --- | --- |
-| Files.Read      | OneDrive.Read | Files.Read |
-| Files.ReadWrite | OneDrive.ReadWrite | Files.ReadWrite |
-| Files.ReadWrite.All | OneDrive.ReadWrite | Files.ReadWrite.All |
-| Files.ReadWrite.AppFolder | OneDrive.AppFolder | Files.ReadWrite.AppFolder |
-| Sites.Read.All | N/A | Sites.Read.All |
-| Sites.ReadWrite.All | N/A | Sites.ReadWrite.All |
+| Microsoft Graph Permission | OneDrive Personal  | SharePoint and OneDrive for Business |
+| -------------------------- | ------------------ | ------------------------------------ |
+| Files.Read                 | OneDrive.Read      | MyFiles.Read                         |
+| Files.ReadWrite            | OneDrive.ReadWrite | MyFiles.Write                        |
+| Files.ReadWrite.All        | OneDrive.ReadWrite | Files.ReadWrite.All                  |
+| Files.ReadWrite.AppFolder  | OneDrive.AppFolder | Files.ReadWrite.AppFolder            |
+| Sites.Read.All             | N/A                | Sites.Read.All                       |
+| Sites.ReadWrite.All        | N/A                | Sites.ReadWrite.All                  |
 
 
 

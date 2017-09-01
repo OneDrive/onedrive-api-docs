@@ -2,7 +2,7 @@
 
 Creates a copy of an [driveItem][item-resource] (including any children), under a new parent item.
 Since the copy operation may take an indeterminant amount of time (depending on how much data is being copied), this action is required to be asynchronous.
-You can monitor the status of the copy action using the [long running action](../misc/long-running-actions.md) pattern.
+You can monitor the status of the copy action using the [long running action](../concepts/long-running-actions.md) pattern.
 
 ## Prerequisites
 To call the copy API, the user must have granted the application read access to the specified item to be copied and write access to the destination folder.
@@ -15,7 +15,7 @@ POST /drive/items/{item-id}/copy
 POST /drive/root:/{item-path}:/copy
 ```
 
-**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and the OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 ### Request body
 In the request body, provide a JSON object with the following parameters.
@@ -47,7 +47,7 @@ Prefer: respond-async
 
 ## Response
 
-Returns details about how to [monitor the progress](../misc/long-running-actions.md) of the copy, upon accepting the request.
+Returns details about how to [monitor the progress](../concepts/long-running-actions.md) of the copy, upon accepting the request.
 
 <!-- { "blockType": "response" } -->
 ```http
@@ -56,7 +56,7 @@ Location: https://onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 ```
 
 The value of the `Location` header provides a URL for a service that will return the current state of the copy operation.
-You can use this info to [determine when the copy has finished](../misc/long-running-actions.md).
+You can use this info to [determine when the copy has finished](../concepts/long-running-actions.md).
 
 ### Error responses
 To retrieve the current status of the async copy job, issue a GET request to the URL in the `Location` header.
@@ -66,8 +66,8 @@ If the copy job has completed, the GET request will return an `HTTP 303 See Othe
 
 See [Error Responses][error-response] for more info about how errors are returned.
 
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

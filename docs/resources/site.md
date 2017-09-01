@@ -11,16 +11,16 @@ The **site** resource provides metadata and relationships for a SharePoint site.
 | [Get site by path][] | GET /sites/{hostname}:/{site-path}                |
 | [Search for sites][]  | GET /sites?search={query}                         |
 
-[Get site]: ../sites/get.md
-[Get root site]: ../sites/get.md
-[Get site by path]: ../sites/get-by-path.md
-[Search for sites]: ../sites/search.md
+[Get site]: ../api/site-get.md
+[Get root site]: ../api/site-get.md
+[Get site by path]: ../api/site-get-by-path.md
+[Search for sites]: ../api/site-search.md
 
 ## JSON representation
 
 Here is a JSON representation of a **site** resource.
 
-The **driveItem** resource is derived from [**baseItem**](baseItem.md) and inherits properties from that resource.
+The **driveItem** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
 <!-- { "blockType": "resource",
        "@odata.type": "oneDrive.site",
@@ -61,9 +61,9 @@ The **driveItem** resource is derived from [**baseItem**](baseItem.md) and inher
 | **displayName**          | string                              | The full title for the site. Read-only.                                                        |
 | **lastModifiedDateTime** | DateTimeOffset                      | The date and time the item was last modified. Read-only.                                       |
 | **name**                 | string                              | The name / title of the item.                                                                  |
-| **root**                 | [root](../facets/root_facet.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
-| **sharepointIds**        | [sharepointIds](../facets/sharepointIds_facet.md)   | Returns identifiers useful for SharePoint REST compatibility. Read-only.                       |
-| **siteCollection**       | [siteCollection](../facets/siteCollection_facet.md) | Provides details about the site's site collection. Available only on the root site. Read-only. |
+| **root**                 | [root](../resources/root.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
+| **sharepointIds**        | [sharepointIds](../resources/sharepointids.md)   | Returns identifiers useful for SharePoint REST compatibility. Read-only.                       |
+| **siteCollection**       | [siteCollection](../resources/sitecollection.md) | Provides details about the site's site collection. Available only on the root site. Read-only. |
 | **webUrl**               | string (url)                        | URL that displays the item in the browser. Read-only.                                          |
 
 ## Relationships
@@ -75,9 +75,9 @@ The **driveItem** resource is derived from [**baseItem**](baseItem.md) and inher
 | **items**         | Collection([baseItem][]) | Used to address any item contained in this site. This collection cannot be enumerated.
 | **sites**         | Collection([site][])     | The collection of the sub-sites under this site.
 
-[baseItem]: baseItem.md
+[baseItem]: baseitem.md
 [drive]: drive.md
-[identitySet]: identitySet.md
+[identitySet]: identityset.md
 [site]: site.md
 
 <!-- {

@@ -24,7 +24,7 @@ represent videos.
 | **height**    | number | Height of the video, in pixels.           |
 | **width**     | number | Width of the video, in pixels.            |
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 ## Remarks
 

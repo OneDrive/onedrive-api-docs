@@ -22,7 +22,7 @@ The following table defines the relationships that the Drive resource has to oth
 | Relationship name | Type                     | Description                                                                                                                                                         |
 | ----------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **items**         | **driveItem** collection | All items contained in the sharing root. This collection cannot be enumerated.                                                                                      |
-| **root**          | **driveItem** resource   | The root item being shared. This is an [driveItem](item.md) that represents either the shared item or a container of shared items, when multiple items have been shared. |
+| **root**          | **driveItem** resource   | The root item being shared. This is an [driveItem](driveitem.md) that represents either the shared item or a container of shared items, when multiple items have been shared. |
 
 
 <!-- {

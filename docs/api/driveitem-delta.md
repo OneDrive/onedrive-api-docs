@@ -12,7 +12,7 @@ GET /drive/items/{item-id}/delta
 GET /drive/root:/{item-path}:/delta
 ````
 
-**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../direct-endpoint-differences.md) for more information.
+**Note:** This method has a different signature for Microsoft Graph and OneDrive API. See [OneDrive API endpoint differences](../advanced/direct-endpoint-differences.md) for more information.
 
 ### Optional query string parameters
 
@@ -167,14 +167,14 @@ Content-type: application/json
 
 In addition to the resync errors detailed above, see [Error Responses][error-response] for details about how errors are returned.
 
-[delta-resource]: ../resources/viewDeltaResource.md
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
+[delta-resource]: ../resources/viewdelta.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
 
 ## Remarks
 
 In OneDrive for Business, `delta` is only supported on the `root` folder, not on individual folders within a drive.
-The `delta` API will not return the following [Item properties](../resources/item.md):
+The `delta` API will not return the following [Item properties](../resources/driveitem.md):
 
 * **createdBy**
 * **eTag**

@@ -4,11 +4,11 @@
 
 This topic contains information about authorizing an application using Microsoft accounts for OneDrive personal.
 However, this approach is no longer recommended.
-New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph_oauth.md).
+New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph-oauth.md).
 
 ## Using Azure Active Directory for authentication
 
-To use the [OneDrive API](index.md) with OneDrive for Business, you need to have an access token that authenticates your app to a particular set of permissions for a user.
+To use the [OneDrive API](../index.md) with OneDrive for Business, you need to have an access token that authenticates your app to a particular set of permissions for a user.
 
 Getting an application configured for access to OneDrive for Business is a challenge. We're working on making this process easier, so please bear with us.
 
@@ -36,7 +36,7 @@ Your root URL appears in the next example, where `{tenant}` comes from your disc
 ## Register your app with Azure Active Directory
 
 Before your can sign in, you need to register your app with Azure Active Directory and set the permissions your app needs.
-For more information see [Register your app for SharePoint Server 2016 or OneDrive for Business](../app-registration-server.md).
+For more information see [Register your app for SharePoint Server 2016 or OneDrive for Business](../advanced/app-registration-server.md).
 
 ## Sign into OneDrive for Business
 
@@ -281,7 +281,7 @@ to the OneDrive API.
 
 * [Develop with the OneDrive API](../index.md)
 * [Using Azure Active Directory for authentication](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/)
-* [OneDrive authentication and sign-in using Microsoft accounts](msa_oauth.md)
+* [OneDrive authentication and sign-in using Microsoft accounts](msa-oauth.md)
 * [Office 365 authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks)
 * [OAuth 2.0 in Auzure AD](https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx)
 * [Authorization Code Grant Flow](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)

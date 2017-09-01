@@ -1,0 +1,55 @@
+﻿# Resources
+
+The following resources are defined in the OneDrive API:
+
+* [delta](viewdelta.md)
+* [drive](drive.md)
+* [driveItem](driveitem.md)
+* [error](error.md)
+* [identity](identity.md)
+* [identitySet](identitySet.md)
+* [itemReference](itemReference.md)
+* [permission](permission.md)
+* [recipients](recipients.md)
+* [share](shareRoot.md)
+* [subscription](subscription.md)
+* [thumbnail](thumbnail.md)
+* [thumbnailSet](thumbnailSet.md)
+* [uploadSession](uploadSession.md)
+* [webhookNotification](webhooknotification.md)
+
+# Facets
+
+The following facets are defined in the OneDrive API:
+
+* [audio](../resources/audio.md)
+* [deleted](../resources/deleted.md)
+* [file](../resources/file.md)
+* [fileSystemInfo](../resources/filesysteminfo.md)
+* [folder](../resources/folder.md)
+* [hashes](../resources/hashes.md)
+* [image](../resources/image.md)
+* [location](../resources/location.md)
+* [package](../resources/package.md)
+* [photo](../resources/photo.md)
+* [quota](../resources/quotainfo.md)
+* [remoteItem](../resources/remoteitem.md)
+* [root](../resources/root.md)
+* [searchResult](../resources/searchResult.md)
+* [shared](../resources/shared.md)
+* [sharepointIds](../resources/sharepointIds.md)
+* [sharingInvitation](../resources/invitation.md)
+* [sharingLink](../resources/sharinglink.md)
+* [specialFolder](../resources/jumpinfo.md)
+* [video](../resources/video.md)
+
+
+<!-- {
+  "type": "#page.annotation",
+  "title": "Resources in the OneDrive API",
+  "description": "List of resources available in the OneDrive API",
+  "keywords": "resources,list of resources,drive,identity,item,facet",
+  "section": "documentation",
+  "tocPath": "Resources",
+  "tocIndex": 500
+} -->

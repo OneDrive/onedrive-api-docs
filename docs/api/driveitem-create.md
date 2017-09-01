@@ -72,9 +72,9 @@ be returned from the actual call.
 
 Read the [Error Responses][error-response] topic for more info about
 how errors are returned.
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
-[folder-facet]: ../facets/folder_facet.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
+[folder-facet]: ../resources/folder.md
 
 <!-- {
   "type": "#page.annotation",

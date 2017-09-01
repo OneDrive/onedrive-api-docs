@@ -2,9 +2,9 @@
 
 The simple upload API allows you to provide the contents of a new file or update
 the contents of an existing file in a single API call. This method only supports
-files up to **4MB** in size. For larger files use [resumable upload](upload_large_files.md).
+files up to **4MB** in size. For larger files use [resumable upload](driveitem-upload-large-files.md).
 
-See [Upload item contents](upload.md) for more information about how to upload
+See [Upload item contents](../concepts/upload.md) for more information about how to upload
 the contents of an item.
 
 ## Prerequisites
@@ -99,8 +99,8 @@ be returned from the actual call.
 See [Error Responses][error-response] for details about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
-[item-resource]: ../resources/item.md
+[error-response]: ../concepts/errors.md
+[item-resource]: ../resources/driveitem.md
 
 ### Remarks
 

@@ -66,7 +66,7 @@ will be returned from the actual call.
 
 ## Get an Item and its children in a single call
 
-You can use the [`expand`](../odata/optional-query-parameters.md) query string
+You can use the [`expand`][odata-parameters] query string
 parameter to include the children of an item in the same call as retrieving the
 metadata of an item.
 
@@ -137,10 +137,10 @@ HTTP/1.1 200 OK
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
-[odata-parameters]: ../odata/optional-query-parameters.md
-[item-resource]: ../resources/item.md
-[special-folder]: ../items/special_folders.md
+[error-response]: ../concepts/errors.md
+[odata-parameters]: ../concepts/optional-query-parameters.md
+[item-resource]: ../resources/driveitem.md
+[special-folder]: ../api/specialfolder-get.md
 
 <!-- {
   "type": "#page.annotation",

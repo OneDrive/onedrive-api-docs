@@ -326,7 +326,7 @@ will be returned from the actual call.
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 ### Remarks
 

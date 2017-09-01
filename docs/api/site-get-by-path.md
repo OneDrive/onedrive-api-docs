@@ -5,7 +5,7 @@ A **site** resource represents a team site in SharePoint.
 
 [site]: ../resources/site.md
 
-In addition to retrieving a [site by ID](get.md) you can retrieve a site based on server-relative URL path.
+In addition to retrieving a [site by ID](site-get.md) you can retrieve a site based on server-relative URL path.
 
 * Site collection hostname (contoso.sharepoint.com)
 * Site path, relative to server hostname.

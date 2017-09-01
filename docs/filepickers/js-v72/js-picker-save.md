@@ -71,7 +71,7 @@ var odOptions = {
 | **fileName**             | Required if the `sourceUri` parameter is a [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme). If not provided, the file name will be inferred from the name attribute of the input element.                                               |
 | **openInNewWindow**      | The default value is **true**, which opens the OneDrive picking experience in a popup window. **false** opens the OneDrive picking experience in the same window.                                                                                 |
 | **advanced**             | A collection of additional properties which can further customize the behavior of the picker, but are not necessary for most scenarios. See [Advanced Save Scenarios](#advanced-save-scenarios) for more details.                                 |
-| **nameConflictBehavior** | An optional parameter passed in for situation when an uploading file has name conflict with file in the destination folder. See the [parameter definition](../../items/upload_put.md#optional-query-string-parameters) for more detail.           |
+| **nameConflictBehavior** | An optional parameter passed in for situation when an uploading file has name conflict with file in the destination folder. See the [parameter definition](../../api/driveitem-upload-put.md#optional-query-string-parameters) for more detail.           |
 | **success**              | Called when the file upload to the server is complete. The files parameter is a collection of metadata returned by the service for the uploaded file.                                                                                             |
 | **progress**             | Called at various points with a float between 0.0 and 100.0 to indicate the progress of the upload. This is called at least once with 100.0.                                                                                                      |
 | **cancel**               | Called when the user cancels the saver.                                                                                                                                                                                                           |
@@ -94,7 +94,7 @@ The following values are allowed for the `save()` action:
 ## 4. Handling the picker response object
 
 When the user is done picking file(s), the `success` callback receives `response` object.
-This object contains properties, include **value** property which is a collection of [Item resource](../../resources/item.md) with a subset of the item's properties.
+This object contains properties, include **value** property which is a collection of [Item resource](../../resources/driveitem.md) with a subset of the item's properties.
 
 When using the `save` action, this collection provides the item metadata for the newly uploaded file.
 For the `query` action, this collection will contain metadata for the selected folder.

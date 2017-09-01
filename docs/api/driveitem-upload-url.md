@@ -4,7 +4,7 @@ Your app can upload an item to OneDrive by providing a URL.
 OneDrive will download the file directly from a remote server so your app doesn't have to upload the file's bytes.
 This is especially useful for mobile clients or browser add-ins, where the file contents aren't available, or are expensive to transfer.
 
-See [Uploading item contents](upload.md) for other ways to upload an item.
+See [Uploading item contents](../concepts/upload.md) for other ways to upload an item.
 
 **Note:** You can only upload items from a URL to OneDrive Personal.
 
@@ -73,7 +73,7 @@ HTTP/1.1 500 Internal Server Error
 
 Uploading an item to OneDrive for Business, SharePoint Online and SharePoint Server 2016 using a URL is not supported.
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

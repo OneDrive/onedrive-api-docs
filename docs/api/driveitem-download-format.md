@@ -3,7 +3,7 @@
 Use this API to retrieve the contents of an item in a specific format.
 Not all files can be converted into all formats.
 
-To download the item in it's original format, see [download an item's contents](download.md).
+To download the item in it's original format, see [download an item's contents](driveitem-download.md).
 
 ## Prerequisites
 
@@ -70,8 +70,8 @@ See [Error Responses][error-response] for more info about how errors are returne
 ## Remarks
 
 
-[error-response]: ../misc/errors.md
-[file-facet]: ../facets/file_facet.md
+[error-response]: ../concepts/errors.md
+[file-facet]: ../resources/file.md
 
 <!-- {
   "type": "#page.annotation",

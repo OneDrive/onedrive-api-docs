@@ -9,7 +9,7 @@ Return the shared items that exist in the target drive.
 GET /drive/shared
 ```
 
-This returns a collection of [driveItem resources](../resources/item.md) that enumerates
+This returns a collection of [driveItem resources](../resources/driveitem.md) that enumerates
 the set of items that have been shared by the current user.
 
 <!-- {
@@ -46,7 +46,7 @@ can access from the specified drive.
 Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 ## Remarks
 

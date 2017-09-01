@@ -7,7 +7,7 @@ If you are working with SharePoint Server 2016 or not using Microsoft Graph, see
 
 ### 1. User authentication and authorizing your app
 
-Microsoft Graph and OneDrive API use [OAuth 2.0](http://oauth.net/2/) for [authorization](auth/index.md).
+Microsoft Graph and OneDrive API use [OAuth 2.0](http://oauth.net/2/) for [authorization](../auth/index.md).
 By completing an OAuth flow, your app receives an access token that provides access to the Microsoft Graph a particular set of permissions for a user.
 
 Your app provides the access token in each request, through an HTTP header:
@@ -19,7 +19,7 @@ For more information on authorizing your application and obtaining an access tok
 ### 2. Make calls to a resource
 
 Once your app is authorized and received an access token, it can make requests to the Microsoft Graph endpoint for OneDrive or SharePoint resources.
-To construct the URL for a resource, you need to know the relative URL for the [root resource (like a user, group, or site)](index.md#microsoft-graph-root-resources) and the [drive resource](resources/drive.md) or [driveItem resource](resources/item.md) your request is targeting.
+To construct the URL for a resource, you need to know the relative URL for the [root resource (like a user, group, or site)](../index.md#microsoft-graph-root-resources) and the [drive resource](../resources/drive.md) or [driveItem resource](../resources/driveitem.md) your request is targeting.
 
 A request URL includes these components:
 
@@ -34,8 +34,8 @@ Prefix the path with the correct root URL and root resource target in order to o
 
 Check out the [OneDrive samples on GitHub](https://github.com/onedrive) and the [Microsoft Graph samples on GitHub](https://github.com/microsoftgraph) to learn more about using files in the Microsoft Graph.
 
-Read through the [OneDrive API HTTP documentation](index.md) to learn more about working with the [**drive**](resources/drive.md) and [**driveItem**](resources/item.md) resources.
-For more information about all resources in Microsoft Graph, see the [Microsoft Graph documentation](https://graph.microsoft.io/docs).
+Read through the [OneDrive API HTTP documentation](../index.md) to learn more about working with the [**drive**](../resources/drive.md) and [**driveItem**](../resources/driveitem.md) resources.
+For more information about all resources in Microsoft Graph, see the [Microsoft Graph documentation](https://graph.microsoft.com).
 
 Questions or need support? You can find us on [Stack Overflow](http://stackoverflow.com/questions/tagged/onedrive) and through the [GitHub issues page for our documentation](https://github.com/onedrive/onedrive-api-docs/issues).
 

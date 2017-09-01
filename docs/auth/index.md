@@ -10,9 +10,9 @@ To get started, take a look at using OAuth with Microsoft Graph:
 
 | Method                                                                   | Description                                          |
 | ------------------------------------------------------------------------ | ---------------------------------------------------- |
-| [Sign in](graph_oauth.md)                                                | Sign in to Microsoft account and OneDrive personal.  |
-| [Refresh](graph_oauth.md#step-3-get-a-new-access-token-or-refresh-token) | Refresh your access token.                           |
-| [Sign out](graph_oauth.md#sign-the-user-out)                             | Sign out of Microsoft account and OneDrive personal. |
+| [Sign in](graph-oauth.md)                                                | Sign in to Microsoft account and OneDrive personal.  |
+| [Refresh](graph-oauth.md#step-3-get-a-new-access-token-or-refresh-token) | Refresh your access token.                           |
+| [Sign out](graph-oauth.md#sign-the-user-out)                             | Sign out of Microsoft account and OneDrive personal. |
 
 For more details about the full list of authentication scenarios for Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
 
@@ -36,12 +36,11 @@ OneDrive for Business uses [Azure Active Directory](https://manage.windowsazure.
 
 | Method                         | Description                                          |
 |:-------------------------------|:-----------------------------------------------------|
-| [Sign in](aad_oauth.md)        | Sign in to an AAD account and OneDrive for Business. |
+| [Sign in](aad-oauth.md)        | Sign in to an AAD account and OneDrive for Business. |
 | [Refresh][aad-refresh]         | Refresh your access token.                           |
 
-
 [oauth]: http://tools.ietf.org/html/draft-ietf-oauth-v2-22
-[aad-refresh]: aad_oauth.md#step-4-redeem-refresh-token-for-an-access-token-to-call-onedrive-api
+[aad-refresh]: aad-oauth.md#step-4-redeem-refresh-token-for-an-access-token-to-call-onedrive-api
 
 ### ACS authentication
 

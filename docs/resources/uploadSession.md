@@ -1,7 +1,6 @@
 ﻿# UploadSession resource
 
-Provides information about a [large file upload](../items/upload_large_files.md)
-session.
+Provides information about a [large file upload](../api/driveitem-upload-large-files.md) session.
 
 ## JSON representation
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.uploadSession" } -->
@@ -18,7 +17,7 @@ session.
 | Property name          | Value                               | Description                                                                                  |
 |:-----------------------|:------------------------------------|:---------------------------------------------------------------------------------------------|
 | **uploadUrl**          | string                              | URL where fragment PUT requests should be directed.                                          |
-| **expirationDateTime** | [timestamp](../facets/timestamp.md) | Date and time when the upload session expires.                                               |
+| **expirationDateTime** | [timestamp](../resources/timestamp.md) | Date and time when the upload session expires.                                               |
 | **nextExpectedRanges** | string array                        | An array of byte ranges the server is missing. Not always a full list of the missing ranges. |
 
 

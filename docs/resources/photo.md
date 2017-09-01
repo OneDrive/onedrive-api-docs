@@ -37,7 +37,7 @@ It is available on the photo property of [driveItem][item-resource] resources th
 
 In OneDrive for Business, this facet is returned if it includes the **takenDateTime** property.
 
-[item-resource]: ../resources/item.md
+[item-resource]: ../resources/driveitem.md
 
 <!-- {
   "type": "#page.annotation",

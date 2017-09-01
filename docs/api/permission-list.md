@@ -108,49 +108,12 @@ Content-Type: application/json
 **Note:** Response objects are truncated for clarity. All default properties
 will be returned from the actual call.
 
-## Retrieve individual permissions
-
-In addition to enumerating all permissions on an item, if you know the
-permission-id for a particular set of permissions, you can retrieve the details
-by performing a GET on the permissions collection.
-
-### Example
-
-<!-- { "blockType": "request", "name": "get-single-permission", "scopes": "files.read service.onedrive" } -->
-```http
-GET /drive/items/{item-id}/permissions/{permission-id}
-```
-
-##### HTTP Response
-
-If the permission exists, the response is a [Permission resource](../resources/permission.md)
-with the details for the particular permission requested.
-
-<!-- { "blockType": "response", "@odata.type": "oneDrive.permission", "truncated": true } -->
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "id": "3",
-  "roles": ["write"],
-  "link": {
-    "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
-    "type": "edit",
-    "application": {
-      "id": "12345",
-      "displayName": "TimeTravelPlus"
-    }
-  }
-}
-```
-
 ##### Error responses
 
 Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

@@ -2,7 +2,7 @@
 
 When a new subscription is created, OneDrive will validate the webhook URL
 supports receiving webhook notifications. This validation is performed
-during the [create subscription](create-subscription.md) request. The subscription
+during the [create subscription](../api/subscription-create.md) request. The subscription
 will only be created if your service responds correct.
 
 When a new subscription is created, OneDrive will POST a request to the
