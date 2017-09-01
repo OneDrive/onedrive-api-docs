@@ -1,5 +1,5 @@
-# [OneDrive](index.md)
-# REST APIs
+# OneDrive
+# [REST APIs](onedrive-rest-api.md)
 ## [Getting started](concepts/getting-started.md)
 ### [App registration](advanced/app-registration.md)
 ### [Authentication](auth/index.md)

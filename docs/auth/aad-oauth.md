@@ -8,7 +8,7 @@ New applications should be developed using Microsoft Graph and follow the author
 
 ## Using Azure Active Directory for authentication
 
-To use the [OneDrive API](../index.md) with OneDrive for Business, you need to have an access token that authenticates your app to a particular set of permissions for a user.
+To use the [OneDrive API](../onedrive-rest-api.md) with OneDrive for Business, you need to have an access token that authenticates your app to a particular set of permissions for a user.
 
 Getting an application configured for access to OneDrive for Business is a challenge. We're working on making this process easier, so please bear with us.
 
@@ -279,7 +279,7 @@ For more info about handling errors, see [Error Handling in OAuth 2.0](https://m
 The following topics contain high-level overviews of other concepts that apply
 to the OneDrive API.
 
-* [Develop with the OneDrive API](../index.md)
+* [Develop with the OneDrive API](../onedrive-rest-api.md)
 * [Using Azure Active Directory for authentication](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/)
 * [OneDrive authentication and sign-in using Microsoft accounts](msa-oauth.md)
 * [Office 365 authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks)

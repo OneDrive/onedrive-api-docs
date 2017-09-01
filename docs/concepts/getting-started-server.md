@@ -16,7 +16,7 @@ To obtain an access token and sign the user in, see [OneDrive for Business authe
 
 ### 2. Make calls against a URL root
 
-Now that you've authenticated your app, you can call the OneDrive API with your access token against the URL root below, combined with one of the [root resources](../index.md#onedrive-root-resources).
+Now that you've authenticated your app, you can call the OneDrive API with your access token against the URL root below, combined with one of the [root resources](../onedrive-rest-api.md#onedrive-root-resources).
 See [drive resource](../resources/drive.md) and [driveItem resource](../resources/driveitem.md) for examples on how to make calls to the OneDrive API.
 OneDrive API URLs are relative to the following root unless otherwise noted.
 
@@ -33,7 +33,7 @@ Prefix the path with the correct root URL and version number in order to obtain 
 
 Check out the [OneDrive samples on GitHub](https://github.com/onedrive) to learn more about using the OneDrive API.
 
-Read through the [OneDrive API HTTP documentation](../index.md) to learn more about working with the [**drive**](../resources/drive.md) and [**item**](../resources/driveitem.md) resources in OneDrive API HTTP end point.
+Read through the [OneDrive API HTTP documentation](../onedrive-rest-api.md) to learn more about working with the [**drive**](../resources/drive.md) and [**item**](../resources/driveitem.md) resources in OneDrive API HTTP end point.
 
 Learn how to [address items in OneDrive](../concepts/addressing-driveitems.md) using either **path** or **item id** syntax.
 
