@@ -8,7 +8,6 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**",
-          "index.md",
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices"
