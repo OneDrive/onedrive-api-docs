@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Drive resource type
 
 The drive resource is the top level object within a user's OneDrive.
@@ -9,23 +14,24 @@ Office 365 group.
 
 The following tasks are available for drive resources.
 
-| Common task                                             | HTTP method                   |
-|:--------------------------------------------------------|:------------------------------|
-| [Get user's default Drive metadata][drive-default]      | `GET /drive`                  |
-| [Get Drive metadata of another Drive][drive-get]        | `GET /drives/{drive-id}`      |
-| [Get root folder for user's default Drive][item-get]    | `GET /drive/root`             |
-| [List children under the Drive][item-children]          | `GET /drive/root/children`    |
-| [List changes for all Items in the Drive][item-changes] | `GET /drive/root/delta`  |
-| [Search for Items in the Drive][item-search]            | `GET /drive/root/search` |
-| [Access special folder](../api/specialfolder-get.md)    | `GET /drive/special/{name}`   |
+|                        Common task                         |         HTTP method         |
+| :--------------------------------------------------------- | :-------------------------- |
+| [Get Drive metadata of another Drive][drive-get]           | `GET /drives/{drive-id}`    |
+| [Get root folder for user's default Drive][item-get]       | `GET /drive/root`           |
+| [List children under the Drive][item-children]             | `GET /drive/root/children`  |
+| [List changes for all Items in the Drive][item-changes]    | `GET /drive/root/delta`     |
+| [Search for Items in the Drive][item-search]               | `GET /drive/root/search`    |
+| [Access special folder](../api/drive_get_specialfolder.md) | `GET /drive/special/{name}` |
 
 In the previous table, the examples use `/drive`, but `/drives/{drive-id}` is valid too.
 
 ## JSON representation
 
 Here is a JSON representation of a Drive resource.
+
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.drive",
        "keyProperty": "id", "optionalProperties": [ "createdBy", "createdDateTime", "description", "lastModifiedBy", "lastModifiedDateTime", "name", "webUrl", "items", "root", "special"] } -->
+
 ```json
 {
   "id": "string",
@@ -88,14 +94,13 @@ views are defined for a Drive:
 
 [item-resource]: ../resources/driveitem.md
 [identity-set]: ../resources/identityset.md
-[quota-facet]: ../resources/quotainfo.md
-[drive-default]: ../api/drive-get-default.md
+[quota-facet]: ../resources/quota.md
 [drive-resource]: ../resources/drive.md
-[drive-get]: ../api/drive-get.md
-[item-get]: ../api/driveitem-get.md
-[item-changes]: ../api/driveitem-delta.md
-[item-search]: ../api/driveitem-search.md
-[item-children]: ../api/driveitem-list.md
+[drive-get]: ../api/drive_get.md
+[item-get]: ../api/driveitem_get.md
+[item-changes]: ../api/driveitem_delta.md
+[item-search]: ../api/driveitem_search.md
+[item-children]: ../api/driveitem_list_children.md
 
 
 <!-- {

@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # OneDrive API Terms and Conditions
 
 Last Updated: February 16, 2015.

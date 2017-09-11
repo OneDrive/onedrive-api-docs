@@ -1,4 +1,9 @@
-﻿# Deleted facet
+﻿---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
+# Deleted facet
 
 The **Deleted** facet indicates that the item on OneDrive has been deleted. In this version
 of the API, the presence (non-null) of the facet value indicates that the file was

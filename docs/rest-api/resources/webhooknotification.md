@@ -1,7 +1,11 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Webhook notification resource
 
-The notification resource defines the shape of the data provided to your service
-when a webhook notification request is submitted to your registered URL.
+The notification resource defines the shape of the data provided to your service when a webhook notification request is submitted to your registered URL.
 
 ## JSON representation
 
@@ -13,6 +17,7 @@ instance:
 "@odata.type": "oneDrive.webhookNotifiation",
 "optionalProperties": ["context", "tenantId", "expirationDateTime", "resource" ]
 } -->
+
 ```json
 {
   "subscriptionId": "string",
@@ -26,7 +31,8 @@ instance:
 Since multiple notifications may be submitted to your service in a single
 request, these are combined together in an object with a single array **value**:
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.webhookNotifiation", isCollection: true } -->
+<!-- { "blockType": "example", "@odata.type": "Collection(oneDrive.webhookNotifiation)" } -->
+
 ```json
 {
   "value": [

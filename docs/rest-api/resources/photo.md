@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Photo facet
 
 The **Photo** facet groups photo-related data on OneDrive, for example, EXIF metadata, into a single structure.
@@ -7,6 +12,7 @@ It is available on the photo property of [driveItem][item-resource] resources th
 ## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.photo" } -->
+
 ```json
 {
   "takenDateTime": "string (timestamp)",
@@ -19,6 +25,7 @@ It is available on the photo property of [driveItem][item-resource] resources th
   "iso": 100
 }
 ```
+
 ## Properties
 
 | Property name           | Type           | Description                                                     |

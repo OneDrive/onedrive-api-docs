@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Site resource
 
 The **site** resource provides metadata and relationships for a SharePoint site.
@@ -11,10 +16,10 @@ The **site** resource provides metadata and relationships for a SharePoint site.
 | [Get site by path][] | GET /sites/{hostname}:/{site-path}                |
 | [Search for sites][]  | GET /sites?search={query}                         |
 
-[Get site]: ../api/site-get.md
-[Get root site]: ../api/site-get.md
-[Get site by path]: ../api/site-get-by-path.md
-[Search for sites]: ../api/site-search.md
+[Get site]: ../api/site_get.md
+[Get root site]: ../api/site_get.md
+[Get site by path]: ../api/site_getbypath.md
+[Search for sites]: ../api/site_search.md
 
 ## JSON representation
 

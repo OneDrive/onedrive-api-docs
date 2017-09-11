@@ -1,15 +1,21 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # AsyncOperationStatus resource
 
 This resource provides information on the status of a asynchronous job progress.
 
 The following API calls return **AsyncOperationStatus** resources:
 
-* [Copy Item](../api/driveitem-copy.md)
-* [Upload From URL](../api/driveitem-upload-url.md)
+* [Copy Item](../api/driveitem_copy.md)
+* [Upload From URL](../api/driveitem_upload_url.md)
 
-### JSON representation
+## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.asyncOperationStatus", "optionalProperties": ["operation"] } -->
+
 ```json
 {
   "operation": "string",

@@ -1,3 +1,9 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+ms.topic: conceptual
+---
 # Specifying actions for file handlers 2.0
 
 When registering a file handler, you specify a set of actions enabled by the file handler.

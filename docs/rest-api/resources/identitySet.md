@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # IdentitySet resource type
 
 The **IdentitySet** resource is a keyed collection of [identity](identity.md) resources.

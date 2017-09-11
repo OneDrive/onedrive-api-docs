@@ -1,4 +1,10 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Remote item facet
+
 The **Remote item** facet contains data and references items that exist in another drive.
 It is available on the `remoteItem` property of [driveItem][item-resource] resources that have been shared and added to a drive, for example, by using the "Add to OneDrive" feature.
 
@@ -8,6 +14,7 @@ remote item might have its `id` changed.
 ## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.remoteItem", optionalProperties: ["name"] } -->
+
 ```json
 {
   "createdBy": { "@odata.type": "oneDrive.identitySet" },
@@ -24,6 +31,7 @@ remote item might have its `id` changed.
   "webUrl": "https://1drv.ms/voo/bar"
 }
 ```
+
 ## Properties
 
 | Property name            | Type                                             | Description                                                                                                                 |

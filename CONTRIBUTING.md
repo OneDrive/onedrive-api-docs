@@ -34,7 +34,7 @@ The OneDrive team will then review your contribution and decide how to move forw
 
 ### Standard Markdown
 
-All of the articles in this repository use GitHub Flavored Markdown.  
+All of the articles in this repository use GitHub Flavored Markdown.
 For more information on learning the GitHub Flavored Markdown format, see [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
 
 If you're looking for a good editor, try [Atom](https://atom.io) or [Visual Studio Code](https://code.visualstudio.com/).

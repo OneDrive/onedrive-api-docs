@@ -1,12 +1,18 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Video facet
+
 The **Video** facet groups video-related data on OneDrive into a single complex type.
 
-It is available on the video property of [driveItem][item-resource] resources that
-represent videos.
+It is available on the video property of [driveItem][item-resource] resources that represent videos.
 
 ## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.video" } -->
+
 ```json
 {
   "bitrate": 1234,
@@ -15,6 +21,7 @@ represent videos.
   "width": 480
 }
 ```
+
 ## Properties
 
 | Property name | Type   | Description                               |

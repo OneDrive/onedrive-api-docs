@@ -1,9 +1,17 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Shared facet
 
 Indicates that an item has been shared with others. Includes information about
 how the item is shared.
 
+## JSON representation
+
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.shared" } -->
+
 ```json
 {
   "owner": { "@odata.type": "oneDrive.identitySet" },

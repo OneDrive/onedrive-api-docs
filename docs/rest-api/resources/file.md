@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # File facet
 
 The **File** facet groups file-related data on OneDrive into a single structure.

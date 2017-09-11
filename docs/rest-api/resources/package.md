@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Package facet
 
 The **Package** facet indicates that an item is the top level item in a "package" or

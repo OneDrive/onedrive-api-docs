@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Thumbnail resource type
 
 The **thumbnail** resource type represents a thumbnail for an image, video, document, or any item that has a bitmap representation.

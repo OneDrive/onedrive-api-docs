@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Subscription resource type
 
 The subscription resource defines the properties of a single subscription.
@@ -9,6 +14,7 @@ The subscription resource defines the properties of a single subscription.
 "@odata.type": "oneDrive.subscription",
 "optionalProperties": [ "clientState", "expirationDateTime", "resource", "subscriptionId", "changeType" ]
 } -->
+
 ```json
 {
   "subscriptionId": "string",

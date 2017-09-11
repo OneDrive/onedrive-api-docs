@@ -1,3 +1,9 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+ms.topic: conceptual
+---
 # How to: Register a file handler add-in manually
 
 To develop a file handler add-in you first need to upload your file handler manifest into your app registration in Azure Active Directory.

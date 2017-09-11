@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # FileSystemInfo facet
 
 The **FileSystemInfo** facet contains properties that are reported by the

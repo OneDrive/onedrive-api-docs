@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Error resource
 
 The error resource is returned whenever an error occurs in the processing

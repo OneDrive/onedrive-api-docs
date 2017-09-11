@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Image facet
 
 The **Image** groups image-related data on OneDrive into a single structure.

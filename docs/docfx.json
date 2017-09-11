@@ -28,7 +28,10 @@
     ],
     "overwrite": [],
     "externalReference": [],
-    "globalMetadata": {},
+    "globalMetadata": {
+      "ms.prod": "onedrive",
+      "ms.topic": "reference"
+    },
     "fileMetadata": {},
     "template": [],
     "dest": "onedrive"

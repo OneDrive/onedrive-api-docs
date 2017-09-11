@@ -1,3 +1,9 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+ms.topic: sample
+---
 # OneDrive Files Sample Code
 
 The following samples are available on GitHub in the OneDrive organization. 
@@ -30,7 +36,7 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
 * [OneDrive Text Editor (JavaScript)](https://github.com/OneDrive/onedrive-texteditor-js)
   An example application that uses the OneDrive file picker and Microsoft Graph API to open, edit, and save text files from OneDrive and OneDrive for Business.
 
-* [File picker for JavaScript](filepickers/js-v72/js-picker-overview.md)
+* [File picker for JavaScript](controls/file-picker/js-v72/js-picker-overview.md)
   Connect your JavaScript web application or website to open and save files with
   OneDrive without writing any user interface code.
 
@@ -58,7 +64,7 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
   An iOS application to browse files using OneDrive API.
 
 * [OneDrive Sync Sample (Swift)](https://github.com/OneDrive/onedrive-sample-sync-ios)
-  An example application using the [delta](api/driveitem-delta.md) API to
+  An example application using the [delta](rest-api/api/driveitem_delta.md) API to
   retrieve changes from the server and keep client state in sync.
 
 ## Android

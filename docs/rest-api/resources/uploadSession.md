@@ -1,9 +1,16 @@
-﻿# UploadSession resource
+﻿---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
+# UploadSession resource
 
-Provides information about a [large file upload](../api/driveitem-upload-large-files.md) session.
+Provides information about a [large file upload](../api/driveitem_createuploadsession.md) session.
 
 ## JSON representation
+
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.uploadSession" } -->
+
 ```json
 {
   "uploadUrl": "https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337",

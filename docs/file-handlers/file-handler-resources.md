@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Resource definitions for file handlers 2.0
 
 The following resource definitions are used for documentation testing on the OneDrive API documentation.

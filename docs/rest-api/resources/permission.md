@@ -1,8 +1,13 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # Permission resource type
 
-The **Permission** resource provides information about a permission granted for a [DriveItem](driveitem.md) resource.
+The **Permission** resource provides information about a sharing permission granted for a [DriveItem](driveitem.md) resource.
 
-Permissions have a number of different forms.
+Sharing permissions have a number of different forms.
 The **Permission** resource represents these different forms through facets on the resource.
 
 ## JSON representation
@@ -15,6 +20,7 @@ Here is a JSON representation of the resource
 "keyProperty": "id",
 "@odata.type": "oneDrive.permission"
 } -->
+
 ```json
 {
   "id": "string",
@@ -37,7 +43,7 @@ Here is a JSON representation of the resource
 | inheritedFrom | [ItemReference](itemreference.md)         | Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
 | link          | [SharingLink][]                           | Provides the link details of the current permission, if it is a link type permissions. Read-only.
 | role          | Collection of String                      | The type of permission, e.g. `read`. See below for the full list of roles. Read-only.
-| shareId       | string                                    | A unique token that can be used to access this shared item via the [**shares** API](../api/shares-get.md). Read-only.
+| shareId       | string                                    | A unique token that can be used to access this shared item via the [**shares** API](../api/shares_get.md). Read-only.
 
 The permission resource uses _facets_ to provide information about the kind of permission represented by the resource.
 
@@ -46,7 +52,7 @@ Sharing links contain a unique token that provides access to the item for anyone
 
 Permissions with an [**invitation**][SharingInvitation] facet represent permissions added by inviting specific users or groups to have access to the file.
 
-[SharingInvitation]: ../resources/invitation.md
+[SharingInvitation]: ../resources/sharinginvitation.md
 [SharingLink]: ../resources/sharinglink.md
 
 ## Roles enumeration
@@ -150,11 +156,11 @@ property will contain the information about the account that redeemed the permis
 
 | Method                                              | REST Path
 |:----------------------------------------------------|:-----------------------
-| [List permissions](../api/permission-list.md)         | `GET /drive/items/{item-id}/permissions`
-| [Get permission](../api/permission-get.md)           | `GET /drive/items/{item-id}/permissions/{id}`
-| [Add](../api/driveitem-invite.md)                           | `POST /drive/items/{item-id}/invite`
-| [Update](../api/permission-update.md)             | `PATCH /drive/items/{item-id}/permissions/{id}`
-| [Delete](../api/permission-delete.md)             | `DELETE /drive/items/{item-id}/permissions/{id}`
+| [List permissions](../api/driveitem_list_permissions.md)         | `GET /drive/items/{item-id}/permissions`
+| [Get permission](../api/permission_get.md)           | `GET /drive/items/{item-id}/permissions/{id}`
+| [Add](../api/driveitem_invite.md)                           | `POST /drive/items/{item-id}/invite`
+| [Update](../api/permission_update.md)             | `PATCH /drive/items/{item-id}/permissions/{id}`
+| [Delete](../api/permission_delete.md)             | `DELETE /drive/items/{item-id}/permissions/{id}`
 
 
 ## Remarks

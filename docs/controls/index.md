@@ -1,8 +1,15 @@
-# SDKs for OneDrive integration
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+ms.topic: overview
+---
+# Shared controls for OneDrive integration
 
 While programming with REST APIs is a common practice, we make available client libraries to streamline development and allow you to focus on writing the code that matters, and not a bunch of framework code.
 
-## File picker SDKs
+## File picker
+
 The file picker SDKs enable your application to use native OneDrive file browser experiences from your application to quickly open and save files to OneDrive personal and OneDrive for Business.
 For Android, iOS, and UWP, this pattern depends on the OneDrive application being installed and available on the device.
 
@@ -14,9 +21,9 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 | Universal Windows Platform | [Use FileOpenPicker][windows-picker], or [FileSavePicker][windows-saver] |
 
 
-[android-picker]: android-picker/android-picker-overview.md
+[android-picker]: file-picker/android/android-picker-overview.md
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
-[web-picker]: js-v72/js-picker-overview.md
+[web-picker]: file-picker/js-v72/js-picker-overview.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 

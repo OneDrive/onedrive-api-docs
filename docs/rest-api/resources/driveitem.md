@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # DriveItem resource type
 
 The **driveItem** resource represents a file, folder, or other item stored in a drive.
@@ -96,7 +101,7 @@ The **driveItem** resource is derived from [**baseItem**](../resources/baseitem.
 | **image**                | [ImageFacet](image.md)                   | Image metadata, if the item is an image. Read-only.                                                                                                                       |
 | **lastModifiedBy**       | [IdentitySet](identityset.md)            | Identity of the user, device, and application which last modified the item. Read-only.                                                                                    |
 | **lastModifiedDateTime** | [DateTimeOffset](timestamp.md)           | Date and time the item was last modified. Read-only.                                                                                                                      |
-| **location**             | [LocationFacet](location.md)             | Location metadata, if the item has location data. Read-only.                                                                                                              |
+| **location**             | [LocationFacet](geocoordinates.md)             | Location metadata, if the item has location data. Read-only.                                                                                                              |
 | **name**                 | String                                   | The name of the item (filename and extension). Read-write.                                                                                                                |
 | **package**              | [PackageFacet](package.md)               | If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.         |
 | **parentReference**      | [ItemReference](itemreference.md)        | Parent information, if the item has a parent. Read-write.                                                                                                                 |
@@ -107,7 +112,7 @@ The **driveItem** resource is derived from [**baseItem**](../resources/baseitem.
 | **shared**               | [SharedFacet](shared.md)                 | Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.                                               |
 | **sharepointIds**        | [SharepointIdsFacet](sharepointids.md)   | Returns identifiers useful for SharePoint REST compatibility. Read-only.                                                                                                  |
 | **size**                 | Int64                                    | Size of the item in bytes. Read-only.                                                                                                                                     |
-| **specialFolder**        | [SpecialFolderFacet](jumpinfo.md)        | If the current item is also available as a special folder, this facet is returned. Read-only.                                                                             |
+| **specialFolder**        | [SpecialFolderFacet](specialfolder.md)        | If the current item is also available as a special folder, this facet is returned. Read-only.                                                                             |
 | **video**                | [VideoFacet](video.md)                   | Video metadata, if the item is a video. Read-only.                                                                                                                        |
 | **webDavUrl**            | String                                   | WebDAV compatible URL for the item.                                                                                                                                       |
 | **webUrl**               | String                                   | URL that displays the resource in the browser. Read-only.                                                                                                                 |
@@ -123,7 +128,7 @@ The eTag value is only modified when the folder's properties are changed, except
 | content      | Stream                                     | The content stream, if the item represents a file.                                                                                                                                    |
 | children     | [driveitem](driveitem.md) collection       | Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.                                            |
 | permissions  | [permission](permission.md) collection     | The set of permissions for the item. Read-only. Nullable.                                                                                                                             |
-| thumbnails   | [thumbnailSet](thumbnailset.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../api/driveitem-thumbnails.md). Read-only. Nullable. |
+| thumbnails   | [thumbnailSet](thumbnailset.md) collection | Collection containing [ThumbnailSet](thumbnailSet.md) objects associated with the item. For more info, see [getting thumbnails](../api/driveitem_list_thumbnails.md). Read-only. Nullable. |
 
 
 ## Instance Attributes
@@ -140,30 +145,40 @@ These properties are temporary and either a) define behavior the service should 
 **Note:** The @microsoft.graph.downloadUrl value is a short-lived URL and can't be cached.
 The URL will only be available for a short period of time (1 hour) before it is invalidated.
 
+## ConflictBehavior values
+
+The following values are defined for the `@microsoft.graph.conflictBehavior` property
+
+|   Value   |                                                               Description                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `replace` | Overwrite the existing item.                                                                                                             |
+| `rename`  | Rename the file if an existing item has the same name. A new name will be generated by appending a unique number to the end of the name. |
+| `abort`   | Cancel the request and return an error if an existing item has the same name.                                                            |
+
 
 ## Methods
 
 | Method                                                 | REST Path
 |:-------------------------------------------------------|:--------------------
-| [Get item](../api/driveitem-get.md)                            | `GET /drive/items/{item-id}`
-| [List children](../api/driveitem-list.md)                      | `GET /drive/items/{item-id}/children`
-| [Create item](../api/driveitem-create.md)                      | `POST /drive/items/{item-id}/children`
-| [Update item](../api/driveitem-update.md)                      | `PATCH /drive/items/{item-id}`
-| [Upload content](../api/driveitem-upload-put.md)                   | `PUT /drive/items/{item-id}/content`
-| [Download content](../api/driveitem-download.md)               | `GET /drive/items/{item-id}/content`
+| [Get item](../api/driveitem_get.md)                            | `GET /drive/items/{item-id}`
+| [List children](../api/driveitem_list_children.md)                      | `GET /drive/items/{item-id}/children`
+| [Create item](../api/driveitem_post_children.md)                      | `POST /drive/items/{item-id}/children`
+| [Update item](../api/driveitem_update.md)                      | `PATCH /drive/items/{item-id}`
+| [Upload content](../api/driveitem_put_content.md)                   | `PUT /drive/items/{item-id}/content`
+| [Download content](../api/driveitem_get_content.md)               | `GET /drive/items/{item-id}/content`
 | [Download specific file format][download-format]       | `GET /drive/items/{item-id}/content?format={format}`
-| [Delete item](../api/driveitem-delete.md)                      | `DELETE /drive/items/{item-id}`
-| [Move item](../api/driveitem-move.md)                          | `PATCH /drive/items/{item-id}`
-| [Copy item](../api/driveitem-copy.md)                          | `POST /drive/items/{item-id}/copy`
-| [Search items](../api/driveitem-search.md)                     | `GET /drive/items/{item-id}/search(q='text')`
-| [List changes in a drive](../api/driveitem-delta.md)      | `GET /drive/items/{item-id}/delta`
-| [List thumbnails](../api/driveitem-thumbnails.md)              | `GET /drive/items/{item-id}/thumbnails`
-| [Create sharing link](../api/driveitem-createlink.md)  | `POST /drive/items/{id}/createLink`
-| [Add permissions](../api/driveitem-invite.md)                  | `POST /drive/items/{item-id}/invite`
-| [List permissions](../api/permission-list.md)            | `GET /drive/items/{item-id}/permissions`
-| [Delete permission](../api/permission-delete.md)     | `DELETE /drive/items/{item-id}/permissions/{perm-id}`
+| [Delete item](../api/driveitem_delete.md)                      | `DELETE /drive/items/{item-id}`
+| [Move item](../api/driveitem_move.md)                          | `PATCH /drive/items/{item-id}`
+| [Copy item](../api/driveitem_copy.md)                          | `POST /drive/items/{item-id}/copy`
+| [Search items](../api/driveitem_search.md)                     | `GET /drive/items/{item-id}/search(q='text')`
+| [List changes in a drive](../api/driveitem_delta.md)      | `GET /drive/items/{item-id}/delta`
+| [List thumbnails](../api/driveitem_list_thumbnails.md)              | `GET /drive/items/{item-id}/thumbnails`
+| [Create sharing link](../api/driveitem_createlink.md)  | `POST /drive/items/{id}/createLink`
+| [Add permissions](../api/driveitem_invite.md)                  | `POST /drive/items/{item-id}/invite`
+| [List permissions](../api/driveitem_list_permissions.md)            | `GET /drive/items/{item-id}/permissions`
+| [Delete permission](../api/permission_delete.md)     | `DELETE /drive/items/{item-id}/permissions/{perm-id}`
 
-[download-format]: ../api/driveitem-download-format.md
+[download-format]: ../api/driveitem_get_content_format.md
 
 ## Remarks
 

@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # SiteCollection resource
 
 The **siteCollection** resource provides more information about a site collection.

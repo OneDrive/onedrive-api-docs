@@ -16,6 +16,7 @@ Here is a JSON representation of a {type} resource.
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.typeTemplate",
        "keyProperty": "id", "optionalProperties": [ ] } -->
+
 ```json
 {
   "id": "string",

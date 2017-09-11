@@ -1,8 +1,12 @@
-﻿# Resources
+﻿---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
+# Resources
 
 The following resources are defined in the OneDrive API:
 
-* [delta](viewdelta.md)
 * [drive](drive.md)
 * [driveItem](driveitem.md)
 * [error](error.md)
@@ -10,8 +14,8 @@ The following resources are defined in the OneDrive API:
 * [identitySet](identitySet.md)
 * [itemReference](itemReference.md)
 * [permission](permission.md)
-* [recipients](recipients.md)
-* [share](shareRoot.md)
+* [recipients](driverecipient.md)
+* [share](shareddriveitem.md)
 * [subscription](subscription.md)
 * [thumbnail](thumbnail.md)
 * [thumbnailSet](thumbnailSet.md)
@@ -29,18 +33,18 @@ The following facets are defined in the OneDrive API:
 * [folder](../resources/folder.md)
 * [hashes](../resources/hashes.md)
 * [image](../resources/image.md)
-* [location](../resources/location.md)
+* [location](../resources/geocoordinates.md)
 * [package](../resources/package.md)
 * [photo](../resources/photo.md)
-* [quota](../resources/quotainfo.md)
+* [quota](../resources/quota.md)
 * [remoteItem](../resources/remoteitem.md)
 * [root](../resources/root.md)
 * [searchResult](../resources/searchResult.md)
 * [shared](../resources/shared.md)
 * [sharepointIds](../resources/sharepointIds.md)
-* [sharingInvitation](../resources/invitation.md)
+* [sharingInvitation](../resources/sharinginvitation.md)
 * [sharingLink](../resources/sharinglink.md)
-* [specialFolder](../resources/jumpinfo.md)
+* [specialFolder](../resources/specialfolder.md)
 * [video](../resources/video.md)
 
 

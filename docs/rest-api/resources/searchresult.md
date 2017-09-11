@@ -1,9 +1,15 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # SearchResultFacet facet
+
 The SearchResultFacet facet groups search result metadata into a single structure.
 It is available on the **searchResult** property of [driveItem][item-resource] resources that
 are part of a search result.
 
-### Sample JSON representation
+## JSON representation
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.searchResult" } -->
 ```json

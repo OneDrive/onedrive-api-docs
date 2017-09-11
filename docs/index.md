@@ -1,3 +1,9 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+ms.topic: landing-page
+---
 # OneDrive developer portal
 
-This should be the landing page for the OneDrive developer portal, but I can't seem to get it to publish.
+

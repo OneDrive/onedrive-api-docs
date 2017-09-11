@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # ItemReference resource type
 
 The **ItemReference** resource provides information necessary to address a [DriveItem](driveitem.md) via the API.
@@ -31,7 +36,7 @@ Here is a JSON representation of the resource
 | id            | String                                            | Unique identifier of the item in the drive. Read-only.                                                    |
 | name          | String                                            | The name of the item being referenced. Read-only.                                                         |
 | path          | String                                            | Path that can be used to navigate to the item. Read-only.                                                 |
-| shareId       | String                                            | A unique identifier for a shared resource that can be accessed via the [Shares](../api/shares-get.md) API. |
+| shareId       | String                                            | A unique identifier for a shared resource that can be accessed via the [Shares](../api/shares_get.md) API. |
 | sharepointIds | [sharepointIds](../resources/sharepointids.md) | Returns identifiers useful for SharePoint REST compatibility. Read-only.                                  |
 
 

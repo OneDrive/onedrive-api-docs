@@ -1,3 +1,8 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+---
 # FolderView facet
 
 The **folderView** facet provides or sets recommendations on the user-experience of a folder.
