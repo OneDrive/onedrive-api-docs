@@ -9,12 +9,12 @@
     tocHref: /onedrive/developer/file-handlers
     topicHref: /onedrive/developer/file-handlers/index
   - name: File pickers
-    tocHref: /onedrive/developer/controls/file-pickers
-    topicHref: /onedrive/developer/controls/file-pickers/index
+    tocHref: /onedrive/developer/controls/file-picker
+    topicHref: /onedrive/developer/controls/file-picker/index
     items:
       - name: JavaScript
-        tocHref: /onedrive/developer/controls/file-pickers/js-v72
-        topicHref: /onedrive/developer/controls/file-pickers/js-v72/js-picker-overview
+        tocHref: /onedrive/developer/controls/file-picker/js-v72
+        topicHref: /onedrive/developer/controls/file-picker/js-v72/js-picker-overview
       - name: Android
         tocHref: /onedrive/developer/controls/file-picker/android
         topicHref: /onedrive/developer/controls/file-picker/android/android-picker-overview
