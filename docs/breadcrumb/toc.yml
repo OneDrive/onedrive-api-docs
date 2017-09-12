@@ -1,0 +1,20 @@
+- name: OneDrive Developer
+  tocHref: /onedrive/developer
+  topicHref: /onedrive/developer/index
+  items:
+  - name: REST API
+    tocHref: /onedrive/developer/rest-api
+    topicHref: /onedrive/developer/rest-api/index
+  - name: File handlers
+    tocHref: /onedrive/developer/file-handlers
+    topicHref: /onedrive/developer/file-handlers/index
+  - name: File pickers
+    tocHref: /onedrive/developer/controls/file-pickers
+    topicHref: /onedrive/developer/controls/file-pickers/index
+    items:
+      - name: JavaScript
+        tocHref: /onedrive/developer/controls/file-pickers/js-v72
+        topicHref: /onedrive/developer/controls/file-pickers/js-v72/js-picker-overview
+      - name: Android
+        tocHref: /onedrive/developer/controls/file-picker/android
+        topicHref: /onedrive/developer/controls/file-picker/android/android-picker-overview
