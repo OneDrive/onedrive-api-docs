@@ -15,18 +15,10 @@ In this guide, we’ll show you how to get your app quickly [opening](#opening-f
 
 ![Preview of the OneDrive Picker in Action](android-picker-saver.png)
 
-[Setup](#setup)
-
-[Opening files](#opening-files)
-
-[Saving files](#saving-files)
-
-[Supported Android Versions](#supported-android-versions)
-
 
 ## Setup
 
-## Compile with the source code
+### Compile with the source code
 
 The picker for Android is available as open source on GitHub and includes both open and save capabilities. You can either download the latest version directly or clone the repository:
 
@@ -36,7 +28,7 @@ The picker for Android is available as open source on GitHub and includes both o
 
 For information on configuring your environment to work with the sample applications or the picker SDK see [Configuring your Android Environment](http://developer.android.com/sdk/index.html).
 
-## Install AAR via Gradle
+### Install AAR via Gradle
 
 ```gradle
 repositories {
@@ -55,11 +47,13 @@ Register your app [here](https://account.live.com/developers/applications) to ge
 ### Building the library
 
 #### Android Studio
+
 1. Choose **Import Project...** or **Import Module...**, to import into an existing project.
 2. Browse to the location where the SDK is saved and select the root *onedrive-picker-android*
 3. If not already installed, follow prompts or go to the *Android SDK Manager* to install Android 4.4.2 (API 19) and associated build tools.
 
 #### Eclipse
+
 1. In Eclipse, go to **File** → **Import** → **General** → **Existing Projects into Workspace**.
 2. Click **Browse..** to select *onedrive-picker-android*, where you saved the SDK, as your root directory. Make sure at minimum *OneDriveSDK* is checked.
 3. If not already installed, from the *Android SDK Manager*, install Android 4.4.2 (API 19).
@@ -94,12 +88,14 @@ private final OnClickListener mStartPickingListener = new OnClickListener() {
 When the `onClick()` method is invoked, the picker is created and configured for the type of link requested by the user. Then the `startPicking()` method is invoked to launch the picking experience. If the user does not have the OneDrive app installed when `startPicking()` is invoked, they will be prompted to download the app and taken to the app store.
 
 ### Link Types
-The open picker can be configured to return a URL for the selected file in one of these
-formats:
+
+The open picker can be configured to return a URL for the selected file in one of these formats:
+
 * `LinkType.DownloadLink` - A URL is returned that provides access for 1 hour directly to the contents of the file. You can use this URL to download the file into your application.
 * `LinkType.WebViewLink` - A sharing link that provides a web preview of the file is created. The link is valid until the user deletes the shared link through OneDrive. Sharing links are not available for OneDrive for Business files.
 
-### Catching the Results
+### Catching the results
+
 When the user has completed opening a file or has cancelled from the open picker, the `onActivityResult()` method will be called to handle the picker results. In this method you can catch the results and get access to the file selected by the user.
 
 ```java
@@ -121,24 +117,25 @@ protected void onActivityResult(final int requestCode, final int resultCode, fin
 If the user cancels picking a file, the result object will be null.
 
 ### Picker Result Object
+
 In addition to the filename and link for the file, you can access several other properties on the `IPickerResult` object that provide more details about the file selected:
 
 ```java
 public static class IPickerResult {
-	// Name of the file with extension
-	public String getName();
+    // Name of the file with extension
+    public String getName();
 
-	// Type of link generated
-	public LinkType getLinkType();
+    // Type of link generated
+    public LinkType getLinkType();
 
-	// URI for the file, which varies based on the value of getLinkType()
-	public Uri getLink();
+    // URI for the file, which varies based on the value of getLinkType()
+    public Uri getLink();
 
-	// Size of the file, in bytes
-	public int getSize();
+    // Size of the file, in bytes
+    public int getSize();
 
-	// Set of thumbnail links for various sizes: "small", "medium", and "large"
-	public Map<String, Uri> getThumnailLinks();
+    // Set of thumbnail links for various sizes: "small", "medium", and "large"
+    public Map<String, Uri> getThumnailLinks();
 }
 ```
 
@@ -172,8 +169,8 @@ private final OnClickListener mStartPickingListener = new OnClickListener() {
         mSaver.startSaving((Activity)v.getContext(), filename, Uri.fromFile(f));
     }
 };
-
 ```
+
 When the `onClick()` method is invoked, the saver is created and then the `startSaving()` method is invoked. This launches the OneDrive saver experience, allowing your users to pick a folder to upload the file. If the user does not have the OneDrive app installed when `startSaving()` is invoked, they will be prompted to download the app from the marketplace.
 
 The saver currently supports the `content://` and `file://` file URI scheme. If a different URI scheme is used, the saver will return a `NoFileSpecified` error. See below for details about the saver response.
@@ -193,10 +190,9 @@ protected void onActivityResult(final int requestCode, final int resultCode, fin
         Log.d("OneDriveSaver", e.getDebugErrorInfo()); // Detailed debug error message
     }
 }
-
 ```
-The error message provided by `getDebugErrorInfo()` is primarily for development and debugging and can change at any time. When handling errors, you can use `getErrorType()` to determine the general cause of the error.
 
+The error message provided by `getDebugErrorInfo()` is primarily for development and debugging and can change at any time. When handling errors, you can use `getErrorType()` to determine the general cause of the error.
 
 ### Saver Error Types
 
@@ -230,13 +226,14 @@ public enum SaverError {
 
 }
 ```
+
 Run the [saver sample app](https://github.com/OneDrive/onedrive-picker-android/tree/master/SaverSample) to see this all in action.
 
 ## Supported Android Versions
+
 The OneDrive picker library is supported at runtime for [Android API revision 14](http://source.android.com/source/build-numbers.html) and greater. To build the picker library you need to install Android API revision 19 or greater.
 
 The picker requires the OneDrive app to be installed, in order to function. If the OneDrive app is not installed, the user will be prompted to download the app when either the `startPicking()` or `startSaving()` method is invoked.
-
 
 <!--
 {
