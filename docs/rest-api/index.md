@@ -4,25 +4,14 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
 ---
-# Connect to files in OneDrive and SharePoint
+# OneDrive and SharePoint in Microsoft Graph
 
 [![Documentation validation and build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](#continuous-documentation-validation)
 
-The OneDrive developer platform provides services and tools to connect your application to files across Office 365, including:
+The OneDrive REST API is a portion of the Microsoft Graph API which allows your app to connect to content stored in OneDrive and SharePoint.
+The REST API is shared between OneDrive, OneDrive for Business, SharePoint document libraries, and Office Groups, to allow your app the flexibility to read and store content in any of these locations with the same code.
 
-* **OneDrive personal**
-* **OneDrive for Business**
-* **SharePoint Online**
-* **SharePoint Server 2016**
-
-The OneDrive developer platform allows your solution to work with files across the Office 365 ecosystem and write the same code to enable solutions for consumers to enterprise customers.
-OneDrive APIs are a part of the [Microsoft Graph](https://graph.microsoft.com), a common API for Microsoft services.
-
-Our platform consists of several components, designed to build on one another to making building apps and solutions easy.
-
-* [OneDrive file pickers](../controls/index.md), which enable your app to open and save from OneDrive using the native OneDrive user experience and minimal code.
-* [Microsoft Graph SDKs](https://graph.microsoft.io/code-samples-and-sdks), a set of client libraries which make accessing files from the Microsoft Graph straightforward.
-* [Microsoft Graph APIs](https://graph.microsoft.io/docs), a collection of REST APIs your app can call directly instead of using an SDK.
+These REST APIs are a part of the [Microsoft Graph](https://graph.microsoft.com), a common API for Microsoft services.
 
 For existing solutions using OneDrive API outside of Microsoft Graph, or solutions targeting SharePoint Server 2016, see [direct endpoint differences](concepts/direct-endpoint-differences.md) for more context on reading this documentation.
 
@@ -30,7 +19,7 @@ For existing solutions using OneDrive API outside of Microsoft Graph, or solutio
 
 To quickly experiment with Microsoft Graph and accessing files, check out the [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer?request=me%2Fdrive%2Froot%2Fchildren&method=GET&version=v1.0) and the [Microsoft Graph Quick Start](https://graph.microsoft.io/getting-started).
 
-OneDrive provides two top-level types that represent addressable resources in the API:
+OneDrive's REST API provides a few top-level types that represent addressable resources in the API:
 
 * [drive][drive-resource] _(top-level object)_
 * [driveItem][item-resource] _(files and folders)_
