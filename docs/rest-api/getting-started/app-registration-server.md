@@ -122,7 +122,7 @@ To add, remove, or update an application on Azure AD, see
 [Adding, Updating, and Removing an Application](https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Native).
 
 Now you have everything set up to connect to your app to OneDrive for Business.
-For information on how to authenticate, see [OneDrive for Business authentication and sign in](auth/aad-oauth.md).
+For information on how to authenticate, see [OneDrive for Business authentication and sign in](aad-oauth.md).
 
 
 

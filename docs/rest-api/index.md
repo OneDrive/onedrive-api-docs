@@ -207,7 +207,7 @@ For the latest build details, check out the [AppVeyor build status page for our 
 
 The following topics contain high level overviews of other concepts that apply to the OneDrive API.
 
-* [Authentication and sign in](concepts/auth/index.md)
+* [Authentication and sign in](getting-started/authentication.md)
 * [Addressing resources](concepts/addressing-driveitems.md)
 * [Case sensitivity](concepts/case-sensitivity.md)
 * [Error responses](concepts/errors.md)

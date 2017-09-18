@@ -37,7 +37,7 @@ Content-Type: application/json
 
 See the [Error Responses][error-response] topic for more info about how errors are returned.
 
-[error-response]: ../docs/misc/errors.md
+[error-response]: ../docs/rest-api/concepts/errors.md
 
 <!--
  {

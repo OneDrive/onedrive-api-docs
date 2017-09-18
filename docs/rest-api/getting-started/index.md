@@ -13,7 +13,7 @@ If you are working with SharePoint Server 2016 or not using Microsoft Graph, see
 
 ## 1. User authentication and authorizing your app
 
-Microsoft Graph and OneDrive API use [OAuth 2.0](http://oauth.net/2/) for [authorization](auth/index.md).
+Microsoft Graph and OneDrive API use [OAuth 2.0](http://oauth.net/2/) for [authorization](authentication.md).
 By completing an OAuth flow, your app receives an access token that provides access to the Microsoft Graph a particular set of permissions for a user.
 
 Your app provides the access token in each request, through an HTTP header:

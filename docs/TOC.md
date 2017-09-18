@@ -1,9 +1,9 @@
 # [OneDrive](index.md)
 # [REST APIs](rest-api/index.md)
-## [Getting started](rest-api/concepts/getting-started.md)
-### [App registration](rest-api/concepts/app-registration.md)
-### [Authentication](rest-api/concepts/auth/index.md)
-### [Release notes](rest-api/concepts/onedrive-api-release-notes.md)
+## [Getting started](rest-api/getting-started/index.md)
+### [App registration](rest-api/getting-started/app-registration.md)
+### [Authentication](rest-api/getting-started/authentication.md)
+### [Release notes](rest-api/getting-started/release-notes.md)
 ## Concepts
 ### [Addressing items](rest-api/concepts/addressing-driveitems.md)
 ### [App folder](rest-api/concepts/special-folders-appfolder.md)

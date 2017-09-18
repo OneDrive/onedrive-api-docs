@@ -29,7 +29,7 @@ For more information see [App authentication with Microsoft Graph](https://graph
 The first step is to register an app with Microsoft and provide some details about your app.
 You can register your application and receive a new app ID from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
 
-For detailed steps on how to register your application, see [registering your app for OneDrive API](../app-registration.md).
+For detailed steps on how to register your application, see [registering your app for OneDrive API](app-registration.md).
 
 ## Sign users in
 Your app must initiate the sign-in process by contacting the Azure Active Directory authorization endpoint with a specified scope.
@@ -68,7 +68,7 @@ The most straightforward authorization flow is the token flow.
 This flow is useful for quickly obtaining an access token to use the OneDrive API in an interactive fashion. 
 This flow does not provide a refresh token, and therefore is not a good fit for longterm access to resources.
 
-![Token Flow Diagram](../../../media/implicit_grant_flow.png)
+![Token Flow Diagram](../../media/implicit_grant_flow.png)
 
 To start the sign-in process with the token flow, use a web browser or web-browser control to load a URL request.
 
@@ -109,7 +109,7 @@ The code flow for authentication is a three-step process with separate calls to 
 This also allows your application to receive a refresh token that will enable long-term use of the API in some scenarios, to allow access when the user isn't actively using your application.
 
 
-![Authorization Code Flow Diagram](../../../media/authorization_code_flow.png)
+![Authorization Code Flow Diagram](../../media/authorization_code_flow.png)
 
 
 ### Step 1. Get an authorization code

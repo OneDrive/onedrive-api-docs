@@ -14,7 +14,7 @@ Since it behaves like any other folder in the user's OneDrive, users can add, mo
 ## Getting authorization from the user
 
 To have your own app's folder, you must request either the `onedrive.appfolder` or `onedrive.readwrite` permission scope when getting an access token.
-For more details, see [app authorization](auth/msa-oauth.md).
+For more details, see [authentication](../getting-started/authentication.md).
 
 ## Creating your app's folder
 

@@ -36,12 +36,12 @@ By default a new app is created as a **web** app and needs one or more redirect 
 To enable native client flows for your app as well, click the **Add Platform** button and choose **Mobile**.
 
 Microsoft account uses scopes to determine which API your app can access, and these scopes are included in the OAuth flow when the user logs in.
-For more information about how to authenticate a user with your app, see [OneDrive authentication and sign-in](auth/msa-oauth.md).
+For more information about how to authenticate a user with your app, see [OneDrive authentication and sign-in](msa-oauth.md).
 
 
 ## Keep going
 
-Once you have your app registered, continue on to [learning how to authenticate a user and authorize your application](auth/graph-oauth.md).
+Once you have your app registered, continue on to [learning how to authenticate a user and authorize your application](graph-oauth.md).
 
 
 <!-- {
