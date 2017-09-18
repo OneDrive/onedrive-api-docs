@@ -17,14 +17,12 @@ All examples below are relative to `https://graph.microsoft.com/v1.0`.
 | [Get site][]             | GET /sites/{site-id}
 | [Get site by path][]     | GET /sites/{hostname}:/{site-path}
 | [Get site for a group][] | GET /groups/{group-id}/sites/root
-| [List root sites][]      | GET /sites?filter=root ne null&select=siteCollection,webUrl
 | [Search for sites][]     | GET /sites?search={query}
 
 [Get site]: ../api/site_get.md
 [Get root site]: ../api/site_get.md
 [Get site by path]: ../api/site_getbypath.md
 [Get site for a group]: ../api/site_get.md
-[List root sites]: ../api/site_list.md
 [Search for sites]: ../api/site_search.md
 
 ## JSON representation
