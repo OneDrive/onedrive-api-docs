@@ -3,32 +3,33 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# SearchResultFacet facet
+# SearchResult resource type
 
-The SearchResultFacet facet groups search result metadata into a single structure.
-It is available on the **searchResult** property of [driveItem][item-resource] resources that
-are part of a search result.
+The **SearchResult** resource indicates than an item is the response to a search query.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.searchResult" } -->
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ "onClickTelemtryUrl" ],
+  "@odata.type": "microsoft.graph.searchResult"
+}-->
+
 ```json
 {
-  "onClickTelemetryUrl": "string"
+  "onClickTelemetryUrl": "url"
 }
 ```
 
 ## Properties
 
-| Property name         | Type     | Description                                                                                                                             |
-|:----------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `onClickTelemetryUrl` | `string` | A callback URL that is used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item. |
+| Property            | Type   | Description
+|:--------------------|:-------|:----------------------------------------------
+| onClickTelemetryUrl | String | A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.
 
-[item-resource]: ../resources/driveitem.md
+## Remarks 
 
-## Remarks
-
-The onClickTelemetryUrl property is not available on OneDrive for Business and SharePoint Server 2016.
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 
 <!-- {
   "type": "#page.annotation",

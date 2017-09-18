@@ -3,16 +3,16 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# Image facet
+# Image resource type
 
-The **Image** groups image-related data on OneDrive into a single structure.
+The **Image** resource groups image-related properties into a single structure.
+If a [**DriveItem**](driveitem.md) has a non-null **image** facet, the item represents a bitmap image.
 
-It is available on the image property of [driveItem][item-resource] resources that
-represent images.
+**Note:** If the service is unable to determine the width and height of the image, the **Image** resource may be empty.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.image" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.image" } -->
 ```json
 {
   "width": 100,
@@ -21,16 +21,18 @@ represent images.
 ```
 
 ## Properties
-| Property name | Type    | Description                     |
-|:--------------|:--------|:--------------------------------|
-| **width**     | integer | Width of the image, in pixels.  |
-| **height**    | integer | Height of the image, in pixels. |
+
+| Property   | Type  | Description                                |
+|:-----------|:------|:-------------------------------------------|
+| **height** | Int32 | Optional. Height of the image, in pixels. Read-only. |
+| **width**  | Int32 | Optional. Width of the image, in pixels. Read-only.  |
 
 ## Remarks
 
-In OneDrive for Business, this facet is returned on items that are expected to be images. This facet has no properties in OneDrive for Business.
+In OneDrive for Business, this resource is returned on items that are expected to be images based on file extension.
 
-[item-resource]: ../resources/driveitem.md
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
+
 
 <!-- {
   "type": "#page.annotation",

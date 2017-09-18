@@ -3,22 +3,27 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# Quota facet
+# Quota resource type
 
-The **Quota** facet groups storage space quota-related information
-on OneDrive into a single structure.
+The **quota** resource provides details about space constrains on a [Drive](drive.md) resource.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.quota" } -->
+Here is a JSON representation of the resource.
+
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ ],
+  "@odata.type": "microsoft.graph.quota"
+}-->
 
 ```json
 {
-  "total": 1234,
-  "used": 1234,
-  "remaining": 1234,
-  "deleted": 1234,
-  "state": "normal | nearing | critical | exceeded"
+  "deleted": 1024,
+  "remaining": 1024,
+  "state": "normal | nearing | critical | exceeded",
+  "total": 1024,
+  "used": 1024
 }
 ```
 
@@ -31,8 +36,6 @@ on OneDrive into a single structure.
 | remaining     | Int64  | Total space remaining before reaching the quota limit, in bytes. Read-only. |
 | deleted       | Int64  | Total space consumed by files in the recycle bin, in bytes. Read-only.      |
 | state         | string | Enumeration value that indicates the state of the storage space. Read-only. |
-
-
 
 ## State Enumeration
 

@@ -9,16 +9,22 @@ The **site** resource provides metadata and relationships for a SharePoint site.
 
 ## Tasks
 
-| Task name            | Example Request                                   |
-| :------------------- | :------------------------------------------------ |
-| [Get root site][]    | GET /sites/root                                   |
-| [Get site][]         | GET /sites/{site-id}                              |
-| [Get site by path][] | GET /sites/{hostname}:/{site-path}                |
-| [Search for sites][]  | GET /sites?search={query}                         |
+All examples below are relative to `https://graph.microsoft.com/v1.0`.
+
+| Task name                | Example Request
+|:-------------------------|:--------------------------------------------------
+| [Get root site][]        | GET /sites/root
+| [Get site][]             | GET /sites/{site-id}
+| [Get site by path][]     | GET /sites/{hostname}:/{site-path}
+| [Get site for a group][] | GET /groups/{group-id}/sites/root
+| [List root sites][]      | GET /sites?filter=root ne null&select=siteCollection,webUrl
+| [Search for sites][]     | GET /sites?search={query}
 
 [Get site]: ../api/site_get.md
 [Get root site]: ../api/site_get.md
 [Get site by path]: ../api/site_getbypath.md
+[Get site for a group]: ../api/site_get.md
+[List root sites]: ../api/site_list.md
 [Search for sites]: ../api/site_search.md
 
 ## JSON representation
@@ -28,23 +34,27 @@ Here is a JSON representation of a **site** resource.
 The **driveItem** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
 <!-- { "blockType": "resource",
-       "@odata.type": "oneDrive.site",
+       "@odata.type": "microsoft.graph.site",
        "keyProperty": "id",
        "optionalProperties": [ "root", "sharepointIds", "siteCollection", "drive", "drives", "sites" ] } -->
 
 ```json
 {
   "id": "string",
-  "root": { "@odata.type": "oneDrive.root" },
-  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
-  "siteCollection": {"@odata.type": "oneDrive.siteCollection"},
+  "root": { "@odata.type": "microsoft.graph.root" },
+  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
+  "siteCollection": {"@odata.type": "microsoft.graph.siteCollection"},
   "displayName": "string",
 
   /* relationships */
-  "drive": { "@odata.type": "oneDrive.drive" },
-  "drives": [ { "@odata.type": "oneDrive.drive" }],
-  "items": [ { "@odata.type": "oneDrive.baseItem" }],
-  "sites": [ { "@odata.type": "oneDrive.site"} ],
+  "contentTypes": [ { "@odata.type": "microsoft.graph.contentType" }],
+  "drive": { "@odata.type": "microsoft.graph.drive" },
+  "drives": [ { "@odata.type": "microsoft.graph.drive" }],
+  "items": [ { "@odata.type": "microsoft.graph.baseItem" }],
+  "lists": [ { "@odata.type": "microsoft.graph.list" }],
+  "sites": [ { "@odata.type": "microsoft.graph.site"} ],
+  "columns": [ { "@odata.type": "microsoft.graph.columnDefinition" }],
+  "onenote": [ { "@odata.type": "microsoft.graph.onenote"} ],
 
   /* inherited from baseItem */
   "name": "string",
@@ -66,24 +76,32 @@ The **driveItem** resource is derived from [**baseItem**](baseitem.md) and inher
 | **displayName**          | string                              | The full title for the site. Read-only.                                                        |
 | **lastModifiedDateTime** | DateTimeOffset                      | The date and time the item was last modified. Read-only.                                       |
 | **name**                 | string                              | The name / title of the item.                                                                  |
-| **root**                 | [root](../resources/root.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
-| **sharepointIds**        | [sharepointIds](../resources/sharepointids.md)   | Returns identifiers useful for SharePoint REST compatibility. Read-only.                       |
-| **siteCollection**       | [siteCollection](../resources/sitecollection.md) | Provides details about the site's site collection. Available only on the root site. Read-only. |
+| **root**                 | [root](root.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
+| **sharepointIds**        | [sharepointIds](sharepointids.md)   | Returns identifiers useful for SharePoint REST compatibility. Read-only.                       |
+| **siteCollection**       | [siteCollection](sitecollection.md) | Provides details about the site's site collection. Available only on the root site. Read-only. |
 | **webUrl**               | string (url)                        | URL that displays the item in the browser. Read-only.                                          |
 
 ## Relationships
 
-| Relationship name | Type                     | Description
-|:------------------|:-------------------------|:----------------------------------
-| **drive**         | [drive][]                | The default drive (document library) for this site.
-| **drives**        | Collection([drive][])    | The collection of drives (document libraries) under this site.
-| **items**         | Collection([baseItem][]) | Used to address any item contained in this site. This collection cannot be enumerated.
-| **sites**         | Collection([site][])     | The collection of the sub-sites under this site.
+| Relationship name | Type                             | Description
+|:------------------|:---------------------------------|:----------------------
+| **columns**       | Collection([columnDefinition][]) | The collection of column definitions reusable across lists under this site.
+| **contentTypes**  | Collection([contentType][])      | The collection of content types defined for this site.
+| **drive**         | [drive][]                        | The default drive (document library) for this site.
+| **drives**        | Collection([drive][])            | The collection of drives (document libraries) under this site.
+| **items**         | Collection([baseItem][])         | Used to address any item contained in this site. This collection cannot be enumerated.
+| **lists**         | Collection([list][])             | The collection of lists under this site.
+| **sites**         | Collection([site][])             | The collection of the sub-sites under this site.
+| **onenote**       | [onenote][]                      | Calls the OneNote service for notebook related operations.
 
+[columnDefinition]: columndefinition.md
 [baseItem]: baseitem.md
+[contentType]: contentType.md
 [drive]: drive.md
 [identitySet]: identityset.md
+[list]: list.md
 [site]: site.md
+[onenote]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/onenote
 
 <!-- {
   "type": "#page.annotation",

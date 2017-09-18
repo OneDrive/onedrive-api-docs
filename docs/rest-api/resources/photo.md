@@ -3,49 +3,47 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# Photo facet
+# Photo resource type
 
-The **Photo** facet groups photo-related data on OneDrive, for example, EXIF metadata, into a single structure.
-
-It is available on the photo property of [driveItem][item-resource] resources that represent photos.
+The **photo** resource provides photo and camera properties, for example, EXIF metadata, on a [driveItem](driveitem.md).
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.photo" } -->
-
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [  ],
+  "@odata.type": "microsoft.graph.photo"
+}-->
 ```json
 {
-  "takenDateTime": "string (timestamp)",
   "cameraMake": "string",
   "cameraModel": "string",
-  "fNumber": 1.8,
   "exposureDenominator": 1000.0,
   "exposureNumerator": 1.0,
+  "fNumber": 1.8,
   "focalLength": 22.5,
-  "iso": 100
+  "iso": 100,
+  "takenDateTime": "String (timestamp)"
 }
 ```
 
 ## Properties
 
-| Property name           | Type           | Description                                                     |
-|:------------------------|:---------------|:----------------------------------------------------------------|
-| **takenDateTime**       | DateTimeOffset | Represents the date and time the photo was taken.               |
-| **cameraMake**          | String         | Camera manufacturer.                                            |
-| **cameraModel**         | String         | Camera model.                                                   |
-| **fNumber**             | Double         | The F-stop value from the camera.                               |
-| **exposureDenominator** | Double         | The denominator for the exposure time fraction from the camera. |
-| **exposureNumerator**   | Double         | The numerator for the exposure time fraction from the camera.   |
-| **focalLength**         | Double         | The focal length from the camera.                               |
-| **iso**                 | Int64          | The ISO value from the camera.                                  |
-
+| Property                | Type           | Description
+|:------------------------|:---------------|:----------------------------------
+| **takenDateTime**       | DateTimeOffset | Represents the date and time the photo was taken. Read-only.
+| **cameraMake**          | String         | Camera manufacturer. Read-only.
+| **cameraModel**         | String         | Camera model. Read-only.
+| **fNumber**             | Double         | The F-stop value from the camera. Read-only.
+| **exposureDenominator** | Double         | The denominator for the exposure time fraction from the camera. Read-only.
+| **exposureNumerator**   | Double         | The numerator for the exposure time fraction from the camera. Read-only.
+| **focalLength**         | Double         | The focal length from the camera. Read-only.
+| **iso**                 | Int64          | The ISO value from the camera. Read-only.
 
 ## Remarks
+OneDrive for Business and SharePoint only return the **takenDateTime** property.
 
-In OneDrive for Business, this facet is returned if it includes the **takenDateTime** property.
-
-[item-resource]: ../resources/driveitem.md
-
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 <!-- {
   "type": "#page.annotation",
   "description": "The photo facet provides details about the camera and settings on the camera for photos.",

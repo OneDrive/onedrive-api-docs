@@ -14,13 +14,13 @@ The following tasks are available for {type} resources.
 
 Here is a JSON representation of a {type} resource.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.typeTemplate",
+<!-- { "blockType": "resource", "@type": "microsoft.graph.typeTemplate",
        "keyProperty": "id", "optionalProperties": [ ] } -->
 
 ```json
 {
   "id": "string",
-  "complexType": { "@odata.type": "oneDrive.typeTemplate" },
+  "complexType": { "@type": "microsoft.graph.typeTemplate" },
 }
 ```
 

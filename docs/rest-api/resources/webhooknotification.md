@@ -14,7 +14,7 @@ instance:
 
 <!-- {
 "blockType": "resource",
-"@odata.type": "oneDrive.webhookNotifiation",
+"@odata.type": "microsoft.graph.webhookNotification",
 "optionalProperties": ["context", "tenantId", "expirationDateTime", "resource" ]
 } -->
 
@@ -31,7 +31,7 @@ instance:
 Since multiple notifications may be submitted to your service in a single
 request, these are combined together in an object with a single array **value**:
 
-<!-- { "blockType": "example", "@odata.type": "Collection(oneDrive.webhookNotifiation)" } -->
+<!-- { "blockType": "ignored", "@odata.type": "Collection(microsoft.graph.webhookNotifiation)" } -->
 
 ```json
 {

@@ -21,7 +21,7 @@ Here is a JSON representation of a **baseItem** resource.
   "blockType": "resource",
   "optionalProperties": [ "createdBy", "lastModifiedBy", "description", "parentReference", "webUrl" ],
   "keyProperty": "id",
-  "@odata.type": "oneDrive.baseItem"
+  "@odata.type": "microsoft.graph.baseItem"
 }-->
 
 ```json

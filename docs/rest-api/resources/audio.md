@@ -5,13 +5,14 @@ ms.date: 09/10/2017
 ---
 # Audio facet
 
-The **Audio** facet groups audio-related data on OneDrive into a single structure.
-It is available on the audio property of [driveItem][item-resource] resources that
-have associated audio.
+The **Audio** resource groups audio-related properties on an item into a single structure.
+
+If a [**DriveItem**](driveitem.md) has a non-null **audio** facet, the item represents an audio file.
+The properties of the **Audio** resource are populated by extracting metadata from the file. 
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.audio" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.audio" } -->
 ```json
 {
   "album": "string",
@@ -57,6 +58,8 @@ have associated audio.
 [item-resource]: ../resources/driveitem.md
 
 ## Remarks
+
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 
 Audio facet is not supported on SharePoint Server 2016.
 

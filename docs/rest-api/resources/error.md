@@ -19,7 +19,7 @@ handling errors with the OneDrive API.
 
 The error resource is composed of these resources:
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.error" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.error" } -->
 ```json
 {
   "error": { "@odata.type": "odata.error" }  

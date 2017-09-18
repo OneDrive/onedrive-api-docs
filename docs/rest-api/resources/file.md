@@ -3,29 +3,42 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# File facet
+# File resource type
 
-The **File** facet groups file-related data on OneDrive into a single structure.
-It is available on the file property of [driveItem][item-resource] resources that represent files.
+The **File** resource groups file-related data items into a single structure.
+
+If a [**DriveItem**](driveitem.md) has a non-null **file** facet, the item represents an file.
+In addition to other properties, files have a **content** relationship which contains the byte stream of the file.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.file" } -->
+Here is a JSON representation of the resource.
+
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ ],
+  "@odata.type": "microsoft.graph.file"
+}-->
+
 ```json
 {
+  "hashes": {"@odata.type": "microsoft.graph.hashes"},
   "mimeType": "string",
-  "hashes":  { "@odata.type": "oneDrive.hashes" },
   "processingMetadata": false
 }
 ```
 
-| Property Name          | Type                          | Description                                                                                                                                 |
-|:-----------------------|:------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
-| **mimeType**           | string                        | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded.       |
-| **hashes**             | [HashesType](hashes.md) | Hashes of the file's binary content, if available.                                                                                          |
+## Properties
+
+| Property | Type                    | Description                                                                                                                                      |
+|:---------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| hashes   | [HashesType](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
+| mimeType | string                  | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. |
 | **processingMetadata** | Boolean                       | Flag indicating if the item is still being processed to extract metadata                                                                    |
 
-[item-resource]: ../resources/driveitem.md
+## Remarks 
+
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 
 <!-- {
   "type": "#page.annotation",

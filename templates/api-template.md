@@ -18,7 +18,7 @@ Do not provide a request body with this method.
 
 If successful, this method returns a collection of Drive resources for the available drives either for the current user or the target SharePoint site.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.drive", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.drive", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

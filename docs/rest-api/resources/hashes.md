@@ -3,15 +3,22 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# Hashes facet
+# Hashes resource type
 
-The **Hashes** facet groups different types of hashes into a single structure, for an item on OneDrive.
+The **Hashes** resource groups available hashes into a single structure for an item.
+
+**Note:** Not all services provide a value for all hash properties listed.
 
 ## JSON representation
 
-A set of hash values for the file.
+Here is a JSON representation of the resource.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.hashes" } -->
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [ "sha1Hash", "crc32Hash", "quickXorHash" ],
+  "@odata.type": "microsoft.graph.hashes"
+}-->
+
 ```json
 {
   "crc32Hash": "string (hex)",
@@ -19,16 +26,17 @@ A set of hash values for the file.
   "quickXorHash": "string (base64)"
 }
 ```
+
 ## Properties
 
-| Property name | Type          | Description                                           |
-|:--------------|:--------------|:------------------------------------------------------|
-| **sha1Hash**  | hex string | The bytes of the SHA1 hash of the file contents. |
-| **crc32Hash** | hex string | The bytes of the CRC32 value of the file contents, in little endian order.           |
-| **quickXorHash** | base64 string | A [proprietary hash](../../code-snippets/quickxorhash.md) of the file contents.|
+| Property         | Type   | Description                                                       |
+|:-----------------|:-------|:------------------------------------------------------------------|
+| **sha1Hash**     | String | SHA1 hash for the contents of the file (if available). Read-only. |
+| **crc32Hash**    | String | The CRC32 value of the file (if available). Read-only.            |
+| **quickXorHash** | String | A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only. |
 
-**Note:** In some cases hash values may not be available. Downloading the item
-can cause the hash values to be populated, provided the hash is supported in the given context. See remarks for details.
+**Note:** In some cases hash values may not be available. 
+If this is the case, the hash values on an item will be updated after the item is downloaded.
 
 ## Remarks
 
@@ -37,6 +45,9 @@ In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Has
 In OneDrive Personal, **quickXorHash** is not available.
 
 To calculate **quickXorHash** for a file, refer to the [QuickXorHash snippet](../../code-snippets/quickxorhash.md).
+
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
+
 
 <!-- {
   "type": "#page.annotation",

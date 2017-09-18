@@ -11,7 +11,7 @@ The subscription resource defines the properties of a single subscription.
 
 <!-- {
 "blockType": "resource",
-"@odata.type": "oneDrive.subscription",
+"@odata.type": "microsoft.graph.subscription",
 "optionalProperties": [ "clientState", "expirationDateTime", "resource", "subscriptionId", "changeType" ]
 } -->
 

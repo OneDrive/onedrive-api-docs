@@ -58,7 +58,7 @@ GET https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 
 The service responses with information that the long running action is still in progress:
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.asyncOperationStatus" } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
 ```http
 HTTP/1.1 202 Accepted
 Content-type: application/json
@@ -86,11 +86,19 @@ GET https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 
 When the action has completed, the response from the monitor service will return the resourceId for the results.
 
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
+
+```http
+HTTP/1.1 202 Accepted
+Content-type: application/json
+
 {
-    "percentageComplete": 100,
+    "percentageComplete": 100.0,
     "resourceId": "01MOWKYVJML57KN2ANMBA3JZJS2MBGC7KM",
     "status": "completed"
 }
+```
+
 
 ## Retrieve the results of the completed operation
 

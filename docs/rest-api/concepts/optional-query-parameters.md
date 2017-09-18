@@ -30,7 +30,7 @@ By submitting the request with the `select=name,size` query string, the objects
 in the response will only have those property values included. When using the
 select statement, you need to specify all properties to return in the statement.
 
-<!-- { "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
+<!-- { "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -72,7 +72,7 @@ GET /drive/root?expand=children(select=id,name)
 
 The request returns the collection items, with the children collection expanded.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

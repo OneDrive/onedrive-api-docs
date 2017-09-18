@@ -3,52 +3,66 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# Remote item facet
+# RemoteItem resource type
 
-The **Remote item** facet contains data and references items that exist in another drive.
-It is available on the `remoteItem` property of [driveItem][item-resource] resources that have been shared and added to a drive, for example, by using the "Add to OneDrive" feature.
+The **remoteItem** resource indicates that a [**driveItem**](driveitem.md) references an item that exists in another drive.
+This resource provides the unique IDs of the source drive and target item.
 
-**Note:** Unlike with folders in the user's drive, an item moved into a
-remote item might have its `id` changed.
+[**DriveItems**](driveitem.md) with a non-null **remoteItem** facet are resources that are shared, added to the user's OneDrive, or on items returned from hetrogenous collections of items (like search results).
+
+**Note:** Unlike with folders in the same drive, a **driveItem** moved into a remote item may have its `id` value changed.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.remoteItem", optionalProperties: ["name"] } -->
+<!-- { "blockType": "resource", 
+       "@odata.type": "microsoft.graph.remoteItem", 
+       "optionalProperties": ["name", "fileSystemInfo", "file", "folder"] } -->
 
 ```json
 {
-  "createdBy": { "@odata.type": "oneDrive.identitySet" },
-  "file": { "@odata.type": "oneDrive.file" },
-  "fileSystemInfo": { "@odata.type": "oneDrive.fileSystemInfo" },
-  "folder": { "@odata.type": "oneDrive.folder" },
   "id": "string",
-  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
-  "lastModifiedDateTime": "string (timestamp)",
+  "createdBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "createdDateTime": "timestamp",
+  "file": { "@odata.type": "microsoft.graph.file" },
+  "fileSystemInfo": { "@odata.type": "microsoft.graph.fileSystemInfo" },
+  "folder": { "@odata.type": "microsoft.graph.folder" },
+  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "lastModifiedDateTime": "timestamp",
   "name": "string",
-  "parentReference": { "@odata.type": "oneDrive.itemReference" },
-  "shared": {"@odata.type": "oneDrive.shared" },
+  "package": { "@odata.type": "microsoft.graph.package" },
+  "parentReference": { "@odata.type": "microsoft.graph.itemReference" },
+  "shared": { "@odata.type": "microsoft.graph.shared" },
+  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
   "size": 1024,
-  "webUrl": "https://1drv.ms/voo/bar"
+  "webDavUrl": "url",
+  "webUrl": "url"
 }
 ```
 
 ## Properties
 
-| Property name            | Type                                             | Description                                                                                                                 |
-| ------------------------ | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| **createdBy**            | [identitySet](../resources/identitySet.md)                    | Identity of the user, device, and application which created the item. Read-only.                                            |
-| **file**                 | [file](file.md)                            | Indicates that the remote item is a file.                                                                                   |
-| **fileSystemInfo**       | [fileSystemInfo](filesysteminfo.md)        | Information about the remote item from the local file system.                                                               |
-| **folder**               | [folder](folder.md)                        | Indicates that the remote item is a folder.                                                                                 |
-| **id**                   | string                                           | Unique identifier for the remote item in its drive.                                                                         |
-| **lastModifiedBy**       | [identitySet](../resources/identitySet.md)                    | Identity of the user, device, and application which last modified the item. Read-only.                                      |
-| **lastModifiedDateTime** | [dateTimeOffset](../resources/timestamp.md)         | Date and time the item was last modified. Read-only.                                                                        |
-| **name**                 | string                                           | Optional. Filename of the remote item.                                                                                      |
-| **parentReference**      | [itemReference](../resources/itemReference.md)   | Properties of the parent of the remote item.                                                                                |
-| **shared**               | [sharedFacet](../resources/shared.md)         | Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. |
-| **size**                 | Int64                                            | Size of the remote item.                                                                                                    |
+| Property name        | Type                                | Description                                                                                                                                                       |
+| :------------------- | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| createdBy            | [IdentitySet](identityset.md)       | Identity of the user, device, and application which created the item. Read-only.                                                                                  |
+| createdDateTime      | Timestamp                           | Date and time of item creation. Read-only.                                                                                                                        |
+| file                 | [File](file.md)                     | Indicates that the remote item is a file. Read-only.                                                                                                              |
+| fileSystemInfo       | [FileSystemInfo](filesysteminfo.md) | Information about the remote item from the local file system. Read-only.                                                                                          |
+| folder               | [Folder](folder.md)                 | Indicates that the remote item is a folder. Read-only.                                                                                                            |
+| id                   | String                              | Unique identifier for the remote item in its drive. Read-only.                                                                                                    |
+| lastModifiedBy       | [IdentitySet](identityset.md)       | Identity of the user, device, and application which last modified the item. Read-only.                                                                            |
+| lastModifiedDateTime | Timestamp                           | Date and time the item was last modified. Read-only.                                                                                                              |
+| name                 | String                              | Optional. Filename of the remote item. Read-only.                                                                                                                 |
+| package              | [Package](package.md)               | If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. |
+| parentReference      | [ItemReference](itemreference.md)   | Properties of the parent of the remote item. Read-only.                                                                                                           |
+| shared               | [shared](shared.md)                 | Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.                                       |
+| sharepointIds        | [SharepointIds](sharepointids.md)   | Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.                                          |
+| size                 | Int64                               | Size of the remote item. Read-only.                                                                                                                               |
+| webDavUrl            | Url                                 | DAV compatible URL for the item.                                                                                                                                  |
+| webUrl               | Url                                 | URL that displays the resource in the browser. Read-only.                                                                                                         |
 
-[item-resource]: ../resources/driveitem.md
+## Remarks
+
+For more information about the facets on a **driveItem**, see [driveItem](driveitem.md).
 
 <!-- {
   "type": "#page.annotation",

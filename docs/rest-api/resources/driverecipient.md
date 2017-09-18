@@ -5,13 +5,14 @@ ms.date: 09/10/2017
 ---
 # DriveRecipient resource
 
-The drive recipient resource represents a single recipient for an
-[invitation](../api/driveitem_invite.md) action and [item permissions](../api/driveitem_list_permissions.md).
+The **DriveRecipient** resource represents a person, group, or other recipient to share with using the [invite](../api/driveitem_invite.md) action.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.recipients", "optionalProperties": ["alias", "objectId", "email"] } -->
-
+<!-- { 
+  "blockType": "resource", 
+  "@odata.type": "microsoft.graph.driveRecipient", 
+  "optionalProperties": ["alias", "objectId", "email"] } -->
 ```json
 {
   "email": "string",
@@ -23,20 +24,16 @@ The drive recipient resource represents a single recipient for an
 ## Properties
 The recipients resource has these properties.
 
-| Property name            | Type              | Description                                                                                                                                                               |
-|:-------------------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **email**                | String            | The email address for the recipient, if the recipient has an associated email address. |
-| **alias**                | String            | The alias of the domain object, for cases where an email address is unavailable (e.g. security groups). |
-| **objectId**             | String            | The unique identifier for the recipient in the directory. |
+| Property name | Type   | Description                                                                                             |
+|:--------------|:-------|:--------------------------------------------------------------------------------------------------------|
+| email         | String | The email address for the recipient, if the recipient has an associated email address.                  |
+| alias         | String | The alias of the domain object, for cases where an email address is unavailable (e.g. security groups). |
+| objectId      | String | The unique identifier for the recipient in the directory.                                               |
 
 ## Remarks
 
-When using [invite](../api/driveitem_invite.md) to add permissions, the recipients type
-can specify **email**, **alias**, or **objectId**. Only one of these values is
-required.
-
-**Note:** this preview resource is likely to be renamed in a future API update.
-
+When using [invite](../api/driveitem_invite.md) to add permissions, the DriveRecipient can specify **email**, **alias**, or **objectId**.
+Only one of these values is required.
 
 <!-- {
   "type": "#page.annotation",

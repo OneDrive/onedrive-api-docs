@@ -14,31 +14,36 @@ Here is a JSON representation of the resource
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ "path", "shareId", "sharepointIds" ],
-  "@odata.type": "oneDrive.itemReference"
+  "@odata.type": "microsoft.graph.itemReference"
 }-->
 
 ```json
 {
   "driveId": "string",
+  "driveType": "personal | business | documentLibrary",
   "id": "string",
   "name": "string",
   "path": "string",
   "shareId": "string",
-  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" }
+  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" }
 }
 ```
 
 ## Properties
 
-| Property      | Type                                              | Description                                                                                               |
-| :------------ | :------------------------------------------------ | :-------------------------------------------------------------------------------------------------------- |
-| driveId       | String                                            | Unique identifier of the drive instance that contains the item. Read-only.                                |
-| id            | String                                            | Unique identifier of the item in the drive. Read-only.                                                    |
-| name          | String                                            | The name of the item being referenced. Read-only.                                                         |
-| path          | String                                            | Path that can be used to navigate to the item. Read-only.                                                 |
-| shareId       | String                                            | A unique identifier for a shared resource that can be accessed via the [Shares](../api/shares_get.md) API. |
-| sharepointIds | [sharepointIds](../resources/sharepointids.md) | Returns identifiers useful for SharePoint REST compatibility. Read-only.                                  |
+| Property      | Type              | Description
+|:--------------|:------------------|:-----------------------------------------
+| driveId       | String            | Unique identifier of the drive instance that contains the item. Read-only.
+| driveType     | String            | Identifies the type of drive. See [drive][] resource for values.
+| id            | String            | Unique identifier of the item in the drive. Read-only.
+| name          | String            | The name of the item being referenced. Read-only.
+| path          | String            | Path that can be used to navigate to the item. Read-only.
+| shareId       | String            | A unique identifier for a shared resource that can be accessed via the [Shares][] API.
+| sharepointIds | [sharepointIds][] | Returns identifiers useful for SharePoint REST compatibility. Read-only.
 
+[drive]: ../resources/drive.md
+[sharepointIds]: ../resources/sharepointids.md
+[Shares]: ../api/shares_get.md
 
 ## Remarks
 

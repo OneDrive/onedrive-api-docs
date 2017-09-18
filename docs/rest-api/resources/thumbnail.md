@@ -14,7 +14,7 @@ Here is a JSON representation of the **thumbnail** resource.
 <!-- {
   "blockType": "resource",
   "optionalProperties": ["content", "height", "width", "sourceItemId"],
-  "@odata.type": "oneDrive.thumbnail"
+  "@odata.type": "microsoft.graph.thumbnail"
 }-->
 
 ```json
@@ -38,15 +38,11 @@ Here is a JSON representation of the **thumbnail** resource.
 | url          | String | The URL used to fetch the thumbnail content.                                                                                |
 | width        | Int32  | The width of the thumbnail, in pixels.                                                                                      |
 
-
 ## Relationships
 
 | Name    | Type   | Description                           |
 | :------ | :----- | :------------------------------------ |
 | content | Stream | The content stream for the thumbnail. |
-
-
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

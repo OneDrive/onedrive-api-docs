@@ -12,16 +12,17 @@ It is used to represent a set of identities associated with various events for a
 
 Here is a JSON representation of the resource.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.identitySet",
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.identitySet",
        "optionalProperties": ["user", "application", "device"],
        "openType": true } -->
 ```json
 {
-  "application": {"@odata.type": "oneDrive.identity"},
-  "device": {"@odata.type": "oneDrive.identity"},
-  "user": {"@odata.type": "oneDrive.identity"}
+  "application": {"@odata.type": "microsoft.graph.identity"},
+  "device": {"@odata.type": "microsoft.graph.identity"},
+  "user": {"@odata.type": "microsoft.graph.identity"}
 }
 ```
+
 ## Properties
 
 | Property    | Type                    | Description                                            |
@@ -32,7 +33,7 @@ Here is a JSON representation of the resource.
 
 ## Remarks 
 
-See [Item](../resources/driveitem.md) for usage of **IdentitySet** resources.
+See [DriveItem](driveitem.md) for usage of **IdentitySet** resources.
 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

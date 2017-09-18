@@ -17,16 +17,16 @@ Here is a JSON representation of the resource.
   "optionalProperties": ["source", "small", "medium", "large"],
   "openType": true,
   "keyProperty": "id",
-  "@odata.type": "oneDrive.thumbnailSet"
+  "@odata.type": "microsoft.graph.thumbnailSet"
 } -->
 
 ```json
 {
   "id": "string (identifier)",
-  "large": { "@odata.type": "oneDrive.thumbnail" },
-  "medium": { "@odata.type": "oneDrive.thumbnail" },
-  "small": { "@odata.type": "oneDrive.thumbnail" },
-  "source": { "@odata.type": "oneDrive.thumbnail" }
+  "large": { "@odata.type": "microsoft.graph.thumbnail" },
+  "medium": { "@odata.type": "microsoft.graph.thumbnail" },
+  "small": { "@odata.type": "microsoft.graph.thumbnail" },
+  "source": { "@odata.type": "microsoft.graph.thumbnail" }
 }
 ```
 
@@ -39,7 +39,6 @@ Here is a JSON representation of the resource.
 | medium   | [Thumbnail](thumbnail.md) | A 176x176 scaled thumbnail.                                                       |
 | small    | [Thumbnail](thumbnail.md) | A 48x48 cropped thumbnail.                                                        |
 | source   | [Thumbnail](thumbnail.md) | A custom thumbnail image or the original image used to generate other thumbnails. |
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

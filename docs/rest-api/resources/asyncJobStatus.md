@@ -3,22 +3,21 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# AsyncOperationStatus resource
+# AsyncJobStatus resource
 
 This resource provides information on the status of a asynchronous job progress.
 
-The following API calls return **AsyncOperationStatus** resources:
+The following API calls return **AsyncJobStatus** resources:
 
 * [Copy Item](../api/driveitem_copy.md)
 * [Upload From URL](../api/driveitem_upload_url.md)
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.asyncOperationStatus", "optionalProperties": ["operation"] } -->
+<!-- { "blockType": "resource", "@type": "microsoft.graph.asyncJobStatus", "@type.aka": "oneDrive.asyncOperationStatus" } -->
 
 ```json
 {
-  "operation": "string",
   "percentageComplete": 100.0,
   "status": "notStarted | inProgress | completed | updating | failed | deletePending | deleteFailed | waiting"
 }
@@ -28,7 +27,6 @@ The following API calls return **AsyncOperationStatus** resources:
 
 | Property name          | Type   | Description                                                                                |
 |:-----------------------|:-------|:-------------------------------------------------------------------------------------------|
-| **operation**          | String | The type of job being run.                                                                 |
 | **percentageComplete** | Double | A value between 0 and 100 that indicates the percentage complete.                          |
 | **status**             | String | A string value that maps to an enumeration of possible values about the status of the job. |
 

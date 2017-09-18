@@ -30,7 +30,7 @@ To add the shared folder to a drive, your app POSTs to the drive's root collecti
 with the details of the shared folder in the **remoteItem** facet. For example:
 
 <!-- { "blockType": "request", "name": "add-mountpoint",
-       "@odata.type": "oneDrive.item", "truncated": true, "scopes": "files.readwrite service.onedrive" } -->
+       "@odata.type": "microsoft.graph.driveItem", "truncated": true, "scopes": "files.readwrite service.onedrive" } -->
 ```http
 POST /drive/root/children
 Content-Type: application/json
@@ -49,7 +49,7 @@ Content-Type: application/json
 If successful, the service responds with the complete details of the
 created remote item:
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true} -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true} -->
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -97,7 +97,7 @@ result in an error from the server.
 
 In this example, consider the following remote item:
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.item", "name": "mount-point", "truncated": true } -->
+<!-- { "blockType": "example", "@odata.type": "microsoft.graph.driveItem", "name": "mount-point", "truncated": true } -->
 ```json
 {
   "id": "98765432!12399",
@@ -125,7 +125,7 @@ GET /drives/{drive-id}/items/{item-id}/children
 This example returns the children of the shared folder, by calling into the
 parent drive of the shared folder.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true, "isCollection": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true, "isCollection": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

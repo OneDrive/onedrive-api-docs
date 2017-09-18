@@ -98,7 +98,7 @@ GET /drive/root/search?q=vacation&filter=image%20ne%20null%20and%20file%20ne%20n
 
 #### Response
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

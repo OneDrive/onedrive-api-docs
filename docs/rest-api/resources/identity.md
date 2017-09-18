@@ -10,12 +10,12 @@ For example, an actor can be a user, device, or application.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.identity", "optionalProperties": ["displayName", "thumbnails"] } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.identity", "optionalProperties": ["displayName", "thumbnails"] } -->
 ```json
 {
   "displayName": "string",
   "id": "string",
-  "thumbnails": { "@odata.type": "oneDrive.thumbnailSet" }
+  "thumbnails": { "@odata.type": "microsoft.graph.thumbnailSet" }
 }
 ```
 

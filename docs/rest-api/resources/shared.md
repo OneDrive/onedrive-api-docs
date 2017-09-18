@@ -3,28 +3,38 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# Shared facet
+# Shared resource type
 
-Indicates that an item has been shared with others. Includes information about
-how the item is shared.
+The **Shared** resource indicates a DriveItem has been shared with others.
+The resource includes information about how the item is shared.
+
+If a [**Driveitem**](driveitem.md) has a non-null **shared** facet, the item has been shared.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.shared" } -->
+<!-- {
+  "blockType": "resource",
+  "@odata.type": "microsoft.graph.shared",
+  "optionalProperties": [ "sharedBy", "sharedDateTime" ]
+}-->
 
 ```json
 {
-  "owner": { "@odata.type": "oneDrive.identitySet" },
+  "owner": { "@odata.type": "microsoft.graph.identitySet" },
   "scope": "anonymous | organization | users",
+  "sharedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "sharedDateTime": "datetime"
 }
 ```
 
 ## Properties
 
-| Property name      | Type                                       | Description                                                                             |
-|:-------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------|
-| **owner**          | [IdentitySet](../resources/identitySet.md) | The identity of the user who owns the item that is shared.                              |
-| **scope**          | **String**                                 | Indicates the scope of how the item is shared: `anonymous`, `organization`, or `users`. |
+| Property       | Type                          | Description
+| :------------- |:------------------------------|:----------------------------
+| owner          | [IdentitySet](identityset.md) | The identity of the owner of the shared item. Read-only.
+| scope          | String                        | Indicates the scope of how the item is shared: `anonymous`, `organization`, or `users`. Read-only.
+| sharedBy       | [identitySet](identityset.md) | The identity of the user who shared the item. Read-only.
+| sharedDateTime | DateTimeOffset                | The UTC date and time when the item was shared. Read-only.
 
 ## Scope values
 
@@ -35,6 +45,8 @@ how the item is shared.
 | `users`        | The item is shared with specific users only.                                          |
 
 ## Remarks
+
+For more information about the facets on a **driveItem**, see [**driveItem**](driveitem.md).
 
 Shared facet is not supported on SharePoint Server 2016.
 

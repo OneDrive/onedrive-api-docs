@@ -3,30 +3,42 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ---
-# SharingInvitation Facet
+# SharingInvitation resource type
 
-Represents information about a sharing invitation for a set of permissions.
-This object is read-only.
+The **SharingInvitation** resource groups invitation-related data items into a single strucutre.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.invitation" } -->
+Here is a JSON representation of the resource
+
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [
+
+  ],
+  "@odata.type": "microsoft.graph.sharingInvitation"
+}-->
 
 ```json
 {
   "email": "string",
-  "signInRequired": false,
-  "invitedBy": { "@odata.type": "oneDrive.identitySet" }
+  "invitedBy": {"@odata.type": "microsoft.graph.identitySet" },
+  "signInRequired": true
 }
 ```
 
 ## Properties
 
-| Property Name    | Type                | Description                                                                                   |
-|:-----------------|:--------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| `email`          | `string`            | The email address provided for the recipient of the sharing invitation. Read-only.                                            |
-| `signInRequired` | `boolean`           | If `true` the recipient of the invitation needs to sign in in order to access the shared item. Read-only.                     |
-| `invitedBy`      | `oneDrive.identity` | Provides information about who sent the invitation that created this permission, if that information is available. Read-only. |
+| Property Name  | Type                          | Description                                                                                                                   |
+|:---------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| email          | String                        | The email address provided for the recipient of the sharing invitation. Read-only.                                          |
+| invitedBy      | [identitySet](identityset.md) | Provides information about who sent the invitation that created this permission, if that information is available. Read-only. |
+| signInRequired | Boolean                       | If `true` the recipient of the invitation needs to sign in in order to access the shared item. Read-only.                     |
+
+## Remarks 
+
+For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
+
 
 <!-- {
   "type": "#page.annotation",

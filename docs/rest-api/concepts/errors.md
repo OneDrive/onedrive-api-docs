@@ -35,7 +35,7 @@ The error response is a single JSON object that contains a single property
 named **error**. This object includes all of the details of the error. You may use the information returned here instead of, or in addition
 to the HTTP status code returned. Here is an example of a full JSON error body.
 
-<!-- { "blockType": "example", "@odata.type": "oneDrive.error", "expectError": true, "name": "example-error-response"} -->
+<!-- { "blockType": "example", "@odata.type": "microsoft.graph.error", "expectError": true, "name": "example-error-response"} -->
 
 ```json
 {
