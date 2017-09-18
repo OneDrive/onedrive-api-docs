@@ -68,7 +68,7 @@
 ### [Create](rest-api/api/listitem_create.md)
 ### [Delete](rest-api/api/listitem_delete.md)
 ### [Get](rest-api/api/listitem_get.md)
-### [Get versions](rest-api/api/listitem_list_version.md)
+### [Get versions](rest-api/api/listitem_list_versions.md)
 ### [Update](rest-api/api/listitem_update.md)
 ### [Get version](rest-api/api/listitemversion_get.md)
 ### [Restore version](rest-api/api/listitemversion_restore.md)
@@ -95,7 +95,7 @@
 ### [CurrencyColumn](rest-api/resources/currencycolumn.md)
 ### [DateTimeColumn](rest-api/resources/datetimecolumn.md)
 ### [DefaultColumnValue](rest-api/resources/defaultcolumnvalue.md)
-### [DeletedAction](rest-api/resources/deletedaction.md)
+### [DeleteAction](rest-api/resources/deleteaction.md)
 ### [Deleted](rest-api/resources/deleted.md)
 ### [DriveItemVersion](rest-api/resources/driveitemversion.md)
 ### [DriveRecipient](rest-api/resources/driverecipient.md)
@@ -148,7 +148,7 @@
 ### [Webhook notification](rest-api/resources/webhooknotification.md)
 
 # File handlers
-## [Overview](file-handlers/overview.md)
+## [Overview](file-handlers/index.md)
 ## [Defining actions](file-handlers/file-handler-actions.md)
 ## [Registering](file-handlers/register-file-handler-manually.md)
 
