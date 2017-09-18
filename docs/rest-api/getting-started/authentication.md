@@ -4,11 +4,15 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 ---
-# Authentication for the OneDrive API
+# Authorizing your app to access OneDrive
 
-The OneDrive API uses standard [OAuth 2.0][oauth] authentication scheme to authenticate users and generate access tokens.
+Before your app can make requests to OneDrive, it needs a user to authenticate and authorize the application to have access to their data.
+The method for obtaining authorization differs depending on if your app is targeting OneDrive and SharePoint online, or SharePoint Server 2016.
 
-## Microsoft Graph
+Microsoft Graph, OneDrive, and SharePoint support using a standard [OAuth2](http://tools.ietf.org/html/draft-ietf-oauth-v2-22) or [Open ID Connect](http://openid.net/connect/) authorization flow.
+Requests to Microsoft Graph are authenticated using bearer tokens obtained from one of these flows.
+
+## Microsoft Graph (OneDrive and SharePoint online)
 
 Microsoft Graph uses Azure Active Directory to authenticate accounts and authorize applications.
 Using the v2.0 endpoint your application can sign in consumer users with Microsoft accounts and work/school users with Azure Active Directory accounts with a single authentication flow.
@@ -21,14 +25,6 @@ To get started, take a look at using OAuth with Microsoft Graph:
 | [Sign out](graph-oauth.md#sign-the-user-out)                             | Sign out of Microsoft account and OneDrive personal. |
 
 For more details about the full list of authentication scenarios for Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
-
-When accessing the OneDrive APIs outside of Microsoft Graph, different authentication may be required. 
-Read below for more details.
-
-*Note:* At this time, only user-delegated permissions are available for the files portion of the Microsoft Graph.
-While some scopes may be available for app-delegated or client credentials authentication, these scopes are not supported with Microsoft Graph.
-
-
 
 ## SharePoint Server 2016
 
