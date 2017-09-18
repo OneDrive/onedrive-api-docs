@@ -37,7 +37,7 @@ OneDrive provides two top-level types that represent addressable resources in th
 
 The following is an example of a **driveItem** resource.
 
-<!-- {"blockType": "example", "@odata.type": "oneDrive.item", "truncated": true, "name": "item-example"} -->
+<!-- {"blockType": "example", "@odata.type": "microsoft.graph.driveItem", "truncated": true, "name": "item-example"} -->
 ```json
 {
   "@microsoft.graph.downloadUrl":"http://public-sn3302.files.1drv.com/y2pcT7OaUEExF7EHOl",

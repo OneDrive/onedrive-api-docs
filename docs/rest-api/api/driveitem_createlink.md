@@ -138,7 +138,7 @@ Content-Type: application/json
 
 ### Response
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.permission" } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.permission" } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -181,7 +181,7 @@ Content-Type: application/json
 
 ### Response
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.permission" } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.permission" } -->
 
 ```http
 HTTP/1.1 201 Created

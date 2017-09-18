@@ -65,7 +65,8 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$order
 If successful, this method returns a `200 OK` response code and collection of [Drive](../resources/drive.md) objects in the response body.
 
 <!-- { "blockType": "response", 
-       "@odata.type": "Collection(microsoft.graph.drive)", 
+       "@odata.type": "Collection(microsoft.graph.drive)",
+       "name": ["group-list-drives", "site-list-drives", "user-list-drives", "enum-drives"],
        "truncated": true } -->
 
 ```http

@@ -54,7 +54,7 @@ This method returns a `200 OK` response code and a [driveItem](../resources/driv
 
 You can use this method of addressing a special folder inline with additional calls to properties or relationships on the driveItem.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -85,7 +85,7 @@ GET /me/drive/special/{name}/children
 
 ### HTTP response
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true} -->
 
 ```http
 HTTP/1.1 200 OK

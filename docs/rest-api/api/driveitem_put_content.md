@@ -100,7 +100,7 @@ The contents of the file goes here.
 
 If successful, this method returns an [driveItem][item-resource] resource in the response body for the newly created file.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created

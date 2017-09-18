@@ -155,7 +155,7 @@ You should always determine the size of your byte ranges according to the best p
 Do not assume that **nextExpectedRanges** will return reanges of proper size for a byte range to upload.
 The **nextExpectedRanges** property indicates ranges of the file that have not been received and not a pattern for how your app should upload the file.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
+<!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
 
 ```http
 HTTP/1.1 202 Accepted
@@ -313,7 +313,23 @@ If-Match: {etag or ctag}
 
 **Note:** You can use the `@microsoft.graph.conflictBehavior` and `if-match` headers as expected in this call.
 
+### HTTP response
+
 If the file can be committed using the new metadata, an `HTTP 201 Created` or `HTTP 200 OK` response will be returned with the Item metadata for the uploaded file.
+
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "id": "912310013A123",
+  "name": "largefile.vhd",
+  "size": 128,
+  "file": { }
+}
+```
 
 ## Best practices
 

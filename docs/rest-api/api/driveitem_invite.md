@@ -34,7 +34,7 @@ POST /users/{userId}/drive/items/{itemId}/invite
 
 In the request body, provide a JSON object with the following parameters.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.inviteParameters", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.inviteParameters", "scopes": "files.readwrite" } -->
 
 ```json
 {
@@ -66,7 +66,7 @@ The invitation grants Ryan read-write access to the file.
 
 If successful, this method returns `200 OK` response code and [permission](../resources/permission.md) collection object in the response body.
 
-<!-- { "blockType": "request", "name": "send-sharing-invite", "@odata.type": "oneDrive.inviteParameters", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "send-sharing-invite", "@odata.type": "microsoft.graph.inviteParameters", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
 POST /me/drive/items/{item-id}/invite

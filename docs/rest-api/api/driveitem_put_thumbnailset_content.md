@@ -51,7 +51,7 @@ GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,sourc
 
 ### Response
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 

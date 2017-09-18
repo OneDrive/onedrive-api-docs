@@ -49,7 +49,7 @@ The request will be rejected if more than two parts are included.
 Each part must specify a **name** value in the `Content-Disposition` header that indicates which part it is.
 Parts can be in either order, but should specify the metadata part first.
 
-<!-- { "blockType": "request", "name": "upload-multipart", "@odata.type": "oneDrive.item", "scopes": "files.readwrite service.onedrive" } -->
+<!-- { "blockType": "request", "name": "upload-multipart", "@odata.type": "microsoft.graph.driveItem", "scopes": "files.readwrite service.onedrive" } -->
 
 ```http
 POST /drive/items/{folder-id}/children
@@ -82,7 +82,7 @@ By default, the upload fails if an existing item has the same name.
 
 If successful, this method returns a [driveItem resource](../resources/driveitem.md) in the response body for the newly created file.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created

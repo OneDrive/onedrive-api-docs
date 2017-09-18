@@ -75,13 +75,13 @@ var pickerOptions = {
 
 ### Open files using a button
 
-You can use the ![Open from OneDrive Button](../../../site-images/open-button.png)
+You can use the ![Open from OneDrive Button](../../../media/open-button.png)
 button on your website to start opening files from OneDrive. This code adds a
 button element to your page. When a user clicks this button, the OneDrive picker
 starts with the specified pickerOptions, and returns the file(s) the user
 selected.  
 
-To add the ![Open from OneDrive Button](../../../site-images/open-button.png) button to
+To add the ![Open from OneDrive Button](../../../media/open-button.png) button to
 your page, configure the `pickerOptions` and embed the button, like this.
 
 ```html
@@ -171,7 +171,7 @@ The **file** object has the following properties:
 ## Saving files to OneDrive
 
 To start saving files to OneDrive, embed a
-![Save to OneDrive button](../../../site-images/saver-button.png) button directly into
+![Save to OneDrive button](../../../media/saver-button.png) button directly into
 your app by using the **OneDrive.createSaveButton** method, or create a more
 personalized experience by using the **OneDrive.save** method.
 Both methods require a **saverOptions** object with the following parameters.
@@ -215,8 +215,8 @@ The **saverOptions** object has the following properties:
 
 ### Save files to OneDrive by using a button
 
-Much like the ![Open from OneDrive Button](../../../site-images/open-button.png) button,
-you can embed the ![Save to OneDrive button](../../../site-images/saver-button.png)
+Much like the ![Open from OneDrive Button](../../../media/open-button.png) button,
+you can embed the ![Save to OneDrive button](../../../media/saver-button.png)
 button with a few lines of code.
 When a user clicks this button, the OneDrive saver will start and the user can
 choose a location in their OneDrive to save the file.

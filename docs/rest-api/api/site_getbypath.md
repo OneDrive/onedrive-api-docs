@@ -40,16 +40,11 @@ To access the root SharePoint site with a relative path:
 GET /sites/{hostname}:/{relative-path}
 ```
 
-### Request Body
-
-Do not supply a request body with this method.
-
-
 ## HTTP Response
 
 This method returns a [site][] resource for the site referenced by the unique identifier.
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.site" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "microsoft.graph.site" } -->
 
 ```http
 HTTP/1.1 200 OK

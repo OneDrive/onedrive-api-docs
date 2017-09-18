@@ -60,7 +60,7 @@ GET /me/drive/items/{item-id}/permissions/{perm-id}
 
 If successful, this method returns a [Permission](../resources/permission.md) resource for the specified ID. 
 
-<!-- {"blockType": "response", "@odata.type": "oneDrive.permission", "truncated": true} -->
+<!-- {"blockType": "response", "@odata.type": "microsoft.graph.permission", "truncated": true} -->
 
 ```http
 HTTP/1.1 200 OK

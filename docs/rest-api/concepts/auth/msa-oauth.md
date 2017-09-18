@@ -75,7 +75,7 @@ obtaining an access token to use the OneDrive API in an interactive fashion. Thi
 does not provide a refresh token, so it can't be used for long term access to the
 OneDrive API.
 
-![Token Flow Diagram](../../../site-images/implicit_grant_flow.png)
+![Token Flow Diagram](../../../media/implicit_grant_flow.png)
 
 To start the sign-in process with the token flow, use a web browser or web-browser
 control to load a URL request.
@@ -120,7 +120,7 @@ allows your application to receive a refresh token that will enable long-term
 use of the API in some scenarios, to allow access when the user isn't actively using your application.
 
 
-![Authorization Code Flow Diagram](../../../site-images/authorization_code_flow.png)
+![Authorization Code Flow Diagram](../../../media/authorization_code_flow.png)
 
 
 ### Step 1. Get an authorization code
