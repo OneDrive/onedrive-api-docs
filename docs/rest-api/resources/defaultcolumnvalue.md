@@ -1,5 +1,5 @@
 ---
-author: dspektor
+author: daspek
 ms.author: dspektor
 ms.date: 09/12/2017
 ---
