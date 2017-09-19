@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: File handler resource definitions
 ---
 # Resource definitions for file handlers 2.0
 
@@ -33,6 +34,7 @@ The following resource definitions are used for documentation testing on the One
 }
 ```
 
+## DriveApp
 
 <!-- { "blockType": "resource", 
        "@odata.type": "oneDrive.driveApp",
@@ -52,6 +54,8 @@ The following resource definitions are used for documentation testing on the One
 }
 ```
 
+## AvailableOn
+
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.availableOn" } -->
 
 ```json
@@ -62,6 +66,8 @@ The following resource definitions are used for documentation testing on the One
 }
 ```
 
+## AvailableOnFile
+
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.availableOnFile",
        "keyProperty": "id", "optionalProperties": [ "
        parameters" ] } -->
@@ -71,10 +77,25 @@ The following resource definitions are used for documentation testing on the One
 }
 ```
 
+## AvailableOnFolder
 
 <!-- { "blockType": "resource", "@odata.type": "oneDrive.availableOnFolder" } -->
+
 ```json
 {
 
+}
+```
+
+## DisplayIcon
+
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.displayIcon" } -->
+
+```json
+{
+    "svg": "url",
+    "png1x": "url",
+    "png1_5x": "url",
+    "png2x": "url"
 }
 ```

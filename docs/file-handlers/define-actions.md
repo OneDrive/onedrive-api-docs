@@ -113,7 +113,13 @@ Each action declared in the action parameter takes the following shape:
     "url": "url",
     "displayName": "string",
     "shortDisplayName": "string",
-    "icon": { "@odata.type": "oneDrive.displayIcon" },
+    "icon": { 
+        "@odata.type": "oneDrive.displayIcon",
+        "svg": "url",
+        "png1x": "url",
+        "png1_5x": "url",
+        "png2x": "url"
+    },
     "availableOn": {
         "@odata.type": "oneDrive.availableOn",
         "file": {
