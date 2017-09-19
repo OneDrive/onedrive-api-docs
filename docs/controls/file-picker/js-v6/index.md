@@ -6,7 +6,7 @@ ms.topic: overview
 ---
 # OneDrive file picker SDK for JavaScript v6.0 overview
 
-**Note:** This version has been replaced by [file picker v7.2](../js-v72/js-picker-overview.md).
+**Note:** This version has been replaced by [file picker v7.2](../js-v72/index.md).
 New integrations should use the latest version of the file picker SDK.
 
 The OneDrive file picker SDK enables your web app to quickly integrate
@@ -73,8 +73,8 @@ following:
 
 ### Next Step
 
-* [Opening files with the OneDrive file picker SDK](js-picker-open.md)
-* [Saving files with the OneDrive file picker SDK](js-picker-save.md)
+* [Opening files with the OneDrive file picker SDK](open-file.md)
+* [Saving files with the OneDrive file picker SDK](save-file.md)
 
 ## Supported browsers
 

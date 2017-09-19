@@ -12,7 +12,7 @@ The following walk through shows how to integrate the file picker SDK into your 
 
 To use the OneDrive picker, you need to register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) and receive an Application Id.
 You also need to add a valid redirect URI for your web application using the picker.
-This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](js-picker-overview.md#setting-up).
+This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](index.md#setting-up).
 
 ## 2. Add a reference to the SDK
 
