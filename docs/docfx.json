@@ -33,7 +33,8 @@
       "ms.prod": "onedrive",
       "ms.topic": "reference",
       "titleSuffix": "OneDrive dev center",
-      "breadcrumb_path": "/onedrive/developer/breadcrumb/toc.json"
+      "breadcrumb_path": "/onedrive/developer/breadcrumb/toc.json",
+      "uhfHeaderId": "MSDocsHeader-OneDrive"
     },
     "fileMetadata": {},
     "template": [],
