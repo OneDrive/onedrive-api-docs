@@ -3,12 +3,13 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: What is an App Folder - OneDrive API
 ---
-# App Folder
+# Using an App Folder to store user content without access to all files
 
 The _App Folder_ is a dedicated, special folder for your app.
 The App Folder is typically named after your app, and is found in the **Apps** folder in the user's OneDrive.
-If you request the `onedrive.appfolder` permission scope and the user authorizes it, your app gets read and write access to this folder.
+If you request the `Files.ReadWrite.AppFolder` permission scope and the user authorizes it, your app gets read and write access to this folder.
 Since it behaves like any other folder in the user's OneDrive, users can add, modify, and remove content from it. Your app doesn't need to maintain logic unique to the user, which allows the user to rename or move it.
 
 ## Getting authorization from the user

@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Access shared items - OneDrive API
 ---
 # Accessing shared DriveItems
 

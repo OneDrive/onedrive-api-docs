@@ -3,8 +3,9 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Create an app with SharePoint Server 2016 - OneDrive API
 ---
-# Registering your app for SharePoint Server 2016
+# Registering your app to use OneDrive API with SharePoint Server 2016
 
 To use the OneDrive API with SharePoint Server 2016, you need to first register your app and receive a Client ID to represent your application in API calls.
 

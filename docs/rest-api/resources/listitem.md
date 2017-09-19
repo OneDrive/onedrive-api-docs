@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
+title: ListItem - OneDrive API
 ---
 # ListItem resource
 

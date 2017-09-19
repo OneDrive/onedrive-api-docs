@@ -2,6 +2,7 @@
 author: daspek
 ms.author: dspektor
 ms.date: 09/14/2017
+title: ShareAction - OneDrive API
 ---
 # ShareAction resource type
 

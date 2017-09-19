@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Understand differences between OneDrive API and Microsoft Graph
 ---
 # OneDrive API Endpoint Differences
 

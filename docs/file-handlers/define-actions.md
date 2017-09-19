@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Add custom actions to files - OneDrive
 ---
 # Specifying actions for file handlers 2.0
 

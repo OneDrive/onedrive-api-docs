@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: get-started-article
+title: Get started using OneDrive API
 ---
 # Getting started with OneDrive API
 

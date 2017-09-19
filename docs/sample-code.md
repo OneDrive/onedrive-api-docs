@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: sample
+topic: Sample code for OneDrive integration
 ---
 # OneDrive Files Sample Code
 

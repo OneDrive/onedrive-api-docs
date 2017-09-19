@@ -3,8 +3,9 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Webhook notifications - OneDrive API
 ---
-# Service-to-service notifications
+# Using webhooks to receive service-to-service notifications
 
 OneDrive provides service-to-service notifications through [webhooks][wiki-webhooks].
 Webhooks provide a simple notification pipeline so your app can

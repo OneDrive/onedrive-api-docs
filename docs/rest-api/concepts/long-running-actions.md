@@ -3,8 +3,9 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Calling long running actions - OneDrive API
 ---
-# Long running actions
+# Working with APIs that make take a long time to complete
 
 Some scenarios, like [copy](../api/driveitem_copy.md) or [upload from URL](../api/driveitem_upload_url.md) cannot always be completed in a finite amount of time.
 To handle these scenarios and keep API response latency low, these actions are implemented using a long running actions pattern.

@@ -3,8 +3,9 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Tunneling HTTP verbs - OneDrive API
 ---
-# Verb tunneling
+# Using additional HTTP verbs when your client is limited
 
 There are some cases where apps can't make HTTP requests with verbs other than
 GET or POST. For example, some proxies, firewalls, etc. might be configured by

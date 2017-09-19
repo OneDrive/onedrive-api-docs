@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Authorization for OneDrive API via Microsoft Graph
 ---
 # Authorization and sign-in for OneDrive in Microsoft Graph
 

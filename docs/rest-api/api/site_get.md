@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Get a SharePoint Site - OneDrive API
 ---
 # Get a site resource
 

@@ -1,3 +1,9 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+title: Localize file handlers - OneDrive
+---
 # Localizing file handler strings
 
 To ensure that your file handler add-in meets international requirements, you must localize the display strings used in your file handler.

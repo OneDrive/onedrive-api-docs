@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Resources and Facets - OneDrive API
 ---
 # Resources
 
@@ -22,9 +23,13 @@ The following resources are defined in the OneDrive API:
 * [uploadSession](uploadSession.md)
 * [webhookNotification](webhooknotification.md)
 
-# Facets
+## Facets
 
-The following facets are defined in the OneDrive API:
+The following facets are defined in the OneDrive API.
+Facets are used to indicate a type, capability, or action that can be performed with the associated item.
+
+For example, a DriveItem with a non-null **audio** facet represents an audio stream.
+Likewise, a DriveItem with a non-null **image** facet represents an image.
 
 * [audio](../resources/audio.md)
 * [deleted](../resources/deleted.md)
