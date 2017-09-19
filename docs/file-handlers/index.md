@@ -14,13 +14,13 @@ With file handlers, you can enable the following user experiences in OneDrive fo
 * Create new files in the browser (for proprietary file extensions)
 * File preview (for proprietary file extensions)
 * Rich view/edit capability (all file extensions)
-* [Custom actions that launch into your app](file-handler-actions.md) (all file extensions)
+* [Custom actions that launch into your app](define-actions.md) (all file extensions)
 * Support multiple selection and acting on folders (custom actions only)
 
 Check out the [Markdown File Handler example project][markdown-file-handler] for more specifics.
 
 
-## What's new with file handlers 2.0
+## What's changed with file handlers 2.0
 
 The 2.0 upgrade to file handlers enables additional scenarios for SharePoint Online and OneDrive for Business.
 
@@ -41,7 +41,7 @@ A file handler is comprised of the following components:
 The file handler endpoint is a cloud-hosted app that contains the functional logic for creating, previewing, opening, and saving files of the type that it handles.
 It can be hosted on any stack, including non-Microsoft stacks.
 File handlers uses Azure Active Directory to gain authorized access to Office 365 resources, so your application needs to be registered with Azure AD.
-For more information about registering an application with Azure AD, see [Registering your app for Microsoft Graph](https://dev.onedrive.com/app-registration.htm).
+For more information about registering an application with Azure AD, see [Registering your app for Microsoft Graph](../rest-api/getting-started/app-registration.md).
 
 For a complete example of a file handler, see the [Markdown-FileHandler on GitHub][markdown-file-handler].
 
@@ -49,7 +49,7 @@ For a complete example of a file handler, see the [Markdown-FileHandler on GitHu
 
 The manifest defines the interaction between Office 365 and the file handler endpoint.
 The manifest is registered with Azure Active Directory, using the **addIns** collection for an application object in the directory.
-To register or update the registration for your file handler manifest, see [How to: Register a file handler manually](register-file-handler-manually.md).
+To register or update the registration for your file handler manifest, see [How to: Register a file handler manually](register-manually.md).
 
 An example file handler manifest:
 
@@ -61,9 +61,11 @@ An example file handler manifest:
     "type": "FileHandler",
     "properties": [
         { "key": "version", "value": "2" },
+        { "key": "appIcon", "value": "{\"svg\":\"https://example.org/icon.svg\",\"png1x\":\"https://example.org/icon@1x.png\",\"png1.5x\":\"https://example.org/icon@1.5x.png\",\"png2x\":\"https://example.org/icon@2x.png\"}" },
         { "key": "fileTypeDisplayName", "value": "Contoso Document File" },
-        { "key": "fileTypeIconUrl", "value": "https://contoso.com/icon.png" },
-        { "key": "actions", "value": "json"}
+        { "key": "fileTypeIcon", "value": "{\"svg\":\"https://example.org/icon.svg\",\"png1x\":\"https://example.org/icon@1x.png\",\"png1.5x\":\"https://example.org/icon@1.5x.png\",\"png2x\":\"https://example.org/icon@2x.png\"}" },
+        { "key": "actionMenuDisplayName", "value": "Contoso Actions" },
+        { "key": "actions", "value": "json" }
     ]
 }
 ```
@@ -73,9 +75,11 @@ Each file handler manifest includes the following key-value pairs as part of the
 | Property Name           | Type                 | Description                                                                                                                                           |
 | ----------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **version**             | String               | Specify the version of the file handler. This value must be set to `2`. Required for file handlers 2.0.                                               |
+| **appIcon**             | String, encoded JSON | A collection of icon URLs in different formats that are used to represent the file handler application. Optional. |
 | **fileTypeDisplayName** | String               | The default locale description for the file type. Optional.                                                                                           |
-| **fileTypeIconUrl**     | URL                  | A `https://` URL for an icon file that will be used to represent the file types this file handler supports. Optional.                                 |
-| **actions**             | String, encoded JSON | A collection of actions implemented by this file handler extension. See [specifying actions](file-handler-actions.md) for more information. Required. |
+| **fileTypeIcon**        | String, encoded JSON | A collection of icon URLs in different formats that are used to represent file types handled by this file handler. Optional. |
+| **actionMenuDisplayName** | String             | Optional. A display string in the default locale that is used when the actions associated with this file handler are collapsed into a menu. |
+| **actions**             | String, encoded JSON | A collection of actions implemented by this file handler extension. See [specifying actions](define-actions.md) for more information. Required. |
 
 #### File handlers at runtime
 
@@ -97,7 +101,8 @@ The following parameters are provided in the **activation parameters**:
 | --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | **cultureName** | string                         | The locale identifier for the user's current display language.                                              |
 | **client**      | string                         | The Office 365 application from which the file handler was invoked; for example "SharePoint" or "OneDrive". |
-| **userId**      | string                         | The AAD object ID for the user who has invoked the file handler.                                            |
+| **userId**      | string                         | The UPN/login email for the user who invoked the file handler.                                            |
+| **domainHint**  | string                         | A domain hint string that indicates either `organizations` or `consumers`.                                  |
 | **items**       | JSON string collection of URLs | A collection of Microsoft Graph URLs to the selected item(s).                                               |
 
 These values are encoded in the **POST** request as form values.
@@ -110,6 +115,10 @@ Content-Type: application/x-www-form-urlencoded
 
 cultureName=en-us&client=OneDrive&userId=rgregg%40contoso.com&items=%5B%22https%3A%2F%2Fgraph.microsoft.com%2Fv1.0%2Fme%2Fdrive%2Fitems%2F4D679BEA-6F9B-4106-AB11-101DDE52B06E%22%5D
 ```
+
+**Note:** The URLs returned in the items collection may be very long (but less than the maximum URL length of 2048 characters).
+Each URL contains a token embedded in the URL that allows the file handler app to access the content without a full-trust permission scope.
+However, your file handler endpoint should ensure it expects long URLs to be returned and handles them correctly.
 
 For ASP.NET developers, you can access these values using the `Request.Form` collection, for example:
 
@@ -133,6 +142,9 @@ After your file handler has received a request with activation parameters, it wi
 Your app will need to call the [Azure Active Directory authentication endpoint][aad-auth] to retrieve an access token for the signed in user.
 To enable single sign-on and avoid prompting the user to select an account, you can use the [`login_hint` parameter][aad-odic] and provide the value of the **userId** activation parameter.
 
+In some scenarios, your file handler may need to prompt the user to sign-in.
+If your file handler is running as a `preview` action, you cannot redirect to the sign-in experience inside an IFRAME and will need to popup the sign-in experience for your file handler.
+
 [aad-auth]: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios
 [aad-odic]: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oidc
 
@@ -142,14 +154,14 @@ The following table lists the Office 365 services that support file handlers.
 
 | Service name          | File handlers 2.0 | File handlers 1.0        |
 | --------------------- | ----------------- | ------------------------ |
-| SharePoint Online     | Developer preview | Generally available (GA) |
-| OneDrive for Business | Developer preview | GA                       |
+| SharePoint Online     | Generally available (GA) | GA |
+| OneDrive for Business | GA | GA                       |
+| OneDrive personal     | Not available     | Not available            |
 | Outlook Web App       | Not available     | GA                       |
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Create a copy of an existing item.",
-  "keywords": "copy existing item",
+  "description": "Learn about integrating your app inside OneDrive with file handlers",
   "section": "documentation",
   "tocPath": "File handlers"
 } -->

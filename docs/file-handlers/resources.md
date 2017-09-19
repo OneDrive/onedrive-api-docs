@@ -28,7 +28,7 @@ The following resource definitions are used for documentation testing on the One
 
 ```json
 {
-    "key": "version | fileTypeDisplayName | fileTypeIconUrl | actions",
+    "key": "version | fileTypeDisplayName | fileTypeIcon | appIcon | actions",
     "value": "string"
 }
 ```

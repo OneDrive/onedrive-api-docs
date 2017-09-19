@@ -149,8 +149,9 @@
 
 # File handlers
 ## [Overview](file-handlers/index.md)
-## [Defining actions](file-handlers/file-handler-actions.md)
-## [Registering](file-handlers/register-file-handler-manually.md)
+## [Defining actions](file-handlers/define-actions.md)
+## [Registering](file-handlers/register-manually.md)
+## [Localization](file-handlers/localization.md)
 
 # [File pickers](controls/index.md)
 ## [Android](controls/file-picker/android/android-picker-overview.md)
