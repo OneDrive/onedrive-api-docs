@@ -212,11 +212,11 @@ In this case, the app can specify the OneDrive API endpoint for the SharePoint s
 OneDrive Picker SDK will redirect to the right OAuth endpoint to get an access token.
 The mapping between the OneDrive API endpoints and the OAuth authority is:
 
-| API endpoint                                                            | OAuth endpoint                                                 | `endpointHint`                                                          |
-| :---------------------------------------------------------------------- | -------------------------------------------------------------- | :---------------------------------------------------------------------- |
-| `https://graph.microsoft.com/v1.0/`                                       | `https://login.microsoftonline.com/common/oauth2/v2.0/authorize` | N/A                                                                     |
-| `https://api.onedrive.com/v1.0/`                                          | `https://login.live.com/oauth20_authorize.srf`                   | `https://api.onedrive.com`                                                      |
-| `https://contoso-my.sharepoint.com/personal/foo_contoso_onmicrosoft_com/` | `https://login.microsoftonline.com/common/oauth2/authorize`      | `https://contoso-my.sharepoint.com/personal/foo_contoso_onmicrosoft_com/` |
+| API endpoint                                                 | OAuth endpoint                                                   | `endpointHint`                                                            |
+| :----------------------------------------------------------- | ---------------------------------------------------------------- | :------------------------------------------------------------------------ |
+| https://graph.microsoft.com/v1.0/                            | https://login.microsoftonline.com/common/oauth2/v2.0/authorize | N/A                                                                       |
+| https://api.onedrive.com/v1.0/                               | https://login.live.com/oauth20_authorize.srf                   | https://api.onedrive.com                                                |
+| https://contoso-my.sharepoint.com/personal/ryan_contoso_com/ | https://login.microsoftonline.com/common/oauth2/authorize      | https://contoso-my.sharepoint.com/personal/ryan_contoso_com/ |
 
 Redirects to MSA OAuth endpoint
 
