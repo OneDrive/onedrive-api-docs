@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Authorization for OneDrive API for Microsoft Accounts
 ---
 # OneDrive authentication and sign-in
 
@@ -58,7 +59,7 @@ and go straight to the authorization flow.
 
 As an example, a typical application might request the following scopes:
 
-```
+```scopes
 onedrive.readwrite offline_access
 ```
 
@@ -80,7 +81,7 @@ OneDrive API.
 To start the sign-in process with the token flow, use a web browser or web-browser
 control to load a URL request.
 
-```
+```http
 GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={scope}
     &response_type=token&redirect_uri={redirect_uri}
 ```
@@ -100,7 +101,7 @@ Use this redirect URL for mobile and desktop applications `https://login.live.co
 Upon successful authentication and authorization of your application, the web browser
 will be redirected to your redirect URL with additional parameters added to the URL.
 
-```
+```http
 https://login.live.com/oauth20_authorize.srf#access_token=EwC...EB
   &authentication_token=eyJ...3EM&token_type=bearer&expires_in=3600
   &scope=onedrive.readwrite&user_id=3626...1d
@@ -127,7 +128,7 @@ use of the API in some scenarios, to allow access when the user isn't actively u
 To start the sign-in process with the code flow, use a web browser or web-browser
 control to load this URL request.
 
-```
+```http
 GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={scope}
   &response_type=code&redirect_uri={redirect_uri}
 ```
@@ -145,7 +146,7 @@ GET https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={sc
 Upon successful authentication and authorization of your application, the web browser
 will be redirected to your redirect URL with additional parameters added to the URL.
 
-```
+```http
 https://login.live.com/oauth20_authorize.srf?code=df6aa589-1080-b241-b410-c4dff65dbf7c
 ```
 
@@ -153,7 +154,7 @@ https://login.live.com/oauth20_authorize.srf?code=df6aa589-1080-b241-b410-c4dff6
 After you have received the `code` value, you can redeem this code for a set of
 tokens that allow you to authenticate with the OneDrive API. To redeem the code, make the following request:
 
-```
+```http
 POST https://login.live.com/oauth20_token.srf
 Content-Type: application/x-www-form-urlencoded
 
@@ -266,7 +267,7 @@ To sign a user out, perform the following steps:
    removing any cached items, etc.).
 3. Make a call to the authorization web service using this URL:
 
-```
+```http
 GET https://login.live.com/oauth20_logout.srf?client_id={client_id}&redirect_uri={redirect_uri}
 ```
 
@@ -304,7 +305,7 @@ the URL for the error page includes additional information that may help you
 debug what happened. This information is not always shown in the content of the
 error page displayed in the browser.
 
-```
+```http
 https://login.live.com/err.srf?lc=1033#error={error_code}&error_description={message}
 ```
 

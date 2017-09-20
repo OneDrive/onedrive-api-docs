@@ -2,8 +2,9 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Error responses - OneDrive API
 ---
-# Error response
+# Common error responses and codes
 
 Errors in the OneDrive API are returned using standard HTTP status codes, as well as a JSON error
 response object. The following HTTP status codes should be expected.

@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Save to OneDrive from JavaScript
 ---
 # Saving Files with the OneDrive File Picker JavaScript SDK v7.2
 
@@ -11,7 +12,7 @@ To save files from OneDrive, your app should provide a button to programmaticall
 
 To use the OneDrive picker, you need to register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) and receive an Application Id.
 You also need to add a valid redirect URI for your web application using the picker.
-This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](js-picker-overview.md#setting-up).
+This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](index.md#setting-up).
 
 ## 2. Add a reference to the SDK
 

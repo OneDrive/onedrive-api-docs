@@ -3,6 +3,7 @@ author: rgregg
 ms.author: dspektor
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Add custom metadata to items - OneDrive API
 ---
 # Custom facets (preview)
 

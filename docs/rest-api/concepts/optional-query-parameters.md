@@ -2,8 +2,10 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+ms.topic: conceptual
+title: Modifying responses with query parameters - OneDrive API
 ---
-# OneDrive API optional query parameters
+# Using query parameters to change the shape of a response
 
 The OneDrive API provides several optional query parameters that can be used to control the specific data returned in a response.
 

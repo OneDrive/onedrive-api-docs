@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Sharing items - OneDrive API
 ---
 # Sharing items in OneDrive and SharePoint
 

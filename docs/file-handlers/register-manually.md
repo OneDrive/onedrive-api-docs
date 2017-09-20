@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+topic: Register a file handler with Azure Active Directory
 ---
 # How to: Register a file handler add-in manually
 
@@ -29,7 +30,8 @@ An example file handler manifest:
 "properties": [
     { "key": "version", "value": "2" },
     { "key": "fileTypeDisplayName", "value": "Display name of the file format" },
-    { "key": "fileTypeIconUrl", "value": "URL for an icon that represents the file format" },
+    { "key": "fileTypeIcon", "value": "{\"svg\":\"https://example.org/icon.svg\",\"png1x\":\"https://example.org/icon@1x.png\",\"png1.5x\":\"https://example.org/icon@1.5x.png\",\"png2x\":\"https://example.org/icon@2x.png\"}" },
+    { "key": "appIcon", "value": "{\"svg\":\"https://example.org/app-icon.svg\",\"png1x\":\"https://example.org/app-icon@1x.png\",\"png1.5x\":\"https://example.org/app-icon@1.5x.png\",\"png2x\":\"https://example.org/app-icon@2x.png\"}" },
     { "key": "actions", "value": "json string of additional actions"}
   ]
 }
@@ -83,7 +85,7 @@ Now that your file handler manifest has been registered with your application in
 
 **Note** Changes to the addIn manifest many not be immediately applied. The file handlers manifest is cached for performance.
 Changes to the file handler manifest can take up to 24 hours to appear.
-See [Refresh file handler cache](file-handler-reset-cache.md) for information about how to force the cache to be cleared for development purposes.
+See [Refresh file handler cache](reset-cache.md) for information about how to force the cache to be cleared for development purposes.
 
 
 <!-- {

@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
+title: File Picker SDK for JavaScript - OneDrive
 ---
 # OneDrive file picker for JavaScript v7.2 overview
 
@@ -33,12 +34,12 @@ from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.
    2. Click **Add Platform** and then select **Web**.
    3. Enter one or more **URLs** where the picker will be hosted on your website. Each page that hosts the picker needs to have a redirect URL provided.
    4. Click the **Save** button to save your changes.
-4. Copy the Application Id for your application and use it in the JavaScript options object you provided to [open](js-picker-open.md) or [save](js-picker-save.md) a file.
+4. Copy the Application Id for your application and use it in the JavaScript options object you provided to [open](open-file.md) or [save](save-file.md) a file.
 
 ### Next Step
 
-Learn more about [opening files with the OneDrive file picker](js-picker-open.md) or
-[saving files with the OneDrive file picker SDK](js-picker-save.md).
+Learn more about [opening files with the OneDrive file picker](open-file.md) or
+[saving files with the OneDrive file picker SDK](save-file.md).
 
 ## Supported browsers
 
@@ -54,9 +55,9 @@ The OneDrive picker and saver supports the following web browsers:
 
 ## Previous versions
 
-* [File picker SDK v7.0](../js-v7/js-picker-overview.md)
-* [File picker SDK v6.0](../js-v6/js-picker-overview.md)
-* [File picker SDK v5.0](../js-v5/javascript-picker-saver.md)
+* [File picker SDK v7.0](../js-v7/index.md)
+* [File picker SDK v6.0](../js-v6/index.md)
+* [File picker SDK v5.0](../js-v5/index.md)
 
 <!-- {
   "type": "#page.annotation",

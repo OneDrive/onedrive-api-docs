@@ -2,6 +2,7 @@
 author: daspek
 ms.author: dspektor
 ms.date: 09/12/2017
+title: DefaultColumnValue - OneDrive API
 ---
 # DefaultColumnValue resource type
 
@@ -42,3 +43,4 @@ See [Examples of common formulas in SharePoint Lists][SPFormulas] for more infor
   "section": "documentation",
   "tocPath": "Resources/DefaultColumnValue"
 } -->
+

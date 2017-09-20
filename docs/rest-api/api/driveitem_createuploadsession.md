@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Resumable file upload - OneDrive API
 ---
 # Upload large files with an upload session
 

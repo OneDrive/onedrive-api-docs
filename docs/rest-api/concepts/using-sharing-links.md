@@ -3,8 +3,9 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Accessing shared files and folders - OneDrive API
 ---
-# Remote items and shared folders
+# Using remote items to access shared files and folders
 
 OneDrive supports adding a shared folder to a drive in order to make accessing
 content from a shared folder easier. When a shared folder is added to

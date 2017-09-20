@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Check Out Files - OneDrive API
 ---
 # Check-out a DriveItem resource
 

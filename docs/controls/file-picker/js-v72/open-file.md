@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Open from OneDrive in JavaScript
 ---
 # Opening Files with the OneDrive File Picker JavaScript SDK v7.2
 
@@ -11,7 +12,7 @@ The following walk through shows how to integrate the file picker SDK into your 
 
 To use the OneDrive picker, you need to register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) and receive an Application Id.
 You also need to add a valid redirect URI for your web application using the picker.
-This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](js-picker-overview.md#setting-up).
+This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](index.md#setting-up).
 
 ## 2. Add a reference to the SDK
 
@@ -211,11 +212,11 @@ In this case, the app can specify the OneDrive API endpoint for the SharePoint s
 OneDrive Picker SDK will redirect to the right OAuth endpoint to get an access token.
 The mapping between the OneDrive API endpoints and the OAuth authority is:
 
-| API endpoint                                                            | OAuth endpoint                                                 | `endpointHint`                                                          |
-| :---------------------------------------------------------------------- | -------------------------------------------------------------- | :---------------------------------------------------------------------- |
-| `https://graph.microsoft.com/v1.0/`                                       | `https://login.microsoftonline.com/common/oauth2/v2.0/authorize` | N/A                                                                     |
-| `https://api.onedrive.com/v1.0/`                                          | `https://login.live.com/oauth20_authorize.srf`                   | `https://api.onedrive.com`                                                      |
-| `https://contoso-my.sharepoint.com/personal/foo_contoso_onmicrosoft_com/` | `https://login.microsoftonline.com/common/oauth2/authorize`      | `https://contoso-my.sharepoint.com/personal/foo_contoso_onmicrosoft_com/` |
+| API endpoint                                                 | OAuth endpoint                                                 | `endpointHint`                                               |
+| :----------------------------------------------------------- | -------------------------------------------------------------- | :----------------------------------------------------------- |
+| https://graph.microsoft.com/v1.0/                            | https://login.microsoftonline.com/common/oauth2/v2.0/authorize | N/A                                                          |
+| https://api.onedrive.com/v1.0/                               | https://login.live.com/oauth20_authorize.srf                   | https://api.onedrive.com                                     |
+| https://contoso-my.sharepoint.com/personal/ryan_contoso_com/ | https://login.microsoftonline.com/common/oauth2/authorize      | https://contoso-my.sharepoint.com/personal/ryan_contoso_com/ |
 
 Redirects to MSA OAuth endpoint
 

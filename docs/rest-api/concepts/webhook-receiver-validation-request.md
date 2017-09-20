@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
+title: Validating webhook subscriptions - OneDrive API
 ---
 # Handling webhook validation requests
 

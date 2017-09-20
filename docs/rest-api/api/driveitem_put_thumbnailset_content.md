@@ -2,6 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
+title: Set a thumbnail on a file - OneDrive API
 ---
 # Upload a custom thumbnail for a DriveItem
 

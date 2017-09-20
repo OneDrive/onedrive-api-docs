@@ -3,13 +3,14 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: get-started-article
+title: Get started using OneDrive API
 ---
 # Getting started with OneDrive API
 
 This page provides a quick overview of the steps required to use Microsoft Graph and the OneDrive API.
 For a more detailed walk through, check out the [Microsoft Graph Quick Start](https://graph.microsoft.io/en-us/getting-started).
 
-If you are working with SharePoint Server 2016 or not using Microsoft Graph, see the [Using OneDrive API with SharePoint Server 2016](getting-started-server.md) topic.
+If you are working with SharePoint Server 2016 or not using Microsoft Graph, see the [Using OneDrive API with SharePoint Server 2016](sharepoint-server-2016.md) topic.
 
 ## 1. User authentication and authorizing your app
 

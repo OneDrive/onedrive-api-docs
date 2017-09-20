@@ -5,7 +5,7 @@ ms.date: 09/10/2017
 ---
 # Opening Files with the OneDrive File Picker JavaScript SDK v7.0
 
-**Note:** This version has been replaced by [file picker v7.2](../js-v72/js-picker-open.md).
+**Note:** This version has been replaced by [file picker v7.2](../js-v72/index.md).
 New integrations should use the latest version of the file picker SDK.
 
 
@@ -20,7 +20,7 @@ To use the OneDrive picker, you need to register your application through the
 [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) and
 receive an Application Id. You also need to add a valid redirect URI for your web
 application using the picker. This can either be the page hosting the picker SDK
-or a custom URL you define. For more information see [Setting up](js-picker-overview.md#setting-up).
+or a custom URL you define. For more information see [Setting up](index.md#setting-up).
 
 ## 2. Add a reference to the SDK
 
