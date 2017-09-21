@@ -37,7 +37,7 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
 * [OneDrive Text Editor (JavaScript)](https://github.com/OneDrive/onedrive-texteditor-js)
   An example application that uses the OneDrive file picker and Microsoft Graph API to open, edit, and save text files from OneDrive and OneDrive for Business.
 
-* [File picker for JavaScript](controls/file-picker/js-v72/index.md)
+* [File picker for JavaScript](controls/file-pickers/js-v72/index.md)
   Connect your JavaScript web application or website to open and save files with
   OneDrive without writing any user interface code.
 

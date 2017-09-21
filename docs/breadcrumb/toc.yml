@@ -23,8 +23,8 @@
     topicHref: /onedrive/developer/controls/index
     items:
       - name: JavaScript
-        tocHref: /onedrive/developer/controls/file-picker/js-v72
-        topicHref: /onedrive/developer/controls/file-picker/js-v72/index
+        tocHref: /onedrive/developer/controls/file-pickers/js-v72
+        topicHref: /onedrive/developer/controls/file-pickers/js-v72/index
       - name: Android
-        tocHref: /onedrive/developer/controls/file-picker/android
-        topicHref: /onedrive/developer/controls/file-picker/android/index
+        tocHref: /onedrive/developer/controls/file-pickers/android
+        topicHref: /onedrive/developer/controls/file-pickers/android/index
