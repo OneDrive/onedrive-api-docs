@@ -154,7 +154,7 @@
 ## [Localization](file-handlers/localization.md)
 
 # [File pickers](controls/index.md)
-## [Android](controls/file-picker/android/index.md)
-## [JavaScript](controls/file-picker/js-v72/index.md)
-### [Open a file](controls/file-picker/js-v72/open-file.md)
-### [Save a file](controls/file-picker/js-v72/save-file.md)
+## [Android](controls/file-pickers/android/index.md)
+## [JavaScript](controls/file-pickers/js-v72/index.md)
+### [Open a file](controls/file-pickers/js-v72/open-file.md)
+### [Save a file](controls/file-pickers/js-v72/save-file.md)
