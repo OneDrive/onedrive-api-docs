@@ -19,8 +19,8 @@
     tocHref: /onedrive/developer/file-handlers
     topicHref: /onedrive/developer/file-handlers/index
   - name: File Pickers
-    tocHref: /onedrive/developer/controls
-    topicHref: /onedrive/developer/controls/index
+    tocHref: /onedrive/developer/controls/file-pickers
+    topicHref: /onedrive/developer/controls/file-pickers/index
     items:
       - name: JavaScript
         tocHref: /onedrive/developer/controls/file-pickers/js-v72

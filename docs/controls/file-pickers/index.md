@@ -22,9 +22,9 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 | Universal Windows Platform | [Use FileOpenPicker][windows-picker], or [FileSavePicker][windows-saver] |
 
 
-[android-picker]: file-pickers/android/index.md
+[android-picker]: android/index.md
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
-[web-picker]: file-pickers/js-v72/index.md
+[web-picker]: js-v72/index.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 

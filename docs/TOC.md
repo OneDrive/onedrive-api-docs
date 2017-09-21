@@ -153,7 +153,7 @@
 ## [Registering](file-handlers/register-manually.md)
 ## [Localization](file-handlers/localization.md)
 
-# [File pickers](controls/index.md)
+# [File pickers](controls/file-pickers/index.md)
 ## [Android](controls/file-pickers/android/index.md)
 ## [JavaScript](controls/file-pickers/js-v72/index.md)
 ### [Open a file](controls/file-pickers/js-v72/open-file.md)
