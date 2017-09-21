@@ -22,7 +22,7 @@ Our developer content is designed to help you learn how and why to integrate wit
 
 ## Shared components for quick integrations
 
-OneDrive offers the [file picker shared control](controls/index.md), which makes it quick and easy to open, save, and create sharing links to files stored in OneDrive or SharePoint team sites.
+OneDrive offers the [file picker shared control](controls/file-pickers/index.md), which makes it quick and easy to open, save, and create sharing links to files stored in OneDrive or SharePoint team sites.
 
 Using the file picker, you can connect your existing application to OneDrive in a matter of minutes, while enabling a whole new scenario for your users.
 
