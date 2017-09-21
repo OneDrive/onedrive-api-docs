@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Get a previous version of a SharePoint list record
 ---
-# Listing versions of a ListITem (preview)
+# Listing versions of a ListItem (preview)
 
 SharePoint can be configured to retain the history for list items.
 
