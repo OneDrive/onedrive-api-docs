@@ -195,7 +195,7 @@ var saverOptions = {
     // upload was cancelled
   },
   error: function(e) {
-    // an error occured
+    // an error occurred
   }
 }
 ```
