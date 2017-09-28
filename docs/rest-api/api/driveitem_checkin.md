@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Check In Files - OneDrive API
 ---
-# Check-in changes to a DriveItem resource
+# Check-in changes to a DriveItem resource (Preview)
 
 Check-in a checked out DriveItem resource, which makes the version of the document available to others.
 
