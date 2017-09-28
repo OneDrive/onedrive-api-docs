@@ -86,7 +86,7 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 | [Search for Items in the Drive][item-search]               | `GET /drive/root/search`    |
 | [Access special folder](../api/drive_get_specialfolder.md) | `GET /drive/special/{name}` |
 
-In the previous table, the examples use `/drive`, but other pathes are valid too.
+In the previous table, the examples use `/drive`, but other paths are valid too.
 
 [itemActivity]: itemActivity.md
 [item-resource]: driveitem.md
