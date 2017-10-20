@@ -14,6 +14,7 @@
 ### [Error responses](rest-api/concepts/errors.md)
 ### [Filter](rest-api/concepts/filtering-results.md)
 ### [Long running actions](rest-api/concepts/long-running-actions.md)
+### [Migrate from LiveSDK](rest-api/concepts/migrating-from-live-sdk.md)
 ### [OneDrive endpoint](rest-api/concepts/direct-endpoint-differences.md)
 ### [Query string parameters](rest-api/concepts/optional-query-parameters.md)
 ### [Uploading files](rest-api/concepts/upload.md)
