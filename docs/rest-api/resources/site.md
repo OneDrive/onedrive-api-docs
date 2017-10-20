@@ -57,7 +57,7 @@ You can optionally transition back to addressing the resource model by putting a
 
 Here is a JSON representation of a **site** resource.
 
-The **driveItem** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
+The **site** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
 <!-- { "blockType": "resource",
        "@odata.type": "microsoft.graph.site",

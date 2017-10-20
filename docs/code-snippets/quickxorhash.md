@@ -13,17 +13,21 @@ A quick, simple non-cryptographic hash algorithm that works by XORing the bytes 
 
 A high level description of the algorithm without the introduction of the length is as follows:
 
-Let's say a "block" is a 160 bit block of bits (e.g. `byte[20]`).
+Let's say a "block" is a 20-byte array.
 
 ```
    method block zero():
      returns a block with all zero bits.
 
+   method block reverse(block b)
+     returns a block with all of the bytes reversed (00010203... => ...03020100)
+
    method block extend8(byte b):
      returns a block with all zero bits except for the lower 8 bits which come from b.
 
    method block extend64(int64 i):
-     returns a block of all zero bits except for the lower 64 bits which come from i.
+     returns a block of all zero bits except for the lower 64 bits which come from i
+     and are in little-endian byte order.
 
    method block rotate(block bl, int n):
      returns bl rotated left by n bits.
@@ -31,14 +35,14 @@ Let's say a "block" is a 160 bit block of bits (e.g. `byte[20]`).
    method block xor(block bl1, block bl2):
      returns a bitwise xor of bl1 with bl2
 
-   method block XorHash0(byte rgb[], int cb):
+   method block XorHash0(byte[] rgb):
      block ret = zero()
-     for (int i = 0; i < cb; i ++)
+     for (int i = 0; i < rgb.Length; i ++)
        ret = xor(ret, rotate(extend8(rgb[i]), i * 11))
-     returns ret
+     returns reverse(ret)
 
-   entrypoint block XorHash(byte rgb[], int cb):
-     returns xor(extend64(cb), XorHash0(rgb, cb))
+   entrypoint block XorHash(byte[] rgb):
+     returns xor(extend64(rgb.Length), XorHash0(rgb))
 ```
 
 The final hash should xor the length of the data with the least significant

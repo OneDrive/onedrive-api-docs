@@ -108,6 +108,10 @@ Most users will only have a single Drive resource.
 
 Groups and Sites may have multiple Drive resources available.
 
+Drives with the [system][] facet are hidden by default.
+To list them, include `system` in your `$select` statement.
+
+[system]: ../resources/systemFacet.md
 
 <!-- {
   "type": "#page.annotation",
