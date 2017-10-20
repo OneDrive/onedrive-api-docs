@@ -156,7 +156,7 @@ For the complete details on navigating the contents of a user's OneDrive, see [G
 
 ## File Picker for web apps
 
-The OneDrive file picker functionality that was provided as part of the Live SDK is now available through the [OneDrive file picker](../../controls/index.md).
+The OneDrive file picker functionality that was provided as part of the Live SDK is now available through the [OneDrive file picker](../../controls/file-pickers/index.md).
 
 Version 5 of the Live SDK (OneDrive file picker) will no longer be functional after **November 1, 2018**.
 
