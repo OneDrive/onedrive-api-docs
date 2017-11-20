@@ -36,7 +36,7 @@ As part of the `OneDrive.open(...)` method, you specify the options for how the 
     OneDrive.open(odOptions);
   }
 </script>
-<button onClick="launchOneDrivePicker">Open from OneDrive</button>
+<button onClick="launchOneDrivePicker()">Open from OneDrive</button>
 ```
 
 ### Picker options
