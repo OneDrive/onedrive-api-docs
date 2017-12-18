@@ -162,14 +162,14 @@ The request body is a properly encoded URL string, with some required parameters
 **Note**  For web apps, the domain portion of the redirect URI must match the domain portion of the redirect URI that you specified in the [Microsoft Developer Center][app-portal].
 
 #### Response
-If the call is successful, the response for the POST request contains a JSON string that includes several properties, including `access_token`, `token_type`, and `refresh_token` (if you requested the **wl.offline_access** scope).
+If the call is successful, the response for the POST request contains a JSON string that includes several properties, including `access_token`, `token_type`, and `refresh_token` (if you requested the **offline_access** scope).
 
 <!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse", "optionalProperties": ["token_type", "scope"] } -->
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope":"wl.basic onedrive.readwrite",
+  "scope":"User.Read Files.ReadWrite",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
 }
@@ -215,7 +215,7 @@ If the call is successful, the response for the POST request contains a JSON str
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope": "wl.basic onedrive.readwrite wl.offline_access",
+  "scope": "User.Read Files.ReadWrite offline_access",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
 }
