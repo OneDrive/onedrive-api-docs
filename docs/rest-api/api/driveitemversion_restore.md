@@ -23,11 +23,11 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /drives/{driveId}/items/{itemId}/versions/{version-id}/restoreVersion
-POST /groups/{groupId}/drive/items/{itemId}/versions/{version-id}/restoreVersion
-POST /me/drive/items/{item-id}/versions/{version-id}/restoreVersion
-POST /sites/{siteId}/drive/items/{itemId}/versions/{version-id}/restoreVersion
-POST /users/{userId}/drive/items/{itemId}/versions/{version-id}/restoreVersion
+POST /beta/drives/{driveId}/items/{itemId}/versions/{version-id}/restoreVersion
+POST /beta/groups/{groupId}/drive/items/{itemId}/versions/{version-id}/restoreVersion
+POST /beta/me/drive/items/{item-id}/versions/{version-id}/restoreVersion
+POST /beta/sites/{siteId}/drive/items/{itemId}/versions/{version-id}/restoreVersion
+POST /beta/users/{userId}/drive/items/{itemId}/versions/{version-id}/restoreVersion
 ```
 
 ### Request body
@@ -41,7 +41,7 @@ This example restores a version of a file identified by `{item-id}` and `{versio
 <!-- { "blockType": "request", "name": "restore-item-version", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
-POST /drives/{drive-id}/items/{item-id}/versions/{version-id}/restoreVersion
+POST /beta/drives/{drive-id}/items/{item-id}/versions/{version-id}/restoreVersion
 ```
 
 ## Response
