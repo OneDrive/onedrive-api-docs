@@ -37,7 +37,7 @@ Here is a JSON representation of the resource
 |:-----------------|:-------------|:-------------------------------------------
 | listId           | string       | The unique identifier (guid) for the item's list in SharePoint.
 | listItemId       | string       | An integer identifier for the item within the containing list.
-| listItemUniqueId | string       | The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site.
+| listItemUniqueId | string       | The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site. This is NOT the ListItem GUID for the item, but the File/Folder UniqueId.
 | siteId           | string       | The unique identifier (guid) for the item's site collection (SPSite).
 | siteUrl          | string (url) | The SharePoint URL for the site that contains the item.
 | webId            | string       | The unique identifier (guid) for the item's site (SPWeb).
