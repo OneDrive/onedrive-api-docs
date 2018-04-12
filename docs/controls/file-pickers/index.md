@@ -30,7 +30,7 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 
 ## Microsoft Graph SDKs and sample code
 
-[Microsoft Graph makes a wide variety of SDKs and sample code](https://graph.microsoft.io/en-us/code-samples-and-sdks) available for a number of developer platforms that enable you to quickly start writing code to leverage the Microsoft Graph and have access to files in OneDrive and SharePoint.
+[Microsoft Graph makes a wide variety of SDKs and sample code](https://developer.microsoft.com/en-us/graph/code-samples-and-sdks) available for a number of developer platforms that enable you to quickly start writing code to leverage the Microsoft Graph and have access to files in OneDrive and SharePoint.
 
 
 

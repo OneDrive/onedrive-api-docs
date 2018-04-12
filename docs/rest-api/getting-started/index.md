@@ -8,7 +8,7 @@ title: Get started using OneDrive API
 # Getting started with OneDrive API
 
 This page provides a quick overview of the steps required to use Microsoft Graph and the OneDrive API.
-For a more detailed walk through, check out the [Microsoft Graph Quick Start](https://graph.microsoft.io/en-us/getting-started).
+For a more detailed walk through, check out the [Microsoft Graph Quick Start](https://developer.microsoft.com/en-us/graph/quick-start).
 
 If you are working with SharePoint Server 2016 or not using Microsoft Graph, see the [Using OneDrive API with SharePoint Server 2016](sharepoint-server-2016.md) topic.
 
@@ -21,7 +21,7 @@ Your app provides the access token in each request, through an HTTP header:
 
 `Authorization: bearer {token}`
 
-For more information on authorizing your application and obtaining an access token, see [App authorization with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
+For more information on authorizing your application and obtaining an access token, see [App authorization with Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview).
 
 ## 2. Make calls to a resource
 
