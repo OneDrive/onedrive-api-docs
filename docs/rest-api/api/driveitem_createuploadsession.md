@@ -63,9 +63,9 @@ For example, to control the behavior if the filename is already taken, you can s
 |:-----------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *if-match* | etag  | If this request header is included and the eTag (or cTag) provided does not match the current etag on the item, a `412 Precondition Failed` errr response is returned. |
 
-### Response
+### Example
 
-The response to this request will provide the details of the newly created [uploadSession](../resources/uploadsession.md), which includes the URL used for uploading the parts of the file. 
+In this example, the app is creating an upload session with the filename `largefile.dat`. If the filename already exists, it will be automatically renamed.
 
 <!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite", "target": "action" } -->
 
