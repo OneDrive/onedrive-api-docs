@@ -122,13 +122,13 @@ As such, you need to encode the URL path when building your URL string.
 For example, instead of writing this:
 
 ```
-string url = url_encode("https://api.onedrive.com/v1.0/drive/root:/" + path + ":/children")
+string url = url_encode("https://graph.microsoft.com/v1.0/me/drive/root:/" + path + ":/children")
 ```
 
 Write this:
 
 ```
-string url = "https://api.onedrive.com/v1.0/drive/root:/" + url_path_encode(path) + ":/children")
+string url = "https://graph.microsoft.com/v1.0/me/drive/root:/" + url_path_encode(path) + ":/children")
 ```
 
 However, not all URL encoding libraries respect all the requirements of standard URL path encoding.
@@ -143,8 +143,8 @@ Instead of using those methods, you should use `UriBuilder` to construct a
 properly escaped URL.
 
 ```csharp
-UriBuilder builder = new UriBuilder("https://api.onedrive.com");
-builder.Path = "/v1.0/drive/root:/Documents/My Files/#nine.docx";
+UriBuilder builder = new UriBuilder("https://graph.microsoft.com");
+builder.Path = "/v1.0/me/drive/root:/Documents/My Files/#nine.docx";
 Uri url = builder.Uri;
 ```
 
@@ -155,7 +155,7 @@ For Objective-C, iOS and Mac OS X development, use the `stringByAddingPercentEnc
 component of the URL.
 
 ```objc
-NSString *root = @"https://api.onedrive.com/v1.0/drive/root:/";
+NSString *root = @"https://graph.microsoft.com/v1.0/me/drive/root:/";
 NSString *path = @"Documents/My Files/#nine.docx";
 NSString *encPath = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 NSURL *url = [[NSURL alloc] initWithString:[root stringByAppendingString:encPath]];
@@ -170,8 +170,9 @@ Use the `Uri.Builder` class to construct a properly encoded URL.
 Uri.Builder builder = new Uri.Builder();
 builder.
   scheme("https").
-  authority("api.onedrive.com").
+  authority("graph.microsoft.com").
   appendPath("v1.0").
+  appendPath("me").
   appendPath("drive").
   appendPath("root:").
   appendPath("Documents").
@@ -185,7 +186,7 @@ String url = builder.build().toString();
 Use `escape()` in JavaScript to properly encode a path component.
 
 ```javascript
-var root = "https://api.onedrive.com/v1.0/drive/root:";
+var root = "https://graph.microsoft.com/v1.0/me/drive/root:";
 var path = "/Documents/My Files/#nine.docx";
 var url = root + escape(path);
 ```
