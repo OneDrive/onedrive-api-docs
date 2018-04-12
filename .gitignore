@@ -190,3 +190,6 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Visual Studio Code Settings
+.vscode/
