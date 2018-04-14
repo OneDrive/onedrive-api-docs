@@ -47,7 +47,7 @@ POST /users/{userId}/drive/items/{itemId}/createUploadSession
 No request body is required.
 However, you can specify a request body to provide additional data about the file being uploaded.
 
-For example, to control the behavior if the filename is already taken, you can specify the conflict behavior property in the body of the request.
+For example, to control the behavior if the filename is already taken, you can use an [Instance Attribute](../resources/driveitem.md#instance-attributes) to specify the conflict behavior property in the body of the request.
 
 ```json
 {
