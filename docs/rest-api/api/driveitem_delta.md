@@ -8,8 +8,8 @@ title: Sync the contents of a drive - OneDrive API
 
 This method allows your app to track changes to a drive and its children over time.
 
-Your app begins by calling `delta` without any parameters. 
-The service starts enumerating the drive's hierarchy, returning pages of items and either an `@odata.nextLink` or an `@odata.deltaLink`, as described below.
+Your app begins by calling `delta` without any parameters.
+The service starts enumerating the drive's hierarchy, returning pages of items and either an `@odata.nextLink` or an `@odata.deltaLink`, as described below. Newest items are returned first.
 Your app should continue calling with the `@odata.nextLink` until you no longer see an `@odata.nextLink` returned, or you see a response with an empty set of changes.
 
 After you have finished receiving all the changes, you may apply them to your local state.
