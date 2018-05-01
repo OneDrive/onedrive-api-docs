@@ -124,7 +124,6 @@ The **driveItem** resource is derived from [**baseItem**][baseitem] and inherits
 | webDavUrl            | String               | WebDAV compatible URL for the item.                                                                                                                                       |
 | webUrl               | String               | URL that displays the resource in the browser. Read-only.                                                                                                                 |
 
-> [!NOTE]
 > The eTag and cTag properties work differently on containers (folders).
 >
 > * The cTag value is modified when content or metadata of any descendant of the folder is changed.
@@ -154,7 +153,6 @@ These properties are temporary and either a) define behavior the service should 
 | @microsoft.graph.downloadUrl      | string | A URL that can be used to download this file's content. Authentication is not required with this URL. Read-only.                                                                                                               |
 | @microsoft.graph.sourceUrl        | string | When issuing a PUT request, this instance annotation can be used to instruct the service to download the contents of the URL, and store it as the file. Write-only.                                                            |
 
-> [!TIP]
 > The @microsoft.graph.downloadUrl value is a short-lived URL and can't be cached. The URL will only be available for a short period of time (1 hour) before it is invalidated.
 
 ## Methods
