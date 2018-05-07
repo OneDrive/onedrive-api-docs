@@ -36,7 +36,7 @@ If successful, this method returns a `204 No Content` response code.
 
 ### Request
 
-<!-- { "blockType": "request", "name": "delete-subscription-graph", "scopes": "service.graph" } -->
+<!-- { "blockType": "request", "name": "delete-subscription-graph", "tags": "service.graph" } -->
 
 ```http
 DELETE /subscriptions/{id}

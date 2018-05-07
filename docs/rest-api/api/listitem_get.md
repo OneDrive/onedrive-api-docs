@@ -33,7 +33,7 @@ GET /sites/{site-id}/lists/{list-id}/items/{item-id}?expand=fields(select=Column
 
 ##### Request
 
-<!-- { "blockType": "request", "name": "get-list-item" } -->
+<!-- { "blockType": "request", "name": "get-list-item", "scopes": "sites.read.all" } -->
 
 ```http
 GET /sites/{site-id}/lists/{list-id}/items/{item-id}?expand=fields

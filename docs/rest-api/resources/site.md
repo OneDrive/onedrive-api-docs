@@ -59,10 +59,20 @@ Here is a JSON representation of a **site** resource.
 
 The **site** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
-<!-- { "blockType": "resource",
-       "@odata.type": "microsoft.graph.site",
-       "keyProperty": "id",
-       "optionalProperties": [ "root", "sharepointIds", "siteCollection", "drive", "drives", "sites" ] } -->
+<!--{
+  "blockType": "resource",
+  "optionalProperties": [
+    "root",
+    "sharepointIds",
+    "siteCollection",
+    "drive",
+    "drives",
+    "sites"
+  ],
+  "keyProperty": "id",
+  "baseType": "microsoft.graph.baseItem",
+  "@odata.type": "microsoft.graph.site"
+}-->
 
 ```json
 {
@@ -80,7 +90,7 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
   "lists": [ { "@odata.type": "microsoft.graph.list" }],
   "sites": [ { "@odata.type": "microsoft.graph.site"} ],
   "columns": [ { "@odata.type": "microsoft.graph.columnDefinition" }],
-  "onenote": [ { "@odata.type": "microsoft.graph.onenote"} ],
+  "onenote": { "@odata.type": "microsoft.graph.onenote"},
 
   /* inherited from baseItem */
   "name": "string",
@@ -99,6 +109,7 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 | **id**                   | string                              | The unique identifier of the item. Read-only.                                                  |
 | **createdDateTime**      | DateTimeOffset                      | The date and time the item was created. Read-only.                                             |
 | **description**          | string                              | The descriptive text for the site.                                                             |
+| **eTag**                 | string                              | ETag for the item. Read-only.                                                                  |
 | **displayName**          | string                              | The full title for the site. Read-only.                                                        |
 | **lastModifiedDateTime** | DateTimeOffset                      | The date and time the item was last modified. Read-only.                                       |
 | **name**                 | string                              | The name / title of the item.                                                                  |

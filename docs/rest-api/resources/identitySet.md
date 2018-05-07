@@ -26,16 +26,19 @@ Here is a JSON representation of the resource.
 
 ## Properties
 
-| Property    | Type                    | Description                                            |
-|:------------|:------------------------|:-------------------------------------------------------|
-| application | [Identity](identity.md) | Optional. The application associated with this action. |
-| device      | [Identity](identity.md) | Optional. The device associated with this action.      |
-| user        | [Identity](identity.md) | Optional. The user associated with this action.        |
+| Property    | Type         | Description
+|:------------|:-------------|:------------------------------------------------
+| application | [Identity][] | Optional. The application associated with this action.
+| device      | [Identity][] | Optional. The device associated with this action.
+| group       | [Identity][] | Optional. The group associated with this action.
+| user        | [Identity][] | Optional. The user associated with this action.
 
-## Remarks 
+## Remarks
 
-See [DriveItem](driveitem.md) for usage of **IdentitySet** resources.
+See [DriveItem][] for usage of **IdentitySet** resources.
 
+[DriveItem]: driveItem.md
+[Identity]: identity.md
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

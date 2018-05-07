@@ -90,7 +90,7 @@ When the action has completed, the response from the monitor service will return
 <!-- { "blockType": "response", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
 
 ```http
-HTTP/1.1 202 Accepted
+HTTP/1.1 303 See Other
 Content-type: application/json
 
 {

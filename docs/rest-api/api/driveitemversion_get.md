@@ -42,7 +42,7 @@ This example retrieves a version of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read", "tags": "service.graph", "apiVersions": "beta" } -->
 
 ```http
 GET /me/drive/items/{item-id}/versions/{version-id}
