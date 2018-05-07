@@ -34,7 +34,7 @@ PATCH /subscriptions/{id}
 
 ### Request
 
-<!-- { "blockType": "request", "name": "patch-subscription-graph", "@odata.type": "microsoft.graph.subscription", "scopes": "service.graph" } -->
+<!-- { "blockType": "request", "name": "patch-subscription-graph", "@odata.type": "microsoft.graph.subscription", "tags": "service.graph" } -->
 
 ```http
 PATCH /subscriptions/{id}

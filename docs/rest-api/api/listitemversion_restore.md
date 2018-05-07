@@ -35,7 +35,7 @@ No request body is required.
 
 This example restores a version of a listItem identified by `{item-id}` and `{version-id}`.
 
-<!-- { "blockType": "request", "name": "restore-item-version-listItem", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "restore-item-version-listItem", "scopes": "files.readwrite sites.readwrite.all", "target": "action", "apiVersions": "beta" } -->
 
 ```http
 POST /sites/{site-id}/items/{item-id}/versions/{version-id}/restoreVersion
@@ -43,12 +43,12 @@ POST /sites/{site-id}/items/{item-id}/versions/{version-id}/restoreVersion
 
 ## Response
 
-If successful, the API call returns a `204 No content`.
+If successful, the API call returns a `204 No Content`.
 
 <!-- { "blockType": "response" } -->
 
 ```http
-HTTP/1.1 204 No content
+HTTP/1.1 204 No Content
 ```
 
 <!-- {

@@ -17,7 +17,7 @@ custom uploaded thumbnail.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "add-custom-thumbnail", "scopes": "files.readwrite service.onedrive" } -->
+<!-- { "blockType": "request", "name": "add-custom-thumbnail", "scopes": "files.readwrite", "tags": "service.onedrive" } -->
 ```
 PUT /drive/items/{item-id}/thumbnails/0/source/content
 Content-Type: application/octet-stream
@@ -45,7 +45,7 @@ thumbnail. If it is not present, then no custom uploaded thumbnail exists.
 
 **Note:** Custom thumbnails are only available on OneDrive Personal.
 
-<!-- { "blockType": "request", "name": "get-custom-thumbnail", "scopes": "files.read service.onedrive" } -->
+<!-- { "blockType": "request", "name": "get-custom-thumbnail", "scopes": "files.read", "tags": "service.onedrive service.graph" } -->
 ```
 GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,source)
 ```

@@ -22,6 +22,11 @@ There is also a reserved site identifier, `root`, which always references the ro
 * `/sites/root`: The tenant root site.
 * `/groups/{group-id}/sites/root`: The group's team site.
 
+Additionally, the root site for a particular geographic instance (for multi-geo tenants) can be accessed with the geography's dataLocationCode, as follows:
+
+* `/sites/NAM`: The root site of the tenant's North American instance
+* `/sites/EUR`: The root site of the tenant's European instance
+
 ## Permissions
 
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
@@ -41,6 +46,7 @@ To access the root SharePoint site within a tenant:
 ```http
 GET /sites/root
 GET /sites/contoso.sharepoint.com
+GET /sites/JPN
 ```
 
 ## Access a site by server-relative URL
@@ -63,7 +69,7 @@ GET /groups/{group-id}/sites/root
 
 ### Request
 
-<!-- { "blockType": "request", "name": "get-site" } -->
+<!-- { "blockType": "request", "name": "get-site", "scopes": "sites.read.all" } -->
 
 ```http
 GET /sites/{site-id}
