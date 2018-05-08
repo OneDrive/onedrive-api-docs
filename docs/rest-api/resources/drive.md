@@ -17,10 +17,27 @@ Here is a JSON representation of a Drive resource.
 
 The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
-<!-- { "blockType": "resource", 
-       "@odata.type": "microsoft.graph.drive",
-       "keyProperty": "id", 
-       "optionalProperties": [ "activities", "createdBy", "createdDateTime", "description", "lastModifiedBy", "lastModifiedDateTime", "name", "webUrl", "items", "root", "special", "system"] } -->
+<!--{
+  "blockType": "resource",
+  "optionalProperties": [
+    "activities",
+    "createdBy",
+    "createdDateTime",
+    "description",
+    "lastModifiedBy",
+    "lastModifiedDateTime",
+    "name",
+    "webUrl",
+    "items",
+    "root",
+    "sharepointIds",
+    "special",
+    "system"
+  ],
+  "keyProperty": "id",
+  "baseType": "microsoft.graph.baseItem",
+  "@odata.type": "microsoft.graph.drive"
+}-->
 
 ```json
 {
@@ -37,6 +54,7 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
   "owner": { "@odata.type": "microsoft.graph.identitySet" },
   "quota": { "@odata.type": "microsoft.graph.quota" },
   "root": { "@odata.type": "microsoft.graph.driveItem" },
+  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
   "special": [ { "@odata.type": "microsoft.graph.driveItem" }],
   "system": { "@odata.type": "microsoft.graph.systemFacet" },
   "webUrl": "url"
@@ -73,6 +91,7 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 | items        | [driveitem](driveitem.md) collection | All items contained in the drive. Read-only. Nullable.
 | root         | [driveitem](driveitem.md)            | The root folder of the drive. Read-only.
 | special      | [driveitem](driveitem.md) collection | Collection of common folders available in OneDrive. Read-only. Nullable.
+| list         | [List](list.md)                      | For drives in SharePoint, the underlying document library list. Read-only. Nullable.
 
 ## Methods
 

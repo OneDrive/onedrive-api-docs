@@ -104,7 +104,6 @@ GET /drive/root/search?q=vacation&filter=image%20ne%20null%20and%20file%20ne%20n
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: length
 
 {
     "value": [

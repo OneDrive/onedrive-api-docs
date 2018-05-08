@@ -39,6 +39,7 @@ Likewise, a DriveItem with a non-null **image** facet represents an image.
 * [hashes](../resources/hashes.md)
 * [image](../resources/image.md)
 * [location](../resources/geocoordinates.md)
+* [malware](../resources/malware.md)
 * [package](../resources/package.md)
 * [photo](../resources/photo.md)
 * [quota](../resources/quota.md)
