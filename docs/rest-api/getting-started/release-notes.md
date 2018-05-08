@@ -68,7 +68,6 @@ Differences between OneDrive, OneDrive for Business, and SharePoint are listed b
   * The following properties are not returned:
     * **createdBy**
     * **cTag**
-    * **fileSystemInfo**
     * **lastModifiedBy**
 * SharePoint Server 2016
   * The **delta** function is not available.
