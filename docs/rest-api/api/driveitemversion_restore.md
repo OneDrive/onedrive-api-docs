@@ -38,7 +38,7 @@ No request body is required.
 
 This example restores a version of a file identified by `{item-id}` and `{version-id}`.
 
-<!-- { "blockType": "request", "name": "restore-item-version", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "restore-item-version", "scopes": "files.readwrite", "apiVersions": "beta", "target": "action" } -->
 
 ```http
 POST /beta/drives/{drive-id}/items/{item-id}/versions/{version-id}/restoreVersion
@@ -46,12 +46,12 @@ POST /beta/drives/{drive-id}/items/{item-id}/versions/{version-id}/restoreVersio
 
 ## Response
 
-If successful, the API call returns a `204 No content`.
+If successful, the API call returns a `204 No Content`.
 
 <!-- { "blockType": "response" } -->
 
 ```http
-HTTP/1.1 204 No content
+HTTP/1.1 204 No Content
 ```
 
 [item-resource]: ../resources/driveitem.md

@@ -32,14 +32,18 @@ All examples below are relative to a **[list][]**, eg: `https://graph.microsoft.
 
 Here is a JSON representation of a **listItem** resource.
 
-<!-- { "blockType": "resource", 
-       "@odata.type": "microsoft.graph.listItem",
-       "keyProperty": "id" } -->
+<!--{
+  "blockType": "resource",
+  "keyProperty": "id",
+  "baseType": "microsoft.graph.baseItem",
+  "@odata.type": "microsoft.graph.listItem"
+}-->
 
 ```json
 {
-  "contentType": { "@odata.type": "microsoft.graph.contentType" },
+  "contentType": { "@odata.type": "microsoft.graph.contentTypeInfo" },
   "fields": { "@odata.type": "microsoft.graph.fieldValueSet" },
+  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
 
   /* relationships */
   "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
@@ -54,6 +58,7 @@ Here is a JSON representation of a **listItem** resource.
   "eTag": "string",
   "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
   "lastModifiedDateTime": "timestamp",
+  "parentReference": { "@odata.type": "microsoft.graph.itemReference"},
   "webUrl": "url"
 }
 ```
@@ -65,20 +70,21 @@ The **listItem** resource has the following properties.
 | Property name | Type                | Description
 |:--------------|:--------------------|:-------------------------------
 | contentType   | [contentTypeInfo][] | The content type of this list item
-| fields        | [fieldValueSet][]   | The values of the columns set on this list item.
 
 The following properties are inherited from **[baseItem][]**.
 
-| Property name        | Type             | Description
-|:---------------------|:-----------------|:-----------------------------------
-| id                   | string           | The unique identifier of the item. Read-only.
-| name                 | string           | The name / title of the item.
-| createdBy            | [identitySet][]  | Identity of the creator of this item. Read-only.
-| createdDateTime      | DateTimeOffset   | The date and time the item was created. Read-only.
-| description          | string           | The descriptive text for the item.
-| lastModifiedBy       | [identitySet][]  | Identity of the last modifier of this item. Read-only.
-| lastModifiedDateTime | DateTimeOffset   | The date and time the item was last modified. Read-only.
-| webUrl               | string (url)     | URL that displays the item in the browser. Read-only.
+| Property name        | Type              | Description
+|:---------------------|:------------------|:----------------------------------
+| id                   | string            | The unique identifier of the item. Read-only.
+| name                 | string            | The name / title of the item.
+| createdBy            | [identitySet][]   | Identity of the creator of this item. Read-only.
+| createdDateTime      | DateTimeOffset    | The date and time the item was created. Read-only.
+| description          | string            | The descriptive text for the item.
+| eTag                 | string            | ETag for the item. Read-only.                                                          |
+| lastModifiedBy       | [identitySet][]   | Identity of the last modifier of this item. Read-only.
+| lastModifiedDateTime | DateTimeOffset    | The date and time the item was last modified. Read-only.
+| sharepointIds        | [sharepointIds][] | Returns identifiers useful for SharePoint REST compatibility. Read-only.
+| webUrl               | string (url)      | URL that displays the item in the browser. Read-only.
 
 ## Relationships
 
@@ -88,6 +94,7 @@ The following properties are inherited from **[baseItem][]**.
 |:------------------|:----------------------------|:-------------------------------
 | activities        | [itemActivity][] collection | The list of recent activities that took place on this item.
 | driveItem         | [driveItem][]               | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
+| fields            | [fieldValueSet][] | The values of the columns set on this list item.
 
 [baseItem]: baseItem.md
 [contentTypeInfo]: contentTypeInfo.md
@@ -96,6 +103,7 @@ The following properties are inherited from **[baseItem][]**.
 [identitySet]: identitySet.md
 [itemActivity]: itemActivity.md
 [list]: list.md
+[sharepointIds]: sharepointIds.md
 
 <!-- {
   "type": "#page.annotation",

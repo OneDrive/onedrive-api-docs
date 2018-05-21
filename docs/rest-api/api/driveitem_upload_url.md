@@ -47,7 +47,7 @@ Note that when the serivce downloads the file from the remote URL, it will not a
 
 This method returns details about how to [monitor the progress](../concepts/long-running-actions.md) of the download, upon accepting the request.
 
-<!-- { "blockType": "response" } -->
+<!-- { "blockType": "ignored" } -->
 
 ```http
 HTTP/1.1 202 Accepted
@@ -56,7 +56,7 @@ Location: https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 
 ## Example
 
-<!-- { "blockType": "request", "name": "upload-from-url", "scopes": "files.readwrite service.onedrive" } -->
+<!-- { "blockType": "request", "name": "upload-from-url", "scopes": "files.readwrite", "tags": "service.onedrive" } -->
 
 ```http
 POST /drive/items/{parent-item}/children

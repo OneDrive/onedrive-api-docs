@@ -38,7 +38,7 @@ No request body is required.
 
 This example checks out a file identified by `{item-id}`.
 
-<!-- { "blockType": "request", "name": "checkout-item", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "checkout-item", "scopes": "files.readwrite sites.readwrite.all", "target": "action", "apiVersions": "beta" } -->
 
 ```http
 POST /drives/{drive-id}/items/{item-id}/checkout
@@ -46,12 +46,12 @@ POST /drives/{drive-id}/items/{item-id}/checkout
 
 ## Response
 
-If successful, the API call returns a `204 No content`.
+If successful, the API call returns a `204 No Content`.
 
 <!-- { "blockType": "response" } -->
 
 ```http
-HTTP/1.1 204 No content
+HTTP/1.1 204 No Content
 ```
 
 ### Remarks

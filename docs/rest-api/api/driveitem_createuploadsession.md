@@ -63,7 +63,7 @@ For example, to control the behavior if the filename is already taken, you can s
 |:-----------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *if-match* | etag  | If this request header is included and the eTag (or cTag) provided does not match the current etag on the item, a `412 Precondition Failed` errr response is returned. |
 
-### Response
+### Request
 
 The response to this request will provide the details of the newly created [uploadSession](../resources/uploadsession.md), which includes the URL used for uploading the parts of the file. 
 
@@ -153,7 +153,7 @@ You may see multiple ranges specified, indicating parts of the file that the ser
 This is useful if you need to resume a transfer that was interrupted and your client is unsure of the state on the service.
 
 You should always determine the size of your byte ranges according to the best practices below. 
-Do not assume that **nextExpectedRanges** will return reanges of proper size for a byte range to upload.
+Do not assume that **nextExpectedRanges** will return ranges of proper size for a byte range to upload.
 The **nextExpectedRanges** property indicates ranges of the file that have not been received and not a pattern for how your app should upload the file.
 
 <!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
@@ -184,7 +184,7 @@ Content-Type: application/json
 When the last byte range of a file is received the server will response with an `HTTP 201 Created` or `HTTP 200 OK`.
 The response body will also include the default property set for the **driveItem** representing the completed file.
 
-<!-- { "blockType": "request", "name": "upload-fragment-final", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "opaqueUrl": true, "name": "upload-fragment-final", "scopes": "files.readwrite" } -->
 
 ```
 PUT https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337
@@ -236,7 +236,7 @@ Temporary files may not be deleted immedately after the expiration time has elap
 
 ### Request
 
-<!-- { "blockType": "request", "name": "upload-fragment-cancel", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "opaqueUrl": true, "name": "upload-fragment-cancel", "scopes": "files.readwrite" } -->
 
 ```http
 DELETE https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337
@@ -264,7 +264,7 @@ To find out which byte ranges have been received previously, your app can reques
 
 Query the status of the upload by sending a GET request to the `uploadUrl`.
 
-<!-- { "blockType": "request", "name": "upload-fragment-resume", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "opaqueUrl": true, "name": "upload-fragment-resume", "scopes": "files.readwrite" } -->
 
 ```
 GET https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF86633784148bb98a1zjcUhf7b0mpUadahs
@@ -298,7 +298,7 @@ This new request should correct the source of error that generated the original 
 
 To indicate that your app is committing an existing upload session, the PUT request must include the `@microsoft.graph.sourceUrl` property with the value of your upload session URL.
 
-<!-- { "blockType": "request", "name": "explicit-upload-commit", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "name": "explicit-upload-commit", "scopes": "files.readwrite", "tags": "service.graph" } -->
 
 ```http
 PUT /me/drive/root:/{path_to_parent}
@@ -306,7 +306,7 @@ Content-Type: application/json
 If-Match: {etag or ctag}
 
 {
-  "name": "largefile_2.vhd",
+  "name": "largefile.vhd",
   "@microsoft.graph.conflictBehavior": "rename",
   "@microsoft.graph.sourceUrl": "{upload session URL}"
 }
