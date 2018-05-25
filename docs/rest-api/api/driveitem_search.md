@@ -129,6 +129,9 @@ Content-type: application/json
     "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/drive/root/search(query='contoso project')&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
+## Remarks
+
+* In OneDrive for Business and SharePoint, when searching under a folder hierarchy, partial results may be returned. Some file types, such as image files, may not be returned.
 
 ## Error responses
 
