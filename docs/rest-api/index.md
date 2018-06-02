@@ -5,7 +5,7 @@ ms.date: 09/10/2017
 ms.topic: overview
 title: Access OneDrive and SharePoint via Microsoft Graph API
 ---
-# OneDrive and SharePoint in Microsoft Graph
+# SharePoint Server 2019
 
 [![Documentation validation and build status](https://ci.appveyor.com/api/projects/status/jummmj5gb9q28lfr?svg=true)](#continuous-documentation-validation)
 
