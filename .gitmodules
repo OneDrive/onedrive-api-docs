@@ -1,7 +1,3 @@
-[submodule "sp2019"]
-	path = sp2019
-	url = https://github.com/OneDrive/onedrive-api-docs.git
-	branch = sp19test
 [submodule "live"]
 	path = live
 	url = https://github.com/OneDrive/onedrive-api-docs.git
