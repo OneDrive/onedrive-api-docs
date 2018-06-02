@@ -6,3 +6,7 @@
 	path = live
 	url = https://github.com/OneDrive/onedrive-api-docs.git
 	branch = live
+[submodule "docs/sp19"]
+	path = docs/sp19
+	url = https://github.com/OneDrive/onedrive-api-docs.git
+	branch = sp19test
