@@ -32,6 +32,12 @@
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "docs/rest-api/sp19t",
+      "url": "https://github.com/onedrive/onedrive-api-docs",
+      "branch": "sp19test",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {},
