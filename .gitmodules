@@ -1,8 +1,0 @@
-[submodule "live"]
-	path = live
-	url = https://github.com/OneDrive/onedrive-api-docs.git
-	branch = live
-[submodule "docs/rest-api/sp19t"]
-	path = docs/rest-api/sp19t
-	url = https://github.com/OneDrive/onedrive-api-docs.git
-	branch = sp19test

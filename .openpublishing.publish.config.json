@@ -34,7 +34,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "docs\\rest-api\\sp19t",
+      "path_to_root": "docs/rest-api/sp19crr",
       "url": "https://github.com/onedrive/onedrive-api-docs",
       "branch": "sp19test",
       "branch_mapping": {}
