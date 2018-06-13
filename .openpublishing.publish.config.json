@@ -6,7 +6,7 @@
       "build_output_subfolder": "onedrive",
       "locale": "en-us",
       "monikers": [],
-      "moniker_ranges": [">= exchserver-2016", "<= exchserver-2013"],
+      "moniker_ranges": ["<= exchserver-2016", ">= exchserver-2013"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",

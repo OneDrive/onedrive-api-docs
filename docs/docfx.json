@@ -71,7 +71,7 @@
     "groups": {
       "sp2019": {
         "dest": "sp19temp",
-        "moniker_range": "<= exchserver-2013"
+        "moniker_range": ">= exchserver-2013"
       }
     }
   }
