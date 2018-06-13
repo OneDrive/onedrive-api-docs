@@ -29,7 +29,8 @@
           "LICENSE-CODE",
           "ThirdPartyNotices"
         ],
-        "group": "online"
+        "group": "online",
+        "src": "."
       }
     ],
     "resource": [
@@ -55,7 +56,8 @@
           "**/obj/**",
           "**/includes/**"
         ],
-        "group": "online"
+        "group": "online",
+        "src": "."
       }
     ],
     "overwrite": [],
