@@ -28,7 +28,8 @@
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices"
-        ]
+        ],
+        "group": "online"
       }
     ],
     "resource": [
@@ -53,7 +54,8 @@
           "sp19",
           "**/obj/**",
           "**/includes/**"
-        ]
+        ],
+        "group": "online"
       }
     ],
     "overwrite": [],
@@ -72,6 +74,10 @@
       "sp2019": {
         "dest": "sp19temp",
         "moniker_range": ">= exchserver-2013"
+      },
+      "online": {
+        "dest": "spotemp",
+        "moniker_range": "<= exchserver-2016"
       }
     }
   }
