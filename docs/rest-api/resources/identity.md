@@ -18,7 +18,7 @@ For example, an actor can be a user, device, or application.
 {
   "displayName": "string",
   "id": "string",
-  "thumbnails": { "@odata.type": "microsoft.graph.thumbnailSet" }
+  "thumbnails": [{ "@odata.type": "microsoft.graph.thumbnailSet" }]
 }
 ```
 

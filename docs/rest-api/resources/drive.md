@@ -88,9 +88,9 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 | Relationship | Type                                 | Description
 |:-------------|:-------------------------------------|:-----------------------
 | activities   | [itemActivity][] collection          | The list of recent activities that took place under this drive.
-| items        | [driveitem](driveitem.md) collection | All items contained in the drive. Read-only. Nullable.
-| root         | [driveitem](driveitem.md)            | The root folder of the drive. Read-only.
-| special      | [driveitem](driveitem.md) collection | Collection of common folders available in OneDrive. Read-only. Nullable.
+| items        | [DriveItem](driveitem.md) collection | All items contained in the drive. Read-only. Nullable.
+| root         | [DriveItem](driveitem.md)            | The root folder of the drive. Read-only.
+| special      | [DriveItem](driveitem.md) collection | Collection of common folders available in OneDrive. Read-only. Nullable.
 | list         | [List](list.md)                      | For drives in SharePoint, the underlying document library list. Read-only. Nullable.
 
 ## Methods
@@ -125,6 +125,10 @@ In the previous table, the examples use `/drive`, but other pathes are valid too
   "description": "Drive is a top level object for OneDrive API that provides access to the contents of a drive. ",
   "keywords": "drive,objects,resources",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/resources/drive.md:
+      Found potential enums in resource example that weren't defined in a table:(personal,business,documentLibrary) are in resource, but () are in table"
+  ],
   "tocPath": "Drives",
   "tocBookmarks": { "Resources/Drive": "#" }
 } -->

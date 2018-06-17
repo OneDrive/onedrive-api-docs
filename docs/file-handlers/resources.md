@@ -37,39 +37,40 @@ The following resource definitions are used for documentation testing on the One
 ## DriveApp
 
 <!-- { "blockType": "resource", 
-       "@odata.type": "oneDrive.driveApp",
+       "@odata.type": "microsoft.graph.driveApp",
        "keyProperty": "id" } -->
 
 ```json
 {
   "id": "guid",
-  "application": { "@odata.type": "oneDrive.identity" },
-  "fileHandler": { "@odata.type": "oneDrive.fileHandler" },
+  "application": { "@odata.type": "microsoft.graph.identity" },
+  "fileHandler": { "@odata.type": "microsoft.graph.fileHandler" },
   "actions":
   [
-    { "@odata.type": "oneDrive.driveAppAction" },
-    { "@odata.type": "oneDrive.driveAppAction" },
-    { "@odata.type": "oneDrive.driveAppAction" }
+    { "@odata.type": "microsoft.graph.driveAppAction" },
+    { "@odata.type": "microsoft.graph.driveAppAction" },
+    { "@odata.type": "microsoft.graph.driveAppAction" }
   ]
 }
 ```
 
 ## AvailableOn
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.availableOn" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.availableOn" } -->
 
 ```json
 {
-    "file": { "@odata.type": "oneDrive.availableOnFile" },
-    "folder": { "@odata.type": "oneDrive.availableOnFolder" },
+    "file": { "@odata.type": "microsoft.graph.availableOnFile" },
+    "folder": { "@odata.type": "microsoft.graph.availableOnFolder" },
+    "web": { "@odata.type": "microsoft.graph.availableOnWeb" },
     "allowMultiSelect": false
 }
 ```
 
 ## AvailableOnFile
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.availableOnFile",
-       "keyProperty": "id", "optionalProperties": [ "
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.availableOnFile",
+       "optionalProperties": [ "
        parameters" ] } -->
 ```json
 {
@@ -79,7 +80,17 @@ The following resource definitions are used for documentation testing on the One
 
 ## AvailableOnFolder
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.availableOnFolder" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.availableOnFolder" } -->
+
+```json
+{
+
+}
+```
+
+## AvailableOnWeb
+
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.availableOnWeb" } -->
 
 ```json
 {
@@ -89,7 +100,7 @@ The following resource definitions are used for documentation testing on the One
 
 ## DisplayIcon
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.displayIcon" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.displayIcon" } -->
 
 ```json
 {
@@ -99,3 +110,25 @@ The following resource definitions are used for documentation testing on the One
     "png2x": "url"
 }
 ```
+
+## FileHandler
+
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.fileHandler" } -->
+
+```json
+{
+
+}
+```
+
+<!-- {
+  "type": "#page.annotation",
+  "suppressions": [
+    "Warning: /docs/file-handlers/resources.md:
+      Found potential enums in resource example that weren't defined in a table:(version,fileTypeDisplayName,fileTypeIcon,appIcon,actions) are in resource, but () are in table",
+    "Warning: /docs/file-handlers/resources.md:
+      Multiple resources found in file, but we only support one per file. 'oneDriveAddins.fileHandlerManifest,oneDriveAddins.keyValuePair,microsoft.graph.driveApp,microsoft.graph.availableOn,microsoft.graph.availableOnFile,microsoft.graph.availableOnFolder,microsoft.graph.availableOnWeb,microsoft.graph.displayIcon,microsoft.graph.fileHandler'. Skipping.",
+    "Warning: fileHandlerManifest:
+      Type fileHandlerManifest: Property properties has a different Type value than documentation (Collection(Edm.Object),Collection(oneDriveAddins.keyValuePair))."
+  ]
+} -->

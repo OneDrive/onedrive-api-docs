@@ -48,6 +48,7 @@ Here is a JSON representation of a **listItem** resource.
   /* relationships */
   "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
   "driveItem": { "@odata.type": "microsoft.graph.driveItem" },
+  "versions": [{"@odata.type": "microsoft.graph.listItemVersion"}],
 
   /* inherited from baseItem */
   "id": "string",
@@ -90,11 +91,12 @@ The following properties are inherited from **[baseItem][]**.
 
  The **listItem** resource has the following relationships to other resources.
 
-| Relationship name | Type                        | Description
-|:------------------|:----------------------------|:-------------------------------
-| activities        | [itemActivity][] collection | The list of recent activities that took place on this item.
-| driveItem         | [driveItem][]               | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
-| fields            | [fieldValueSet][] | The values of the columns set on this list item.
+| Relationship name | Type                           | Description
+|:------------------|:-------------------------------|:-------------------------------
+| activities        | [itemActivity][] collection    | The list of recent activities that took place on this item.
+| driveItem         | [driveItem][]                  | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
+| fields            | [fieldValueSet][]              | The values of the columns set on this list item.
+| versions          | [listItemVersion][] collection | The list of previous versions of the list item.
 
 [baseItem]: baseItem.md
 [contentTypeInfo]: contentTypeInfo.md
@@ -103,6 +105,7 @@ The following properties are inherited from **[baseItem][]**.
 [identitySet]: identitySet.md
 [itemActivity]: itemActivity.md
 [list]: list.md
+[listItemVersion]: listItemVersion.md
 [sharepointIds]: sharepointIds.md
 
 <!-- {

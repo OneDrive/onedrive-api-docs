@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Get a previous version of a SharePoint list record
 ---
-# Listing versions of a ListItem (preview)
+# Listing versions of a ListItem
 
 SharePoint can be configured to retain the history for list items.
 
@@ -41,10 +41,10 @@ This example retrieves the versions of a listItem in a SharePoint list:
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-previous-versions-listitem", "scopes": "files.read sites.read.all", "apiVersions": "beta" } -->
+<!-- { "blockType": "request", "name": "get-previous-versions-listitem", "scopes": "files.read sites.read.all" } -->
 
 ```http
-GET /sites/{site-id}/drive/items/{item-id}/versions
+GET /sites/{site-id}/lists/{list-id}/items/{item-id}/versions
 ```
 
 ### Response

@@ -28,6 +28,6 @@ While working with data in OneDrive via the Microsoft Graph, the following conce
 <!-- {
   "type": "#page.annotation",
   "description": "Learn about the concepts necessary to work with OneDrive items",
-  "section": "documentation"
-  "tocPath": "REST APIs\Concepts
+  "section": "documentation",
+  "tocPath": "REST APIs/Concepts"
 } -->

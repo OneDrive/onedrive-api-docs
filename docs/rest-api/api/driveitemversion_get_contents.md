@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Download a previous version - OneDrive API
 ---
-# Download contents of a DriveItemVersion resource (preview)
+# Download contents of a DriveItemVersion resource
 
 Retrieve the contents of a specific version of a [DriveItem](../resources/driveitem.md).
 
@@ -24,11 +24,11 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored"} -->
 
 ```http
-GET /drives/{drive-id}/items/{item-id}/versions/{version-id}/contents
-GET /groups/{group-id}/drive/{item-id}/versions/{version-id}/contents
-GET /me/drive/items/{item-id}/versions/{version-id}/contents
-GET /sites/{site-id}/drive/items/{item-id}/versions/{version-id}/contents
-GET /users/{user-id}/drive/items/{item-id}/versions/{version-id}/contents
+GET /drives/{drive-id}/items/{item-id}/versions/{version-id}/content
+GET /groups/{group-id}/drive/{item-id}/versions/{version-id}/content
+GET /me/drive/items/{item-id}/versions/{version-id}/content
+GET /sites/{site-id}/drive/items/{item-id}/versions/{version-id}/content
+GET /users/{user-id}/drive/items/{item-id}/versions/{version-id}/content
 ```
 
 ## Response
@@ -46,7 +46,7 @@ This example retrieves a version of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-version-contents", "scopes": "files.read", "tags": "service.graph", "apiVersions": "beta" } -->
+<!-- { "blockType": "request", "name": "get-version-contents", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/versions/{version-id}/content
