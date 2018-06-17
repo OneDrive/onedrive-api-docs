@@ -20,7 +20,8 @@ The presence of the **DeleteAction** resource on an [**itemActivity**][activity]
 
 ```json
 {
-  "name": "string"
+  "name": "string",
+  "objectType": "File | Folder"
 }
 ```
 
@@ -29,6 +30,7 @@ The presence of the **DeleteAction** resource on an [**itemActivity**][activity]
 | Property name | Type   | Description
 |:--------------|:-------|:----------------------------------------------------
 | name          | string | The name of the item that was deleted.
+| objectType    | string | `File` or `Folder`, depending on the type of the deleted item.
 
 ## Remarks
 
@@ -39,5 +41,9 @@ Item activity records are currently only available on SharePoint and OneDrive fo
   "description": "The DeleteAction object provides information about the deletion of an item.",
   "keywords": "activities,activity,action,delete,deletion",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /resources/deleteAction.md:
+      Found potential enums in resource example that weren't defined in a table:(File,Folder) are in resource, but () are in table"
+  ],
   "tocPath": "Resources/DeleteAction"
 } -->

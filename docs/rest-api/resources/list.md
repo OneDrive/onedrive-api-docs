@@ -90,28 +90,29 @@ The **list** resource has the following properties.
 
 The following properties are inherited from **[baseItem][]**.
 
-| Property name            | Type             | Description
-|:-------------------------|:-----------------|:-------------------------------
-| **id**                   | string           | The unique identifier of the item. Read-only.
-| **name**                 | string           | The name of the item.
-| **createdBy**            | [identitySet][]  | Identity of the creator of this item. Read-only.
-| **createdDateTime**      | DateTimeOffset   | The date and time the item was created. Read-only.
-| **description**          | string           | The descriptive text for the item.
+| Property name            | Type              | Description
+|:-------------------------|:------------------|:------------------------------
+| **id**                   | string            | The unique identifier of the item. Read-only.
+| **name**                 | string            | The name of the item.
+| **createdBy**            | [identitySet][]   | Identity of the creator of this item. Read-only.
+| **createdDateTime**      | DateTimeOffset    | The date and time the item was created. Read-only.
+| **description**          | string            | The descriptive text for the item.
 | **eTag**                 | string            | ETag for the item. Read-only.                                                          |
-| **lastModifiedBy**       | [identitySet][]  | Identity of the last modifier of this item. Read-only.
-| **lastModifiedDateTime** | DateTimeOffset   | The date and time the item was last modified. Read-only.
+| **lastModifiedBy**       | [identitySet][]   | Identity of the last modifier of this item. Read-only.
+| **lastModifiedDateTime** | DateTimeOffset    | The date and time the item was last modified. Read-only.
+| **parentReference**      | [itemReference][] | Parent information, if the item has a parent. Read-write.
 | **sharepointIds**        | [sharepointIds][] | Returns identifiers useful for SharePoint REST compatibility. Read-only.
-| **webUrl**               | string (url)     | URL that displays the item in the browser. Read-only.
+| **webUrl**               | string (url)      | URL that displays the item in the browser. Read-only.
 
 ## Relationships
 
 The **list** resource has the following relationships to other resources.
 
-| Relationship name | Type                        | Description
-|:------------------|:----------------------------|:------------------------------
-| **activities**    | [itemActivity][] collection | The recent activities that took place within this list.
-| **drive**         | [drive][]                   | Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
-| **items**         | Collection([listItem][])    | All items contained in the list.
+| Relationship name | Type                             | Description
+|:------------------|:---------------------------------|:----------------------
+| **activities**    | [itemActivity][] collection      | The recent activities that took place within this list.
+| **drive**         | [drive][]                        | Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
+| **items**         | Collection([listItem][])         | All items contained in the list.
 | **columns**       | Collection([columnDefinition][]) | The collection of field definitions for this list.
 | **contentTypes**  | Collection([contentType][])      | The collection of content types present in this list.
 
@@ -122,6 +123,7 @@ The **list** resource has the following relationships to other resources.
 [columnDefinition]: columnDefinition.md
 [identitySet]: identitySet.md
 [itemActivity]: itemActivity.md
+[itemReference]: itemreference.md
 [listInfo]: listInfo.md
 [listItem]: listItem.md
 [sharepointIds]: sharepointIds.md

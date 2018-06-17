@@ -23,15 +23,19 @@ Here is a JSON representation of the resource.
 
 ```json
 {
-  "hostname": "contoso.sharepoint.com"
+  "dataLocationCode": "JPN",
+  "hostname": "contoso.sharepoint.com",
+  "root": {"@odata.type": "microsoft.graph.root" }
 }
 ```
 
 ## Properties
 
-| Property name        | Type     | Description
-|:---------------------|:---------|:---------------------------------------------------
-| **hostname**         | string   | The hostname for the site collection. Read-only.
+| Property name    | Type     | Description
+|:-----------------|:---------|:---------------------------------------------------
+| dataLocationCode | string   | The string in Azure Active Directory representing the geographic location of the data (eg. `JPN`, `NAM`). Read-only.
+| hostname         | string   | The hostname for the site collection. Read-only.
+| root             | [root][] | If present, indicates that this is a root-level site collection in the tenancy.
 
 [root]: root.md
 

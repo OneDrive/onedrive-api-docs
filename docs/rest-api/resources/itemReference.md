@@ -23,10 +23,12 @@ Here is a JSON representation of the resource
   "driveId": "string",
   "driveType": "personal | business | documentLibrary",
   "id": "string",
+  "listId": "string",
   "name": "string",
   "path": "string",
   "shareId": "string",
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" }
+  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
+  "siteId": "string"
 }
 ```
 
@@ -34,17 +36,21 @@ Here is a JSON representation of the resource
 
 | Property      | Type              | Description
 |:--------------|:------------------|:-----------------------------------------
-| driveId       | String            | Unique identifier of the drive instance that contains the item. Read-only.
+| driveId       | String            | Identifier of the drive instance that contains the item. Read-only.
 | driveType     | String            | Identifies the type of drive. See [drive][] resource for values.
-| id            | String            | Unique identifier of the item in the drive. Read-only.
+| id            | String            | Identifier of the item in the drive. Read-only.
+| listId        | String            | Identifier of the [list][]. Read-only.
 | name          | String            | The name of the item being referenced. Read-only.
 | path          | String            | Path that can be used to navigate to the item. Read-only.
-| shareId       | String            | A unique identifier for a shared resource that can be accessed via the [Shares][] API.
-| sharepointIds | [sharepointIds][] | Returns identifiers useful for SharePoint REST compatibility. Read-only.
+| shareId       | String            | Identifier for a shared resource that can be accessed via the [Shares][] API.
+| sharepointIds | [sharepointIds][] | Identifiers useful for SharePoint REST compatibility. Read-only.
+| siteId        | String            | Identifier of the [site][]. Read-only.
 
 [drive]: ../resources/drive.md
+[list]: ../resources/list.md
 [sharepointIds]: ../resources/sharepointids.md
 [Shares]: ../api/shares_get.md
+[site]: ../resources/site.md
 
 ## Remarks
 
@@ -64,5 +70,9 @@ To retrieve the human-readable path for a breadcrumb, you can safely ignore ever
   "type": "#page.annotation",
   "description": "ItemReference returns a pointer to another item.",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/resources/itemreference.md:
+      Found potential enums in resource example that weren't defined in a table:(personal,business,documentLibrary) are in resource, but () are in table"
+  ],
   "tocPath": "Resources/ItemReference"
 } -->

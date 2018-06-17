@@ -53,5 +53,9 @@ properties:
   "description": "OneDrive API error resource definition.",
   "keywords": "onedrive,api,error,resource",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /resources/error.md:
+      Multiple resources found in file, but we only support one per file. 'microsoft.graph.error,odata.error'. Skipping."
+  ],
   "tocPath": "Resources/Error"
 } -->

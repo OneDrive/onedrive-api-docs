@@ -20,7 +20,7 @@ Let's walk through the steps for an example [copy](../api/driveitem_copy.md) sce
 In this scenario, an app requests to copy a folder with a large amount of data contained within.
 This request will likely take several seconds to complete since the amount of data is large.
 
-<!-- { "blockType": "request", "name": "lro-copy-item-example", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "name": "lro-copy-item-example", "scopes": "files.readwrite", "tags": "service.graph" } -->
 
 ```http
 POST /drive/items/{folder-item-id}/copy
@@ -52,14 +52,14 @@ However, if the app wants to show the status of the copy action or ensure that i
 To check on the status of the copy action, the app makes a request to the URL provided in the previous response.
 *Note:* This request does not require authentication, since the URL is short-lived and unique to the original caller. 
 
-<!-- { "blockType": "request", "name": "lro-check-status", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "ignored", "name": "lro-check-status", "scopes": "files.readwrite" } -->
 ```http
 GET https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 ```
 
 The service responses with information that the long running action is still in progress:
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
+<!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
 ```http
 HTTP/1.1 202 Accepted
 Content-type: application/json
@@ -79,7 +79,7 @@ The app can continue to poll the monitor URL to request status updates and keep 
 After a few seconds the copy operation has completed.
 This time when the app makes a request to the monitor URL the response is a redirection to the finished result of the action.
 
-<!-- { "blockType": "request", "name": "lro-check-status-complete", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "ignored", "name": "lro-check-status-complete", "scopes": "files.readwrite" } -->
 
 ```http
 GET https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717

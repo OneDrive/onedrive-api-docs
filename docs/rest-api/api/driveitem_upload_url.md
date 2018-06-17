@@ -34,7 +34,7 @@ POST /me/drive/items/{parent-item}/children
 
 ### Request headers
 
-| Header name   | Value  | Description                                                                                    |
+| Name   | Type  | Description                                                                                    |
 |:--------------|:-------|:-----------------------------------------------------------------------------------------------|
 | **Prefer**    | string | Set to `respond-async` to enable asynchronous item transfer. Otherwise the request is aborted. |
 

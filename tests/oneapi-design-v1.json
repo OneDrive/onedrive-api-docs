@@ -23,7 +23,7 @@
       "contentTypes": ["application/json", "multipart/related", "text/plain", "application/octet-stream"]
     },
     "httpResponse": {
-      "contentTypes": ["application/json", "multipart/related", "text/plain"],
+      "contentTypes": [ "application/json", "application/pdf", "multipart/related", "text/plain", "text/html; charset=us-ascii" ],
       "standardHeaders":
       [
         "Content-Range"
