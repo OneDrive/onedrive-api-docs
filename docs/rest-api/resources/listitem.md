@@ -84,6 +84,7 @@ The following properties are inherited from **[baseItem][]**.
 | eTag                 | string            | ETag for the item. Read-only.                                                          |
 | lastModifiedBy       | [identitySet][]   | Identity of the last modifier of this item. Read-only.
 | lastModifiedDateTime | DateTimeOffset    | The date and time the item was last modified. Read-only.
+| parentReference      | [itemReference][] | Parent information, if the item has a parent. Read-write.
 | sharepointIds        | [sharepointIds][] | Returns identifiers useful for SharePoint REST compatibility. Read-only.
 | webUrl               | string (url)      | URL that displays the item in the browser. Read-only.
 
@@ -104,6 +105,7 @@ The following properties are inherited from **[baseItem][]**.
 [fieldValueSet]: fieldValueSet.md
 [identitySet]: identitySet.md
 [itemActivity]: itemActivity.md
+[itemReference]: itemreference.md
 [list]: list.md
 [listItemVersion]: listItemVersion.md
 [sharepointIds]: sharepointIds.md

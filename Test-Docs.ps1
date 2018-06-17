@@ -55,7 +55,14 @@ if (Get-Command "apidoc.exe" -ErrorAction SilentlyContinue) {
 $lastResultCode = 0
 
 # check links at the root of the repository
+$appVeyorUrl = $env:APPVEYOR_API_URL
+
 $parms = "check-all", "--path", $repoPath
+
+if ($appVeyorUrl -ne $null)
+{
+    $parms = $parms += "--appveyor-url", $appVeyorUrl
+}
 
 & $apidoc $parms    
 if ($LastExitCode -ne 0) { 
