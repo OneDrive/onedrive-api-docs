@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Resumable file upload - OneDrive API
+title: Resumable file upload
 ---
 # Upload large files with an upload session
 
@@ -16,7 +16,7 @@ To upload a file using an upload session, there are two steps:
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -45,15 +45,26 @@ POST /users/{userId}/drive/items/{itemId}/createUploadSession
 ### Request body
 
 No request body is required.
-However, you can specify a request body to provide additional data about the file being uploaded.
+However, you can specify an `item` property in the request body, providing additional data about the file being uploaded.
+
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.driveItemUploadableProperties" } -->
+```json
+{
+  "@microsoft.graph.conflictBehavior": "rename | fail | overwrite",
+  "description": "description",
+  "fileSystemInfo": { "@odata.type": "microsoft.graph.fileSystemInfo" },
+  "name": "filename.txt"
+}
+```
 
 For example, to control the behavior if the filename is already taken, you can specify the conflict behavior property in the body of the request.
 
+<!-- { "blockType": "ignored" } -->
 ```json
 {
-    "item": {
-        "@microsoft.graph.conflictBehavior": "rename"
-    }
+  "item": {
+    "@microsoft.graph.conflictBehavior": "rename"
+  }
 }
 ```
 
@@ -61,7 +72,15 @@ For example, to control the behavior if the filename is already taken, you can s
 
 | Name       | Value | Description                                                                                                                                                            |
 |:-----------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *if-match* | etag  | If this request header is included and the eTag (or cTag) provided does not match the current etag on the item, a `412 Precondition Failed` errr response is returned. |
+| *if-match* | etag  | If this request header is included and the eTag (or cTag) provided does not match the current etag on the item, a `412 Precondition Failed` error response is returned. |
+
+## Properties
+
+| Property             | Type               | Description
+|:---------------------|:-------------------|:---------------------------------
+| description          | String             | Provides a user-visible description of the item. Read-write. Only on OneDrive Personal
+| fileSystemInfo       | [fileSystemInfo][] | File system information on client. Read-write.
+| name                 | String             | The name of the item (filename and extension). Read-write.
 
 ### Request
 
@@ -70,11 +89,12 @@ The response to this request will provide the details of the newly created [uplo
 <!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
-POST /drive/root:/{item-path}:/createUploadSession
+POST /me/drive/root:/{item-path}:/createUploadSession
 Content-Type: application/json
 
 {
   "item": {
+    "@odata.type": "microsoft.graph.driveItemUploadableProperties",
     "@microsoft.graph.conflictBehavior": "rename",
     "name": "largefile.dat"
   }
@@ -105,7 +125,7 @@ Content-Type: application/json
 To upload the file, or a portion of the file, your app makes a PUT request to the **uploadUrl** value received in the **createUploadSession** response.
 You can upload the entire file, or split the file into multiple byte ranges, as long as the maximum bytes in any given request is less than 60 MiB.
 
-The fragments of the file must be uploaded sequentally in order.
+The fragments of the file must be uploaded sequentially in order.
 Uploading fragments out of order will result in an error.
 
 **Note:** If your app splits a file into multiple byte ranges, the size of each byte range **MUST** be a multiple of 320 KiB (327,680 bytes). 
@@ -119,7 +139,7 @@ In this example, the app is uploading the first 26 bytes of a 128 byte file.
 * The **Content-Range** header indicates the range of bytes in the overall file that this request represents.
 * The total length of the file is known before you can upload the first fragment of the file.
 
-<!-- { "blockType": "request", "name": "upload-fragment-piece", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "request", "opaqueUrl": true, "name": "upload-fragment-piece", "scopes": "files.readwrite" } -->
 
 ```http
 PUT https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF866337
@@ -153,7 +173,7 @@ You may see multiple ranges specified, indicating parts of the file that the ser
 This is useful if you need to resume a transfer that was interrupted and your client is unsure of the state on the service.
 
 You should always determine the size of your byte ranges according to the best practices below. 
-Do not assume that **nextExpectedRanges** will return ranges of proper size for a byte range to upload.
+Do not assume that **nextExpectedRanges** will return reanges of proper size for a byte range to upload.
 The **nextExpectedRanges** property indicates ranges of the file that have not been received and not a pattern for how your app should upload the file.
 
 <!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
@@ -276,6 +296,7 @@ The server will respond with a list of missing byte ranges that need to be uploa
 
 ```http
 HTTP/1.1 200 OK
+Content-Type: application/json
 
 {
   "expirationDateTime": "2015-01-29T09:21:55.523Z",
@@ -298,7 +319,7 @@ This new request should correct the source of error that generated the original 
 
 To indicate that your app is committing an existing upload session, the PUT request must include the `@microsoft.graph.sourceUrl` property with the value of your upload session URL.
 
-<!-- { "blockType": "request", "name": "explicit-upload-commit", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "ignored", "name": "explicit-upload-commit", "scopes": "files.readwrite", "tags": "service.graph" } -->
 
 ```http
 PUT /me/drive/root:/{path_to_parent}
@@ -318,7 +339,7 @@ If-Match: {etag or ctag}
 
 If the file can be committed using the new metadata, an `HTTP 201 Created` or `HTTP 200 OK` response will be returned with the Item metadata for the uploaded file.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -351,12 +372,17 @@ Content-Type: application/json
 See the [Error Responses][error-response] topic for details about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
+[fileSystemInfo]: ../resources/filesysteminfo.md
 
 <!-- {
   "type": "#page.annotation",
   "description": "Upload large files using an upload session.",
   "keywords": "upload,large file,fragment,BITS",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/api/driveitem_createuploadsession.md:
+      Found potential enums in resource example that weren't defined in a table:(rename,fail,overwrite) are in resource, but () are in table"
+  ],
   "section": "documentation"
 } -->

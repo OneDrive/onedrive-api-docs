@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Get a SharePoint Site - OneDrive API
+title: Get a SharePoint Site
 ---
 # Get a site resource
 
@@ -22,14 +22,9 @@ There is also a reserved site identifier, `root`, which always references the ro
 * `/sites/root`: The tenant root site.
 * `/groups/{group-id}/sites/root`: The group's team site.
 
-Additionally, the root site for a particular geographic instance (for multi-geo tenants) can be accessed with the geography's dataLocationCode, as follows:
-
-* `/sites/NAM`: The root site of the tenant's North American instance
-* `/sites/EUR`: The root site of the tenant's European instance
-
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -46,7 +41,6 @@ To access the root SharePoint site within a tenant:
 ```http
 GET /sites/root
 GET /sites/contoso.sharepoint.com
-GET /sites/JPN
 ```
 
 ## Access a site by server-relative URL
@@ -85,12 +79,6 @@ Content-type: application/json
 
 {
   "id": "contoso.sharepoint.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D2244C3-251A-49EA-93A8-39E1C3A060FE",
-  "owner": {
-    "user": {
-      "displayName": "Daron Spektor",
-      "id": "5280E7FE-DC7A-4486-9490-E790D81DFEB3"
-    }
-  },
   "displayName": "OneDrive Team Site",
   "name": "1drvteam",
   "createdDateTime": "2017-05-09T20:56:00Z",

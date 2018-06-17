@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Retrieve thumbnails for a file or folder - OneDrive API
+title: Retrieve thumbnails for a file or folder
 ---
 # List thumbnails for a DriveItem
 
@@ -23,10 +23,9 @@ Here are the most common ones:
 * Upload a custom thumbnail for an item
 * Determine if a custom uploaded thumbnail exists
 
-
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -48,7 +47,7 @@ GET /users/{user-id}/drive/items/{item-id}/thumbnails
 
 ## Optional query parameters
 
-This method supports the `$select` [OData puery parameter](../concepts/optional-query-parameters.md) to customize the response.
+This method supports the `$select` [OData puery parameter](../../../concepts/query_parameters.md) to customize the response.
 
 ## Response
 
@@ -181,9 +180,9 @@ Content-type: application/json
       "thumbnails": [
         {
           "small": { "width": 96,
-                   "height": 96,
-                   "url": "https://sn3302files..."
-                 }
+                     "height": 96,
+                     "url": "https://sn3302files..."
+                   }
         }
       ]
     },
@@ -193,9 +192,9 @@ Content-type: application/json
       "thumbnails": [
         {
           "small": { "width": 96,
-                   "height": 96,
-                   "url": "https://sn3302files..."
-                 }
+                     "height": 96,
+                     "url": "https://sn3302files..."
+                   }
         }
       ]
     }
@@ -203,7 +202,7 @@ Content-type: application/json
 }
 ```
 
-## Size values
+## Size options
 
 This table defines the possible thumbnail sizes.
 While you can request any arbitrary thumbnail size, the defined values are likely to exist and return a value quickly:
@@ -274,12 +273,24 @@ Thumbnails are not supported on SharePoint Server 2016.
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",
   "description": "Get metadata and content for thumbnails of multiple sizes for OneDrive items.",
   "keywords": "thumbnail,content,download,sizes",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/api/driveitem_list_thumbnails.md:
+      Unable to map some markdown elements into schema.
+         Unmapped methods:
+      enum-item-thumbnails, get-one-thumbnail, get-thumbnail-content, get-thumbnail-while-listing, get-thumbnail-custom-size
+         Unmapped tables:
+      Permissions - AuthScopes, Path parameters - PathParameters, Size options - Unknown, Examples of custom identifiers - Unknown",
+    "Warning: Couldn't serialize request for path /me/drive/items/{var}/thumbnails/{var}/{var}/content into EDMX: System.InvalidOperationException: Uri path requires navigating into unknown object hierarchy: missing property '{var}' on 'thumbnailSet'. Possible issues:
+         1) Doc bug where '{var}' isn't defined on the resource.         2) Doc bug where '{var}' is an example key and should instead be replaced with a placeholder like {item-id} or declared in the sampleKeys annotation.       3) Doc bug where 'thumbnailSet' is supposed to be an entity type, but is being treated as a complex because it (and its ancestors) are missing the keyProperty annotation
+     at ApiDocs.Publishing.CSDL.CsdlWriter.ParseRequestTargetType(String requestPath, MethodCollection requestMethodCollection, EntityFramework edmx, IssueLogger issues) in D:/src/mds2/ApiDocs.Publishing/CSDL/CsdlWriter.cs:line 1145
+     at ApiDocs.Publishing.CSDL.CsdlWriter.ProcessRestRequestPaths(EntityFramework edmx, String[] baseUrlsToRemove, IssueLogger issues) in D:/src/mds2/ApiDocs.Publishing/CSDL/CsdlWriter.cs:line 821"
+  ],
   "tocPath": "Items/Thumbnails"
 } -->

@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Search for files - OneDrive API
+title: Search for files
 ---
 # Search for a DriveItems within a drive
 
@@ -11,7 +11,7 @@ You can search within a folder hierarchy, a whole drive, or files shared with th
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -33,7 +33,7 @@ GET /users/{user-id}/drive/root/search(q='{search-text}')
 
 ## Optional query parameters
 
-This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$orderby` [OData query parameters](../concepts/optional-query-parameters.md) to customize the response.
+This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$orderby` [OData query parameters](../../../concepts/query_parameters.md) to customize the response.
 
 ## Function parameters
 
@@ -117,7 +117,7 @@ Content-type: application/json
         "name": "Contoso Project",
         "folder": {},
         "searchResult": { "onClickTelemetryUrl": "https://bing.com/0123456789abc!123" },
-        "remoteItem": { "id": "!23141901", "driveId": "s!1020101jlkjl12lx" }
+        "remoteItem": { "id": "!23141901", "parentReference": { "driveId": "s!1020101jlkjl12lx" } }
       },
       {
         "id": "0123456789abc!456",
@@ -135,9 +135,9 @@ Content-type: application/json
 See [Error Responses][error-response] for more information about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
-[odata-query-parameters]: ../concepts/optional-query-parameters.md
+[odata-query-parameters]: ../../../concepts/query_parameters.md
 
 <!-- {
   "type": "#page.annotation",

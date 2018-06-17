@@ -1,8 +1,8 @@
-﻿---
+---
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: List the contents of a folder - OneDrive API
+title: List the contents of a folder
 ---
 # List children of a driveItem
 
@@ -13,7 +13,7 @@ DriveItems with a non-null **folder** or **package** facet can have one or more 
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -35,11 +35,11 @@ GET /users/{user-id}/drive/items/{item-id}/children
 
 ## Optional query parameters
 
-This method supports the `$expand`, `$select`, `$skipToken`, `$top` and `$orderby` [OData query parameters](../concepts/optional-query-parameters.md) to customize the response.
+This method supports the `$expand`, `$select`, `$skipToken`, `$top` and `$orderby` [OData query parameters](../../../concepts/query_parameters.md) to customize the response.
 
 ### Optional request headers
 
-| Header name     | Value | Description                                                                                                                                              |
+| Name     | Value | Description                                                                                                                                              |
 |:----------------|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | _if-none-match_ | etag  | If this request header is included and the eTag (or cTag) provided matches the current tag on the file, an `HTTP 304 Not Modified` response is returned. |
 
@@ -108,7 +108,7 @@ You can control the page size through [optional query string parameters](http://
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 
 <!-- {

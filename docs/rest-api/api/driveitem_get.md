@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Get a file or folder - OneDrive API
+title: Get a file or folder
 ---
 # Get a DriveItem resource
 
@@ -10,7 +10,7 @@ Retrieve the metadata for a [DriveItem](../resources/driveitem.md) in a [Drive](
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -37,9 +37,9 @@ GET /users/{userId}/drive/root:/{item-path}
 
 ## Optional query parameters
 
-This method supports the `$expand` and `$select` [OData query parameters](../concepts/optional-query-parameters.md) to customize the response.
+This method supports the `$expand` and `$select` [OData query parameters](../../../concepts/query_parameters.md) to customize the response.
 
-You can use the [`$expand` query string parameter](../concepts/optional-query-parameters.md) to include the children of an item in the same call as retrieving the metadata of an item if the item has a **children** relationship.
+You can use the [`$expand` query string parameter](../../../concepts/query_parameters.md) to include the children of an item in the same call as retrieving the metadata of an item if the item has a **children** relationship.
 
 ## Optional request headers
 
@@ -99,41 +99,13 @@ Content-type: application/json
 }
 ```
 
-## HEAD requests
-
-In most cases, a HEAD request will behave the same way as a GET request. 
-
-There are a couple differences:
-
-1. HEAD requests will only return the corresponding GET request's headers. This is standard practice for a HEAD response.
-2. HEAD requests will not automatically provision a [special folder][special-folder]. Instead, if a special folder is not present, a `404` error will be returned.
-
-In this example, you can see that requesting the root of your OneDrive will respond with simply `200 OK`.
-
-### HTTP request
-
-<!-- { "blockType": "request", "name": "head-root", "scopes": "files.read", "tags": "onedrive.only" } -->
-
-```http
-HEAD /drive/root
-Accept: application/json
-```
-
-### Response
-
-<!-- {"blockType": "response", "isEmpty": true } -->
-
-```http
-HTTP/1.1 200 OK
-```
-
 ## Remarks
 
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
-[odata-parameters]: ../concepts/optional-query-parameters.md
+[error-response]: ../../../concepts/errors.md
+[odata-parameters]: ../../../concepts/query_parameters.md
 [item-resource]: ../resources/driveitem.md
 [special-folder]: ../api/drive_get_specialfolder.md
 

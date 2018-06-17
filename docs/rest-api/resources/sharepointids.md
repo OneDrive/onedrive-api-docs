@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: SharePointIds - OneDrive API
+title: SharePointIds
 ---
 # SharePointIds resource type
 
@@ -27,7 +27,6 @@ Here is a JSON representation of the resource
     "listItemUniqueId": "string",
     "siteId": "string",
     "siteUrl": "url",
-    "tenantId": "string",
     "webId": "string"
 }
 ```
@@ -41,7 +40,6 @@ Here is a JSON representation of the resource
 | listItemUniqueId | string       | The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site.
 | siteId           | string       | The unique identifier (guid) for the item's site collection (SPSite).
 | siteUrl          | string (url) | The SharePoint URL for the site that contains the item.
-| tenantId         | string       | The unique identifier (guid) for the tenancy.
 | webId            | string       | The unique identifier (guid) for the item's site (SPWeb).
 
 ## Remarks

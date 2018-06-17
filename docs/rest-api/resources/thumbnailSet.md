@@ -1,8 +1,8 @@
-﻿---
+---
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: ThumbnailSet - OneDrive API
+title: ThumbnailSet
 ---
 # ThumbnailSet resource type
 

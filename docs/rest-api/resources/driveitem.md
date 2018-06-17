@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: DriveItem - OneDrive API
+title: DriveItem
 ---
 # DriveItem resource type
 
@@ -31,11 +31,11 @@ Here is a JSON representation of a **driveItem** resource.
 The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits properties from that resource.
 
 <!-- { "blockType": "resource", "@type": "microsoft.graph.driveItem", "@type.aka": "oneDrive.item",
+       "baseType": "microsoft.graph.baseItem",
        "optionalProperties": ["cTag", "children", "folder", "file", "image", "audio", "video",
        "location", "deleted", "specialFolder", "photo", "thumbnails", "searchResult", "remoteItem",
        "shared", "content", "@microsoft.graph.conflictBehavior", "@microsoft.graph.downloadUrl", "@content.sourceUrl",
        "sharepointIds"],
-       "baseType": "microsoft.graph.baseItem",
        "keyProperty": "id", "openType": true } -->
 
 ```json
@@ -50,9 +50,9 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
   "folder": { "@odata.type": "microsoft.graph.folder" },
   "image": { "@odata.type": "microsoft.graph.image" },
   "location": { "@odata.type": "microsoft.graph.geoCoordinates" },
-  "malware": { "@odata.type": "microsoft.graph.malware" },
   "package": { "@odata.type": "microsoft.graph.package" },
   "photo": { "@odata.type": "microsoft.graph.photo" },
+  "publication": {"@odata.type": "microsoft.graph.publicationFacet"},
   "remoteItem": { "@odata.type": "microsoft.graph.remoteItem" },
   "root": { "@odata.type": "microsoft.graph.root" },
   "searchResult": { "@odata.type": "microsoft.graph.searchResult" },
@@ -64,12 +64,12 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
   "webDavUrl": "string",
 
   /* relationships */
-  "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
+  "children": [{ "@odata.type": "microsoft.graph.driveItem" }],
   "createdByUser": { "@odata.type": "microsoft.graph.user" },
   "lastModifiedByUser": { "@odata.type": "microsoft.graph.user" },
-  "children": [ { "@odata.type": "microsoft.graph.driveItem" }],
-  "thumbnails": [ {"@odata.type": "microsoft.graph.thumbnailSet"}],
   "permissions": [ {"@odata.type": "microsoft.graph.permission"} ],
+  "thumbnails": [ {"@odata.type": "microsoft.graph.thumbnailSet"}],
+  "versions": [ {"@odata.type": "microsoft.graph.driveItemVersion"}],
 
   /* inherited from baseItem */
   "id": "string (identifier)",
@@ -109,7 +109,6 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
 | lastModifiedBy       | [identitySet][]    | Identity of the user, device, and application which last modified the item. Read-only.
 | lastModifiedDateTime | DateTimeOffset     | Date and time the item was last modified. Read-only.
 | location             | [geoCoordinates][] | Location metadata, if the item has location data. Read-only.
-| malware              | [malware][]        | Malware metadata, if the item was detected to contain malware. Read-only.
 | name                 | String             | The name of the item (filename and extension). Read-write.
 | package              | [package][]        | If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
 | parentReference      | [itemReference][]  | Parent information, if the item has a parent. Read-write.
@@ -134,14 +133,14 @@ The eTag value is only modified when the folder's properties are changed, except
 
 | Relationship       | Type                        | Description
 |:-------------------|:----------------------------|:--------------------------
-| activities         | [itemActivity][] collection | The list of recent activities that took place on this item.
-| content            | Stream                      | The content stream, if the item represents a file.
-| children           | driveitem collection        | Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+| children           | driveItem collection        | Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
 | createdByUser      | [user][]                    | Identity of the user who created the item. Read-only.
 | lastModifiedByUser | [user][]                    | Identity of the user who last modified the item. Read-only.
 | listItem           | [listItem][]                | For drives in SharePoint, the associated document library list item. Read-only. Nullable.
 | permissions        | [permission][] collection   | The set of permissions for the item. Read-only. Nullable.
 | thumbnails         | [thumbnailSet][] collection | Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+| versions           | [driveItemVersion][] collection | The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
+| workbook           | [workbook][]                | For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
 
 ## Instance Attributes
 
@@ -162,8 +161,8 @@ The URL will only be available for a short period of time (1 hour) before it is 
 | Method                                                   | REST Path
 |:---------------------------------------------------------|:------------------
 | [Get item](../api/driveitem_get.md)                      | `GET /drive/items/{item-id}`
-| [List activities](../api/activities_list.md)             | `GET /drive/items/{item-id}/activities`
 | [List children](../api/driveitem_list_children.md)       | `GET /drive/items/{item-id}/children`
+| [List versions](../api/driveitem_list_versions.md)       | `GET /drive/items/{item-id}/versions`
 | [Create item](../api/driveitem_post_children.md)         | `POST /drive/items/{item-id}/children`
 | [Update item](../api/driveitem_update.md)                | `PATCH /drive/items/{item-id}`
 | [Upload content](../api/driveitem_put_content.md)        | `PUT /drive/items/{item-id}/content`
@@ -179,10 +178,7 @@ The URL will only be available for a short period of time (1 hour) before it is 
 | [Add permissions](../api/driveitem_invite.md)            | `POST /drive/items/{item-id}/invite`
 | [List permissions](../api/driveitem_list_permissions.md) | `GET /drive/items/{item-id}/permissions`
 | [Delete permission](../api/permission_delete.md)         | `DELETE /drive/items/{item-id}/permissions/{perm-id}`
-| [Preview item][item-preview]                             | `POST /drive/items/{item-id}/preview`
 
-[download-format]: ../api/driveitem_get_content_format.md
-[item-preview]: ../api/driveItem_preview.md
 
 ## Remarks
 
@@ -192,18 +188,17 @@ In OneDrive for Business or SharePoint document libraries, the **cTag** property
 [baseItem]: baseItem.md
 [deleted]: deleted.md
 [download-format]: ../api/driveitem_get_content_format.md
+[driveItemVersion]: driveItemVersion.md
 [file]: file.md
 [fileSystemInfo]: fileSystemInfo.md
 [folder]: folder.md
+[getting previous versions]: ../api/driveitem_list_versions.md
 [getting thumbnails]: ../api/driveitem_list_thumbnails.md
 [identitySet]: identitySet.md
 [image]: image.md
-[itemActivity]: itemActivity.md
 [itemReference]: itemReference.md
 [geoCoordinates]: geoCoordinates.md
-[List activities]: ../api/activities_list.md
 [listItem]: listItem.md
-[malware]: malware.md
 [package]: package.md
 [permission]: permission.md
 [photo]: photo.md
@@ -215,6 +210,7 @@ In OneDrive for Business or SharePoint document libraries, the **cTag** property
 [specialFolder]: specialFolder.md
 [thumbnailSet]: thumbnailSet.md
 [video]: video.md
+[workbook]: workbook.md
 [user]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users
 [publicationFacet]: publicationfacet.md
 

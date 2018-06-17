@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
-title: ListItem - OneDrive API
+title: ListItem
 ---
 # ListItem resource
 
@@ -46,8 +46,8 @@ Here is a JSON representation of a **listItem** resource.
   "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
 
   /* relationships */
-  "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
   "driveItem": { "@odata.type": "microsoft.graph.driveItem" },
+  "versions": [{"@odata.type": "microsoft.graph.listItemVersion"}],
 
   /* inherited from baseItem */
   "id": "string",
@@ -83,6 +83,7 @@ The following properties are inherited from **[baseItem][]**.
 | eTag                 | string            | ETag for the item. Read-only.                                                          |
 | lastModifiedBy       | [identitySet][]   | Identity of the last modifier of this item. Read-only.
 | lastModifiedDateTime | DateTimeOffset    | The date and time the item was last modified. Read-only.
+| parentReference      | [itemReference][] | Parent information, if the item has a parent. Read-write.
 | sharepointIds        | [sharepointIds][] | Returns identifiers useful for SharePoint REST compatibility. Read-only.
 | webUrl               | string (url)      | URL that displays the item in the browser. Read-only.
 
@@ -90,19 +91,20 @@ The following properties are inherited from **[baseItem][]**.
 
  The **listItem** resource has the following relationships to other resources.
 
-| Relationship name | Type                        | Description
-|:------------------|:----------------------------|:-------------------------------
-| activities        | [itemActivity][] collection | The list of recent activities that took place on this item.
-| driveItem         | [driveItem][]               | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
-| fields            | [fieldValueSet][] | The values of the columns set on this list item.
+| Relationship name | Type                           | Description
+|:------------------|:-------------------------------|:-------------------------------
+| driveItem         | [driveItem][]                  | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
+| fields            | [fieldValueSet][]              | The values of the columns set on this list item.
+| versions          | [listItemVersion][] collection | The list of previous versions of the list item.
 
 [baseItem]: baseItem.md
 [contentTypeInfo]: contentTypeInfo.md
 [driveItem]: driveItem.md
 [fieldValueSet]: fieldValueSet.md
 [identitySet]: identitySet.md
-[itemActivity]: itemActivity.md
+[itemReference]: itemreference.md
 [list]: list.md
+[listItemVersion]: listItemVersion.md
 [sharepointIds]: sharepointIds.md
 
 <!-- {

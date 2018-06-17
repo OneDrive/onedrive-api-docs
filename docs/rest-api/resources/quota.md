@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Quota - OneDrive API
+title: Quota
 ---
 # Quota resource type
 
@@ -21,7 +21,6 @@ Here is a JSON representation of the resource.
 ```json
 {
   "deleted": 1024,
-  "fileCount": 1,
   "remaining": 1024,
   "state": "normal | nearing | critical | exceeded",
   "total": 1024,
@@ -38,7 +37,6 @@ Here is a JSON representation of the resource.
 | remaining     | Int64  | Total space remaining before reaching the quota limit, in bytes. Read-only. |
 | deleted       | Int64  | Total space consumed by files in the recycle bin, in bytes. Read-only.      |
 | state         | string | Enumeration value that indicates the state of the storage space. Read-only. |
-| fileCount     | Int64  | Total number of files. Read-only. Not available on Personal OneDrive.       |
 
 ## State Enumeration
 
@@ -54,5 +52,9 @@ Here is a JSON representation of the resource.
   "description": "The quota facet provides information about how much space the OneDrive has available.",
   "keywords": "quota,available,remaining,used",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/resources/quota.md:
+      Found potential enums in resource example that weren't defined in a table:(normal, nearing,critical,exceeded) are in resource, but () are in table"
+  ],
   "tocPath": "Facets/Quota"
 } -->

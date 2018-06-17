@@ -1,8 +1,8 @@
-﻿---
+---
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Move a file or folder - OneDrive API
+title: Move a file or folder
 ---
 # Move a DriveItem to a new folder
 
@@ -14,8 +14,7 @@ Your app can combine moving an item to a new container and updating other proper
 Items cannot be moved between [Drives](../resources/drive.md) using this request.
 
 ## Permissions
-
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -99,7 +98,7 @@ Content-type: application/json
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

@@ -1,19 +1,25 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: Error responses - OneDrive API
----
-# Common error responses and codes
+# Microsoft Graph error responses and resource types
 
-Errors in the OneDrive API are returned using standard HTTP status codes, as well as a JSON error
-response object. The following HTTP status codes should be expected.
+<!--In this article:
+  
+-	[Status code](#msg_status_code)
+-	[Error resource type](#msg_error_resource_type)
+-	[Code property](#msg_code_property)
+
+<a name="msg_error_response"> </a> -->
+
+Errors in Microsoft Graph are returned using standard HTTP status codes, as well as a JSON error
+response object.
+
+## HTTP status codes
+
+The following table lists and describes the HTTP status codes that can be returned.
 
 | Status code | Status message                  | Description                                                                                                                            |
 |:------------|:--------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
 | 400         | Bad Request                     | Cannot process the request because it is malformed or incorrect.                                                                       |
 | 401         | Unauthorized                    | Required authentication information is either missing or not valid for the resource.                                                   |
-| 403         | Forbidden                       | Access is denied to the requested resource. The user might not have enough permission.                                                 |
+| 403         | Forbidden                       | Access is denied to the requested resource. The user might not have enough permission. <br /><br /> **Important:** If conditional access policies are applied to a resource, a HTTP 403; Forbidden error=insufficent_claims may be returned. For more details on Microsoft Graph and conditional access see [Developer Guidance for Azure Active Directory Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-conditional-access-developer)  |
 | 404         | Not Found                       | The requested resource doesn’t exist.                                                                                                  |
 | 405         | Method Not Allowed              | The HTTP method in the request is not allowed on the resource.                                                                         |
 | 406         | Not Acceptable                  | This service doesn’t support the format requested in the Accept header.                                                                |
@@ -28,31 +34,74 @@ response object. The following HTTP status codes should be expected.
 | 429         | Too Many Requests               | Client application has been throttled and should not attempt to repeat the request until an amount of time has elapsed.                |
 | 500         | Internal Server Error           | There was an internal server error while processing the request.                                                                       |
 | 501         | Not Implemented                 | The requested feature isn’t implemented.                                                                                               |
-| 503         | Service Unavailable             | The service is temporarily unavailable. You may repeat the request after a delay. There may be a Retry-After header.                   |
+| 503         | Service Unavailable             | The service is temporarily unavailable for maintenance or is overloaded. You may repeat the request after a delay, the length of which may be specified in a Retry-After header.|
+| 504         | Gateway Timeout                 | The server, while acting as a proxy, did not receive a timely response from the upstream server it needed to access in attempting to complete the request. May occur together with 503. |
 | 507         | Insufficient Storage            | The maximum storage quota has been reached.                                                                                            |
 | 509         | Bandwidth Limit Exceeded        | Your app has been throttled for exceeding the maximum bandwidth cap. Your app can retry the request again after more time has elapsed. |
 
 The error response is a single JSON object that contains a single property
-named **error**. This object includes all of the details of the error. You may use the information returned here instead of, or in addition
-to the HTTP status code returned. Here is an example of a full JSON error body.
+named **error**. This object includes all the details of the error. You can use the information returned here instead of or in addition to the HTTP status code. The following is an example of a full JSON error body.
 
-<!-- { "blockType": "example", "@odata.type": "microsoft.graph.error", "expectError": true, "name": "example-error-response"} -->
-
+<!-- { "blockType": "ignored", "@odata.type": "odata.error", "expectError": true, "name": "example-error-response" } -->
 ```json
 {
   "error": {
     "code": "invalidRange",
     "message": "Uploaded fragment overlaps with existing data.",
-    "innererror": {
-      "code": "fragmentOverlap"
+    "innerError": {
+      "requestId": "request-id",
+      "date": "date-time"
     }
   }
 }
 ```
 
-## The code property
+<!--<a name="msg_error_resource_type"> </a> -->
 
-The `code` property contains one of 15 possible values. Your apps must be
+## Error resource type
+
+The error resource is returned whenever an error occurs in the processing of a request.
+
+Error responses follow the definition in the
+[OData v4](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.html#_Toc372793091)
+specification for error responses.
+
+### JSON representation
+
+The error resource is composed of these resources:
+
+<!-- { "blockType": "resource", "@odata.type": "odata.error" } -->
+```json
+{
+  "error": { "@odata.type": "odata.error" }  
+}
+```
+
+#### odata.error resource type
+
+Inside the error response is an error resource that includes the following
+properties:
+
+<!-- { "blockType": "resource", "@odata.type": "odata.error", "optionalProperties": [ "target", "details", "innererror"] } -->
+```json
+{
+  "code": "string",
+  "message": "string",
+  "innererror": { "@odata.type": "odata.error" }
+}
+```
+
+| Property name  | Value                  | Description\                                                                                               |
+|:---------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------|
+| **code**       | string                 | An error code string for the error that occured                                                            |
+| **message**    | string                 | A developer ready message about the error that occured. This should not be displayed to the user directly. |
+| **innererror** | error object           | Optional. Additional error objects that may be more specific than the top level error.                     |
+
+<!--<a name="msg_code_property"> </a> -->
+
+#### Code property
+
+The `code` property contains one of the following possible values. Your apps should be
 prepared to handle any one of these errors.
 
 | Code                      | Description
@@ -73,7 +122,7 @@ prepared to handle any one of these errors.
 | **quotaLimitReached**     | The user has reached their quota limit.
 | **unauthenticated**       | The caller is not authenticated.
 
-The `innererror` object may recursively contain more `innererror` objects
+The `innererror` object might recursively contain more `innererror` objects
 with additional, more specific error codes. When handling an error, apps
 should loop through all the error codes available and use the most detailed
 one that they understand. Some of the more detailed codes are listed at the
@@ -96,8 +145,8 @@ public bool IsError(string expectedErrorCode)
 }
 ```
 
-For a complete example for properly handling errors, take a look at
-[OneDrive Error Code Handling](https://gist.github.com/rgregg/a1866be15e685983b441).
+For an example that shows how to properly handle errors, see
+[Error Code Handling](https://gist.github.com/rgregg/a1866be15e685983b441).
 
 The `message` property at the root contains an error message intended for the
 developer to read. Error messages are not localized and shouldn't be displayed
@@ -106,15 +155,11 @@ directly to the user. When handling errors, your code should not key off of
 dynamic information specific to the failed request. You should only code
 against error codes returned in `code` properties.
 
-For more information on the resource returned in the error response, see
-the [Error resource type](../resources/error.md) topic.
-
-## Detailed error codes
-
-Below are some additional errors that your app may encounter within the nested
-`innererror` objects. Apps are not required to handle these, but may if they
-choose. The service may add new error codes or stop returning old ones at any
-time, so it is important that all apps be able to handle the basic 15 [above](#the-code-property).
+#### Detailed error codes
+The following are some additional errors that your app might encounter within the nested
+`innererror` objects. Apps are not required to handle these, but can if they
+choose. The service might add new error codes or stop returning old ones at any
+time, so it is important that all apps be able to handle the [basic error codes](#code-property).
 
 | Code                               | Description
 |:-----------------------------------|:----------------------------------------------------------
@@ -162,11 +207,19 @@ time, so it is important that all apps be able to handle the basic 15 [above](#t
 | **virusSuspicious**                | This document is suspicious and may have a virus.
 | **zeroOrFewerResultsRequested**    | Zero or fewer results requested.
 
+<!-- ##Additional Resources##
+
+- [Microsoft Graph API release notes and known issues](microsoft-graph-api-release-notes-known-issues.md )
+- [Hands on lab: Deep dive into the Microsoft Graph API](http://dev.office.com/hands-on-labs/4585) -->
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Understand the error format for the OneDrive API and error codes.",
+  "description": "Understand the error format for the API and error codes.",
   "keywords": "error response, error, error codes, innererror, message, code",
   "section": "documentation",
-  "tocPath": "Concepts/Error responses"
+  "suppressions": [
+    " Warning: /concepts/errors.md:
+      Multiple resources found in file, but we only support one per file. 'odata.error,odata.error'. Skipping."
+  ],
+  "tocPath": "Misc/Error Responses"
 } -->

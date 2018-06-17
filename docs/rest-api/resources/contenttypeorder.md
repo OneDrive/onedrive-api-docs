@@ -2,7 +2,7 @@
 author: daspek
 ms.author: dspektor
 ms.date: 09/13/2017
-title: ContentTypeOrder - OneDrive API
+title: ContentTypeOrder
 ---
 # ContentTypeOrder resource type
 

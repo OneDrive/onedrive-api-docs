@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
-title: ChoiceColumn - OneDrive API
+title: ChoiceColumn
 ---
 # ChoiceColumn resource type
 
@@ -35,5 +35,9 @@ Here is a JSON representation of a **choiceColumn** resource.
   "description": "",
   "keywords": "",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/resources/choicecolumn.md:
+      Found potential enums in resource example that weren't defined in a table:(checkBoxes,dropDownMenu,radioButtons) are in resource, but () are in table"
+  ],
   "tocPath": "Resources/ChoiceColumn"
 } -->

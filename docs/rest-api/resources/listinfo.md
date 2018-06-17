@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
-title: ListInfo - OneDrive API
+title: ListInfo
 ---
 # ListInfo resource
 
@@ -50,5 +50,9 @@ For developers familiar with SharePoint's CSOM APIs, the `template` value corres
   "description": "",
   "keywords": "",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/resources/listinfo.md:
+      Found potential enums in resource example that weren't defined in a table:(documentLibrary,genericList,tasks,survey,links,announcements,contacts,...) are in resource, but () are in table"
+  ],
   "tocPath": ""
 }-->

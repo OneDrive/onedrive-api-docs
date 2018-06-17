@@ -1,26 +1,23 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: Update a webhook subscription - OneDrive API
----
 # Update subscription
 
 Renew a subscription by extending its expiry time.
 
-Subscriptions to resources expire at dates proscribed by the individual resource types.
-In order not to miss notifications, subscriptions should be renewed well in advance of their expiry date.
-See [subscription](../resources/subscription.md) for individual expiry dates.
+Subscriptions expire after a length of time that varies by resource type. In order to avoid missing notifications, an app should renew its subscriptions well in advance of their expiry date. See [subscription](../resources/subscription.md) for maximum length of a subscription for each resource type.
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+The following table lists the suggested permission needed for each resource. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
-|Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
+| Resource type / Item        | Permission          |
+|-----------------------------|---------------------|
+| Contacts                    | Contacts.Read       |
+| Conversations               | Group.Read.All      |
+| Events                      | Calendars.Read      |
+| Messages                    | Mail.Read           |
+| Groups                      | Group.Read.All      |
+| Users                       | User.Read.All       |
+| Drive  (User's OneDrive)    | Files.ReadWrite     |
+| Drives (SharePoint shared content and drives) | Files.ReadWrite.All |
 
 ## HTTP request
 
@@ -30,52 +27,65 @@ One of the following permissions is required to call this API. To learn more, in
 PATCH /subscriptions/{id}
 ```
 
+## Request headers
+
+| Name       | Type | Description|
+|:-----------|:------|:----------|
+| Authorization  | string  | Bearer {token}. Required. |
+
+## Response
+
+If successful, this method returns a `200 OK` response code and [subscription](../resources/subscription.md) object in the response body.
+
 ## Example
 
-### Request
+##### Request
 
-<!-- { "blockType": "request", "name": "patch-subscription-graph", "@odata.type": "microsoft.graph.subscription", "tags": "service.graph" } -->
+Here is an example of the request.
+<!-- {
+  "blockType": "request",
+  "name": "update_subscription"
+}-->
 
 ```http
-PATCH /subscriptions/{id}
+PATCH https://graph.microsoft.com/v1.0/subscriptions/{id}
 Content-type: application/json
 
 {
-  "expirationDateTime": "2018-01-03T11:23:00.000Z"
+   "expirationDateTime":"2016-11-22T18:23:45.9356913Z"
 }
 ```
 
-### Response
+##### Response
 
-If the subscription is patched successfully then the resulting subscription object is returned:
-
-<!-- { "blockType": "response",  "name": "patch-subscription-graph", "@odata.type": "microsoft.graph.subscription" } -->
+Here is an example of the response.
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.subscription"
+} -->
 
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
+Content-length: 252
 
 {
- "id": "1039149811asbc",
- "resource": "/me/drive/root",
- "changeType": "updated",
- "clientState": "subscription-identifier",
- "notificationUrl": "https://contoso.azurewebsites.net/api/v2/webhook-receiver",
- "expirationDateTime": "2018-01-03T11:23:00.000Z"
+  "id":"7f105c7d-2dc5-4530-97cd-4e7ae6534c07",
+  "resource":"me/messages",
+  "applicationId": "24d3b144-21ae-4080-943f-7067b395b913",
+  "changeType":"created,updated",
+  "clientState":"subscription-identifier",
+  "notificationUrl":"https://webhook.azurewebsites.net/api/send/myNotifyClient",
+  "expirationDateTime":"2016-11-22T18:23:45.9356913Z",
+  "creatorId": "8ee44408-0679-472c-bc2a-692812af3437"
 }
 ```
 
-### Error responses
-
-See [Error Responses][error-response] for more info about
-how errors are returned.
-
-[error-response]: ../concepts/errors.md
-
 <!-- {
   "type": "#page.annotation",
-  "description": "Update a subscription created for an item.",
-  "keywords": "notification,list,subscription,webhook,enumerate",
+  "description": "Update subscription",
+  "keywords": "",
   "section": "documentation",
-  "tocPath": "Webhooks/Update"
-} -->
+  "tocPath": ""
+}-->

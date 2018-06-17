@@ -2,7 +2,7 @@
 author: daspek
 ms.author: dspektor
 ms.date: 09/12/2017
-title: ColumnLink - OneDrive API
+title: ColumnLink
 ---
 # ColumnLink resource type
 

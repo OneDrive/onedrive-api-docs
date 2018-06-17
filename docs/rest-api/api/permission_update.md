@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Change sharing permissions - OneDrive API
+title: Change sharing permissions
 ---
 # Update sharing permission
 
@@ -12,7 +12,7 @@ Only the **roles** property can be modified this way.
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -95,7 +95,7 @@ Content-type: application/json
 Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

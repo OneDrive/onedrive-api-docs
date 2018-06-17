@@ -1,16 +1,10 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: Restore a previous version of a SharePoint list item
----
 # Restore a previous version of a ListItem
 
 Restore a previous version of a ListItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the item.
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |            Permission type             |         Permissions (from least to most privileged)          |
 | :------------------------------------- | :----------------------------------------------------------- |
@@ -35,10 +29,10 @@ No request body is required.
 
 This example restores a version of a listItem identified by `{item-id}` and `{version-id}`.
 
-<!-- { "blockType": "request", "name": "restore-item-version-listItem", "scopes": "files.readwrite sites.readwrite.all", "target": "action", "apiVersions": "beta" } -->
+<!-- { "blockType": "request", "name": "restore-item-version-listItem", "scopes": "files.readwrite sites.readwrite.all", "target": "action", "tags": "service.graph service.sharepoint" } -->
 
 ```http
-POST /sites/{site-id}/items/{item-id}/versions/{version-id}/restoreVersion
+POST /sites/{site-id}/lists/{list-id}/items/{item-id}/versions/{version-id}/restoreVersion
 ```
 
 ## Response

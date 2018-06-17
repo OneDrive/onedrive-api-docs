@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: List the subsites for a SharePoint site - OneDrive API
+title: List the subsites for a SharePoint site
 ---
 # Enumerate subsites
 
@@ -12,7 +12,7 @@ Get a collection of subsites defined for a [site][].
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -25,7 +25,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "request", "name": "list-subsites", "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
 
 ```http
-GET /sites/{site-id}/sites
+GET https://graph.microsoft.com/v1.0/sites/{site-id}/sites
 ```
 
 ## Response

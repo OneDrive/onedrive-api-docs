@@ -1,9 +1,3 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/17/2017
-title: ListItemVersion - OneDrive API
----
 # ListItemVersion resource type
 
 The **listItemVersion** resource represents a previous version of a [ListItem](listitem.md) resource.
@@ -25,11 +19,15 @@ The following tasks are available for listItemVersion resources.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.listItemVersion", "@type.aka": "oneDrive.baseItemVersion" } -->
+<!--{
+  "blockType": "resource",
+  "baseType": "microsoft.graph.baseItemVersion",
+  "@odata.type": "microsoft.graph.listItemVersion",
+  "@type.aka": "oneDrive.baseItemVersion"
+}-->
 
 ```json
 {
-  "content": { "@odata.type": "Edm.Stream" },
   "fields": { "@odata.type": "microsoft.graph.fieldValueSet" },
   "id": "string",
   "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },

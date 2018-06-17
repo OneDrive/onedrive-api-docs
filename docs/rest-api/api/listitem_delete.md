@@ -14,7 +14,7 @@ Removes an item from a [list][].
 
 To delete an item, the user must have granted the application write access to the item to be deleted.
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -27,7 +27,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-DELETE /sites/{site-id}/lists/{list-id}/items/{item-id}
+DELETE https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}
 ```
 
 ## Optional request headers
@@ -45,7 +45,7 @@ Do not supply a request body with this method.
 <!-- { "blockType": "request", "name": "delete-item-site", "scopes": "files.readwrite sites.readwrite.all" } -->
 
 ```http
-DELETE /sites/{site-id}/lists/{list-id}/items/{item-id}
+DELETE https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}
 ```
 
 ## Response

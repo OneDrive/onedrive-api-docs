@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Download a file - OneDrive API
+title: Download a file
 ---
 # Download the contents of a DriveItem
 
@@ -10,7 +10,7 @@ Download the contents of the primary stream (file) of a DriveItem. Only driveIte
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -54,7 +54,7 @@ Returns a `302 Found` response redirecting to a pre-authenticated download URL f
 This is the same URL available through the `@microsoft.graph.downloadUrl` property on the DriveItem.
 
 To download the contents of the file your application will need to follow the `Location` header in the response.
-Many HTTP client libraries will automatically follow the 302 redirection and start downloading the file immedately.
+Many HTTP client libraries will automatically follow the 302 redirection and start downloading the file immediately.
 
 Pre-authenticated download URLs are only valid for a short period of time (a few minutes) and do not require an `Authorization` header to download.
 
@@ -85,6 +85,7 @@ If the range cannot be generated the Range header may be ignored and an `HTTP 20
 ```http
 HTTP/1.1 206 Partial Content
 Content-Range: bytes 0-1023/2048
+Content-Type: application/octet-stream
 
 <first 1024 bytes of file>
 ```
@@ -94,7 +95,7 @@ Content-Range: bytes 0-1023/2048
 See [Error Responses][error-response] for more info about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 
 <!-- {
   "type": "#page.annotation",

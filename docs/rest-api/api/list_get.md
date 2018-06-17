@@ -12,7 +12,7 @@ Returns the metadata for a [list][].
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -23,8 +23,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 
 ```http
-GET /sites/{site-id}/lists/{list-id}
-GET /sites/{site-id}/lists/{list-id}?expand=columns,items(expand=fields)
+GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}
+GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}?expand=columns,items(expand=fields)
 ```
 
 ## Request body

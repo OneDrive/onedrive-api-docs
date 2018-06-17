@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: SharedDriveItem - OneDrive API
+title: SharedDriveItem
 ---
 # SharedDriveItem resource type
 
@@ -52,7 +52,6 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
 | **list**          | [**list**][list]        | Used to access the underlying **list**
 | **listItem**      | [**listItem**][listItem]    | Used to access the underlying **listItem**
 | **site**          | [**site**][site]        | Used to access the underlying **site**
-
 
 Alternatively, for **driveItems** shared from personal OneDrive accounts, the following relationships may also be used.
 

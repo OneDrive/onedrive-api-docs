@@ -2,56 +2,29 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Site - OneDrive API
+title: Site
 ---
-# Working with SharePoint site resources
+# Site resource
 
-The SharePoint API in Microsoft Graph supports the following core scenarios:
-
-* Access to SharePoint **sites**, **lists**, and **drives** (document libraries)
-* Read-only support for **site** resources (no ability to create new sites)
-* Read-write support for **lists**, **listItems**, and **driveItems**
-* Address resources by SharePoint ID, URL, or relative path
-
-The SharePoint API exposes three major resource types:
-
-* [Site](site.md) _(this object)_
-* [List](list.md)
-* [ListItem](listitem.md)
+The **site** resource provides metadata and relationships for a SharePoint site.
 
 ## Tasks
 
 All examples below are relative to `https://graph.microsoft.com/v1.0`.
 
-| Task name                                                     | Example Request                    |
-| :------------------------------------------------------------ | :--------------------------------- |
-| [Get root site][]                                             | GET /sites/root                    |
-| [Get site][]                                                  | GET /sites/{site-id}               |
-| [Get site by path][]                                          | GET /sites/{hostname}:/{site-path} |
-| [Get site for a group][]                                      | GET /groups/{group-id}/sites/root  |
-| [Search for sites][]                                          | GET /sites?search={query}          |
-| [Access the default document library for a site][]            | GET /sites/{site-id}/drive         |
-| [Enumerate the collection of document libraries under site][] | GET /sites/{site-id}/drives        |
-| [Enumerate the lists under a site][]                          | GET /sites/{site-id}/lists         |
-| [Access a group's site][]                                     | GET /groups/{group-id}/sites/root  |
+| Task name                | Example Request
+|:-------------------------|:--------------------------------------------------
+| [Get root site][]        | GET /sites/root
+| [Get site][]             | GET /sites/{site-id}
+| [Get site by path][]     | GET /sites/{hostname}:/{site-path}
+| [Get site for a group][] | GET /groups/{group-id}/sites/root
+| [Search for sites][]     | GET /sites?search={query}
 
 [Get site]: ../api/site_get.md
 [Get root site]: ../api/site_get.md
 [Get site by path]: ../api/site_getbypath.md
 [Get site for a group]: ../api/site_get.md
 [Search for sites]: ../api/site_search.md
-[Access the default document library for a site]: ../api/drive_get.md
-[Enumerate the collection of document libraries under site]: ../api/drive_list.md
-[Enumerate the lists under a site]: ../api/list_list.md
-[Access a group's site]: ../api/site_get.md
-
-Sites can also be addressed by path by using the SharePoint hostname, followed by a colon and the relative path to the site.
-You can optionally transition back to addressing the resource model by putting another colon at the end.
-
-| Path                                           | Description
-|:-----------------------------------------------|:-----------------------------------
-| /sites/contoso.sharepoint.com:/teams/hr        | The site associated with https://contoso.sharepoint.com/teams/hr
-| /sites/contoso.sharepoint.com:/teams/hr:/drive | Access the default [drive](drive.md) for this site.
 
 ## JSON representation
 
@@ -109,8 +82,8 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 | **id**                   | string                              | The unique identifier of the item. Read-only.                                                  |
 | **createdDateTime**      | DateTimeOffset                      | The date and time the item was created. Read-only.                                             |
 | **description**          | string                              | The descriptive text for the site.                                                             |
-| **eTag**                 | string                              | ETag for the item. Read-only.                                                                  |
 | **displayName**          | string                              | The full title for the site. Read-only.                                                        |
+| **eTag**                 | string                              | ETag for the item. Read-only.                                                                  |
 | **lastModifiedDateTime** | DateTimeOffset                      | The date and time the item was last modified. Read-only.                                       |
 | **name**                 | string                              | The name / title of the item.                                                                  |
 | **root**                 | [root](root.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
@@ -138,35 +111,7 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 [identitySet]: identityset.md
 [list]: list.md
 [site]: site.md
-[onenote]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/onenote
-
-## Note for existing SharePoint developers
-
-The Microsoft Graph SharePoint API has a few key differences with the CSOM APIs.
-The [site][] resource maps to `SPWeb`.
-The root [site][] (`SPWeb`) in a site collection has a [siteCollection](sitecollection.md) facet, which contains information about the `SPSite`.
-Because IDs for sites are only unique within their site collection, addressing a site by ID requires providing both the site collection identifier and the site identifier.
-
-```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id},{spweb-id}/
-```
-A URL constructed with only the hostname will point to the root site (`SPWeb`) in the default site collection.
-
-```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname}
-```
-
-A URL constructed with only the hostname and siteCollection (`SPSite`) ID will point to the root site (`SPWeb`) in the given site collection.
-
-```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id}
-```
-
-[site]: site.md
-[list]: list.md
-[drive]: drive.md
-[siteCollection]: siteCollection.md
-
+[onenote]: onenote.md
 
 <!-- {
   "type": "#page.annotation",

@@ -1,26 +1,40 @@
-﻿---
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: Timestamp format - OneDrive API
----
-# Timestamp type
+# timeStamp resource type
 
-The **Timestamp** type represents date and time information, by using [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format and is always in UTC time.
+Date and time information for a point in time.
 
-For example, if a file was modified at midnight UTC on Jan 1, 2014, the metadata would look like this.
+## JSON representation
 
-<!-- {"blockType": "ignored"} -->
+Here is a JSON representation of the resource
+
+<!-- {
+  "blockType": "resource",
+  "optionalProperties": [
+
+  ],
+  "@odata.type": "microsoft.graph.timeStamp"
+}-->
 
 ```json
 {
-  "lastModifiedDateTime": "2014-01-01T00:00:00Z"
+  "date": "String (timestamp)",
+  "time": "String (timestamp)",
+  "timeZone": "string"
 }
-```
 
+```
+## Properties
+| Property       | Type    |Description|
+|:---------------|:--------|:----------|
+|date|Date|The date portion of the timestamp.|
+|time|TimeOfDay|The time portion of the timestamp.|
+|timeZone|String|The timezone portion of the timestamp, which is one of the 24 longitudinal areas in the world.|
+
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Timestamps in OneDrive as in ISO 8601 format.",
-  "keywords": "timestamp,iso8601",
-  "section": "documentation"
-} -->
+  "description": "timeStamp resource",
+  "keywords": "",
+  "section": "documentation",
+  "tocPath": ""
+}-->

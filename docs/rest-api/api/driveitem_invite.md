@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Send an invite to access an item - OneDrive API
+title: Send an invite to access an item
 ---
 # Send a sharing invitation
 
@@ -11,10 +11,10 @@ A sharing invitation provides permissions to the recipients and optionally sends
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-| Permission type                   | Permissions (from least to most privileged)              |
-|:----------------------------------|:---------------------------------------------------------|
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
 |Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
@@ -35,7 +35,7 @@ POST /users/{userId}/drive/items/{itemId}/invite
 
 In the request body, provide a JSON object with the following parameters.
 
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.inviteParameters", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "ignored", "scopes": "files.readwrite" } -->
 
 ```json
 {
@@ -67,7 +67,7 @@ The invitation grants Ryan read-write access to the file.
 
 If successful, this method returns `200 OK` response code and [permission](../resources/permission.md) collection object in the response body.
 
-<!-- { "blockType": "request", "name": "send-sharing-invite", "@odata.type": "microsoft.graph.inviteParameters", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "send-sharing-invite", "scopes": "files.readwrite", "target": "action" } -->
 
 ```json
 POST /me/drive/items/{item-id}/invite
@@ -128,7 +128,7 @@ how errors are returned.
 
 
 [driveRecipient]: ../resources/driverecipient.md
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 [sharing link]: ../resources/permission.md#sharing-links
 
 <!-- {

@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Create a new folder - OneDrive API
+title: Create a new folder
 ---
 # Create a new folder in a drive
 
@@ -10,7 +10,7 @@ Create a new folder or [DriveItem](../resources/driveitem.md) in a [Drive](../re
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -102,7 +102,7 @@ Content-Type: application/json
 
 Read the [Error Responses][error-response] topic for more info about
 how errors are returned.
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 [folder-facet]: ../resources/folder.md
 

@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: File - OneDrive API
+title: File
 ---
 # File resource type
 
@@ -24,8 +24,7 @@ Here is a JSON representation of the resource.
 ```json
 {
   "hashes": {"@odata.type": "microsoft.graph.hashes"},
-  "mimeType": "string",
-  "processingMetadata": false
+  "mimeType": "string"
 }
 ```
 
@@ -33,9 +32,8 @@ Here is a JSON representation of the resource.
 
 | Property | Type                    | Description                                                                                                                                      |
 |:---------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| hashes   | [HashesType](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
+| hashes   | [Hashes](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
 | mimeType | string                  | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. |
-| **processingMetadata** | Boolean                       | Flag indicating if the item is still being processed to extract metadata                                                                    |
 
 ## Remarks 
 

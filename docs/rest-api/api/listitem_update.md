@@ -10,7 +10,7 @@ Update the properties on a **[listItem][]**.
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -23,7 +23,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-PATCH /sites/{site-id}/lists/{list-id}/items/{item-id}/fields
+PATCH https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}/fields
 ```
 
 ## Optional request headers
@@ -45,7 +45,7 @@ All other values on the listItem are left alone.
 <!-- { "blockType": "request", "name": "update-listitem", "scopes": "sites.readwrite.all" } -->
 
 ```json
-PATCH /sites/{site-id}/lists/{list-id}/items/{item-id}/fields
+PATCH https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}/fields
 Content-Type: application/json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/json
 
 If successful, this method returns a [fieldValueSet][] in the response body for the updated list item.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.listItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.fieldValueSet", "truncated": true } -->
 
 ```json
 HTTP/1.1 201 Created

@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
-title: CurrencyColumn - OneDrive API
+title: CurrencyColumn
 ---
 # CurrencyColumn resource type
 

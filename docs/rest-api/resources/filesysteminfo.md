@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: FileSystemInfo - OneDrive API
+title: FileSystemInfo
 ---
 # FileSystemInfo facet
 
@@ -54,7 +54,6 @@ If the file's content is updated and these properties are not provided, **lastMo
 ## Remarks
 
 * **lastAccessedDateTime** is not available for items in SharePoint online or OneDrive for Business.
-* The **FileSystemInfo** property is not available for items in SharePoint Server 2016.
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 

@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Identity - OneDrive API
+title: Identity
 ---
 # Identity resource type
 

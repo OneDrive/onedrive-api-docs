@@ -1,16 +1,10 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: Get a previous version - OneDrive API
----
-# Get a DriveItemVersion resource (preview)
+# Get a DriveItemVersion resource
 
 Retrieve the metadata for a specific version of a [DriveItem](../resources/driveitem.md).
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -42,7 +36,7 @@ This example retrieves a version of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read", "tags": "service.graph", "apiVersions": "beta" } -->
+<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/versions/{version-id}

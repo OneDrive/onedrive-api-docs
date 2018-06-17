@@ -12,25 +12,7 @@
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices"
-        ],
-        "group": "sp2019",
-        "src": "sp19/docs"
-      },
-      {
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [
-          "sp19",
-          "**/obj/**",
-          "**/includes/**",
-          "LICENSE",
-          "LICENSE-CODE",
-          "ThirdPartyNotices"
-        ],
-        "group": "online",
-        "src": "."
+        ]
       }
     ],
     "resource": [
@@ -42,22 +24,7 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**"
-        ],
-        "group": "sp2019",
-        "src": "sp19/docs"
-      },
-      {
-        "files": [
-          "**/*.png",
-          "**/*.jpg"
-        ],
-        "exclude": [
-          "sp19",
-          "**/obj/**",
-          "**/includes/**"
-        ],
-        "group": "online",
-        "src": "."
+        ]
       }
     ],
     "overwrite": [],
@@ -71,16 +38,6 @@
     },
     "fileMetadata": {},
     "template": [],
-    "dest": "onedrive",
-    "groups": {
-      "sp2019": {
-        "dest": "sp19temp",
-        "moniker_range": ">= exchserver-2013"
-      },
-      "online": {
-        "dest": "spotemp",
-        "moniker_range": "<= exchserver-2016"
-      }
-    }
+    "dest": "onedrive"
   }
 }

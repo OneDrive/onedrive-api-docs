@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Upload small files - OneDrive API
+title: Upload small files
 ---
 # Upload or replace the contents of a DriveItem
 
@@ -13,7 +13,7 @@ To upload large files see [Upload large files with an upload session](driveitem_
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -104,7 +104,7 @@ If successful, this method returns an [driveItem][item-resource] resource in the
 <!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
@@ -115,28 +115,12 @@ Content-Type: application/json
 }
 ```
 
-## Remarks
-
-SharePoint Server 2016 blocks several file extensions from being uploaded to the server.
-
-* .ashx - ASP.NET Web handler file
-* .asmx - ASP.NET Web Services source file
-* .json - JavaScript Object Notation file
-* .soap - Simple Object Access Protocol file
-* .svc - Windows Communication Foundation (WCF) service file
-* .xamlx - Visual Studio Workflow service file
-
-See [Types of files that cannot be added to a list or library][blocked-extensions]
-for more information on blocked file extensions.
-
-[blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
-
 ## Error responses
 
 See [Error Responses][error-response] for details about
 how errors are returned.
 
-[error-response]: ../concepts/errors.md
+[error-response]: ../../../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 
 <!-- {

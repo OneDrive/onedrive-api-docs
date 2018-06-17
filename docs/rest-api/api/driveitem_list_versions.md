@@ -1,10 +1,4 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: List versions of a file - OneDrive API
----
-# Listing versions of a DriveItem (preview)
+# Listing versions of a DriveItem
 
 OneDrive and SharePoint can be configured to retain the history for files.
 Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never.
@@ -13,7 +7,7 @@ Previous versions of a document may be retained for a finite period of time depe
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -45,7 +39,7 @@ This example retrieves the versions of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-previous-versions", "scopes": "files.read", "tags": "service.graph", "apiVersions": "beta" } -->
+<!-- { "blockType": "request", "name": "get-previous-versions", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/versions

@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
-title: FieldValueSet - OneDrive API
+title: FieldValueSet
 ---
 # FieldValueSet resource
 
@@ -39,7 +39,7 @@ The server will return lookup values if your request includes a `select` stateme
 Example:
 
 ```http
-GET /sites/{site-id}/lists/{list-id}/items?expand=fields(select=Author,BookTitle,PageCount)
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Author,BookTitle,PageCount)
 ```
 
 You may request up to 12 lookup fields in a single query, plus any number of regular fields.

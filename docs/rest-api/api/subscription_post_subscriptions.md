@@ -1,22 +1,23 @@
----
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
-title: Create a webhook subscription - OneDrive API
----
 # Create subscription
 
-Subscribes a listener application to receive notifications when data changes.
+Subscribes a listener application to receive notifications when data on the Microsoft Graph changes.
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+Creating a subscription requires read scope to the resource. For example, to get notifications messages, your app needs the `Mail.Read` permission. The following table lists the suggested permission needed for each resource. To learn more, including how to choose permissions, see [Permissions](/concepts/permissions_reference.md).
 
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
-|Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
+| Resource type / Item        | Permission          |
+|-----------------------------|---------------------|
+| Contacts                    | Contacts.Read       |
+| Conversations               | Group.Read.All      |
+| Events                      | Calendars.Read      |
+| Messages                    | Mail.Read           |
+| Groups                      | Group.Read.All      |
+| Users                       | User.Read.All       |
+| Drive  (User's OneDrive)    | Files.ReadWrite     |
+| Drives (SharePoint shared content and drives) | Files.ReadWrite.All |
+
+ > **Note:** The /v1.0 endpoint allows application permissions for most resources. Conversations in a Group and OneDrive drive root items are not supported with application permissions.
 
 ## HTTP request
 
@@ -26,73 +27,93 @@ One of the following permissions is required to call this API. To learn more, in
 POST /subscriptions
 ```
 
+## Request headers
+
+| Name       | Type | Description|
+|:-----------|:------|:----------|
+| Authorization  | string  | Bearer {token}. Required. |
+
 ## Response
 
 If successful, this method returns `201 Created` response code and a [subscription](../resources/subscription.md) object in the response body.
 
 ## Example
 
-### Request
+##### Request
 
-Here is an example of the request to send a notification when the contents of a user's drive changes.
-
-<!-- { "blockType": "request", "name": "add-subscription-graph", "@odata.type": "microsoft.graph.subscription", "tags": "service.graph" } -->
+Here is an example of the request to send a notification when the user receives a new mail.
+<!-- {
+  "blockType": "request",
+  "name": "create_subscription_from_subscriptions"
+}-->
 
 ```http
-POST /subscriptions
+POST https://graph.microsoft.com/v1.0/subscriptions
 Content-type: application/json
 
 {
- "changeType": "updated",
- "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
- "resource": "/me/drive/root",
- "expirationDateTime": "2018-01-01T11:23:00.000Z",
- "clientState": "client-specific string"
+   "changeType": "created,updated",
+   "notificationUrl": "https://webhook.azurewebsites.net/api/send/myNotifyClient",
+   "resource": "me/mailFolders('Inbox')/messages",
+   "expirationDateTime":"2016-11-20T18:23:45.9356913Z",
+   "clientState": "secretClientValue"
 }
 ```
 
-## Response
+In the request body, supply a JSON representation of the [subscription](../resources/subscription.md) object.
+The `clientState` field is optional.
 
-If the subscription is added, then a `201 Created` response is returned that
-includes the newly created subscription object.
+##### Resources examples
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.subscription" } -->
+The following are valid values for the resource property of the subscription:
+
+| Resource type | Examples |
+|:------ |:----- |
+|Mail|me/mailfolders('inbox')/messages<br />me/messages|
+|Contacts|me/contacts|
+|Calendars|me/events|
+|Users|users|
+|Groups|groups|
+|Conversations|groups('*{id}*')/conversations|
+|Drives|me/drive/root|
+
+##### Response
+
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.subscription"
+} -->
 
 ```http
 HTTP/1.1 201 Created
-Content-Type: application/json
+Content-type: application/json
+Content-length: 252
 
 {
-    "id": "1039149811asbc",
-    "resource": "/me/drive/root",
-    "changeType": "updated",
-    "clientState": "client-specific string",
-    "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
-    "expirationDateTime": "2016-01-01T11:23:00.000Z"
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#subscriptions/$entity",
+  "id": "7f105c7d-2dc5-4530-97cd-4e7ae6534c07",
+  "resource": "me/mailFolders('Inbox')/messages",
+  "applicationId": "24d3b144-21ae-4080-943f-7067b395b913",
+  "changeType": "created,updated",
+  "clientState": "secretClientValue",
+  "notificationUrl": "https://webhook.azurewebsites.net/api/send/myNotifyClient",
+  "expirationDateTime": "2016-11-20T18:23:45.9356913Z",
+  "creatorId": "8ee44408-0679-472c-bc2a-692812af3437"
 }
 ```
 
-## Subscription validation
+## Notification endpoint validation
 
-Before a new subscription is created, Microsoft Graph will send a request to the URL provided in the request to create a new subscription.
-Your service must respond to this request by returning the validation key.
+The subscription notification endpoint (specified in the `notificationUrl` property) must be capable of responding to a validation request as described in [Set up notifications for changes in user data](/concepts/webhooks.md#notification-endpoint-validation). If validation fails, the request to create the subscription returns a 400 Bad Request error.
 
-If your service fails to validate the request in this way, the subscription will fail to be created.
-
-See [handling webhook validation requests](../concepts/webhook-receiver-validation-request.md) for detailed information.
-
-## Error responses
-
-See [Error Responses][error-response] for more info about
-how errors are returned.
-
-[error-response]: ../concepts/errors.md
-
-
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "List the subscriptions created for an item.",
-  "keywords": "notification,list,subscription,webhook,enumerate",
+  "description": "Create subscription",
+  "keywords": "",
   "section": "documentation",
-  "tocPath": "Webhooks/Create"
-} -->
+  "tocPath": ""
+}-->

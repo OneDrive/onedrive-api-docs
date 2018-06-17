@@ -2,7 +2,7 @@
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
-title: Get Drive - OneDrive API
+title: Get Drive
 ---
 # Get Drive
 
@@ -12,7 +12,7 @@ A Drive is the top-level container for a file system, such as OneDrive or ShareP
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -42,7 +42,7 @@ If a user's OneDrive is not provisioned but the user has a license to use OneDri
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-drive-by-user", "scopes": "files.read.all" } -->
+<!-- { "blockType": "request", "name": "get-drive-by-user", "scopes": "files.read.all", "tags": "service.graph" } -->
 
 ```http
 GET /users/{idOrUserPrincipalName}/drive
@@ -60,7 +60,7 @@ To access a Group's default document library, your app requests the **drive** re
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-drive-by-group", "scopes": "group.read.all" } -->
+<!-- { "blockType": "request", "name": "get-drive-by-group", "scopes": "group.read.all", "tags": "service.graph" } -->
 
 ```http
 GET /groups/{groupId}/drive
@@ -131,7 +131,6 @@ Content-type: application/json
     },
     "quota": {
         "deleted": 256938,
-        "fileCount": 2,
         "remaining": 1099447353539,
         "state": "normal",
         "total": 1099511627776
@@ -144,12 +143,20 @@ Content-type: application/json
 If the drive does not exist and cannot be provisioned automatically (when using delegated authentication) an `HTTP 404` response will be returned.
 
 [drive-resource]: ../resources/drive.md
-[odata-query-parameters]: ../concepts/optional-query-parameters.md
+[odata-query-parameters]: ../../../concepts/query_parameters.md
 
 <!-- {
   "type": "#page.annotation",
   "description": "Get metadata for a OneDrive, OneDrive for Business, or Office 365 group drive",
   "keywords": "drive,onedrive,default drive,group drive",
   "section": "documentation",
+  "suppressions": [
+      "Warning: /api-reference/v1.0/api/drive_get.md:
+        Unable to map some markdown elements into schema.
+            Unmapped methods:
+        get-drive-default, get-drive-by-user, get-drive-by-group, get-drive-by-id
+            Unmapped tables:
+        Permissions - AuthScopes, Path parameters - PathParameters, Path parameters - PathParameters, Path parameters - PathParameters, Path parameters - PathParameters"
+  ],
   "tocPath": "Drives/Get drive"
 } -->
