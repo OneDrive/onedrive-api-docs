@@ -7,7 +7,7 @@ Delete a message in the specified user's mailbox, or delete a relationship of th
 For example, you can delete a specific [mention](../resources/mention.md) of the current user's in the message.
 
 ## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|

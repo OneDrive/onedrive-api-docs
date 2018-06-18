@@ -40,7 +40,7 @@ This capability is not available in other operations for contacts, events, messa
 
 
 ## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -169,10 +169,10 @@ Content-length: 1977
 
 ## See also
 
-- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
-- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to resources using extensions](../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../concepts/extensibility_open_users.md)
 <!--
-- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+- [Add custom data to groups using schema extensions (preview)](../concepts/extensibility_schema_groups.md)
 -->
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

@@ -6,7 +6,7 @@ Update the properties of the [settings](../resources/user_settings.md) object.
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -20,7 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 PATCH /me/settings/
 ```
 
-Request with a 'user id' or 'userPrincipalName' is only accessible by the user or by a user with the User.ReadWrite.All permissions. See [Permissions](../../../concepts/permissions_reference.md). 
+Request with a 'user id' or 'userPrincipalName' is only accessible by the user or by a user with the User.ReadWrite.All permissions. See [Permissions](../concepts/permissions_reference.md). 
 
 ```http
 PATCH /users/{id | userPrincipalName}/settings/

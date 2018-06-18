@@ -18,7 +18,7 @@ To upload a file using an upload session, there are two steps:
 
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -353,7 +353,7 @@ Content-Type: application/json
 See the [Error Responses][error-response] topic for details about
 how errors are returned.
 
-[error-response]: ../../../concepts/errors.md
+[error-response]: ../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 
 <!-- {

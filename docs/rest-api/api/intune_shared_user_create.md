@@ -6,7 +6,7 @@
 
 Create a new [user](../resources/intune_shared_user.md) object.
 ## Prerequisites
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).  The specific permission required depends on the context.
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).  The specific permission required depends on the context.
 
 |Permission type|Permissions (from most to least privileged)|
 |:---|:---|

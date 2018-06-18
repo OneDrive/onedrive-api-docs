@@ -41,7 +41,7 @@ The security API provides access to some of your organization’s most sensitive
 
 [Understanding authorization when calling the Microsoft Graph Security API](https://techcommunity.microsoft.com/t5/Using-Microsoft-Graph-Security/Authorization-and-Microsoft-Graph-Security-API/m-p/184376)
 
-For more information about permissions, including delegated and application permissions, see [Permissions](../../../concepts/permissions_reference.md).
+For more information about permissions, including delegated and application permissions, see [Permissions](../concepts/permissions_reference.md).
 
 ## Common use cases
 

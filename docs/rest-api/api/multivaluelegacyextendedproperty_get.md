@@ -30,7 +30,7 @@ open extensions or extended properties, and how to specify extended properties.
 
 ## Permissions
 One of the following permissions is required to call this API, depending on the resource you're
-getting. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+getting. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 - Mail.Read
 - Calendars.Read

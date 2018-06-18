@@ -11,7 +11,7 @@ Use this API to create a new [group](../resources/group.md) as specified in the 
 > **Note**: To create a [team](../resources/team.md), first create a group then add a team to it, see [create team](../api/team_put_teams.md).
 
 ## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -48,7 +48,7 @@ Specify the **groupTypes** property if you're creating an Office 365 or dynamic 
 | Dynamic | "DynamicMembership" |
 | Security | Do not set. |
 
-Since the **group** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `POST` operation and add custom properties with your own data to the group while creating it.
+Since the **group** resource supports [extensions](../concepts/extensibility_overview.md), you can use the `POST` operation and add custom properties with your own data to the group while creating it.
 
 Specify other writable properties as necessary for your group. For more information, see the properties of the [group](../resources/group.md) resource.
 
@@ -107,9 +107,9 @@ Content-length: 244
 
 ## See also
 
-- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
-- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
-- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+- [Add custom data to resources using extensions](../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../concepts/extensibility_schema_groups.md)
 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

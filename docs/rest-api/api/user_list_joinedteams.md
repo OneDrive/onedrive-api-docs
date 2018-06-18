@@ -5,7 +5,7 @@
 Get the teams in Microsoft Teams that the user is a direct member of.
  
 ## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -13,7 +13,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Delegated (personal Microsoft account) | Not supported.    |
 |Application | Not supported. |
 
-> Currently, this operation only works for the 'me' user. For details, see [Known issues](../../../concepts/known_issues.md#microsoft-teams-users-list-of-joined-teams-preview).
+> Currently, this operation only works for the 'me' user. For details, see [Known issues](../concepts/known_issues.md#microsoft-teams-users-list-of-joined-teams-preview).
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
