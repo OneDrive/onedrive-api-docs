@@ -2,7 +2,7 @@
 
 Retrieve the properties and relationships of a [message](../resources/message.md) object.
 
-Since the **message** resource supports [extensions](../../../concepts/extensibility_overview.md), you can also use the `GET` operation to get custom properties and extension data in a **message** instance.
+Since the **message** resource supports [extensions](../concepts/extensibility_overview.md), you can also use the `GET` operation to get custom properties and extension data in a **message** instance.
 
 Currently, this operation returns message bodies in only HTML format.
 
@@ -42,7 +42,7 @@ This capability is not available in other operations for contacts, events, messa
 
 
 ## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
@@ -109,10 +109,10 @@ Content-length: 248
 
 ## See also
 
-- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
-- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to resources using extensions](../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../concepts/extensibility_open_users.md)
 <!--
-- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+- [Add custom data to groups using schema extensions (preview)](../concepts/extensibility_schema_groups.md)
 -->
 
 

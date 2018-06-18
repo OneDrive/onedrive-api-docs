@@ -62,7 +62,7 @@ The client apps are expected to handle two versioning related error status codes
 
 ## Common Planner error conditions
 
-In addition to [general errors](../../../concepts/errors.md) that apply to Microsoft Graph, some error conditions are specific to the Planner API.
+In addition to [general errors](../concepts/errors.md) that apply to Microsoft Graph, some error conditions are specific to the Planner API.
 
 ### 400 Bad request
 

@@ -4,13 +4,13 @@ Retrieve the properties and relationships of webhook subscriptions, based on the
 
 ## Permissions
 
-This API supports the following permission scopes; to learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+This API supports the following permission scopes; to learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 | Permission type  | Permissions (from least to most privileged)  |
 |:---------------- |:-------------------------------------------- |
-| [Delegated](../../../concepts/auth_v2_user.md) (work or school account) | Role required to [create subscription](subscription_get.md) or Subscriptions.Read.All (see below). |
-| [Delegated](../../../concepts/auth_v2_user.md) (personal Microsoft account) | Role required to [create subscription](./subscription_get.md) or Subscriptions.Read.All (see below). |
-| [Application](../../../concepts/auth_v2_service.md) | Role required to [create subscription](./subscription_get.md). |
+| [Delegated](../concepts/auth_v2_user.md) (work or school account) | Role required to [create subscription](subscription_get.md) or Subscriptions.Read.All (see below). |
+| [Delegated](../concepts/auth_v2_user.md) (personal Microsoft account) | Role required to [create subscription](./subscription_get.md) or Subscriptions.Read.All (see below). |
+| [Application](../concepts/auth_v2_service.md) | Role required to [create subscription](./subscription_get.md). |
 
 Response results are based on the context of the calling app. The following is a summary of the common scenarios:
 
@@ -115,4 +115,4 @@ Content-length: 586
   "tocPath": ""
 }-->
 
-When a request returns multiple pages of data, the response includes an `@odata.nextLink` property to help you manage the results.  To learn more, see [Paging Microsoft Graph data in your app](../../../concepts/paging.md).
+When a request returns multiple pages of data, the response includes an `@odata.nextLink` property to help you manage the results.  To learn more, see [Paging Microsoft Graph data in your app](../concepts/paging.md).

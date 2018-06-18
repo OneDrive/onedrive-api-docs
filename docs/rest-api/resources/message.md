@@ -4,8 +4,8 @@ A message in a mailFolder.
 
 This resource supports:
 
-- Adding your own data to custom properties using [extensions](../../../concepts/extensibility_overview.md).
-- Using [delta query](../../../concepts/delta_query_overview.md) to track incremental additions, deletions, and updates, 
+- Adding your own data to custom properties using [extensions](../concepts/extensibility_overview.md).
+- Using [delta query](../concepts/delta_query_overview.md) to track incremental additions, deletions, and updates, 
 by providing a [delta](../api/message_delta.md) function.
 
 ## Methods
@@ -34,7 +34,7 @@ by providing a [delta](../api/message_delta.md) function.
 |[Create open extension](../api/opentypeextension_post_opentypeextension.md) |[openTypeExtension](opentypeextension.md)| Create an open extension and add custom properties in a new or existing instance of a resource.|
 |[Get open extension](../api/opentypeextension_get.md) |[openTypeExtension](opentypeextension.md) collection| Get an open extension object or objects identified by name or fully qualified name.|
 |**Schema extensions**| | |
-|[Add schema extension values](../../../concepts/extensibility_schema_groups.md) || Create a schema extension definition and then use it to add custom typed data to a resource.|
+|[Add schema extension values](../concepts/extensibility_schema_groups.md) || Create a schema extension definition and then use it to add custom typed data to a resource.|
 |**Extended properties**| | |
 |[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[message](message.md)  |Create one or more single-value extended properties in a new or existing message.   |
 |[Get message with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [message](message.md) | Get messages that contain a single-value extended property by using `$expand` or `$filter`. |
@@ -185,11 +185,11 @@ Here is a JSON representation of the resource
 
 - [Get mailbox settings](../api/user_get_mailboxsettings.md) 
 - [Update mailbox settings](../api/user_update_mailboxsettings.md)
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
-- [Get incremental changes to messages in a folder](../../../concepts/delta_query_messages.md)
-- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
-- [Add custom data to users using open extensions](../../../concepts/extensibility_open_users.md)
-- [Add custom data to groups using schema extensions](../../../concepts/extensibility_schema_groups.md)
+- [Use delta query to track changes in Microsoft Graph data](../concepts/delta_query_overview.md)
+- [Get incremental changes to messages in a folder](../concepts/delta_query_messages.md)
+- [Add custom data to resources using extensions](../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions](../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions](../concepts/extensibility_schema_groups.md)
 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

@@ -6,7 +6,7 @@ Outlook creates certain folders for users by default. Instead of using the corre
 the following well-known folder names when accessing these folders in a **mailFolder** collection: `ArchiveRoot`, `ConversationHistory`, `DeletedItems`, 
 `Drafts`, `Inbox`, `JunkEmail`, `Outbox`, and `SentItems`.
 
-This resource supports using [delta query](../../../concepts/delta_query_overview.md) to track incremental additions, deletions, and updates, 
+This resource supports using [delta query](../concepts/delta_query_overview.md) to track incremental additions, deletions, and updates, 
 by providing a [delta](../api/mailfolder_delta.md) function.
 
 ## Methods
@@ -120,8 +120,8 @@ Here is a JSON representation of the resource
 
 ## See also
 
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
-- [Get incremental changes to messages in a folder](../../../concepts/delta_query_messages.md)
+- [Use delta query to track changes in Microsoft Graph data](../concepts/delta_query_overview.md)
+- [Get incremental changes to messages in a folder](../concepts/delta_query_messages.md)
 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

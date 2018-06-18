@@ -22,7 +22,7 @@ open extensions or extended properties, and how to specify extended properties.
 
 ## Permissions
 One of the following permissions is required to call this API, depending on the resource you're
-creating the extended property in. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+creating the extended property in. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
 
 - Mail.ReadWrite
 - Calendars.ReadWrite
