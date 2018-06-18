@@ -1,12 +1,15 @@
 # Use the OneNote REST API
 
-Microsoft Graph lets your app get authorized access to a user's OneNote notebooks, sections, and pages in a personal or organization account. With the [appropriate delegated or application permissions](../../../concepts/permissions_reference.md#notes-permissions), your app can access the OneNote data of the signed-in user or any user in a tenant.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Microsoft Graph lets your app get authorized access to a user's OneNote notebooks, sections, and pages in a personal or organization account. With the [appropriate delegated or application permissions](../../../concepts/permissions_reference.md#notes-permissions), your app can access the OneNote data of the signed-in user or any user in a tenant. 
 
 ## Root URL
 The OneNote service root URL uses the following format for all calls to the OneNote API.
 ```
 https://graph.microsoft.com/{version}/{location}/onenote/ 
 ```
+
 The `version` segment in the URL represents the version of Microsoft Graph that you want to use:
 
 - `v1.0` is for stable production code.
@@ -31,16 +34,15 @@ https://graph.microsoft.com/{version}/users/{id}/onenote/{notebooks | sections |
 > You can get user IDs by making a GET request on `https://graph.microsoft.com/v1.0/users`.
 
 ### Group notebooks
+
 To access notebooks that are owned by a group, use the following service root URL:
 
 ```
 https://graph.microsoft.com/{version}/groups/{id}/onenote/{notebooks | sections | sectionGroups | pages} 
 ```
 ### SharePoint site notebooks
-
 To access notebooks that are owned by a SharePoint team site, use the following service root URL:
 
 ```
 https://graph.microsoft.com/{version}/sites/{id}/onenote/{notebooks | sections | sectionGroups | pages} 
 ```
-

@@ -1,5 +1,7 @@
 # Get calendarGroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of a calendar group object.
 
 ## Permissions
@@ -53,7 +55,7 @@ Here is an example of the request.
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendarGroups/{id}
+GET https://graph.microsoft.com/beta/me/calendarGroups/{id}
 ```
 
 ##### Response

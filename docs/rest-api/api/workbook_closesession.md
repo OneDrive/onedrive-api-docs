@@ -20,7 +20,7 @@ workbook-session-id: {session-id}
 ## Request headers
 | Name       | Description|
 |:---------------|:----------|
-| Authorization  | Bearer {token}. Required. | | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+| Authorization  | Bearer {token}. Required. |
 | workbook-session-id | Workbook session Id to be closed |
 
 ## Request body
@@ -38,7 +38,7 @@ Here is an example of the request.
   "name": "close_excel_session"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/closeSession
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/closeSession
 Content-type: application/json
 workbook-session-id: {session-id}
 Content-length: 0
@@ -61,11 +61,3 @@ Here is an example of the response.
 ```http
 HTTP/1.1 204 No Content
 ```
-
-<!-- {
-  "type": "#page.annotation",
-  "suppressions": [
-    "Warning: close_excel_session//api-reference/v1.0/api/workbook_closesession.md:
-      Request includes a non-standard header: workbook-session-id"
-  ]
-}-->

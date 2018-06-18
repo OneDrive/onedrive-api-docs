@@ -1,5 +1,7 @@
 # Update subscription
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Renew a subscription by extending its expiry time.
 
 Subscriptions expire after a length of time that varies by resource type. In order to avoid missing notifications, an app should renew its subscriptions well in advance of their expiry date. See [subscription](../resources/subscription.md) for maximum length of a subscription for each resource type.
@@ -18,6 +20,8 @@ The following table lists the suggested permission needed for each resource. To 
 | Users                       | User.Read.All       |
 | Drive  (User's OneDrive)    | Files.ReadWrite     |
 | Drives (SharePoint shared content and drives) | Files.ReadWrite.All |
+
+***Note:*** The /beta endpoint allows application permissions for most resources. Conversations in a Group and OneDrive drive root items are not supported with application permissions.
 
 ## HTTP request
 
@@ -48,7 +52,7 @@ Here is an example of the request.
 }-->
 
 ```http
-PATCH https://graph.microsoft.com/v1.0/subscriptions/{id}
+PATCH https://graph.microsoft.com/beta/subscriptions/{id}
 Content-type: application/json
 
 {
@@ -75,7 +79,7 @@ Content-length: 252
   "resource":"me/messages",
   "applicationId": "24d3b144-21ae-4080-943f-7067b395b913",
   "changeType":"created,updated",
-  "clientState":"subscription-identifier",
+  "clientState":"secretClientValue",
   "notificationUrl":"https://webhook.azurewebsites.net/api/send/myNotifyClient",
   "expirationDateTime":"2016-11-22T18:23:45.9356913Z",
   "creatorId": "8ee44408-0679-472c-bc2a-692812af3437"

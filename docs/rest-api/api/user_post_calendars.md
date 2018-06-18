@@ -1,5 +1,7 @@
 # Create Calendar
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new calendar for a [user](../resources/user.md).
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -36,12 +38,13 @@ Here is an example of the request.
   "name": "create_calendar_from_user"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/calendars
+POST https://graph.microsoft.com/beta/me/calendars
 Content-type: application/json
 
 {
   "name": "Volunteer"
 }
+
 ```
 In the request body, supply a JSON representation of [calendar](../resources/calendar.md) object.
 ##### Response
@@ -56,14 +59,18 @@ HTTP/1.1 201 Created
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#me/calendars/$entity",
-    "@odata.id":"https://graph.microsoft.com/v1.0/users('266efe5a-0fd7-4edd-877b-b2d1e561f193@ae01a323-3934-4475-a32d-af1274312bb0')/calendars('AAMkADJmMVAAA=')",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#me/calendars/$entity",
+    "@odata.id":"https://graph.microsoft.com/beta/users('266efe5a-0fd7-4edd-877b-b2d1e561f193@ae01a323-3934-4475-a32d-af1274312bb0')/calendars('AAMkADJmMVAAA=')",
     "id":"AAMkADJmMVAAA=",
     "name":"Volunteer",
     "color":"auto",
+    "isDefaultCalendar":false,
     "changeKey":"DxYSthXJXEWwAQSYQnXvIgAAIxGttg==",
     "canShare":true,
     "canViewPrivateItems":true,
+    "hexColor": "",
+    "isShared":false,
+    "isSharedWithMe":false,
     "canEdit":true,
     "owner":{
         "name":"Samantha Booth",

@@ -1,5 +1,7 @@
 # WorksheetProtection: protect
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Protect a worksheet. It throws if the worksheet has been protected.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,7 +9,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -27,7 +29,7 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|options|WorkbookWorksheetProtectionOptions|Optional. sheet protection options.|
+|options|WorksheetProtectionOptions|Optional. sheet protection options.|
 
 ## Response
 
@@ -42,7 +44,7 @@ Here is an example of the request.
   "name": "worksheetprotection_protect"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/protection/protect
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/protection/protect
 Content-type: application/json
 Content-length: 383
 
@@ -67,7 +69,8 @@ Content-length: 383
 Here is an example of the response. 
 <!-- {
   "blockType": "response",
-  "truncated": true
+  "truncated": true,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

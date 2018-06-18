@@ -1,6 +1,9 @@
 # List contactFolders
 
-Get the contact folder collection in the default Contacts folder of the signed-in user.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Get all the contact folders in the signed-in user's mailbox.
+
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -37,7 +40,7 @@ Here is an example of the request.
   "name": "get_contactfolders"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/contactFolders
+GET https://graph.microsoft.com/beta/me/contactFolders
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -57,6 +60,7 @@ Content-length: 145
     {
       "parentFolderId": "parentFolderId-value",
       "displayName": "displayName-value",
+      "wellKnownName": "wellKnownName-value",
       "id": "id-value"
     }
   ]

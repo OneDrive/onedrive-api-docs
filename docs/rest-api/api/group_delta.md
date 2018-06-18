@@ -1,4 +1,7 @@
 # group: delta
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 [Delta query](../../../concepts/delta_query_overview.md) enables applications to discover newly created, updated, or deleted entities without performing a full read of the target resource with every request. To discover changes to groups, perform a request using the *delta* function. See [Using Delta Query](../../../concepts/delta_query_overview.md) for details.
 
 ## Permissions
@@ -38,7 +41,6 @@ _id_ property is always returned.
 - Delta query support `$select`, `$top`, and `$expand` for groups. 
 - There is limited support for `$filter` and `$orderby`:
   * The only supported `$filter` expression is for tracking changes on a specific object: `$filter=id+eq+{value}`. You can filter multiple objects. For example, `https://graph.microsoft.com/v1.0/groups/delta/?$filter= id eq '477e9fc6-5de7-4406-bb2a-7e5c83c9ffff' or id eq '004d6a07-fe70-4b92-add5-e6e37b8affff`. There is a limit of 50 filtered objects.
-- There is no support for `$search`.
 
 ## Request headers
 | Name       | Description|
@@ -68,7 +70,7 @@ The following is an example of the request.
   "name": "group_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/delta
+GET https://graph.microsoft.com/beta/groups/delta
 ```
 
 #### Response
@@ -86,7 +88,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#groups","@odata.nextLink":"https://graph.microsoft.com/v1.0/groups/delta?$skiptoken=pqwSUjGYvb3jQpbwVAwEL7yuI3dU1LecfkkfLPtnIjvY1FSSc_",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#groups","@odata.nextLink":"https://graph.microsoft.com/beta/groups/delta?$skiptoken=pqwSUjGYvb3jQpbwVAwEL7yuI3dU1LecfkkfLPtnIjvY1FSSc_",
   "value":[
     {
       "classification": "classification-value",

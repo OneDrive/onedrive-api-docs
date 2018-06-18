@@ -6,6 +6,8 @@ title: Get a SharePoint list
 ---
 # Get metadata for a list
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Returns the metadata for a [list][].
 
 [list]: ../resources/list.md
@@ -23,8 +25,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}?expand=columns,items(expand=fields)
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}?expand=columns,items(expand=fields)
 ```
 
 ## Request body
@@ -35,7 +37,7 @@ Do not supply a request body with this method.
 
 #### Request
 
-<!-- { "blockType": "request", "name": "get-list", "scopes": "sites.read.all" } -->
+<!-- { "blockType": "request", "name": "get-list" } -->
 
 ```http
 GET /sites/{site-id}/lists/{list-id}
@@ -43,7 +45,7 @@ GET /sites/{site-id}/lists/{list-id}
 
 #### Response
 
-<!-- { "blockType": "response", "@type": "microsoft.graph.list", "truncated": true, "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "response", "@type": "microsoft.graph.list", "truncated": true, "scopes": "sites.read.all service.sharepoint" } -->
 
 ```json
 HTTP/1.1 200 OK
@@ -65,22 +67,21 @@ With `select` and `expand` statements, you can retrieve list metadata, column de
 
 #### Request
 
-<!-- { "blockType": "request", "name": "get-list-multi-expand", "scopes": "sites.read.all" } -->
+<!-- { "blockType": "request", "name": "get-list-multi-expand" } -->
 
 ```http
-GET /sites/{site-id}/lists/{list-id}?select=id,name,lastModifiedDateTime&expand=columns(select=name,description),items(expand=fields(select=Name,Color,Quantity))
+GET /sites/{site-id}/lists/{list-id}?select=name,lastModifiedDateTime&expand=columns(select=name,description),items(expand=fields(select=Name,Color,Quantity))
 ```
 
 #### Response
 
-<!-- { "blockType": "response", "@type": "microsoft.graph.list", "truncated": true, "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "response", "@type": "microsoft.graph.list", "truncated": true, "scopes": "sites.read.all service.sharepoint" } -->
 
 ```json
 HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "id": "1234-112-112-4",
   "name": "Inventory",
   "lastModifiedDateTime": "2016-08-30T08:32:00Z",
   "columns": [

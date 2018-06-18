@@ -1,5 +1,7 @@
 ﻿# assign action
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Not yet documented
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration/assign
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}/assign
 ```
 
 ## Request headers
@@ -34,6 +38,7 @@ The following table shows the parameters that can be used with this action.
 
 |Property|Type|Description|
 |:---|:---|:---|
+|deviceConfigurationGroupAssignments|[deviceConfigurationGroupAssignment](../resources/intune_deviceconfig_deviceconfigurationgroupassignment.md) collection|Not yet documented|
 |assignments|[deviceConfigurationAssignment](../resources/intune_deviceconfig_deviceconfigurationassignment.md) collection|Not yet documented|
 
 
@@ -45,12 +50,20 @@ If successful, this action returns a `200 OK` response code and a [deviceConfigu
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign
+POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign
 
 Content-type: application/json
-Content-length: 277
+Content-length: 548
 
 {
+  "deviceConfigurationGroupAssignments": [
+    {
+      "@odata.type": "#microsoft.graph.deviceConfigurationGroupAssignment",
+      "id": "561d26c5-26c5-561d-c526-1d56c5261d56",
+      "targetGroupId": "Target Group Id value",
+      "excludeGroup": true
+    }
+  ],
   "assignments": [
     {
       "@odata.type": "#microsoft.graph.deviceConfigurationAssignment",

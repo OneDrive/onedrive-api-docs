@@ -6,6 +6,8 @@ title: Change sharing permissions
 ---
 # Update sharing permission
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of a sharing permission by patching the permission resource.
 
 Only the **roles** property can be modified this way.
@@ -45,9 +47,9 @@ In the request body, supply the values for relevant fields that should be update
 Existing properties that are not included in the request body will maintain their previous values or be recalculated based on changes to other property values.
 For best performance you shouldn't include existing values that haven't changed.
 
-| Property | Type              | Description                   |
-|:---------|:------------------|:------------------------------|
-| roles    | String collection | An array of permission types. |
+| Property     | Type   | Description                   |
+|:-------------|:-------|:------------------------------|
+| **roles**    | String | An array of permission types. |
 
 ## Response
 
@@ -57,10 +59,10 @@ If successful, this method returns a `200 OK` response code and updated [permiss
 
 Here is an example of the request that changes the role on the sharing permission to read-only.
 
-<!-- { "blockType": "request", "name": "update-permission", "@odata.type": "microsoft.graph.permission", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "update-permission", "@odata.type": "microsoft.graph.permission", "scopes": "files.readwrite"} -->
 
 ```http
-PATCH /me/drive/items/{item-id}/permissions/{perm-id}
+PATCH https://graph.microsoft.com/beta/me/drive/items/{item-id}/permissions/{perm-id}
 Content-type: application/json
 
 {
@@ -90,17 +92,12 @@ Content-type: application/json
 }
 ```
 
-## Error responses
-
-Read the [Error Responses][error-response] topic for more information about
-how errors are returned.
-
-[error-response]: ../../../concepts/errors.md
-
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "Update an item's sharing permissions",
   "keywords": "permission, permissions, sharing, change permissions, update permission",
   "section": "documentation",
-  "tocPath": "Sharing/Update permission"
-} -->
+  "tocPath": "OneDrive/Item/Update permission"
+}-->

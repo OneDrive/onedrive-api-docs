@@ -1,6 +1,8 @@
-# Update inferenceclassificationoverride
+# Update inferenceClassificationOverride
 
-Change the **classifyAs** field of an override as specified. 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Change the **classifyAs** field of a [Focused Inbox](../resources/manage_focused_inbox.md) override as specified. 
 
 You cannot use PATCH to change any other fields in an [inferenceClassificationOverride](../resources/inferenceClassificationOverride.md) instance. 
 
@@ -50,7 +52,7 @@ The following example changes the override for the SMTP address randiw@adatum.on
   "name": "update_inferenceclassificationoverride"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/inferenceClassification/overrides/{id}
+PATCH https://graph.microsoft.com/beta/me/inferenceClassification/overrides/{id}
 Content-type: application/json
 
 {

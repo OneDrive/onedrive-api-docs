@@ -1,6 +1,8 @@
 # List devices
 
-Retrieve a list of device objects registered in the organization.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Retrieve a list of devices registered in the directory. 
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -38,9 +40,8 @@ Here is an example of the request.
   "name": "get_devices"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/devices
+GET https://graph.microsoft.com/beta/devices
 ```
-
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
@@ -56,12 +57,13 @@ Content-type: application/json
 {
   "value": [
     {
-      "accountEnabled":false,
-      "deviceId":"4c299165-6e8f-4b45-a5ba-c5d250a707ff",
-      "displayName":"Test device",
-      "id": "id-value",
-      "operatingSystem":"linux",
-      "operatingSystemVersion":"1"
+      "accountEnabled": true,
+      "approximateLastSignInDateTime": "2016-10-19T10:37:00Z",
+      "deviceId": "deviceId-value",
+      "deviceMetadata": "deviceMetadata-value",
+      "displayName" : "displayName-value",
+      "id" : "id-value", 
+      "operatingSystem" : "operatingSystem-value"
     }
   ]
 }

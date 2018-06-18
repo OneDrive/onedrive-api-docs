@@ -1,5 +1,7 @@
 # ChartGridlines resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents major or minor gridlines on a chart axis.
 
 
@@ -7,8 +9,8 @@ Represents major or minor gridlines on a chart axis.
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Get ChartGridlines](../api/chartgridlines_get.md) | [WorkbookChartGridlines](chartgridlines.md) |Read properties and relationships of chartGridlines object.|
-|[Update](../api/chartgridlines_update.md) | [WorkbookChartGridlines](chartgridlines.md)	|Update ChartGridlines object. |
+|[Get ChartGridlines](../api/chartgridlines_get.md) | [ChartGridlines](chartgridlines.md) |Read properties and relationships of chartGridlines object.|
+|[Update](../api/chartgridlines_update.md) | [ChartGridlines](chartgridlines.md)	|Update ChartGridlines object. |
 
 ## Properties
 | Property	   | Type	|Description|
@@ -18,7 +20,7 @@ Represents major or minor gridlines on a chart axis.
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|format|[WorkbookChartGridlinesFormat](chartgridlinesformat.md)|Represents the formatting of chart gridlines. Read-only.|
+|format|[ChartGridlinesFormat](chartgridlinesformat.md)|Represents the formatting of chart gridlines. Read-only.|
 
 ## JSON representation
 
@@ -26,11 +28,10 @@ Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.workbookChartGridlines"
+  "@odata.type": "microsoft.graph.chartGridLines"
 }-->
 
 ```json

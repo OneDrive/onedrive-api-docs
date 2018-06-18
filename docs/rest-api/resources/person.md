@@ -1,6 +1,8 @@
 # person resource type
 
-An aggregation of information about a person from across mail, contacts, and social networks. People can be local contacts, contacts from social networking or your organization's directory, and people from recent communications (such as email and Skype).
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+An aggregation of information about a person from across mail, contacts and social networks. People can be local contacts, contacts from social networking, your organization's directory, and people from recent communications (such as email and Skype).
 
 ## Methods
 
@@ -12,39 +14,41 @@ An aggregation of information about a person from across mail, contacts, and soc
 
 | Property | Type | Description |
 |:---------------|:--------|:----------|
-|birthday|String|The person's birthday.|
-|companyName|String|The name of the person's company.|
-|department|String|The person's department.|
-|displayName|String|The person's display name.|
-|scoredEmailAddresses|[scoredEmailAddress](scoredemailaddress.md) collection|The person's email addresses.|
-|givenName|String|The person's given name.|
-|id|String|The person's unique identifier. Read-only.|
-|imAddress|String|The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.|
-|isFavorite|Boolean|`true` if the user has flagged this person as a favorite.|
-|jobTitle|String|The person's job title.|
-|officeLocation|String|The location of the person's office.|
-|personNotes|String|Free-form notes that the user has taken about this person.|
-|personType|[personType](persontype.md) |The type of person.|
+|birthday|string|The person's birthday.|
+|companyName|string|The name of the person's company.|
+|department|string|The person's department.|
+|displayName|string|The person's display name.|
+|emailAddresses|[rankedEmailAddress](rankedemailaddress.md) collection|The person's email addresses.|
+|givenName|string|The person's given name.|
+|id|string|The person's unique identifier. Read-only.|
+|isFavorite|boolean|`true` if the user has flagged this person as a favorite.|
+|mailboxType|string|The type of mailbox that is represented by the person's email address.|
+|officeLocation|string|The location of the person's office.|
+|personNotes|string|Free-form notes that the user has taken about this person.|
+|personType|string|The type of person, for example distribution list.|
 |phones|[phone](phone.md) collection|The person's phone numbers.|
 |postalAddresses|[location](location.md) collection|The person's addresses.|
-|profession|String|The person's profession.|
-|surname|String|The person's surname.|
-|userPrincipalName|String|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). By convention, this should map to the person's email name. The general format is alias@domain.|
+|profession|string|The person's profession.|
+|sources|[personDataSource](persondatasource.md) collection|The sources the user data comes from, for example Directory or Outlook Contacts.|
+|surname|string|The person's surname.|
+|title|string|The person's title.|
+|userPrincipalName|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). By convention, this should map to the person's email name. The general format is alias@domain.|
 |websites|[website](website.md) collection|The person's websites.|
-|yomiCompany|String|The phonetic Japanese name of the person's company.|
+|yomiCompany|string|The phonetic Japanese name of the person's company.|
 
 ## Relationships
 
-None.
+None
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.person"
 }-->
 
@@ -54,19 +58,20 @@ The following is a JSON representation of the resource.
   "companyName": "string",
   "department": "string",
   "displayName": "string",
-  "scoredEmailAddresses": [{"@odata.type": "microsoft.graph.scoredEmailAddress"}],
+  "emailAddresses": [{"@odata.type": "microsoft.graph.rankedEmailAddress"}],
   "givenName": "string",
   "id": "string (identifier)",
-  "imAddress": "string",
   "isFavorite": true,
-  "jobTitle": "string",
+  "mailboxType": "string",
   "officeLocation": "string",
   "personNotes": "string",
-  "personType": {"@odata.type": "microsoft.graph.personType"},
+  "personType": "string",
   "phones": [{"@odata.type": "microsoft.graph.phone"}],
   "postalAddresses": [{"@odata.type": "microsoft.graph.location"}],
   "profession": "string",
+  "sources": [{"@odata.type": "microsoft.graph.personDataSource"}],
   "surname": "string",
+  "title": "string",
   "userPrincipalName": "string",
   "websites": [{"@odata.type": "microsoft.graph.website"}],
   "yomiCompany": "string"

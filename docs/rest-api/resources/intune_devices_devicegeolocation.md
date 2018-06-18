@@ -1,4 +1,6 @@
-# deviceGeoLocation resource type
+﻿# deviceGeoLocation resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -6,6 +8,7 @@ Device location
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
+|lastCollectedDateTimeUtc|DateTimeOffset|Time at which location was recorded, relative to UTC|
 |lastCollectedDateTime|DateTimeOffset|Time at which location was recorded, relative to UTC|
 |longitude|Double|Longitude coordinate of the device's location|
 |latitude|Double|Latitude coordinate of the device's location|
@@ -19,22 +22,24 @@ Device location
 None
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
+  "keyProperty": "id",
   "@odata.type": "microsoft.graph.deviceGeoLocation"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.deviceGeoLocation",
+  "lastCollectedDateTimeUtc": "String (timestamp)",
   "lastCollectedDateTime": "String (timestamp)",
-  "altitude": 1024.13,
-  "latitude": 26.13246,
-  "longitude": 24.34616,
-  "horizontalAccuracy": 2.9,
-  "verticalAccuracy": 1.25,
-  "heading": 36.3,
-  "speed": 705.9
-
+  "longitude": "<Unknown Primitive Type Edm.Double>",
+  "latitude": "<Unknown Primitive Type Edm.Double>",
+  "altitude": "<Unknown Primitive Type Edm.Double>",
+  "horizontalAccuracy": "<Unknown Primitive Type Edm.Double>",
+  "verticalAccuracy": "<Unknown Primitive Type Edm.Double>",
+  "heading": "<Unknown Primitive Type Edm.Double>",
+  "speed": "<Unknown Primitive Type Edm.Double>"
 }
 ```
 

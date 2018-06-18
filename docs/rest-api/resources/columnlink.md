@@ -6,6 +6,8 @@ title: ColumnLink
 ---
 # ColumnLink resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A **columnLink** on a [contentType][] attaches a site **columnDefinition** to that content type.
 
 [contentType]: contentType.md
@@ -13,10 +15,7 @@ A **columnLink** on a [contentType][] attaches a site **columnDefinition** to th
 ## JSON representation
 
 Here is a JSON representation of a **columnLink** resource.
-<!-- {
-  "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.columnLink" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.columnLink" } -->
 
 ```json
 {

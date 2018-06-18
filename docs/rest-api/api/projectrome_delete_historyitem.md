@@ -1,5 +1,7 @@
 # Delete a historyItem
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete an existing history item for an existing user activity.
 
 ## Permissions
@@ -47,7 +49,7 @@ Here is an example of the request.
 }-->
 
 ```http
-PUT https://graph.microsoft.com/v1.0/me/activities/{activity-id}/historyItems/{item-id}
+PUT https://graph.microsoft.com/beta/me/activities/13881113971988980728/historyItems/390e06e2-7e5b-4133-8014-fac7ac5991af
 ```
 
 ##### Response

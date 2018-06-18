@@ -1,5 +1,7 @@
 # Create Event
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new Event in the default or the specified calendar.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -52,7 +54,7 @@ Here is an example of the request.
   "name": "create_event_from_calendar"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/calendar/events
+POST https://graph.microsoft.com/beta/me/calendar/events
 Content-type: application/json
 Content-length: 285
 
@@ -61,7 +63,7 @@ Content-length: 285
   "originalEndTimeZone": "originalEndTimeZone-value",
   "responseStatus": {
     "response": "",
-    "time": "datetime-value"
+    "time": "2016-10-19T10:37:00Z"
   },
   "reminderMinutesBeforeStart": 99,
   "isReminderOn": true
@@ -85,7 +87,7 @@ Content-length: 285
   "originalEndTimeZone": "originalEndTimeZone-value",
   "responseStatus": {
     "response": "",
-    "time": "datetime-value"
+    "time": "2016-10-19T10:37:00Z"
   },
   "iCalUId": "iCalUId-value",
   "reminderMinutesBeforeStart": 99,

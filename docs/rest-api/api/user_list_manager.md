@@ -1,5 +1,7 @@
 # List manager
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get user's manager. Returns the user or contact assigned as the user's manager.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -32,21 +34,13 @@ If successful, this method returns a `200 OK` response code and a [directoryObje
 ## Example
 ##### Request
 Here is an example of the request.
-<!-- {
-  "blockType": "request",
-  "name": "get_manager"
-}-->
+<!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/v1.0/users/{id|userPrincipalName}/manager
+GET https://graph.microsoft.com/beta/users/{id|userPrincipalName}/manager
 ```
 ##### Response
 Here is an example of the response.
-<!-- {
-  "blockType": "response",
-  "truncated": false,
-  "@odata.type": "microsoft.graph.directoryObject",
-  "isCollection": false
-} -->
+<!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json

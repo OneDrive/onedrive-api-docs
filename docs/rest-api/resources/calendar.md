@@ -1,5 +1,7 @@
 # calendar resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A calendar which is a container for events. It can be a calendar for a [user](user.md), or the default calendar of an Office 365 [group](group.md).
 
 > **Note:** There are a few minor differences in the way you can interact with user calendars and group calendars:
@@ -32,31 +34,20 @@ A calendar which is a container for events. It can be a calendar for a [user](us
 |canShare |Boolean |True if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. |
 |canViewPrivateItems |Boolean |True if the user can read calendar items that have been marked private, false otherwise. |
 |changeKey|String|Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|
-|color|calendarColor|Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: LightBlue=0, LightGreen=1, LightOrange=2, LightGray=3, LightYellow=4, LightTeal=5, LightPink=6, LightBrown=7, LightRed=8, MaxColor=9, Auto=-1|
+|color|String|Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: LightBlue=0, LightGreen=1, LightOrange=2, LightGray=3, LightYellow=4, LightTeal=5, LightPink=6, LightBrown=7, LightRed=8, MaxColor=9, Auto=-1|
+|hexColor|String|A color representing the calendar. The color is represented by a 6-digit, 3-byte hexadecimal number. Each byte represents one of the red, green, and blue components of the color, in the range 00 to FF in hexadecimal notation. |
 |id|String|The group's unique identifier. Read-only.|
+|isDefaultCalendar|Boolean|True if this calendar is the user's default calendar, false otherwise.|
+|isShared |Boolean |True if the user has shared the calendar with other users, false otherwise. Since only the user who created the calendar can share it, **isShared** and **isSharedWithMe** cannot be true for the same user. |
+|isSharedWithMe |Boolean |True if the user has been shared this calendar, false otherwise. This property is always false for a calendar owner.  |
 |name|String|The calendar name.|
 |owner |[emailAddress](emailaddress.md) | If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the **owner** property is set to the user. For a calendar shared with the user, the **owner** property is set to the person who shared that calendar with the user. |
-
-### calendarColor values
-| Member     | Value
-|:-----------|:----------
-| auto       | -1
-| lightBlue  | 0
-| lightGreen | 1
-| lightOrange| 2
-| lightGray  | 3
-| lightYellow| 4
-| lightTeal  | 5
-| lightPink  | 6
-| lightBrown | 7
-| lightRed   | 8
-| maxColor   | 9
 
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|calendarView|[Event](event.md) collection|The calendar view for the calendar. Navigation property. Read-only.|
-|events|[Event](event.md) collection|The events in the calendar. Navigation property. Read-only.|
+|calendarView|[event](event.md) collection|The calendar view for the calendar. Navigation property. Read-only.|
+|events|[event](event.md) collection|The events in the calendar. Navigation property. Read-only.|
 |multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the calendar. Read-only. Nullable.|
 |singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the calendar. Read-only. Nullable.|
 
@@ -64,7 +55,7 @@ A calendar which is a container for events. It can be a calendar for a [user](us
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
   "optionalProperties": [
     "calendarView",
@@ -73,31 +64,7 @@ Here is a JSON representation of the resource
     "singleValueExtendedProperties"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.calendar",
-  "@odata.annotations": [
-    {
-      "property": "calendarView",
-      "capabilities": {
-        "changeTracking": true,
-        "deletable": false,
-        "expandable": false,
-        "insertable": false,
-        "navigability": "single",
-        "searchable": false,
-        "updatable": false
-      }
-    },
-    {
-      "property": "events",
-      "capabilities": {
-        "changeTracking": false,
-        "expandable": false,
-        "navigability": "single",
-        "searchable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.calendar"
 }-->
 
 ```json
@@ -107,7 +74,11 @@ Here is a JSON representation of the resource
   "canViewPrivateItems": "boolean",
   "changeKey": "string",
   "color": "String",
+  "hexColor": "String",
   "id": "string (identifier)",
+  "isDefaultCalendar": "boolean",
+  "isShared": "boolean",
+  "isSharedWithMe": "boolean",
   "name": "string",
   "owner": {"@odata.type": "microsoft.graph.emailAddress"}
 }

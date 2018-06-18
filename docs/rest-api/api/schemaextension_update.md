@@ -1,5 +1,7 @@
 # Update schemaExtension
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update properties in the definition of the specified [schemaExtension](../resources/schemaextension.md).
 
 The update applies to all the resources that are included in the **targetTypes** property of the extension. These resources are among the 
@@ -9,6 +11,7 @@ Only the app that created a schema extension (owner app) can make additive updat
 That means the app cannot remove custom properties or target resource types from the definition. The app can, however, change the description of the extension.
 
 ## Permissions
+
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 
@@ -51,13 +54,12 @@ If successful, this method returns a `204 No Content` response code.
 
 ##### Request
 
-Here is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "update_schemaextension"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/schemaExtensions/{id}
+PATCH https://graph.microsoft.com/beta/schemaExtensions/{id}
 Content-type: application/json
 Content-length: 201
 
@@ -82,6 +84,7 @@ Content-length: 201
   "truncated": true,
   "@odata.type": "microsoft.graph.schemaExtension"
 } -->
+
 ```http
 HTTP/1.1 204 No Content
 ```

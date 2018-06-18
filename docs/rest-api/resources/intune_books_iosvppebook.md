@@ -1,4 +1,6 @@
-# iosVppEBook resource type
+﻿# iosVppEBook resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -40,6 +42,7 @@ Inherits from [managedEBook](../resources/intune_books_managedebook.md)
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
+|categories|[managedEBookCategory](../resources/intune_books_managedebookcategory.md) collection|The list of categories for this eBook. Inherited from [managedEBook](../resources/intune_books_managedebook.md)|
 |assignments|[managedEBookAssignment](../resources/intune_books_managedebookassignment.md) collection|The list of assignments for this eBook. Inherited from [managedEBook](../resources/intune_books_managedebook.md)|
 |installSummary|[eBookInstallSummary](../resources/intune_books_ebookinstallsummary.md)|Mobile App Install Summary. Inherited from [managedEBook](../resources/intune_books_managedebook.md)|
 |deviceStates|[deviceInstallState](../resources/intune_books_deviceinstallstate.md) collection|The list of installation states for this eBook. Inherited from [managedEBook](../resources/intune_books_managedebook.md)|
@@ -47,12 +50,12 @@ Inherits from [managedEBook](../resources/intune_books_managedebook.md)
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.managedEBook",
   "@odata.type": "microsoft.graph.iosVppEBook"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.iosVppEBook",
@@ -70,7 +73,7 @@ Here is a JSON representation of the resource.
   "lastModifiedDateTime": "String (timestamp)",
   "informationUrl": "String",
   "privacyInformationUrl": "String",
-  "vppTokenId": "79199ed9-e50b-4257-8de4-70b9c8685061",
+  "vppTokenId": "<Unknown Primitive Type Edm.Guid>",
   "appleId": "String",
   "vppOrganizationName": "String",
   "genres": [

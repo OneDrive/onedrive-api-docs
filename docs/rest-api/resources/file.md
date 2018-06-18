@@ -6,6 +6,8 @@ title: File
 ---
 # File resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **File** resource groups file-related data items into a single structure.
 
 If a [**DriveItem**](driveitem.md) has a non-null **file** facet, the item represents an file.
@@ -32,7 +34,7 @@ Here is a JSON representation of the resource.
 
 | Property | Type                    | Description                                                                                                                                      |
 |:---------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| hashes   | [Hashes](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
+| hashes   | [HashesType](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
 | mimeType | string                  | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. |
 
 ## Remarks 

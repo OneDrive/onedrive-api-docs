@@ -1,5 +1,8 @@
 # group: unsubscribeByMail
-Calling this method will prevent the current user from receiving email notifications for this group about new posts, events, and files in that group. Supported for Office 365 groups only. 
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Calling this method will disable the current user to receive email notifications for this group about new posts, events, and files in that group. Supported for Office 365 groups only. 
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,13 +11,14 @@ One of the following permissions is required to call this API. To learn more, in
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Group.ReadWrite.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | Group.ReadWrite.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
 POST /groups/{id}/unsubscribeByMail
 ```
+
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
@@ -22,7 +26,7 @@ POST /groups/{id}/unsubscribeByMail
 | Prefer | return=minimal. If minimal response header is included in the request header, then a successful response returns `204 No Content` code. Optional.  | 
 
 ## Request body
-Do not supply a request body for this method.
+ Do not supply a request body for this method. 
 
 ## Response
 If successful, this method returns `200 OK` response code. It does not return anything in the response body.
@@ -35,7 +39,7 @@ The following is an example of the request.
   "name": "group_unsubscribebymail"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/unsubscribeByMail
+POST https://graph.microsoft.com/beta/groups/{id}/unsubscribeByMail
 ```
 
 #### Response

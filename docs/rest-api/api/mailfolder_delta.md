@@ -1,5 +1,7 @@
 # mailFolder: delta
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a set of mail folders that have been added, deleted, or removed from the user's mailbox.
 
 A **delta** function call for mail folders in a mailbox is similar to a GET request, except that by appropriately 
@@ -21,7 +23,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/mailFolders/delta
-GET /users/{id}/mailFolders/delta
+GET /users/<id>/mailFolders/delta
 ```
 
 ## Optional query parameters
@@ -73,7 +75,7 @@ returning **mailFolder** rather than **message** collections.
   "name": "mailfolder_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/mailFolders/delta
+GET https://graph.microsoft.com/beta/me/mailFolders/delta
 
 Prefer: odata.maxpagesize=2
 ```
@@ -100,7 +102,7 @@ Content-type: application/json
 Content-length: 254
 
 {
-  "@odata.nextLink":"https://graph.microsoft.com/v1.0/me/mailfolders/delta?$skiptoken={_skipToken_}",
+  "@odata.nextLink":"https://graph.microsoft.com/beta/me/mailfolders/delta?$skiptoken={_skipToken_}",
   "value": [
     {
       "displayName": "displayName-value",
@@ -116,7 +118,7 @@ Content-length: 254
 
 ### See also
 
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
+- [Microsoft Graph delta query](../../../concepts/delta_query_overview.md)
 - [Get incremental changes to messages in a folder](../../../concepts/delta_query_messages.md)
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
@@ -126,9 +128,5 @@ Content-length: 254
   "description": "mailFolder: delta",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: mailfolder_delta/container/wellKnownName:
-      Undocumented property 'wellKnownName' [String] was not expected on resource microsoft.graph.mailFolder."
-  ],
   "tocPath": ""
 }-->

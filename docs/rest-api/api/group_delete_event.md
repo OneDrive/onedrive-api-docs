@@ -1,4 +1,7 @@
 # Delete event
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete an [event](../resources/event.md) object.
 
 ## Permissions
@@ -36,7 +39,7 @@ The following is an example of the request.
   "name": "delete_group_event"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/groups/{group-id}/events/{event-id}
+DELETE https://graph.microsoft.com/beta/groups/02bd9fd6-8f93-4758-87c3-1fb73740a315/events/AQMkAGI5MWY5ZmUyLTJiNzYtNDE0ZC04OWEwLWM3M2FjYmM3NwAzZWYARgAAA_b2VnUAiWNLj0xeSOs499YHAMT2RdsuOqRIlQZ4vOzp66YAAAIBDQAAAMT2RdsuOqRIlQZ4vOzp66YAAAIJOgAAAA==
 ```
 
 #### Response

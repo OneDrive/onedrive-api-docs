@@ -6,6 +6,8 @@ title: List who has access to a file
 ---
 # List sharing permissions on a DriveItem
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 List the effective sharing permissions of on a [DriveItem](../resources/driveitem.md).
 
 ## Access to sharing permissions
@@ -67,7 +69,7 @@ SharePoint permission levels set on an item are returned with an 'SP' prefix. Fo
 
 This example retrieves the collection of permissions on an item in the signed in user's drive.
 
-<!-- { "blockType": "request", "name": "get-item-permissions", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get-item-permissions", "scopes": "files.read" } -->
 
 ```http
 GET /me/drive/items/{item-id}/permissions

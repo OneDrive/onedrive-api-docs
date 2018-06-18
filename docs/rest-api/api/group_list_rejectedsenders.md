@@ -1,4 +1,7 @@
 # List rejectedSenders
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a list of users or groups that are in the rejectedSenders list for this group. 
 
 Users in the rejected senders list cannot post to conversations of the group (identified in the GET request URL). Make sure you do not specify the same user or group in the rejected senders and accepted senders lists, otherwise you will get an error.
@@ -17,6 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 ```http
 GET /groups/{id}/rejectedSenders
 ```
+
 ## Optional query parameters
 This method supports the [OData Query Parameters](../../../concepts/query_parameters.md) to help customize the response.
 
@@ -39,7 +43,7 @@ The following is an example of the request.
   "name": "get_rejectedsenders"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/rejectedSenders
+GET https://graph.microsoft.com/beta/groups/{id}/rejectedSenders
 ```
 
 #### Response

@@ -6,13 +6,14 @@ title: Remove access to an item
 ---
 # Delete a sharing permission from a file or folder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Remove access to a [DriveItem](../resources/driveitem.md).
 
 Only sharing permissions that are **not** inherited can be deleted.
 The **inheritedFrom** property must be `null`.
 
 ## Permissions
-
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
@@ -24,7 +25,6 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 
 <!-- { "blockType": "ignored" } -->
-
 ```http
 DELETE /drives/{drive-id}/items/{item-id}/permissions/{perm-id}
 DELETE /groups/{group-id}/drive/items/{item-id}/permissions/{perm-id}
@@ -39,6 +39,7 @@ DELETE /users/{user-id}/drive/items/{item-id}/permissions/{perm-id}
 |:--------------|:-------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | if-match      | string | If this request header is included and the eTag (or cTag) provided does not match the current tag on the item, a `412 Precondition Failed` response is returned and the item will not be deleted. |
 
+
 ## Response
 
 If successful, this method returns `204 No Content` response code.
@@ -47,10 +48,10 @@ If successful, this method returns `204 No Content` response code.
 
 This example removes the permission identified as {perm-id} from the item {item-id} in the current user's OneDrive.
 
-<!-- { "blockType": "request", "name": "delete-permission", "scopes": "files.readwrite", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "delete-permission", "scopes": "files.readwrite" }-->
 
 ```http
-DELETE /me/drive/items/{item-id}/permissions/{perm-id}
+DELETE https://graph.microsoft.com/beta/me/drive/root/items/{item-id}/permissions/{perm-id}
 ```
 
 ### Response
@@ -72,5 +73,5 @@ HTTP/1.1 204 No Content
   "description": "Remove an item's sharing permissions",
   "keywords": "permission, permissions, sharing, remove permissions, delete permissions",
   "section": "documentation",
-  "tocPath": "Sharing/Remove permissions"
-} -->
+  "tocPath": "OneDrive/Item/Delete permission"
+}-->

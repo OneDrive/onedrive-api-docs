@@ -1,5 +1,7 @@
 # ChartFill: clear
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Clear the fill color of a chart element.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,15 +9,15 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/worksheets/{id|name}/charts/{name}/format/fill/clear
-POST /workbook/worksheets/{id|name}/charts/{name}/title/format/fill/clear
-POST /workbook/worksheets/{id|name}/charts/{name}/legend/format/fill/clear
+POST /workbook/worksheets/{id|name}/charts(<name>)/format/fill/clear
+POST /workbook/worksheets/{id|name}/charts(<name>)/title/format/fill/clear
+POST /workbook/worksheets/{id|name}/charts(<name>)/legend/format/fill/clear
 
 ```
 ## Request headers
@@ -25,7 +27,6 @@ POST /workbook/worksheets/{id|name}/charts/{name}/legend/format/fill/clear
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
 ## Request body
-Do not supply a request body for this method.
 
 ## Response
 
@@ -40,14 +41,15 @@ Here is an example of the request.
   "name": "chartfill_clear"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts/{name}/format/fill/clear
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts(<name>)/format/fill/clear
 ```
 
 ##### Response
 Here is an example of the response. 
 <!-- {
   "blockType": "response",
-  "truncated": true
+  "truncated": true,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

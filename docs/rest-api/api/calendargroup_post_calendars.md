@@ -1,5 +1,7 @@
 # Create Calendar
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new calendar in a calendar group for a [user](../resources/user.md).
 
 ## Permissions
@@ -57,7 +59,7 @@ Here is an example of the request.
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/me/calendarGroups/{id}/calendars
+POST https://graph.microsoft.com/beta/me/calendarGroups/{id}/calendars
 Content-type: application/json
 Content-length: 78
 

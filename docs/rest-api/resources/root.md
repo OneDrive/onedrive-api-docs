@@ -6,6 +6,8 @@ title: Root
 ---
 # Root resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **Root** facet indicates that an object is the top-most one in its hierarchy.
 The presence (non-null) of the facet value indicates that the object is the root.
 A null (or missing) value indicates the object is not the root.

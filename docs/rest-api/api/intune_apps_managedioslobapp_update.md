@@ -1,5 +1,7 @@
 ﻿# Update managedIOSLobApp
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [managedIOSLobApp](../resources/intune_apps_managedioslobapp.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceAppManagement/mobileApps/{mobileAppId}
+PATCH /deviceAppManagement/mobileApps/{mobileAppId}/userStatuses/{userAppInstallStatusId}/app
+PATCH /deviceAppManagement/mobileApps/{mobileAppId}/deviceStatuses/{mobileAppInstallStatusId}/app
 ```
 
 ## Request headers
@@ -47,6 +51,7 @@ The following table shows the properties that are required when you create the [
 |owner|String|The owner of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |developer|String|The developer of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |notes|String|Notes for the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|uploadState|Int32|The upload state. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md). Possible values are: `notPublished`, `processing`, `published`.|
 |appAvailability|[managedAppAvailability](../resources/intune_apps_managedappavailability.md)|The Application's availability. Inherited from [managedApp](../resources/intune_apps_managedapp.md). Possible values are: `global`, `lineOfBusiness`.|
 |version|String|The Application's version. Inherited from [managedApp](../resources/intune_apps_managedapp.md)|
@@ -59,6 +64,7 @@ The following table shows the properties that are required when you create the [
 |expirationDateTime|DateTimeOffset|The expiration time.|
 |versionNumber|String|The version number of managed iOS Line of Business (LoB) app.|
 |buildNumber|String|The build number of managed iOS Line of Business (LoB) app.|
+|identityVersion|String|The identity version.|
 
 
 
@@ -69,9 +75,9 @@ If successful, this method returns a `200 OK` response code and an updated [mana
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps/{mobileAppId}
+PATCH https://graph.microsoft.com/beta/deviceAppManagement/mobileApps/{mobileAppId}
 Content-type: application/json
-Content-length: 1276
+Content-length: 1346
 
 {
   "displayName": "Display Name value",
@@ -89,6 +95,7 @@ Content-length: 1276
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "appAvailability": "lineOfBusiness",
   "version": "Version value",
@@ -110,7 +117,8 @@ Content-length: 1276
   },
   "expirationDateTime": "2016-12-31T23:57:57.2481234-08:00",
   "versionNumber": "Version Number value",
-  "buildNumber": "Build Number value"
+  "buildNumber": "Build Number value",
+  "identityVersion": "Identity Version value"
 }
 ```
 
@@ -119,7 +127,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1439
+Content-Length: 1509
 
 {
   "@odata.type": "#microsoft.graph.managedIOSLobApp",
@@ -140,6 +148,7 @@ Content-Length: 1439
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "appAvailability": "lineOfBusiness",
   "version": "Version value",
@@ -161,7 +170,8 @@ Content-Length: 1439
   },
   "expirationDateTime": "2016-12-31T23:57:57.2481234-08:00",
   "versionNumber": "Version Number value",
-  "buildNumber": "Build Number value"
+  "buildNumber": "Build Number value",
+  "identityVersion": "Identity Version value"
 }
 ```
 

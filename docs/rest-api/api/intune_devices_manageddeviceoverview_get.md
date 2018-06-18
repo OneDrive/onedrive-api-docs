@@ -1,5 +1,7 @@
 ﻿# Get managedDeviceOverview
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [managedDeviceOverview](../resources/intune_devices_manageddeviceoverview.md) object.
@@ -39,7 +41,7 @@ If successful, this method returns a `200 OK` response code and [managedDeviceOv
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/managedDeviceOverview
+GET https://graph.microsoft.com/beta/deviceManagement/managedDeviceOverview
 ```
 
 ### Response
@@ -47,7 +49,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 797
+Content-Length: 1139
 
 {
   "value": {
@@ -72,7 +74,17 @@ Content-Length: 797
       "quarantinedDeviceCount": 6,
       "unknownDeviceCount": 2,
       "unavailableDeviceCount": 6
-    }
+    },
+    "managedDeviceModelsAndManufacturers": {
+      "@odata.type": "microsoft.graph.managedDeviceModelsAndManufacturers",
+      "deviceModels": [
+        "Device Models value"
+      ],
+      "deviceManufacturers": [
+        "Device Manufacturers value"
+      ]
+    },
+    "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00"
   }
 }
 ```

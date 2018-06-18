@@ -1,4 +1,7 @@
 # List conversations
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the list of [conversations](../resources/conversation.md) in this group.
 
 ## Permissions
@@ -38,12 +41,12 @@ The following is an example of the request.
   "name": "get_conversations"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/conversations
+GET https://graph.microsoft.com/beta/groups/{id}/conversations
 ```
+
 #### Response
 The following is an example of the response.
->**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
-
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -60,7 +63,7 @@ Content-length: 262
     {
       "topic": "topic-value",
       "hasAttachments": true,
-      "lastDeliveredDateTime": "datetime-value",
+      "lastDeliveredDateTime": "2016-10-19T10:37:00Z",
       "uniqueSenders": [
         "uniqueSenders-value"
       ],

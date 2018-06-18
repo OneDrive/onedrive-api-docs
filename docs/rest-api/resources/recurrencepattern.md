@@ -1,6 +1,8 @@
 # recurrencePattern resource type
 
-Describes the frequency by which a recurring [event](event.md) repeats. 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Describes the frequency by which a recurring [event](event.md) repeats.
 
 You can specify the recurrence pattern of a recurring event in one of 6 ways depending on your scenario. For each pattern type, specify the amount of time between occurrences. The actual occurrences of the recurring event always follow this pattern falling within the date range that you specify for the event. A recurring event is always defined by its **recurrencePattern** (how frequently the event repeats), and its [recurrenceRange](recurrencerange.md) (over how long the event repeats).
 
@@ -22,46 +24,12 @@ Use the **type** property to specify the different types of **recurrencePattern*
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |dayOfMonth|Int32|The day of the month on which the event occurs. Required if **type** is `absoluteMonthly` or `absoluteYearly`. |
-|daysOfWeek|dayOfWeek collection|A collection of the days of the week on which the event occurs. Possible values are: `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`. <br>If **type** is `relativeMonthly` or `relativeYearly`, and **daysOfWeek** specifies more than one day, the event falls on the first day that satisfies the pattern. <br> Required if **type** is `weekly`, `relativeMonthly`, or `relativeYearly`.|
-|firstDayOfWeek|dayOfWeek|The first day of the week. Possible values are: `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`. Default is `sunday`. Required if **type** is `weekly`. |
-|index|weekIndex|Specifies on which instance of the allowed days specified in **daysOfsWeek** the event occurs, counted from the first instance in the month. Possible values are: `first`, `second`, `third`, `fourth`, `last`. Default is `first`. Optional and used if **type** is `relativeMonthly` or `relativeYearly`. |
+|daysOfWeek|String collection|A collection of the days of the week on which the event occurs. Possible values are: `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`. <br>If **type** is `relativeMonthly` or `relativeYearly`, and **daysOfWeek** specifies more than one day, the event falls on the first day that satisfies the pattern. <br> Required if **type** is `weekly`, `relativeMonthly`, or `relativeYearly`.|
+|firstDayOfWeek|String|The first day of the week. Possible values are: `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`. Default is `sunday`. Required if **type** is `weekly`. |
+|index|String|Specifies on which instance of the allowed days specified in **daysOfsWeek** the event occurs, counted from the first instance in the month. Possible values are: `first`, `second`, `third`, `fourth`, `last`. Default is `first`. Optional and used if **type** is `relativeMonthly` or `relativeYearly`. |
 |interval|Int32|The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the **type**. Required. |
 |month|Int32|The month in which the event occurs.  This is a number from 1 to 12.|
-|type|recurrencePatternType|The recurrence pattern type: `daily`, `weekly`, `absoluteMonthly`, `relativeMonthly`, `absoluteYearly`, `relativeYearly`. Required.|
-
-### weekIndex values
-
-| Value
-|:-------------------------
-| first
-| second
-| third
-| fourth
-| last
-
-
-### dayOfWeek values
-
-| Value
-|:-------------------------
-| sunday
-| monday
-| tuesday
-| wednesday
-| thursday
-| friday
-| saturday
-
-### recurrencePatternType values
-
-| Value
-|:-------------------------
-| daily
-| weekly
-| absoluteMonthly
-| relativeMonthly
-| absoluteYearly
-| relativeYearly
+|type|String|The recurrence pattern type: `daily`, `weekly`, `absoluteMonthly`, `relativeMonthly`, `absoluteYearly`, `relativeYearly`. Required.|
 
 ## JSON representation
 
@@ -95,9 +63,5 @@ Here is a JSON representation of the resource
   "description": "recurrencePattern resource",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/recurrencepattern.md/microsoft.graph.recurrencePattern/daysOfWeek:
-      Inconsistent types between parameter (String) and table (Object)"
-  ],
   "tocPath": ""
 }-->

@@ -1,4 +1,7 @@
 # Create acceptedSender
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Add a new user or group to the acceptedSender list.
 
 Specify the user or group in `@odata.id` in the request body. Users in the accepted senders list can post to conversations of the group . Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
@@ -36,12 +39,12 @@ The following is an example of the request.
   "name": "create_acceptedsender"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/acceptedSenders/$ref
+POST https://graph.microsoft.com/beta/groups/{id}/acceptedSenders/$ref
 Content-type: application/json
 Content-length: 30
 
 {
-  "@odata.id":"https://graph.microsoft.com/v1.0/users/alexd@contoso.com"
+  "@odata.id":"https://graph.microsoft.com/beta/users/alexd@contoso.com"
 }
 ```
 

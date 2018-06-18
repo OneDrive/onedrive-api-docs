@@ -1,6 +1,8 @@
 # List subscriptions
 
-Retrieve the properties and relationships of webhook subscriptions, based on the app ID, the user, and the user's role with a tenant.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Retrieve a list of webhook subscriptions. The content of the response depends on the context in which the app is calling; see the scenarios below for details.
 
 ## Permissions
 
@@ -8,9 +10,9 @@ This API supports the following permission scopes; to learn more, including how 
 
 | Permission type  | Permissions (from least to most privileged)  |
 |:---------------- |:-------------------------------------------- |
-| [Delegated](../../../concepts/auth_v2_user.md) (work or school account) | Role required to [create subscription](subscription_get.md) or Subscriptions.Read.All (see below). |
-| [Delegated](../../../concepts/auth_v2_user.md) (personal Microsoft account) | Role required to [create subscription](./subscription_get.md) or Subscriptions.Read.All (see below). |
-| [Application](../../../concepts/auth_v2_service.md) | Role required to [create subscription](./subscription_get.md). |
+| [Delegated](../../../concepts/auth_v2_user.md) (work or school account) | Permission required to [create subscription](subscription_post_subscriptions.md) or Subscription.Read.All (see below). |
+| [Delegated](../../../concepts/auth_v2_user.md) (personal Microsoft account) | Permission required to [create subscription](subscription_post_subscriptions.md) or Subscription.Read.All (see below). |
+| [Application](../../../concepts/auth_v2_service.md) | Permission required to [create subscription](subscription_post_subscriptions.md). |
 
 Response results are based on the context of the calling app. The following is a summary of the common scenarios:
 
@@ -69,12 +71,12 @@ If successful, this method returns a `200 OK` response code and a list of [subsc
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/subscriptions
+GET https://graph.microsoft.com/beta/subscriptions
 ```
 
 ##### Response
 
-Here's an an example of the response.  Note that it may be truncated for brevity.  All supported properties appropriate for the request and the calling context will be returned from an actual call.
+Here is an example of the response. Note: The response shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 
 <!-- {
   "blockType": "response",
@@ -89,7 +91,7 @@ Content-type: application/json
 Content-length: 586
 
 {
-  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#subscriptions",
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#subscriptions",
   "value": [
     {
       "id": "0fc0d6db-0073-42e5-a186-853da75fb308",

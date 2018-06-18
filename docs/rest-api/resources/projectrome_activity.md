@@ -1,5 +1,7 @@
 # activity resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a single activity within an app - for example, a TV show, a document, or a current campaign in a video game. When a user engages with that activity, the engagement is captured as a [history item](projectrome_historyitem.md) that indicates the start and end time for that activity. As the user re-engages with that activity over time, multiple history items are recorded for a single user activity.
 
 You can use activities in Microsoft Graph to enable users to get back to what they were doing in their app, across multiple devices. Activities that your app creates appear on all users' devices, and are exposed to users as deep links to specific content within your app. You can express specific content within your app as a destination that is showcased in Windows, and accessible on iOS and Android devices through Cortana notifications.
@@ -34,23 +36,13 @@ Your user activities will be showcased in Cortana and Windows Timeline user expe
 |visualElements| [visualInfo](../resources/projectrome_visualinfo.md) | Required. The object containing information to render the activity in the UX.|
 |contentInfo | Untyped JSON object | Optional. A custom piece of data - JSON-LD extensible description of content according to [schema.org](http://schema.org) syntax.|
 |expirationDateTime | DateTimeOffset | Set by the server. DateTime in UTC when the object expired on the server.|
-|status | status | Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.|
-
-### status values
-
-| Value
-|:-----------------
-| active
-| updated
-| deleted
-| ignored
-| unknownFutureValue
+|status | EnumType | Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.|
 
 ## Relationships
 
 |Relationship | Type | Description|
 |:------------|:-----|:-----------|
-|historyItems| [activityHistoryItem](../resources/projectrome_historyitem.md) collection | Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.|
+|historyItems| [historyItem](../resources/projectrome_historyitem.md) collection | Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.|
 
 ## JSON representation
 
@@ -67,17 +59,7 @@ Here is a JSON representation of the resource.
     "visualElements",
     "historyItems"
   ],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.userActivity",
-  "@odata.annotations": [
-    {
-      "capabilities": {
-        "countable": false,
-        "selectable": false,
-        "skippable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.activity"
 }-->
 
 ```json
@@ -93,10 +75,10 @@ Here is a JSON representation of the resource.
     "lastModifiedDateTime": "DateTimeOffset",
     "expirationDateTime": "DateTimeOffset",
     "id": "String",
-    "status": "active | updated | deleted | ignored",
-    "contentInfo": { "@odata.type": "microsoft.graph.Json" },
-    "visualElements": { "@odata.type": "microsoft.graph.visualInfo" },
-    "historyItems": [{ "@odata.type": "microsoft.graph.activityHistoryItem" }]
+    "status": "EnumType",
+    "contentInfo": { "@data.type": "microsoft.graph.Json" },
+    "visualElements": { "@data.type": "microsoft.graph.visualInfo" },
+    "historyItems": [{ "@odata.type": "microsoft.graph.historyItem" }]
 }
 ```
 

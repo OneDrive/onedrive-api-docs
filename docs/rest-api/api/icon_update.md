@@ -1,14 +1,16 @@
 # Update icon
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of icon object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-|Permission type      | Permissions (from least to most privileged)              | 
-|:--------------------|:---------------------------------------------------------| 
-|Delegated (work or school account) | Files.ReadWrite    | 
-|Delegated (personal Microsoft account) | Not supported.    | 
-|Application | Not supported. | 
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
+|Delegated (work or school account) | Files.ReadWrite    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
+|Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -20,7 +22,6 @@ PATCH /workbook/worksheets/{id|name}/tables/{id|name}/sort/fields/icon
 | Name       | Description|
 |:-----------|:-----------|
 | Authorization  | Bearer {token}. Required. |
-
 
 ## Request body
 In the request body, supply the values for relevant fields that should be updated. Existing properties that are not included in the request body will maintain their previous values or be recalculated based on changes to other property values. For best performance you shouldn't include existing values that haven't changed.
@@ -41,7 +42,7 @@ Here is an example of the request.
   "name": "update_icon"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{id|name}/sort/fields/icon
+PATCH https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/{id|name}/sort/fields/icon
 Content-type: application/json
 Content-length: 39
 
@@ -55,7 +56,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookIcon"
+  "@odata.type": "microsoft.graph.icon"
 } -->
 ```http
 HTTP/1.1 200 OK

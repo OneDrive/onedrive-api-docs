@@ -1,5 +1,7 @@
 ﻿# Update windowsMobileMSI
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [windowsMobileMSI](../resources/intune_apps_windowsmobilemsi.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceAppManagement/mobileApps/{mobileAppId}
+PATCH /deviceAppManagement/mobileApps/{mobileAppId}/userStatuses/{userAppInstallStatusId}/app
+PATCH /deviceAppManagement/mobileApps/{mobileAppId}/deviceStatuses/{mobileAppInstallStatusId}/app
 ```
 
 ## Request headers
@@ -47,6 +51,7 @@ The following table shows the properties that are required when you create the [
 |owner|String|The owner of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |developer|String|The developer of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |notes|String|Notes for the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|uploadState|Int32|The upload state. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md). Possible values are: `notPublished`, `processing`, `published`.|
 |committedContentVersion|String|The internal committed content version. Inherited from [mobileLobApp](../resources/intune_apps_mobilelobapp.md)|
 |fileName|String|The name of the main Lob application file. Inherited from [mobileLobApp](../resources/intune_apps_mobilelobapp.md)|
@@ -55,6 +60,8 @@ The following table shows the properties that are required when you create the [
 |productCode|String|The product code.|
 |productVersion|String|The product version of Windows Mobile MSI Line of Business (LoB) app.|
 |ignoreVersionDetection|Boolean|A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.|
+|identityVersion|String|The identity version.|
+|useDeviceContext|Boolean|Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.|
 
 
 
@@ -65,9 +72,9 @@ If successful, this method returns a `200 OK` response code and an updated [wind
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps/{mobileAppId}
+PATCH https://graph.microsoft.com/beta/deviceAppManagement/mobileApps/{mobileAppId}
 Content-type: application/json
-Content-length: 864
+Content-length: 963
 
 {
   "displayName": "Display Name value",
@@ -85,6 +92,7 @@ Content-length: 864
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "committedContentVersion": "Committed Content Version value",
   "fileName": "File Name value",
@@ -92,7 +100,9 @@ Content-length: 864
   "commandLine": "Command Line value",
   "productCode": "Product Code value",
   "productVersion": "Product Version value",
-  "ignoreVersionDetection": true
+  "ignoreVersionDetection": true,
+  "identityVersion": "Identity Version value",
+  "useDeviceContext": true
 }
 ```
 
@@ -101,7 +111,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1027
+Content-Length: 1126
 
 {
   "@odata.type": "#microsoft.graph.windowsMobileMSI",
@@ -122,6 +132,7 @@ Content-Length: 1027
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "committedContentVersion": "Committed Content Version value",
   "fileName": "File Name value",
@@ -129,7 +140,9 @@ Content-Length: 1027
   "commandLine": "Command Line value",
   "productCode": "Product Code value",
   "productVersion": "Product Version value",
-  "ignoreVersionDetection": true
+  "ignoreVersionDetection": true,
+  "identityVersion": "Identity Version value",
+  "useDeviceContext": true
 }
 ```
 

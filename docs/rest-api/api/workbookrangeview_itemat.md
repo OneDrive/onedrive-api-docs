@@ -1,19 +1,20 @@
 # workbookRangeView: itemAt
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Files.ReadWrite |
+|Delegated (work or school account) | Not supported.    |
 |Delegated (personal Microsoft account) | Not supported.    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET me/drive/root/workbook/worksheets/{id}/range(address={address})/visibleView/itemAt(index={n})
+GET me/drive/root/workbook/worksheets/{id}/range(addres={address})/visibleView/itemAt(index={n})
 
 ```
 ## Request headers
@@ -22,7 +23,7 @@ GET me/drive/root/workbook/worksheets/{id}/range(address={address})/visibleView/
 | Authorization  | Bearer {token}. Required. |
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
-## Function parameters
+## Request body
 In the request URL, provide following query parameters with values.
 
 | Parameter	   | Type	|Description|
@@ -37,13 +38,12 @@ If successful, this method returns `200 OK` response code and [workbookRangeView
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
   "name": "workbookrangeview_itemat"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/root/workbook/worksheets/{id}/range(address='A1:Z10')/visibleView/itemAt(index=0)
+GET https://graph.microsoft.com/beta/drive/root/workbook/worksheets/{id}/range(addres='A1:Z10')/visibleView/itemAt(index=0)
 
 ```
 

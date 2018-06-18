@@ -1,5 +1,7 @@
 # Get domain
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of domain object.
 
 ## Permissions
@@ -44,11 +46,10 @@ If successful, this method returns a `200 OK` response code and [domain](../reso
 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["contoso.com"],
   "name": "get_domain"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/domains/contoso.com
+GET https://graph.microsoft.com/beta/domains/contoso.com
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

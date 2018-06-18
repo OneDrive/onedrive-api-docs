@@ -1,5 +1,7 @@
 # outlookUser: supportedLanguages
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server.
 
 When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language by 
@@ -42,7 +44,7 @@ Here is an example of the request.
   "name": "user_supportedlanguages"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/outlook/supportedLanguages
+GET https://graph.microsoft.com/beta/me/outlook/supportedLanguages
 ```
 
 ##### Response
@@ -58,7 +60,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.localeInfo)",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.localeInfo)",
   "value":[
     {
       "locale":"af-ZA",

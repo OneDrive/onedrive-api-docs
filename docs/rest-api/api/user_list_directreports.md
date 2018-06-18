@@ -1,5 +1,7 @@
 # List directReports
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get user's direct reports. Returns the users and contacts for whom this user is assigned as manager.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -37,7 +39,7 @@ Here is an example of the request.
   "name": "get_directreports"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/directReports
+GET https://graph.microsoft.com/beta/me/directReports
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

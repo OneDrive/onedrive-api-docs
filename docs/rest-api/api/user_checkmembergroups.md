@@ -1,5 +1,7 @@
 # checkMemberGroups
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Check for membership in the specified list of groups. Returns from the list those groups of which
 the user has a direct or transitive membership.
 
@@ -38,9 +40,9 @@ POST /users/{id | userPrincipalName}/checkMemberGroups
 
 In the request body, provide a JSON object with the following parameters.
 
-| Parameter | Type              | Description           |
-| :-------- | :---------------- | :-------------------- |
-| groupIds  | String collection | An array of group ids |
+| Parameter | Type   | Description           |
+| :-------- | :----- | :-------------------- |
+| groupIds  | String | An array of group ids |
 
 ## Response
 
@@ -60,7 +62,7 @@ Here is an example of the request.
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/me/checkMemberGroups
+POST https://graph.microsoft.com/beta/me/checkMemberGroups
 Content-type: application/json
 Content-length: 44
 

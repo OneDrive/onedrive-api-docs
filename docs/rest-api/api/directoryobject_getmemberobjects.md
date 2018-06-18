@@ -1,23 +1,27 @@
 # Get member objects
 
- Returns all the groups and directory roles that a user, group, or directory object is a member of. This function is transitive. 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+ Returns all the groups, administrative units and directory roles that a user, group, service principals or directory object is a member of. This function is transitive. 
  > Note: Only users can be members of directory roles.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
+
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | User.Read.All and Group.Read.All, Directory.Read.All    |
+|Delegated (work or school account) | Directory.Read.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | User.Read.All and Group.Read.All, Directory.Read.All |
+|Application | Directory.Read.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
 POST /me/getMemberObjects
 POST /users/{id | userPrincipalName}/getMemberObjects
-POST /groups/{id}/getMemberGroups
+POST /groups/{id}/getMemberObjects
+POST /servicePrincipals/{id}/getMemberObjects
 POST /directoryObjects/{id}/getMemberObjects
 
 ```
@@ -25,7 +29,7 @@ POST /directoryObjects/{id}/getMemberObjects
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
-| Content-Type   | string  | application/json  |
+| Content-Type  | application/json  |
 
 ## Request body
 In the request body, provide a JSON object with the following parameters.
@@ -46,7 +50,7 @@ If successful, this method returns `200 OK` response code and String collection 
   "name": "directoryobject_getmemberobjects"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/directoryObjects/{object-id}/getMemberObjects
+POST https://graph.microsoft.com/v1.0/me/getMemberObjects
 Content-type: application/json
 
 {

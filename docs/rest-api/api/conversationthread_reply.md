@@ -1,5 +1,7 @@
 # conversationThread: reply
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Reply to a thread in a group conversation and add a new post to it. You can specify the parent conversation 
 in the request, or, you can specify just the thread without the parent conversation.
 
@@ -44,7 +46,7 @@ Here is an example of the request.
   "name": "conversationthread_reply"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/threads/{id}/reply
+POST https://graph.microsoft.com/beta/groups/{id}/threads/{id}/reply
 Content-type: application/json
 Content-length: 1131
 

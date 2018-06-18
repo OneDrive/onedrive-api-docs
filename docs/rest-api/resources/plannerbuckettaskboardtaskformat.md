@@ -1,5 +1,7 @@
 # plannerBucketTaskBoardTaskFormat resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **plannerBucketTaskBoardTaskFormat** resource represents the information used to render a task correctly in the Buckets view of the Task Board (a view organized by tasks within the buckets they are assigned to). Each [task](plannertask.md) will have one **plannerBucketTaskBoardTaskFormat** object associated with it.
 
 
@@ -13,7 +15,7 @@ The **plannerBucketTaskBoardTaskFormat** resource represents the information use
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|id|String| Read-only. ID of the resource. It is 28 characters long and case sensitive. [Format validation](planner_identifiers_disclaimer.md) is done on the service.|
+|id|String| Read-only. ID of the resource. It is 28 characters long and case sensitive. [Format validation](tasks_identifiers_disclaimer.md) is done on the service.|
 |orderHint|String|Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined [here](planner_order_hint_format.md).|
 
 ## Relationships
@@ -23,10 +25,11 @@ None
 ## JSON representation
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.plannerBucketTaskBoardTaskFormat"
 }-->
 

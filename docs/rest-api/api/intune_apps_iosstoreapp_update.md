@@ -1,5 +1,7 @@
 ﻿# Update iosStoreApp
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [iosStoreApp](../resources/intune_apps_iosstoreapp.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceAppManagement/mobileApps/{mobileAppId}
+PATCH /deviceAppManagement/mobileApps/{mobileAppId}/userStatuses/{userAppInstallStatusId}/app
+PATCH /deviceAppManagement/mobileApps/{mobileAppId}/deviceStatuses/{mobileAppInstallStatusId}/app
 ```
 
 ## Request headers
@@ -47,6 +51,7 @@ The following table shows the properties that are required when you create the [
 |owner|String|The owner of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |developer|String|The developer of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |notes|String|Notes for the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|uploadState|Int32|The upload state. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md). Possible values are: `notPublished`, `processing`, `published`.|
 |bundleId|String|The Identity Name.|
 |appStoreUrl|String|The Apple App Store URL|
@@ -62,9 +67,9 @@ If successful, this method returns a `200 OK` response code and an updated [iosS
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps/{mobileAppId}
+PATCH https://graph.microsoft.com/beta/deviceAppManagement/mobileApps/{mobileAppId}
 Content-type: application/json
-Content-length: 1000
+Content-length: 1022
 
 {
   "displayName": "Display Name value",
@@ -82,6 +87,7 @@ Content-length: 1000
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "bundleId": "Bundle Id value",
   "appStoreUrl": "https://example.com/appStoreUrl/",
@@ -105,7 +111,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1158
+Content-Length: 1180
 
 {
   "@odata.type": "#microsoft.graph.iosStoreApp",
@@ -126,6 +132,7 @@ Content-Length: 1158
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "bundleId": "Bundle Id value",
   "appStoreUrl": "https://example.com/appStoreUrl/",

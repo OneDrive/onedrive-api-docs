@@ -1,5 +1,7 @@
 # Get directory objects from a list of ids
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Returns the directory objects specified in a list of ids.  NOTE: The directory objects returned are the full objects containing **all** their properties. The `$select` query option is not available for this operation.
 
 Some common uses for this function are to:
@@ -14,7 +16,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Directory.Read.All, Directory.AccessAsUser.All    |
+|Delegated (work or school account) | Directory.Read.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
 |Application | Directory.Read.All |
 
@@ -23,7 +25,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /directoryObjects/getByIds
+POST /directoryObjects/getById
 ```
 
 ## Request headers
@@ -31,7 +33,7 @@ POST /directoryObjects/getByIds
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
-| Content-Type  | string | application/json  |
+| Content-Type  | application/json  |
 
 ## Request body
 
@@ -56,11 +58,11 @@ If successful, this method returns `200 OK` response code and String collection 
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/directoryObjects/getByIds
+POST https://graph.microsoft.com/beta/directoryObjects/getByIds
 Content-type: application/json
 
 {
-    "ids":["84b80893874940a3-97b7-68513b600544","5d6059b6368d-45f8-91e18e07d485f1d0"],
+    "ids":["84b80893-8749-40a3-97b7-68513b600544","5d6059b6-368d-45f8-91e1-8e07d485f1d0"],
     "types":["user"]
 }
 ```
@@ -68,6 +70,7 @@ Content-type: application/json
 ##### Response
 
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -80,7 +83,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#directoryObjects",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#directoryObjects",
     "value": [
       {
         "@odata.type": "#microsoft.graph.user",

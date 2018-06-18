@@ -1,5 +1,7 @@
 # invitation manager
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use the invitation manager to create an invite, in order to add an external user to the organization. 
 
 The invitation process uses the following flow:
@@ -26,7 +28,7 @@ Creating an invitation will return a redemption URL in the response (*inviteRede
 |sendInvitationMessage|Boolean|Indicates whether an email should be sent to the user being invited or not. The default is false.|
 |inviteRedirectUrl|String|The URL user should be redirected to once the invitation is redeemed. Required.|
 |inviteRedeemUrl|String|The URL user can use to redeem his invitation. Read-Only|
-|invitedUserType|String|The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator. |
+|invitedUserType|String|The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. |
 |status|String|The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error|
 
 ## Relationships
@@ -37,7 +39,7 @@ Creating an invitation will return a redemption URL in the response (*inviteRede
 ## JSON representation
 Here is a JSON representation of the resource
 
-<!-- { "blockType": "resource", "baseType": "microsoft.graph.entity", "@odata.type": "microsoft.graph.invitation" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.invitations" } -->
 ```json
 {
   "invitedUserDisplayName": "string",
@@ -47,8 +49,8 @@ Here is a JSON representation of the resource
   "inviteRedirectUrl": "string",
   "inviteRedeemUrl": "string",
   "status": "string",
-  "invitedUser": {"@odata.type": "microsoft.graph.user"},
-  "invitedUserType": "string"
+
+  "invitedUser": [{"@odata.type": "microsoft.graph.user"}]
 }
 ```
 

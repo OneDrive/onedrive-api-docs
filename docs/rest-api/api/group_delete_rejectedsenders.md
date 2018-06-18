@@ -1,4 +1,7 @@
 # Remove rejectedSender
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Remove a user or group from the rejectedSenders list.
 
 ## Permissions
@@ -6,22 +9,21 @@ One of the following permissions is required to call this API. To learn more, in
 
 | Permission type                        | Permissions (from least to most privileged)  |
 |:---------------------------------------|:-------------------------------------------- |
-| Delegated (work or school account)     | Group.ReadWrite.All |
+| Delegated (work or school account)     | Group.ReadWrite.All  |  
 | Delegated (personal Microsoft account) | Not supported. |
 | Application                            | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /groups/{id}/rejectedSenders/$ref?$id=https://graph.microsoft.com/v1.0/users/{id}
-DELETE /groups/{id}/rejectedSenders/$ref?$id=https://graph.microsoft.com/v1.0/groups/{id}
+DELETE /groups/{id}/rejectedSenders/$ref?$id=<id>
 ```
 
 ## Request headers
 
 | Header         | Value                      |
 |:---------------|:---------------------------|
-| Authorization  | Bearer {token}. Required. 
+| Authorization  | Bearer {token}. Required.  
 
 ## Request body
 Do not supply a request body for this method.
@@ -37,7 +39,9 @@ The following are a couple of examples of the request.
   "name": "remove_rejectedSender_from_group"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/groups/{id}/rejectedSenders/$ref?$id=https://graph.microsoft.com/v1.0/users/{id}
+DELETE https://graph.microsoft.com/beta/groups/{id}/rejectedSenders/$ref?$id=https://graph.microsoft.com/beta/users/{id}
+
+DELETE https://graph.microsoft.com/beta/groups/{id}/rejectedSenders/$ref?$id=https://graph.microsoft.com/beta/groups/{id}
 ```
 
 #### Response

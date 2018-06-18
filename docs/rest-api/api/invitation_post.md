@@ -1,5 +1,7 @@
 # Create invitation
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new [invitation](../resources/invitation.md). Invitation adds an external user to the organization.
 
 When creating a new invitation you have several options available:
@@ -50,7 +52,7 @@ Here is an example of the request.
   "name": "create_user_from_users"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/invitations
+POST https://graph.microsoft.com/beta/invitations
 Content-type: application/json
 Content-length: 551
 
@@ -65,7 +67,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.invitation"
+  "@odata.type": "microsoft.graph.invitations"
 } -->
 ```http
 HTTP/1.1 201 OK
@@ -95,11 +97,3 @@ Content-length: 551
   "invitedUser":  [ {  "id": "243b1de4-ad9f-421c-a933-d55305fb165d" } ]
 }
 ```
-
-<!-- {
-  "type": "#page.annotation",
-  "suppressions": [
-    "Error: create_user_from_users/invitedUser:
-      Property 'invitedUser' is of type Custom but has no custom members."
-  ]
-}-->

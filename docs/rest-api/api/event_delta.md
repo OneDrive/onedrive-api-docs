@@ -1,5 +1,7 @@
 # event: delta
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a set of events that have been added, deleted, or updated in a **calendarView** (a range of events) 
 of the user's primary calendar.
 
@@ -16,15 +18,15 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Calendars.Read    |
-|Delegated (personal Microsoft account) | Calendars.Read    |
-|Application | Calendars.Read |
+|Delegated (work or school account) | Calendars.Read, Calendars.ReadWrite    |
+|Delegated (personal Microsoft account) | Calendars.Read, Calendars.ReadWrite    |
+|Application | Calendars.Read, Calendars.ReadWrite |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/calendarView/delta?startDateTime={start_datetime}&endDateTime={end_datetime}
-GET /users/{id}/calendarView/delta?startDateTime={start_datetime}&endDateTime={end_datetime}
+GET /users/<id>/calendarView/delta?startDateTime={start_datetime}&endDateTime={end_datetime}
 
 ```
 
@@ -75,7 +77,7 @@ appropriate [state tokens](../../../concepts/delta_query_overview.md), to get th
   "name": "event_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendarView/delta?startdatetime={start_datetime}&enddatetime={end_datetime}
+GET https://graph.microsoft.com/beta/me/calendarview/delta?startdatetime={start_datetime}&enddatetime={end_datetime}
 
 Prefer: odata.maxpagesize=2
 ```
@@ -101,7 +103,7 @@ Content-type: application/json
 Content-length: 359
 
 {
-  "@odata.nextLink":"https://graph.microsoft.com/v1.0/me/calendarView/delta?$skiptoken={_skipToken_}",
+  "@odata.nextLink":"https://graph.microsoft.com/beta/me/calendarview/delta?$skiptoken={_skipToken_}",
   "value": [
     {
       "originalStartTimeZone": "originalStartTimeZone-value",
@@ -120,8 +122,8 @@ Content-length: 359
 
 ### See also
 
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
-- [Get incremental changes to events in a calendar](../../../concepts/delta_query_events.md)
+- [Microsoft Graph delta query](../../../concepts/delta_query_overview.md)
+- [Get incremental changes to events in a folder](../../../concepts/delta_query_events.md)
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

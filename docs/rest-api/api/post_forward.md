@@ -1,5 +1,7 @@
 # post: forward
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Forward a post to a recipient. You can specify both the parent conversation and thread in the request, 
 or, you can specify just the parent thread without the parent conversation. 
 
@@ -45,7 +47,7 @@ Here is an example of the request.
   "name": "post_forward"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/threads/{id}/posts/{id}/forward
+POST https://graph.microsoft.com/beta/groups/{id}/threads/{id}/posts/{id}/forward
 Content-type: application/json
 Content-length: 166
 

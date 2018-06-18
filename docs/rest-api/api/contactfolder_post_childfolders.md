@@ -1,5 +1,7 @@
 # Create ContactFolder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new contactFolder as a child of a specified folder. 
 
 You can also [create a new contactFolder under the user's default contact folder](user_post_contactfolders.md).
@@ -39,7 +41,7 @@ Here is an example of the request.
   "name": "create_contactfolder_from_contactfolder"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/contactFolders/{id}/childFolders
+POST https://graph.microsoft.com/beta/me/contactFolders/{id}/childFolders
 Content-type: application/json
 Content-length: 84
 

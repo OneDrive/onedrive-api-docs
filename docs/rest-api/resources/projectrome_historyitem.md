@@ -1,5 +1,7 @@
 # historyItem resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a history item for an [activity](projectrome_activity.md) in an app. User activities represent a single destination within your app - for example, a TV show, a document, or a current campaign in a video game. When a user engages with that activity, the engagement is captured as a history item that indicates the start and end time for that activity. As the user re-engages with that activity over time, multiple history items are recorded for a single user activity.
 
 When an app creates a session, a **historyItem** object should be added to the **activity** object to reflect the period of user engagement. Each time a user re-engages with an activity, a new **historyItem** is added to the activity to accrue user engagement.
@@ -15,7 +17,7 @@ When an app creates a session, a **historyItem** object should be added to the *
 
 |Name | Type | Description|
 |:----|:-----|:-----------|
-|status | status | Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.|
+|status | EnumType | Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.|
 |userTimezone | String | Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.|
 |createdDateTime | DateTimeOffset | Set by the server. DateTime in UTC when the object was created on the server.|
 |lastModifiedDateTime | DateTimeOffset | Set by the server. DateTime in UTC when the object was modified on the server.|
@@ -29,7 +31,7 @@ When an app creates a session, a **historyItem** object should be added to the *
 
 |Relationship | Type | Description|
 |:------------|:-----|:-----------|
-|activity| [userActivity](../resources/projectrome_activity.md) | Optional. NavigationProperty/Containment; navigation property to the associated activity.|
+|activity| [activity](../resources/projectrome_activity.md) | Optional. NavigationProperty/Containment; navigation property to the associated activity.|
 
 ## JSON representation
 
@@ -42,22 +44,12 @@ Here is a JSON representation of the resource.
     "lastActiveDateTime",
     "activeDurationSeconds"
   ],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.activityHistoryItem",
-  "@odata.annotations": [
-    {
-      "capabilities": {
-        "skippable": false,
-        "countable": false,
-        "selectable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.historyItem"
 }-->
 
 ```json
 {
-    "status": "active | updated | deleted | ignored",
+    "status": "String (EnumType)",
     "createdDateTime": "DateTimeOffset",
     "lastModifiedDateTime": "DateTimeOffset",
     "id": "String",

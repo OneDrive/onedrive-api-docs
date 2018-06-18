@@ -1,4 +1,7 @@
 # page: copyToSection
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Copies a page to a specific section.
 
 For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
@@ -18,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 POST /me/onenote/pages/{id}/copyToSection
 POST /users/{id | userPrincipalName}/onenote/pages/{id}/copyToSection
 POST /groups/{id}/onenote/pages/{id}/copyToSection
+POST /sites/{id}/onenote/pages/{id}/copyToSection
 ```
 ## Request headers
 | Name       | Type | Description|
@@ -30,6 +34,8 @@ In the request body, provide a JSON object that contains the parameters that you
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
+|siteCollectionId|String|The id of the SharePoint site to copy to. Use only when copying to an Office 365 team site.|
+|siteId|String|The id of the SharePoint web to copy to. Use only when copying to an Office 365 team site.|
 |groupId|String|The id of the group to copy to. Use only when copying to an Office 365 group.|
 |id|String|Required. The id of the destination section.|
 
@@ -46,7 +52,7 @@ Here is an example of the request.
   "name": "page_copytosection"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/onenote/pages/{id}/copyToSection
+POST https://graph.microsoft.com/beta/me/onenote/pages/{id}/copyToSection
 Content-type: application/json
 Content-length: 52
 

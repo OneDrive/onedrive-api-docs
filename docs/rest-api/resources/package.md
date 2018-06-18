@@ -6,6 +6,8 @@ title: Package
 ---
 # Package resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **Package** resource indicates that a DriveItem is the top level item in a "package" or a collection of items that should be treated as a collection instead of individual items.
 
 An example of a package is a OneNote notebook. 
@@ -22,11 +24,9 @@ DriveItems with the **package** facet do not include a **folder** or **file** fa
 }
 ```
 
-## Properties
-
 | Property Name | Type   | Description                                                                                                                                                                      |
 |:--------------|:-------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type          | string | A string indicating the type of package. While `oneNote` is the only currently defined value, you should expect other package types to be returned and handle them accordingly. |
+| **type**      | string | An string indicating the type of package. While `oneNote` is the only currently defined value, you should expect other package types to be returned and handle them accordingly. |
 
 ## Remarks 
 
@@ -37,6 +37,5 @@ For more information about the facets on a DriveItem, see [DriveItem](driveitem.
   "type": "#page.annotation",
   "description": "The Package facet indicates that an item is the root of a special collection of items that should be treated as a single unit.",
   "keywords": "package, facet, onenote",
-  "section": "documentation",
-  "tocPath": "Facets/Package"
+  "section": "documentation"
 } -->

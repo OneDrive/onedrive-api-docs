@@ -1,6 +1,9 @@
 # inferenceClassificationOverride resource type
 
-Represents a user's override for how incoming messages from a specific sender should always be classified as.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Represents a user's override for how incoming messages from a specific sender should always be classified as
+in a [Focused Inbox](manage_focused_inbox.md).
 
 
 ## Methods
@@ -13,16 +16,9 @@ Represents a user's override for how incoming messages from a specific sender sh
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|classifyAs|inferenceClassificationType| Specifies how incoming messages from a specific sender should always be classified as. Possible values are: `focused`, `other`.|
+|classifyAs|string| Specifies how incoming messages from a specific sender should always be classified as. Possible values are: `focused`, `other`.|
 |id|string| The unique identifier of the override. Read-only.|
 |senderEmailAddress|[emailAddress](emailaddress.md)|The email address information of the sender for whom the override is created.|
-
-### inferenceClassificationType values
-
-| Value
-|:-----------------
-| focused
-| other
 
 ## Relationships
 None
@@ -34,7 +30,6 @@ Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [
 
   ],

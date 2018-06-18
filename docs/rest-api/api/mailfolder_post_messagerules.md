@@ -1,5 +1,6 @@
 # Create rule
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Create a [messageRule](../resources/messagerule.md) object by specifying a set of conditions and actions. 
 
@@ -18,8 +19,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /me/mailFolders/inbox/messageRules
-POST /users/{id | userPrincipalName}/mailFolders/inbox/messageRules
+POST /me/mailFolders/inbox/messagerules
+POST /users/{id | userPrincipalName}/mailFolders/inbox/messagerules
 ```
 ## Request headers
 | Name       | Description|
@@ -49,11 +50,10 @@ If successful, this method returns `201 Created` response code and a **messageRu
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["inbox"],
   "name": "create_messagerule_from_mailfolder"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules
+POST https://graph.microsoft.com/beta/me/mailFolders/inbox/messagerules
 Content-type: application/json
 
 {      

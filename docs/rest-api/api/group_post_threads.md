@@ -1,8 +1,10 @@
 # Create conversation thread
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Start a new group conversation by first creating a thread. 
 
-A new conversation, conversation thread, and post are created in the group. 
-Use [reply thread](conversationthread_reply.md) or [reply post](post_reply.md) to further post to that thread.
+A new conversation, conversation thread, and post are created in the group. Use [reply thread](conversationthread_reply.md) or [reply post](post_reply.md) to further post to that thread.
 
 Note: You can also [start a new thread in an existing conversation](conversation_post_threads.md). 
 
@@ -40,7 +42,7 @@ The following is an example of the request.
   "name": "create_conversationthread_from_group"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/threads
+POST https://graph.microsoft.com/beta/groups/{id}/threads
 Content-type: application/json
 
 {
@@ -59,6 +61,7 @@ Content-type: application/json
   }]
 }
 ```
+
 #### Response
 The following is an example of the response.
 >**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
@@ -83,7 +86,7 @@ Content-length: 419
   ],
   "topic": "topic-value",
   "hasAttachments": true,
-  "lastDeliveredDateTime": "datetime-value",
+  "lastDeliveredDateTime": "2016-10-19T10:37:00Z",
   "uniqueSenders": [
     "uniqueSenders-value"
   ],

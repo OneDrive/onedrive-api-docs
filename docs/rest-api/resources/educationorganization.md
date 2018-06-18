@@ -1,21 +1,15 @@
 # educationOrganization resource type
 
-Abstract entity used to model the commonality between different organization types within the education sector.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Abstract entity used to model the commonality between different organization types within the education sector.  
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |description|String| Organization description.|
 |displayName|String| Organization display name.|
-|externalSource|educationExternalSource| Source where this organization was created from. Possible values are: `sis`, `manual`, `unknownFutureValue`.|
-
-### educationExternalSource values
-
-| Value
-|:-------------
-| sis
-| manual
-| unknownFutureValue
+|externalSource|string| Source where this organization was created from. Possible values are: `sis`, `manual`, `unknownFutureValue`.|
 
 ## Relationships
 None.
@@ -27,8 +21,6 @@ The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "abstract": true,
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [
 
   ],

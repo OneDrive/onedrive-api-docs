@@ -1,10 +1,12 @@
 # Create subscription
 
-Subscribes a listener application to receive notifications when data on the Microsoft Graph changes.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Subscribes a listener application to receive notifications when data on a Microsoft Graph resource changes.
 
 ## Permissions
 
-Creating a subscription requires read scope to the resource. For example, to get notifications messages, your app needs the `Mail.Read` permission. The following table lists the suggested permission needed for each resource. To learn more, including how to choose permissions, see [Permissions](/concepts/permissions_reference.md).
+Creating a subscription requires read permission to the resource for which the app will receive notifications. For example, to get notifications about Messages, your app needs the `Mail.Read` permission. The following table lists the suggested permission needed for each resource. To learn more, including how to choose permissions, see [Permissions](/concepts/permissions_reference.md).
 
 | Resource type / Item        | Permission          |
 |-----------------------------|---------------------|
@@ -17,7 +19,7 @@ Creating a subscription requires read scope to the resource. For example, to get
 | Drive  (User's OneDrive)    | Files.ReadWrite     |
 | Drives (SharePoint shared content and drives) | Files.ReadWrite.All |
 
- > **Note:** The /v1.0 endpoint allows application permissions for most resources. Conversations in a Group and OneDrive drive root items are not supported with application permissions.
+> **Note:** The /beta endpoint allows application permissions for most resources. Conversations in a Group and OneDrive drive root items are not supported with application permissions.
 
 ## HTTP request
 
@@ -41,14 +43,17 @@ If successful, this method returns `201 Created` response code and a [subscripti
 
 ##### Request
 
-Here is an example of the request to send a notification when the user receives a new mail.
+In the request body, supply a JSON representation of the [subscription](../resources/subscription.md) object.
+The `clientState` field is optional.
+
+This sample request creates a subscription for notifications about new mail received by the currently signed in user.
 <!-- {
   "blockType": "request",
   "name": "create_subscription_from_subscriptions"
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/subscriptions
+POST https://graph.microsoft.com/beta/subscriptions
 Content-type: application/json
 
 {
@@ -60,12 +65,7 @@ Content-type: application/json
 }
 ```
 
-In the request body, supply a JSON representation of the [subscription](../resources/subscription.md) object.
-The `clientState` field is optional.
-
-##### Resources examples
-
-The following are valid values for the resource property of the subscription:
+The following are valid values for the resource property:
 
 | Resource type | Examples |
 |:------ |:----- |

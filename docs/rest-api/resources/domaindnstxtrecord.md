@@ -1,5 +1,7 @@
 # domainDnsTxtRecord resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a TXT record added to the DNS zone file of a particular domain in the tenant. Inherited from [DomainDnsRecord](domaindnsrecord.md) entity.
 
 ## Methods
@@ -25,7 +27,6 @@ Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.domainDnsRecord",
   "optionalProperties": [
 
   ],
@@ -34,6 +35,7 @@ Here is a JSON representation of the resource.
 
 ```json
 {
+  "canonicalName": "String",
   "id": "String (identifier)",
   "isOptional": true,
   "label": "String",

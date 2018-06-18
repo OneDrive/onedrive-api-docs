@@ -1,5 +1,7 @@
 ﻿# Update deviceManagementPartner
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [deviceManagementPartner](../resources/intune_onboarding_devicemanagementpartner.md) object.
@@ -41,6 +43,8 @@ The following table shows the properties that are required when you create the [
 |singleTenantAppId|String|Partner Single tenant App id|
 |displayName|String|Partner display name|
 |isConfigured|Boolean|Whether device management partner is configured or not|
+|whenPartnerDevicesWillBeRemoved|DateTimeOffset|DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.|
+|whenPartnerDevicesWillBeMarkedAsNonCompliant|DateTimeOffset|DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.|
 |whenPartnerDevicesWillBeRemovedDateTime|DateTimeOffset|DateTime in UTC when PartnerDevices will be removed|
 |whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime|DateTimeOffset|DateTime in UTC when PartnerDevices will be marked as NonCompliant|
 
@@ -53,9 +57,9 @@ If successful, this method returns a `200 OK` response code and an updated [devi
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceManagementPartners/{deviceManagementPartnerId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceManagementPartners/{deviceManagementPartnerId}
 Content-type: application/json
-Content-length: 440
+Content-length: 602
 
 {
   "lastHeartbeatDateTime": "2016-12-31T23:59:37.9174975-08:00",
@@ -64,6 +68,8 @@ Content-length: 440
   "singleTenantAppId": "Single Tenant App Id value",
   "displayName": "Display Name value",
   "isConfigured": true,
+  "whenPartnerDevicesWillBeRemoved": "2017-01-01T00:00:34.890321-08:00",
+  "whenPartnerDevicesWillBeMarkedAsNonCompliant": "2017-01-01T00:02:38.9066046-08:00",
   "whenPartnerDevicesWillBeRemovedDateTime": "2016-12-31T23:56:38.2655023-08:00",
   "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime": "2016-12-31T23:58:42.2131231-08:00"
 }
@@ -74,7 +80,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 551
+Content-Length: 713
 
 {
   "@odata.type": "#microsoft.graph.deviceManagementPartner",
@@ -85,6 +91,8 @@ Content-Length: 551
   "singleTenantAppId": "Single Tenant App Id value",
   "displayName": "Display Name value",
   "isConfigured": true,
+  "whenPartnerDevicesWillBeRemoved": "2017-01-01T00:00:34.890321-08:00",
+  "whenPartnerDevicesWillBeMarkedAsNonCompliant": "2017-01-01T00:02:38.9066046-08:00",
   "whenPartnerDevicesWillBeRemovedDateTime": "2016-12-31T23:56:38.2655023-08:00",
   "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime": "2016-12-31T23:58:42.2131231-08:00"
 }

@@ -1,5 +1,7 @@
 ﻿# Create androidStoreApp
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [androidStoreApp](../resources/intune_apps_androidstoreapp.md) object.
@@ -47,8 +49,10 @@ The following table shows the properties that are required when you create the a
 |owner|String|The owner of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |developer|String|The developer of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |notes|String|Notes for the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|uploadState|Int32|The upload state. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md). Possible values are: `notPublished`, `processing`, `published`.|
 |packageId|String|The package identifier.|
+|appIdentifier|String|The Identity Name.|
 |appStoreUrl|String|The Android app store URL.|
 |minimumSupportedOperatingSystem|[androidMinimumOperatingSystem](../resources/intune_apps_androidminimumoperatingsystem.md)|The value for the minimum applicable operating system.|
 
@@ -61,9 +65,9 @@ If successful, this method returns a `201 Created` response code and a [androidS
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps
+POST https://graph.microsoft.com/beta/deviceAppManagement/mobileApps
 Content-type: application/json
-Content-length: 1002
+Content-length: 1068
 
 {
   "@odata.type": "#microsoft.graph.androidStoreApp",
@@ -82,8 +86,10 @@ Content-length: 1002
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "packageId": "Package Id value",
+  "appIdentifier": "App Identifier value",
   "appStoreUrl": "https://example.com/appStoreUrl/",
   "minimumSupportedOperatingSystem": {
     "@odata.type": "microsoft.graph.androidMinimumOperatingSystem",
@@ -104,7 +110,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 1110
+Content-Length: 1176
 
 {
   "@odata.type": "#microsoft.graph.androidStoreApp",
@@ -125,8 +131,10 @@ Content-Length: 1110
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "packageId": "Package Id value",
+  "appIdentifier": "App Identifier value",
   "appStoreUrl": "https://example.com/appStoreUrl/",
   "minimumSupportedOperatingSystem": {
     "@odata.type": "microsoft.graph.androidMinimumOperatingSystem",

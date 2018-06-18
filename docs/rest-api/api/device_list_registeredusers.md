@@ -1,5 +1,7 @@
 # List registeredUsers
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of users that are registered users of the device.
 
 For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration.
@@ -7,11 +9,10 @@ For cloud joined devices and registered personal devices, registered users are s
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (work or school account) | Directory.Read.All or Directory.ReadWrite.All or Directory.AccessAsUser.All    |
+|Delegated (personal Microsoft account) | Not supported. |
 |Application | Device.ReadWrite.All and User.ReadBasic.All or Directory.Read.All or Directory.ReadWrite.All |
 
 ## HTTP request
@@ -19,6 +20,9 @@ One of the following permissions is required to call this API. To learn more, in
 ```http
 GET /devices/{id}/registeredUsers
 ```
+
+> Note: The "id" in the request is the "id" property of the device, not the "deviceId" property.
+
 ## Optional query parameters
 This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
@@ -40,7 +44,7 @@ Here is an example of the request.
   "name": "get_registeredusers"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/devices/{id}/registeredUsers
+GET https://graph.microsoft.com/beta/devices/{id}/registeredUsers
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

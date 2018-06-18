@@ -1,5 +1,7 @@
 # singleValueLegacyExtendedProperty resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 An extended property that contains a single value. 
 
 See [Extended properties overview](../resources/extended-properties-overview.md) for more information about when to use 
@@ -10,13 +12,13 @@ open extensions or extended properties, and how to specify extended properties.
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Post](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) | A supported resource instance: [message](../resources/message.md), [mailFolder](../resources/mailfolder.md), [event](../resources/event.md), [calendar](../resources/calendar.md), [contact](../resources/contact.md), or [contactFolder](../resources/contactfolder.md), but not group [post](../resources/post.md). | Create a **singleValueLegacyExtendedProperty** in a new or existing instance of a supported resource. |
-|[Get](../api/singlevaluelegacyextendedproperty_get.md) |One or a collection of supported resource instance ([message](../resources/message.md), [mailFolder](../resources/mailfolder.md), [event](../resources/event.md), [calendar](../resources/calendar.md), [contact](../resources/contact.md), [contactFolder](../resources/contactfolder.md), or group [post](../resources/post.md)), or one such instance expanded with a [singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) object. |Get a resource instance with an extended property using `$expand` or `$filter`.|
+|[Post](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) | A supported resource instance: [message](../resources/message.md), [mailFolder](../resources/mailfolder.md), [event](../resources/event.md), [calendar](../resources/calendar.md), [contact](../resources/contact.md), [contactFolder](../resources/contactfolder.md), [Outlook task](../resources/outlooktask.md), or [Outlook task folder](../resources/outlooktaskfolder.md), but not group [post](../resources/post.md). | Create a **singleValueLegacyExtendedProperty** in a new or existing instance of a supported resource. |
+|[Get](../api/singlevaluelegacyextendedproperty_get.md) |One or a collection of supported resource instance ([message](../resources/message.md), [mailFolder](../resources/mailfolder.md), [event](../resources/event.md), [calendar](../resources/calendar.md), [contact](../resources/contact.md), [contactFolder](../resources/contactfolder.md), [Outlook task](../resources/outlooktask.md), [Outlook task folder](../resources/outlooktaskfolder.md), or group [post](../resources/post.md)), or one such instance expanded with a [singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) object. |Get a resource instance with an extended property using `$expand` or `$filter`.|
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|id|string|The property ID used to identify the property. Read-only.|
+|id|string|The property identifier. Read-only.|
 |value|string|A property value.|
 
 ## Relationships
@@ -27,10 +29,11 @@ None
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.singleValueLegacyExtendedProperty"
 }-->
 

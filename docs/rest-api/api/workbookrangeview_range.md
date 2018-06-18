@@ -1,4 +1,7 @@
 # workbookRangeView: range
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Return the range associated with the rangeView resource.
 
 ## Permissions
@@ -8,13 +11,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET me/drive/root/workbook/worksheets/{id}/range(address={address})/visibleView/range
+GET me/drive/root/workbook/worksheets/{id}/range(addres={address})/visibleView/range
 
 ```
 ## Request headers
@@ -25,20 +28,20 @@ GET me/drive/root/workbook/worksheets/{id}/range(address={address})/visibleView/
 
 ## Request body
 
-### Response
+## Response
+
 If successful, this method returns `200 OK` response code and [workbookRange](../resources/range.md) object in the response body.
 
 ## Example
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
   "name": "workbookrangeview_range"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/root/workbook/worksheets/{id}/range(address='A1:Z10')/visibleView/range
+GET https://graph.microsoft.com/beta/drive/root/workbook/worksheets/{id}/range(addres='A1:Z10')/visibleView/range
 ```
 
 ##### Response
@@ -46,7 +49,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK

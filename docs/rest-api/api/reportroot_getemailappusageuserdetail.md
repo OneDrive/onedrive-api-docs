@@ -1,5 +1,7 @@
 # reportRoot: getEmailAppUsageUserDetail
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get details about which activities users performed on the various email apps.
 
 > **Note:** For details about different report views and names, see [Office 365 Reports - Email apps usage](https://support.office.com/client/Email-apps-usage-c2ce12a2-934f-4dd4-ba65-49b02be4703d).
@@ -16,7 +18,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 ## HTTP request
 
-<!-- { "blockType": "samples" } --> 
+<!-- { "blockType": "ignored" } --> 
 
 ```http
 GET /reports/getEmailAppUsageUserDetail(period='{period_value}')
@@ -34,14 +36,17 @@ In the request URL, provide one of the following parameters with a valid value.
 
 > **Note:** You need to set either period or date in the URL.
 
+This method supports the `$format`, `$top`, and `$skipToken` [OData query parameters](../../../concepts/query_parameters.md) to customize the response. The default output type is text/csv. However, if you want to specify the output type, you can use the OData $format query parameter set to text/csv or application/json.
+
 ## Request headers
 
-| Name          | Description                              |
-| :------------ | :--------------------------------------- |
-| Authorization | Bearer {token}. Required.                |
-| If-None-Match | If this request header is included and the eTag provided matches the current tag on the file, a `304 Not Modified` response code is returned. Optional. |
+| Name          | Description               |
+| :------------ | :------------------------ |
+| Authorization | Bearer {token}. Required. |
 
 ## Response
+
+### CSV
 
 If successful, this method returns a `302 Found` response that redirects to a preauthenticated download URL for the report. That URL can be found in the `Location` header in the response.
 
@@ -66,31 +71,36 @@ The CSV file has the following headers for columns.
 - SMTP App
 - Report Period
 
+### JSON
+
+If successful, this method returns a `200 OK` response code and an **[emailAppUsageUserDetail](../resources/emailappusageuserdetail.md)** object in the response body.
+
+The default page size for this request is 200 items.
+
 ## Example
+
+### CSV
+
+The following is an example that outputs CSV.
 
 #### Request
 
 The following is an example of the request.
 
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
-  "name": "reportroot_getemailappusageuserdetail"
+  "name": "reportroot_getemailappusageuserdetail_csv"
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/reports/getEmailAppUsageUserDetail(period='D7')
+GET https://graph.microsoft.com/beta/reports/getEmailAppUsageUserDetail(period='D7')?$format=text/csv
 ```
 
 #### Response
 
 The following is an example of the response.
 
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.report"
-} -->
+<!-- { "blockType": "ignored" } --> 
 
 ```http
 HTTP/1.1 302 Found
@@ -100,11 +110,78 @@ Location: https://reports.office.com/data/download/JDFKdf2_eJXKS034dbc7e0t__XDe
 
 Follow the 302 redirection and the CSV file that downloads will have the following schema.
 
-<!-- { "blockType": "ignored" } --> 
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "stream"
+} -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream
 
 Report Refresh Date,User Principal Name,Display Name,Is Deleted,Deleted Date,Last Activity Date,Mail For Mac,Outlook For Mac,Outlook For Windows,Outlook For Mobile,Other For Mobile,Outlook For Web,POP3 App,IMAP4 App,SMTP App,Report Period
+```
+
+### JSON
+
+The following is an example that returns JSON.
+
+#### Request
+
+The following is an example of the request.
+
+<!-- {
+  "blockType": "request",
+  "name": "reportroot_getemailappusageuserdetail_json"
+}-->
+
+```http
+GET https://graph.microsoft.com/beta/reports/getEmailAppUsageUserDetail(period='D7')?$format=application/json
+```
+
+#### Response
+
+The following is an example of the response.
+
+> **Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.emailAppUsageUserDetail"
+} -->
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 515
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.emailAppUsageUserDetail)", 
+  "value": [
+    {
+      "reportRefreshDate": "2017-09-01", 
+      "userPrincipalName": "userPrincipalName-value", 
+      "displayName": "displayName-value", 
+      "isDeleted": false, 
+      "deletedDate": null, 
+      "lastActivityDate": "2017-09-01", 
+      "mailForMac": [ ], 
+      "outlookForMac": [ ], 
+      "outlookForWindows": [ ], 
+      "outlookForMobile": [
+        "Undetermined"
+      ], 
+      "otherForMobile": [ ], 
+      "outlookForWeb": [
+        "Undetermined"
+      ], 
+      "pop3App": [ ], 
+      "imap4App": [ ], 
+      "smtpApp": [ ], 
+      "reportPeriod": "7"
+    }
+  ]
+}
 ```

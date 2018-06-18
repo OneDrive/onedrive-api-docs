@@ -1,5 +1,7 @@
 # Table: TotalRowRange
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Gets the range object associated with totals row of the table.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,14 +9,14 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/tables/{id|name}/totalRowRange
-POST /workbook/worksheets/{id|name}/tables/{id|name}/totalRowRange
+POST /workbook/tables/{id|name}/TotalRowRange
+POST /workbook/worksheets/{id|name}/tables/{id|name}/TotalRowRange
 
 ```
 ## Request headers
@@ -33,14 +35,12 @@ If successful, this method returns `200 OK` response code and [Range](../resourc
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
-  "name": "table_totalrowrange",
-  "idempotent": true
+  "name": "table_totalrowrange"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{id|name}/totalRowRange
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/{id|name}/TotalRowRange
 ```
 
 ##### Response
@@ -48,7 +48,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK

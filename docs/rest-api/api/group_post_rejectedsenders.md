@@ -1,4 +1,7 @@
 # Create rejectedSender
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Add a new user or group to the rejectedSender list.
 
 Specify the user or group in `@odata.id` in the request body. Users in the rejected senders list cannot post to conversations of the group (identified in the POST request URL). Make sure you do not specify the same user or group in the rejected senders and accepted senders lists, otherwise you will get an error.
@@ -17,6 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 ```http
 POST /groups/{id}/rejectedSenders/$ref
 ```
+
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
@@ -33,17 +37,18 @@ This method returns `204 No Content` response code and no response body.
 The following is an example of the request.
 <!-- {
   "blockType": "request",
-  "name": "create_directoryobject_from_group"
+  "name": "create_rejectedsender"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/rejectedSenders/$ref
+POST https://graph.microsoft.com/beta/groups/{id}/rejectedSenders/$ref
 Content-type: application/json
 Content-length: 30
 
 {
-  "@odata.id":"https://graph.microsoft.com/v1.0/users/alexd@contoso.com"
+  "@odata.id":"https://graph.microsoft.com/beta/users/alexd@contoso.com"
 }
 ```
+
 #### Response
 The following is an example of the response.
 <!-- {

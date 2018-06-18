@@ -1,17 +1,21 @@
 # directoryObject resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents an Azure Active Directory object. The **directoryObject** type is the base type for many other directory entity types.
+
 
 ## Methods
 
 | Method       | Return Type  |Description|
 |:---------------|:--------|:----------|
 |[Get directoryObject](../api/directoryobject_get.md) | [directoryObject](directoryobject.md) |Read the properties  of a directory object.|
-|[Delete directoryObject](../api/directoryobject_delete.md) | None |Delete a directory object. |
+|[Delete](../api/directoryobject_delete.md) | None |Delete a directory object. |
 |[checkMemberGroups](../api/directoryobject_checkmembergroups.md)|String collection|Check for membership in a list of groups. The check is transitive.|
 |[getMemberGroups](../api/directoryobject_getmembergroups.md)|String collection|Return all the groups that the user, group, or directory object is a member of. The check is transitive.|
 |[getMemberObjects](../api/directoryobject_getmemberobjects.md)|String collection| Return all of the groups and directory roles that the user, group, or directory object is a member of. The check is transitive. |
 |[getByIds](../api/directoryobject_getbyids.md) | [directoryObject](directoryobject.md) collection | Get a set of directory objects based on a set of supplied ids. |
+|[validateProperties](../api/directoryobject_validateproperties.md)|JSON| Validate an Office 365 group's display name or mail nickname complies with naming policies. | 
 
 ## Properties
 
@@ -23,30 +27,17 @@ Represents an Azure Active Directory object. The **directoryObject** type is the
 
 None
 
-
 ## JSON representation
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "openType": true,
-  "optionalProperties": [],
+  "optionalProperties": [
+
+  ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.directoryObject",
-  "@odata.annotations": [
-    {
-      "capabilities": {
-        "skippable": false,
-        "countable": false,
-        "expandable": false,
-        "filterable": false,
-        "referenceable": false,
-        "selectable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.directoryObject"
 }-->
 
 ```json

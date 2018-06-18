@@ -1,5 +1,7 @@
 # Remove teacher
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Remove a teacher from a class.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "create_educationclass_from_educationschool"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/education/classes/{class-id}/teachers/{teacher-id}
+DELETE https://graph.microsoft.com/beta/education/classes/<id>/teachers/14012
 ```
 
 ##### Response

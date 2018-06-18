@@ -1,5 +1,7 @@
 ﻿# Create windows81GeneralConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [windows81GeneralConfiguration](../resources/intune_deviceconfig_windows81generalconfiguration.md) object.
@@ -19,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 POST /deviceManagement/deviceConfigurations
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations
 ```
 
 ## Request headers
@@ -70,6 +73,7 @@ The following table shows the properties that are required when you create the w
 |passwordRequiredType|[requiredPasswordType](../resources/intune_deviceconfig_requiredpasswordtype.md)|The required password type. Possible values are: `deviceDefault`, `alphanumeric`, `numeric`.|
 |passwordSignInFailureCountBeforeFactoryReset|Int32|The number of sign in failures before factory reset.|
 |storageRequireDeviceEncryption|Boolean|Indicates whether or not to require encryption on a mobile device.|
+|minimumAutoInstallClassification|[updateClassification](../resources/intune_deviceconfig_updateclassification.md)|The minimum update classification to install automatically. Possible values are: `userDefined`, `recommendedAndImportant`, `important`, `none`.|
 |updatesRequireAutomaticUpdates|Boolean|Indicates whether or not to require automatic updates.|
 |userAccountControlSettings|[windowsUserAccountControlSettings](../resources/intune_deviceconfig_windowsuseraccountcontrolsettings.md)|The user account control settings. Possible values are: `userDefined`, `alwaysNotify`, `notifyOnAppChanges`, `notifyOnAppChangesWithoutDimming`, `neverNotify`.|
 |workFoldersUrl|String|The work folders url.|
@@ -83,9 +87,9 @@ If successful, this method returns a `201 Created` response code and a [windows8
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
+POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations
 Content-type: application/json
-Content-length: 1757
+Content-length: 1823
 
 {
   "@odata.type": "#microsoft.graph.windows81GeneralConfiguration",
@@ -123,6 +127,7 @@ Content-length: 1757
   "passwordRequiredType": "alphanumeric",
   "passwordSignInFailureCountBeforeFactoryReset": 12,
   "storageRequireDeviceEncryption": true,
+  "minimumAutoInstallClassification": "recommendedAndImportant",
   "updatesRequireAutomaticUpdates": true,
   "userAccountControlSettings": "alwaysNotify",
   "workFoldersUrl": "https://example.com/workFoldersUrl/"
@@ -134,7 +139,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 1865
+Content-Length: 1931
 
 {
   "@odata.type": "#microsoft.graph.windows81GeneralConfiguration",
@@ -174,6 +179,7 @@ Content-Length: 1865
   "passwordRequiredType": "alphanumeric",
   "passwordSignInFailureCountBeforeFactoryReset": 12,
   "storageRequireDeviceEncryption": true,
+  "minimumAutoInstallClassification": "recommendedAndImportant",
   "updatesRequireAutomaticUpdates": true,
   "userAccountControlSettings": "alwaysNotify",
   "workFoldersUrl": "https://example.com/workFoldersUrl/"

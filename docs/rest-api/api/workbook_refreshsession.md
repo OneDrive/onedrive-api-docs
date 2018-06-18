@@ -38,7 +38,7 @@ Here is an example of the request.
   "name": "refresh_excel_session"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/refreshSession
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/refreshSession
 Content-type: application/json
 workbook-session-id: {session-id}
 Content-length: 0
@@ -61,11 +61,3 @@ Here is an example of the response.
 ```http
 HTTP/1.1 204 No Content
 ```
-
-<!-- {
-  "type": "#page.annotation",
-  "suppressions": [
-    "Warning: refresh_excel_session//api-reference/v1.0/api/workbook_refreshsession.md:
-      Request includes a non-standard header: workbook-session-id"
-  ]
-}-->

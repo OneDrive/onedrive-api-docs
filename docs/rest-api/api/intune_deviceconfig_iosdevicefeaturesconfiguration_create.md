@@ -1,5 +1,7 @@
 ﻿# Create iosDeviceFeaturesConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [iosDeviceFeaturesConfiguration](../resources/intune_deviceconfig_iosdevicefeaturesconfiguration.md) object.
@@ -19,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 POST /deviceManagement/deviceConfigurations
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations
 ```
 
 ## Request headers
@@ -40,11 +43,14 @@ The following table shows the properties that are required when you create the i
 |description|String|Admin provided description of the Device Configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |displayName|String|Admin provided name of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |version|Int32|Version of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
+|airPrintDestinations|[airPrintDestination](../resources/intune_deviceconfig_airprintdestination.md) collection|An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements. Inherited from [appleDeviceFeaturesConfigurationBase](../resources/intune_deviceconfig_appledevicefeaturesconfigurationbase.md)|
 |assetTagTemplate|String|Asset tag information for the device, displayed on the login window and lock screen.|
+|contentFilterSettings|[iosWebContentFilterBase](../resources/intune_deviceconfig_ioswebcontentfilterbase.md)|Gets or sets iOS Web Content Filter settings, supervised mode only|
 |lockScreenFootnote|String|A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.|
 |homeScreenDockIcons|[iosHomeScreenItem](../resources/intune_deviceconfig_ioshomescreenitem.md) collection|A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.|
 |homeScreenPages|[iosHomeScreenPage](../resources/intune_deviceconfig_ioshomescreenpage.md) collection|A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.|
 |notificationSettings|[iosNotificationSettings](../resources/intune_deviceconfig_iosnotificationsettings.md) collection|Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.|
+|singleSignOnSettings|[iosSingleSignOnSettings](../resources/intune_deviceconfig_iossinglesignonsettings.md)|The Kerberos login settings that enable apps on receiving devices to authenticate smoothly.|
 
 
 
@@ -55,9 +61,9 @@ If successful, this method returns a `201 Created` response code and a [iosDevic
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
+POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations
 Content-type: application/json
-Content-length: 2052
+Content-length: 3222
 
 {
   "@odata.type": "#microsoft.graph.iosDeviceFeaturesConfiguration",
@@ -65,7 +71,27 @@ Content-length: 2052
   "description": "Description value",
   "displayName": "Display Name value",
   "version": 7,
+  "airPrintDestinations": [
+    {
+      "@odata.type": "microsoft.graph.airPrintDestination",
+      "ipAddress": "Ip Address value",
+      "resourcePath": "Resource Path value",
+      "port": 4,
+      "forceTls": true
+    }
+  ],
   "assetTagTemplate": "Asset Tag Template value",
+  "contentFilterSettings": {
+    "@odata.type": "microsoft.graph.iosWebContentFilterSpecificWebsitesAccess",
+    "specificWebsitesOnly": [
+      {
+        "@odata.type": "microsoft.graph.iosBookmark",
+        "url": "Url value",
+        "bookmarkFolder": "Bookmark Folder value",
+        "displayName": "Display Name value"
+      }
+    ]
+  },
   "lockScreenFootnote": "Lock Screen Footnote value",
   "homeScreenDockIcons": [
     {
@@ -124,7 +150,25 @@ Content-length: 2052
       "badgesEnabled": true,
       "soundsEnabled": true
     }
-  ]
+  ],
+  "singleSignOnSettings": {
+    "@odata.type": "microsoft.graph.iosSingleSignOnSettings",
+    "allowedAppsList": [
+      {
+        "@odata.type": "microsoft.graph.appListItem",
+        "name": "Name value",
+        "publisher": "Publisher value",
+        "appStoreUrl": "https://example.com/appStoreUrl/",
+        "appId": "App Id value"
+      }
+    ],
+    "allowedUrls": [
+      "Allowed Urls value"
+    ],
+    "displayName": "Display Name value",
+    "kerberosPrincipalName": "Kerberos Principal Name value",
+    "kerberosRealm": "Kerberos Realm value"
+  }
 }
 ```
 
@@ -133,7 +177,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 2160
+Content-Length: 3330
 
 {
   "@odata.type": "#microsoft.graph.iosDeviceFeaturesConfiguration",
@@ -143,7 +187,27 @@ Content-Length: 2160
   "description": "Description value",
   "displayName": "Display Name value",
   "version": 7,
+  "airPrintDestinations": [
+    {
+      "@odata.type": "microsoft.graph.airPrintDestination",
+      "ipAddress": "Ip Address value",
+      "resourcePath": "Resource Path value",
+      "port": 4,
+      "forceTls": true
+    }
+  ],
   "assetTagTemplate": "Asset Tag Template value",
+  "contentFilterSettings": {
+    "@odata.type": "microsoft.graph.iosWebContentFilterSpecificWebsitesAccess",
+    "specificWebsitesOnly": [
+      {
+        "@odata.type": "microsoft.graph.iosBookmark",
+        "url": "Url value",
+        "bookmarkFolder": "Bookmark Folder value",
+        "displayName": "Display Name value"
+      }
+    ]
+  },
   "lockScreenFootnote": "Lock Screen Footnote value",
   "homeScreenDockIcons": [
     {
@@ -202,7 +266,25 @@ Content-Length: 2160
       "badgesEnabled": true,
       "soundsEnabled": true
     }
-  ]
+  ],
+  "singleSignOnSettings": {
+    "@odata.type": "microsoft.graph.iosSingleSignOnSettings",
+    "allowedAppsList": [
+      {
+        "@odata.type": "microsoft.graph.appListItem",
+        "name": "Name value",
+        "publisher": "Publisher value",
+        "appStoreUrl": "https://example.com/appStoreUrl/",
+        "appId": "App Id value"
+      }
+    ],
+    "allowedUrls": [
+      "Allowed Urls value"
+    ],
+    "displayName": "Display Name value",
+    "kerberosPrincipalName": "Kerberos Principal Name value",
+    "kerberosRealm": "Kerberos Realm value"
+  }
 }
 ```
 

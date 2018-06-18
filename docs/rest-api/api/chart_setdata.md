@@ -1,5 +1,7 @@
 # Chart: setData
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Resets the source data for the chart.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/worksheets/{id|name}/charts/{name}/setData
+POST /workbook/worksheets/{id|name}/charts(<name>)/setData
 
 ```
 ## Request headers
@@ -27,7 +29,7 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|sourceData|Json|The Range object corresponding to the source data.|
+|sourceData|string|The Range object corresponding to the source data.|
 |seriesBy|string|Optional. Specifies the way columns or rows are used as data series on the chart. Can be one of the following: Auto (default), Rows, Columns.  Possible values are: `Auto`, `Columns`, `Rows`.|
 
 ## Response
@@ -43,7 +45,7 @@ Here is an example of the request.
   "name": "chart_setdata"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts/{name}/setData
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts(<name>)/setData
 Content-type: application/json
 Content-length: 70
 
@@ -56,7 +58,9 @@ Content-length: 70
 ##### Response
 Here is an example of the response. 
 <!-- {
-  "blockType": "response"
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

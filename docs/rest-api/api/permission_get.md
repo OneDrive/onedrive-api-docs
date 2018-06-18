@@ -6,6 +6,8 @@ title: Get permissions
 ---
 # Get sharing permission for a file or folder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Return the effective sharing permission for a particular permission resource.
 
 Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors.
@@ -51,12 +53,11 @@ If successful, this method returns a `200 OK` response code and [Permission](../
 
 Here is an example of the request to access a permission on a folder.
 
-<!-- { "blockType": "request", "name": "get-item-permission", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get-item-permission", "scopes": "files.read" } -->
 
 ```http
-GET /me/drive/items/{item-id}/permissions/{perm-id}
+GET https://graph.microsoft.com/beta/me/drive/items/{item-id}/permissions/{perm-id}
 ```
-
 ### Response
 
 If successful, this method returns a [Permission](../resources/permission.md) resource for the specified ID. 
@@ -88,17 +89,12 @@ Sharing links contain a unique token that provides access to the item for anyone
 
 Permissions with a [**invitation**](../resources/sharinginvitation.md) facet represent permissions added by inviting specific users or groups to have access to the file.
 
-### Error responses
-
-Read the [Error Responses][error-response] topic for more information about
-how errors are returned.
-
-[error-response]: ../../../concepts/errors.md
-
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "Get a DriveItem's sharing permissions",
   "keywords": "permission, permissions, sharing",
   "section": "documentation",
-  "tocPath": "Sharing/Permissions"
-} -->
+  "tocPath": "OneDrive/Item/Get permission"
+}-->

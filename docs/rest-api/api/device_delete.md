@@ -1,5 +1,7 @@
 # Delete device
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete a registered device.
 
 ## Permissions
@@ -16,7 +18,9 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 ```http
 DELETE /devices/{id}
+
 ```
+
 > Note: The "id" in the request is the "id" property of the device, not the "deviceId" property.
 
 ## Request headers
@@ -39,7 +43,7 @@ If successful, this method returns `204 No Content` response code. It does not r
   "name": "delete_device"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/devices/{id}
+DELETE https://graph.microsoft.com/beta/devices/{id}
 ```
 ##### Response
 

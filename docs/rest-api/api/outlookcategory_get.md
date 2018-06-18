@@ -1,5 +1,6 @@
 # Get Outlook category
 
+> **Important**: APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Get the properties and relationships of the specified [outlookCategory](../resources/outlookCategory.md) object.
 
@@ -40,7 +41,7 @@ Here is an example of the request.
   "name": "get_outlookcategory"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/outlook/masterCategories/{category-id}
+GET https://graph.microsoft.com/beta/me/outlook/masterCategories('de912e4d-c790-4da9-949c-ccd933aaa0f7')
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -56,7 +57,7 @@ Content-type: application/json
 Content-length: 249
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories/$entity",
   "id":"de912e4d-c790-4da9-949c-ccd933aaa0f7",
   "displayName":"Yellow category",
   "color":"preset3"

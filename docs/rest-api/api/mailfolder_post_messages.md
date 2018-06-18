@@ -1,5 +1,7 @@
 # Create Message
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new Message in a mailfolder.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -37,13 +39,13 @@ Here is an example of the request.
   "name": "create_message_from_mailfolder"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/mailFolders/{id}/messages
+POST https://graph.microsoft.com/beta/me/mailFolders/{id}/messages
 Content-type: application/json
 Content-length: 248
 
 {
-  "receivedDateTime": "datetime-value",
-  "sentDateTime": "datetime-value",
+  "receivedDateTime": "2016-10-19T10:37:00Z",
+  "sentDateTime": "2016-10-19T10:37:00Z",
   "hasAttachments": true,
   "subject": "subject-value",
   "body": {
@@ -67,8 +69,8 @@ Content-type: application/json
 Content-length: 248
 
 {
-  "receivedDateTime": "datetime-value",
-  "sentDateTime": "datetime-value",
+  "receivedDateTime": "2016-10-19T10:37:00Z",
+  "sentDateTime": "2016-10-19T10:37:00Z",
   "hasAttachments": true,
   "subject": "subject-value",
   "body": {

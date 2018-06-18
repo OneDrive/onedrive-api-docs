@@ -1,6 +1,8 @@
 # List overrides
 
-Get the overrides that a user has set up to always classify messages from certain senders in specific ways.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Get the [Focused Inbox](../resources/manage_focused_inbox.md) overrides that a user has set up to always classify messages from certain senders in specific ways.
 
 Each override corresponds to an SMTP address of a sender. Initially, a user does not have any overrides.
 ## Permissions
@@ -30,7 +32,6 @@ Do not supply a request body for this method.
 ## Response
 
 If successful, this method returns a `200 OK` response code and a collection of [inferenceClassificationOverride](../resources/inferenceclassificationoverride.md) objects in the response body.
-An empty collection is returned if the user doesn't have any overrides set up.
 ## Example
 ##### Request
 Here is an example of the request.
@@ -39,7 +40,7 @@ Here is an example of the request.
   "name": "get_overrides"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/inferenceClassification/overrides
+GET https://graph.microsoft.com/beta/me/inferenceClassification/overrides
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

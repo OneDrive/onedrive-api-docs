@@ -1,4 +1,6 @@
-# windows10CompliancePolicy resource type
+﻿# windows10CompliancePolicy resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -43,14 +45,15 @@ Inherits from [deviceCompliancePolicy](../resources/intune_deviceconfig_deviceco
 |secureBootEnabled|Boolean|Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled.|
 |codeIntegrityEnabled|Boolean|Require devices to be reported as healthy by Windows Device Health Attestation.|
 |storageRequireEncryption|Boolean|Require encryption on windows devices.|
-
-### requiredPasswordType values
-
-| Value
-|:-------------------------
-| deviceDefault
-| alphanumeric
-| numeric
+|activeFirewallRequired|Boolean|Require active firewall on Windows devices.|
+|uacRequired|Boolean|Require UAC on Windows devices.|
+|defenderEnabled|Boolean|Require Windows Defender Antimalware on Windows devices.|
+|defenderVersion|String|Require Windows Defender Antimalware minimum version on Windows devices.|
+|signatureOutOfDate|Boolean|Require Windows Defender Antimalware Signature to be up to date on Windows devices.|
+|rtpEnabled|Boolean|Require Windows Defender Antimalware Real-Time Protection on Windows devices.|
+|validOperatingSystemBuildRanges|[operatingSystemVersionRange](../resources/intune_deviceconfig_operatingsystemversionrange.md) collection|The valid operating system build ranges on Windows devices. This collection can contain a maximum of 10000 elements.|
+|deviceThreatProtectionEnabled|Boolean|Require that devices have enabled device threat protection.|
+|deviceThreatProtectionRequiredSecurityLevel|[deviceThreatProtectionLevel](../resources/intune_deviceconfig_devicethreatprotectionlevel.md)|Require Device Threat Protection minimum risk level to report noncompliance. Possible values are: `unavailable`, `secured`, `low`, `medium`, `high`, `notSet`.|
 
 ## Relationships
 |Relationship|Type|Description|
@@ -65,12 +68,12 @@ Inherits from [deviceCompliancePolicy](../resources/intune_deviceconfig_deviceco
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.deviceCompliancePolicy",
   "@odata.type": "microsoft.graph.windows10CompliancePolicy"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.windows10CompliancePolicy",
@@ -98,7 +101,23 @@ Here is a JSON representation of the resource.
   "bitLockerEnabled": true,
   "secureBootEnabled": true,
   "codeIntegrityEnabled": true,
-  "storageRequireEncryption": true
+  "storageRequireEncryption": true,
+  "activeFirewallRequired": true,
+  "uacRequired": true,
+  "defenderEnabled": true,
+  "defenderVersion": "String",
+  "signatureOutOfDate": true,
+  "rtpEnabled": true,
+  "validOperatingSystemBuildRanges": [
+    {
+      "@odata.type": "microsoft.graph.operatingSystemVersionRange",
+      "description": "String",
+      "lowestVersion": "String",
+      "highestVersion": "String"
+    }
+  ],
+  "deviceThreatProtectionEnabled": true,
+  "deviceThreatProtectionRequiredSecurityLevel": "String"
 }
 ```
 

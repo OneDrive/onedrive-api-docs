@@ -1,5 +1,7 @@
 # Chart: Image
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Renders the chart as a base64-encoded image by scaling the chart to fit the specified dimensions.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,16 +9,14 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
-<!-- { "blockType": "samples" } -->
+<!-- { "blockType": "ignored" } -->
 ```http
-GET /workbook/worksheets/{id|name}/charts/{name}/image
-GET /workbook/worksheets/{id|name}/charts/{name}/image(width=640)
-GET /workbook/worksheets/{id|name}/charts/{name}/image(width=640,height=480)
-GET /workbook/worksheets/{id|name}/charts/{name}/image(width=640,height=480,fittingMode='fit')
+GET /workbook/worksheets/{id|name}/charts(<name>)/Image(width=0,height=0,fittingMode='fit')
+
 ```
 ## Request headers
 | Name       | Description|
@@ -24,14 +24,14 @@ GET /workbook/worksheets/{id|name}/charts/{name}/image(width=640,height=480,fitt
 | Authorization  | Bearer {token}. Required. |
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
-## Path parameters
+## Request body
 In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|height|Int32|The desired height of the resulting image. Optional.|
-|width|Int32|The desired width of the resulting image. Optional.|
-|fittingMode|string|The method used to scale the chart to the specified dimensions (if both height and width are set)."  Possible values are: `Fit`, `FitAndCenter`, `Fill`.|
+|height|number|Optional. The desired height of the resulting image.|
+|width|number|Optional. The desired width of the resulting image.|
+|fittingMode|string|Optional. The method used to scale the chart to the specified to the specified dimensions (if both height and width are set)."  Possible values are: `Fit`, `FitAndCenter`, `Fill`.|
 
 ## Response
 
@@ -39,28 +39,27 @@ If successful, this method returns `200 OK` response code and base-64 image stri
 
 ## Example
 Here is an example of how to call this API.
-
 ##### Request
 Here is an example of the request.
-
-<!-- { "blockType": "request" } -->
+<!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts/{name}/image(width=640,height=480,fittingMode='fit')
+GET https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts(<name>)/Image(width=0,height=0,fittingMode='fit')
 ```
 
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-<!-- { "blockType": "response", "@odata.type": "Edm.String" } -->
+<!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
-Content-type: application/json;odata.metadata=minimal;odata.streaming=true
+Content-type: application/json
+Content-length: 3
 
 {
 "value" : "base-64 chart image string"
 }
 ```
 
-## Usage
+##### Usage
 
 You can display the base-64 string inside an HTML image tag: `<img src="data:image/png;base64,{base-64 chart image string}/>`.
 

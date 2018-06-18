@@ -1,5 +1,7 @@
 ﻿# Get detectedApp
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [detectedApp](../resources/intune_devices_detectedapp.md) object.
@@ -19,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 GET /deviceManagement/detectedApps/{detectedAppId}
+GET /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice/detectedApps/{detectedAppId}
 ```
 
 ## Optional query parameters
@@ -39,7 +42,7 @@ If successful, this method returns a `200 OK` response code and [detectedApp](..
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/detectedApps/{detectedAppId}
+GET https://graph.microsoft.com/beta/deviceManagement/detectedApps/{detectedAppId}
 ```
 
 ### Response

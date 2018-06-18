@@ -1,5 +1,7 @@
 # List users
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of user objects. These user objects will include education-specific properties.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "get_users"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/users
+GET https://graph.microsoft.com/beta/education/users
 ```
 ##### Response
 The following is an example of the response. 

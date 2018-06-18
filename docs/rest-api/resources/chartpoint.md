@@ -1,5 +1,7 @@
 # ChartPoint resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a point of a series in a chart.
 
 
@@ -7,37 +9,35 @@ Represents a point of a series in a chart.
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Get ChartPoint](../api/chartpoint_get.md) | [WorkbookChartPoint](chartpoint.md) |Read properties and relationships of chartPoint object.|
-|[List](../api/chartpoint_list.md) | [WorkbookChartPoint](chartpoint.md) collection |Get chartPoint object collection. |
-|[ItemAt](../api/chartpointscollection_itemat.md)|[WorkbookChartPoint](chartpoint.md)|Retrieve a point based on its position within the series.|
+|[Get ChartPoint](../api/chartpoint_get.md) | [ChartPoint](chartpoint.md) |Read properties and relationships of chartPoint object.|
+|[List](../api/chartpoint_list.md) | [ChartPoint](chartpoint.md) collection |Get chartPoint object collection. |
+|[Itemat](../api/chartpointscollection_itemat.md)|[ChartPoint](chartpoint.md)|Retrieve a point based on its position within the series.|
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|value|Json|Returns the value of a chart point. Read-only.|
-|id|string|unique identifier|
+|value|object|Returns the value of a chart point. Read-only.|
 
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|format|[WorkbookChartPointFormat](chartpointformat.md)|Encapsulates the format properties chart point. Read-only.|
+|format|[ChartPointFormat](chartpointformat.md)|Encapsulates the format properties chart point. Read-only.|
 
 ## JSON representation
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.workbookChartPoint"
+  "optionalProperties": [
+
+  ],
+  "@odata.type": "microsoft.graph.chartPoint"
 }-->
 
 ```json
 {
-  "value": "string",
-  "id": "string"
+  "value": "string"
 }
 
 ```

@@ -1,12 +1,14 @@
 # Update user mailbox settings
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update one or more settings for the user's mailbox. This includes settings for [automatic replies](../resources/automaticrepliessetting.md) (notify people automatically upon receipt of their email), [locale](../resources/localeinfo.md) (language and country/region), time zone, and [working hours](../resources/workinghours.md).
 
 You can enable, configure, or disable one or more of these settings as part of [mailboxSettings](../resources/mailboxsettings.md).
 
 **Note** You cannot create or delete any mailbox settings.
 
-When you update the preferred time zone for a user, you can specify it in the Windows or  [Internet Assigned Numbers Authority (IANA) time zone](http://www.iana.org/time-zones) (also known as Olson time zone) format.
+When you update the preferred time zone for a user, you can specify it in the Windows or  [Internet Assigned Numbers Authority (IANA) time zone](http://www.iana.org/time-zones) (also known as Olson time zone) format. You can also further customize the time zone as shown in [example 2](#request-2) below.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -46,7 +48,6 @@ shouldn't include existing values that haven't changed. The following are the wr
 
 If successful, this method returns a `200 OK` response code and [mailboxSettings](../resources/mailboxSettings.md) object in the response body.
 
-
 ## Errors
 
 Setting working hours with inappropriate values may return the following errors.
@@ -60,20 +61,20 @@ Setting working hours with inappropriate values may return the following errors.
 
 
 ## Example
-##### Request
+##### Request 1
 The first example enables automatic replies for a date range, by setting the following properties of the **automaticRepliesSetting** property:
 **status**, **scheduledStartDateTime** and **scheduledEndDateTime**.
 
 <!-- {
   "blockType": "request",
-  "name": "update_mailboxsettings"
+  "name": "update_mailboxsettings_1"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/mailboxSettings
+PATCH https://graph.microsoft.com/api/beta/me/mailboxSettings
 Content-Type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/mailboxSettings",
+    "@odata.context": "https://graph.microsoft.com/api/beta/$metadata#Me/mailboxSettings",
     "automaticRepliesSetting": {
         "status": "Scheduled",
         "scheduledStartDateTime": {
@@ -87,10 +88,11 @@ Content-Type: application/json
     }
 }
 ```
-##### Response
+##### Response 1
 The response includes the updated settings for automatic replies. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
+  "name": "update_mailboxsettings_1",
   "truncated": true,
   "@odata.type": "microsoft.graph.mailboxSettings"
 } -->
@@ -99,7 +101,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/api/v1.0/$metadata#Me/mailboxSettings",
+    "@odata.context": "https://graph.microsoft.com/api/beta/$metadata#Me/mailboxSettings",
     "automaticRepliesSetting": {
         "status": "scheduled",
         "externalAudience": "all",
@@ -127,7 +129,7 @@ to a [custom time zone](../resources/customtimezone.md).
   "name": "update_mailboxsettings_2"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/mailboxSettings
+PATCH https://graph.microsoft.com/api/beta/me/mailboxSettings
 Content-Type: application/json
 
 {
@@ -177,7 +179,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('94447c6e-ea4c-494c-a9ed-d905e366c5cb')/mailboxSettings",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('94447c6e-ea4c-494c-a9ed-d905e366c5cb')/mailboxSettings",
     "workingHours":{
         "daysOfWeek":[
             "monday",

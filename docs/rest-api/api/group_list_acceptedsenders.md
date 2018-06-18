@@ -1,8 +1,10 @@
 # List acceptedSenders
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a list of users or groups that are in the acceptedSenders list for this group.
 
-Users in the accepted senders list can post to conversations of the group (identified in the GET request URL). 
-Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
+Users in the accepted senders list can post to conversations of the group (identified in the GET request URL). Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -18,6 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 ```http
 GET /groups/{id}/acceptedSenders
 ```
+
 ## Optional query parameters
 This method supports the [OData Query Parameters](../../../concepts/query_parameters.md) to help customize the response.
 
@@ -40,7 +43,7 @@ The following is an example of the request.
   "name": "get_acceptedsenders"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/acceptedSenders
+GET https://graph.microsoft.com/beta/groups/{id}/acceptedSenders
 ```
 
 #### Response

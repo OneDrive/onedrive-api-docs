@@ -6,6 +6,8 @@ title: Create a SharePoint List
 ---
 # Create a new list
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new [list][] in a [site][].
 
 ## Permissions
@@ -23,7 +25,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST https://graph.microsoft.com/v1.0/sites/{site-id}/lists
+POST https://graph.microsoft.com/beta/sites/{site-id}/lists
 ```
 
 ## Request body

@@ -1,5 +1,7 @@
 # domain: verify
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Validates the ownership of the domain.
 
 > **Important:**
@@ -45,7 +47,7 @@ If successful, this method returns `200 OK` response code and [domain](../resour
   "name": "domain_verify"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/domains/{domain-name}/verify
+POST https://graph.microsoft.com/beta/domains/contoso.com/verify
 ```
 
 ##### Response
@@ -67,7 +69,7 @@ Content-length: 192
   "isDefault": true,
   "isInitial": true,
   "isRoot": true,
-  "id": "contoso.com"
+  "name": "contoso.com"
 }
 ```
 

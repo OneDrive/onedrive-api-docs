@@ -1,5 +1,7 @@
 ﻿# Create deviceCompliancePolicySettingStateSummary
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [deviceCompliancePolicySettingStateSummary](../resources/intune_deviceconfig_devicecompliancepolicysettingstatesummary.md) object.
@@ -36,7 +38,7 @@ The following table shows the properties that are required when you create the d
 |:---|:---|:---|
 |setting|String|The setting class name and property name.|
 |settingName|String|Name of the setting.|
-|platformType|[policyPlatformType](../resources/intune_deviceconfig_policyplatformtype.md)|Setting platform. Possible values are: `android`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `all`.|
+|platformType|[policyPlatformType](../resources/intune_deviceconfig_policyplatformtype.md)|Setting platform. Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `all`.|
 |id|String|Key of the entity.|
 |unknownDeviceCount|Int32|Number of unknown devices|
 |notApplicableDeviceCount|Int32|Number of not applicable devices|
@@ -55,15 +57,15 @@ If successful, this method returns a `201 Created` response code and a [deviceCo
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicySettingStateSummaries
+POST https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicySettingStateSummaries
 Content-type: application/json
-Content-length: 391
+Content-length: 402
 
 {
   "@odata.type": "#microsoft.graph.deviceCompliancePolicySettingStateSummary",
   "setting": "Setting value",
   "settingName": "Setting Name value",
-  "platformType": "iOS",
+  "platformType": "androidForWork",
   "unknownDeviceCount": 2,
   "notApplicableDeviceCount": 8,
   "compliantDeviceCount": 4,
@@ -79,13 +81,13 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 440
+Content-Length: 451
 
 {
   "@odata.type": "#microsoft.graph.deviceCompliancePolicySettingStateSummary",
   "setting": "Setting value",
   "settingName": "Setting Name value",
-  "platformType": "iOS",
+  "platformType": "androidForWork",
   "id": "7474d6d5-d6d5-7474-d5d6-7474d5d67474",
   "unknownDeviceCount": 2,
   "notApplicableDeviceCount": 8,

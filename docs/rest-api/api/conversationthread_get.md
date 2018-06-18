@@ -1,5 +1,7 @@
 # Get conversationThread
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, 
 you can specify the thread without referencing the parent conversation. 
 ## Permissions
@@ -39,7 +41,7 @@ Here is an example of the request.
   "name": "get_conversationthread"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/threads/{id}
+GET https://graph.microsoft.com/beta/groups/{id}/threads/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -64,7 +66,7 @@ Content-length: 419
   ],
   "topic": "topic-value",
   "hasAttachments": true,
-  "lastDeliveredDateTime": "datetime-value",
+  "lastDeliveredDateTime": "2016-10-19T10:37:00Z",
   "uniqueSenders": [
     "uniqueSenders-value"
   ],

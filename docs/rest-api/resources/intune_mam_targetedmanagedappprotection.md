@@ -1,4 +1,6 @@
-# targetedManagedAppProtection resource type
+﻿# targetedManagedAppProtection resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -39,7 +41,7 @@ Inherits from [managedAppProtection](../resources/intune_mam_managedappprotectio
 |minimumPinLength|Int32|Minimum pin length required for an app-level pin if PinRequired is set to True Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |pinCharacterSet|[managedAppPinCharacterSet](../resources/intune_mam_managedapppincharacterset.md)|Character set which may be used for an app-level pin if PinRequired is set to True. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `numeric`, `alphanumericAndSymbol`.|
 |periodBeforePinReset|Duration|TimePeriod before the all-level pin must be reset if PinRequired is set to True. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
-|allowedDataStorageLocations|[managedAppDataStorageLocation enum](../resources/intune_mam_managedappdatastoragelocation.md) collection|Data storage locations where a user may store managed data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|allowedDataStorageLocations|[managedAppDataStorageLocation](../resources/intune_mam_managedappdatastoragelocation.md) collection|Data storage locations where a user may store managed data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |contactSyncBlocked|Boolean|Indicates whether contacts can be synced to the user's device. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |printBlocked|Boolean|Indicates whether printing is allowed from managed apps. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |fingerprintBlocked|Boolean|Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
@@ -48,7 +50,14 @@ Inherits from [managedAppProtection](../resources/intune_mam_managedappprotectio
 |minimumWarningOsVersion|String|Versions less than the specified version will result in warning message on the managed app from accessing company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |minimumRequiredAppVersion|String|Versions less than the specified version will block the managed app from accessing company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |minimumWarningAppVersion|String|Versions less than the specified version will result in warning message on the managed app. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|minimumWipeOsVersion|String|Versions less than or equal to the specified version will wipe the managed app and the associated company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|minimumWipeAppVersion|String|Versions less than or equal to the specified version will wipe the managed app and the associated company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|appActionIfDeviceComplianceRequired|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, when the device is either rooted or jailbroken, if DeviceComplianceRequired is set to true. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `block`, `wipe`.|
+|appActionIfMaximumPinRetriesExceeded|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, based on maximum number of incorrect pin retry attempts. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `block`, `wipe`.|
+|pinRequiredOnLaunchInsteadOfBiometric|Boolean|Requires an app pin on launch instead of non biometrics passcode Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|pinRequiredInsteadOfBiometricTimeout|Duration|Timeout in minutes for an app pin instead of non biometrics passcode Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |isAssigned|Boolean|Indicates if the policy is deployed to any inclusion groups or not.|
+|targetedAppManagementLevels|[appManagementLevel](../resources/intune_mam_appmanagementlevel.md)|The intended app management levels for this policy. Possible values are: `unspecified`, `unmanaged`, `mdm`, `androidEnterprise`.|
 
 ## Relationships
 |Relationship|Type|Description|
@@ -57,13 +66,12 @@ Inherits from [managedAppProtection](../resources/intune_mam_managedappprotectio
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
-  "abstract": true,
   "keyProperty": "id",
-  "baseType": "microsoft.graph.managedAppProtection",
   "@odata.type": "microsoft.graph.targetedManagedAppProtection"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.targetedManagedAppProtection",
@@ -101,7 +109,14 @@ Here is a JSON representation of the resource.
   "minimumWarningOsVersion": "String",
   "minimumRequiredAppVersion": "String",
   "minimumWarningAppVersion": "String",
-  "isAssigned": true
+  "minimumWipeOsVersion": "String",
+  "minimumWipeAppVersion": "String",
+  "appActionIfDeviceComplianceRequired": "String",
+  "appActionIfMaximumPinRetriesExceeded": "String",
+  "pinRequiredOnLaunchInsteadOfBiometric": true,
+  "pinRequiredInsteadOfBiometricTimeout": "String (duration)",
+  "isAssigned": true,
+  "targetedAppManagementLevels": "String"
 }
 ```
 

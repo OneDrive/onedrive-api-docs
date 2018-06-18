@@ -1,4 +1,7 @@
 # group: removeFavorite
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Remove the group from the list of the current user's favorite groups. Supported for Office 365 Groups only.
 
 ## Permissions
@@ -15,6 +18,7 @@ One of the following permissions is required to call this API. To learn more, in
 ```http
 POST /groups/{id}/removeFavorite
 ```
+
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
@@ -35,13 +39,15 @@ The following is an example of the request.
   "name": "group_removefavorite"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/removeFavorite
+POST https://graph.microsoft.com/beta/groups/{id}/removeFavorite
 ```
 
 #### Response
 The following is an example of the response.
 <!-- {
-  "blockType": "response"
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

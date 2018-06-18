@@ -1,5 +1,7 @@
 # domain resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a domain associated with the tenant.
 
 Use domain operations to associate domains to a tenant, verify domain ownership, and configure supported services.  Domain operations enable registrars to automate domain association for services such as Office 365. For example, as part of domain sign up, a registrar can enable a vanity domain for email, websites, authentication, etc.
@@ -27,6 +29,7 @@ To associate a domain with a tenant:
 |[List verificationDnsRecords](../api/domain_list_verificationdnsrecords.md) |[domainDnsRecord](domaindnsrecord.md) collection|  Retrieve a list of domain DNS records for domain verification.|
 |[Update domain](../api/domain_update.md) | [domain](domain.md) |Updates a domain.|
 |[Delete domain](../api/domain_delete.md) | None |Deletes a domain.|
+|[ForceDelete domain](../api/domain_forcedelete.md)|None|Deletes a domain using an asynchronous operation.|
 |[Verify domain](../api/domain_verify.md)|[domain](domain.md)|Validates the ownership of the domain.|
 
 ## Properties
@@ -57,11 +60,11 @@ Relationships between a domain and other objects in the directory such as its ve
 ## JSON representation
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.domain"
 }-->
 

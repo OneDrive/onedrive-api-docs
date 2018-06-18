@@ -1,5 +1,7 @@
 # attendee resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 An event attendee. This can be a person or resource such as a meeting room or equipment, that has been set up as a resource on the Exchange server for the tenant.
 
 Derived from [attendeeBase](attendeebase.md).
@@ -17,7 +19,6 @@ Here is a JSON representation of the resource
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.attendeeBase",
   "optionalProperties": [
 
   ],

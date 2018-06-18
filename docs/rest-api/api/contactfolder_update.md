@@ -1,5 +1,7 @@
 # Update contactfolder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of contactfolder object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -29,6 +31,7 @@ In the request body, supply the values for relevant fields that should be update
 |:---------------|:--------|:----------|
 |displayName|String|The folder's display name.|
 |parentFolderId|String|The ID of the folder's parent folder.|
+|wellKnownName|string|The name of the folder if the folder is a recognized folder. Currently `contacts` is the only recognized contacts folder.|
 
 ## Response
 
@@ -41,7 +44,7 @@ Here is an example of the request.
   "name": "update_contactfolder"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/contactFolders/{id}
+PATCH https://graph.microsoft.com/beta/me/contactFolders/{id}
 Content-type: application/json
 Content-length: 84
 
@@ -65,6 +68,7 @@ Content-length: 104
 {
   "parentFolderId": "parentFolderId-value",
   "displayName": "displayName-value",
+  "wellKnownName": "wellKnownName-value",
   "id": "id-value"
 }
 ```

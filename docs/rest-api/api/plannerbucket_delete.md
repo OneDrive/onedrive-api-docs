@@ -1,5 +1,7 @@
 # Delete plannerBucket
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete **plannerBucket**.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -13,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /planner/buckets/{id}
+DELETE /planner/buckets/<id>
 ```
 ## Request headers
 | Name       | Description|
@@ -38,7 +40,7 @@ Here is an example of the request.
   "name": "delete_plannerbucket"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/planner/buckets/{id}
+DELETE https://graph.microsoft.com/beta/planner/buckets/<id>
 If-Match: W/"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc="
 ```
 ##### Response

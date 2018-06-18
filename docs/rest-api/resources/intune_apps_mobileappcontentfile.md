@@ -1,4 +1,6 @@
-# mobileAppContentFile resource type
+﻿# mobileAppContentFile resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -27,17 +29,19 @@ Contains properties for a single installer file that is associated with a given 
 |azureStorageUriExpirationDateTime|DateTimeOffset|The time the Azure storage Uri expires.|
 |manifest|Binary|The manifest information.|
 |uploadState|[mobileAppContentFileUploadState](../resources/intune_apps_mobileappcontentfileuploadstate.md)|The state of the current upload request. Possible values are: `success`, `transientError`, `error`, `unknown`, `azureStorageUriRequestSuccess`, `azureStorageUriRequestPending`, `azureStorageUriRequestFailed`, `azureStorageUriRequestTimedOut`, `azureStorageUriRenewalSuccess`, `azureStorageUriRenewalPending`, `azureStorageUriRenewalFailed`, `azureStorageUriRenewalTimedOut`, `commitFileSuccess`, `commitFilePending`, `commitFileFailed`, `commitFileTimedOut`.|
+|isFrameworkFile|Boolean|A value indicating whether the file is a framework file.|
+|isDependency|Boolean|Whether the content file is a dependency for the main content file.|
 
 ## Relationships
 None
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.mobileAppContentFile"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.mobileAppContentFile",
@@ -50,7 +54,9 @@ Here is a JSON representation of the resource.
   "sizeEncrypted": 1024,
   "azureStorageUriExpirationDateTime": "String (timestamp)",
   "manifest": "binary",
-  "uploadState": "String"
+  "uploadState": "String",
+  "isFrameworkFile": true,
+  "isDependency": true
 }
 ```
 

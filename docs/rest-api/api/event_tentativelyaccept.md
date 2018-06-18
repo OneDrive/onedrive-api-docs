@@ -1,5 +1,7 @@
 # event: tentativelyAccept
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Tentatively accept the specified [event](../resources/event.md) in a user [calendar](../resources/calendar.md).
 
 ## Permissions
@@ -56,7 +58,7 @@ Here is an example of the request.
   "name": "event_tentativelyaccept"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/events/{id}/tentativelyAccept
+POST https://graph.microsoft.com/beta/me/events/{id}/tentativelyAccept
 Content-type: application/json
 Content-length: 56
 

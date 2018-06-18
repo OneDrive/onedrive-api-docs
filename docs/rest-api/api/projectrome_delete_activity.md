@@ -1,5 +1,7 @@
 # Delete an activity
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete an existing user activity for your app.
 
 ## Permissions
@@ -47,7 +49,7 @@ Here is an example of the request.
 }-->
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/me/activities/{activity-id}/
+DELETE https://graph.microsoft.com/beta/me/activities/13881113971988980728/
 ```
 
 ##### Response

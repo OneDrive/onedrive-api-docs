@@ -1,5 +1,7 @@
 # RangeSort: apply
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Perform a sort operation.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/names/{name}/range/sort/apply
+POST /workbook/names(<name>)/range/sort/apply
 POST /workbook/worksheets/{id|name}/range(address='<address>')/sort/apply
 POST /workbook/tables/{id|name}/columns/{id|name}/range/sort/apply
 
@@ -29,7 +31,7 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|fields|WorkbookSortField collection|The list of conditions to sort on.|
+|fields|SortField|The list of conditions to sort on.|
 |matchCase|boolean|Optional. Whether to have the casing impact string ordering.|
 |hasHeaders|boolean|Optional. Whether the range has a header.|
 |orientation|string|Optional. Whether the operation is sorting rows or columns.  Possible values are: `Rows`, `Columns`.|
@@ -48,7 +50,7 @@ Here is an example of the request.
   "name": "rangesort_apply"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names/{name}/range/sort/apply
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/names(<name>)/range/sort/apply
 Content-type: application/json
 Content-length: 358
 
@@ -76,7 +78,9 @@ Content-length: 358
 ##### Response
 Here is an example of the response. 
 <!-- {
-  "blockType": "response"
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

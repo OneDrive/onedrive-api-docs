@@ -1,4 +1,6 @@
-# roleDefinition resource type
+﻿# roleDefinition resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -18,7 +20,9 @@ The Role Definition resource. The role definition is the foundation of role base
 |id|String|Key of the entity. This is read-only and automatically generated.|
 |displayName|String|Display Name of the Role definition.|
 |description|String|Description of the Role definition.|
+|permissions|[rolePermission](../resources/intune_rbac_rolepermission.md) collection|List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.|
 |rolePermissions|[rolePermission](../resources/intune_rbac_rolepermission.md) collection|List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.|
+|isBuiltInRoleDefinition|Boolean|Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.|
 |isBuiltIn|Boolean|Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.|
 
 ## Relationships
@@ -28,21 +32,24 @@ The Role Definition resource. The role definition is the foundation of role base
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.roleDefinition"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.roleDefinition",
   "id": "String (identifier)",
   "displayName": "String",
   "description": "String",
-  "rolePermissions": [
+  "permissions": [
     {
       "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "String"
+      ],
       "resourceActions": [
         {
           "@odata.type": "microsoft.graph.resourceAction",
@@ -56,6 +63,26 @@ Here is a JSON representation of the resource.
       ]
     }
   ],
+  "rolePermissions": [
+    {
+      "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "String"
+      ],
+      "resourceActions": [
+        {
+          "@odata.type": "microsoft.graph.resourceAction",
+          "allowedResourceActions": [
+            "String"
+          ],
+          "notAllowedResourceActions": [
+            "String"
+          ]
+        }
+      ]
+    }
+  ],
+  "isBuiltInRoleDefinition": true,
   "isBuiltIn": true
 }
 ```

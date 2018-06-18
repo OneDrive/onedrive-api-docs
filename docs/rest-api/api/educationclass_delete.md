@@ -1,5 +1,7 @@
 # Delete educationClass
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete a class. Because a class is also a universal group, deleting a class deletes the group.
 
 ## Permissions
@@ -37,7 +39,7 @@ The following is an example of the request.
   "name": "delete_educationclass"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/education/classes/{class-id}
+DELETE https://graph.microsoft.com/beta/education/classes/11022
 ```
 ##### Response
 The following is an example of the response. 

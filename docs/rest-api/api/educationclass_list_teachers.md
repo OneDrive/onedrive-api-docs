@@ -1,5 +1,7 @@
 # List teachers
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "get_teachers"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/classes/{class-id}/teachers
+GET https://graph.microsoft.com/beta/education/classes/11023/teachers
 ```
 ##### Response
 The following is an example of the response. 

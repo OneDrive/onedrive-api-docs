@@ -1,5 +1,7 @@
 # Update conversationthread
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Lock or unlock a thread, to allow or avoid further posting to the thread.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -41,7 +43,7 @@ Here is an example of the request.
   "name": "update_conversationthread"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/groups/{id}/threads/{id}
+PATCH https://graph.microsoft.com/beta/groups/{id}/threads/{id}
 Content-type: application/json
 Content-length: 419
 
@@ -73,7 +75,7 @@ Content-length: 419
   ],
   "topic": "topic-value",
   "hasAttachments": true,
-  "lastDeliveredDateTime": "datetime-value",
+  "lastDeliveredDateTime": "2016-10-19T10:37:00Z",
   "uniqueSenders": [
     "uniqueSenders-value"
   ],
@@ -85,7 +87,7 @@ Content-length: 419
       }
     }
   ],
-  "isLocked": true 
+  "isLocked": true
 }
 ```
 

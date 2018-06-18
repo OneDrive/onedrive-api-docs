@@ -6,6 +6,8 @@ title: Delete an entry from a SharePoint list
 ---
 # Delete an item from a list
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Removes an item from a [list][].
 
 [list]: ../resources/list.md
@@ -27,7 +29,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}
+DELETE https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items/{item-id}
 ```
 
 ## Optional request headers
@@ -42,10 +44,10 @@ Do not supply a request body with this method.
 
 ## Example
 
-<!-- { "blockType": "request", "name": "delete-item-site", "scopes": "files.readwrite sites.readwrite.all" } -->
+<!-- { "blockType": "request", "name": "delete-item", "scopes": "files.readwrite" } -->
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}
+DELETE https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items/{item-id}
 ```
 
 ## Response

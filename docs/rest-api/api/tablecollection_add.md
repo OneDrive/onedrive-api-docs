@@ -1,5 +1,7 @@
 # TableCollection: add
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new table. The range source address determines the worksheet under which the table will be added. If the table cannot be added (e.g., because the address is invalid, or the table would overlap with another table), an error will be thrown.
 
 ## Error Handling
@@ -12,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -38,7 +40,7 @@ In the request body, provide a JSON object with the following parameters.
 
 ## Response
 
-If successful, this method returns `200 OK` response code and [WorkbookTable](../resources/table.md) object in the response body.
+If successful, this method returns `200 OK` response code and [Table](../resources/table.md) object in the response body.
 
 ## Example
 Here is an example of how to call this API.
@@ -49,7 +51,7 @@ Here is an example of the request.
   "name": "tablecollection_add"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/add
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/add
 Content-type: application/json
 Content-length: 54
 
@@ -64,7 +66,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookTable"
+  "@odata.type": "microsoft.graph.table"
 } -->
 ```http
 HTTP/1.1 200 OK

@@ -1,5 +1,7 @@
 # ChartSeriesCollection: ItemAt
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieves a series based on its position in the collection
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/worksheets/{id|name}/charts/{name}/series/itemAt
+POST /workbook/worksheets/{id|name}/charts(<name>)/series/ItemAt
 
 ```
 ## Request headers
@@ -27,30 +29,28 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|index|Int32|Index value of the object to be retrieved. Zero-indexed.|
+|index|number|Index value of the object to be retrieved. Zero-indexed.|
 
 ## Response
 
-If successful, this method returns `200 OK` response code and [WorkbookChartSeries](../resources/chartseries.md) object in the response body.
+If successful, this method returns `200 OK` response code and [ChartSeries](../resources/chartseries.md) object in the response body.
 
 ## Example
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
-  "name": "chartseriescollection_itemat",
-  "idempotent": true,
-  "@type": "requestBodyResourceFor.chartseriescollection_itemat"
+  "name": "chartseriescollection_itemat"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts/{name}/series/itemAt
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts(<name>)/series/ItemAt
 Content-type: application/json
 Content-length: 20
 
 {
-  "index": 2
+  "index": {
+  }
 }
 ```
 
@@ -59,7 +59,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookChartSeries"
+  "@odata.type": "microsoft.graph.chartSeries"
 } -->
 ```http
 HTTP/1.1 200 OK

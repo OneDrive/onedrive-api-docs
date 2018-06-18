@@ -1,5 +1,7 @@
 # Create plannerPlan
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new **plannerPlan**.
 
 ## Permissions
@@ -32,7 +34,6 @@ The **plannerPlan** owner property must be set to an id of a [group](../resource
 
 >**Note:** The user who is creating the plan must be a member of the group that will own the plan. When you create a new group by using [Create group](../api/group_post_groups.md), you are not added to the group as a member. After the group is created, add yourself as a member by using [group post members](../api/group_post_members.md).
 
-
 ## Response
 
 If successful, this method returns `201 Created` response code and [plannerPlan](../resources/plannerplan.md) object in the response body.
@@ -44,13 +45,12 @@ This method can return any of the [HTTP status codes](../../../concepts/errors.m
 ### Request
 
 Here is an example of the request.
-
 <!-- {
   "blockType": "request",
   "name": "create_plannerplan_from_planner"
 }-->
 ``` http
-POST https://graph.microsoft.com/v1.0/planner/plans
+POST https://graph.microsoft.com/beta/planner/plans
 Content-type: application/json
 Content-length: 381
 
@@ -65,7 +65,6 @@ In the request body, supply a JSON representation of [plannerPlan](../resources/
 ### Response
 
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-
 <!-- {
   "blockType": "response",
   "truncated": true,

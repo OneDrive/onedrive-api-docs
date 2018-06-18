@@ -1,5 +1,7 @@
 # List schemaExtensions
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a list of [schemaExtension](../resources/schemaextension.md) objects created by any apps you own in the current tenant (that can be 
 **InDevelopment**, **Available**, or **Deprecated**), and all other schema extensions owned by other apps that are marked as **Available**. 
 
@@ -9,9 +11,9 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Directory.AccessAsUser.All    |
+|Delegated (work or school account) | Directory.Read.All, Directory.AccessAsUser.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | Directory.Read.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -41,7 +43,7 @@ The following example shows how to look among all the accessible extensions for 
   "name": "get_schemaextensions"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/schemaExtensions?$filter=id%20eq%20'graphlearn_test'
+GET https://graph.microsoft.com/beta/schemaExtensions?$filter=id%20eq%20'graphlearn_test'
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

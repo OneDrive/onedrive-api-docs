@@ -1,4 +1,7 @@
 # Create event
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new [event](../resources/event.md).
 
 ## Permissions
@@ -36,7 +39,7 @@ The following is an example of the request.
   "name": "create_event_from_group"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/events
+POST https://graph.microsoft.com/beta/groups/{id}/events
 Content-type: application/json
 Content-length: 285
 
@@ -45,7 +48,7 @@ Content-length: 285
   "originalEndTimeZone": "originalEndTimeZone-value",
   "responseStatus": {
     "response": "",
-    "time": "datetime-value"
+    "time": "2016-10-19T10:37:00Z"
   },
   "iCalUId": "iCalUId-value",
   "reminderMinutesBeforeStart": 99,
@@ -56,8 +59,7 @@ In the request body, supply a JSON representation of [event](../resources/event.
 
 #### Response
 The following is an example of the response.
->**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
-
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -73,7 +75,7 @@ Content-length: 285
   "originalEndTimeZone": "originalEndTimeZone-value",
   "responseStatus": {
     "response": "",
-    "time": "datetime-value"
+    "time": "2016-10-19T10:37:00Z"
   },
   "iCalUId": "iCalUId-value",
   "reminderMinutesBeforeStart": 99,

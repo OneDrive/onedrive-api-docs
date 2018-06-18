@@ -1,5 +1,7 @@
 # RangeBorder resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents the border of an object.
 
 
@@ -7,10 +9,10 @@ Represents the border of an object.
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Get RangeBorder](../api/rangeborder_get.md) | [WorkbookRangeBorder](rangeborder.md) |Read properties and relationships of rangeBorder object.|
-|[Update](../api/rangeborder_update.md) | [WorkbookRangeBorder](rangeborder.md)	|Update RangeBorder object. |
-|[List](../api/rangeborder_list.md) | [WorkbookRangeBorder](rangeborder.md) collection |Get rangeBorder object collection. |
-|[Itemat](../api/rangebordercollection_itemat.md)|[WorkbookRangeBorder](rangeborder.md)|Gets a border object using its index|
+|[Get RangeBorder](../api/rangeborder_get.md) | [RangeBorder](rangeborder.md) |Read properties and relationships of rangeBorder object.|
+|[Update](../api/rangeborder_update.md) | [RangeBorder](rangeborder.md)	|Update RangeBorder object. |
+|[List](../api/rangeborder_list.md) | [RangeBorder](rangeborder.md) collection |Get rangeBorder object collection. |
+|[Itemat](../api/rangebordercollection_itemat.md)|[RangeBorder](rangeborder.md)|Gets a border object using its index|
 
 ## Properties
 | Property	   | Type	|Description|
@@ -29,11 +31,12 @@ None
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.workbookRangeBorder"
+  "optionalProperties": [
+
+  ],
+  "@odata.type": "microsoft.graph.rangeBorder"
 }-->
 
 ```json

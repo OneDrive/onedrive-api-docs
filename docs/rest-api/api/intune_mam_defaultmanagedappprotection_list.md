@@ -1,5 +1,7 @@
 ﻿# List defaultManagedAppProtections
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [defaultManagedAppProtection](../resources/intune_mam_defaultmanagedappprotection.md) objects.
@@ -37,7 +39,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceAppManagement/defaultManagedAppProtections
+GET https://graph.microsoft.com/beta/deviceAppManagement/defaultManagedAppProtections
 ```
 
 ### Response
@@ -45,7 +47,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 2380
+Content-Length: 3620
 
 {
   "value": [
@@ -85,6 +87,12 @@ Content-Length: 2380
       "minimumWarningOsVersion": "Minimum Warning Os Version value",
       "minimumRequiredAppVersion": "Minimum Required App Version value",
       "minimumWarningAppVersion": "Minimum Warning App Version value",
+      "minimumWipeOsVersion": "Minimum Wipe Os Version value",
+      "minimumWipeAppVersion": "Minimum Wipe App Version value",
+      "appActionIfDeviceComplianceRequired": "wipe",
+      "appActionIfMaximumPinRetriesExceeded": "wipe",
+      "pinRequiredOnLaunchInsteadOfBiometric": true,
+      "pinRequiredInsteadOfBiometricTimeout": "-PT3M9.8396734S",
       "appDataEncryptionType": "afterDeviceRestart",
       "screenCaptureBlocked": true,
       "encryptAppData": true,
@@ -100,7 +108,29 @@ Content-Length: 2380
       "deployedAppCount": 0,
       "minimumRequiredPatchVersion": "Minimum Required Patch Version value",
       "minimumWarningPatchVersion": "Minimum Warning Patch Version value",
-      "faceIdBlocked": true
+      "exemptedAppProtocols": [
+        {
+          "@odata.type": "microsoft.graph.keyValuePair",
+          "name": "Name value",
+          "value": "Value value"
+        }
+      ],
+      "exemptedAppPackages": [
+        {
+          "@odata.type": "microsoft.graph.keyValuePair",
+          "name": "Name value",
+          "value": "Value value"
+        }
+      ],
+      "faceIdBlocked": true,
+      "minimumWipeSdkVersion": "Minimum Wipe Sdk Version value",
+      "minimumWipePatchVersion": "Minimum Wipe Patch Version value",
+      "allowedIosDeviceModels": "Allowed Ios Device Models value",
+      "appActionIfIosDeviceModelNotAllowed": "wipe",
+      "allowedAndroidDeviceManufacturers": "Allowed Android Device Manufacturers value",
+      "appActionIfAndroidDeviceManufacturerNotAllowed": "wipe",
+      "thirdPartyKeyboardsBlocked": true,
+      "filterOpenInToOnlyManagedApps": true
     }
   ]
 }

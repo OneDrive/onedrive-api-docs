@@ -1,5 +1,7 @@
 ﻿# Update deviceAndAppManagementRoleDefinition
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [deviceAndAppManagementRoleDefinition](../resources/intune_rbac_deviceandappmanagementroledefinition.md) object.
@@ -38,7 +40,9 @@ The following table shows the properties that are required when you create the [
 |id|String|Key of the entity. This is read-only and automatically generated. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |displayName|String|Display Name of the Role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |description|String|Description of the Role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
+|permissions|[rolePermission](../resources/intune_rbac_rolepermission.md) collection|List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |rolePermissions|[rolePermission](../resources/intune_rbac_rolepermission.md) collection|List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
+|isBuiltInRoleDefinition|Boolean|Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |isBuiltIn|Boolean|Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 
 
@@ -50,16 +54,19 @@ If successful, this method returns a `200 OK` response code and an updated [devi
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/roleDefinitions/{roleDefinitionId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/roleDefinitions/{roleDefinitionId}
 Content-type: application/json
-Content-length: 527
+Content-length: 1092
 
 {
   "displayName": "Display Name value",
   "description": "Description value",
-  "rolePermissions": [
+  "permissions": [
     {
       "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "Actions value"
+      ],
       "resourceActions": [
         {
           "@odata.type": "microsoft.graph.resourceAction",
@@ -73,6 +80,26 @@ Content-length: 527
       ]
     }
   ],
+  "rolePermissions": [
+    {
+      "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "Actions value"
+      ],
+      "resourceActions": [
+        {
+          "@odata.type": "microsoft.graph.resourceAction",
+          "allowedResourceActions": [
+            "Allowed Resource Actions value"
+          ],
+          "notAllowedResourceActions": [
+            "Not Allowed Resource Actions value"
+          ]
+        }
+      ]
+    }
+  ],
+  "isBuiltInRoleDefinition": true,
   "isBuiltIn": true
 }
 ```
@@ -82,16 +109,19 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 651
+Content-Length: 1216
 
 {
   "@odata.type": "#microsoft.graph.deviceAndAppManagementRoleDefinition",
   "id": "bca1dfb5-dfb5-bca1-b5df-a1bcb5dfa1bc",
   "displayName": "Display Name value",
   "description": "Description value",
-  "rolePermissions": [
+  "permissions": [
     {
       "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "Actions value"
+      ],
       "resourceActions": [
         {
           "@odata.type": "microsoft.graph.resourceAction",
@@ -105,6 +135,26 @@ Content-Length: 651
       ]
     }
   ],
+  "rolePermissions": [
+    {
+      "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "Actions value"
+      ],
+      "resourceActions": [
+        {
+          "@odata.type": "microsoft.graph.resourceAction",
+          "allowedResourceActions": [
+            "Allowed Resource Actions value"
+          ],
+          "notAllowedResourceActions": [
+            "Not Allowed Resource Actions value"
+          ]
+        }
+      ]
+    }
+  ],
+  "isBuiltInRoleDefinition": true,
   "isBuiltIn": true
 }
 ```

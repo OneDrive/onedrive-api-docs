@@ -1,6 +1,8 @@
 # Create Event
 
-Create an [event](../resources/event.md) in the user's default calendar or specified calendar.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Create an [event](../resources/event.md) in the user's default calendar or specified calendar. 
 
 You can specify the time zone for each of the start and end times of the event as part of these values, as the 
 **start** and **end** properties are of [dateTimeTimeZone](../resources/datetimetimezone.md) type. 
@@ -28,7 +30,6 @@ Additionally, if the meeting location has been set up as a resource, or if the e
 3. Invite the resource as an [attendee](../resources/attendee.md).
 4. Set the attendee **type** property as `resource`.
 5. Set the attendee **emailAddress** as the resource email address.
-
 
 
 ## Permissions
@@ -76,7 +77,7 @@ times in the response.
   "name": "create_event_from_user"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/events
+POST https://graph.microsoft.com/beta/me/events
 Prefer: outlook.timezone="Pacific Standard Time"
 Content-type: application/json
 Content-length: 600
@@ -125,7 +126,7 @@ Content-type: application/json
 Content-length: 2197
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('cd209b0b-3f83-4c35-82d2-d88a61820480')/events/$entity",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('cd209b0b-3f83-4c35-82d2-d88a61820480')/events/$entity",
     "@odata.etag":"W/\"ZlnW4RIAV06KYYwlrfNZvQAALfZeRQ==\"",
     "id":"AAMkAGI1AAAt9AHjAAA=",
     "createdDateTime":"2017-04-15T03:00:50.7579581Z",
@@ -215,7 +216,7 @@ In the request body, supply a JSON representation of [event](../resources/event.
   "name": "create_event_from_user_multiple_locations"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/events
+POST https://graph.microsoft.com/beta/me/events
 Prefer: outlook.timezone="Pacific Standard Time"
 Content-type: application/json
 Content-length: 1390
@@ -296,7 +297,7 @@ Content-type: application/json
 Content-length: 2985
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('d1a2fae9-db66-4cc9-8133-2184c77af1b8')/events/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('d1a2fae9-db66-4cc9-8133-2184c77af1b8')/events/$entity",
   "@odata.etag":"W/\"y53lbKh6jkaxHzFwGhgyxgAAw5zhug==\"",
   "id":"AAMkADAGAADDdm4NAAA=",
   "createdDateTime":"2017-08-30T07:06:33.8673345Z",
@@ -358,6 +359,7 @@ Content-length: 2985
       "uniqueId":"Fourth Coffee",
       "uniqueIdType":"private",
       "address":{
+        "type":"unknown",
         "street":"4567 Main St",
         "city":"Redmond",
         "state":"WA",
@@ -417,7 +419,7 @@ The third example shows how to create a recurring event. The event occurs from 1
   "name": "create_event_recurring"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/events
+POST https://graph.microsoft.com/beta/me/events
 Content-type: application/json
 
 {
@@ -475,7 +477,7 @@ HTTP/1.1 201 Created
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('919717da-0460-4cca-a6be-d25382429896')/events/$entity",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('919717da-0460-4cca-a6be-d25382429896')/events/$entity",
     "@odata.etag":"W/\"+T8RDneHMkKe2BGYEaQZ4wAA5a9Acw==\"",
     "id":"AAMkADQwMD",
     "createdDateTime":"2017-10-07T04:59:12.9698856Z",
@@ -576,12 +578,13 @@ Content-type: application/json
 ```
 
 
+
+
 ## See also
 
 - [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
 - [Add custom data to users using open extensions](../../../concepts/extensibility_open_users.md)
 - [Add custom data to groups using schema extensions](../../../concepts/extensibility_schema_groups.md)
-
 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

@@ -1,6 +1,8 @@
 # Update contact
 
-Update the properties of a contact object.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Update the properties of contact object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -12,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
-A [contact](../resources/contact.md) from a user's default [contactFolder](../resources/contactfolder.md).
+A [contact](../resources/contact.md) from user's default [contactFolder](../resources/contactfolder.md).
 ```http
 PATCH /me/contacts/{id}
 PATCH /users/{id | userPrincipalName}/contacts/{id}
@@ -22,7 +24,7 @@ A [contact](../resources/contact.md) from a user's top level [contactFolder](../
 PATCH /me/contactFolders/{id}/contacts/{id}
 PATCH /users/{id | userPrincipalName}/contactFolders/{id}/contacts/{id}
 ```
-A [contact](../resources/contact.md) contained in a child folder of a [contactFolder](../resources/mailfolder.md). The 
+A [contact](../resources/contact.md) contained in a child folder of a [contactFolder](../resources/mailfolder.md).  The 
 example below shows one level of nesting, but a contact can be located in a child of a child and so on.
 ```http
 PATCH /me/contactFolder/{id}/childFolders/{id}/.../contacts/{id}
@@ -41,42 +43,43 @@ In the request body, supply the values for relevant fields that should be update
 |:---------------|:--------|:----------|
 |assistantName|String|The name of the contact's assistant.|
 |birthday|DateTimeOffset|The contact's birthday.|
-|businessAddress|[PhysicalAddress](../resources/physicaladdress.md)|The contact's business address.|
-|businessHomePage|String|The business home page of the contact.|
-|businessPhones|String|The contact's business phone numbers.|
 |categories|String|The categories associated with the contact.|
-|children|String|The names of the contact's children.|
+|children|String||
 |companyName|String|The name of the contact's company.|
 |department|String|The contact's department.|
 |displayName|String|The contact's display name.|
 |emailAddresses|[EmailAddress](../resources/emailaddress.md) collection|The contact's email addresses.|
 |fileAs|String|The name the contact is filed under.|
+|gender |String |The contact's gender. |
 |generation|String|The contact's generation.|
 |givenName|String|The contact's given name.|
-|homeAddress|[PhysicalAddress](../resources/physicaladdress.md)|The contact's home address.|
-|homePhones|String collection|The contact's home phone numbers.|
 |imAddresses|String|The contact's instant messaging (IM) addresses.|
 |initials|String|The contact's initials.|
 |jobTitle|String|The contact’s job title.|
 |manager|String|The name of the contact's manager.
 |middleName|String|The contact's middle name.|
-|mobilePhone|String|The contact's mobile phone number.|
 |nickName|String|The contact's nickname.|
 |officeLocation|String|The location of the contact's office.|
-|otherAddress|[PhysicalAddress](../resources/physicaladdress.md)|Other addresses for the contact.|
 |parentFolderId|String|The ID of the contact's parent folder.|
 |personalNotes|String|The user's notes about the contact.|
+|phones |[phone](../resources/phone.md) collection |Phone numbers associated with the contact, for example, home phone, mobile phone, and business phone. |
+|postalAddresses |[physicalAddress](../resources/physicalAddress.md) collection |Addresses associated with the contact, for example, home address and business address. |
 |profession|String|The contact's profession.|
 |spouseName|String|The name of the contact's spouse/partner.|
 |surname|String|The contact's surname.|
 |title|String|The contact's title.|
+|websites |[website](../resources/website.md) collection|Web sites associated with the contact. |
+|weddingAnniversary |Date |The contact's wedding anniversary. |
 |yomiCompanyName|String|The phonetic Japanese company name of the contact. This property is optional.|
 |yomiGivenName|String|The phonetic Japanese given name (first name) of the contact. This property is optional.|
 |yomiSurname|String|The phonetic Japanese surname (last name)  of the contact. This property is optional.|
 
+Since the **contact** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `PATCH` operation to 
+add, update, or delete your own app-specific data in custom properties of an extension in an existing **contact** instance.
+
 ## Response
 
-If successful, this method returns a `200 OK` response code and an updated [contact](../resources/contact.md) object in the response body.
+If successful, this method returns a `200 OK` response code and updated [contact](../resources/contact.md) object in the response body.
 ## Example
 ##### Request
 Here is an example of the request.
@@ -85,17 +88,20 @@ Here is an example of the request.
   "name": "update_contact"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/contacts/{id}
+PATCH https://graph.microsoft.com/beta/me/contacts/{id}
 Content-type: application/json
 Content-length: 1977
 
 {
-  "homeAddress": {
+  "postalAddresses": [{
+    "type": "business",
+    "postOfficeBox": "P.O. Box 100",
     "street": "123 Some street",
     "city": "Seattle",
     "state": "WA",
+    "countryOrRegion": "USA",
     "postalCode": "98121"
-  },
+  }],
   "birthday": "1974-07-22"
 }
 ```
@@ -145,33 +151,42 @@ Content-length: 1977
   "department": "Sales & Marketing",
   "officeLocation": "20/1101",
   "profession": null,
-  "businessHomePage": "http://www.contoso.com",
   "assistantName": null,
   "manager": null,
-  "homePhones": [],
-  "mobilePhone": null,
-  "businessPhones": [
-    "+1 918 555 0101"
-  ],
-  "homeAddress": {
+  "phones": [{
+    "type": "business",
+    "number": "+1 918 555 0101"
+  }],
+  "postalAddresses": [{
+    "type": "business",
+    "postOfficeBox": "P.O. Box 100",
     "street": "123 Some street",
     "city": "Seattle",
     "state": "WA",
+    "countryOrRegion": "USA",
     "postalCode": "98121"
-  },
-  "businessAddress": {
-      "street": "10 Contoso Way",
-      "city": "Redmond",
-      "state": "WA",
-      "countryOrRegion": "USA",
-      "postalCode": "98075"  
-  },
-  "otherAddress": {},
+  }],
   "spouseName": null,
   "personalNotes": null,
-  "children": []
+  "children": [], 
+  "gender": null,
+  "websites": [{
+      "type": "work",
+      "address": "http://www.contoso.com",
+      "name": "Contoso"
+  }],
+  "weddingAnniversary": null
 }
 ```
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+<!--
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+-->
+
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

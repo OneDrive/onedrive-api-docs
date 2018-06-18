@@ -1,20 +1,23 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/17/2017
+title: BaseItemVersion
+---
 # BaseItemVersion resource type
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 The **baseItemVersion** resource represents a previous version of an item or entity.
 
 
 ## JSON representation
 
-<!--{
-  "blockType": "resource",
-  "abstract": true,
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.baseItemVersion",
-  "@type.aka": "oneDrive.baseItemVersion"
-}-->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.baseItemVersion", "@type.aka": "oneDrive.baseItemVersion" } -->
 
 ```json
 {
+  "content": { "@odata.type": "Edm.Stream" },
   "id": "string",
   "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
   "lastModifiedDateTime": "2016-01-01T15:20:01.125Z",

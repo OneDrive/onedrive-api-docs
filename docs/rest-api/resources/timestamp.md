@@ -1,5 +1,7 @@
 # timeStamp resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Date and time information for a point in time.
 
 ## JSON representation
@@ -23,7 +25,7 @@ Here is a JSON representation of the resource
 
 ```
 ## Properties
-| Property       | Type    |Description|
+| Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |date|Date|The date portion of the timestamp.|
 |time|TimeOfDay|The time portion of the timestamp.|

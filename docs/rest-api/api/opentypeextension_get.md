@@ -1,14 +1,16 @@
 # Get open extension
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get an open extension ([openTypeExtension](../resources/openTypeExtension.md) object) identified by name or fully qualified name.
 
 The following table lists the three scenarios where you can get an open extension from a supported resource instance.
 
 |**GET scenario**|**Supported resources**|**Response body**|
 |:-----|:-----|:-----|
-|Get a specific extension from a known resource instance.| [Device](../resources/device.md), [event](../resources/event.md), [group](../resources/group.md), [group event](../resources/event.md), [group post](../resources/post.md), [message](../resources/message.md), [organization](../resources/organization.md), [personal contact](../resources/contact.md), [user](../resources/user.md) | Open extension only.|
-|Get a known resource instance expanded with a specific extension.|Device, event, group, group event, group post, message, organization, personal contact, user |A resource instance expanded with the open extension.|
-|Find and expand resource instances with a specific extension. |Event, group event, group post, message, personal contact|Resource instances expanded with the open extension.|
+|Get a specific extension from a known resource instance.| [Administrative unit](../resources/administrativeunit.md), [device](../resources/device.md), [event](../resources/event.md), [group](../resources/group.md), [group event](../resources/event.md), [group post](../resources/post.md), [message](../resources/message.md), [organization](../resources/organization.md), [personal contact](../resources/contact.md), [user](../resources/user.md) | Open extension only.|
+|Get a known resource instance expanded with a specific extension.|Administrative unit, device, event, group, group event, group post, message, organization, personal contact, user |A resource instance expanded with the open extension.|
+|Find and expand resource instances with a specific extension. | Event, group event, group post, message, personal contact |Resource instances expanded with the open extension.|
 
 ## Permissions
 
@@ -16,11 +18,11 @@ One of the following permissions is required to call this API, depending on the 
 
 |**Supported resource**|**Permission**|**Supported resource**|**Permission** |
 |:-----|:-----|:-----|:-----|
-| [Device](../resources/device.md) | Directory.Read.All | [Event](../resources/event.md) | Calendars.Read |
-| [Group](../resources/group.md) | Group.Read.All | [Group event](../resources/event.md) | Group.Read.All |
-| [Group post](../resources/post.md) | Group.Read.All | [Message](../resources/message.md) | Mail.Read |
-| [Organization](../resources/organization.md) | Directory.Read.All | [Personal contact](../resources/contact.md) | Contacts.Read |
-| [User](../resources/user.md) | User.ReadBasic.All | | |
+| [Administrative unit](../resources/administrativeunit.md) | Directory.Read.All | [Device](../resources/device.md) | Directory.Read.All |
+| [Event](../resources/event.md) | Calendars.Read | [Group](../resources/group.md) | Group.Read.All |
+| [Group event](../resources/event.md) | Group.Read.All | [Group post](../resources/post.md) | Group.Read.All |
+| [Message](../resources/message.md) | Mail.Read | [Organization](../resources/organization.md) | Directory.Read.All |
+| [Personal contact](../resources/contact.md) | Contacts.Read | [User](../resources/user.md) | User.Read.All |
 
 ## HTTP request
 
@@ -33,6 +35,7 @@ navigation property of that instance.
 
 <!-- { "blockType": "ignored" } -->
 ```http
+GET /administrativeUnits/{Id}/extensions/{extensionId}
 GET /devices/{Id}/extensions/{extensionId}
 GET /users/{Id|userPrincipalName}/events/{Id}/extensions/{extensionId}
 GET /groups/{Id}/extensions/{extensionId}
@@ -43,7 +46,6 @@ GET /organization/{Id}/extensions/{extensionId}
 GET /users/{Id|userPrincipalName}/contacts/{Id}/extensions/{extensionId}
 GET /users/{Id|userPrincipalName}/extensions/{extensionId}
 ```
-
 
 ### Get a known resource instance expanded with a matching extension 
 
@@ -72,6 +74,7 @@ GET /organization/{Id}?$expand=extensions($filter=id eq '{extensionId}')&$select
 GET /users/{Id|userPrincipalName}?$expand=extensions($filter=id eq '{extensionId}')&$select=id,{property_1},{property_n}
 ```
 
+
 ### Filter for resource instances expanded with a matching extension 
 
 Use the same REST request as getting a collection of the supported resource, filter the collection 
@@ -91,9 +94,11 @@ GET /users/{Id|userPrincipalName}/contacts?$filter=Extensions/any(f:f/id eq '{ex
 in order to get an extension from it. All other syntax that allows you to identify these resource 
 instances or collections supports getting open extensions from them in a similar way.
 
-## Path parameters
-|Parameter|Type|Description|
+
+## Parameters
+|**Parameter**|**Type**|**Description**|
 |:-----|:-----|:-----|
+|_URL parameters_|
 |Id|string|Placeholder for a unique identifier for an object in the corresponding collection such as messages, events, contacts. Required. Not to be confused with the **id** property of an **openTypeExtension**.|
 |extensionId|string|Placeholder for an extension name which is a unique text identifier for an extension, or a fully qualified name which concatenates the extension type and unique text identifier. The fully qualified name is returned in the **id** property when you create the extension. Required.|
 
@@ -101,7 +106,7 @@ instances or collections supports getting open extensions from them in a similar
 
 Make sure you apply [URL encoding](http://www.w3schools.com/tags/ref_urlencode.asp) to the space characters in the `$filter` string.
 
-|Name|Value|Description|
+|**Name**|**Value**|**Description**|
 |:---------------|:--------|:-------|
 |$filter|string|Returns an extension with its **id** matching the `extensionId` parameter value.|
 |$filter with **any** operator|string|Returns instances of a resource collection that contain an extension with its **id** matching the `extensionId` parameter value.|
@@ -130,18 +135,17 @@ First, by its name:
 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["Com.Contoso.Referral"],
   "name": "get_opentypeextension_1"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/messages/{message-id}/extensions/Com.Contoso.Referral
+GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Com.Contoso.Referral')
 ```
 
 Second, by its ID (fully qualified name):
 
 <!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/v1.0/me/messages/{message-id}/extensions/Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral
+GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
 #### Response 1
@@ -149,16 +153,16 @@ Here is the response for the first example.
 <!-- {
   "blockType": "response",
   "truncated": false,
-  "@odata.type": "microsoft.graph.openTypeExtension"
+  "@odata.type": "microsoft.graph.opentypeextension"
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
-    "@odata.type": "#microsoft.graph.openTypeExtension",
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
+    "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
 ('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
     "extensionName": "Com.Contoso.Referral",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral",
@@ -177,11 +181,10 @@ The second example references an extension by its name and gets the extension in
 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["Com.Contoso.Deal"],
   "name": "get_opentypeextension_2"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{group-id}/events/{event-id}/extensions/Com.Contoso.Deal/
+GET https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl17IsAAA=')/extensions('Com.Contoso.Deal') 
 ```
 
 #### Response 2
@@ -191,15 +194,15 @@ Here is the response from the second example.
 <!-- {
   "blockType": "response",
   "truncated": false,
-  "@odata.type": "microsoft.graph.openTypeExtension"
+  "@odata.type": "microsoft.graph.opentypeextension"
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl7IsAAA%3D')/extensions/$entity",
-    "@odata.type": "#microsoft.graph.openTypeExtension",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl7IsAAA%3D')/extensions/$entity",
+    "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Deal",
     "extensionName": "Com.Contoso.Deal",
     "companyName": "Alpine Skis",
@@ -220,7 +223,7 @@ The filter returns the extension that has its **id** matching a fully qualified 
   "name": "get_opentypeextension_3"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/messages/{message-id}?$expand=extensions($filter=id%20eq%20'Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
+GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')?$expand=extensions($filter=id%20eq%20'Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
 
@@ -238,8 +241,8 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/messages/$entity",
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages/$entity",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')",
     "@odata.etag": "W/\"CQAAABYAAACY4MQpaFz9SbqUDe4+bs88AABNsWMM\"",
     "id": "AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===",
     "changeKey": "CQAAABYAAACY4MQpaFz9SbqUDe4+bs88AABNsWMM",
@@ -291,11 +294,11 @@ Content-type: application/json
     "isRead": true,
     "webLink": "https://outlook.office.com/owa/?ItemID=AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===%2FNJTqt5NqHlVnKVBwCY4MQpaFz9SbqUDe4%2Bbs88AAAAAAEJAACY4MQpaFz9SbqUDe4%2Bbs88AAApA4JMAAA%3D&exvsurl=1&viewmodel=ReadMessageItem",
     "inferenceClassification": "Focused",
-    "extensions@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('desmond40contoso.com')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions", 
+    "extensions@odata.context": "https://graph.microsoft.com/beta/$metadata#users('desmond40contoso.com')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions", 
     "extensions": [ 
       { 
-        "@odata.type": "#microsoft.graph.openTypeExtension",
-        "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
+        "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
+        "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
         "extensionName": "Com.Contoso.Referral",
         "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral",
         "companyName": "Wingtip Toys",
@@ -313,11 +316,11 @@ Content-type: application/json
 The fourth example references an extension by its fully qualified name and gets the extension in the specified group post.
 
 <!-- {
-  "blockType": "ignored",
+  "blockType": "request",
   "name": "get_opentypeextension_4"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{group-id}/threads/{thread-id}/posts/{post-id}/extensions/Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate
+GET https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA==')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA=')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate') 
 ```
 
 #### Response 4
@@ -325,16 +328,16 @@ GET https://graph.microsoft.com/v1.0/groups/{group-id}/threads/{thread-id}/posts
 Here is the response from the fourth example. 
 
 <!-- {
-  "blockType": "ignored",
+  "blockType": "response",
   "truncated": false,
-  "@odata.type": "microsoft.graph.openTypeExtension"
+  "@odata.type": "microsoft.graph.opentypeextension"
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
     "@odata.type": "#microsoft.graph.openTypeExtension",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate",
     "extensionName": "Com.Contoso.Estimate",
@@ -361,7 +364,7 @@ expands them by including the extension. The filter returns extensions that has 
   "name": "get_opentypeextension_5"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/messages?$filter=Extensions/any(f:f/id%20eq%20'Com.Contoso.Referral')&$expand=Extensions($filter=id%20eq%20'Com.Contoso.Referral')
+GET https://graph.microsoft.com/beta/me/messages?$filter=Extensions/any(f:f/id%20eq%20'Com.Contoso.Referral')&$expand=Extensions($filter=id%20eq%20'Com.Contoso.Referral')
 ```
 
 
@@ -380,14 +383,13 @@ Note: The response object shown here may be truncated for brevity. All of the pr
 } -->
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json
 
 {
-  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/messages",
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages",
   "value": [
   {
 
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')",
     "@odata.etag": "W/\"CQAAABYAAACY4MQpaFz9SbqUDe4+bs88AABNsWMM\"",
     "id": "AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===",
     "changeKey": "CQAAABYAAACY4MQpaFz9SbqUDe4+bs88AABNsWMM",
@@ -439,11 +441,11 @@ Content-Type: application/json
     "isRead": true,
     "webLink": "https://outlook.office.com/owa/?ItemID=AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===%2FNJTqt5NqHlVnKVBwCY4MQpaFz9SbqUDe4%2Bbs88AAAAAAEJAACY4MQpaFz9SbqUDe4%2Bbs88AAApA4JMAAA%3D&exvsurl=1&viewmodel=ReadMessageItem",
     "inferenceClassification": "Focused",
-    "extensions@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('desmond40contoso.com')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions", 
+    "extensions@odata.context": "https://graph.microsoft.com/beta/$metadata#users('desmond40contoso.com')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions", 
     "extensions": [ 
       { 
-        "@odata.type": "#microsoft.graph.openTypeExtension",
-        "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
+        "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
+        "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
         "extensionName": "Com.Contoso.Referral",
         "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral",
         "companyName": "Wingtip Toys",
@@ -466,13 +468,5 @@ Content-Type: application/json
   "description": "Get openTypeExtension",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-      "Warning: /api-reference/v1.0/api/opentypeextension_get.md:
-        Unable to map some markdown elements into schema.
-            Unmapped methods:
-        get_opentypeextension_1, get_opentypeextension_2, get_opentypeextension_3, get_opentypeextension_5
-            Unmapped tables:
-        Get open extension - Unknown, Permissions - AuthScopes, Path parameters - PathParameters, Optional query parameters - PathParameters, Request headers - HttpHeaders"
-  ],
   "tocPath": ""
 }-->

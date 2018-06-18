@@ -1,5 +1,7 @@
 # Create notebook
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new OneNote [notebook](../resources/notebook.md).
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -41,7 +43,7 @@ Here is an example of the request.
   "name": "create_notebook_from_onenote"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/onenote/notebooks
+POST https://graph.microsoft.com/beta/me/onenote/notebooks
 Content-type: application/json
 Content-length: 30
 
@@ -66,6 +68,7 @@ Content-length: 284
   "isDefault": true,
   "userRole": {
   },
+  "id": "8fcb5dbc-d5aa-4681-8e31-b001d5168d79",
   "isShared": true,
   "sectionsUrl": "sectionsUrl-value",
   "sectionGroupsUrl": "sectionGroupsUrl-value",

@@ -1,5 +1,7 @@
 # Remove directory role member
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Remove a member from a directoryRole.
 
 ## Permissions
@@ -18,7 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-DELETE /directoryRoles/{id}/members/{id}/$ref
+DELETE /directoryroles/{id}/members/{id}/$ref
 ```
 
 ## Request headers
@@ -46,7 +48,7 @@ Here is an example of the request.
 }-->
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/directoryRoles/{id}/members/{id}/$ref
+DELETE https://graph.microsoft.com/beta/directoryroles/{id}/members/{id}/$ref
 ```
 
 ##### Response

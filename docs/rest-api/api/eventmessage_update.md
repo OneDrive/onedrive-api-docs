@@ -1,5 +1,7 @@
 # Update eventMessage
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of an [eventMessage](../resources/eventmessage.md) object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -31,6 +33,7 @@ In the request body, supply the values for relevant fields that should be update
 |:---------------|:--------|:----------|
 |categories|String|The categories associated with the message.|
 |importance|String|The importance of the message. Possible values are: `Low`, `Normal`, `High`.|
+|isAllDay |Boolean|Indicates whether the event lasts the entire day. Adjusting this property requires adjusting the **startDateTime** and **endDateTime** properties of the event as well.|
 |isDeliveryReceiptRequested|Boolean|Indicates whether a read receipt is requested for the message.|
 |isRead|Boolean|Indicates whether the message has been read.|
 |isReadReceiptRequested|Boolean|Indicates whether a read receipt is requested for the message.|
@@ -46,7 +49,7 @@ Here is an example of the request.
   "name": "update_eventmessage"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/messages/{id}
+PATCH https://graph.microsoft.com/beta/me/messages/{id}
 Content-type: application/json
 Content-length: 248
 
@@ -67,8 +70,8 @@ Content-type: application/json
 Content-length: 248
 
 {
-  "receivedDateTime": "datetime-value",
-  "sentDateTime": "datetime-value",
+  "receivedDateTime": "2016-10-19T10:37:00Z",
+  "sentDateTime": "2016-10-19T10:37:00Z",
   "hasAttachments": true,
   "subject": "subject-value",
   "body": {

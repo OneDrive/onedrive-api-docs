@@ -1,5 +1,10 @@
 # assignLicense
-Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Add or remove licenses for the user to enable or disable their use of Microsoft cloud offerings. For example, an organization can have an Office 365 Enterprise E3 subscription with 100 licenses, and this request assigns one of those licenses to a specific user. You can also enable and disable specific plans associated with a subscription. To learn more about subscriptions and licenses, see this [Technet article](https://technet.microsoft.com/en-us/library/mt765146.aspx).
+
+To get the subscriptions available in the directory, perform a [GET subscribedSkus request](subscribedsku_list.md). 
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -26,23 +31,22 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|addLicenses|AssignedLicense collection|A collection of [assignedLicense](../resources/assignedlicense.md) objects that specify the licenses to add. You can disable plans associated with a license by setting the **disabledPlans** property on an [assignedLicense](../resources/assignedlicense.md) object.|
-|removeLicenses|Guid collection|A collection of GUIDs that identify the licenses to remove.|
+|addLicenses|[assignedLicense](../resources/assignedlicense.md) collection|A collection of [assignedLicense](../resources/assignedlicense.md) objects that specify the licenses to add. You can disable servicePlans associated with a license by setting the **disabledPlans** property on an [assignedLicense](../resources/assignedlicense.md) object.|
+|removeLicenses|Guid|A collection of skuIds that identify the licenses to remove.|
 
 ## Response
 
-If successful, this method returns `200 OK` response code and [user](../resources/user.md) object in the response body.
+If successful, this method returns `200 OK` response code and an updated [user](../resources/user.md) object in the response body.
 
 ## Example
-Here is an example of how to call this API.
+Add licenses to the user.
 ##### Request
-Here is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "user_assignlicense"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/assignLicense
+POST https://graph.microsoft.com/beta/me/assignLicense
 Content-type: application/json
 Content-length: 185
 
@@ -50,15 +54,34 @@ Content-length: 185
   "addLicenses": [
     {
       "disabledPlans": [ "11b0131d-43c8-4bbb-b2c8-e80f9a50834a" ],
-      "skuId": "guid"
+      "skuId": "skuId-value-1"
+    },
+    {
+      "disabledPlans": [ "a571ebcc-fqe0-4ca2-8c8c-7a284fd6c235" ],
+      "skuId": "skuId-value-2"
     }
   ],
-  "removeLicenses": [ "bea13e0c-3828-4daa-a392-28af7ff61a0f" ]
+  "removeLicenses": []
+}
+```
+
+## Example
+Remove licenses from the user.
+
+#####Request
+```http
+POST https://graph.microsoft.com/beta/me/assignLicense
+Content-type: application/json
+Content-length: 185
+
+{
+  "addLicenses": [],
+  "removeLicenses": ["skuId-value-1", "skuId-value-2"]
 }
 ```
 
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+In both examples, the response is the updated user object. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -74,12 +97,12 @@ Content-length: 491
   "assignedLicenses": [
     {
       "disabledPlans": [ "11b0131d-43c8-4bbb-b2c8-e80f9a50834a" ],
-      "skuId": "0118A350-71FC-4EC3-8F0C-6A1CB8867561"
+      "skuId": "skuId-value"
     }
   ],
   "assignedPlans": [
     {
-      "assignedDateTime": "2016-10-02T12:13:14Z",
+      "assignedDateTime": "2016-10-19T10:37:00Z",
       "capabilityStatus": "capabilityStatus-value",
       "service": "service-value",
       "servicePlanId": "bea13e0c-3828-4daa-a392-28af7ff61a0f"

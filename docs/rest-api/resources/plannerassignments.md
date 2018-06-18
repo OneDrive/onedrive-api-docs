@@ -1,5 +1,7 @@
 # plannerAssignments resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **plannerAssignments** resource represents assignments of a [plannerTask](plannertask.md) resource. This type is an open type. Each property name in this type 
 is the ID of a user object a task is assigned to. The users can be assigned to tasks with creating new properties named with their ID, with a [plannerassignment](plannerassignment.md)
 object with orderHint property populated as the value. The assignees can be unassigned from the task by setting the propety named with their ID to null.
@@ -12,10 +14,12 @@ Example:
 
 <!-- {
   "blockType": "resource",
-  "openType": true,
-  "optionalProperties": [ "ca2a1df2-e36b-4987-9f6b-0ea462f4eb47", "4e98f8f1-bb03-4015-b8e0-19bb370949d8" ],
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.plannerAssignments"
 }-->
+
 ```json
 {
   "ca2a1df2-e36b-4987-9f6b-0ea462f4eb47": null,

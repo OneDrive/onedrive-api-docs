@@ -6,6 +6,8 @@ title: SharedDriveItem
 ---
 # SharedDriveItem resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **sharedDriveItem** resource is returned when using the [Shares](../api/shares_get.md) API to access a shared [driveItem](driveitem.md).
 
 ## JSON representation
@@ -16,7 +18,6 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.baseItem",
   "optionalProperties": [  ],
   "@odata.type": "microsoft.graph.sharedDriveItem"
 }-->
@@ -27,7 +28,7 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
   "name": "string",
   "owner": { "@odata.type": "microsoft.graph.identitySet" },
 
-  "driveItem": { "@odata.type": "microsoft.graph.driveItem" },
+  "driveItem": [ { "@odata.type": "microsoft.graph.driveItem" }],
   "items": [ { "@odata.type": "microsoft.graph.driveItem" }],
   "list": { "@odata.type": "microsoft.graph.list" },
   "listItem": { "@odata.type": "microsoft.graph.listItem" },
@@ -53,12 +54,13 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
 | **listItem**      | [**listItem**][listItem]    | Used to access the underlying **listItem**
 | **site**          | [**site**][site]        | Used to access the underlying **site**
 
+
 Alternatively, for **driveItems** shared from personal OneDrive accounts, the following relationships may also be used.
 
 | Relationship name | Type                         | Description
 | ------------------|:-----------------------------|:-----------------------------------
 | **items**         | [**driveItem**][driveItem] collection | All driveItems contained in the sharing root. This collection cannot be enumerated.
-| **root**          | [**driveItem**][driveItem]   | Used to access the underlying **driveItem**. Deprecated -- use `driveItem` instead.
+| **driveItem**     | [**driveItem**][driveItem]            | Used to access the underlying **driveItem**
 
 [driveItem]: driveItem.md
 [list]: list.md

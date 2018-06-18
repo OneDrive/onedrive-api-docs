@@ -1,36 +1,35 @@
 # Working with Excel in Microsoft Graph
 
-You can use Microsoft Graph to allow web and mobile applications to read and modify Excel workbooks stored in OneDrive for Business, SharePoint site or Group drive. The `Workbook` (or Excel file) resource contains all the other Excel resources through relationships. You can access a workbook through the [Drive API](drive.md) by identifying the location of the file in the URL. For example:
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+You can use Microsoft Graph to allow web and mobile applications to read and modify Excel workbooks stored in OneDrive, SharePoint, or other supported storage platforms. The `Workbook` (or Excel file) resource contains all the other Excel resources through relationships. You can access a workbook through the [Drive API](drive.md) by identifying the location of the file in the URL. For example:
 
 `https://graph.microsoft.com/{version}/me/drive/items/{id}/workbook/`  
 `https://graph.microsoft.com/{version}/me/drive/root:/{item-path}:/workbook/`  
 
 You can access a set of Excel objects (such as Table, Range, or Chart) by using standard REST APIs to perform  create, read, update, and delete (CRUD) operations on the workbook. For example, 
-`GET https://graph.microsoft.com/{version}/me/drive/items/{id}/workbook/worksheets`  
+`https://graph.microsoft.com/{version}/me/drive/items/{id}/workbook/`  
 returns a collection of worksheet objects that are part of the workbook.    
 
 
-The Excel REST API supports only Office Open XML file formatted workbooks. The `.xls` extension workbooks are not supported. 
-
-**Note**: Support for workbooks stored in OneDrive Consumer platform is still not available. At this time, only the files stored in business platform is supported by Excel REST APIs. 
+**Note:** The Excel REST API supports only Office Open XML file formatted workbooks. The `.xls` extension workbooks are not supported. 
 
 ## Authorization and scopes
 
-You can use the [Azure AD v.2 endpoint](https://developer.microsoft.com/en-us/graph/docs/authorization/converged_auth) to authenticate Excel APIs. All APIs require the `Authorization: Bearer {access-token}` HTTP header.   
+You can use the [Azure AD v.20 endpoint](https://developer.microsoft.com/en-us/graph/docs/authorization/converged_auth) to authenticate Excel APIs. All APIs require the `Authorization: Bearer {access-token}` HTTP header.   
   
 One of the following [permission scopes](https://developer.microsoft.com/en-us/graph/docs/authorization/permission_scopes) is required to use the Excel resource:
 
-* Files.Read (for read actions)
-* Files.ReadWrite (for read and write actions)
+* Files.Read 
+* Files.ReadWrite
 
 
 ## Sessions and persistence
 
-Excel APIs can be called in one of three modes: 
+Excel APIs can be called in one of two modes: 
 
-1. Persistent session - All changes made to the workbook are persisted (saved). This is the most efficient and performant mode of operation. 
-2. Non-persistent session - Changes made by the API are not saved to the source location. Instead, the Excel backend server keeps a temporary copy of the file that reflects the changes made during that particular API session. When the Excel session expires, the changes are lost. This mode is useful for apps that need to do analysis or obtain the results of a calculation or a chart image, but not affect the document state. 
-3. Sessionless - The API call is made without session information. Excel servers have to locate the server's copy of the workbook each time to perform the operation and hence this is not an efficient way for call Excel APIs. It is suitable for making one off requests. 
+1. Persistent session - All changes made to the workbook are persisted (saved). This is the usual mode of operation. 
+2. Non-persistent session - Changes made by the API are not saved to the source location. Instead, the Excel backend server keeps a temporary copy of the file that reflects the changes made during that particular API session. When the Excel session expires, the changes are lost. This mode is useful for apps that need to do analysis or obtain the results of a calculation or a chart image, but not affect the document state.   
 
 To represent the session in the API, use the `workbook-session-id: {session-id}` header. 
 
@@ -155,9 +154,7 @@ content-type: application/json;odata.metadata
 ```
 
 #### Get a new worksheet 
-
-Get a worksheet based on the name. 
-
+ 
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /{version}/me/drive/items/01CYZLFJGUJ7JHBSZDFZFL25KSZGQTVAUN/workbook/worksheets/Sheet32243
@@ -313,7 +310,7 @@ content-type: application/json;odata.metadata
 
 {
   "@odata.context": "https://graph.microsoft.com/{version}/$metadata#chart",
-  "@odata.type": "#microsoft.graph.workbookChart",
+  "@odata.type": "#microsoft.graph.chart",
   "@odata.id": "/users('f6d92604-4b76-4b70-9a4c-93dfbcc054d5')/drive/items('01CYZLFJB6K563VVUU2ZC2FJBAHLSZZQXL')/workbook/worksheets(%27%7B00000000-0001-0000-0000-000000000000%7D%27)/charts(%27%7B2D421098-FA19-41F7-8528-EE7B00E4BB42%7D%27)",
   "height": 216.0,
   "id": "{2D421098-FA19-41F7-8528-EE7B00E4BB42}",
@@ -400,7 +397,7 @@ content-type: application/json;odata.metadata
 Request 
 <!-- { "blockType": "ignored" } -->
 ```http 
-POST /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables/{table-id}/add
+POST /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables/$/add
 content-type: Application/Json 
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
@@ -460,7 +457,7 @@ Request
 
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/rows
+GET /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/Rows
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
 ```
@@ -550,7 +547,7 @@ content-type: application/json;odata.metadata
 Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/columns
+GET /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/Columns
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
 ```
@@ -662,7 +659,7 @@ content-type: application/json;odata.metadata
 Request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/rows
+POST /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/Rows
 content-type: Application/Json 
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
@@ -695,7 +692,7 @@ content-type: application/json;odata.metadata
 Request 
 <!-- { "blockType": "ignored" } -->
 ```http 
-POST /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('2')/columns
+POST /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('2')/Columns
 content-type: Application/Json 
 accept: application/Json 
 
@@ -735,7 +732,7 @@ content-type: application/json;odata.metadata
 Request 
 <!-- { "blockType": "ignored" } -->
 ```http  
-DELETE /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/rows/$/itemAt(index=6)
+DELETE /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/Rows/$/ItemAt(index=6)
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
 ```
@@ -750,7 +747,7 @@ HTTP code: 204 No Content
 Request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/columns('3')
+DELETE /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/tables('4')/Columns('3')
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
 ```
@@ -849,7 +846,7 @@ HTTP code: 204 No Content
 Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /{version}/me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/range(address='A1:B2')
+GET /{version}/me/drive/items/01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4/workbook/worksheets('test')/range(address='A1:B2')
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
 ```
@@ -863,7 +860,7 @@ content-type: application/json;odata.metadata
 
 {
   "@odata.context": "https://graph.microsoft.com/{version}/$metadata#range",
-  "@odata.type": "#microsoft.graph.workbookRange",
+  "@odata.type": "#microsoft.graph.range",
   "@odata.id": "/users('f6d92604-4b76-4b70-9a4c-93dfbcc054d5')/drive/items('01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4')/workbook/worksheets(%27%7B00000000-0001-0000-0300-000000000000%7D%27)/range(address=%27A1:B2%27)",
   "address": "test!A1:B2",
   "addressLocal": "test!A1:B2",
@@ -966,7 +963,7 @@ content-type: application/json;odata.metadata
 
 {
   "@odata.context": "https://graph.microsoft.com/{version}/$metadata#range",
-  "@odata.type": "#microsoft.graph.workbookRange",
+  "@odata.type": "#microsoft.graph.range",
   "@odata.id": "/users('f6d92604-4b76-4b70-9a4c-93dfbcc054d5')/drive/items('01CYZLFJDYBLIGAE7G5FE3I4VO2XP7BLU4')/workbook/worksheets(%27%7B00000000-0001-0000-0300-000000000000%7D%27)/range(address=%27test!A1:B2%27)",
   "address": "test!A1:B2",
   "addressLocal": "test!A1:B2",
@@ -1217,7 +1214,7 @@ For example, the following is not a valid update request because the requested r
 
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /workbook/worksheets/{id}/range(address="A:B")
+PATCH /workbook/worksheets('Sheet1')/range(address="A:B")
 
 {
   "values" : "Due Date"
@@ -1246,7 +1243,7 @@ The following request updates the selected range with the text of "Sample text".
 
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /workbook/worksheets/{id}/range(address="A1:B00")
+PATCH /workbook/worksheets('Sheet1')/range(address="A1:B00")
 
 {
   "values" : "Sample text"
@@ -1261,7 +1258,7 @@ You can access the workbook functions through a collection of functions included
 ##### Request
 <!-- { "blockType": "ignored" } -->
 ```http
-https://graph.microsoft.com/v1.0/me/drive/root:/book1.xlsx:/workbook/functions/pmt
+https://graph.microsoft.com/beta/me/drive/root:/book1.xlsx:/workbook/functions/pmt
 content-type: Application/Json 
 authorization: Bearer {access-token} 
 workbook-session-id: {session-id}
@@ -1282,7 +1279,7 @@ HTTP code: 200 OK
 content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#workbookFunctionResult",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#workbookFunctionResult",
     "@odata.type": "#microsoft.graph.workbookFunctionResult",
     "@odata.id": "/users('f6d92604-4b76-4b70-9a4c-93dfbcc054d5')/drive/root/workbook/functions/pmt()",
     "error": null,

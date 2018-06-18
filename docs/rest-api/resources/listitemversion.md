@@ -1,4 +1,12 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/17/2017
+title: ListItemVersion
+---
 # ListItemVersion resource type
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 The **listItemVersion** resource represents a previous version of a [ListItem](listitem.md) resource.
 
@@ -9,8 +17,8 @@ The following tasks are available for listItemVersion resources.
 |            Common task             |         HTTP method         |
 | :--------------------------------- | :-------------------------- |
 | [List versions][version-list]      | `GET /sites/{site-id}/items/{item-id}/versions`  |
-| [Get version][version-get]         | `GET /sites/{site-id}/items/{item-id}/versions/{version-id}`     |
-| [Restore version][version-restore] | `POST /sites/{site-id}/items/{item-id}/versions/{version-id}/restore` |
+| [Get version][version-get]         | `GET /sites/{site-id}/items/versions/{version-id}`     |
+| [Restore version][version-restore] | `POST /sites/{site-id}/items/versions/{version-id}/restore` |
 
 [version-list]: ../api/listitem_list_versions.md
 [version-get]: ../api/listitemversion_get.md
@@ -19,15 +27,11 @@ The following tasks are available for listItemVersion resources.
 
 ## JSON representation
 
-<!--{
-  "blockType": "resource",
-  "baseType": "microsoft.graph.baseItemVersion",
-  "@odata.type": "microsoft.graph.listItemVersion",
-  "@type.aka": "oneDrive.baseItemVersion"
-}-->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.listItemVersion", "@type.aka": "oneDrive.baseItemVersion" } -->
 
 ```json
 {
+  "content": { "@odata.type": "Edm.Stream" },
   "fields": { "@odata.type": "microsoft.graph.fieldValueSet" },
   "id": "string",
   "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },

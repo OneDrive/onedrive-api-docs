@@ -1,6 +1,8 @@
 # Create section
 
-Create a new [onenoteSection](../resources/section.md) in the specified notebook.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Create a new [section](../resources/section.md) in the specified notebook.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -31,7 +33,7 @@ Within the same hierarchy level, section names must be unique. The name cannot c
 
 ## Response
 
-If successful, this method returns a `201 Created` response code and a [onenoteSection](../resources/section.md) object in the response body.
+If successful, this method returns a `201 Created` response code and a [section](../resources/section.md) object in the response body.
 
 ## Example
 ##### Request
@@ -41,7 +43,7 @@ Here is an example of the request.
   "name": "create_section_from_notebook"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/onenote/notebooks/{id}/sections
+POST https://graph.microsoft.com/beta/me/onenote/notebooks/{id}/sections
 Content-type: application/json
 Content-length: 27
 
@@ -65,6 +67,7 @@ Content-length: 272
   "isDefault": true,
   "pagesUrl": "pagesUrl-value",
   "displayName": "name-value",
+  "id": "8fcb5dbc-d5aa-4681-8e31-b001d5168d79",
   "createdBy": {
     "user": {
       "id": "id-value",

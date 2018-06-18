@@ -1,5 +1,7 @@
 # conversation resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A conversation is a collection of [threads](conversationthread.md), and a thread contains posts to that thread. All threads and posts in a conversation share the same subject.
 
 ## Methods
@@ -32,23 +34,13 @@ A conversation is a collection of [threads](conversationthread.md), and a thread
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
   "optionalProperties": [
     "threads"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.conversation",
-  "@odata.annotations": [
-    {
-      "property": "threads",
-      "capabilities": {
-        "changeTracking": false,
-        "searchable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.conversation"
 }-->
 
 ```json
@@ -58,9 +50,7 @@ Here is a JSON representation of the resource
   "lastDeliveredDateTime": "String (timestamp)",
   "preview": "string",
   "topic": "string",
-  "uniqueSenders": ["string"],
-
-  "threads": [{"@odata.type": "microsoft.graph.conversationThread"}]
+  "uniqueSenders": ["string"]
 }
 
 ```

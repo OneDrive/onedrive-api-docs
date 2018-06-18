@@ -1,5 +1,7 @@
 # Outlook extended properties overview
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Extended properties allow storing custom data and specifically serve as a fallback mechanism for apps to access 
 custom data for Outlook MAPI properties when these properties are _not already exposed in the Microsoft Graph API metadata_. 
 You can use extended properties REST API to store or get such custom data in the following user resources:
@@ -9,7 +11,9 @@ You can use extended properties REST API to store or get such custom data in the
 - [event](../resources/event.md)
 - [calendar](../resources/calendar.md)
 - [contact](../resources/contact.md)
-- [contactFolder](../resources/contactfolder.md) 
+- [contactFolder](../resources/contactfolder.md)
+- [Outlook task](../resources/outlooktask.md)
+- [Outlook task folder](../resources/outlooktaskfolder.md) 
 
 Or, in the following Office 365 group resources:
 
@@ -22,7 +26,7 @@ Or, in the following Office 365 group resources:
 In most common scenarios, you should be able to use open extensions (represented by [openTypeExtension](../resources/opentypeextension.md), formerly known as 
 Office 365 data extensions) to store and access custom data for resource instances in a user's mailbox. Use extended properties only if you
 need to access custom data for Outlook MAPI properties that are not already exposed in the 
-[Microsoft Graph API metadata](http://developer.microsoft.com/en-us/graph/docs/overview/call_api). 
+[Microsoft Graph API metadata](http://developer.microsoft.com/en-us/graph/docs/overview/call_api).
 
 ## Types of extended properties
 
@@ -38,10 +42,10 @@ a single-value extended property to get all the instances that have that propert
 **Note** You cannot use the REST API to get all the extended properties of a specific instance in one call.
   
 
-### id Formats
+## id Formats
 
-When creating a single-value or multi-value extended property, you can specify the **id** property in one of two formats, 
-based on either a string name (**Name**) or numeric identifier (**Id**), and on the actual type of value or values of the property. 
+When creating a single-value or multi-value extended property, you can specify **id** in one of two formats, 
+based on either a string name or numeric identifier, and on the actual type of value or values of the property. 
 The next 2 tables below describe the supported formats to specify single and multi-value extended properties. {_type_} represents the type of the value or values of the property. Shown in the examples are string, integer, and arrays of these types.
 
 Since extended properties are in most cases inter-operating with defined MAPI properties not exposed in the 
@@ -67,7 +71,7 @@ in \[MS-OXPROPS\] Microsoft Corporation, ["Exchange Server Protocols Master Prop
 | "{_type_} {_guid_} **Name** {_name_}" | ```"StringArray {8ECCC264-6880-4EBE-992F-8888D2EEAA1D} Name TestProperty"``` | Identifies a property by namespace (the GUID) and name.         |
 | "{_type_} {_guid_} **Id** {_id_}"     | ```"IntegerArray {8ECCC264-6880-4EBE-992F-8888D2EEAA1D} Id 0x8013"```        | Identifies a property by namespace (the GUID) and identifier.   |
 
-### REST API operations
+## REST API operations
  
 Single-value extended property operations:
 

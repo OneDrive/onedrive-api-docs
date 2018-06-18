@@ -1,4 +1,6 @@
-# targetedManagedAppConfiguration resource type
+﻿# targetedManagedAppConfiguration resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -26,7 +28,7 @@ Inherits from [managedAppConfiguration](../resources/intune_mam_managedappconfig
 |lastModifiedDateTime|DateTimeOffset|Last time the policy was modified. Inherited from [managedAppPolicy](../resources/intune_mam_managedapppolicy.md)|
 |id|String|Key of the entity. Inherited from [managedAppPolicy](../resources/intune_mam_managedapppolicy.md)|
 |version|String|Version of the entity. Inherited from [managedAppPolicy](../resources/intune_mam_managedapppolicy.md)|
-|customSettings|[keyValuePair](../resources/intune_mam_keyvaluepair.md) collection|A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service Inherited from [managedAppConfiguration](../resources/intune_mam_managedappconfiguration.md)|
+|customSettings|[keyValuePair](../resources/intune_shared_keyvaluepair.md) collection|A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service Inherited from [managedAppConfiguration](../resources/intune_mam_managedappconfiguration.md)|
 |deployedAppCount|Int32|Count of apps to which the current policy is deployed.|
 |isAssigned|Boolean|Indicates if the policy is deployed to any inclusion groups or not.|
 
@@ -39,12 +41,12 @@ Inherits from [managedAppConfiguration](../resources/intune_mam_managedappconfig
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.managedAppConfiguration",
   "@odata.type": "microsoft.graph.targetedManagedAppConfiguration"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.targetedManagedAppConfiguration",

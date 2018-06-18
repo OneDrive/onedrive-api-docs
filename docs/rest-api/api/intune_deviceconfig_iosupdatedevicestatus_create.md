@@ -1,5 +1,7 @@
 ﻿# Create iosUpdateDeviceStatus
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [iosUpdateDeviceStatus](../resources/intune_deviceconfig_iosupdatedevicestatus.md) object.
@@ -42,8 +44,9 @@ The following table shows the properties that are required when you create the i
 |deviceDisplayName|String|Device name of the DevicePolicyStatus.|
 |userName|String|The User Name that is being reported|
 |deviceModel|String|The device model that is being reported|
+|platform|Int32|Platform of the device that is being reported|
 |complianceGracePeriodExpirationDateTime|DateTimeOffset|The DateTime when device compliance grace period expires|
-|status|[complianceStatus](../resources/intune_deviceconfig_compliancestatus.md)|Compliance status of the policy report. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|status|[complianceStatus](../resources/intune_shared_compliancestatus.md)|Compliance status of the policy report. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |lastReportedDateTime|DateTimeOffset|Last modified date time of the policy report.|
 |userPrincipalName|String|UserPrincipalName.|
 
@@ -56,9 +59,9 @@ If successful, this method returns a `201 Created` response code and a [iosUpdat
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/iosUpdateStatuses
+POST https://graph.microsoft.com/beta/deviceManagement/iosUpdateStatuses
 Content-type: application/json
-Content-length: 552
+Content-length: 570
 
 {
   "@odata.type": "#microsoft.graph.iosUpdateDeviceStatus",
@@ -69,6 +72,7 @@ Content-length: 552
   "deviceDisplayName": "Device Display Name value",
   "userName": "User Name value",
   "deviceModel": "Device Model value",
+  "platform": 8,
   "complianceGracePeriodExpirationDateTime": "2016-12-31T23:56:44.951111-08:00",
   "status": "notApplicable",
   "lastReportedDateTime": "2017-01-01T00:00:17.7769392-08:00",
@@ -81,7 +85,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 601
+Content-Length: 619
 
 {
   "@odata.type": "#microsoft.graph.iosUpdateDeviceStatus",
@@ -93,6 +97,7 @@ Content-Length: 601
   "deviceDisplayName": "Device Display Name value",
   "userName": "User Name value",
   "deviceModel": "Device Model value",
+  "platform": 8,
   "complianceGracePeriodExpirationDateTime": "2016-12-31T23:56:44.951111-08:00",
   "status": "notApplicable",
   "lastReportedDateTime": "2017-01-01T00:00:17.7769392-08:00",

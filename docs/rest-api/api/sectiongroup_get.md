@@ -1,5 +1,7 @@
 # Get sectionGroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of a [sectionGroup](../resources/sectiongroup.md) object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -43,14 +45,14 @@ Here is an example of the request.
   "name": "get_sectiongroup"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/onenote/sectionGroups/{id}
+GET https://graph.microsoft.com/beta/me/onenote/sectionGroups/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here is truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.sectionGroup"
+  "@odata.type": "microsoft.graph.sectiongroup"
 } -->
 ```http
 HTTP/1.1 200 OK

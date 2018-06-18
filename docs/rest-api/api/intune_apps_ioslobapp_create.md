@@ -1,5 +1,7 @@
 ﻿# Create iosLobApp
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [iosLobApp](../resources/intune_apps_ioslobapp.md) object.
@@ -47,6 +49,7 @@ The following table shows the properties that are required when you create the i
 |owner|String|The owner of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |developer|String|The developer of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |notes|String|Notes for the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|uploadState|Int32|The upload state. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md). Possible values are: `notPublished`, `processing`, `published`.|
 |committedContentVersion|String|The internal committed content version. Inherited from [mobileLobApp](../resources/intune_apps_mobilelobapp.md)|
 |fileName|String|The name of the main Lob application file. Inherited from [mobileLobApp](../resources/intune_apps_mobilelobapp.md)|
@@ -57,6 +60,7 @@ The following table shows the properties that are required when you create the i
 |expirationDateTime|DateTimeOffset|The expiration time.|
 |versionNumber|String|The version number of iOS Line of Business (LoB) app.|
 |buildNumber|String|The build number of iOS Line of Business (LoB) app.|
+|identityVersion|String|The identity version.|
 
 
 
@@ -67,9 +71,9 @@ If successful, this method returns a `201 Created` response code and a [iosLobAp
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps
+POST https://graph.microsoft.com/beta/deviceAppManagement/mobileApps
 Content-type: application/json
-Content-length: 1253
+Content-length: 1323
 
 {
   "@odata.type": "#microsoft.graph.iosLobApp",
@@ -88,6 +92,7 @@ Content-length: 1253
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "committedContentVersion": "Committed Content Version value",
   "fileName": "File Name value",
@@ -107,7 +112,8 @@ Content-length: 1253
   },
   "expirationDateTime": "2016-12-31T23:57:57.2481234-08:00",
   "versionNumber": "Version Number value",
-  "buildNumber": "Build Number value"
+  "buildNumber": "Build Number value",
+  "identityVersion": "Identity Version value"
 }
 ```
 
@@ -116,7 +122,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 1361
+Content-Length: 1431
 
 {
   "@odata.type": "#microsoft.graph.iosLobApp",
@@ -137,6 +143,7 @@ Content-Length: 1361
   "owner": "Owner value",
   "developer": "Developer value",
   "notes": "Notes value",
+  "uploadState": 11,
   "publishingState": "processing",
   "committedContentVersion": "Committed Content Version value",
   "fileName": "File Name value",
@@ -156,7 +163,8 @@ Content-Length: 1361
   },
   "expirationDateTime": "2016-12-31T23:57:57.2481234-08:00",
   "versionNumber": "Version Number value",
-  "buildNumber": "Build Number value"
+  "buildNumber": "Build Number value",
+  "identityVersion": "Identity Version value"
 }
 ```
 

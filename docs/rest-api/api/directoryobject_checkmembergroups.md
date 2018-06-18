@@ -1,16 +1,19 @@
 # Check member groups
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Check for membership in a specified list of groups, and returns from that list those groups
-of which the specified user, group, or directory object is a member. This function is transitive.
+of which the specified user, group, service principal or directory object is a member. This function is transitive.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
+
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | User.Read.All and Group.Read.All, Directory.Read.All    |
+|Delegated (work or school account) | Directory.Read.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | User.Read.All and Group.Read.All, Directory.Read.All |
+|Application | Directory.Read.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -18,20 +21,21 @@ One of the following permissions is required to call this API. To learn more, in
 POST /me/checkMemberGroups
 POST /users/{id | userPrincipalName}/checkMemberGroups
 POST /groups/{id}/checkMemberGroups
+POST /servciePrincipals/{id}/checkMemberGroups
 POST /directoryObjects/{id}/checkMemberGroups
 ```
 ## Request headers
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
-| Content-Type  | string | application/json  |
+| Content-Type  | application/json  |
 
 ## Request body
 In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|groupIds|String collection|A collection that contains the object IDs of the groups in which to check membership. Up to 20 groups may be specified.|
+|groupIds|String|A collection that contains the object IDs of the groups in which to check membership. Up to 20 groups may be specified.|
 
 ## Response
 
@@ -46,13 +50,13 @@ If successful, this method returns `200 OK` response code and String collection 
   "name": "directoryobject_checkmembergroups"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/directoryObjects/{id}/checkMemberGroups
+POST https://graph.microsoft.com/v1.0/me/checkMemberGroups
 Content-type: application/json
 
 {
   "groupIds": [
-        "fee2c45b-915a-4a64b130f4eb9e75525e",
-        "4fe90ae065a-478b9400e0a0e1cbd540"
+        "fee2c45b-915a-4a64-b130-f4eb9e75525e",
+        "4fe90ae7-065a-478b-9400-e0a0e1cbd540"
   ]
 }
 ```

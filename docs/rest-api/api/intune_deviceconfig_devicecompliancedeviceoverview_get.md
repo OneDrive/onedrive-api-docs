@@ -1,5 +1,7 @@
 ﻿# Get deviceComplianceDeviceOverview
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [deviceComplianceDeviceOverview](../resources/intune_deviceconfig_devicecompliancedeviceoverview.md) object.
@@ -39,7 +41,7 @@ If successful, this method returns a `200 OK` response code and [deviceComplianc
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/deviceStatusOverview
+GET https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/deviceStatusOverview
 ```
 
 ### Response
@@ -47,7 +49,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 367
+Content-Length: 432
 
 {
   "value": {
@@ -55,9 +57,11 @@ Content-Length: 367
     "id": "886f167b-167b-886f-7b16-6f887b166f88",
     "pendingCount": 12,
     "notApplicableCount": 2,
+    "notApplicablePlatformCount": 10,
     "successCount": 12,
     "errorCount": 10,
     "failedCount": 11,
+    "conflictCount": 13,
     "lastUpdateDateTime": "2016-12-31T23:58:21.6459442-08:00",
     "configurationVersion": 4
   }

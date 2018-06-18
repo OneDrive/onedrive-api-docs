@@ -1,5 +1,7 @@
 # Create registeredUser
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Add a registered user for the device.
 
 ## Permissions
@@ -38,7 +40,7 @@ Here is an example of the request.
   "name": "create_directoryobject_from_device"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/devices/{id}/registeredUsers
+POST https://graph.microsoft.com/beta/devices/{id}/registeredUsers
 Content-type: application/json
 Content-length: 30
 

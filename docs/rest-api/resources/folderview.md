@@ -6,6 +6,8 @@ title: FolderView
 ---
 # FolderView resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **FolderView** resource provides or sets recommendations on the user-experience of a folder.
 
 It is available from the [folder][folder-facet] property of [driveItem][item-resource] resources.
@@ -17,7 +19,7 @@ It is available from the [folder][folder-facet] property of [driveItem][item-res
 ```json
 {
   "sortBy": "default | name | type | size | takenOrCreatedDateTime | lastModifiedDateTime | sequence",
-  "sortOrder": "ascending | descending",
+  "sortDescending": "ascending | descending",
   "viewType": "default | icons | details | thumbnails"
 }
 ```
@@ -32,7 +34,7 @@ It is available from the [folder][folder-facet] property of [driveItem][item-res
 
 You can use the _sortBy_ property to control the sort order of the items in applications that respect the **viewType** facet.
 
-### sortBy options
+### sortBy values
 
 The following values are defined for the **sortBy** property.
 
@@ -47,7 +49,7 @@ The following values are defined for the **sortBy** property.
 | `sequence`               | Items follow a custom sequence specified by the user.
 
 
-### sortOrder options
+### sortOrder values
 
 The following values are defined for the **sortOrder** property.
 
@@ -57,7 +59,7 @@ The following values are defined for the **sortOrder** property.
 | `descending` | Items should be arranged in descending order.
 
 
-### viewType options
+### viewType values
 
 The following values are defined for the **viewType** property.
 
@@ -72,18 +74,12 @@ The following values are defined for the **viewType** property.
 [item-resource]: driveitem.md
 [folder-facet]: folder.md
 
+<!-- uuid: f9e446fd-190b-4692-a605-bb60e78f1f19
+2017-05-03 02:34:40 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "The FolderView facet provides or sets recommendations on the user-experience of a folder.",
-  "keywords": "view, folderview, sortby, sortorder, viewtype, coversourceid, folder",
+  "description": "folderView resource",
+  "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/folderview.md:
-      Found potential enums in resource example that weren't defined in a table:(default,icons,details,thumbnails) are in resource, but () are in table",
-    "Warning: /api-reference/v1.0/resources/folderview.md:
-      Found potential enums in resource example that weren't defined in a table:(default,name,type,size,takenOrCreatedDateTime,lastModifiedDateTime,sequence) are in resource, but () are in table",
-    "Warning: /api-reference/v1.0/resources/folderview.md:
-      Found potential enums in resource example that weren't defined in a table:(ascending,descending) are in resource, but () are in table"
-  ],
-  "tocPath": "Facets/FolderView"
-} -->
+  "tocPath": ""
+}-->

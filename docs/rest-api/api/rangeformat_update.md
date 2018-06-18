@@ -1,5 +1,7 @@
 # Update rangeformat
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of rangeformat object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,17 +9,17 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /workbook/names/{name}/range/format
+PATCH /workbook/names(<name>)/range/format
 PATCH /workbook/worksheets/{id|name}/range(address='<address>')/format
 PATCH /workbook/tables/{id|name}/columns/{id|name}/range/format
 ```
-## Request headers
+## Optional request headers
 | Name       | Description|
 |:-----------|:-----------|
 | Authorization  | Bearer {token}. Required. |
@@ -36,12 +38,12 @@ In the request body, supply the values for relevant fields that should be update
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and updated [WorkbookRangeFormat](../resources/rangeformat.md) object in the response body.
+If successful, this method returns a `200 OK` response code and updated [RangeFormat](../resources/rangeformat.md) object in the response body.
 ## Example
 
 ### Update the format, fill, and font properties in three table cells
 
-The following examples demonstrate how to update properties of the [WorkbookRangeFormat](../resources/rangeformat.md), [WorkbookRangeFill](../resources/rangefill.md), and [WorkbookRangeFont](../resources/rangefont.md) properties of a specified range.
+The following examples demonstrate how to update properties of the [RangeFormat](../resources/rangeformat.md), [RangeFill](../resources/rangefill.md), and [RangeFont](../resources/rangefont.md) properties of a specified range.
 
 The result of this set of requests is a table with three cells formatted like the top three cells in the image below.
 
@@ -55,7 +57,7 @@ This request updates the vertical alignment, row height, and column height of th
   "name": "update_rangeformat"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$A$1')/format
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$A$1')/format
 Content-type: application/json
 
 {
@@ -70,7 +72,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFormat"
+  "@odata.type": "microsoft.graph.rangeFormat"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -93,7 +95,7 @@ This request updates the font style, size, and color of the first cell.
   "name": "update_rangeformat_font"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$A$1')/format/font
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$A$1')/format/font
 Content-type: application/json
 
 {
@@ -107,7 +109,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFont"
+  "@odata.type": "microsoft.graph.rangeFont"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -131,7 +133,7 @@ This request updates the background color of the first cell.
   "name": "update_rangeformat_fill"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$A$1')/format/fill
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$A$1')/format/fill
 Content-type: application/json
 
 {
@@ -143,7 +145,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFill"
+  "@odata.type": "microsoft.graph.rangeFill"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -161,7 +163,7 @@ This request updates the vertical alignment, horizontal alignment, row height, a
   "name": "update_rangeformat_two"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$B$1')/format
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$B$1')/format
 Content-type: application/json
 
 {
@@ -177,7 +179,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFormat"
+  "@odata.type": "microsoft.graph.rangeFormat"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -200,7 +202,7 @@ This request updates the font style and size of the second cell.
   "name": "update_rangeformat_font_two"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$B$1')/format/font
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$B$1')/format/font
 Content-type: application/json
 
 {
@@ -213,7 +215,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFont"
+  "@odata.type": "microsoft.graph.rangeFont"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -237,7 +239,7 @@ This request updates the background color of the second cell.
   "name": "update_rangeformat_fill_two"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$B$1')/format/fill
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$B$1')/format/fill
 Content-type: application/json
 
 {
@@ -249,7 +251,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFill"
+  "@odata.type": "microsoft.graph.rangeFill"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -268,7 +270,7 @@ This request updates the horizontal alignment, vertical alignment, row height, a
   "name": "update_rangeformat_three"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$C$1')/format
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$C$1')/format
 Content-type: application/json
 
 {
@@ -284,7 +286,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFormat"
+  "@odata.type": "microsoft.graph.rangeFormat"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -307,7 +309,7 @@ This request updates the font style, size, and color of the third cell. Note tha
   "name": "update_rangeformat_font_three"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$C$1')/format/font
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$C$1')/format/font
 Content-type: application/json
 
 {
@@ -321,7 +323,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFont"
+  "@odata.type": "microsoft.graph.rangeFont"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -345,7 +347,7 @@ This request updates the background color of the third cell.
   "name": "update_rangeformat_fill_three"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='$C$1')/format/fill
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/Sheet1/range(address='$C$1')/format/fill
 Content-type: application/json
 
 {
@@ -357,7 +359,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRangeFill"
+  "@odata.type": "microsoft.graph.rangeFill"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -368,6 +370,7 @@ Content-type: application/json
 }
 ```
 
+
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {
@@ -375,9 +378,5 @@ Content-type: application/json
   "description": "Update rangeformat",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Error: update_rangeformat_font_three/underline:
-      Expected type String but actual was Single. Property: underline, actual value: 'Single'"
-  ],
   "tocPath": ""
 }-->

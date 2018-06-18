@@ -1,5 +1,7 @@
 # groupLifecyclePolicy: addGroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Adds a group to a lifecycle policy.
 
 ## Permissions
@@ -10,7 +12,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Directory.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Not supported |
 |Application | Directory.ReadWrite.All |
 
 ## HTTP request
@@ -46,7 +48,7 @@ If successful, this method returns `200 OK` response code. If the group is added
   "name": "grouplifecyclepolicy_addgroup"
 } -->
 ```http
-POST https://graph.microsoft.com/v1.0/groupLifecyclePolicies/{id}/addGroup
+POST https://graph.microsoft.com/beta/groupLifecyclePolicies/{id}/addGroup
 Content-type: application/json
 Content-length: 57
 

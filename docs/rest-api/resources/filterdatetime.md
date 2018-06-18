@@ -1,5 +1,7 @@
 # FilterDatetime resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents how to filter a date when filtering on values.
 
 ## Properties
@@ -21,7 +23,7 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.workbookFilterDateTime"
+  "@odata.type": "microsoft.graph.filterDateTime"
 }-->
 
 ```json

@@ -1,6 +1,8 @@
 # List contacts
 
-Get a contact collection from the default Contacts folder of the signed-in user.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Get contacts in the user's mailbox.
 
 
 ### Get contacts in another user's contact folder
@@ -73,8 +75,6 @@ For example, you can use the `$filter` query parameter to filter contacts based 
 
 `https://graph.microsoft.com/v1.0/me/contacts?$filter=emailAddresses/any(a:a/address eq '@domain.com')`
 
-
-
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
@@ -95,7 +95,7 @@ Here is an example of the request.
   "name": "get_contacts"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/contacts
+GET https://graph.microsoft.com/beta/me/contacts
 ```
 
 
@@ -116,7 +116,7 @@ Content-length: 263
   "value": [
     {
       "parentFolderId": "parentFolderId-value",
-      "birthday": "datetime-value",
+      "birthday": "2016-10-19T10:37:00Z",
       "fileAs": "fileAs-value",
       "displayName": "displayName-value",
       "givenName": "givenName-value",

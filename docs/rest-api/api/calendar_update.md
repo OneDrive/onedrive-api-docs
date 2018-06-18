@@ -1,5 +1,7 @@
 # Update calendar
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of of a [calendar](../resources/calendar.md) object. The calendar can be one for a [user](../resources/user.md), 
 or the default calendar of an Office 365 [group](../resources/group.md).
 ## Permissions
@@ -44,6 +46,7 @@ In the request body, supply the values for relevant fields that should be update
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |color|String|Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: LightBlue=0, LightGreen=1, LightOrange=2, LightGray=3, LightYellow=4, LightTeal=5, LightPink=6, LightBrown=7, LightRed=8, MaxColor=9, Auto=-1|
+|isDefaultCalendar|Boolean|True if this calendar is the user's default calendar, false otherwise.|
 |name|String|The calendar name.|
 
 ## Response
@@ -57,7 +60,7 @@ Here is an example of the request.
   "name": "update_calendar"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/calendar
+PATCH https://graph.microsoft.com/beta/me/calendar
 Content-type: application/json
 
 {
@@ -76,14 +79,18 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#me/calendars/$entity",
-    "@odata.id":"https://graph.microsoft.com/v1.0/users('266efe5a-0fd7-4edd-877b-b2d1e561f193@ae01a323-3934-4475-a32d-af1274312bb0')/calendars('AAMkADJmMVAAA=')",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#me/calendars/$entity",
+    "@odata.id":"https://graph.microsoft.com/beta/users('266efe5a-0fd7-4edd-877b-b2d1e561f193@ae01a323-3934-4475-a32d-af1274312bb0')/calendars('AAMkADJmMVAAA=')",
     "id":"AAMkADJmMVAAA=",
     "name":"Social events",
     "color":"auto",
+    "hexColor": "",
+    "isDefaultCalendar":false,
     "changeKey":"DxYSthXJXEWwAQSYQnXvIgAAIxGttg==",
     "canShare":true,
     "canViewPrivateItems":true,
+    "isShared":false,
+    "isSharedWithMe":false,
     "canEdit":true,
     "owner":{
         "name":"Samantha Booth",

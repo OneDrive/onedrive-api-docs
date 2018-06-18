@@ -1,5 +1,7 @@
 # Create plannerTask
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new **plannerTask**.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -39,7 +41,7 @@ Here is an example of the request.
   "name": "create_plannertask_from_planner"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/planner/tasks
+POST https://graph.microsoft.com/beta/planner/tasks
 Content-type: application/json
 Content-length: 285
 

@@ -1,11 +1,10 @@
 # Get event
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the properties and relationships of the specified [event](../resources/event.md) object.
 
-Currently, this operation returns event bodies in only HTML format.
-
 Since the **event** resource supports [extensions](../../../concepts/extensibility_overview.md), you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
-
 
 ### Get events in another user's calendar
 
@@ -41,6 +40,7 @@ This capability is available in only GET operations of:
 This capability is not available in other operations for contacts, events, messages, and their folders.
 
 
+
 ### Support various time zones
 
 For all GET operations that return events, you can use the `Prefer: outlook.timezone` header to specify the time zone for the event start and end times in the response. 
@@ -56,7 +56,6 @@ times are returned in UTC.
 
 You can use the **OriginalStartTimeZone** and **OriginalEndTimeZone** properties on the **event** resource to 
 find out the time zone used when the event was created.
-
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -90,10 +89,10 @@ GET /users/{id | userPrincipalName}/calendargroups/{id}/calendars/{id}/events/{i
 ## Optional query parameters
 This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
-| Name       | Type | Description |
-|:---------------|:--------|:--------|
-| Authorization  | string | Bearer {token}. Required.  |
-| Prefer: outlook.timezone  | string | Use this to specify the time zone for start and end times in the response. If not specified, those time values are returned in UTC. Optional. |
+| Name       | Type | Description|
+|:-----------|:------|:----------|
+| Authorization  | string  | Bearer {token}. Required. |
+| Prefer: outlook.timezone | string | Use this to specify the time zone for start and end times in the response. If not specified, those time values are returned in UTC. Optional. |
 | Prefer: outlook.body-content-type | string | The format of the **body** property to be returned in. Values can be "text" or "html". A `Preference-Applied` header is returned as confirmation if this `Prefer` header is specified. If the header is not specified, the **body** property is returned in HTML format. Optional. |
 
 ## Request body
@@ -109,26 +108,24 @@ The first example gets the specified event. It specifies the following:
 - A `Prefer: outlook.timezone` header to get date time values returned in Pacific Standard Time. 
 - A `$select` query parameter to return specific properties. Without a `$select` parameter, all of the event properties will be returned.
 
+The request does not specify any `Prefer: outlook.body-content-type` header to indicate a specific format for the returned event body. 
+
 <!-- {
   "blockType": "request",
   "name": "get_event"
 }-->
-
 ```http
-GET https://graph.microsoft.com/v1.0/me/events/{event-id}?$select=subject,body,bodyPreview,organizer,attendees,start,end,location 
+GET https://graph.microsoft.com/beta/me/events('AAMkAGIAAAoZDOFAAA=')?$select=subject,body,bodyPreview,organizer,attendees,start,end,location 
 Prefer: outlook.timezone="Pacific Standard Time"
 ```
-
 ##### Response 1
-
-Here is an example of the response. The **body** property is returned in the default format of HTML.
+Here is an example of the response. Because no `Prefer: outlook.body-content-type` header was specified, the **body** property is returned in the default HTML format. 
 
 <!-- {
   "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.event"
 } -->
-
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -136,7 +133,7 @@ Preference-Applied: outlook.timezone="Pacific Standard Time"
 Content-length: 1928
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('cd209b0b-3f83-4c35-82d2-d88a61820480')/events(subject,body,bodyPreview,organizer,attendees,start,end,location)/$entity",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('cd209b0b-3f83-4c35-82d2-d88a61820480')/events(subject,body,bodyPreview,organizer,attendees,start,end,location)/$entity",
     "@odata.etag":"W/\"ZlnW4RIAV06KYYwlrfNZvQAAKGWwbw==\"",
     "id":"AAMkAGIAAAoZDOFAAA=",
     "subject":"Orientation ",
@@ -199,10 +196,51 @@ Content-length: 1928
 }
 ```
 
-
 ##### Request 2
+The second example shows how to use a `Prefer: outlook.body-content-type="text"` header to get the **body** property of the specified event in text format.
 
-The second example shows getting an event that specifies more than one location. The request specifies a `$select` query parameter 
+The request also uses a `$select` query parameter to return specific properties. Without a `$select` parameter, all of the event properties will be returned.
+
+<!-- {
+  "blockType": "request",
+  "name": "get_event_in_text"
+}-->
+```http
+GET https://graph.microsoft.com/beta/me/events('AAMkAGI1AAAoZDOFAAA=')?$select=subject,body,bodyPreview
+Prefer: outlook.body-content-type="text"
+```
+##### Response 2
+Here is an example of the response. The **body** property is returned in text format. 
+
+<!-- {
+  "blockType": "response",
+  "name": "get_event_in_text",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.event"
+} -->
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+Preference-Applied: outlook.body-content-type="text"
+Content-length: 636
+
+{
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('cd209b0b-3f83-4c35-82d2-d88a61820480')/events(subject,body,bodyPreview)/$entity",
+    "@odata.etag":"W/\"ZlnW4RIAV06KYYwlrfNZvQAAKGWwbw==\"",
+    "id":"AAMkAGI1AAAoZDOFAAA=",
+    "subject":"Orientation ",
+    "bodyPreview":"Dana, this is the time you selected for our orientation. Please bring the notes I sent you.",
+    "body":{
+        "contentType":"text",
+        "content":"Dana, this is the time you selected for our orientation. Please bring the notes I sent you.\r\n"
+    }
+}
+```
+
+
+##### Request 3
+
+The third example shows getting an event that specifies more than one location. The request specifies a `$select` query parameter 
 to return specific properties. 
 
 <!-- {
@@ -210,15 +248,13 @@ to return specific properties.
   "name": "get_event_multiple_locations"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/events/{event-id}?$select=subject,body,bodyPreview,organizer,attendees,start,end,location,locations
+GET https://graph.microsoft.com/beta/me/events('AAMkADAGAADDdm4NAAA=')?$select=subject,body,bodyPreview,organizer,attendees,start,end,location,locations
 ```
-##### Response 2
+##### Response 3
 Here is an example of the response. The **locations** property includes details for the 3 locations that the event is organized for. 
 
-Because the request does not specify any `Prefer: outlook.timezone` header, 
-the **start** and **end** properties are displayed in the default UTC time zone. 
-
-The event body is in the default HTML format.  
+Because the request does not specify any `Prefer: outlook.timezone` or `Prefer: outlook.body-content-type` header, 
+the **start** and **end** properties are displayed in the default UTC time zone, and the body is in the default HTML format.  
 
 <!-- {
   "blockType": "response",
@@ -232,7 +268,7 @@ Content-type: application/json
 Content-length: 1992
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('d1a2fae9-db66-4cc9-8133-2184c77af1b8')/events(subject,body,bodyPreview,organizer,attendees,start,end,location,locations)/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('d1a2fae9-db66-4cc9-8133-2184c77af1b8')/events(subject,body,bodyPreview,organizer,attendees,start,end,location,locations)/$entity",
   "@odata.etag":"W/\"y53lbKh6jkaxHzFwGhgyxgAAw5zhug==\"",
   "id":"AAMkADAGAADDdm4NAAA=",
   "subject":"Plan summer company picnic",
@@ -267,6 +303,7 @@ Content-length: 1992
       "uniqueId":"Fourth Coffee",
       "uniqueIdType":"private",
       "address":{
+        "type":"unknown",
         "street":"4567 Main St",
         "city":"Redmond",
         "state":"WA",
@@ -317,13 +354,11 @@ Content-length: 1992
 }
 ```
 
-
-
 ## See also
 
 - [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
-- [Add custom data to users using open extensions](../../../concepts/extensibility_open_users.md)
-- [Add custom data to groups using schema extensions](../../../concepts/extensibility_schema_groups.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

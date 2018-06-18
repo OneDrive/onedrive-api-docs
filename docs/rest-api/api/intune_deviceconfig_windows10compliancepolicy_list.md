@@ -1,5 +1,7 @@
 ﻿# List windows10CompliancePolicies
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [windows10CompliancePolicy](../resources/intune_deviceconfig_windows10compliancepolicy.md) objects.
@@ -37,7 +39,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
+GET https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicies
 ```
 
 ### Response
@@ -45,7 +47,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1263
+Content-Length: 1888
 
 {
   "value": [
@@ -75,7 +77,23 @@ Content-Length: 1263
       "bitLockerEnabled": true,
       "secureBootEnabled": true,
       "codeIntegrityEnabled": true,
-      "storageRequireEncryption": true
+      "storageRequireEncryption": true,
+      "activeFirewallRequired": true,
+      "uacRequired": true,
+      "defenderEnabled": true,
+      "defenderVersion": "Defender Version value",
+      "signatureOutOfDate": true,
+      "rtpEnabled": true,
+      "validOperatingSystemBuildRanges": [
+        {
+          "@odata.type": "microsoft.graph.operatingSystemVersionRange",
+          "description": "Description value",
+          "lowestVersion": "Lowest Version value",
+          "highestVersion": "Highest Version value"
+        }
+      ],
+      "deviceThreatProtectionEnabled": true,
+      "deviceThreatProtectionRequiredSecurityLevel": "secured"
     }
   ]
 }

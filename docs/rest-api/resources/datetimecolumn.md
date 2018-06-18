@@ -6,6 +6,8 @@ title: DateTimeColumn
 ---
 # DateTimeColumn resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **dateTimeColumn** on a [columnDefinition](columnDefinition.md) resource indicates that the column's values are dates or times.
 
 ## JSON representation
@@ -27,7 +29,7 @@ Here is a JSON representation of a **dateTimeColumn** resource.
 | **displayAs**      | string             | How the value should be presented in the UX. Must be one of `default`, `friendly`, or `standard`. See below for more details. If unspecified, treated as `default`.
 | **format**         | string             | Indicates whether the value should be presented as a date only or a date and time. Must be one of `dateOnly` or `dateTime`
 
-## DisplayAs options
+## DisplayAs values
 
 | Value        | Description
 |:-------------|:--------------------------------------------------------------
@@ -41,13 +43,5 @@ Here is a JSON representation of a **dateTimeColumn** resource.
   "description": "",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/choicecolumn.md:
-      Found potential enums in resource example that weren't defined in a table:(checkBoxes,dropDownMenu,radioButtons) are in resource, but () are in table",
-    "Warning: /api-reference/v1.0/resources/datetimecolumn.md:
-      Found potential enums in resource example that weren't defined in a table:(default,friendly,standard) are in resource, but () are in table",
-    "Warning: /api-reference/v1.0/resources/datetimecolumn.md:
-      Found potential enums in resource example that weren't defined in a table:(dateOnly,dateTime) are in resource, but () are in table"
-  ],
   "tocPath": "Resources/DateTimeColumn"
 } -->

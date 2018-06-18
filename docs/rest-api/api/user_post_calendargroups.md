@@ -1,5 +1,7 @@
 # Create CalendarGroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new CalendarGroup.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -36,7 +38,7 @@ Here is an example of the request.
   "name": "create_calendargroup_from_user"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/calendarGroups
+POST https://graph.microsoft.com/beta/me/calendarGroups
 Content-type: application/json
 Content-length: 90
 

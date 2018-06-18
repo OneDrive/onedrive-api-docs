@@ -1,4 +1,7 @@
 # user: findMeetingTimes
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Find meeting time suggestions based on organizer and attendee availability, and time or location constraints specified as parameters.
 
 If **findMeetingTimes** cannot return any meeting suggestions, the response would indicate a reason in the **emptySuggestionsReason** property. 
@@ -24,7 +27,7 @@ POST /users/{id|userPrincipalName}/findMeetingTimes
 | Name       | Value|
 |:---------------|:----------|
 | Authorization  | Bearer {token}. Required. |
-| Prefer: outlook.timezone | A string representing a specific time zone for the response, for example, "Pacific Standard Time". Optional. UTC is used if this header is not specified.|
+| Prefer: outlook.timezone | A string representing a specific time zone for the response, for example, "Pacific Standard Time". Optional. UTC is used if this header is not specified. |
 
 ## Request body
 All the supported parameters are listed below. Depending on your scenario, specify a JSON object for each of the necessary parameters in the request body. 
@@ -43,8 +46,7 @@ All the supported parameters are listed below. Depending on your scenario, speci
 
 The following table describes the restrictions you can further specify in the **timeConstraint** parameter.
 
-### activityDomain values in timeConstraint
-|**activityDomain value**|**Suggestions for meeting times**|
+|**activityDomain value in timeConstraint**|**Suggestions for meeting times**|
 |:-----|:-----|
 |work| Suggestions are within the user's work hours which are defined in the user’s calendar configuration and can be customized by the user or administrator. The default work hours are Monday to Friday, 8am to 5pm in the time zone set for the mailbox. This is the default value if no **activityDomain** is specified. |
 |personal| Suggestions are within the user's work hours, and Saturday and Sunday. The default is Monday to Sunday, 8am to 5pm, in the time zone setting for the mailbox.|
@@ -75,12 +77,12 @@ based on each of their individual free/busy status:
 
 - For each attendee, a free status for a specified meeting time period corresponds to 100% chance of attendance, unknown status 49%, and busy status 0%.
 - The confidence of a meeting time suggestion is computed by averaging the chance of attendance over all the attendees specified for that meeting.
+- If there are multiple meeting time suggestions, the **findMeetingTimes** action first orders the suggestions by their computed confidence value from 
+high to low. If there are suggestions with the same confidence, the action then orders these suggestions chronologically.
 - You can use the **minimumAttendeePercentage** optional parameter for **findMeetingTimes** to specify only meeting time suggestions of at least 
 certain confidence level should be returned. For example, you can specify a **minimumAttendeePercentage** of 80% if you want only 
 suggestions that have an 80% chance or more that all the attendees are attending. If you do not specify **minimumAttendeePercentage**, 
 **findMeetingTimes** assumes a value of 50%.
-- If there are multiple meeting time suggestions, the **findMeetingTimes** action first orders the suggestions by their computed confidence value from 
-high to low. If there are suggestions with the same confidence, the action then orders these suggestions chronologically.
 
 As an example, if a meeting time suggestion involves 3 attendees with the following free/busy status:
 
@@ -117,7 +119,7 @@ Here is the example request.
   "name": "user_findmeetingtimes"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/findMeetingTimes
+POST https://graph.microsoft.com/beta/me/findMeetingTimes
 Prefer: outlook.timezone="Pacific Standard Time"
 Content-Type: application/json
 
@@ -157,8 +159,8 @@ Content-Type: application/json
     ] 
   },  
   "meetingDuration": "PT2H",
-  "returnSuggestionReasons": true,
-  "minimumAttendeePercentage": 100.0
+  "returnSuggestionReasons": "true",
+  "minimumAttendeePercentage": "100"
 }
 ```
 
@@ -177,7 +179,7 @@ Preference-Applied: outlook.timezone="Pacific Standard Time"
 Content-Length: 976
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.meetingTimeSuggestionsResult",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#microsoft.graph.meetingTimeSuggestionsResult",
     "emptySuggestionsReason":"",
     "meetingTimeSuggestions":[
         {

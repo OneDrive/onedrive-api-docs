@@ -1,5 +1,7 @@
 # Worksheet: Range
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Gets the range object specified by the address or name.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /workbook/worksheets/{id|name}/range
+POST /workbook/worksheets/{id|name}/Range
 
 ```
 ## Request headers
@@ -22,7 +24,8 @@ GET /workbook/worksheets/{id|name}/range
 | Authorization  | Bearer {token}. Required. |
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
-## Function parameters
+## Request body
+In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
@@ -41,7 +44,13 @@ Here is an example of the request.
   "name": "worksheet_range"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/range(address='A1:B2')
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/Range
+Content-type: application/json
+Content-length: 32
+
+{
+  "address": "address-value"
+}
 ```
 
 ##### Response
@@ -49,7 +58,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -65,41 +74,6 @@ Content-length: 169
   "valueTypes": "valueTypes-value"
 }
 ```
-
-If the optional `address` parameter is not specified, this function returns the entire worksheet range.
-
-##### Request
-
-<!-- {
-  "blockType": "request",
-  "name": "worksheet_range_noaddress"
-}-->
-```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/range
-```
-
-##### Response
-
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
-} -->
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-Content-length: 169
-
-{
-  "address": "address-value",
-  "addressLocal": "addressLocal-value",
-  "cellCount": 99,
-  "columnCount": 99,
-  "columnIndex": 99,
-  "valueTypes": "valueTypes-value"
-}
-```
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

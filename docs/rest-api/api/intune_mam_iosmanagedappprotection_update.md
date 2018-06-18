@@ -1,5 +1,7 @@
 ﻿# Update iosManagedAppProtection
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [iosManagedAppProtection](../resources/intune_mam_iosmanagedappprotection.md) object.
@@ -57,7 +59,7 @@ The following table shows the properties that are required when you create the [
 |minimumPinLength|Int32|Minimum pin length required for an app-level pin if PinRequired is set to True Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |pinCharacterSet|[managedAppPinCharacterSet](../resources/intune_mam_managedapppincharacterset.md)|Character set which may be used for an app-level pin if PinRequired is set to True. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `numeric`, `alphanumericAndSymbol`.|
 |periodBeforePinReset|Duration|TimePeriod before the all-level pin must be reset if PinRequired is set to True. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
-|allowedDataStorageLocations|[managedAppDataStorageLocation enum](../resources/intune_mam_managedappdatastoragelocation.md) collection|Data storage locations where a user may store managed data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `oneDriveForBusiness`, `sharePoint`, `localStorage`.|
+|allowedDataStorageLocations|[managedAppDataStorageLocation](../resources/intune_mam_managedappdatastoragelocation.md) collection|Data storage locations where a user may store managed data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `oneDriveForBusiness`, `sharePoint`, `localStorage`.|
 |contactSyncBlocked|Boolean|Indicates whether contacts can be synced to the user's device. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |printBlocked|Boolean|Indicates whether printing is allowed from managed apps. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |fingerprintBlocked|Boolean|Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
@@ -66,11 +68,24 @@ The following table shows the properties that are required when you create the [
 |minimumWarningOsVersion|String|Versions less than the specified version will result in warning message on the managed app from accessing company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |minimumRequiredAppVersion|String|Versions less than the specified version will block the managed app from accessing company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |minimumWarningAppVersion|String|Versions less than the specified version will result in warning message on the managed app. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|minimumWipeOsVersion|String|Versions less than or equal to the specified version will wipe the managed app and the associated company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|minimumWipeAppVersion|String|Versions less than or equal to the specified version will wipe the managed app and the associated company data. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|appActionIfDeviceComplianceRequired|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, when the device is either rooted or jailbroken, if DeviceComplianceRequired is set to true. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `block`, `wipe`.|
+|appActionIfMaximumPinRetriesExceeded|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, based on maximum number of incorrect pin retry attempts. Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md). Possible values are: `block`, `wipe`.|
+|pinRequiredOnLaunchInsteadOfBiometric|Boolean|Requires an app pin on launch instead of non biometrics passcode Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
+|pinRequiredInsteadOfBiometricTimeout|Duration|Timeout in minutes for an app pin instead of non biometrics passcode Inherited from [managedAppProtection](../resources/intune_mam_managedappprotection.md)|
 |isAssigned|Boolean|Indicates if the policy is deployed to any inclusion groups or not. Inherited from [targetedManagedAppProtection](../resources/intune_mam_targetedmanagedappprotection.md)|
+|targetedAppManagementLevels|[appManagementLevel](../resources/intune_mam_appmanagementlevel.md)|The intended app management levels for this policy Inherited from [targetedManagedAppProtection](../resources/intune_mam_targetedmanagedappprotection.md). Possible values are: `unspecified`, `unmanaged`, `mdm`, `androidEnterprise`.|
 |appDataEncryptionType|[managedAppDataEncryptionType](../resources/intune_mam_managedappdataencryptiontype.md)|Type of encryption which should be used for data in a managed app. Possible values are: `useDeviceSettings`, `afterDeviceRestart`, `whenDeviceLockedExceptOpenFiles`, `whenDeviceLocked`.|
 |minimumRequiredSdkVersion|String|Versions less than the specified version will block the managed app from accessing company data.|
 |deployedAppCount|Int32|Count of apps to which the current policy is deployed.|
 |faceIdBlocked|Boolean|Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.|
+|exemptedAppProtocols|[keyValuePair](../resources/intune_shared_keyvaluepair.md) collection|Apps in this list will be exempt from the policy and will be able to receive data from managed apps.|
+|minimumWipeSdkVersion|String|Versions less than the specified version will block the managed app from accessing company data.|
+|allowedIosDeviceModels|String|Semicolon seperated list of device models allowed, as a string, for the managed app to work.|
+|appActionIfIosDeviceModelNotAllowed|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: `block`, `wipe`.|
+|thirdPartyKeyboardsBlocked|Boolean|Defines if third party keyboards are allowed while accessing a managed app|
+|filterOpenInToOnlyManagedApps|Boolean|Defines if open-in operation is supported from the managed app to the filesharing locations selected.|
 
 
 
@@ -81,9 +96,9 @@ If successful, this method returns a `200 OK` response code and an updated [iosM
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtectionId}
+PATCH https://graph.microsoft.com/beta/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtectionId}
 Content-type: application/json
-Content-length: 1570
+Content-length: 2371
 
 {
   "displayName": "Display Name value",
@@ -118,11 +133,30 @@ Content-length: 1570
   "minimumWarningOsVersion": "Minimum Warning Os Version value",
   "minimumRequiredAppVersion": "Minimum Required App Version value",
   "minimumWarningAppVersion": "Minimum Warning App Version value",
+  "minimumWipeOsVersion": "Minimum Wipe Os Version value",
+  "minimumWipeAppVersion": "Minimum Wipe App Version value",
+  "appActionIfDeviceComplianceRequired": "wipe",
+  "appActionIfMaximumPinRetriesExceeded": "wipe",
+  "pinRequiredOnLaunchInsteadOfBiometric": true,
+  "pinRequiredInsteadOfBiometricTimeout": "-PT3M9.8396734S",
   "isAssigned": true,
+  "targetedAppManagementLevels": "unmanaged",
   "appDataEncryptionType": "afterDeviceRestart",
   "minimumRequiredSdkVersion": "Minimum Required Sdk Version value",
   "deployedAppCount": 0,
-  "faceIdBlocked": true
+  "faceIdBlocked": true,
+  "exemptedAppProtocols": [
+    {
+      "@odata.type": "microsoft.graph.keyValuePair",
+      "name": "Name value",
+      "value": "Value value"
+    }
+  ],
+  "minimumWipeSdkVersion": "Minimum Wipe Sdk Version value",
+  "allowedIosDeviceModels": "Allowed Ios Device Models value",
+  "appActionIfIosDeviceModelNotAllowed": "wipe",
+  "thirdPartyKeyboardsBlocked": true,
+  "filterOpenInToOnlyManagedApps": true
 }
 ```
 
@@ -131,7 +165,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1740
+Content-Length: 2541
 
 {
   "@odata.type": "#microsoft.graph.iosManagedAppProtection",
@@ -169,11 +203,30 @@ Content-Length: 1740
   "minimumWarningOsVersion": "Minimum Warning Os Version value",
   "minimumRequiredAppVersion": "Minimum Required App Version value",
   "minimumWarningAppVersion": "Minimum Warning App Version value",
+  "minimumWipeOsVersion": "Minimum Wipe Os Version value",
+  "minimumWipeAppVersion": "Minimum Wipe App Version value",
+  "appActionIfDeviceComplianceRequired": "wipe",
+  "appActionIfMaximumPinRetriesExceeded": "wipe",
+  "pinRequiredOnLaunchInsteadOfBiometric": true,
+  "pinRequiredInsteadOfBiometricTimeout": "-PT3M9.8396734S",
   "isAssigned": true,
+  "targetedAppManagementLevels": "unmanaged",
   "appDataEncryptionType": "afterDeviceRestart",
   "minimumRequiredSdkVersion": "Minimum Required Sdk Version value",
   "deployedAppCount": 0,
-  "faceIdBlocked": true
+  "faceIdBlocked": true,
+  "exemptedAppProtocols": [
+    {
+      "@odata.type": "microsoft.graph.keyValuePair",
+      "name": "Name value",
+      "value": "Value value"
+    }
+  ],
+  "minimumWipeSdkVersion": "Minimum Wipe Sdk Version value",
+  "allowedIosDeviceModels": "Allowed Ios Device Models value",
+  "appActionIfIosDeviceModelNotAllowed": "wipe",
+  "thirdPartyKeyboardsBlocked": true,
+  "filterOpenInToOnlyManagedApps": true
 }
 ```
 

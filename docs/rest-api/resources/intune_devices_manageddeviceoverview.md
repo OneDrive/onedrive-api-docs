@@ -1,4 +1,6 @@
-# managedDeviceOverview resource type
+﻿# managedDeviceOverview resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -18,17 +20,19 @@ Summary data for managed devices
 |dualEnrolledDeviceCount|Int32|The number of devices enrolled in both MDM and EAS|
 |deviceOperatingSystemSummary|[deviceOperatingSystemSummary](../resources/intune_devices_deviceoperatingsystemsummary.md)|Device operating system summary.|
 |deviceExchangeAccessStateSummary|[deviceExchangeAccessStateSummary](../resources/intune_devices_deviceexchangeaccessstatesummary.md)|Distribution of Exchange Access State in Intune|
+|managedDeviceModelsAndManufacturers|[managedDeviceModelsAndManufacturers](../resources/intune_devices_manageddevicemodelsandmanufacturers.md)|Models and Manufactures meatadata for managed devices in the account|
+|lastModifiedDateTime|DateTimeOffset|Last modified date time of device overview|
 
 ## Relationships
 None
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.managedDeviceOverview"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.managedDeviceOverview",
@@ -52,7 +56,17 @@ Here is a JSON representation of the resource.
     "quarantinedDeviceCount": 1024,
     "unknownDeviceCount": 1024,
     "unavailableDeviceCount": 1024
-  }
+  },
+  "managedDeviceModelsAndManufacturers": {
+    "@odata.type": "microsoft.graph.managedDeviceModelsAndManufacturers",
+    "deviceModels": [
+      "String"
+    ],
+    "deviceManufacturers": [
+      "String"
+    ]
+  },
+  "lastModifiedDateTime": "String (timestamp)"
 }
 ```
 

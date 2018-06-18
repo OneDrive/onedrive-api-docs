@@ -1,5 +1,7 @@
 # Update page
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the content of a OneNote page.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -25,7 +27,7 @@ PATCH /sites/{id}/onenote/pages/{id}/content
 | Content-Type | string | `application/json` |
 
 ## Request body
-In the request body, supply an array of [patchContentCommand](../resources/patchcontentcommand.md) objects that represent the changes to the page. For more information and examples, see <a href="https://msdn.microsoft.com/office/office365/howto/onenote-update-page">Update OneNote pages</a>.
+In the request body, supply an array of [patchContentCommand](../resources/patchcontentcommand.md) objects that represent the changes to the page. For more information and examples, see [Update OneNote page content](../../../concepts/onenote_update_page.md).
 
 ## Response
 
@@ -38,7 +40,7 @@ Here is an example of the request.
   "name": "update_page"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/onenote/pages/{id}/content
+PATCH https://graph.microsoft.com/beta/me/onenote/pages/{id}/content
 Content-type: application/json
 Content-length: 312
 

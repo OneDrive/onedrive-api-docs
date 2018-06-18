@@ -1,4 +1,7 @@
 # workbookRange: resizedRange
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Gets a range object similar to the current range object, but with its bottom-right corner expanded (or contracted) by some number of rows and columns.
 
 ## Permissions
@@ -7,7 +10,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -26,24 +29,31 @@ POST /me/drive/root/workbook/worksheets/{id}/range/resizedRange(deltaRows={n}, d
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|deltaRows|Int32|The number of rows by which to expand the bottom-right corner, relative to the current range. Use a positive number to expand the range, or a negative number to decrease it|
-|deltaColumns|Int32|The number of columns by which to expand the bottom-right corner, relative to the current range. Use a positive number to expand the range, or a negative number to decrease it.|
+|deltarows|Int32|The number of rows by which to expand the bottom-right corner, relative to the current range. Use a positive number to expand the range, or a negative number to decrease it|
+|deltaColumns|Int32|The number of columnsby which to expand the bottom-right corner, relative to the current range. Use a positive number to expand the range, or a negative number to decrease it.|
 
-### Response
+## Request body
+In the request URL, provide following query parameters with values.
+
+| Parameter	   | Type	|Description|
+|:---------------|:--------|:----------|
+|deltaRows|Int32||
+|deltaColumns|Int32||
+
+## Response
+
 If successful, this method returns `200 OK` response code and [workbookRange](../resources/range.md) object in the response body.
 
 ## Example
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
-  "name": "workbookrange_resizedrange",
-  "idempotent": true
+  "name": "workbookrange_resizedrange"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/root/workbook/worksheets/{id}/range/resizedRange(deltaRows={n}, deltaColumns={n})
+POST https://graph.microsoft.com/beta/drive/root/workbook/worksheets/{id}/range/resizedRange(deltarows={n}, deltaColumns={n})
 ```
 
 ##### Response
@@ -51,7 +61,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK

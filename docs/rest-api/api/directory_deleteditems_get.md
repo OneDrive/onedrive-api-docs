@@ -1,5 +1,7 @@
 # Get deleted item
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties of a recently deleted item in [deleted items](../resources/directory.md).
 
 Currently, deleted items functionality is only supported for the [group](../resources/group.md) and [user](../resources/user.md) resources.
@@ -7,26 +9,13 @@ Currently, deleted items functionality is only supported for the [group](../reso
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-### For users:
-
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | User.Read.All, User.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All, Directory AccessAsUser.All |
-|Delegated (personal Microsoft account) | Not supported. |
-|Application | User.Read.All, User.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All |
-
-### For groups:
-
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Group.Read.All, Group.ReadWrite.All, Directory.Read.All, Directory.AccessAsUser.All |
-|Delegated (personal Microsoft account) | Not supported.    |
-|Application | Group.Read.All, Group.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All |
+* For users: User.Read.All, User.ReadWrite.All, Directory.Read.All
+* For groups: Group.Read.All, Group.ReadWrite.All, Directory.Read.All
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /directory/deletedItems/{id}
+GET /directory/deleteditems/{id}
 ```
 
 ## Optional query parameters
@@ -52,21 +41,21 @@ If successful, this method returns a `200 OK` response code and [directoryObject
   "name": "get_directory"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/directory/deletedItems/{object-id}
+GET https://graph.microsoft.com/beta/directory/deleteditems/46cc6179-19d0-473e-97ad-6ff84347bbbb
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.directoryObject"
+  "@odata.type": "microsoft.graph.directory"
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#directoryObjects/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#directoryObjects/$entity",
   "id":"46cc6179-19d0-473e-97ad-6ff84347bbbb",
   "displayName":"SampleGroup",
   "groupTypes":["Unified"],

@@ -6,6 +6,8 @@ title: List Files Shared With Me
 ---
 # List items shared with the signed-in user
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a collection of [DriveItem](../resources/driveitem.md) resources that have been shared with the owner of the [Drive](../resources/drive.md).
 
 ## Permissions
@@ -23,7 +25,7 @@ Additionally, without one of the  **All** permissions, shared items returned fro
 
 ## HTTP request
 
-<!-- { "blockType": "request", "name": "shared-with-me", "scopes": "files.read", "tags": "service.graph", "target": "action" } -->
+<!-- { "blockType": "request", "name": "shared-with-me", "scopes": "files.read", "target": "action" } -->
 
 ```http
 GET /me/drive/sharedWithMe

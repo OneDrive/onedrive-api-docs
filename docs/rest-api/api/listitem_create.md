@@ -6,6 +6,8 @@ title: Create a new entry in a SharePoint list
 ---
 # Create a new item in a list
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new [listItem][] in a [list][].
 
 ## Permissions
@@ -23,7 +25,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items
+POST https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items
 ```
 
 ## Request body
@@ -37,7 +39,7 @@ Here is an example of how to create a new generic list item.
 <!-- { "blockType": "request", "name": "create-listitem", "scopes": "sites.readwrite.all" } -->
 
 ```json
-POST https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items
+POST https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items
 Content-Type: application/json
 
 {

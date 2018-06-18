@@ -1,5 +1,7 @@
 ﻿# Update windowsUpdateForBusinessConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [windowsUpdateForBusinessConfiguration](../resources/intune_deviceconfig_windowsupdateforbusinessconfiguration.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}
 ```
 
 ## Request headers
@@ -52,7 +56,10 @@ The following table shows the properties that are required when you create the [
 |featureUpdatesPaused|Boolean|Pause Feature Updates|
 |qualityUpdatesPauseExpiryDateTime|DateTimeOffset|Quality Updates Pause Expiry datetime|
 |featureUpdatesPauseExpiryDateTime|DateTimeOffset|Feature Updates Pause Expiry datetime|
-|businessReadyUpdatesOnly|[windowsUpdateType](../resources/intune_deviceconfig_windowsupdatetype.md)|Determines which branch devices will receive their updates from. Possible values are: `userDefined`, `all`, `businessReadyOnly`.|
+|businessReadyUpdatesOnly|[windowsUpdateType](../resources/intune_deviceconfig_windowsupdatetype.md)|Determines which branch devices will receive their updates from. Possible values are: `userDefined`, `all`, `businessReadyOnly`, `windowsInsiderBuildFast`, `windowsInsiderBuildSlow`, `windowsInsiderBuildRelease`.|
+|previewBuildSetting|[windowsUpdateInsiderBuildControl](../resources/intune_deviceconfig_windowsupdateinsiderbuildcontrol.md)|Set the insider build control in the advanced options for Windows Update. Possible values are: `userDefined`, `allowed`, `notAllowed`.|
+|skipChecksBeforeRestart|Boolean|Set to skip all check before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc. |
+|updateWeeks|[windowsUpdateForBusinessUpdateWeeks](../resources/intune_deviceconfig_windowsupdateforbusinessupdateweeks.md)|Scheduled the update installation on the weeks of the month. Possible values are: `userDefined`, `firstWeek`, `secondWeek`, `thirdWeek`, `fourthWeek`, `everyWeek`.|
 
 
 
@@ -63,9 +70,9 @@ If successful, this method returns a `200 OK` response code and an updated [wind
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}
 Content-type: application/json
-Content-length: 898
+Content-length: 1002
 
 {
   "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00",
@@ -88,7 +95,10 @@ Content-length: 898
   "featureUpdatesPaused": true,
   "qualityUpdatesPauseExpiryDateTime": "2017-01-01T00:00:22.9594683-08:00",
   "featureUpdatesPauseExpiryDateTime": "2016-12-31T23:58:08.068669-08:00",
-  "businessReadyUpdatesOnly": "all"
+  "businessReadyUpdatesOnly": "all",
+  "previewBuildSetting": "allowed",
+  "skipChecksBeforeRestart": true,
+  "updateWeeks": "firstWeek"
 }
 ```
 
@@ -97,7 +107,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1082
+Content-Length: 1186
 
 {
   "@odata.type": "#microsoft.graph.windowsUpdateForBusinessConfiguration",
@@ -123,7 +133,10 @@ Content-Length: 1082
   "featureUpdatesPaused": true,
   "qualityUpdatesPauseExpiryDateTime": "2017-01-01T00:00:22.9594683-08:00",
   "featureUpdatesPauseExpiryDateTime": "2016-12-31T23:58:08.068669-08:00",
-  "businessReadyUpdatesOnly": "all"
+  "businessReadyUpdatesOnly": "all",
+  "previewBuildSetting": "allowed",
+  "skipChecksBeforeRestart": true,
+  "updateWeeks": "firstWeek"
 }
 ```
 

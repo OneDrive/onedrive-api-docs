@@ -1,4 +1,6 @@
-# windowsPhone81CompliancePolicy resource type
+﻿# windowsPhone81CompliancePolicy resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -36,14 +38,6 @@ Inherits from [deviceCompliancePolicy](../resources/intune_deviceconfig_deviceco
 |osMaximumVersion|String|Maximum Windows Phone version.|
 |storageRequireEncryption|Boolean|Require encryption on windows phone devices.|
 
-### requiredPasswordType values
-
-| Value
-|:-------------------------
-| deviceDefault
-| alphanumeric
-| numeric
-
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
@@ -57,12 +51,12 @@ Inherits from [deviceCompliancePolicy](../resources/intune_deviceconfig_deviceco
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.deviceCompliancePolicy",
   "@odata.type": "microsoft.graph.windowsPhone81CompliancePolicy"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.windowsPhone81CompliancePolicy",

@@ -1,5 +1,7 @@
 # Create Table
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new Table.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,7 +9,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -26,14 +28,14 @@ POST /workbook/worksheets/{id|name}/tables/add
 In the request body, supply following parameters. 
 
 ### Request parameters
-| Name           | Type      |Description|
-|:---------------|:----------|:----------|
-| Address  | string| Range address. If you are calling this API off of `worksheets/{id or name}/tables/add` path, there is no need to for sheet name prefix in the address. However, if you are calling this off of `workbook/tables/add` path, then supply the sheet name on which the table needs to be created (example: `sheet1!A1:D4`)|
+| Name       | Type|Description|
+|:---------------|:----------|
+| Address  | string| Range address. If you are calling this API off of `worksheets/{id|name}/tables/add` path, there is no need to support the sheet name prefix in the address. However, if you are calling this off of `workbook/tables/add` path, then supply the sheet name on which the table needs to be created (example: `sheet1!A1:D4`)|
 | hasHeaders  | boolean|Boolean value that indicates whether the range has column labels. If the source does not contain headers (i.e,. when this property set to false), Excel will automatically generate header shifting the data down by one row.|
 
 ## Response
 
-If successful, this method returns `201 Created` response code and [WorkbookTable](../resources/table.md) object in the response body.
+If successful, this method returns `201 Created` response code and [Table](../resources/table.md) object in the response body.
 
 ## Example
 ##### Request
@@ -43,12 +45,12 @@ Here is an example of the request.
   "name": "create_table_from_worksheet"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/tables/{id}/add
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/tables/$/add
 Content-type: application/json
 Content-length: 109
 
 {
-  "address": "A1:D8",
+  "address": "",
   "hasHeaders": false
 }
 ```
@@ -57,7 +59,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookTable"
+  "@odata.type": "microsoft.graph.table"
 } -->
 ```http
 HTTP/1.1 201 Created

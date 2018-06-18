@@ -1,7 +1,8 @@
 # Delete directoryObject
 
-Deletes a directoryObject.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
+Delete directoryObject.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -12,6 +13,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Delegated (personal Microsoft account) | Not supported.    |
 |Application | Not supported. |
 
+**NOTE:** Users, groups, and contacts are types of directory object. As a result,if you need to delete users, the following permission can and should be used: User.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -32,16 +34,16 @@ If successful, this method returns `204 No Content` response code. It does not r
 
 ## Example
 ##### Request
-
+Here is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "delete_directoryobject"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/directoryObjects/{id}
+DELETE https://graph.microsoft.com/beta/directoryObject/{id}
 ```
 ##### Response
-
+Here is an example of the response. 
 <!-- {
   "blockType": "response",
   "truncated": true

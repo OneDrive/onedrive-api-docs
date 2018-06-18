@@ -6,6 +6,8 @@ title: ChoiceColumn
 ---
 # ChoiceColumn resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **choiceColumn** on a [columnDefinition](columnDefinition.md) resource indicates that the column's values can be selected from a list of choices.
 
 ## JSON representation
@@ -35,9 +37,5 @@ Here is a JSON representation of a **choiceColumn** resource.
   "description": "",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/choicecolumn.md:
-      Found potential enums in resource example that weren't defined in a table:(checkBoxes,dropDownMenu,radioButtons) are in resource, but () are in table"
-  ],
   "tocPath": "Resources/ChoiceColumn"
 } -->

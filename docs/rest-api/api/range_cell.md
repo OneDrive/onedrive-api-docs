@@ -1,5 +1,7 @@
 # Range: Cell
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Gets the range object containing the single cell based on row and column numbers. The cell can be outside the bounds of its parent range, so long as it's stays within the worksheet grid. The returned cell is located relative to the top left cell of the range.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,15 +9,15 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /workbook/names/{name}/range/cell
-GET /workbook/worksheets/{id|name}/range(address='<address>')/cell
-GET /workbook/tables/{id|name}/columns/{id|name}/range/cell
+GET /workbook/names(<name>)/range/Cell
+GET /workbook/worksheets/{id|name}/range(address='<address>')/Cell
+GET /workbook/tables/{id|name}/columns/{id|name}/range/Cell
 
 ```
 ## Request headers
@@ -24,13 +26,13 @@ GET /workbook/tables/{id|name}/columns/{id|name}/range/cell
 | Authorization  | Bearer {token}. Required. |
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
-## Path parameters
-In the path, provide the following parameters.
+## Request body
+In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|row|Int32|Row number of the cell to be retrieved. Zero-indexed.|
-|column|Int32|Column number of the cell to be retrieved. Zero-indexed.|
+|row|number|Row number of the cell to be retrieved. Zero-indexed.|
+|column|number|Column number of the cell to be retrieved. Zero-indexed.|
 
 ## Response
 
@@ -40,13 +42,21 @@ If successful, this method returns `200 OK` response code and [Range](../resourc
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
   "name": "range_cell"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names/{name}/range/cell(row=5,column=6)
+GET https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/names(<name>)/range/Cell
+Content-type: application/json
+Content-length: 37
+
+{
+  "row": {
+  },
+  "column": {
+  }
+}
 ```
 
 ##### Response
@@ -54,7 +64,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK

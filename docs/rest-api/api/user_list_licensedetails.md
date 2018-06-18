@@ -1,5 +1,7 @@
 # List licenseDetails
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of licenseDetails objects.
 
 ## Permissions
@@ -39,7 +41,7 @@ If successful, this method returns a `200 OK` response code and collection of [l
   "name": "get_licensedetails"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/licenseDetails
+GET https://graph.microsoft.com/beta/me/licenseDetails
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

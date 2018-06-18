@@ -1,5 +1,7 @@
 # educationClass resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a class within a school. The **educationClass** resource corresponds to the Office 365 group and shares the same ID. Students are regular members of the class, and teachers are owners and have appropriate rights. For Office experiences to work correctly, teachers must be members of both the teachers and members collections.  
 
 
@@ -15,6 +17,8 @@ Represents a class within a school. The **educationClass** resource corresponds 
 |[Add teacher](../api/educationclass_post_teachers.md) |[educationUser](educationuser.md)| Add a new **educationUser** for the class by posting to the teachers navigation property.|
 |[List teachers](../api/educationclass_list_teachers.md) |[educationUser](educationuser.md) collection| Get a list of teachers for the class.|
 |[Remove teacher](../api/educationclass_delete_teachers.md) |[educationUser](educationuser.md)| Remove an **educationUser** from the class through the teachers navigation property.|
+|[Create educationAssignment](../api/educationclass_post_assignments.md) |[educationAssignment](../resources/educationassignment.md)| Create a new **educationAssignment** by posting to the assignments collection.|
+|[List assignments](../api/educationclass_list_assignments.md) |[educationAssignment](../resources/educationassignment.md) collection| Get an **educationAssignment** object collection.|
 |[Get group](../api/educationclass_get_group.md) |[group](group.md)| Get the Office 365 **group** that corresponds to this **educationClass**.|
 |[Update](../api/educationclass_update.md) | [educationClass](educationclass.md)	|Update **educationClass** object. |
 |[Delete](../api/educationclass_delete.md) | None |Delete **educationClass** object. |
@@ -30,17 +34,8 @@ Represents a class within a school. The **educationClass** resource corresponds 
 |classCode|String| Class code used by the school to identify the class.|
 |externalId|String| ID of the class from the syncing system. |
 |externalName|String|Name of the class in the syncing system.|
-|externalSource|educationExternalSource| How this class was created. Possible values are: `sis`, `manual`, `unknownFutureValue`.|
+|externalSource|string| How this class was created. Possible values are: `sis`, `manual`, `unknownFutureValue`.|
 |term|[educationTerm](educationterm.md)|Term for this class.|
-
-### educationExternalSource values
-
-| Value
-|:-------------------------
-| sis
-| manual
-| unknownFutureValue
-
 
 
 ## Relationships
@@ -49,17 +44,17 @@ Represents a class within a school. The **educationClass** resource corresponds 
 |members|[educationUser](../resources/educationuser.md) collection| All users in the class. Nullable.|
 |schools|[educationSchool](../resources/educationschool.md) collection| All schools that this class is associated with. Nullable.|
 |teachers|[educationUser](../resources/educationuser.md) collection|  All teachers in the class. Nullable.|
-|group|[group](../resources/group.md)| The directory group corresponding to this class.|
+|assignments|[educationAssignment](../resources/educationassignment.md) collection| All assignments associated with this class. Nullable.|
 
 ## JSON representation
 
 The following is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.educationClass"
 }-->
 
@@ -74,7 +69,7 @@ The following is a JSON representation of the resource.
   "externalName": "String",
   "externalSource": "string",
   "mailNickname": "String",
-  "term": {"@odata.type": "microsoft.graph.educationTerm"}
+  "term": {"@odata.type": "microsoft.graph.education.term"}
 }
 
 ```

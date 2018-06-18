@@ -1,4 +1,7 @@
 # user: reminderView
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Return a list of calendar reminders within the specified start and end times. 
 
 ## Permissions
@@ -47,7 +50,7 @@ Here is an example of the request.
   "name": "user_reminderview"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/reminderView(startDateTime='2017-06-05T10:00:00.0000000',endDateTime='2017-06-11T11:00:00.0000000')
+GET https://graph.microsoft.com/beta/me/reminderView(startDateTime='2017-06-05T10:00:00.0000000',endDateTime='2017-06-11T11:00:00.0000000')
 ```
 
 ##### Response
@@ -64,7 +67,7 @@ Content-type: application/json
 Content-length: 673
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.reminder)",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.reminder)",
     "value": [
         {
             "eventId": "AAMkADNsvAAA=",

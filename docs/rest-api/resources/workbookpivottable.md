@@ -1,5 +1,7 @@
 # pivotTable resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents an Excel PivotTable.
 
 ## Methods
@@ -19,14 +21,13 @@ Represents an Excel PivotTable.
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|worksheet|[WorkbookWorksheet](worksheet.md)| The worksheet containing the current PivotTable. Read-only.	|
+|worksheet|[worksheet](worksheet.md)| The worksheet containing the current PivotTable. Read-only.	|
 
 ## JSON representation
 Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [
 
   ],

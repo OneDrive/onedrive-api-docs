@@ -1,5 +1,8 @@
 # group: subscribeByMail
-Calling this method will enable the current user to receive email notifications for this group, about new posts, events, and files in that group. Supported for Office 365 groups only.
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Calling this method will enable the current user to receive email notifications for this group, about new posts, events, and files in that group. Supported for Office 365 Groups only.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -22,7 +25,6 @@ POST /groups/{id}/subscribeByMail
 | Prefer | return=minimal. If minimal response header is included in the request header, then a successful response returns `204 No Content` code. Optional.  | 
 
 ## Request body
-Do not supply a request body for this method.
 
 ## Response
 If successful, this method returns `200 OK` response code. It does not return anything in the response body.
@@ -35,7 +37,7 @@ The following is an example of the request.
   "name": "group_subscribebymail"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/subscribeByMail
+POST https://graph.microsoft.com/beta/groups/{id}/subscribeByMail
 ```
 
 #### Response

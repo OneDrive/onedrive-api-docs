@@ -1,12 +1,14 @@
 # extensionSchemaProperty resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use the **extensionSchemaProperty** resource to define a property's name and its type, as part of a [schemaExtension](schemaextension.md) definition.
 
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|name|String| The name of the strongly-typed property defined as part of a schema extension.|
+|name|String| The name of the strongly typed property defined as part of a schema extension.|
 |type|String| The type of the property that is defined as part of a schema extension.  Allowed values are *Binary, Boolean, DateTime, Integer* or *String*.  See the table below for more details.|
 
 #### Supported property data types 
@@ -15,9 +17,9 @@ The following data types are supported when defining a property in a schema exte
 | Property Type | Remarks |
 |-------------|------------|
 | Binary | 256 bytes maximum. |
-| Boolean | Not supported for contacts, messages, events and posts. |
+| Boolean | Not supported for messages, events and posts. |
 | DateTime | Must be specified in ISO 8601 format. Will be stored in UTC. |
-| Integer | 32-bit value. Not supported for contacts, messages, events and posts. |
+| Integer | 32-bit value. Not supported for messages, events and posts. |
 | String | 256 characters maximum. |
 
 ## JSON representation

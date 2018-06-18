@@ -6,6 +6,8 @@ title: Find SharePoint sites by keyword
 ---
 # Search for sites
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Search across a SharePoint tenant for [sites][] that match provided keywords.
 
 [sites]: ../resources/site.md
@@ -22,10 +24,10 @@ One of the following permissions is required to call this API. To learn more, in
 
 ## HTTP request
 
-<!-- { "blockType": "request", "name": "search-sites", "scopes": "sites.readwrite.all", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "request", "name": "search-sites", "scopes": "service.sharepoint sites.readwrite.all" } -->
 
 ```http
-GET /sites?search={query}
+GET https://graph.microsoft.com/beta/sites?search={query}
 ```
 
 ## Response

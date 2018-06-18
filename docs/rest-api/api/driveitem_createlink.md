@@ -6,6 +6,8 @@ title: Share a file with a link
 ---
 # Create a sharing link for a DriveItem
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 You can use **createLink** action to share a [DriveItem](../resources/driveitem.md) via a sharing link.
 
 The **createLink** action will create a new sharing link if the specified link type doesn't already exist for the calling application.
@@ -61,11 +63,10 @@ The following values are allowed for the **type** parameter.
 The following values are allowed for the **scope** parameter.
 If the **scope** parameter is not specified, the default link type for the organization is created.
 
-| Value          | Description
-|:---------------|:------------------------------------------------------------
-| `anonymous`    | Anyone with the link has access, without needing to sign in. This may include people outside of your organization. Anonymous link support may be disabled by an administrator.
-| `organization` | Anyone signed into your organization (tenant) can use the link to get access. Only available in OneDrive for Business and SharePoint.
-
+| Type value     | Description                                                                                                                   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------|
+| `anonymous`    | Creates a link to the DriveItem accessible to anyone with the link. Anonymous links may be disabled by an administrator.                 |
+| `organization` | Creates a link to the DriveItem accessible to anyone within the user's organization. Organization link scope is not available for OneDrive personal. |
 
 ## Response
 
@@ -82,11 +83,11 @@ The sharing link is configured to be read-only and usable by anyone with the lin
 
 <!-- {
   "blockType": "request",
-  "name": "create-link"
+  "name": "item_createlink"
 }-->
 
 ```http
-POST /me/drive/items/{item-id}/createLink
+POST /me/drive/items/{itemId}/createLink
 Content-type: application/json
 
 {
@@ -126,7 +127,7 @@ To create a company sharable link, use the **scope** parameter with a value of `
 
 ### Request
 
-<!-- { "blockType": "request", "name": "create-link-scoped", "scopes": "files.readwrite", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "request", "name": "create-link-scoped", "scopes": "files.readwrite service.sharepoint" } -->
 
 ```http
 POST /me/drive/items/{item-id}/createLink
@@ -170,7 +171,7 @@ When an embed link is created the `webHtml` property contains the HTML code for 
 
 ### Request
 
-<!-- { "blockType": "request", "name": "create-embedded-link", "scopes": "files.readwrite", "tags": "service.onedrive service.graph" } -->
+<!-- { "blockType": "request", "name": "create-embedded-link", "scopes": "files.readwrite service.onedrive" } -->
 
 ```http
 POST /me/drive/items/{item-id}/createLink

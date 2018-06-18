@@ -6,6 +6,8 @@ title: Search for files
 ---
 # Search for a DriveItems within a drive
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Search the hierarchy of items for items matching a query.
 You can search within a folder hierarchy, a whole drive, or files shared with the current user.
 
@@ -47,7 +49,7 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$order
 
 Here is an example of the request searching the current user's OneDrive
 
-<!-- { "blockType": "request", "name": "item_search", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "item_search" }-->
 
 ```http
 GET /me/drive/root/search(q='{search-query}')
@@ -93,7 +95,7 @@ To broaden the search scope, use the **search** method on the [Drive](../resourc
 
 ### Example
 
-<!-- { "blockType": "request", "name": "item_search_all", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "item_search_all" }-->
 
 ```http
 GET /me/drive/search(q='{search-query}')
@@ -117,7 +119,7 @@ Content-type: application/json
         "name": "Contoso Project",
         "folder": {},
         "searchResult": { "onClickTelemetryUrl": "https://bing.com/0123456789abc!123" },
-        "remoteItem": { "id": "!23141901", "parentReference": { "driveId": "s!1020101jlkjl12lx" } }
+        "remoteItem": { "id": "!23141901", "driveId": "s!1020101jlkjl12lx" }
       },
       {
         "id": "0123456789abc!456",

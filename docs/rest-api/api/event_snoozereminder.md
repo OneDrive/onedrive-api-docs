@@ -1,5 +1,7 @@
 # event: snoozeReminder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Postpone a reminder for an [event](../resources/event.md) in a user [calendar](../resources/calendar.md) until a new time.
 
 ## Permissions
@@ -55,13 +57,13 @@ Here is an example of the request.
   "name": "event_snoozereminder"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/events/{id}/snoozeReminder
+POST https://graph.microsoft.com/beta/me/events/{id}/snoozeReminder
 Content-type: application/json
 Content-length: 97
 
 {
   "newReminderTime": {
-    "dateTime": "dateTime-value",
+    "dateTime": "2016-10-19T10:37:00Z",
     "timeZone": "timeZone-value"
   }
 }

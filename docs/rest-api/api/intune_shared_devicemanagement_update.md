@@ -1,5 +1,7 @@
 ﻿# Update deviceManagement
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [deviceManagement](../resources/intune_shared_devicemanagement.md) object.
@@ -9,6 +11,7 @@ One of the following permissions is required to call this API. To learn more, in
 | Permission&nbsp;type&nbsp;(by&nbsp;workflow) | Permissions (from most to least privileged) |
 |:---|:---|
 | Delegated (work or school account) |
+| &nbsp; &nbsp; Android for Work | DeviceManagementConfiguration.ReadWrite.All  |
 | &nbsp; &nbsp; Auditing | DeviceManagementApps.ReadWrite.All |
 | &nbsp; &nbsp; Company terms | DeviceManagementServiceConfig.ReadWrite.All |
 | &nbsp; &nbsp; Device configuration | DeviceManagementConfiguration.ReadWrite.All |
@@ -45,12 +48,15 @@ The following table shows the properties that are required when you create the [
 |Property|Type|Description|
 |:---|:---|:---|
 |accountMoveCompletionDateTime|DateTimeOffset|The date & time when tenant data moved between scaleunits.|
+|adminConsent|[adminConsent](../resources/intune_devices_adminconsent.md)|Admin consent information.|
+|deviceProtectionOverview|[deviceProtectionOverview](../resources/intune_devices_deviceprotectionoverview.md)|Device protection overview.|
 |id|String|Unique Identifier for the device|
 |intuneAccountId|Guid|Intune Account ID for given tenant|
 |intuneBrand|[intuneBrand](../resources/intune_onboarding_intunebrand.md)|intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.|
 |maximumDepTokens|Int32|Maximum number of dep tokens allowed per-tenant.|
 |settings|[deviceManagementSettings](../resources/intune_deviceconfig_devicemanagementsettings.md)|Account level settings.|
 |subscriptionState|[deviceManagementSubscriptionState](../resources/intune_devices_devicemanagementsubscriptionstate.md)|Tenant mobile device management subscription state. Possible values are: `pending`, `active`, `warning`, `disabled`, `deleted`, `blocked`, `lockedOut`.|
+|subscriptions|[deviceManagementSubscriptions](../resources/intune_devices_devicemanagementsubscriptions.md)|Tenant's Subscription. Possible values are: `none`, `intune`, `office365`, `intunePremium`, `intune_EDU`, `intune_SMB`.|
 
 Request body property support varies according to workflow.
 

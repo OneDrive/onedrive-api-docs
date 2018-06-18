@@ -1,5 +1,7 @@
 ﻿# Update windows10MobileCompliancePolicy
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [windows10MobileCompliancePolicy](../resources/intune_deviceconfig_windows10mobilecompliancepolicy.md) object.
@@ -56,6 +58,9 @@ The following table shows the properties that are required when you create the [
 |secureBootEnabled|Boolean|Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled.|
 |codeIntegrityEnabled|Boolean|Require devices to be reported as healthy by Windows Device Health Attestation.|
 |storageRequireEncryption|Boolean|Require encryption on windows devices.|
+|activeFirewallRequired|Boolean|Require active firewall on Windows devices.|
+|uacRequired|Boolean|Require UAC on Windows devices.|
+|validOperatingSystemBuildRanges|[operatingSystemVersionRange](../resources/intune_deviceconfig_operatingsystemversionrange.md) collection|The valid operating system build ranges on Windows devices. This collection can contain a maximum of 10000 elements.|
 
 
 
@@ -66,9 +71,9 @@ If successful, this method returns a `200 OK` response code and an updated [wind
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
 Content-type: application/json
-Content-length: 786
+Content-length: 1114
 
 {
   "description": "Description value",
@@ -90,7 +95,17 @@ Content-length: 786
   "bitLockerEnabled": true,
   "secureBootEnabled": true,
   "codeIntegrityEnabled": true,
-  "storageRequireEncryption": true
+  "storageRequireEncryption": true,
+  "activeFirewallRequired": true,
+  "uacRequired": true,
+  "validOperatingSystemBuildRanges": [
+    {
+      "@odata.type": "microsoft.graph.operatingSystemVersionRange",
+      "description": "Description value",
+      "lowestVersion": "Lowest Version value",
+      "highestVersion": "Highest Version value"
+    }
+  ]
 }
 ```
 
@@ -99,7 +114,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 964
+Content-Length: 1292
 
 {
   "@odata.type": "#microsoft.graph.windows10MobileCompliancePolicy",
@@ -124,7 +139,17 @@ Content-Length: 964
   "bitLockerEnabled": true,
   "secureBootEnabled": true,
   "codeIntegrityEnabled": true,
-  "storageRequireEncryption": true
+  "storageRequireEncryption": true,
+  "activeFirewallRequired": true,
+  "uacRequired": true,
+  "validOperatingSystemBuildRanges": [
+    {
+      "@odata.type": "microsoft.graph.operatingSystemVersionRange",
+      "description": "Description value",
+      "lowestVersion": "Lowest Version value",
+      "highestVersion": "Highest Version value"
+    }
+  ]
 }
 ```
 

@@ -1,4 +1,6 @@
-# iosUpdateDeviceStatus resource type
+﻿# iosUpdateDeviceStatus resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -23,8 +25,9 @@ Not yet documented
 |deviceDisplayName|String|Device name of the DevicePolicyStatus.|
 |userName|String|The User Name that is being reported|
 |deviceModel|String|The device model that is being reported|
+|platform|Int32|Platform of the device that is being reported|
 |complianceGracePeriodExpirationDateTime|DateTimeOffset|The DateTime when device compliance grace period expires|
-|status|[complianceStatus](../resources/intune_deviceconfig_compliancestatus.md)|Compliance status of the policy report. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|status|[complianceStatus](../resources/intune_shared_compliancestatus.md)|Compliance status of the policy report. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |lastReportedDateTime|DateTimeOffset|Last modified date time of the policy report.|
 |userPrincipalName|String|UserPrincipalName.|
 
@@ -32,12 +35,12 @@ Not yet documented
 None
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.iosUpdateDeviceStatus"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.iosUpdateDeviceStatus",
@@ -49,6 +52,7 @@ Here is a JSON representation of the resource.
   "deviceDisplayName": "String",
   "userName": "String",
   "deviceModel": "String",
+  "platform": 1024,
   "complianceGracePeriodExpirationDateTime": "String (timestamp)",
   "status": "String",
   "lastReportedDateTime": "String (timestamp)",

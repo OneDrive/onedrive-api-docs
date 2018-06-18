@@ -1,8 +1,9 @@
 # subscribedSku resource type
 
-Contains information about a service SKU that a company is subscribed to.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Only the read operation is supported on subscribed SKUs; create, update, and delete are not supported. Query filter expressions are not supported. Inherits from [directoryObject](directoryobject.md).
+
 
 ## Methods
 | Method		   | Return Type	|Description|
@@ -29,25 +30,13 @@ None
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
+  "optionalProperties": [
+
+  ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.subscribedSku",
-  "@odata.annotations": [
-    {
-      "capabilities": {
-        "skippable": false,
-        "toppable": false,
-        "countable": false,
-        "expandable": false,
-        "filterable": false,
-        "referenceable": false,
-        "selectable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.subscribedSku"
 }-->
 
 ```json

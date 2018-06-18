@@ -1,5 +1,7 @@
 # Update open extension
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update an open extension ([openTypeExtension](../resources/openTypeExtension.md) object) with the properties in the request body:
 
 - If a property in the request body matches the name of an existing property in the extension, the data in the 
@@ -14,18 +16,20 @@ One of the following permissions is required to call this API, depending on the 
 
 |**Supported resource**|**Permission**|**Supported resource**|**Permission** |
 |:-----|:-----|:-----|:-----|
-| [device](../resources/device.md) | Device.ReadWrite.All | [event](../resources/event.md) | Calendars.ReadWrite |
-| [group](../resources/group.md) | Group.ReadWrite.All | [group event](../resources/event.md) | Group.ReadWrite.All |
-| [group post](../resources/post.md) | Group.ReadWrite.All | [message](../resources/message.md) | Mail.ReadWrite |
-| [organization](../resources/organization.md) | Directory.AccessAsUser.All | [personal contact](../resources/contact.md) | Contacts.ReadWrite |
-| [user](../resources/user.md) | Directory.AccessAsUser.All | | |
+| [administrativeUnit](../resources/administrativeunit.md) | Directory.AccessAsUser.All | [device](../resources/device.md) | Device.ReadWrite.All |
+| [event](../resources/event.md) | Calendars.ReadWrite | [group](../resources/group.md) | Group.ReadWrite.All |
+| [group event](../resources/event.md) | Group.ReadWrite.All | [group post](../resources/post.md) | Group.ReadWrite.All |
+| [message](../resources/message.md) | Mail.ReadWrite | [organization](../resources/organization.md) | Directory.AccessAsUser.All |
+| [personal contact](../resources/contact.md) | Contacts.ReadWrite | [user](../resources/user.md) | Directory.ReadWrite.All |
 
 ## HTTP request
+
 In the request, identify the resource instance, use the **extensions** 
 navigation property of that instance to identify the extension, and do a `PATCH` on that extension instance.
 
 <!-- { "blockType": "ignored" } -->
 ```http
+PATCH /administrativeUnits/{Id}/extensions/{extensionId}
 PATCH /devices/{Id}/extensions/{extensionId}
 PATCH /users/{id|userPrincipalName}/events/{id}/extensions/{extensionId}
 PATCH /groups/{id}/extensions/{extensionId}
@@ -42,10 +46,10 @@ All other syntax that allows you to identify these resource instances supports u
 
 See the [Request body](#request-body) section about including in the request body any custom data to change or add to that extension.
 
-
-## Path parameters
-|Parameter|Type|Description|
+## Parameters
+|**Parameter**|**Type**|**Description**|
 |:-----|:-----|:-----|
+|_URL parameters_|
 |id|string|A unique identifier for an instance of the corresponding collection. Required.|
 |extensionId|string|This can be an extension name which is a unique text identifier for an extension, or a fully qualified name which concatenates the extension type and unique text identifier. The fully qualified name is returned in the `id` property when you create the extension. Required.|
 
@@ -63,7 +67,7 @@ The data in the JSON payload can be primitive types, or arrays of primitive type
 
 | Name       | Value |
 |:---------------|:----------|
-| @odata.type | microsoft.graph.openTypeExtension |
+| @odata.type | Microsoft.Graph.OpenTypeExtension |
 | extensionName | %unique_string% |
 
 ## Response
@@ -80,9 +84,9 @@ The first example shows how to update an extension in a message. The extension i
 <!-- { "blockType": "ignored" } -->
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
-    "@odata.type": "#microsoft.graph.openTypeExtension",
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
+    "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
 ('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
     "extensionName": "Com.Contoso.Referral",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral",
@@ -96,14 +100,14 @@ You can reference the extension by its name:
 
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/messages/{message-id}/extensions/Com.Contoso.Referral
+PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Com.Contoso.Referral')
 ```
 
 Or you can reference the extension by its fully qualified name:
 
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/messages/{message-id}/extensions/Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral
+PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
 You can use either example request and the following request body to update the above extension by:
@@ -114,7 +118,7 @@ You can use either example request and the following request body to update the 
 <!-- { "blockType": "ignored" } -->
 ```http
 {
-    "@odata.type": "microsoft.graph.openTypeExtension",
+    "@odata.type": "Microsoft.Graph.OpenTypeExtension",
     "extensionName": "Com.Contoso.Referral",
     "companyName": "Wingtip Toys (USA)",
     "dealValue": "500100",
@@ -134,9 +138,9 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
-    "@odata.type": "#microsoft.graph.openTypeExtension",
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
+    "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
 ('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral",
     "extensionName": "Com.Contoso.Referral",
@@ -157,7 +161,7 @@ with an `expirationDate` value of `2015-07-03T13:04:00Z`:
 <!-- { "blockType": "ignored" } -->
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
     "@odata.type": "#microsoft.graph.openTypeExtension",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate",
     "extensionName": "Com.Contoso.Estimate",
@@ -176,12 +180,11 @@ with an `expirationDate` value of `2015-07-03T13:04:00Z`:
 The following is the request and request body to change the `expirationDate` to `2016-07-30T11:00:00Z`:
 
 <!-- {
-  "blockType": "ignored",
-  "sampleKeys": ["Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate"],
+  "blockType": "request",
   "name": "update_opentypeextension"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/groups/{group-id}/threads/{thread-id}/posts/{post-id}/extensions/Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate
+PATCH https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA==')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA=')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate')
 Content-type: application/json
 
 {
@@ -203,16 +206,16 @@ Content-type: application/json
 Here is the response of the second example which shows the updated `expirationDate` in the extension.
 
 <!-- {  
-  "blockType": "ignored",  
+  "blockType": "response",  
   "truncated": true,  
-  "@odata.type": "microsoft.graph.openTypeExtension"  
+  "@odata.type": "microsoft.graph.opentypeextension"  
 } --> 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
     "@odata.type": "#microsoft.graph.openTypeExtension",
     "id": "Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate",
     "extensionName": "Com.Contoso.Estimate",

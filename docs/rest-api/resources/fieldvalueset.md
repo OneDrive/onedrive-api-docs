@@ -6,14 +6,15 @@ title: FieldValueSet
 ---
 # FieldValueSet resource
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents the column values in a [listItem](listItem.md) resource.
 
 ## JSON representation
 
 Here is a JSON representation of a **fieldValueSet** resource.
 <!-- { "blockType": "resource", "@odata.type": "microsoft.graph.fieldValueSet",
-      "optionalProperties": ["Author", "AuthorLookupId", "Name", "Color", "Quantity" ],
-       "baseType": "microsoft.graph.entity", "openType": true } -->
+       "keyProperty": "id", "openType": true } -->
 
 ```json
 {

@@ -1,7 +1,8 @@
 # Create page
 
-Create a new [page](../resources/page.md) in the specified section.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
+Create a new [page](../resources/page.md) in the specified section.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -40,7 +41,7 @@ Here is an example of the request.
 
 <!-- { "blockType": "ignored" } -->
 ```http
-POST https://graph.microsoft.com/v1.0/me/onenote/sections/{id}/pages
+POST https://graph.microsoft.com/beta/me/onenote/sections/{id}/pages
 Content-length: 312
 Content-type: multipart/form-data; boundary=MyPartBoundary198374
 

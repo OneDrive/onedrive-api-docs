@@ -1,5 +1,7 @@
 # Delete subscription
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete a subscription.
 
 ## Permissions
@@ -16,6 +18,8 @@ The following table lists the suggested permission needed for each resource. To 
 | Users                       | User.Read.All       |
 | Drive  (User's OneDrive)    | Files.ReadWrite     |
 | Drives (SharePoint shared content and drives) | Files.ReadWrite.All |
+
+***Note:*** The /beta endpoint allows application permissions for most resources. Conversations in a Group and OneDrive drive root items are not supported with application permissions.
 
 ## HTTP request
 
@@ -50,7 +54,7 @@ Here is an example of the request.
 }-->
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/subscriptions/{id}
+DELETE https://graph.microsoft.com/beta/subscriptions/{id}
 ```
 
 ##### Response

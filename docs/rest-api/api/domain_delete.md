@@ -1,10 +1,11 @@
 # Delete domain
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Deletes a domain from a tenant.
 
 > **Important:**
-> - Deleted domains are not recoverable.<br />
-> - Attempts to delete will fail if there are any resources or objects still dependent on the domain. You can find all dependent resources by using the [List domainNameReferences](domain_list_domainnamereferences.md) API.
+> Deleted domains are not recoverable.
 
 ## Permissions
 
@@ -45,11 +46,10 @@ If successful, this method returns `204 No Content` response code. It does not r
 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["contoso.com"],
   "name": "delete_domain"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/domains/contoso.com
+DELETE https://graph.microsoft.com/beta/domains/contoso.com
 ```
 
 ##### Response

@@ -6,6 +6,8 @@ title: Update a file or folder
 ---
 # Update DriveItem properties
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the metadata for a [DriveItem](../resources/driveitem.md) by ID or path.
 
 You can also use update to [move an item](driveitem_move.md) to another parent by updating the item's **parentReference** property.
@@ -53,7 +55,7 @@ If successful, this method returns a `200 OK` response code and updated [DriveIt
 
 This example renames the DriveItem resource to "new-file-name.docx".
 
-<!-- { "blockType": "request", "name": "update-item", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "update-item" } -->
 
 ```http
 PATCH /me/drive/items/{item-id}

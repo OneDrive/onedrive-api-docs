@@ -1,5 +1,7 @@
 # Permanently delete item
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Permanently deletes an item from [deleted items](../resources/directory.md).
 
 Currently, deleted items functionality is only supported for the [group](../resources/group.md) and [user](../resources/user.md) resources. You can permanently delete an item from deleted items. But, once an item is permanently deleted, it **cannot** be restored.
@@ -7,26 +9,13 @@ Currently, deleted items functionality is only supported for the [group](../reso
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-### For users:
-
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | User.ReadWrite.All, Directory.AccessAsUser.All |
-|Delegated (personal Microsoft account) | Not supported. |
-|Application | User.ReadWrite.All |
-
-### For groups:
-
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Group.ReadWrite.All, Directory.AccessAsUser.All |
-|Delegated (personal Microsoft account) | Not supported.    |
-|Application | Group.ReadWrite.All |
+* For users: User.ReadWrite.All, Directory.AccessAsUser.All
+* For groups: Group.ReadWrite.All, Directory.AccessAsUser.All
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /directory/deletedItems/{id}
+DELETE /directory/deleteditems/{id}
 ```
 ## Request headers
 | Name       | Description|
@@ -49,7 +38,7 @@ If successful, this method returns `204 No Content` response code. It does not r
   "name": "delete_directory"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/directory/deletedItems/{object-id}
+DELETE https://graph.microsoft.com/beta/directory/deleteditems/46cc6179-19d0-473e-97ad-6ff84347bbbb
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

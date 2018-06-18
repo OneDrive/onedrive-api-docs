@@ -1,5 +1,6 @@
 # Update rule
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Change writable properties on a [messageRule](../resources/messagerule.md) object and save the changes.
 
@@ -15,8 +16,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /me/mailFolders/inbox/messageRules/{id}
-PATCH /users/{id | userPrincipalName}/mailFolders/inbox/messageRules/{id}
+PATCH /me/mailFolders/inbox/messagerules/{id}
+PATCH /users/{id | userPrincipalName}/mailFolders/inbox/messagerules/{id}
 ```
 ## Optional request headers
 | Name       | Description|
@@ -47,11 +48,11 @@ The following example changes the name of the rule, and the actions to be taken 
 [example](messagerule_get.md#example) in [Get rule](messagerule_get.md), from forwarding to an address to marking its importance as high. 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["inbox"],
   "name": "update_messagerule"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules/{rule-id}
+PATCH https://graph.microsoft.com/beta/me/mailfolders/inbox/messagerules('AQAAAJ5dZqA=')
+
 Content-type: application/json
 
 {
@@ -73,7 +74,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#Me/mailFolders('inbox')/messageRules/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#Me/mailFolders('inbox')/messageRules/$entity",
   "id":"AQAAAJ5dZqA=",
   "displayName":"Important from partner",
   "sequence":2,

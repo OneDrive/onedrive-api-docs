@@ -1,5 +1,7 @@
 # List educationSchools
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of all school objects.
 
 ## Permissions
@@ -35,7 +37,7 @@ The following is an example of the request.
   "name": "get_schools"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/schools
+GET https://graph.microsoft.com/beta/education/schools
 ```
 ##### Response
 The following is an example of the response. 

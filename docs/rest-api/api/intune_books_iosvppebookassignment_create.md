@@ -1,5 +1,7 @@
 ﻿# Create iosVppEBookAssignment
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [iosVppEBookAssignment](../resources/intune_books_iosvppebookassignment.md) object.
@@ -36,7 +38,7 @@ The following table shows the properties that are required when you create the i
 |:---|:---|:---|
 |id|String|Key of the entity. Inherited from [managedEBookAssignment](../resources/intune_books_managedebookassignment.md)|
 |target|[deviceAndAppManagementAssignmentTarget](../resources/intune_shared_deviceandappmanagementassignmenttarget.md)|The assignment target for eBook. Inherited from [managedEBookAssignment](../resources/intune_books_managedebookassignment.md)|
-|installIntent|[installIntent](../resources/intune_books_installintent.md)|The install intent for eBook. Inherited from [managedEBookAssignment](../resources/intune_books_managedebookassignment.md). Possible values are: `available`, `required`, `uninstall`, `availableWithoutEnrollment`.|
+|installIntent|[installIntent](../resources/intune_shared_installintent.md)|The install intent for eBook. Inherited from [managedEBookAssignment](../resources/intune_books_managedebookassignment.md). Possible values are: `available`, `required`, `uninstall`, `availableWithoutEnrollment`.|
 
 
 
@@ -47,7 +49,7 @@ If successful, this method returns a `201 Created` response code and a [iosVppEB
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceAppManagement/managedEBooks/{managedEBookId}/assignments
+POST https://graph.microsoft.com/beta/deviceAppManagement/managedEBooks/{managedEBookId}/assignments
 Content-type: application/json
 Content-length: 193
 

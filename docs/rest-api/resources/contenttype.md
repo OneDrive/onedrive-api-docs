@@ -6,6 +6,8 @@ title: ContentType
 ---
 # ContentType resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **contentType** resource represents a _content type_ in SharePoint.
 Content types allow you to define a set of columns that must be present on every [**listItem**][listItem] in a [**list**][list].
 
@@ -15,10 +17,7 @@ Content types allow you to define a set of columns that must be present on every
 ## JSON representation
 
 Here is a JSON representation of a **contentType** resource.
-<!-- {
-  "blockType": "resource",
- "baseType": "microsoft.graph.entity",
- "@odata.type": "microsoft.graph.contentType" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.contentType" } -->
 
 ```json
 {

@@ -1,5 +1,7 @@
 ﻿# Get windows10GeneralConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [windows10GeneralConfiguration](../resources/intune_deviceconfig_windows10generalconfiguration.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}
 ```
 
 ## Optional query parameters
@@ -39,7 +43,7 @@ If successful, this method returns a `200 OK` response code and [windows10Genera
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}
+GET https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}
 ```
 
 ### Response
@@ -47,7 +51,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 10356
+Content-Length: 12068
 
 {
   "value": {
@@ -58,21 +62,48 @@ Content-Length: 10356
     "description": "Description value",
     "displayName": "Display Name value",
     "version": 7,
+    "enableAutomaticRedeployment": true,
+    "assignedAccessSingleModeUserName": "Assigned Access Single Mode User Name value",
+    "assignedAccessSingleModeAppUserModelId": "Assigned Access Single Mode App User Model Id value",
+    "microsoftAccountSignInAssistantSettings": "disabled",
+    "authenticationAllowSecondaryDevice": true,
+    "authenticationAllowFIDODevice": true,
+    "cryptographyAllowFipsAlgorithmPolicy": true,
+    "displayAppListWithGdiDPIScalingTurnedOn": [
+      "Display App List With Gdi DPIScaling Turned On value"
+    ],
+    "displayAppListWithGdiDPIScalingTurnedOff": [
+      "Display App List With Gdi DPIScaling Turned Off value"
+    ],
     "enterpriseCloudPrintDiscoveryEndPoint": "Enterprise Cloud Print Discovery End Point value",
     "enterpriseCloudPrintOAuthAuthority": "Enterprise Cloud Print OAuth Authority value",
     "enterpriseCloudPrintOAuthClientIdentifier": "Enterprise Cloud Print OAuth Client Identifier value",
     "enterpriseCloudPrintResourceIdentifier": "Enterprise Cloud Print Resource Identifier value",
     "enterpriseCloudPrintDiscoveryMaxLimit": 5,
     "enterpriseCloudPrintMopriaDiscoveryResourceIdentifier": "Enterprise Cloud Print Mopria Discovery Resource Identifier value",
+    "messagingBlockSync": true,
+    "messagingBlockMMS": true,
+    "messagingBlockRichCommunicationServices": true,
+    "printerNames": [
+      "Printer Names value"
+    ],
+    "printerDefaultName": "Printer Default Name value",
+    "printerBlockAddition": true,
     "searchBlockDiacritics": true,
     "searchDisableAutoLanguageDetection": true,
     "searchDisableIndexingEncryptedItems": true,
     "searchEnableRemoteQueries": true,
+    "searchDisableUseLocation": true,
     "searchDisableIndexerBackoff": true,
     "searchDisableIndexingRemovableDrive": true,
     "searchEnableAutomaticIndexSizeManangement": true,
+    "searchBlockWebResults": true,
+    "securityBlockAzureADJoinedDevicesAutoEncryption": true,
     "diagnosticsDataSubmissionMode": "none",
     "oneDriveDisableFileSync": true,
+    "systemTelemetryProxyServer": "System Telemetry Proxy Server value",
+    "inkWorkspaceAccess": "enabled",
+    "inkWorkspaceBlockSuggestedApps": true,
     "smartScreenEnableAppInstallControl": true,
     "personalizationDesktopImageUrl": "https://example.com/personalizationDesktopImageUrl/",
     "personalizationLockScreenImageUrl": "https://example.com/personalizationLockScreenImageUrl/",
@@ -98,9 +129,12 @@ Content-Length: 10356
     "edgeDisableFirstRunPage": true,
     "edgeBlockLiveTileDataCollection": true,
     "edgeSyncFavoritesWithInternetExplorer": true,
+    "edgeFavoritesListLocation": "Edge Favorites List Location value",
+    "edgeBlockEditFavorites": true,
     "cellularBlockDataWhenRoaming": true,
     "cellularBlockVpn": true,
     "cellularBlockVpnWhenRoaming": true,
+    "cellularData": "required",
     "defenderBlockEndUserAccess": true,
     "defenderDaysBeforeDeletingQuarantinedMalware": 12,
     "defenderDetectedMalwareActions": {
@@ -119,6 +153,7 @@ Content-Length: 10356
     ],
     "defenderScanMaxCpu": 2,
     "defenderMonitorFileActivity": "disable",
+    "defenderPotentiallyUnwantedAppAction": "block",
     "defenderProcessesToExclude": [
       "Defender Processes To Exclude value"
     ],
@@ -139,6 +174,10 @@ Content-Length: 10356
     "defenderScheduledScanTime": "11:59:10.9990000",
     "defenderScheduledQuickScanTime": "11:58:49.3840000",
     "defenderCloudBlockLevel": "high",
+    "defenderCloudExtendedTimeout": 12,
+    "defenderBlockOnAccessProtection": true,
+    "defenderScheduleScanDay": "monday",
+    "defenderSubmitSamplesConsentType": "alwaysPrompt",
     "lockScreenAllowTimeoutConfiguration": true,
     "lockScreenBlockActionCenterNotifications": true,
     "lockScreenBlockCortana": true,
@@ -157,6 +196,8 @@ Content-Length: 10356
     "privacyAdvertisingId": "blocked",
     "privacyAutoAcceptPairingAndConsentPrompts": true,
     "privacyBlockInputPersonalization": true,
+    "privacyBlockPublishUserActivities": true,
+    "privacyBlockActivityFeed": true,
     "startBlockUnpinningAppsFromTaskbar": true,
     "startMenuAppListVisibility": "collapse",
     "startMenuHideChangeAccountSettings": true,

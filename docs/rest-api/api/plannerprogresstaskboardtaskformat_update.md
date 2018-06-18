@@ -1,5 +1,7 @@
 # Update plannerProgressTaskBoardTaskFormat
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of **plannerProgressTaskBoardTaskFormat** object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -13,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /planner/tasks/{id}/progressTaskBoardFormat
+PATCH /planner/tasks/<id>/progressTaskBoardFormat
 ```
 ## Optional request headers
 | Name       | Description|
@@ -26,7 +28,7 @@ In the request body, supply the values for relevant fields that should be update
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|orderHint|String|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined [here](../resources/planner_order_hint_format.md).|
+|orderHint|String|Hint value used to order the task on the Progress view of the Task Board. The format is defined in [Using order hints in Planner](../resources/planner_order_hint_format.md).|
 
 ## Response
 
@@ -42,7 +44,7 @@ Here is an example of the request.
   "name": "update_plannerprogresstaskboardtaskformat"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/planner/tasks/{task-id}/progressTaskBoardFormat
+PATCH https://graph.microsoft.com/beta/planner/tasks/<id>/progressTaskBoardFormat
 Content-type: application/json
 Content-length: 34
 If-Match: W/"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc="

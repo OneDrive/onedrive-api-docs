@@ -1,5 +1,7 @@
 ﻿# List windowsMobileMSIs
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [windowsMobileMSI](../resources/intune_apps_windowsmobilemsi.md) objects.
@@ -37,7 +39,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps
+GET https://graph.microsoft.com/beta/deviceAppManagement/mobileApps
 ```
 
 ### Response
@@ -45,7 +47,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1164
+Content-Length: 1275
 
 {
   "value": [
@@ -68,6 +70,7 @@ Content-Length: 1164
       "owner": "Owner value",
       "developer": "Developer value",
       "notes": "Notes value",
+      "uploadState": 11,
       "publishingState": "processing",
       "committedContentVersion": "Committed Content Version value",
       "fileName": "File Name value",
@@ -75,7 +78,9 @@ Content-Length: 1164
       "commandLine": "Command Line value",
       "productCode": "Product Code value",
       "productVersion": "Product Version value",
-      "ignoreVersionDetection": true
+      "ignoreVersionDetection": true,
+      "identityVersion": "Identity Version value",
+      "useDeviceContext": true
     }
   ]
 }

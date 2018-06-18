@@ -6,6 +6,8 @@ title: Quota
 ---
 # Quota resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **quota** resource provides details about space constrains on a [Drive](drive.md) resource.
 
 ## JSON representation
@@ -52,9 +54,5 @@ Here is a JSON representation of the resource.
   "description": "The quota facet provides information about how much space the OneDrive has available.",
   "keywords": "quota,available,remaining,used",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/quota.md:
-      Found potential enums in resource example that weren't defined in a table:(normal, nearing,critical,exceeded) are in resource, but () are in table"
-  ],
   "tocPath": "Facets/Quota"
 } -->

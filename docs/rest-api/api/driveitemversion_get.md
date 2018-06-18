@@ -1,4 +1,6 @@
-# Get a DriveItemVersion resource
+# Get a DriveItemVersion resource (preview)
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Retrieve the metadata for a specific version of a [DriveItem](../resources/driveitem.md).
 
@@ -36,7 +38,7 @@ This example retrieves a version of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read" } -->
 
 ```http
 GET /me/drive/items/{item-id}/versions/{version-id}

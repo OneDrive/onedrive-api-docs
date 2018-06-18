@@ -1,5 +1,7 @@
 # List pages
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of [page](../resources/page.md) objects.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -42,7 +44,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 Here is an example of the request.
 <!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/v1.0/me/onenote/pages
+GET https://graph.microsoft.com/beta/me/onenote/pages
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here is truncated for brevity. All of the properties will be returned from an actual call.
@@ -57,6 +59,7 @@ Content-length: 393
     {
       "title": "title-value",
       "createdByAppId": "createdByAppId-value",
+      "id": "8fcb5dbc-d5aa-4681-8e31-b001d5168d79",
       "links": {
         "oneNoteClientUrl": {
           "href": "href-value"

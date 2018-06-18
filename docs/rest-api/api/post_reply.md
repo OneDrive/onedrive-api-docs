@@ -1,5 +1,7 @@
 # post: reply
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Reply to a post and add a new post to the specified thread in a group conversation. You can specify 
 both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.
 
@@ -44,7 +46,7 @@ Here is an example of the request.
   "name": "post_reply"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/threads/{id}/posts/{id}/reply
+POST https://graph.microsoft.com/beta/groups/{id}/threads/{id}/posts/{id}/reply
 Content-type: application/json
 Content-length: 1131
 
@@ -54,7 +56,7 @@ Content-length: 1131
       "contentType": "",
       "content": "content-value"
     },
-    "receivedDateTime": "datetime-value",
+    "receivedDateTime": "2016-10-19T10:37:00Z",
     "hasAttachments": true,
     "from": {
       "emailAddress": {
@@ -78,8 +80,8 @@ Content-length: 1131
       }
     ],
     "conversationId": "conversationId-value",
-    "createdDateTime": "datetime-value",
-    "lastModifiedDateTime": "datetime-value",
+    "createdDateTime": "2016-10-19T10:37:00Z",
+    "lastModifiedDateTime": "2016-10-19T10:37:00Z",
     "changeKey": "changeKey-value",
     "categories": [
       "categories-value"
@@ -89,7 +91,7 @@ Content-length: 1131
     },
     "attachments": [
       {
-        "lastModifiedDateTime": "datetime-value",
+        "lastModifiedDateTime": "2016-10-19T10:37:00Z",
         "name": "name-value",
         "contentType": "contentType-value",
         "size": 99,
@@ -101,6 +103,7 @@ Content-length: 1131
 }
 ```
 
+##### Response
 ##### Response
 Here is an example of the response.
 <!-- {

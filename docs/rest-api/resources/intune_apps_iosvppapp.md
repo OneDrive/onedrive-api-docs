@@ -1,4 +1,6 @@
-# iosVppApp resource type
+﻿# iosVppApp resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -31,6 +33,7 @@ Inherits from [mobileApp](../resources/intune_apps_mobileapp.md)
 |owner|String|The owner of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |developer|String|The developer of the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |notes|String|Notes for the app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|uploadState|Int32|The upload state. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md). Possible values are: `notPublished`, `processing`, `published`.|
 |usedLicenseCount|Int32|The number of VPP licenses in use.|
 |totalLicenseCount|Int32|The total number of VPP licenses.|
@@ -39,7 +42,7 @@ Inherits from [mobileApp](../resources/intune_apps_mobileapp.md)
 |licensingType|[vppLicensingType](../resources/intune_apps_vpplicensingtype.md)|The supported License Type.|
 |applicableDeviceType|[iosDeviceType](../resources/intune_apps_iosdevicetype.md)|The applicable iOS Device Type.|
 |vppTokenOrganizationName|String|The organization associated with the Apple Volume Purchase Program Token|
-|vppTokenAccountType|[vppTokenAccountType](../resources/intune_apps_vpptokenaccounttype.md)|The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: `business`, `education`. Possible values are: `business`, `education`.|
+|vppTokenAccountType|[vppTokenAccountType](../resources/intune_shared_vpptokenaccounttype.md)|The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: `business`, `education`. Possible values are: `business`, `education`.|
 |vppTokenAppleId|String|The Apple Id associated with the given Apple Volume Purchase Program Token.|
 |bundleId|String|The Identity Name.|
 
@@ -48,15 +51,18 @@ Inherits from [mobileApp](../resources/intune_apps_mobileapp.md)
 |:---|:---|:---|
 |categories|[mobileAppCategory](../resources/intune_apps_mobileappcategory.md) collection|The list of categories for this app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 |assignments|[mobileAppAssignment](../resources/intune_apps_mobileappassignment.md) collection|The list of group assignments for this mobile app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|installSummary|[mobileAppInstallSummary](../resources/intune_apps_mobileappinstallsummary.md)|Mobile App Install Summary. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|deviceStatuses|[mobileAppInstallStatus](../resources/intune_apps_mobileappinstallstatus.md) collection|The list of installation states for this mobile app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
+|userStatuses|[userAppInstallStatus](../resources/intune_apps_userappinstallstatus.md) collection|The list of installation states for this mobile app. Inherited from [mobileApp](../resources/intune_apps_mobileapp.md)|
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.mobileApp",
   "@odata.type": "microsoft.graph.iosVppApp"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.iosVppApp",
@@ -77,6 +83,7 @@ Here is a JSON representation of the resource.
   "owner": "String",
   "developer": "String",
   "notes": "String",
+  "uploadState": 1024,
   "publishingState": "String",
   "usedLicenseCount": 1024,
   "totalLicenseCount": 1024,
@@ -84,6 +91,8 @@ Here is a JSON representation of the resource.
   "appStoreUrl": "String",
   "licensingType": {
     "@odata.type": "microsoft.graph.vppLicensingType",
+    "supportUserLicensing": true,
+    "supportDeviceLicensing": true,
     "supportsUserLicensing": true,
     "supportsDeviceLicensing": true
   },

@@ -1,5 +1,7 @@
 # Create or replace an activity
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new or replace an existing user activity for your app. If you'd like to create a user activity and its related **historyItems** in one request, you can use [deep insert](projectrome_put_activity.md#example-2---deep-insert).
 
 ## Permissions
@@ -49,7 +51,7 @@ The following is an example of the request.
 } -->
 
 ```http
-PUT https://graph.microsoft.com/v1.0/me/activities/%2Farticle%3F12345
+PUT https://graph.microsoft.com/beta/me/activities/%2Farticle%3F12345
 Content-type: application/json
 Content-length: 364
 
@@ -71,7 +73,7 @@ Content-length: 364
         "attribution": {
             "iconUrl": "http://www.contoso.com/icon",
             "alternateText": "Contoso, Ltd.",
-            "addImageQuery": false,
+            "addImageQuery": "false"
         },
         "description": "How to Tie a Reef Knot. A step-by-step visual guide to the art of nautical knot-tying.",
         "backgroundColor": "#ff0000",
@@ -96,13 +98,13 @@ The following is an example of the response.
 <!-- {
     "blockType": "ignored",
     "truncated": true,
-    "@odata.type": "microsoft.graph.userActivity"
+    "@odata.type": "microsoft.graph.activity"
 } -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Location: https://graph.microsoft.com/v1.0/me/activities/14332800362997268276
+Location: https://graph.microsoft.com/beta/me/activities/14332800362997268276
 
 {
     "activitySourceHost": "http://contoso.com",
@@ -158,7 +160,7 @@ The following is an example of the request.
 } -->
 
 ```http
-PUT https://graph.microsoft.com/v1.0/me/activities/%2Farticle%3F12345
+PUT https://graph.microsoft.com/beta/me/activities/%2Farticle%3F12345
 Content-type: application/json
 Content-length: 364
 
@@ -180,7 +182,7 @@ Content-length: 364
         "attribution": {
             "iconUrl": "http://www.contoso.com/icon",
             "alternateText": "Contoso, Ltd.",
-            "addImageQuery": false,
+            "addImageQuery": "false",
         },
         "description": "How to Tie a Reef Knot. A step-by-step visual guide to the art of nautical knot-tying.",
         "backgroundColor": "#ff0000",
@@ -212,13 +214,13 @@ The following is an example of the response.
 <!-- {
     "blockType": "ignored",
     "truncated": true,
-    "@odata.type": "microsoft.graph.userActivity"
+    "@odata.type": "microsoft.graph.activity"
 } -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Location: https://graph.microsoft.com/v1.0/me/activities/14332800362997268276
+Location: https://graph.microsoft.com/beta/me/activities/14332800362997268276
 
 {
     "activitySourceHost": "http://contoso.com",

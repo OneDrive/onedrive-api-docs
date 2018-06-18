@@ -6,6 +6,8 @@ title: Permission
 ---
 # Permission resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **Permission** resource provides information about a sharing permission granted for a [DriveItem](driveitem.md) resource.
 
 Sharing permissions have a number of different forms.
@@ -15,17 +17,10 @@ The **Permission** resource represents these different forms through facets on t
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [
-    "link",
-    "grantedTo",
-    "invitation",
-    "inheritedFrom",
-    "shareId"
-  ],
+  "optionalProperties": [ "link", "grantedTo", "invitation", "inheritedFrom", "shareId" ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.permission"
 }-->
 ```json
@@ -49,7 +44,7 @@ Here is a JSON representation of the resource
 | invitation    | [SharingInvitation][]                     | Details of any associated sharing invitation for this permission. Read-only.
 | inheritedFrom | [ItemReference](itemreference.md)         | Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
 | link          | [SharingLink][]                           | Provides the link details of the current permission, if it is a link type permissions. Read-only.
-| roles         | Collection of String                      | The type of permission, e.g. `read`. See below for the full list of roles. Read-only.
+| role          | Collection of String                      | The type of permission, e.g. `read`. See below for the full list of roles. Read-only.
 | shareId       | String                                    | A unique token that can be used to access this shared item via the [**shares** API](../api/shares_get.md). Read-only.
 
 The permission resource uses _facets_ to provide information about the kind of permission represented by the resource.
@@ -181,5 +176,5 @@ OneDrive for Business and SharePoint document libraries do not return the **inhe
   "description": "The permission object provides information about permissions and roles and sharing information.",
   "keywords": "sharing,permissions,read,write,acl",
   "section": "documentation",
-  "tocPath": "Resources/Permission"
-} -->
+  "tocPath": ""
+}-->

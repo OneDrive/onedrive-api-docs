@@ -1,5 +1,7 @@
 # event: dismissReminder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Dismiss a reminder that has been triggered for an [event](../resources/event.md) in a user [calendar](../resources/calendar.md).
 
 ## Permissions
@@ -12,7 +14,6 @@ One of the following permissions is required to call this API. To learn more, in
 |Application | Calendars.ReadWrite |
 
 ## HTTP request
-
 <!-- { "blockType": "ignored" } -->
 
 ```http
@@ -32,18 +33,16 @@ POST /me/calendargroups/{id}/calendars/{id}/events/{id}/dismissReminder
 POST /users/{id | userPrincipalName}/calendargroups/{id}/calendars/{id}/events/{id}/dismissReminder
 ```
 
-<br/>
-
 ## Request headers
+
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
 
-<br/>
 
 ## Response
 
-If successful, this method returns `200 OK` response code. It does not return anything in the response body.
+If successful, this method returns a `200 OK` response code. It does not return anything in the response body.
 
 ## Example
 
@@ -58,10 +57,8 @@ Here is an example of the request.
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/me/events/{id}/dismissReminder
+POST https://graph.microsoft.com/beta/me/events/{id}/dismissReminder
 ```
-
-<br/>
 
 ### Response
 Here is an example of the response.

@@ -1,4 +1,7 @@
 # Update event
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update an [event](../resources/event.md) object.
 
 ## Permissions
@@ -37,7 +40,7 @@ The following is an example of the request.
   "name": "update_group_event"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/groups/{id}/events/{id}
+PATCH https://graph.microsoft.com/beta/groups/{id}/events/{id}
 Content-type: application/json
 Content-length: 211
 

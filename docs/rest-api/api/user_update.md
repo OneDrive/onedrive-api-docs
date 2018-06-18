@@ -1,5 +1,6 @@
-
 # Update user
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Update the properties of a user object.
 ## Permissions
@@ -7,11 +8,9 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | User.ReadWrite, User.ReadWrite.All, Directory.ReadWrite.All, Directory.AccessAsUser.All    |
+|Delegated (work or school account) | User.ReadWrite, User.ReadWrite.All, Directory.ReadWrite.All    |
 |Delegated (personal Microsoft account) | User.ReadWrite    |
 |Application | User.ReadWrite.All, Directory.ReadWrite.All |
-
-When updating the passwordProfile property, the following permission is required: Directory.AccessAsUser.All.
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -37,6 +36,7 @@ In the request body, supply the values for relevant fields that should be update
 |country|String|The country/region in which the user is located; for example, “US” or “UK”. Supports $filter.|
 |department|String|The name for the department in which the user works. Supports $filter.|
 |displayName|String|The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.|
+|employeeId|String|The employee identifier assigned to the user by the organization. Supports $filter.|
 |givenName|String|The given name (first name) of the user. Supports $filter.|
 |hireDate|DateTimeOffset|The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |interests|String collection|A list for the user to describe their interests.|
@@ -62,6 +62,9 @@ In the request body, supply the values for relevant fields that should be update
 |userPrincipalName|String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the **verifiedDomains** property of [organization](../resources/organization.md). Supports $filter and $orderby.
 |userType|String|A string value that can be used to classify user types in your directory, such as “Member” and “Guest”. Supports $filter.          |
 
+Since the **user** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `PATCH` operation to 
+add, update, or delete your own app-specific data in custom properties of an extension in an existing **user** instance.
+
 ## Response
 
 If successful, this method returns a `204 No Content` response code.
@@ -73,7 +76,7 @@ Here is an example of the request.
   "name": "update_user"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me
+PATCH https://graph.microsoft.com/beta/me
 Content-type: application/json
 Content-length: 491
 
@@ -87,7 +90,7 @@ Content-length: 491
   ],
   "assignedPlans": [
     {
-      "assignedDateTime": "datetime-value",
+      "assignedDateTime": "2016-10-19T10:37:00Z",
       "capabilityStatus": "capabilityStatus-value",
       "service": "service-value",
       "servicePlanId": "bea13e0c-3828-4daa-a392-28af7ff61a0f"
@@ -100,7 +103,7 @@ Content-length: 491
 }
 ```
 ##### Response
-Here is an example of the response.
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -109,6 +112,12 @@ Here is an example of the response.
 ```http
 HTTP/1.1 204 No Content
 ```
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

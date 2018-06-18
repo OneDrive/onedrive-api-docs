@@ -1,6 +1,9 @@
 # List contacts
 
-Get a contact collection from the default Contacts folder of the signed-in user (`.../me/contacts`), or from the specified contact folder.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Get all the contacts in the signed-in user's mailbox (.../me/contacts), or from the specified contact folder.
+
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -40,7 +43,7 @@ Here is an example of the request.
   "name": "get_contacts"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/contactFolders/{id}/contacts
+GET https://graph.microsoft.com/beta/me/contactFolders/{id}/contacts
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -59,7 +62,7 @@ Content-length: 263
   "value": [
     {
       "parentFolderId": "parentFolderId-value",
-      "birthday": "datetime-value",
+      "birthday": "2016-10-19T10:37:00Z",
       "fileAs": "fileAs-value",
       "displayName": "displayName-value",
       "givenName": "givenName-value",

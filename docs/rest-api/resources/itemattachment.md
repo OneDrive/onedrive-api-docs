@@ -1,6 +1,9 @@
 # itemAttachment resource type
 
-A contact, event, or message that's attached to another event, message, or post.  
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+A contact, event, or message that's attached to another [event](../resources/event.md),
+[message](../resources/message.md), [Outlook task](../resources/outlooktask.md), or [post](../resources/post.md).  
 
 Derived from [attachment](attachment.md).
 
@@ -24,31 +27,18 @@ Derived from [attachment](attachment.md).
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|item|[OutlookItem](outlookitem.md)|The attached message or event. Navigation property.|
+|item|[OutlookItem](outlookitem.md)|The attached contact, message or event. Navigation property.|
 
 ## JSON representation
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
   "optionalProperties": [
     "item"
   ],
-  "baseType": "microsoft.graph.attachment",
-  "@odata.type": "microsoft.graph.itemAttachment",
-  "@odata.annotations": [
-    {
-      "property": "item",
-      "capabilities": {
-        "changeTracking": false,
-        "deletable": false,
-        "insertable": false,
-        "searchable": false,
-        "updatable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.itemAttachment"
 }-->
 
 ```json
@@ -58,8 +48,7 @@ Here is a JSON representation of the resource
   "isInline": true,
   "lastModifiedDateTime": "String (timestamp)",
   "name": "string",
-  "size": 1024,
-  "item": { "@odata.type": "microsoft.graph.outlookItem" }
+  "size": 1024
 }
 
 ```

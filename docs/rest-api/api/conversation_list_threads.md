@@ -1,8 +1,9 @@
 # List threads
 
-Get all the threads in a group conversation.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
-Note: You can also [get all the threads of a group](group_list_threads.md).
+Get all the threads in a group conversation.
+Note: You can also [get all the threads of a group](group_list_threads.md). 
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -39,7 +40,7 @@ Here is an example of the request.
   "name": "get_threads"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/conversations/{id}/threads
+GET https://graph.microsoft.com/beta/groups/{id}/conversations/{id}/threads
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -67,7 +68,7 @@ Content-length: 536
       ],
       "topic": "topic-value",
       "hasAttachments": true,
-      "lastDeliveredDateTime": "datetime-value",
+      "lastDeliveredDateTime": "2016-10-19T10:37:00Z",
       "uniqueSenders": [
         "uniqueSenders-value"
       ],

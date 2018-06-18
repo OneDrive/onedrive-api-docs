@@ -6,6 +6,8 @@ title: List the contents of a folder
 ---
 # List children of a driveItem
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Return a collection of [DriveItems](../resources/driveitem.md) in the **children** relationship of a DriveItem.
 
 DriveItems with a non-null **folder** or **package** facet can have one or more child DriveItems.
@@ -39,7 +41,7 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top` and `$orderb
 
 ### Optional request headers
 
-| Name     | Value | Description                                                                                                                                              |
+| Header name     | Value | Description                                                                                                                                              |
 |:----------------|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | _if-none-match_ | etag  | If this request header is included and the eTag (or cTag) provided matches the current tag on the file, an `HTTP 304 Not Modified` response is returned. |
 
@@ -49,7 +51,7 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top` and `$orderb
 
 To retrieve files in the root of the drive, use the `root` relationship on the drive, then access the children relationship.
 
-<!-- { "blockType": "request", "name": "list-children-root", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "list-children-root", "scopes": "files.read" } -->
 
 ```http
 GET /me/drive/root/children

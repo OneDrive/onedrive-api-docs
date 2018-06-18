@@ -1,16 +1,17 @@
 # Create device
 
-Create and register a new device in the organization.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
+Create a new device.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Directory.AccessAsUser.All    |
+|Delegated (work or school account) | Directory.ReadWrite.All, Directory.AccessAsUser.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Device.ReadWrite.All |
+|Application | Directory.ReadWrite.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -22,10 +23,11 @@ POST /devices
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
-| Content-type | string | application/json |
 
 ## Request body
 In the request body, supply a JSON representation of [device](../resources/device.md) object.
+
+Since the **device** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `POST` operation and add custom properties with your own data to the device instance while creating it.
 
 ## Response
 
@@ -39,22 +41,23 @@ Here is an example of the request.
   "name": "create_device_from_devices"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/devices
+POST https://graph.microsoft.com/beta/devices
 Content-type: application/json
+Content-length: 364
 
 {
-  "accountEnabled":false,
-  "alternativeSecurityIds":
-  [
+  "accountEnabled": true,
+  "alternativeSecurityIds": [
     {
-      "type":2,
-      "key":"base64Y3YxN2E1MWFlYw=="
+      "type": 99,
+      "identityProvider": "identityProvider-value",
+      "key": "key-value"
     }
   ],
-  "deviceId":"4c299165-6e8f-4b45-a5ba-c5d250a707ff",
-  "displayName":"Test device",
-  "operatingSystem":"linux",
-  "operatingSystemVersion":"1"
+  "approximateLastSignInDateTime": "2016-10-19T10:37:00Z",
+  "deviceId": "deviceId-value",
+  "deviceMetadata": "deviceMetadata-value",
+  "deviceVersion": 99
 }
 ```
 In the request body, supply a JSON representation of [device](../resources/device.md) object.
@@ -66,25 +69,32 @@ Here is an example of the response. Note: The response object shown here may be 
   "@odata.type": "microsoft.graph.device"
 } -->
 ```http
-HTTP/1.1 201 Created
+HTTP/1.1 200 OK
 Content-type: application/json
+Content-length: 364
 
 {
-  "accountEnabled":false,
-  "alternativeSecurityIds":
-  [
+  "accountEnabled": true,
+  "alternativeSecurityIds": [
     {
-      "type":2,
-      "key":"base64Y3YxN2E1MWFlYw=="
+      "type": 99,
+      "identityProvider": "identityProvider-value",
+      "key": "key-value"
     }
   ],
-  "deviceId":"4c299165-6e8f-4b45-a5ba-c5d250a707ff",
-  "displayName":"Test device",
-  "id": "id-value",
-  "operatingSystem":"linux",
-  "operatingSystemVersion":"1"
+  "approximateLastSignInDateTime": "2016-10-19T10:37:00Z",
+  "deviceId": "deviceId-value",
+  "deviceMetadata": "deviceMetadata-value",
+  "deviceVersion": 99
 }
 ```
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

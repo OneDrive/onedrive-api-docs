@@ -1,4 +1,7 @@
 # List photos
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of [profilePhoto](../resources/profilephoto.md) objects.
 
 ## Permissions
@@ -6,7 +9,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Group.ReadBasic.All, Group.Read.All, Group.ReadWrite.All |
+|Delegated (work or school account) | Group.ReadBasic.All, Group.Read.All, Group.ReadWrite.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
 |Application | Group.ReadBasic.All, Group.Read.All, Group.ReadWrite.All |
 
@@ -16,6 +19,7 @@ One of the following permissions is required to call this API. To learn more, in
 GET /groups/{id}/photos
 GET /users/{id | userPrincipalName}/joinedGroups/{id}/photos
 ```
+
 ## Optional query parameters
 This method supports the [OData Query Parameters](../../../concepts/query_parameters.md) to help customize the response.
 
@@ -38,7 +42,7 @@ The following is an example of the request.
   "name": "get_photos"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/photos
+GET https://graph.microsoft.com/beta/groups/{id}/photos
 ```
 
 #### Response

@@ -1,5 +1,6 @@
 # List Outlook categories
 
+> **Important**: APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Get all the categories that have been defined for the user.
 
@@ -40,7 +41,7 @@ Here is an example of the request.
   "name": "get_mastercategories"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/outlook/masterCategories
+GET https://graph.microsoft.com/beta/me/outlook/masterCategories
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -56,7 +57,7 @@ Content-type: application/json
 Content-length: 727
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories",
   "value":[
     {
       "id":"5a9a6aa8-b65f-4357-b1f9-60c6bf6330d8",

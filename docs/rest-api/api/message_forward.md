@@ -1,6 +1,18 @@
 # message: forward
 
-Forward a message. The message is saved in the Sent Items folder.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Forward a message, add a comment or modify any updateable properties  
+all in one **forward** call. The message is saved in the Sent Items folder.
+
+Alternatively, you can first [create a draft forward message](../api/message_createforward.md) to include a comment or update any message properties, 
+and then [send](../api/message_send.md) the draft message.
+
+**Note**
+
+- You can specify either a comment or the **body** property of the `message` parameter. Specifying both will return an HTTP 400 Bad Request error.
+- You must specify either the `toRecipients` parameter or the **toRecipients** property of the `message` parameter. Specifying both or specifying 
+neither will return an HTTP 400 Bad Request error.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -31,14 +43,15 @@ In the request body, provide a JSON object with the following parameters.
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
 |comment|String|A comment to include. Can be an empty string.|
-|toRecipients|[Recipient](../resources/recipient.md) collection|The list of recipients.|
+|toRecipients|[recipient](../resources/recipient.md) collection|The list of recipients.|
+|message|[message](../resources/message.md)|Any writeable properties to update in the reply message.|
 
 ## Response
 
 If successful, this method returns `202 Accepted` response code. It does not return anything in the response body.
 
 ## Example
-Here is an example of how to call this API.
+The following example sets the **isDeliveryReceiptRequested** property to true, adds a comment and forwards the message.
 ##### Request
 Here is an example of the request.
 <!-- {
@@ -46,24 +59,25 @@ Here is an example of the request.
   "name": "message_forward"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/messages/{id}/forward
-Content-type: application/json
-Content-length: 166
+POST https://graph.microsoft.com/beta/me/messages/AAMkADA1MTAAAH5JaLAAA=/forward
+Content-Type: application/json
 
 {
-  "comment": "comment-value",
-  "toRecipients": [
-    {
-      "emailAddress": {
-        "name": "name-value",
-        "address": "address-value"
+  "message":{  
+    "isDeliveryReceiptRequested": true,
+    "toRecipients":[
+      {
+        "emailAddress": {
+          "address":"danas@contoso.onmicrosoft.com",
+          "name":"Dana Swope"
+        }
       }
-    }
-  ]
+     ]
+  },
+  "comment": "Dana, just want to make sure you get this." 
 }
 ```
 
-##### Response
 ##### Response
 Here is an example of the response.
 <!-- {
@@ -71,7 +85,7 @@ Here is an example of the response.
   "truncated": true
 } -->
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 202 Accepted
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

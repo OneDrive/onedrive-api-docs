@@ -1,4 +1,12 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+title: Restore a previous version
+---
 # Restore a previous version of a DriveItem
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.
 
@@ -40,12 +48,12 @@ POST /drives/{drive-id}/items/{item-id}/versions/{version-id}/restoreVersion
 
 ## Response
 
-If successful, the API call returns a `204 No Content`.
+If successful, the API call returns a `204 No content`.
 
 <!-- { "blockType": "response" } -->
 
 ```http
-HTTP/1.1 204 No Content
+HTTP/1.1 204 No content
 ```
 
 [item-resource]: ../resources/driveitem.md

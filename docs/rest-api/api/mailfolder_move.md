@@ -1,5 +1,7 @@
 # mailFolder: move
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Move a mailfolder and its contents to another mailfolder.
 
 ## Permissions
@@ -20,8 +22,8 @@ POST /users/{id | userPrincipalName}/mailFolders/{id}/move
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
-| Authorization  | Bearer {token}. Required.  |
-| Content-Type  | application/json. Required.  |
+| Authorization  | Bearer {token}. Required. |
+| Content-Type  | application/json. Required. |
 
 ## Request body
 In the request body, provide a JSON object with the following parameters.
@@ -43,7 +45,7 @@ Here is an example of the request.
   "name": "mailfolder_move"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/mailFolders/{id}/move
+POST https://graph.microsoft.com/beta/me/mailFolders/{id}/move
 Content-type: application/json
 Content-length: 44
 

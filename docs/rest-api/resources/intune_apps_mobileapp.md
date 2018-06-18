@@ -1,4 +1,6 @@
-# mobileApp resource type
+﻿# mobileApp resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -9,6 +11,8 @@ An abstract class containing the base properties for Intune mobile apps.
 |[List mobileApps](../api/intune_apps_mobileapp_list.md)|[mobileApp](../resources/intune_apps_mobileapp.md) collection|List properties and relationships of the [mobileApp](../resources/intune_apps_mobileapp.md) objects.|
 |[Get mobileApp](../api/intune_apps_mobileapp_get.md)|[mobileApp](../resources/intune_apps_mobileapp.md)|Read properties and relationships of the [mobileApp](../resources/intune_apps_mobileapp.md) object.|
 |[assign action](../api/intune_apps_mobileapp_assign.md)|None|Not yet documented|
+|[getMobileAppCount function](../api/intune_apps_mobileapp_getmobileappcount.md)|Int64|Not yet documented|
+|[getTopMobileApps function](../api/intune_apps_mobileapp_gettopmobileapps.md)|[mobileApp](../resources/intune_apps_mobileapp.md) collection|Not yet documented|
 
 ## Properties
 |Property|Type|Description|
@@ -26,6 +30,7 @@ An abstract class containing the base properties for Intune mobile apps.
 |owner|String|The owner of the app.|
 |developer|String|The developer of the app.|
 |notes|String|Notes for the app.|
+|uploadState|Int32|The upload state.|
 |publishingState|[mobileAppPublishingState](../resources/intune_apps_mobileapppublishingstate.md)|The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: `notPublished`, `processing`, `published`.|
 
 ## Relationships
@@ -33,16 +38,18 @@ An abstract class containing the base properties for Intune mobile apps.
 |:---|:---|:---|
 |categories|[mobileAppCategory](../resources/intune_apps_mobileappcategory.md) collection|The list of categories for this app.|
 |assignments|[mobileAppAssignment](../resources/intune_apps_mobileappassignment.md) collection|The list of group assignments for this mobile app.|
+|installSummary|[mobileAppInstallSummary](../resources/intune_apps_mobileappinstallsummary.md)|Mobile App Install Summary.|
+|deviceStatuses|[mobileAppInstallStatus](../resources/intune_apps_mobileappinstallstatus.md) collection|The list of installation states for this mobile app.|
+|userStatuses|[userAppInstallStatus](../resources/intune_apps_userappinstallstatus.md) collection|The list of installation states for this mobile app.|
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
-  "abstract": true,
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.mobileApp"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.mobileApp",
@@ -63,6 +70,7 @@ Here is a JSON representation of the resource.
   "owner": "String",
   "developer": "String",
   "notes": "String",
+  "uploadState": 1024,
   "publishingState": "String"
 }
 ```

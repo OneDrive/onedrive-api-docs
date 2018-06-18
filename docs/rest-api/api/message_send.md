@@ -1,5 +1,7 @@
 # message: send
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Send a message in the draft folder. The draft message can be a new message draft, reply draft, reply-all draft, or
 a forward draft. The message is then saved in the Sent Items folder.
 
@@ -37,8 +39,7 @@ If successful, this method returns `202 Accepted` response code. It does not ret
 
 ## Example
 
-The following example shows how to call this API.
-
+Here is an example of how to call this API.
 ##### Request
 
 Here is an example of the request.
@@ -48,7 +49,7 @@ Here is an example of the request.
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/me/messages/{id}/send
+POST https://graph.microsoft.com/beta/me/messages/{id}/send
 ```
 
 ##### Response

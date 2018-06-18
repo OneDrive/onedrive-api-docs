@@ -1,7 +1,8 @@
 # Add directory role member
 
-Use this API to create a new directory role member.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
+Use this API to create a new directory role member.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -14,49 +15,56 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /directoryRoles/{id}/members/$ref
+POST /directoryRoles/{id}/members
 
 ```
 ## Request headers
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
-| Content-Type  | string  | application/json  |
 
 ## Request body
-In the request body, supply a JSON representation of a [directoryObject](../resources/directoryobject.md) or [user](../resources/user.md) object to be added.
+In the request body, supply a JSON representation of [directoryObject](../resources/directoryobject.md) object.
 
 ## Response
 
-If successful, this method returns `204 No Content` response code.
+If successful, this method returns `201 Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
 
 ## Example
 ##### Request
-
+Here is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "create_directoryobject_from_directoryrole"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/directoryRoles/{id}/members
+POST https://graph.microsoft.com/beta/directoryRoles/{id}/members
 Content-type: application/json
+Content-length: 30
 
 {
-  "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/{id}"
+  "directoryObject": {
+  }
 }
 ```
-
+In the request body, supply a JSON representation of [directoryObject](../resources/directoryobject.md) object.
 ##### Response
-Note: The response object shown here may be truncated for brevity. 
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.directoryObject"
 } -->
 ```http
-HTTP/1.1 204 No Content
-Content-type: text/plain
+HTTP/1.1 200 OK
+Content-type: application/json
+Content-length: 51
 
+{
+  "directoryObject": {
+    "id": "id-value"
+  }
+}
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

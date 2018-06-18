@@ -1,8 +1,11 @@
 # outlookUser: supportedTimeZones
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the list of time zones that are supported for the user, as configured on the user's mailbox server.
 
-You can explicitly specify to have time zones returned in the Windows time zone format or  [Internet Assigned Numbers Authority (IANA) time zone](http://www.iana.org/time-zones) (also known as Olson time zone) format. The Windows format is the default.
+You can explicitly specify to have time zones returned in the Windows time zone format or  [Internet Assigned Numbers Authority (IANA) time zone](http://www.iana.org/time-zones) 
+(also known as Olson time zone) format. The Windows format is the default.
 
 When setting up an Outlook client, the user selects the preferred time zone from this supported list. You can subsequently get the preferred time zone by 
 [getting the user's mailbox settings](user_get_mailboxsettings.md).
@@ -33,16 +36,10 @@ GET /users/{id|userPrincipalName}/outlook/supportedTimeZones(TimeZoneStandard=mi
 
 
 ## Parameters
-| Parameter       | Type | Description|
+| Function parameter       | Type | Description|
 |:---------------|:--------|:----------|
-| TimeZoneStandard  | timeZoneStandard  | A time zone format. Supported values are: `Windows`, and `Iana`. Optional. |
+| TimeZoneStandard  | String  | A time zone format. Supported values are: `Windows`, and `Iana`. Optional. |
 
-### timeZoneStandard values
-
-| Value
-|:-----------------
-| windows
-| iana
 
 ## Request body
 Do not supply a request body for this method.
@@ -59,7 +56,7 @@ The following example does not specify the `timeZoneStandard` parameter, and get
   "name": "user_supportedtimezones_default"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/outlook/supportedTimeZones
+GET https://graph.microsoft.com/beta/me/outlook/supportedTimeZones
 ```
 
 ##### Response 1
@@ -76,7 +73,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.timeZoneInformation)",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.timeZoneInformation)",
   "value":[
     {
       "alias":"Dateline Standard Time",
@@ -107,7 +104,7 @@ The following example specifies `Iana` for the `TimeZoneStandard` parameter, and
 } -->
 
 ```http
-GET https://graph.microsoft.com/v1.0/me/outlook/supportedTimeZones(TimeZoneStandard=microsoft.graph.timeZoneStandard'Iana')
+GET https://graph.microsoft.com/beta/me/outlook/supportedTimeZones(TimeZoneStandard=microsoft.graph.timeZoneStandard'Iana')
 ```
 
 ##### Response 2
@@ -126,7 +123,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.timeZoneInformation)",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.timeZoneInformation)",
   "value":[
     {
       "alias":"Etc/GMT+12",

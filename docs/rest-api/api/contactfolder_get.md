@@ -1,5 +1,7 @@
 # Get contactFolder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a contact folder by using the contact folder ID.
 
 
@@ -35,6 +37,7 @@ This capability is available in only GET operations of:
 - The above resources in delegated mailboxes
 
 This capability is not available in other operations for contacts, events, messages, and their folders.
+
 
 
 ## Permissions
@@ -73,7 +76,7 @@ Here is an example of the request.
   "name": "get_contactfolder"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/contactFolders/{id}
+GET https://graph.microsoft.com/beta/me/contactFolders/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -90,7 +93,8 @@ Content-length: 104
 {
   "displayName": "Finance",
   "id": "AAMkAGI2TKI5AAA=",
-  "parentFolderId": "AAMkAGI2AAEOAAA="
+  "parentFolderId": "AAMkAGI2AAEOAAA=",
+  "wellKnownName": null
 }
 ```
 

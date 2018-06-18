@@ -1,5 +1,7 @@
 # List calendarView
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range,
 from the default calendar `(../me/calendarview)` of a user or group, or some other calendar of the user's.
 
@@ -10,10 +12,8 @@ One of the following permissions is required to call this API. To learn more, in
 * Events in a group calendar: Group.Read.All or Group.ReadWrite.All
 
 ## HTTP request
-
-A user's or group's default [calendar](../resources/calendar.md).
-
 <!-- { "blockType": "ignored" } -->
+A user's or group's default [calendar](../resources/calendar.md).
 ```http
 GET /me/calendar/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}
 GET /users/{id | userPrincipalName}/calendar/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -21,7 +21,6 @@ GET /groups/{id}/calendar/calendarView?startDateTime={start_datetime}&endDateTim
 ```
 
 A user's [calendar](../resources/calendar.md) in the default [calendarGroup](../resources/calendargroup.md).
-<!-- { "blockType": "ignored" } -->
 ```http
 GET /me/calendars/{id}/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}
 GET /users/{id | userPrincipalName}/calendars/{id}/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -31,7 +30,6 @@ GET /users/{id | userPrincipalName}/calendarGroup/calendars/{id}/calendarView?st
 ```
 
 A user's [calendar](../resources/calendar.md) in a specific [calendarGroup](../resources/calendargroup.md).
-<!-- { "blockType": "ignored" } -->
 ```http
 GET /me/calendarGroups/{id}/calendars/{id}/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}
 GET /users/{id | userPrincipalName}/calendarGroups/{id}/calendars/{id}/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -67,7 +65,7 @@ Here is an example of the request.
   "name": "get_calendarview"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendar/calendarView?startDateTime=2017-01-01T19:00:00.0000000&endDateTime=2017-01-07T19:00:00.0000000
+GET https://graph.microsoft.com/beta/me/calendar/calendarView?startDateTime=2017-01-01T19:00:00.0000000&endDateTime=2017-01-07T19:00:00.0000000
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -89,7 +87,7 @@ Content-length: 354
       "originalEndTimeZone": "originalEndTimeZone-value",
       "responseStatus": {
         "response": "response-value",
-        "time": "datetime-value"
+        "time": "2016-10-19T10:37:00Z"
       },
       "iCalUId": "iCalUId-value",
       "reminderMinutesBeforeStart": 99,

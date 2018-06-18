@@ -1,5 +1,7 @@
 # Range: UsedRange
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Returns the used range of the given range object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,15 +9,15 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /workbook/names/{name}/range/usedRange
-GET /workbook/worksheets/{id|name}/range(address='<address>')/usedRange
-GET /workbook/tables/{id|name}/columns/{id|name}/range/usedRange
+GET /workbook/names(<name>)/range/UsedRange
+GET /workbook/worksheets/{id|name}/range(address='<address>')/UsedRange
+GET /workbook/tables/{id|name}/columns/{id|name}/range/UsedRange
 
 ```
 ## Request headers
@@ -24,7 +26,9 @@ GET /workbook/tables/{id|name}/columns/{id|name}/range/usedRange
 | Authorization  | Bearer {token}. Required. |
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
-## Path parameters
+## Request body
+In the request body, provide a JSON object with the following parameters.
+
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
 |valuesOnly|boolean|Optional. Considers only cells with values as used cells.|
@@ -37,13 +41,18 @@ If successful, this method returns `200 OK` response code and [Range](../resourc
 Here is an example of how to call this API.
 ##### Request
 Here is an example of the request.
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
   "name": "range_usedrange"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names/{name}/range/usedRange
+GET https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/names(<name>)/range/UsedRange
+Content-type: application/json
+Content-length: 24
+
+{
+  "valuesOnly": true
+}
 ```
 
 ##### Response
@@ -51,7 +60,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -67,42 +76,6 @@ Content-length: 169
   "valueTypes": "valueTypes-value"
 }
 ```
-
-Here is an example specifying the optional `valuesOnly` parameter.
-
-##### Request
-Here is an example of the request.
-<!--{
-  "blockType": "request",
-  "isComposable": true,
-  "name": "range_usedrange_valuesonly"
-}-->
-```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names/{name}/range/usedRange(valuesOnly=true)
-```
-
-##### Response
-
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
-} -->
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-Content-length: 169
-
-{
-  "address": "address-value",
-  "addressLocal": "addressLocal-value",
-  "cellCount": 90,
-  "columnCount": 90,
-  "columnIndex": 90,
-  "valueTypes": "valueTypes-value"
-}
-```
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

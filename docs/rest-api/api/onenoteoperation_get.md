@@ -1,5 +1,7 @@
 # Get onenoteOperation
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the status of a long-running OneNote operation. This applies to operations that return the **Operation-Location** header in the response, such as `CopyNotebook`, `CopyToNotebook`, `CopyToSectionGroup`, `and CopyToSection`.   
 
 You can poll the Operation-Location endpoint until the `status` property returns `completed` or `failed`. 
@@ -48,7 +50,7 @@ Here is an example of the request.
   "name": "get_onenoteoperation"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/onenote/operations/{id}
+GET https://graph.microsoft.com/beta/me/onenote/operations/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

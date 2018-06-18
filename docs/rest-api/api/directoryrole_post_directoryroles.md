@@ -1,6 +1,8 @@
 # Activate directoryRole
 
-Activate a directory role. To read a directory role or update its members, it must first be activated in the tenant. Only the Company Administrators and the implicit Users directory roles are activated by default. To access and assign members to another directory role, you must first activate it with its corresponding directory role template ([directoryRoleTemplate](../resources/directoryroletemplate.md)).
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Activate a directory role. To read a directory role or update its members, it must first be activated in the tenant. Only the Company Administrators  and the implicit Users directory roles are activated by default. To access and assign members to another directory role, you must first activate it with its corresponding directory role template ([directoryRoleTemplate](../resources/directoryroletemplate.md)).
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -21,16 +23,15 @@ POST /directoryRoles
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer {token}. Required. |
-| Content-Type  | string  | application/json  |
 
 ## Request body
 In the request body, supply a JSON representation of [directoryRole](../resources/directoryrole.md) object.
 
 The following table shows the properties that are required when you activate a directory role.
 
-|Parameter | Type | Description|
+|Required parameter | Type | Description|
 |:---------|:---------|:---------|
-|roleTemplateId | string | Required. The ID of the [directoryRoleTemplate](../resources/directoryroletemplate.md) that the role is based on. This is the only property that may be specified in the request.|
+|roleTemplateId | string | The ID of the [directoryRoleTemplate](../resources/directoryroletemplate.md) that the role is based on. This is the only property that may be specified in the request.|
 
 ## Response
 
@@ -38,30 +39,34 @@ If successful, this method returns `201 Created` response code and [directoryRol
 
 ## Example
 ##### Request
-
+Here is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "create_directoryrole_from_directoryroles"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/directoryRoles
+POST https://graph.microsoft.com/beta/directoryRoles
 Content-type: application/json
+Content-length: 153
 
 {
+  "description": "description-value",
+  "displayName": "displayName-value",
   "roleTemplateId": "roleTemplateId-value"
 }
 ```
 In the request body, supply a JSON representation of [directoryRole](../resources/directoryrole.md) object.
 ##### Response
-Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.directoryRole"
 } -->
 ```http
-HTTP/1.1 201 Created
+HTTP/1.1 200 OK
 Content-type: application/json
+Content-length: 175
 
 {
   "description": "description-value",

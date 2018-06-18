@@ -1,4 +1,7 @@
 # conversationThread resource type
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A conversationThread is a collection of [posts](post.md).
 
 The last post's recipients collection is the aggregated recipients of the entire thread. A thread can have a growing collection of recipients.
@@ -13,7 +16,7 @@ A new thread is created when a recipient is removed from the thread.
 |[Get conversationThread](../api/conversationthread_get.md) | [conversationThread](conversationthread.md) |Get a specific thread that belongs to a group. |
 |[Update](../api/conversationthread_update.md) | [conversationThread](conversationthread.md)  |Update conversationThread object. |
 |[Delete](../api/conversationthread_delete.md) | None |Delete conversationThread object. |
-|[Reply](../api/conversationthread_reply.md)|None|Reply to this thread by creating a new Post entity.|
+|[reply](../api/conversationthread_reply.md)|None|Reply to this thread by creating a new Post entity.|
 |[List Posts](../api/conversationthread_list_posts.md) |[post](post.md) collection| Get the posts of the specified thread. |
 
 ## Properties
@@ -38,26 +41,13 @@ A new thread is created when a recipient is removed from the thread.
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
   "optionalProperties": [
     "posts"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.conversationThread",
-  "@odata.annotations": [
-    {
-      "property": "posts",
-      "capabilities": {
-        "changeTracking": false,
-        "deletable": false,
-        "insertable": false,
-        "searchable": false,
-        "updatable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.conversationThread"
 }-->
 
 ```json

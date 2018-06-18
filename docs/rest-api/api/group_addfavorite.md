@@ -1,4 +1,7 @@
 # group: addFavorite
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Add the group to the list of the current user's favorite groups. Supported for Office 365 groups only.
 
 ## Permissions
@@ -20,7 +23,7 @@ POST /groups/{id}/addFavorite
 | Header       | Value |
 |:---------------|:--------|
 | Authorization  | Bearer {token}. Required.  |
-| Prefer | return=minimal. If minimal response header is included in the request header, then a successful response returns `204 No Content` code. Optional.  |
+| Prefer | return=minimal. If minimal response header is included in the request header, then a successful response returns `204 No Content` code. Optional.  | 
 
 ## Request body
 Do not supply a request body for this method.
@@ -36,14 +39,15 @@ The following is an example of the request.
   "name": "group_addfavorite"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/addFavorite
+POST https://graph.microsoft.com/beta/groups/{id}/addFavorite
 ```
 
 #### Response
 The following is an example of the response.
 <!-- {
   "blockType": "response",
-  "truncated": false
+  "truncated": false,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

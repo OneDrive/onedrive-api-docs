@@ -1,5 +1,7 @@
 ﻿# Update deviceComplianceUserOverview
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [deviceComplianceUserOverview](../resources/intune_deviceconfig_devicecomplianceuseroverview.md) object.
@@ -36,10 +38,11 @@ The following table shows the properties that are required when you create the [
 |:---|:---|:---|
 |id|String|Key of the entity.|
 |pendingCount|Int32|Number of pending Users|
-|notApplicableCount|Int32|Number of not applicable devices|
+|notApplicableCount|Int32|Number of not applicable users|
 |successCount|Int32|Number of succeeded Users|
 |errorCount|Int32|Number of error Users|
 |failedCount|Int32|Number of failed Users|
+|conflictCount|Int32|Number of users in conflict|
 |lastUpdateDateTime|DateTimeOffset|Last update time|
 |configurationVersion|Int32|Version of the policy for that overview|
 
@@ -52,9 +55,9 @@ If successful, this method returns a `200 OK` response code and an updated [devi
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/userStatusOverview
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/userStatusOverview
 Content-type: application/json
-Content-length: 212
+Content-length: 236
 
 {
   "pendingCount": 12,
@@ -62,6 +65,7 @@ Content-length: 212
   "successCount": 12,
   "errorCount": 10,
   "failedCount": 11,
+  "conflictCount": 13,
   "lastUpdateDateTime": "2016-12-31T23:58:21.6459442-08:00",
   "configurationVersion": 4
 }
@@ -72,7 +76,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 328
+Content-Length: 352
 
 {
   "@odata.type": "#microsoft.graph.deviceComplianceUserOverview",
@@ -82,6 +86,7 @@ Content-Length: 328
   "successCount": 12,
   "errorCount": 10,
   "failedCount": 11,
+  "conflictCount": 13,
   "lastUpdateDateTime": "2016-12-31T23:58:21.6459442-08:00",
   "configurationVersion": 4
 }

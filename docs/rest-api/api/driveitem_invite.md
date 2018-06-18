@@ -6,8 +6,10 @@ title: Send an invite to access an item
 ---
 # Send a sharing invitation
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Sends a sharing invitation for a **DriveItem**.
-A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+A sharing invitation provides permissions to the recipients and optionally sends an email to the recipients to notify them the item was shared.
 
 ## Permissions
 
@@ -35,7 +37,7 @@ POST /users/{userId}/drive/items/{itemId}/invite
 
 In the request body, provide a JSON object with the following parameters.
 
-<!-- { "blockType": "ignored", "scopes": "files.readwrite" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.inviteParameters", "scopes": "files.readwrite" } -->
 
 ```json
 {
@@ -50,33 +52,33 @@ In the request body, provide a JSON object with the following parameters.
 }
 ```
 
-| Parameter        | Type                           | Description
-|:-----------------|:-------------------------------|:-------------------------
-| recipients       | Collection([DriveRecipient][]) | A collection of recipients who will receive access and the sharing invitation.
-| message          | String                         | A plain text formatted message that is included in the sharing invitation. Maximum length 2000 characters.
-| requireSignIn    | Boolean                        | Specifies whether the recipient of the invitation is required to sign-in to view the shared item.
-| sendInvitation   | Boolean                        | If true, a [sharing link][] is sent to the recipient. Otherwise, a permission is granted directly without sending a notification.
-| roles            | Collection(String)             | Specify the roles that are to be granted to the recipients of the sharing invitation.
+| Parameter        | Type                                            | Description                                                                                                |
+|:-----------------|:------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| recipients       | Collection([DriveRecipient](../resources/driverecipient.md)) | A collection of recipients who will receive access and the sharing invitation.                                            |
+| message          | String                                          | A plain text formatted message that is included in the sharing invitation. Maximum length 2000 characters. |
+| requireSignIn    | Boolean                                         | Specifies where the recipient of the invitation is required to sign-in to view the shared item.            |
+| sendInvitation   | Boolean                                         | Specifies if an email or post is generated (false) or if the permission is just created (true).            |
+| roles            | Collection(String)                              | Specify the roles that are be granted to the recipients of the sharing invitation.                         |
 
 ## Example
 
-This example sends a sharing invitation to a user with email address "ryan@contoso.com" with a message about a file being collaborated on.
+This example sends a sharing invitation to a user with email address "ryan@contoso.org" with a message about a file being collaborated on.
 The invitation grants Ryan read-write access to the file.
 
 ### HTTP Request
 
 If successful, this method returns `200 OK` response code and [permission](../resources/permission.md) collection object in the response body.
 
-<!-- { "blockType": "request", "name": "send-sharing-invite", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "send-sharing-invite", "@odata.type": "microsoft.graph.inviteParameters", "scopes": "files.readwrite", "target": "action" } -->
 
-```json
+```http
 POST /me/drive/items/{item-id}/invite
 Content-type: application/json
 
 {
   "recipients": [
     {
-      "email": "ryan@contoso.com"
+      "email": "ryan@contoso.org"
     }
   ],
   "message": "Here's the file that we're collaborating on.",
@@ -92,7 +94,7 @@ Here is an example of the response.
 
 <!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.permission)", "truncated": true } -->
 
-```json
+```http
 HTTP/1.1 200 OK
 Content-type: application/json
 
@@ -127,9 +129,7 @@ Read the [Error Responses][error-response] topic for more information about
 how errors are returned.
 
 
-[driveRecipient]: ../resources/driverecipient.md
 [error-response]: ../../../concepts/errors.md
-[sharing link]: ../resources/permission.md#sharing-links
 
 <!-- {
   "type": "#page.annotation",

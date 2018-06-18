@@ -1,5 +1,7 @@
 # Chart: setPosition
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Positions the chart relative to cells on the worksheet.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/worksheets/{id|name}/charts/{name}/setPosition
+POST /workbook/worksheets/{id|name}/charts(<name>)/setPosition
 
 ```
 ## Request headers
@@ -27,8 +29,8 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|startCell|Json|The start cell. This is where the chart will be moved to. The start cell is the top-left or top-right cell, depending on the user's right-to-left display settings.|
-|endCell|Json|Optional. The end cell. If specified, the chart's width and height will be set to fully cover up this cell/range.|
+|startCell|string|The start cell. This is where the chart will be moved to. The start cell is the top-left or top-right cell, depending on the user's right-to-left display settings.|
+|endCell|string|Optional. The end cell. If specified, the chart's width and height will be set to fully cover up this cell/range.|
 
 ## Response
 
@@ -43,7 +45,7 @@ Here is an example of the request.
   "name": "chart_setposition"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts/{name}/setPosition
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts(<name>)/setPosition
 Content-type: application/json
 Content-length: 66
 
@@ -56,7 +58,9 @@ Content-length: 66
 ##### Response
 Here is an example of the response. 
 <!-- {
-  "blockType": "response"
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

@@ -1,5 +1,7 @@
 # List members
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieves the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "get_members"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/classes/{class-id}/members
+GET https://graph.microsoft.com/beta/education/classes/11016/members
 ```
 ##### Response
 The following is an example of the response. 
@@ -79,6 +81,8 @@ Content-length: 593
         "street": "12345 Main St."
       },
       "primaryRole": "teacher",
+      "externalId": "13013",
+      "teacherNumber": "8802",
       "residenceAddress": {
         "city": "Los Angeles",
         "countryOrRegion": "United States",
@@ -86,10 +90,6 @@ Content-length: 593
         "state": "CA",
         "street": "12345 Main St."
       },
-      "teacher": {
-        "externalId": "13013",
-        "teacherNumber": "8802",
-      }
     },
     {
       "id": "13005",
@@ -113,15 +113,13 @@ Content-length: 593
         "state": "NY",
         "street": "12345 Main St."
       },
-      "student": {
-        "birthDate": "2001-01-01T00:00:00Z",
-        "externalId": "13005",
-        "gender": "female",
-        "grade": "9",
-        "graduationYear": "2019",
-        "studentNumber": "13005",
-      },
       "primaryRole": "student",
+      "externalId": "13005",
+      "birthDate": "2001-01-01T00:00:00Z",
+      "gender": "female",
+      "grade": "9",
+      "graduationYear": "2019",
+      "studentNumber": "13005",
       "residenceAddress": {
         "city": "Long Beach",
         "countryOrRegion": "United States",

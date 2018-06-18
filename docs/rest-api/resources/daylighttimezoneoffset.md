@@ -1,5 +1,7 @@
 # daylightTimeZoneOffset resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Specifies when a time zone switches from standard time to daylight saving time.
 
 For example, if a time zone is specified with the following properties:
@@ -35,7 +37,6 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "baseType": "microsoft.graph.standardTimeZoneOffset",
   "@odata.type": "microsoft.graph.daylightTimeZoneOffset"
 }-->
 

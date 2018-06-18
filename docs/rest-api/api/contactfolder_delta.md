@@ -1,5 +1,7 @@
 # contactFolder: delta
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a set of contact folders that have been added, deleted, or removed from the user's mailbox.
 
 A **delta** function call for contact folders in a mailbox is similar to a GET request, except that by appropriately 
@@ -21,7 +23,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/contactFolders/delta
-GET /users/{id}/contactFolders/delta
+GET /users/<id>/contactFolders/delta
 ```
 
 ### Query parameters
@@ -73,7 +75,8 @@ returning **contactFolder** rather than **message** collections.
   "name": "contactfolder_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/contactFolders/delta
+GET https://graph.microsoft.com/beta/me/contactFolders/delta
+
 Prefer: odata.maxpagesize=2
 ```
 
@@ -99,7 +102,7 @@ Content-type: application/json
 Content-length: 254
 
 {
-  "@odata.nextLink":"https://graph.microsoft.com/v1.0/me/contactfolders/delta?$skiptoken={_skipToken_}",
+  "@odata.nextLink":"https://graph.microsoft.com/beta/me/contactfolders/delta?$skiptoken={_skipToken_}",
   "value": [
     {
      "parentFolderId": "parentFolderId-value",
@@ -113,7 +116,7 @@ Content-length: 254
 
 ### See also
 
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
+- [Microsoft Graph delta query](../../../concepts/delta_query_overview.md)
 - [Get incremental changes to messages in a folder](../../../concepts/delta_query_messages.md)
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
@@ -123,9 +126,5 @@ Content-length: 254
   "description": "contactFolder: delta",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: contactfolder_delta/container/wellKnownName:
-      Undocumented property 'wellKnownName' [String] was not expected on resource microsoft.graph.contactFolder."
-  ],
   "tocPath": ""
 }-->

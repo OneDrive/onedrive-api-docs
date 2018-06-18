@@ -1,5 +1,7 @@
 ﻿# Update androidGeneralDeviceConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [androidGeneralDeviceConfiguration](../resources/intune_deviceconfig_androidgeneraldeviceconfiguration.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}
 ```
 
 ## Request headers
@@ -57,6 +61,7 @@ The following table shows the properties that are required when you create the [
 |googlePlayStoreBlocked|Boolean|Indicates whether or not to block the Google Play store.|
 |kioskModeBlockSleepButton|Boolean|Indicates whether or not to block the screen sleep button while in Kiosk Mode.|
 |kioskModeBlockVolumeButtons|Boolean|Indicates whether or not to block the volume buttons while in Kiosk Mode.|
+|dateAndTimeBlockChanges|Boolean|Indicates whether or not to block changing date and time while in KNOX Mode.|
 |kioskModeApps|[appListItem](../resources/intune_deviceconfig_applistitem.md) collection|A list of apps that will be allowed to run when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.|
 |nfcBlocked|Boolean|Indicates whether or not to block Near-Field Communication.|
 |passwordBlockFingerprintUnlock|Boolean|Indicates whether or not to block fingerprint unlock.|
@@ -98,9 +103,9 @@ If successful, this method returns a `200 OK` response code and an updated [andr
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}
 Content-type: application/json
-Content-length: 3025
+Content-length: 3061
 
 {
   "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00",
@@ -132,6 +137,7 @@ Content-length: 3025
   "googlePlayStoreBlocked": true,
   "kioskModeBlockSleepButton": true,
   "kioskModeBlockVolumeButtons": true,
+  "dateAndTimeBlockChanges": true,
   "kioskModeApps": [
     {
       "@odata.type": "microsoft.graph.appListItem",
@@ -203,7 +209,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 3205
+Content-Length: 3241
 
 {
   "@odata.type": "#microsoft.graph.androidGeneralDeviceConfiguration",
@@ -238,6 +244,7 @@ Content-Length: 3205
   "googlePlayStoreBlocked": true,
   "kioskModeBlockSleepButton": true,
   "kioskModeBlockVolumeButtons": true,
+  "dateAndTimeBlockChanges": true,
   "kioskModeApps": [
     {
       "@odata.type": "microsoft.graph.appListItem",

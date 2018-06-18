@@ -1,5 +1,7 @@
 ﻿# iosMobileAppConfiguration resource type
 
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Contains properties, inherited properties and actions for iOS mobile app configurations.
@@ -25,6 +27,7 @@ Inherits from [managedDeviceMobileAppConfiguration](../resources/intune_apps_man
 |lastModifiedDateTime|DateTimeOffset|DateTime the object was last modified. Inherited from [managedDeviceMobileAppConfiguration](../resources/intune_apps_manageddevicemobileappconfiguration.md)|
 |displayName|String|Admin provided name of the device configuration. Inherited from [managedDeviceMobileAppConfiguration](../resources/intune_apps_manageddevicemobileappconfiguration.md)|
 |version|Int32|Version of the device configuration. Inherited from [managedDeviceMobileAppConfiguration](../resources/intune_apps_manageddevicemobileappconfiguration.md)|
+|settingXml|String|mdm app configuration.|
 |encodedSettingXml|Binary|mdm app configuration Base64 binary.|
 |settings|[appConfigurationSettingItem](../resources/intune_apps_appconfigurationsettingitem.md) collection|app configuration setting items.|
 
@@ -41,7 +44,7 @@ Inherits from [managedDeviceMobileAppConfiguration](../resources/intune_apps_man
 Here is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.managedDeviceMobileAppConfiguration",
+  "keyProperty": "id",
   "@odata.type": "microsoft.graph.iosMobileAppConfiguration"
 }
 -->
@@ -57,6 +60,7 @@ Here is a JSON representation of the resource.
   "lastModifiedDateTime": "String (timestamp)",
   "displayName": "String",
   "version": 1024,
+  "settingXml": "String",
   "encodedSettingXml": "binary",
   "settings": [
     {

@@ -1,4 +1,6 @@
-# managedEBook resource type
+﻿# managedEBook resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -27,6 +29,7 @@ An abstract class containing the base properties for Managed eBook.
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
+|categories|[managedEBookCategory](../resources/intune_books_managedebookcategory.md) collection|The list of categories for this eBook.|
 |assignments|[managedEBookAssignment](../resources/intune_books_managedebookassignment.md) collection|The list of assignments for this eBook.|
 |installSummary|[eBookInstallSummary](../resources/intune_books_ebookinstallsummary.md)|Mobile App Install Summary.|
 |deviceStates|[deviceInstallState](../resources/intune_books_deviceinstallstate.md) collection|The list of installation states for this eBook.|
@@ -34,13 +37,12 @@ An abstract class containing the base properties for Managed eBook.
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
-  "abstract": true,
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.managedEBook"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.managedEBook",

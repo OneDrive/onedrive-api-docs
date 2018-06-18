@@ -1,15 +1,16 @@
 # List memberOf
 
-Get [groups](../resources/group.md) and [directory roles](../resources/directoryrole.md) that the user is a direct member of. 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
+Get groups, directory roles and administrative units that the user is a direct member of. 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All    |
+|Delegated (work or school account) | User.Read.All, User.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Directory.Read.All, Directory.ReadWrite.All |
+|Application | User.Read.All, User.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -17,8 +18,7 @@ One of the following permissions is required to call this API. To learn more, in
 GET /users/{id | userPrincipalName}/memberOf
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response. $filter is not supported. 
-
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
@@ -39,7 +39,7 @@ Here is an example of the request.
   "name": "get_memberof"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/memberOf
+GET https://graph.microsoft.com/beta/me/memberOf
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -52,18 +52,12 @@ Here is an example of the response. Note: The response object shown here may be 
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
+Content-length: 55
 
 {
   "value": [
     {
-      "@odata.type": "#microsoft.graph.group",
-      "id": "id-value",
-      "createdDateTime": null,
-      "description": "All users at the company",
-      "displayName": "All Users",
-      "groupTypes": [],
-      "mailEnabled": false,
-      "securityEnabled": true,
+      "id": "id-value"
     }
   ]
 }

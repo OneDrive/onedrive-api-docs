@@ -6,6 +6,8 @@ title: SpecialFolder
 ---
 # SpecialFolder resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **SpecialFolder** resource groups special folder-related data items into a single structure.
 
 If a **DriveItem** has a non-null **specialFolder** facet, the item represents a special (named) folder.
@@ -56,10 +58,13 @@ Here are the special folders available in OneDrive Personal and OneDrive for Bus
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 
+
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "The SpecialFolder facet provides information about folders accessible as special folders.",
   "keywords": "special folder,item,facet",
   "section": "documentation",
-  "tocPath": "Facets/SpecialFolder"
-} -->
+  "tocPath": ""
+}-->

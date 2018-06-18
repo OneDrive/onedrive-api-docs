@@ -1,4 +1,6 @@
-# mdmWindowsInformationProtectionPolicy resource type
+﻿# mdmWindowsInformationProtectionPolicy resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -58,13 +60,13 @@ Inherits from [windowsInformationProtection](../resources/intune_mam_windowsinfo
 Here is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.windowsInformationProtection",
-  "@odata.type": "microsoft.graph.mdmWindowsInformationProtectionPolicy"
+  "keyProperty": "id",
+  "@odata.type": "microsoft.intune_mam_graph.mdmWindowsInformationProtectionPolicy"
 }
 -->
 ``` json
 {
-  "@odata.type": "#microsoft.graph.mdmWindowsInformationProtectionPolicy",
+  "@odata.type": "#microsoft.intune_mam_graph.mdmWindowsInformationProtectionPolicy",
   "displayName": "String",
   "description": "String",
   "createdDateTime": "String (timestamp)",
@@ -91,12 +93,12 @@ Here is a JSON representation of the resource.
     "certificate": "binary"
   },
   "revokeOnUnenrollDisabled": true,
-  "rightsManagementServicesTemplateId": "79199ed9-e50b-4257-8de4-70b9c8685061",
+  "rightsManagementServicesTemplateId": "<Unknown Primitive Type Edm.Guid>",
   "azureRightsManagementServicesAllowed": true,
   "iconsVisible": true,
   "protectedApps": [
     {
-      "@odata.type": "microsoft.graph.windowsInformationProtectionApp",
+      "@odata.type": "microsoft.graph.windowsInformationProtectionStoreApp",
       "displayName": "String",
       "description": "String",
       "publisherName": "String",
@@ -106,7 +108,7 @@ Here is a JSON representation of the resource.
   ],
   "exemptApps": [
     {
-      "@odata.type": "microsoft.graph.windowsInformationProtectionApp",
+      "@odata.type": "microsoft.graph.windowsInformationProtectionStoreApp",
       "displayName": "String",
       "description": "String",
       "publisherName": "String",

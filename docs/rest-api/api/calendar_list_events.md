@@ -1,5 +1,7 @@
 # List events
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of events in a calendar.  The list contains single instance meetings and series masters.
 
 To get expanded event instances, you can [get the calendar view](calendar_list_calendarview.md), or 
@@ -57,7 +59,7 @@ Here is an example of the request.
   "name": "get_events"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendar/events
+GET https://graph.microsoft.com/beta/me/calendar/events
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -79,7 +81,7 @@ Content-length: 354
       "originalEndTimeZone": "originalEndTimeZone-value",
       "responseStatus": {
         "response": "",
-        "time": "datetime-value"
+        "time": "2016-10-19T10:37:00Z"
       },
       "iCalUId": "iCalUId-value",
       "reminderMinutesBeforeStart": 99,

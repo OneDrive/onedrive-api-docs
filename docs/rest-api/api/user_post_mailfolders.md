@@ -1,5 +1,7 @@
 # Create MailFolder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new mail folder in the root folder of the user's mailbox.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -41,7 +43,7 @@ Here is an example of the request.
   "name": "create_mailfolder_from_user"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/mailFolders
+POST https://graph.microsoft.com/beta/me/mailFolders
 Content-type: application/json
 Content-length: 159
 

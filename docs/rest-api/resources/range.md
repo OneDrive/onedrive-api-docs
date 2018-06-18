@@ -1,5 +1,7 @@
 # Range resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Range represents a set of one or more contiguous cells such as a cell, a row, a column, block of cells, etc.
 
 
@@ -42,24 +44,24 @@ Range represents a set of one or more contiguous cells such as a cell, a row, a 
 |columnCount|int|Represents the total number of columns in the range. Read-only.|
 |columnHidden|boolean|Represents if all columns of the current range are hidden.|
 |columnIndex|int|Represents the column number of the first cell in the range. Zero-indexed. Read-only.|
-|formulas|Json|Represents the formula in A1-style notation.|
-|formulasLocal|Json|Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.|
-|formulasR1C1|Json|Represents the formula in R1C1-style notation.|
+|formulas|json|Represents the formula in A1-style notation.|
+|formulasLocal|json|Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.|
+|formulasR1C1|json|Represents the formula in R1C1-style notation.|
 |hidden|boolean|Represents if all cells of the current range are hidden. Read-only.|
-|numberFormat|Json|Represents Excel's number format code for the given cell.|
+|numberFormat|json|Represents Excel's number format code for the given cell.|
 |rowCount|int|Returns the total number of rows in the range. Read-only.|
 |rowHidden|boolean|Represents if all rows of the current range are hidden.|
 |rowIndex|int|Returns the row number of the first cell in the range. Zero-indexed. Read-only.|
-|text|Json|Text values of the specified range. The Text value will not depend on the cell width. The # sign substitution that happens in Excel UI will not affect the text value returned by the API. Read-only.|
-|valueTypes|Json|Represents the type of data of each cell. Possible values are: `Unknown`, `Empty`, `String`, `Integer`, `Double`, `Boolean`, `Error`. Read-only.|
-|values|Json|Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.|
+|text|json|Text values of the specified range. The Text value will not depend on the cell width. The # sign substitution that happens in Excel UI will not affect the text value returned by the API. Read-only.|
+|valueTypes|string|Represents the type of data of each cell. Possible values are: `Unknown`, `Empty`, `String`, `Integer`, `Double`, `Boolean`, `Error`. Read-only.|
+|values|json|Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.|
 
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|format|[WorkbookRangeFormat](rangeformat.md)|Returns a format object, encapsulating the range's font, fill, borders, alignment, and other properties. Read-only.|
-|sort|[WorkbookRangeSort](rangesort.md)|The worksheet containing the current range. Read-only.|
-|worksheet|[WorkbookWorksheet](worksheet.md)|The worksheet containing the current range. Read-only.|
+|format|[RangeFormat](rangeformat.md)|Returns a format object, encapsulating the range's font, fill, borders, alignment, and other properties. Read-only.|
+|sort|[RangeSort](rangesort.md)|The worksheet containing the current range. Read-only.|
+|worksheet|[Worksheet](worksheet.md)|The worksheet containing the current range. Read-only.|
 
 ## JSON representation
 
@@ -67,11 +69,10 @@ Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 }-->
 
 ```json

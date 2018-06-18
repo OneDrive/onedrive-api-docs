@@ -1,5 +1,7 @@
 # message: delta
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a set of messages that have been added, deleted, or updated in a specified folder.
 
 A **delta** function call for messages in a folder is similar to a GET request, except that by appropriately 
@@ -20,7 +22,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/mailFolders/{id}/messages/delta
-GET /users/{id}/mailFolders/{id}/messages/delta
+GET /users/<id>/mailFolders/{id}/messages/delta
 ```
 
 ### Query parameters
@@ -75,7 +77,8 @@ of incremental changes since the last delta query. For an example that shows a r
   "name": "message_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/mailFolders/{id}/messages/delta
+GET https://graph.microsoft.com/beta/me/mailFolders/{id}/messages/delta
+
 Prefer: odata.maxpagesize=2
 ```
 
@@ -100,7 +103,7 @@ Content-type: application/json
 Content-length: 337
 
 {
-  "@odata.nextLink":"https://graph.microsoft.com/v1.0/me/mailfolders('{id}')/messages/delta?$skiptoken={_skipToken_}",
+  "@odata.nextLink":"https://graph.microsoft.com/beta/me/mailfolders('{id}')/messages/delta?$skiptoken={_skipToken_}",
   "value": [
     {
       "receivedDateTime": "datetime-value",
@@ -119,7 +122,7 @@ Content-length: 337
 
 ### See also
 
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
+- [Microsoft Graph delta query](../../../concepts/delta_query_overview.md)
 - [Get incremental changes to messages in a folder](../../../concepts/delta_query_messages.md)
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

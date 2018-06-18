@@ -6,6 +6,8 @@ title: List Drives
 ---
 # List available drives
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the list of [Drive](../resources/drive.md) resources available for a target User, Group, or [Site](../resources/site.md).
 
 ## Permissions
@@ -24,7 +26,7 @@ To list the document libraries for a group, your app requests the **drives** rel
 
 ### HTTP request
 
-<!-- {"blockType": "request", "name": "group-list-drives", "scopes": "groups.read.all", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "group-list-drives", "scopes": "groups.read.all" } -->
 
 ```http
 GET /groups/{groupId}/drives
@@ -34,7 +36,7 @@ GET /groups/{groupId}/drives
 
 To list the document libraries for a site, your app requests the **drives** relationship on the Site.
 
-<!-- {"blockType": "request", "name": "site-list-drives", "scopes": "sites.read.all", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "site-list-drives", "scopes": "sites.read.all" } -->
 
 ```http
 GET /sites/{siteId}/drives
@@ -42,7 +44,7 @@ GET /sites/{siteId}/drives
 
 ## List a user's drives
 
-<!-- {"blockType": "request", "name": "user-list-drives", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "user-list-drives", "scopes": "files.read.all" } -->
 
 ```http
 GET /users/{userId}/drives
@@ -50,7 +52,7 @@ GET /users/{userId}/drives
 
 ## List the current user's drives
 
-<!-- {"blockType": "request", "name": "enum-drives", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "enum-drives", "scopes": "files.read" } -->
 
 ```http
 GET /me/drives
@@ -59,7 +61,6 @@ GET /me/drives
 ## Optional query parameters
 
 This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$orderby` [OData query parameters](../../../concepts/query_parameters.md) to customize the response.
-
 
 ## Response
 

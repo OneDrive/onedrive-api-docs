@@ -1,5 +1,7 @@
 ﻿# Create windowsInformationProtectionPolicy
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [windowsInformationProtectionPolicy](../resources/intune_mam_windowsinformationprotectionpolicy.md) object.
@@ -84,7 +86,7 @@ If successful, this method returns a `201 Created` response code and a [windowsI
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceAppManagement/windowsInformationProtectionPolicies
+POST https://graph.microsoft.com/beta/deviceAppManagement/windowsInformationProtectionPolicies
 Content-type: application/json
 Content-length: 4466
 
@@ -114,7 +116,7 @@ Content-length: 4466
     "certificate": "Y2VydGlmaWNhdGU="
   },
   "revokeOnUnenrollDisabled": true,
-  "rightsManagementServicesTemplateId": "79199ed9-e50b-4257-8de4-70b9c8685061",
+  "rightsManagementServicesTemplateId": "<Unknown Primitive Type Edm.Guid>",
   "azureRightsManagementServicesAllowed": true,
   "iconsVisible": true,
   "protectedApps": [
@@ -262,7 +264,7 @@ Content-Length: 4574
     "certificate": "Y2VydGlmaWNhdGU="
   },
   "revokeOnUnenrollDisabled": true,
-  "rightsManagementServicesTemplateId": "79199ed9-e50b-4257-8de4-70b9c8685061",
+  "rightsManagementServicesTemplateId": "<Unknown Primitive Type Edm.Guid>",
   "azureRightsManagementServicesAllowed": true,
   "iconsVisible": true,
   "protectedApps": [

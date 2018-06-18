@@ -1,5 +1,7 @@
 ﻿# Create androidManagedAppRegistration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [androidManagedAppRegistration](../resources/intune_mam_androidmanagedappregistration.md) object.
@@ -42,7 +44,9 @@ The following table shows the properties that are required when you create the a
 |deviceType|String|Host device type Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
 |deviceTag|String|App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions. Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
 |deviceName|String|Host device name Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
-|flaggedReasons|[managedAppFlaggedReason enum](../resources/intune_mam_managedappflaggedreason.md) collection|Zero or more reasons an app registration is flagged. E.g. app running on rooted device Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md). Possible values are: `none`, `rootedDevice`.|
+|managedDeviceId|String|The Managed Device identifier of the host device. Value could be empty even when the host device is managed. Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
+|azureADDeviceId|String|The Azure Active Directory Device identifier of the host device. Value could be empty even when the host device is Azure Active Directory registered. Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
+|flaggedReasons|[managedAppFlaggedReason](../resources/intune_mam_managedappflaggedreason.md) collection|Zero or more reasons an app registration is flagged. E.g. app running on rooted device Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md). Possible values are: `none`, `rootedDevice`.|
 |userId|String|The user Id to who this app registration belongs. Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
 |appIdentifier|[mobileAppIdentifier](../resources/intune_mam_mobileappidentifier.md)|The app package Identifier Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
 |id|String|Key of the entity. Inherited from [managedAppRegistration](../resources/intune_mam_managedappregistration.md)|
@@ -57,9 +61,9 @@ If successful, this method returns a `201 Created` response code and a [androidM
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceAppManagement/managedAppRegistrations
+POST https://graph.microsoft.com/beta/deviceAppManagement/managedAppRegistrations
 Content-type: application/json
-Content-length: 645
+Content-length: 743
 
 {
   "@odata.type": "#microsoft.graph.androidManagedAppRegistration",
@@ -70,6 +74,8 @@ Content-length: 645
   "deviceType": "Device Type value",
   "deviceTag": "Device Tag value",
   "deviceName": "Device Name value",
+  "managedDeviceId": "Managed Device Id value",
+  "azureADDeviceId": "Azure ADDevice Id value",
   "flaggedReasons": [
     "rootedDevice"
   ],
@@ -87,7 +93,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 753
+Content-Length: 851
 
 {
   "@odata.type": "#microsoft.graph.androidManagedAppRegistration",
@@ -99,6 +105,8 @@ Content-Length: 753
   "deviceType": "Device Type value",
   "deviceTag": "Device Tag value",
   "deviceName": "Device Name value",
+  "managedDeviceId": "Managed Device Id value",
+  "azureADDeviceId": "Azure ADDevice Id value",
   "flaggedReasons": [
     "rootedDevice"
   ],

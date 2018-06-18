@@ -1,5 +1,6 @@
 # Create Outlook category
 
+> **Important**: APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Create an [outlookCategory](../resources/outlookCategory.md) object in the user's master list of categories.
 
@@ -39,7 +40,7 @@ Here is an example of the request.
   "name": "create_outlookcategory_from_outlookuser"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/outlook/masterCategories
+POST https://graph.microsoft.com/beta/me/outlook/masterCategories
 Content-type: application/json
 Content-Length: 70
 
@@ -62,7 +63,7 @@ Content-type: application/json
 Content-length: 250
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories/$entity",
   "id":"bac262b7-485d-4739-b436-e31467d64fac",
   "displayName":"Project expenses",
   "color":"preset9"

@@ -6,6 +6,8 @@ title: Retrieve items from a SharePoint list
 ---
 # Enumerate items in a list
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the collection of [items][item] in a [list][].
 
 [list]: ../resources/list.md
@@ -24,19 +26,19 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items?expand=fields
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Column1,Column2)
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items?expand=fields
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Column1,Column2)
 ```
 
 ## Example
 
 #### Request
 
-<!-- { "blockType": "request", "name": "get-list-items", "scopes": "sites.read.all" } -->
+<!-- { "blockType": "request", "name": "get-list-items" } -->
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Name,Color,Quantity)
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists/{list-id}/items?expand=fields(select=Name,Color,Quantity)
 ```
 
 #### Response

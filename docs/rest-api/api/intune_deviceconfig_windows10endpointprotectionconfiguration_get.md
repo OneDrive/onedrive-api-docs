@@ -1,5 +1,7 @@
 ﻿# Get windows10EndpointProtectionConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [windows10EndpointProtectionConfiguration](../resources/intune_deviceconfig_windows10endpointprotectionconfiguration.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}
 ```
 
 ## Optional query parameters
@@ -39,7 +43,7 @@ If successful, this method returns a `200 OK` response code and [windows10Endpoi
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}
+GET https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}
 ```
 
 ### Response
@@ -47,7 +51,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 4628
+Content-Length: 11896
 
 {
   "value": {
@@ -58,6 +62,65 @@ Content-Length: 4628
     "description": "Description value",
     "displayName": "Display Name value",
     "version": 7,
+    "localSecurityOptionsBlockMicrosoftAccounts": true,
+    "localSecurityOptionsBlockRemoteLogonWithBlankPassword": true,
+    "localSecurityOptionsEnableAdministratorAccount": true,
+    "localSecurityOptionsAdministratorAccountName": "Local Security Options Administrator Account Name value",
+    "localSecurityOptionsEnableGuestAccount": true,
+    "localSecurityOptionsGuestAccountName": "Local Security Options Guest Account Name value",
+    "localSecurityOptionsAllowUndockWithoutHavingToLogon": true,
+    "localSecurityOptionsBlockUsersInstallingPrinterDrivers": true,
+    "localSecurityOptionsBlockRemoteOpticalDriveAccess": true,
+    "localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser": "administrators",
+    "localSecurityOptionsMachineInactivityLimit": 10,
+    "localSecurityOptionsMachineInactivityLimitInMinutes": 3,
+    "localSecurityOptionsDoNotRequireCtrlAltDel": true,
+    "localSecurityOptionsHideLastSignedInUser": true,
+    "localSecurityOptionsHideUsernameAtSignIn": true,
+    "localSecurityOptionsLogOnMessageTitle": "Local Security Options Log On Message Title value",
+    "localSecurityOptionsLogOnMessageText": "Local Security Options Log On Message Text value",
+    "localSecurityOptionsAllowPKU2UAuthenticationRequests": true,
+    "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool": true,
+    "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager": "Local Security Options Allow Remote Calls To Security Accounts Manager value",
+    "localSecurityOptionsClearVirtualMemoryPageFile": true,
+    "localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn": true,
+    "localSecurityOptionsAllowUIAccessApplicationElevation": true,
+    "localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations": true,
+    "localSecurityOptionsOnlyElevateSignedExecutables": true,
+    "localSecurityOptionsAdministratorElevationPromptBehavior": "elevateWithoutPrompting",
+    "localSecurityOptionsStandardUserElevationPromptBehavior": "automaticallyDenyElevationRequests",
+    "localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation": true,
+    "localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation": true,
+    "localSecurityOptionsAllowUIAccessApplicationsForSecureLocations": true,
+    "localSecurityOptionsUseAdminApprovalMode": true,
+    "localSecurityOptionsUseAdminApprovalModeForAdministrators": true,
+    "localSecurityOptionsInformationShownOnLockScreen": "userDisplayNameDomainUser",
+    "localSecurityOptionsInformationDisplayedOnLockScreen": "administrators",
+    "localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees": true,
+    "localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers": true,
+    "localSecurityOptionsDisableServerDigitallySignCommunicationsAlways": true,
+    "localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees": true,
+    "localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares": true,
+    "localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts": true,
+    "localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares": true,
+    "localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange": true,
+    "localSecurityOptionsSmartCardRemovalBehavior": "noAction",
+    "defenderSecurityCenterDisableAppBrowserUI": true,
+    "defenderSecurityCenterDisableFamilyUI": true,
+    "defenderSecurityCenterDisableHealthUI": true,
+    "defenderSecurityCenterDisableNetworkUI": true,
+    "defenderSecurityCenterDisableVirusUI": true,
+    "defenderSecurityCenterDisableAccountUI": true,
+    "defenderSecurityCenterDisableHardwareUI": true,
+    "defenderSecurityCenterDisableRansomwareUI": true,
+    "defenderSecurityCenterDisableSecureBootUI": true,
+    "defenderSecurityCenterDisableTroubleshootingUI": true,
+    "defenderSecurityCenterOrganizationDisplayName": "Defender Security Center Organization Display Name value",
+    "defenderSecurityCenterHelpEmail": "Defender Security Center Help Email value",
+    "defenderSecurityCenterHelpPhone": "Defender Security Center Help Phone value",
+    "defenderSecurityCenterHelpURL": "Defender Security Center Help URL value",
+    "defenderSecurityCenterNotificationsFromApp": "blockNoncriticalNotifications",
+    "defenderSecurityCenterITContactDisplay": "displayInAppAndInNotifications",
     "firewallBlockStatefulFTP": true,
     "firewallIdleTimeoutForSecurityAssociationInSeconds": 2,
     "firewallPreSharedKeyEncodingMethod": "none",
@@ -116,16 +179,33 @@ Content-Length: 4628
     "defenderAttackSurfaceReductionExcludedPaths": [
       "Defender Attack Surface Reduction Excluded Paths value"
     ],
+    "defenderOfficeAppsOtherProcessInjectionType": "block",
+    "defenderOfficeAppsExecutableContentCreationOrLaunchType": "block",
+    "defenderOfficeAppsLaunchChildProcessType": "block",
+    "defenderOfficeMacroCodeAllowWin32ImportsType": "block",
+    "defenderScriptObfuscatedMacroCodeType": "block",
+    "defenderScriptDownloadedPayloadExecutionType": "block",
+    "defenderPreventCredentialStealingType": "enable",
+    "defenderProcessCreationType": "block",
+    "defenderUntrustedUSBProcessType": "block",
+    "defenderUntrustedExecutableType": "block",
+    "defenderEmailContentExecutionType": "block",
+    "defenderAdvancedRansomewareProtectionType": "enable",
+    "defenderGuardMyFoldersType": "enable",
     "defenderGuardedFoldersAllowedAppPaths": [
       "Defender Guarded Folders Allowed App Paths value"
     ],
     "defenderAdditionalGuardedFolders": [
       "Defender Additional Guarded Folders value"
     ],
+    "defenderNetworkProtectionType": "enable",
     "defenderExploitProtectionXml": "ZGVmZW5kZXJFeHBsb2l0UHJvdGVjdGlvblhtbA==",
     "defenderExploitProtectionXmlFileName": "Defender Exploit Protection Xml File Name value",
     "defenderSecurityCenterBlockExploitProtectionOverride": true,
     "appLockerApplicationControl": "enforceComponentsAndStoreApps",
+    "deviceGuardLocalSystemAuthorityCredentialGuardSettings": "enableWithUEFILock",
+    "deviceGuardEnableVirtualizationBasedSecurity": true,
+    "deviceGuardEnableSecureBootWithDMA": true,
     "smartScreenEnableInShell": true,
     "smartScreenBlockOverrideForFiles": true,
     "applicationGuardEnabled": true,
@@ -138,9 +218,50 @@ Content-Length: 4628
     "applicationGuardAllowPrintToXPS": true,
     "applicationGuardAllowPrintToLocalPrinters": true,
     "applicationGuardAllowPrintToNetworkPrinters": true,
+    "applicationGuardAllowVirtualGPU": true,
+    "applicationGuardAllowFileSaveOnHost": true,
     "bitLockerDisableWarningForOtherDiskEncryption": true,
     "bitLockerEnableStorageCardEncryptionOnMobile": true,
     "bitLockerEncryptDevice": true,
+    "bitLockerSystemDrivePolicy": {
+      "@odata.type": "microsoft.graph.bitLockerSystemDrivePolicy",
+      "encryptionMethod": "aesCbc256",
+      "startupAuthenticationRequired": true,
+      "startupAuthenticationBlockWithoutTpmChip": true,
+      "startupAuthenticationTpmUsage": "required",
+      "startupAuthenticationTpmPinUsage": "required",
+      "startupAuthenticationTpmKeyUsage": "required",
+      "startupAuthenticationTpmPinAndKeyUsage": "required",
+      "minimumPinLength": 0,
+      "recoveryOptions": {
+        "@odata.type": "microsoft.graph.bitLockerRecoveryOptions",
+        "blockDataRecoveryAgent": true,
+        "recoveryPasswordUsage": "required",
+        "recoveryKeyUsage": "required",
+        "hideRecoveryOptions": true,
+        "enableRecoveryInformationSaveToStore": true,
+        "recoveryInformationToStore": "passwordOnly",
+        "enableBitLockerAfterRecoveryInformationToStore": true
+      },
+      "prebootRecoveryEnableMessageAndUrl": true,
+      "prebootRecoveryMessage": "Preboot Recovery Message value",
+      "prebootRecoveryUrl": "https://example.com/prebootRecoveryUrl/"
+    },
+    "bitLockerFixedDrivePolicy": {
+      "@odata.type": "microsoft.graph.bitLockerFixedDrivePolicy",
+      "encryptionMethod": "aesCbc256",
+      "requireEncryptionForWriteAccess": true,
+      "recoveryOptions": {
+        "@odata.type": "microsoft.graph.bitLockerRecoveryOptions",
+        "blockDataRecoveryAgent": true,
+        "recoveryPasswordUsage": "required",
+        "recoveryKeyUsage": "required",
+        "hideRecoveryOptions": true,
+        "enableRecoveryInformationSaveToStore": true,
+        "recoveryInformationToStore": "passwordOnly",
+        "enableBitLockerAfterRecoveryInformationToStore": true
+      }
+    },
     "bitLockerRemovableDrivePolicy": {
       "@odata.type": "microsoft.graph.bitLockerRemovableDrivePolicy",
       "encryptionMethod": "aesCbc256",

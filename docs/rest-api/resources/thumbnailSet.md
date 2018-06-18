@@ -6,6 +6,8 @@ title: ThumbnailSet
 ---
 # ThumbnailSet resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **ThumbnailSet** resource is a keyed collection of [thumbnail](thumbnail.md) resources.
 It is used to represent a set of thumbnails associated with a DriveItem.
 
@@ -13,19 +15,13 @@ It is used to represent a set of thumbnails associated with a DriveItem.
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [
-    "source",
-    "small",
-    "medium",
-    "large"
-  ],
+  "optionalProperties": ["source", "small", "medium", "large"],
+  "openType": true,
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.thumbnailSet",
-  "openType": true
-}-->
+  "@odata.type": "microsoft.graph.thumbnailSet"
+} -->
 
 ```json
 {

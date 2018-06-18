@@ -1,5 +1,7 @@
 # List calendarView
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range, from the user's default calendar, 
 or from some other calendar of the user's.
 ## Permissions
@@ -12,7 +14,6 @@ One of the following permissions is required to call this API. To learn more, in
 |Application | Calendars.Read, Calendars.ReadWrite |
 
 ## HTTP request
-
 A user's default [calendar](../resources/calendar.md).
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -90,7 +91,7 @@ Content-length: 354
       "originalEndTimeZone": "originalEndTimeZone-value",
       "responseStatus": {
         "response": "",
-        "time": "datetime-value"
+        "time": "2016-10-19T10:37:00Z"
       },
       "iCalUId": "iCalUId-value",
       "reminderMinutesBeforeStart": 99,
@@ -105,7 +106,7 @@ Content-length: 354
 <!-- {
   "type": "#page.annotation",
   "description": "List calendarView",
-  "keywords": "",
+  "keywords": "calendar",
   "section": "documentation",
   "tocPath": ""
 }-->

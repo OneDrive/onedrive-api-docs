@@ -1,5 +1,7 @@
 # mailFolder: copy
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Copy a mailfolder and its contents to another mailfolder.
 
 ## Permissions
@@ -43,7 +45,7 @@ Here is an example of the request.
   "name": "mailfolder_copy"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/mailFolders/{id}/copy
+POST https://graph.microsoft.com/beta/me/mailFolders/{id}/copy
 Content-type: application/json
 Content-length: 44
 

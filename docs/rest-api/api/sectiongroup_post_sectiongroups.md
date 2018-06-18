@@ -1,5 +1,7 @@
 # Create sectionGroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new [section group](../resources/sectiongroup.md) in the specified section group.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -41,7 +43,7 @@ Here is an example of the request.
   "name": "create_sectiongroup_from_sectiongroup"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/onenote/sectionGroups/{id}/sectionGroups
+POST https://graph.microsoft.com/beta/me/onenote/sectionGroups/{id}/sectionGroups
 Content-type: application/json
 Content-length: 30
 
@@ -54,7 +56,7 @@ Here is an example of the response. Note: The response object shown here is trun
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.sectionGroup"
+  "@odata.type": "microsoft.graph.sectiongroup"
 } -->
 ```http
 HTTP/1.1 200 OK

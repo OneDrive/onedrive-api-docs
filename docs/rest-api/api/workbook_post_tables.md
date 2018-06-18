@@ -1,5 +1,7 @@
 # Create Table
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new Table.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /workbook/tables/{table-id}/add
+POST /workbook/tables/$/add
 
 ```
 ## Request headers
@@ -30,7 +32,7 @@ POST /workbook/tables/{table-id}/add
 
 ## Response
 
-If successful, this method returns `201 Created` response code and [WorkbookTable](../resources/table.md) object in the response body.
+If successful, this method returns `201 Created` response code and [Table](../resources/table.md) object in the response body.
 
 ## Example
 ##### Request
@@ -40,7 +42,7 @@ Here is an example of the request.
   "name": "create_table_from_workbook"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{table-id}/add
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/$/add
 Content-type: application/json
 Content-length: 109
 
@@ -54,7 +56,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookTable"
+  "@odata.type": "microsoft.graph.table"
 } -->
 ```http
 HTTP/1.1 201 Created

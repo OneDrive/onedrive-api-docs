@@ -6,6 +6,8 @@ title: DriveItem
 ---
 # DriveItem resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **driveItem** resource represents a file, folder, or other item stored in a drive.
 All file system objects in OneDrive and SharePoint are returned as **driveItem** resources.
 
@@ -31,7 +33,6 @@ Here is a JSON representation of a **driveItem** resource.
 The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits properties from that resource.
 
 <!-- { "blockType": "resource", "@type": "microsoft.graph.driveItem", "@type.aka": "oneDrive.item",
-       "baseType": "microsoft.graph.baseItem",
        "optionalProperties": ["cTag", "children", "folder", "file", "image", "audio", "video",
        "location", "deleted", "specialFolder", "photo", "thumbnails", "searchResult", "remoteItem",
        "shared", "content", "@microsoft.graph.conflictBehavior", "@microsoft.graph.downloadUrl", "@content.sourceUrl",
@@ -41,7 +42,6 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
 ```json
 {
   "audio": { "@odata.type": "microsoft.graph.audio" },
-  "content": { "@odata.type": "Edm.Stream" },
   "cTag": "string (etag)",
   "deleted": { "@odata.type": "microsoft.graph.deleted"},
   "description": "string",
@@ -52,7 +52,6 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
   "location": { "@odata.type": "microsoft.graph.geoCoordinates" },
   "package": { "@odata.type": "microsoft.graph.package" },
   "photo": { "@odata.type": "microsoft.graph.photo" },
-  "publication": {"@odata.type": "microsoft.graph.publicationFacet"},
   "remoteItem": { "@odata.type": "microsoft.graph.remoteItem" },
   "root": { "@odata.type": "microsoft.graph.root" },
   "searchResult": { "@odata.type": "microsoft.graph.searchResult" },
@@ -64,12 +63,14 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
   "webDavUrl": "string",
 
   /* relationships */
-  "children": [{ "@odata.type": "microsoft.graph.driveItem" }],
+  "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
+  "content": { "@odata.type": "Edm.Stream" },
+  "children": [ { "@odata.type": "microsoft.graph.driveItem" }],
   "createdByUser": { "@odata.type": "microsoft.graph.user" },
   "lastModifiedByUser": { "@odata.type": "microsoft.graph.user" },
   "permissions": [ {"@odata.type": "microsoft.graph.permission"} ],
   "thumbnails": [ {"@odata.type": "microsoft.graph.thumbnailSet"}],
-  "versions": [ {"@odata.type": "microsoft.graph.driveItemVersion"}],
+  "versions": [ {"@odata.type": "Collection(microsoft.graph.driveItemVersion)"}],
 
   /* inherited from baseItem */
   "id": "string (identifier)",
@@ -94,7 +95,6 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
 | Property             | Type               | Description
 |:---------------------|:-------------------|:---------------------------------
 | audio                | [audio][]          | Audio metadata, if the item is an audio file. Read-only.
-| content              | Stream             | The content stream, if the item represents a file.
 | createdBy            | [identitySet][]    | Identity of the user, device, and application which created the item. Read-only.
 | createdDateTime      | DateTimeOffset     | Date and time of item creation. Read-only.
 | cTag                 | String             | An eTag for the content of the item. This eTag is not changed if only the metadata is changed. **Note** This property is not returned if the item is a folder. Read-only.
@@ -131,16 +131,16 @@ The eTag value is only modified when the folder's properties are changed, except
 
 ## Relationships
 
-| Relationship       | Type                        | Description
-|:-------------------|:----------------------------|:--------------------------
-| children           | driveItem collection        | Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
-| createdByUser      | [user][]                    | Identity of the user who created the item. Read-only.
-| lastModifiedByUser | [user][]                    | Identity of the user who last modified the item. Read-only.
-| listItem           | [listItem][]                | For drives in SharePoint, the associated document library list item. Read-only. Nullable.
-| permissions        | [permission][] collection   | The set of permissions for the item. Read-only. Nullable.
-| thumbnails         | [thumbnailSet][] collection | Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+| Relationship       | Type                            | Description
+|:-------------------|:--------------------------------|:--------------------------
+| activities         | [itemActivity][] collection     | The list of recent activities that took place on this item.
+| content            | Stream                          | The content stream, if the item represents a file.
+| children           | driveitem collection            | Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+| createdByUser      | [user][]                        | Identity of the user who created the item. Read-only.
+| lastModifiedByUser | [user][]                        | Identity of the user who last modified the item. Read-only.
+| permissions        | [permission][] collection       | The set of permissions for the item. Read-only. Nullable.
+| thumbnails         | [thumbnailSet][] collection     | Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
 | versions           | [driveItemVersion][] collection | The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
-| workbook           | [workbook][]                | For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
 
 ## Instance Attributes
 
@@ -161,6 +161,7 @@ The URL will only be available for a short period of time (1 hour) before it is 
 | Method                                                   | REST Path
 |:---------------------------------------------------------|:------------------
 | [Get item](../api/driveitem_get.md)                      | `GET /drive/items/{item-id}`
+| [List activities](../api/activities_list.md)             | `GET /drive/items/{item-id}/activities`
 | [List children](../api/driveitem_list_children.md)       | `GET /drive/items/{item-id}/children`
 | [List versions](../api/driveitem_list_versions.md)       | `GET /drive/items/{item-id}/versions`
 | [Create item](../api/driveitem_post_children.md)         | `POST /drive/items/{item-id}/children`
@@ -178,6 +179,7 @@ The URL will only be available for a short period of time (1 hour) before it is 
 | [Add permissions](../api/driveitem_invite.md)            | `POST /drive/items/{item-id}/invite`
 | [List permissions](../api/driveitem_list_permissions.md) | `GET /drive/items/{item-id}/permissions`
 | [Delete permission](../api/permission_delete.md)         | `DELETE /drive/items/{item-id}/permissions/{perm-id}`
+| [Get WebSocket channel][getWebSocket]                    | `GET /drive/root/subscriptions/socketIo`
 
 
 ## Remarks
@@ -194,11 +196,13 @@ In OneDrive for Business or SharePoint document libraries, the **cTag** property
 [folder]: folder.md
 [getting previous versions]: ../api/driveitem_list_versions.md
 [getting thumbnails]: ../api/driveitem_list_thumbnails.md
+[getWebSocket]: ../api/driveItem_subscriptions_socketIo.md
 [identitySet]: identitySet.md
 [image]: image.md
+[itemActivity]: itemActivity.md
 [itemReference]: itemReference.md
 [geoCoordinates]: geoCoordinates.md
-[listItem]: listItem.md
+[List activities]: ../api/activities_list.md
 [package]: package.md
 [permission]: permission.md
 [photo]: photo.md
@@ -210,10 +214,11 @@ In OneDrive for Business or SharePoint document libraries, the **cTag** property
 [specialFolder]: specialFolder.md
 [thumbnailSet]: thumbnailSet.md
 [video]: video.md
-[workbook]: workbook.md
 [user]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users
 [publicationFacet]: publicationfacet.md
 
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "Item is the main data model in the OneDrive API. Everything is an item.",

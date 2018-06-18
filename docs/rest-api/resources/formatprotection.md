@@ -1,5 +1,7 @@
 # FormatProtection resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents the format protection of a range object.
 
 
@@ -26,11 +28,10 @@ Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.workbookFormatProtection"
+  "@odata.type": "microsoft.graph.formatProtection"
 }-->
 
 ```json

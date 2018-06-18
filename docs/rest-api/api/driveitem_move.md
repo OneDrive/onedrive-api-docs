@@ -6,6 +6,8 @@ title: Move a file or folder
 ---
 # Move a DriveItem to a new folder
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 To move a DriveItem to a new parent item, your app requests to update the **parentReference** of the DriveItem to move.
 
 This is a special case of the [Update](driveitem_update.md) method.
@@ -57,7 +59,7 @@ If successful, this method returns a `200 OK` response code and updated [DriveIt
 
 This example moves an item specified by {item-id} into a folder in the user's drive with the ID `new-parent-folder-id`.
 
-<!-- { "blockType": "request", "name": "move-item", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "move-item", "scopes": "files.readwrite" } -->
 
 ```http
 PATCH /me/drive/items/{item-id}
@@ -65,7 +67,7 @@ Content-type: application/json
 
 {
   "parentReference": {
-    "id": "{new-parent-folder-id}"
+    "id": "new-parent-folder-id"
   },
   "name": "new-item-name.txt"
 }

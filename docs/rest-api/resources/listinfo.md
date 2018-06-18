@@ -6,6 +6,8 @@ title: ListInfo
 ---
 # ListInfo resource
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **listInfo** complex type provides additional information about a [list][].
 
 [list]: list.md
@@ -50,9 +52,5 @@ For developers familiar with SharePoint's CSOM APIs, the `template` value corres
   "description": "",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/listinfo.md:
-      Found potential enums in resource example that weren't defined in a table:(documentLibrary,genericList,tasks,survey,links,announcements,contacts,...) are in resource, but () are in table"
-  ],
   "tocPath": ""
 }-->

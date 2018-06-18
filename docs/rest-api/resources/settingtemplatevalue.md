@@ -1,17 +1,19 @@
 # settingTemplateValue resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents an individual template setting definition, including the default value for the setting, if the setting is not instantiated.
 
-### Properties
 
-| Property | Type | Description |
+## Properties
+| Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|defaultValue|String| Default value for the setting. |
-|description|String| Description of the setting. |
-|name|String| Name of the setting. |
-|type|String| Type of the setting. |
+|defaultValue|string|Default value for the setting. Read-only.|
+|description|string|Description of the setting. Read-only.|
+|name|string|Name of the setting. Read-only.|
+|type|string|Type of the setting. Read-only.|
 
-### JSON representation
+## JSON representation
 
 Here is a JSON representation of the resource.
 
@@ -25,14 +27,13 @@ Here is a JSON representation of the resource.
 
 ```json
 {
-  "defaultValue": "String",
-  "description": "String",
-  "name": "String",
-  "type": "String"
+  "defaultValue": "string",
+  "description": "string",
+  "name": "string",
+  "type": "string"
 }
 
 ```
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

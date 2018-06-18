@@ -1,5 +1,7 @@
 # TableSort: apply
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Perform a sort operation.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,7 +9,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -28,7 +30,7 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|fields|WorkbookSortField collection|The list of conditions to sort on.|
+|fields|SortField|The list of conditions to sort on.|
 |matchCase|boolean|Optional. Whether to have the casing impact string ordering.|
 |method|string|Optional. The ordering method used for Chinese characters.  Possible values are: `PinYin`, `StrokeCount`.|
 
@@ -45,7 +47,7 @@ Here is an example of the request.
   "name": "tablesort_apply"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{id|name}/sort/apply
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/{id|name}/sort/apply
 Content-type: application/json
 Content-length: 298
 
@@ -72,7 +74,8 @@ Content-length: 298
 Here is an example of the response. 
 <!-- {
   "blockType": "response",
-  "truncated": true
+  "truncated": true,
+  "@odata.type": "microsoft.graph.none"
 } -->
 ```http
 HTTP/1.1 200 OK

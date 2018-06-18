@@ -1,6 +1,8 @@
 # Create inferenceClassificationOverride
 
-Create an override for a sender identified by an SMTP address. Future messages from that SMTP address will be consistently classified 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Create a [Focused Inbox](../resources/manage_focused_inbox.md) override for a sender identified by an SMTP address. Future messages from that SMTP address will be consistently classified 
 as specified in the override.
 
 **Note**
@@ -45,7 +47,7 @@ Here is an example of the request.
   "name": "create_inferenceclassificationoverride_from_inferenceclassification"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/inferenceClassification/overrides
+POST https://graph.microsoft.com/beta/me/inferenceClassification/overrides
 Content-type: application/json
 
 {

@@ -1,5 +1,7 @@
 ﻿# retire action
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Retire a device
@@ -20,7 +22,8 @@ One of the following permissions is required to call this API. To learn more, in
 ``` http
 POST /users/{usersId}/managedDevices/{managedDeviceId}/retire
 POST /deviceManagement/managedDevices/{managedDeviceId}/retire
-POST /deviceManagement/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}/retire
+POST /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice/retire
+POST /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}/retire
 ```
 
 ## Request headers
@@ -38,16 +41,12 @@ If successful, this action returns a `204 No Content` response code.
 ## Example
 ### Request
 Here is an example of the request.
-
-<!-- { "blockType": "request" } -->
 ``` http
-POST https://graph.microsoft.com/v1.0/users/{usersId}/managedDevices/{managedDeviceId}/retire
+POST https://graph.microsoft.com/beta/users/{usersId}/managedDevices/{managedDeviceId}/retire
 ```
 
 ### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-
-<!-- { "blockType": "response" } -->
 ``` http
 HTTP/1.1 204 No Content
 ```

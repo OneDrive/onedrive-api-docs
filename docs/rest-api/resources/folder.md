@@ -6,6 +6,8 @@ title: Folder
 ---
 # Folder resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **Folder** resource groups folder-related data on an item into a single structure. 
 [**DriveItems**](driveitem.md) with a non-null **folder** facet are containers for other DriveItems.
 
@@ -32,8 +34,9 @@ Here is a JSON representation of the resource.
 
 | Property       | Type           | Description
 |:---------------|:---------------|:-------------------------------------------
-| **childCount** | Int32          | Number of children contained immediately within this container.
+| **childCount** | Int64          | Number of children contained immediately within this container.
 | **view**       | [folderView][] | A collection of properties defining the recommended view for the folder.
+
 
 ## Remarks 
 
@@ -44,8 +47,8 @@ For more information about the facets on a DriveItem, see [DriveItem][].
 
 <!-- {
   "type": "#page.annotation",
-  "description": "The Folder facet describes properties of a folder",
-  "keywords": "folder,item,facet",
+  "description": "folder resource",
+  "keywords": "",
   "section": "documentation",
-  "tocPath": "Facets/Folder"
-} -->
+  "tocPath": ""
+}-->

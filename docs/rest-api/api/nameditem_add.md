@@ -1,5 +1,7 @@
 # Add Named Item
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Adds a new name to the collection of the given scope using the user's locale for the formula.
 
 ## Permissions
@@ -8,7 +10,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Sites.Read.All    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Sites.Read.All |
 
 ## HTTP request
@@ -30,13 +32,12 @@ In the request body, provide a JSON object with the following parameters.
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
 |name|string|The name of the named item.|
-|reference|Json|The formula or the range that the name will refer to.|
+|reference|string|The formula or the range that the name will refer to.|
 |comment|string|The comment associated with the named item|
 
 ## Response
 
-If successful, this method returns `200 OK` response code and [WorkbookNamedItem](../resources/NamedItem.md) object in the response body.
-
+If successful, this method returns `200 OK` response code and [NamedItem](../resources/NamedItem.md) object in the response body.
 
 ## Example
 Here is an example of how to call this API.
@@ -48,7 +49,7 @@ Here is an example of the request.
   "name": "NamedItemcollection_add"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names/add
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/names/add
 Content-type: application/json
 Content-length: 54
 
@@ -66,7 +67,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookNamedItem"
+  "@odata.type": "microsoft.graph.namedItem"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -93,9 +94,5 @@ Content-length: 109
   "description": "NamedItemCollection: add",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: NamedItemcollection_add/value:
-      Schemas type was 'Custom' which is not supported. Add a resource type to the definition of property: value"
-  ],
   "tocPath": ""
 }-->

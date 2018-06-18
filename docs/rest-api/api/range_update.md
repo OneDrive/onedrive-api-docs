@@ -1,5 +1,7 @@
 # Update range
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of range object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,13 +9,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /workbook/names/{name}/range
+PATCH /workbook/names(<name>)/range
 PATCH /workbook/worksheets/{id|name}/range(address='<address>')
 PATCH /workbook/tables/{id|name}/columns/{id|name}/range
 ```
@@ -29,12 +31,12 @@ In the request body, supply the values for relevant fields that should be update
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |columnHidden|boolean|Represents if all columns of the current range are hidden.|
-|formulas|Json|Represents the formula in A1-style notation.|
-|formulasLocal|Json|Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.|
-|formulasR1C1|Json|Represents the formula in R1C1-style notation.|
-|numberFormat|Json|Represents Excel's number format code for the given cell.|
+|formulas|json|Represents the formula in A1-style notation.|
+|formulasLocal|json|Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.|
+|formulasR1C1|json|Represents the formula in R1C1-style notation.|
+|numberFormat|json|Represents Excel's number format code for the given cell.|
 |rowHidden|boolean|Represents if all rows of the current range are hidden.|
-|values|Json|Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.|
+|values|json|Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.|
 
 ## Response
 
@@ -48,7 +50,7 @@ Here is an example of the request. It updates a range - values, number-format an
   "name": "update_range"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{sheet-id}/range(address='A1:B2')
+PATCH https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets('sheet1')/range(address='A1:B2')
 Content-type: application/json
 Content-length: 169
 
@@ -63,7 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -87,15 +89,5 @@ Content-length: 169
   "description": "Update range",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/api/range_update.md/update_range/numberFormat:
-      Inconsistent types between parameter (Collection) and table (None)",
-    "Warning: /api-reference/v1.0/api/range_update.md/update_range/values:
-      Inconsistent types between parameter (Collection) and table (None)",
-    "Error: /api-reference/v1.0/api/range_update.md/update_range/numberFormat:
-      Type mismatch between example and table. Parameter name: numberFormat; example type (Collection(Collection)) is a collection, while the table description type (microsoft.graph.Json) is not.",
-    "Error: /api-reference/v1.0/api/range_update.md/update_range/values:
-      Type mismatch between example and table. Parameter name: values; example type (Collection(Collection)) is a collection, while the table description type (microsoft.graph.Json) is not."
-  ],
   "tocPath": ""
 }-->

@@ -1,5 +1,7 @@
 ﻿# Create iosUpdateConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [iosUpdateConfiguration](../resources/intune_deviceconfig_iosupdateconfiguration.md) object.
@@ -19,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 POST /deviceManagement/deviceConfigurations
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations
 ```
 
 ## Request headers
@@ -40,9 +43,10 @@ The following table shows the properties that are required when you create the i
 |description|String|Admin provided description of the Device Configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |displayName|String|Admin provided name of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |version|Int32|Version of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
+|isEnabled|Boolean|Is setting enabled in UI|
 |activeHoursStart|TimeOfDay|Active Hours Start (active hours mean the time window when updates install should not happen)|
 |activeHoursEnd|TimeOfDay|Active Hours End (active hours mean the time window when updates install should not happen)|
-|scheduledInstallDays|[dayOfWeek enum](../resources/intune_deviceconfig_dayofweek.md) collection|Days in week for which active hours are configured. This collection can contain a maximum of 7 elements. Possible values are: `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`.|
+|scheduledInstallDays|[dayOfWeek](../resources/intune_deviceconfig_dayofweek.md) collection|Days in week for which active hours are configured. This collection can contain a maximum of 7 elements. Possible values are: `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`.|
 |utcTimeOffsetInMinutes|Int32|UTC Time Offset indicated in minutes|
 
 
@@ -54,9 +58,9 @@ If successful, this method returns a `201 Created` response code and a [iosUpdat
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
+POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations
 Content-type: application/json
-Content-length: 389
+Content-length: 411
 
 {
   "@odata.type": "#microsoft.graph.iosUpdateConfiguration",
@@ -64,6 +68,7 @@ Content-length: 389
   "description": "Description value",
   "displayName": "Display Name value",
   "version": 7,
+  "isEnabled": true,
   "activeHoursStart": "12:00:05.5020000",
   "activeHoursEnd": "11:59:00.8990000",
   "scheduledInstallDays": [
@@ -78,7 +83,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 497
+Content-Length: 519
 
 {
   "@odata.type": "#microsoft.graph.iosUpdateConfiguration",
@@ -88,6 +93,7 @@ Content-Length: 497
   "description": "Description value",
   "displayName": "Display Name value",
   "version": 7,
+  "isEnabled": true,
   "activeHoursStart": "12:00:05.5020000",
   "activeHoursEnd": "11:59:00.8990000",
   "scheduledInstallDays": [

@@ -1,5 +1,7 @@
 # Create TableRow
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Adds rows to the end of the table. Note that the API can accept multiple rows data using this API. Adding one row at a time could lead to performance degradation. The recommended approach would be to batch the rows together in a single call rather than doing single row insertion. For best results, collect the rows to be inserted on the application side and perform single rows add operation. Experiment with the number of rows to determine the ideal number of rows to use in single API call. 
 
 ## Error Handling
@@ -34,7 +36,7 @@ In the request body, provide a JSON object with the following parameters.
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
 |index|number|Optional. Specifies the relative position of the new row. If null, the addition happens at the end. Any rows below the inserted row are shifted downwards. Zero-indexed.|
-|values|Json|A 2-dimensional array of unformatted values of the table rows (boolean or string or number).|
+|values|(boolean or string or number)|A 2-dimensional array of unformatted values of the table rows.|
 
 ## Response
 
@@ -50,7 +52,7 @@ Here is an example of the request.
   "name": "tablerowcollection_add"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{id|name}/rows/add
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/{id|name}/rows/add
 Content-type: application/json
 Content-length: 51
 
@@ -61,12 +63,13 @@ Content-length: 51
   ]
 }
 ```
+
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookTableRow"
+  "@odata.type": "microsoft.graph.tableRow"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -86,11 +89,5 @@ Content-length: 45
   "description": "TableRowCollection: add",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Error: /api-reference/v1.0/api/table_post_rows.md/tablerowcollection_add/values:
-      Type mismatch between example and table. Parameter name: values; example type (Collection(Collection)) is a collection, while the table description type (microsoft.graph.Json) is not.",
-    "Warning: /api-reference/v1.0/api/table_post_rows.md/tablerowcollection_add/values:
-      Inconsistent types between parameter (Collection) and table (None)"
-  ],
   "tocPath": ""
 }-->

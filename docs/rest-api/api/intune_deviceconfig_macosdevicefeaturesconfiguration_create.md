@@ -1,5 +1,7 @@
 ﻿# Create macOSDeviceFeaturesConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [macOSDeviceFeaturesConfiguration](../resources/intune_deviceconfig_macosdevicefeaturesconfiguration.md) object.
@@ -19,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 POST /deviceManagement/deviceConfigurations
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations
 ```
 
 ## Request headers
@@ -40,6 +43,7 @@ The following table shows the properties that are required when you create the m
 |description|String|Admin provided description of the Device Configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |displayName|String|Admin provided name of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |version|Int32|Version of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
+|airPrintDestinations|[airPrintDestination](../resources/intune_deviceconfig_airprintdestination.md) collection|An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements. Inherited from [appleDeviceFeaturesConfigurationBase](../resources/intune_deviceconfig_appledevicefeaturesconfigurationbase.md)|
 
 
 
@@ -50,16 +54,25 @@ If successful, this method returns a `201 Created` response code and a [macOSDev
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
+POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations
 Content-type: application/json
-Content-length: 234
+Content-length: 472
 
 {
   "@odata.type": "#microsoft.graph.macOSDeviceFeaturesConfiguration",
   "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00",
   "description": "Description value",
   "displayName": "Display Name value",
-  "version": 7
+  "version": 7,
+  "airPrintDestinations": [
+    {
+      "@odata.type": "microsoft.graph.airPrintDestination",
+      "ipAddress": "Ip Address value",
+      "resourcePath": "Resource Path value",
+      "port": 4,
+      "forceTls": true
+    }
+  ]
 }
 ```
 
@@ -68,7 +81,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 342
+Content-Length: 580
 
 {
   "@odata.type": "#microsoft.graph.macOSDeviceFeaturesConfiguration",
@@ -77,7 +90,16 @@ Content-Length: 342
   "createdDateTime": "2017-01-01T00:02:43.5775965-08:00",
   "description": "Description value",
   "displayName": "Display Name value",
-  "version": 7
+  "version": 7,
+  "airPrintDestinations": [
+    {
+      "@odata.type": "microsoft.graph.airPrintDestination",
+      "ipAddress": "Ip Address value",
+      "resourcePath": "Resource Path value",
+      "port": 4,
+      "forceTls": true
+    }
+  ]
 }
 ```
 

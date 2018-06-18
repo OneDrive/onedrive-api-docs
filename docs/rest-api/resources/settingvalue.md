@@ -1,15 +1,17 @@
 # settingValue resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A setting represented by a name/value pair.
 
-### Properties
 
-| Property | Type | Description |
+## Properties
+| Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|name|String| Name of the setting (as defined by the [groupSettingTemplate](groupsettingtemplate.md)). |
-|value|String| Value of the setting. |
+|name|string|Name of the setting (as defined by the directorySettingTemplate).|
+|value|string|Value of the setting.|
 
-### JSON representation
+## JSON representation
 
 Here is a JSON representation of the resource.
 
@@ -23,12 +25,11 @@ Here is a JSON representation of the resource.
 
 ```json
 {
-  "name": "String",
-  "value": "String"
+  "name": "string",
+  "value": "string"
 }
 
 ```
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

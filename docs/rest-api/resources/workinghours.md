@@ -1,5 +1,7 @@
 # workingHours resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents the days of the week and hours in a specific time zone that the user works.
 
 Having access to a user's working hours is useful in scenarios that handle activity or resource planning. 
@@ -16,22 +18,11 @@ appropriate time zone.
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-| daysOfWeek | dayOfWeek collection | The days of the week on which the user works. |
+| daysOfWeek | String collection | The days of the week on which the user works. |
 | startTime | Edm.TimeOfDay | The time of the day that the user starts working. |
 | endTime | Edm.TimeOfDay | The time of the day that the user stops working. |
 | timeZone | [timeZoneBase](timezonebase.md) | The time zone to which the working hours apply. |
 
-### dayOfWeek values
-
-| Value
-|:-------------------------
-| sunday
-| monday
-| tuesday
-| wednesday
-| thursday
-| friday
-| saturday
 
 ## JSON representation
 
@@ -62,9 +53,5 @@ Here is a JSON representation of the resource.
   "description": "workingHours resource",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/workinghours.md/microsoft.graph.workingHours/daysOfWeek:
-      Inconsistent types between parameter (String) and table (Object)"
-  ],
   "tocPath": ""
 }-->

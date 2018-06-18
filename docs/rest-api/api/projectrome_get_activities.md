@@ -1,5 +1,7 @@
 # Get user activities
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get activities for a given user. Unlike the **recent** OData function, activities without histories will be returned. The permission UserActivity.ReadWrite.CreatedByApp will apply extra filtering to the response, so that only activities created by your application are returned. This server-side filtering might result in empty pages if the user is particularly active and other applications have created more recent activities. To get your application's activities, use the **nextLink** property to paginate.
 
 ## Permissions
@@ -64,7 +66,7 @@ The following is an example of the request.
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/me/activities
+GET https://graph.microsoft.com/beta/me/activities
 ```
 
 ##### Response
@@ -82,10 +84,10 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(userActivity)",
-    "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/activities?$skiptoken=%24filter%3dlastModifiedDateTime+lt+2018-02-26T18%3a06%3a19.365Z",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(userActivity)",
+    "@odata.nextLink": "https://graph.microsoft.com/beta/me/activities?$skiptoken=%24filter%3dlastModifiedDateTime+lt+2018-02-26T18%3a06%3a19.365Z",
     "value": [{
-        "@odata.type": "#microsoft.graph.userActivity",
+        "@odata.type": "#microsoft.graph.activity",
         "activitySourceHost": "https://www.contoso.com",
         "createdDateTime": "2018-02-26T18:34:29.592Z",
         "lastModifiedDateTime": "2018-02-26T18:34:29.607Z",
@@ -95,7 +97,7 @@ Content-Type: application/json
             "attribution": {
               "iconUrl": "http://www.contoso.com/icon",
               "alternateText": "Contoso, Ltd.",
-              "addImageQuery": false,
+              "addImageQuery": "false",
               },
             "displayText": "Contoso How-To: How to Tie a Reef Knot",
             "description": "How to Tie a Reef Knot. A step-by-step visual guide to the art of nautical knot-tying.",

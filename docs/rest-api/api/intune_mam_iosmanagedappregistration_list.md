@@ -1,5 +1,7 @@
 ﻿# List iosManagedAppRegistrations
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [iosManagedAppRegistration](../resources/intune_mam_iosmanagedappregistration.md) objects.
@@ -37,7 +39,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceAppManagement/managedAppRegistrations
+GET https://graph.microsoft.com/beta/deviceAppManagement/managedAppRegistrations
 ```
 
 ### Response
@@ -45,7 +47,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 852
+Content-Length: 958
 
 {
   "value": [
@@ -59,6 +61,8 @@ Content-Length: 852
       "deviceType": "Device Type value",
       "deviceTag": "Device Tag value",
       "deviceName": "Device Name value",
+      "managedDeviceId": "Managed Device Id value",
+      "azureADDeviceId": "Azure ADDevice Id value",
       "flaggedReasons": [
         "rootedDevice"
       ],

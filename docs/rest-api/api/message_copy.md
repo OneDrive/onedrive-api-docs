@@ -1,5 +1,7 @@
 # message: copy
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Copy a message to a folder.
 
 ## Permissions
@@ -45,7 +47,7 @@ Here is an example of the request.
   "name": "message_copy"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/messages/{id}/copy
+POST https://graph.microsoft.com/beta/me/messages/{id}/copy
 Content-type: application/json
 Content-length: 44
 
@@ -67,8 +69,8 @@ Content-type: application/json
 Content-length: 248
 
 {
-  "receivedDateTime": "datetime-value",
-  "sentDateTime": "datetime-value",
+  "receivedDateTime": "2016-10-19T10:37:00Z",
+  "sentDateTime": "2016-10-19T10:37:00Z",
   "hasAttachments": true,
   "subject": "subject-value",
   "body": {

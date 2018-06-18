@@ -1,16 +1,19 @@
 # List groups
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 List all the groups available in an organization, including but not limited to Office 365 Groups.
 The [default properties](../api/group_get.md#default-properties) of each group are returned.
 
 To list only Office 365 Groups (aka unified groups), apply a filter on **groupTypes**:
 ```
-GET https://graph.microsoft.com/v1.0/groups?$filter=groupTypes/any(c:c+eq+'Unified')
+GET https://graph.microsoft.com/beta/groups?$filter=groupTypes/any(c:c+eq+'Unified')
 ```
 
-You can use the OData query option `$orderby` to sort groups in an organization by the **displayName**
+You can use the OData query option `$orderby` to sort groups in an organization by the **displayName** 
 values, as shown in the following example:
 ```
-GET https://graph.microsoft.com/v1.0/groups?$orderby=displayName
+GET https://graph.microsoft.com/beta/groups?$orderby=displayName
 ```
 
 ## Permissions
@@ -50,12 +53,11 @@ The following is an example of the request.
   "name": "get_groups"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups
+GET https://graph.microsoft.com/beta/groups
 ```
 
 #### Response
 The following is an example of the response.
-
 >**Note:** The response object shown here might be shortened for readability. The [default properties](../api/group_get.md#default-properties) will be returned from an actual call.
 
 <!-- {

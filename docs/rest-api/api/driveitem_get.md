@@ -6,6 +6,8 @@ title: Get a file or folder
 ---
 # Get a DriveItem resource
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the metadata for a [DriveItem](../resources/driveitem.md) in a [Drive](../resources/drive.md) by file system path or ID.
 
 ## Permissions
@@ -57,7 +59,7 @@ If successful, this method returns a `200 OK` response code and the [DriveItem](
 
 Here is an example of the request to the root folder of the user's OneDrive.
 
-<!-- { "blockType": "request", "name": "get-drive-root", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "get-item-metadata" }-->
 
 ```http
 GET /me/drive/root

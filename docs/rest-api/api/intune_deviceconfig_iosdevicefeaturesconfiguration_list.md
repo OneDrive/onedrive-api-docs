@@ -1,5 +1,7 @@
 ﻿# List iosDeviceFeaturesConfigurations
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [iosDeviceFeaturesConfiguration](../resources/intune_deviceconfig_iosdevicefeaturesconfiguration.md) objects.
@@ -19,6 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 GET /deviceManagement/deviceConfigurations
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations
 ```
 
 ## Request headers
@@ -37,7 +40,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
+GET https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations
 ```
 
 ### Response
@@ -45,7 +48,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 2461
+Content-Length: 3783
 
 {
   "value": [
@@ -57,7 +60,27 @@ Content-Length: 2461
       "description": "Description value",
       "displayName": "Display Name value",
       "version": 7,
+      "airPrintDestinations": [
+        {
+          "@odata.type": "microsoft.graph.airPrintDestination",
+          "ipAddress": "Ip Address value",
+          "resourcePath": "Resource Path value",
+          "port": 4,
+          "forceTls": true
+        }
+      ],
       "assetTagTemplate": "Asset Tag Template value",
+      "contentFilterSettings": {
+        "@odata.type": "microsoft.graph.iosWebContentFilterSpecificWebsitesAccess",
+        "specificWebsitesOnly": [
+          {
+            "@odata.type": "microsoft.graph.iosBookmark",
+            "url": "Url value",
+            "bookmarkFolder": "Bookmark Folder value",
+            "displayName": "Display Name value"
+          }
+        ]
+      },
       "lockScreenFootnote": "Lock Screen Footnote value",
       "homeScreenDockIcons": [
         {
@@ -116,7 +139,25 @@ Content-Length: 2461
           "badgesEnabled": true,
           "soundsEnabled": true
         }
-      ]
+      ],
+      "singleSignOnSettings": {
+        "@odata.type": "microsoft.graph.iosSingleSignOnSettings",
+        "allowedAppsList": [
+          {
+            "@odata.type": "microsoft.graph.appListItem",
+            "name": "Name value",
+            "publisher": "Publisher value",
+            "appStoreUrl": "https://example.com/appStoreUrl/",
+            "appId": "App Id value"
+          }
+        ],
+        "allowedUrls": [
+          "Allowed Urls value"
+        ],
+        "displayName": "Display Name value",
+        "kerberosPrincipalName": "Kerberos Principal Name value",
+        "kerberosRealm": "Kerberos Realm value"
+      }
     }
   ]
 }

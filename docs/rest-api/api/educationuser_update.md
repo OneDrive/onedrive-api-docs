@@ -1,5 +1,7 @@
 # Update educationUser properties
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of an **educationuser** object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -52,7 +54,7 @@ Here is an example of the request.
   "name": "update_educationuser"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/education/users/{user-id}
+PATCH https://graph.microsoft.com/beta/education/users/13020
 Content-type: application/json
 Content-length: 508
 
@@ -97,7 +99,7 @@ Content-length: 508
         "state": "CA",
         "street": "12345 Main St."
       },
-  "primaryRole": "student",
+  "primaryRole": "string",
   "residenceAddress": {
         "city": "Los Angeles",
         "countryOrRegion": "United States",
@@ -106,6 +108,7 @@ Content-length: 508
         "street": "12345 Main St."
       },
   "student": {
+      "primaryRole": "student",
       "externalId": "13005",
       "birthDate": "2001-01-01T00:00:00Z"
     }

@@ -1,5 +1,7 @@
 # List deleted items
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of recently deleted items from [deleted items](../resources/directory.md).
 
 Currently, deleted items functionality is only supported for the [group](../resources/group.md) and [user](../resources/user.md) resources.
@@ -7,30 +9,17 @@ Currently, deleted items functionality is only supported for the [group](../reso
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-### For users:
-
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | User.Read.All, User.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All |
-|Delegated (personal Microsoft account) | Not supported. |
-|Application | User.Read.All, User.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All |
-
-### For groups:
-
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Group.Read.All, Group.ReadWrite.All, Directory.Read.All, Directory.AccessAsUser.All |
-|Delegated (personal Microsoft account) | Not supported.    |
-|Application | Group.Read.All, Group.ReadWrite.All, Directory.Read.All |
+* For users: User.Read.All, Directory.Read.All, User.ReadWrite.All, Directory.AccessAsUser.All
+* For groups: Group.Read.All, Directory.Read.All, Group.ReadWrite.All, Directory.AccessAsUser.All
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http 
-GET /directory/deletedItems/microsoft.graph.group
+GET /directory/deleteditems/microsoft.graph.group
 GET /directory/deletedItems/microsoft.graph.user
 ```
 
-This API currently supports retrieving object types of groups (microsoft.graph.group) or users (microsoft.graph.user) from deleted items. The type is specified as a required part of the URI. Calling GET /directory/deletedItems without a type is not supported.
+This API currently supports retrieving object types of groups (microsoft.graph.group) or users (microsoft.graph.user) from deleted items. The type is specified as a required part of the URI. Calling GET /directory/deleteditems without a type is not supported.
 
 ## Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -55,7 +44,7 @@ If successful, this method returns a `200 OK` response code and collection of [d
   "name": "get_deleteditems"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.group
+GET https://graph.microsoft.com/beta/directory/deleteditems/microsoft.graph.group
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -70,7 +59,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#groups",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#groups",
   "value": [
     {
       "id":"46cc6179-19d0-473e-97ad-6ff84347bbbb",

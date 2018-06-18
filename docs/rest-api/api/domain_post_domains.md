@@ -1,5 +1,7 @@
 # Create domain
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Adds a domain to the tenant.
 
 **Important**: You cannot use an associated domain with your Azure AD tenant until ownership is verified. See [List verificationDnsRecords](domain_list_verificationdnsrecords.md) for details. Root domains require verification. For example, contoso.com requires verification. If a root domain is verified, subdomains of the root domain are automatically verified. For example, subdomain.contoso.com is automatically be verified if contoso.com has been verified.
@@ -46,7 +48,7 @@ In the request body, supply a JSON representation of [domain](../resources/domai
   "id": "create_domain_from_domains"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/domains
+POST https://graph.microsoft.com/beta/domains
 Content-type: application/json
 Content-length: 192
 

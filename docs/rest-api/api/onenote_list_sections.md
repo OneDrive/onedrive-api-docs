@@ -1,6 +1,8 @@
 # List sections
 
-Retrieve a list of [onenoteSection](../resources/section.md) objects.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Retrieve a list of [section](../resources/section.md) objects.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
@@ -36,7 +38,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and collection of [onenoteSection](../resources/section.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and collection of [section](../resources/section.md) objects in the response body.
 ## Example
 ##### Request
 Here is an example of the request.
@@ -45,7 +47,7 @@ Here is an example of the request.
   "name": "get_sections"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/onenote/sections
+GET https://graph.microsoft.com/beta/me/onenote/sections
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here is truncated for brevity. All of the properties will be returned from an actual call.
@@ -65,7 +67,8 @@ Content-length: 345
     {
       "isDefault": true,
       "pagesUrl": "pagesUrl-value",
-      "displayName": "name-value",      
+      "displayName": "name-value",
+      "id": "8fcb5dbc-d5aa-4681-8e31-b001d5168d79",
       "createdBy": {
         "user": {
           "id": "id-value",

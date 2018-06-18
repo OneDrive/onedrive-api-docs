@@ -1,5 +1,7 @@
 # educationRoot resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The `/education` namespace exposes functionality that is specific to the education sector. 
 Some objects in the `/education` namespace can be found in other parts of Microsoft Graph (for example, [users](user.md)). The education namespace provides education-specific properties and features on these objects.
 
@@ -24,42 +26,6 @@ None.
 |me|[educationUser](educationuser.md)| Read-only. Nullable.|
 |schools|[educationSchool](educationschool.md) collection| Read-only. Nullable.|
 |users|[educationUser](educationuser.md) collection| Read-only. Nullable.|
-
-## JSON representation
-Here is a JSON representation of the resource.
-
-<!--{
-  "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.educationRoot"
-}-->
-
-```json
-{
-}
-```
-
-<!-- {
-  "blockType": "request",
-  "name": "get_education"
-}-->
-```http
-GET https://graph.microsoft.com/v1.0/education
-```
-
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.educationRoot"
-} -->
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-}
-```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

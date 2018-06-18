@@ -1,4 +1,12 @@
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+title: Restore a previous version of a SharePoint list item
+---
 # Restore a previous version of a ListItem
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Restore a previous version of a ListItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the item.
 
@@ -29,20 +37,20 @@ No request body is required.
 
 This example restores a version of a listItem identified by `{item-id}` and `{version-id}`.
 
-<!-- { "blockType": "request", "name": "restore-item-version-listItem", "scopes": "files.readwrite sites.readwrite.all", "target": "action", "tags": "service.graph service.sharepoint" } -->
+<!-- { "blockType": "request", "name": "restore-item-version-listItem", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
-POST /sites/{site-id}/lists/{list-id}/items/{item-id}/versions/{version-id}/restoreVersion
+POST /sites/{site-id}/items/{item-id}/versions/{version-id}/restoreVersion
 ```
 
 ## Response
 
-If successful, the API call returns a `204 No Content`.
+If successful, the API call returns a `204 No content`.
 
 <!-- { "blockType": "response" } -->
 
 ```http
-HTTP/1.1 204 No Content
+HTTP/1.1 204 No content
 ```
 
 <!-- {

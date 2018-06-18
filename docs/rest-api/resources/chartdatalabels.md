@@ -1,5 +1,7 @@
 # ChartDataLabels resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a collection of all the data labels on a chart point.
 
 
@@ -7,8 +9,8 @@ Represents a collection of all the data labels on a chart point.
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Get ChartDataLabels](../api/chartdatalabels_get.md) | [WorkbookChartDataLabels](chartdatalabels.md) |Read properties and relationships of chartDataLabels object.|
-|[Update](../api/chartdatalabels_update.md) | [WorkbookChartDataLabels](chartdatalabels.md)	|Update ChartDataLabels object. |
+|[Get ChartDataLabels](../api/chartdatalabels_get.md) | [ChartDataLabels](chartdatalabels.md) |Read properties and relationships of chartDataLabels object.|
+|[Update](../api/chartdatalabels_update.md) | [ChartDataLabels](chartdatalabels.md)	|Update ChartDataLabels object. |
 
 ## Properties
 | Property	   | Type	|Description|
@@ -25,17 +27,18 @@ Represents a collection of all the data labels on a chart point.
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|format|[WorkbookChartDataLabelFormat](chartdatalabelformat.md)|Represents the format of chart data labels, which includes fill and font formatting. Read-only.|
+|format|[ChartDataLabelFormat](chartdatalabelformat.md)|Represents the format of chart data labels, which includes fill and font formatting. Read-only.|
 
 ## JSON representation
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
-  "optionalProperties": [],
-  "@odata.type": "microsoft.graph.workbookChartDataLabels"
+  "optionalProperties": [
+
+  ],
+  "@odata.type": "microsoft.graph.chartDataLabels"
 }-->
 
 ```json

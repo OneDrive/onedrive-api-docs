@@ -1,5 +1,7 @@
 # Update calendargroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of calendargroup object.
 
 ## Permissions
@@ -54,7 +56,7 @@ Here is an example of the request.
 }-->
 
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/calendarGroups/{id}
+PATCH https://graph.microsoft.com/beta/me/calendarGroups/{id}
 Content-type: application/json
 Content-length: 30
 

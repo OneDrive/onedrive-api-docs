@@ -1,5 +1,7 @@
 ﻿# Get macOSDeviceFeaturesConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [macOSDeviceFeaturesConfiguration](../resources/intune_deviceconfig_macosdevicefeaturesconfiguration.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration
+GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}
 ```
 
 ## Optional query parameters
@@ -39,7 +43,7 @@ If successful, this method returns a `200 OK` response code and [macOSDeviceFeat
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}
+GET https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}
 ```
 
 ### Response
@@ -47,7 +51,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 375
+Content-Length: 631
 
 {
   "value": {
@@ -57,7 +61,16 @@ Content-Length: 375
     "createdDateTime": "2017-01-01T00:02:43.5775965-08:00",
     "description": "Description value",
     "displayName": "Display Name value",
-    "version": 7
+    "version": 7,
+    "airPrintDestinations": [
+      {
+        "@odata.type": "microsoft.graph.airPrintDestination",
+        "ipAddress": "Ip Address value",
+        "resourcePath": "Resource Path value",
+        "port": 4,
+        "forceTls": true
+      }
+    ]
   }
 }
 ```

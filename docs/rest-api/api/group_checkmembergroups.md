@@ -1,5 +1,7 @@
 # group: checkMemberGroups
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Check for membership in the specified list of groups. Returns from the list those groups of which
 the specified group has a direct or transitive membership.
 
@@ -15,9 +17,9 @@ One of the following permissions is required to call this API. To learn more, in
 | :------------------------------------- | :------------------------------------------------------------------------------------------ |
 | Delegated (work or school account)     | ~~Group.Read.All~~, Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All |
 | Delegated (personal Microsoft account) | Not supported.                                                                              |
-| Application                            | _Group.Read.All_, Directory.Read.All. Directory.ReadWrite.All                               |
+| Application                            | ~~Group.Read.All~~, Directory.Read.All, Directory.ReadWrite.All                             |
 
-> **Note:** This API currently requires the `Directory.Read.All` permission or higher. Using the `Gorup.Read.All` permission will return an error. This is a known bug.
+> **Note:** This API currently requires the `Directory.Read.All` permission or higher. Using the `Group.Read.All` permission will return an error. This is a known bug.
 
 ## HTTP request
 
@@ -37,9 +39,9 @@ POST /groups/{id}/checkMemberGroups
 
 In the request body, provide a JSON object with the following parameters.
 
-| Parameter | Type              | Description           |
-| :-------- | :---------------- | :-------------------- |
-| groupIds  | String collection | An array of group ids |
+| Parameter | Type   | Description           |
+| :-------- | :----- | :-------------------- |
+| groupIds  | String | An array of group ids |
 
 ## Response
 
@@ -59,7 +61,7 @@ Here is an example of the request.
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{id}/checkMemberGroups
+POST https://graph.microsoft.com/beta/groups/{id}/checkMemberGroups
 Content-type: application/json
 Content-length: 44
 

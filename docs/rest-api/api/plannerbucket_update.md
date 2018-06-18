@@ -1,5 +1,7 @@
 # Update plannerbucket
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of **plannerbucket** object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -13,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /planner/buckets/{id}
+PATCH /planner/buckets/<id>
 ```
 ## Optional request headers
 | Name       | Description|
@@ -27,7 +29,7 @@ In the request body, supply the values for relevant fields that should be update
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |name|String|Name of the bucket.|
-|orderHint|String|Hint used to order items of this type in a list view. The format is defined as outlined [here](../resources/planner_order_hint_format.md).|
+|orderHint|String|Hint used to order items of this type in a list view. The format is defined in [Using order hints in Planner](../resources/planner_order_hint_format.md).|
 |planId|String|Plan id to which the bucket belongs.|
 
 ## Response
@@ -44,7 +46,7 @@ Here is an example of the request.
   "name": "update_plannerbucket"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id}
+PATCH https://graph.microsoft.com/beta/planner/buckets/hsOf2dhOJkqyYYZEtdzDe2QAIUCR
 Content-type: application/json
 Content-length: 27
 If-Match: W/"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc="

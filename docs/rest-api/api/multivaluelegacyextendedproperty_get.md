@@ -1,5 +1,7 @@
 # Get multiValueLegacyExtendedProperty
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a resource instance that contains a multi-value extended property by using `$expand`.
 
 Using the query parameter `$expand` allows you to get the specified instance expanded with the indicated extended 
@@ -13,7 +15,9 @@ The following user resources are supported:
 - [event](../resources/event.md)
 - [calendar](../resources/calendar.md)
 - [contact](../resources/contact.md)
-- [contactFolder](../resources/contactfolder.md) 
+- [contactFolder](../resources/contactfolder.md)
+- [Outlook task](../resources/outlooktask.md)
+- [Outlook task folder](../resources/outlooktaskfolder.md)
 
 As well as the following group resources:
 
@@ -31,6 +35,7 @@ getting. To learn more, including how to choose permissions, see [Permissions](.
 - Mail.Read
 - Calendars.Read
 - Contacts.Read
+- Tasks.Read
 - Group.Read.All 
  
 ## HTTP request
@@ -79,6 +84,26 @@ Get a **contactFolder** instance:
 GET /me/contactfolders/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
 GET /users/{id|userPrincipalName}/contactFolders/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
 ```
+
+Get an **outlookTask** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/outlook/tasks/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /users/{id|userPrincipalName}/outlook/tasks/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /me/outlook/taskFolders/{id}/tasks/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /users/{id|userPrincipalName}/outlook/taskFolders/{id}/tasks/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /me/outlook/taskGroups/{id}/taskFolders/{id}/tasks/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /users/{id|userPrincipalName}/outlook/taskGroups/{id}/taskFolders/{id}/tasks/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+```
+Get an **outlookTaskFolder** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/outlook/taskFolders/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /users/{id|userPrincipalName}/outlook/taskFolders/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /me/outlook/taskGroups/{id}/taskFolders/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+GET /users/{id|userPrincipalName}/outlook/taskGroups/{id}/taskFolders/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
+```
+
 Get a group **event** instance:
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -92,9 +117,10 @@ GET /groups/{id}/threads/{id}/posts/{id}?$expand=multiValueExtendedProperties($f
 GET /groups/{id}/conversations/{id}/threads/{id}/posts/{id}?$expand=multiValueExtendedProperties($filter=id eq '{id_value}')
 ```
 
-## Path parameters
-|Parameter|Type|Description|
+## Parameters
+|**Parameter**|**Type**|**Description**|
 |:-----|:-----|:-----|
+|_URL parameters_|
 |id_value|String|The ID of the extended property to match. It must follow one of the supported formats. See [Outlook extended properties overview](../resources/extended-properties-overview.md) for more information. Required.|
 
 ## Request headers
@@ -120,7 +146,7 @@ extended property that has its **id** matching the string `StringArray {66f5a359
 
 <!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/v1.0/me/events('AAMkAGE1M2_bs88AACbuFiiAAA=')?$expand=multiValueExtendedProperties($filter=id%20eq%20'StringArray%20{66f5a359-4659-4830-9070-00050ec6ac6e}%20Name%20Recreation')
+GET https://graph.microsoft.com/beta/me/events('AAMkAGE1M2_bs88AACbuFiiAAA=')?$expand=multiValueExtendedProperties($filter=id%20eq%20'StringArray%20{66f5a359-4659-4830-9070-00050ec6ac6e}%20Name%20Recreation')
 ```
 ##### Response
 
@@ -133,8 +159,8 @@ Note: The **event** object shown here is truncated for brevity. All of the prope
 HTTP/1.1 200 OK
 Content-type: application/json
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/events/$entity",
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/events('AAMkAGE1M2_bs88AACbuFiiAAA=')",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/events/$entity",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/events('AAMkAGE1M2_bs88AACbuFiiAAA=')",
     "@odata.etag": "W/\"mODEKWhc/Um6lA3uPm7PPAAAm8k15A==\"",
     "id": "AAMkAGE1M2_bs88AACbuFiiAAA=",
     "start": {
@@ -151,7 +177,7 @@ Content-type: application/json
             "address": "christine@contoso.com"
         }
     },
-    "multiValueExtendedProperties@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/events('AAMkAGE1M2_bs88AACbuFiiAAA%3D')/multiValueExtendedProperties",
+    "multiValueExtendedProperties@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/events('AAMkAGE1M2_bs88AACbuFiiAAA%3D')/multiValueExtendedProperties",
     "multiValueExtendedProperties": [
         {
             "id": "StringArray {66f5a359-4659-4830-9070-00050ec6ac6e} Name Recreation",

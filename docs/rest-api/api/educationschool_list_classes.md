@@ -1,5 +1,7 @@
 # List educationClasses
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of classes owned by a school.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "get_classes"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/schools/{school-id}/classes
+GET https://graph.microsoft.com/beta/education/schools/10002/classes
 ```
 ##### Response
 The following is an example of the response. 

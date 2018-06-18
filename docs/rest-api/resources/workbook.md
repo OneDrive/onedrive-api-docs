@@ -2,25 +2,6 @@
 
 Workbook is the top level object which contains related workbook objects such as worksheets, tables, ranges, etc.
 
-## JSON representation
-
-Here is a JSON representation of the resource
-
-<!--{
-  "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.workbook"
-}-->
-
-```json
-{
-  "names": [{"@odata.type": "microsoft.graph.workbookNamedItem"}],
-  "tables": [{"@odata.type": "microsoft.graph.workbookTable"}],
-  "worksheets": [{"@odata.type": "microsoft.graph.workbookWorksheet"}]
-}
-```
-
 ## Properties
 None
 
@@ -36,9 +17,9 @@ None
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|names|[WorkbookNamedItem](nameditem.md) collection|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|
-|tables|[WorkbookTable](table.md) collection|Represents a collection of tables associated with the workbook. Read-only.|
-|worksheets|[WorkbookWorksheet](worksheet.md) collection|Represents a collection of worksheets associated with the workbook. Read-only.|
+|names|[NamedItem](nameditem.md) collection|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|
+|tables|[Table](table.md) collection|Represents a collection of tables associated with the workbook. Read-only.|
+|worksheets|[Worksheet](worksheet.md) collection|Represents a collection of worksheets associated with the workbook. Read-only.|
 
 ## Functions
 
@@ -66,7 +47,6 @@ Inside a cell, the `vlookup` function looks like this:
 (See the documentation for the [VLOOKUP Excel function](https://support.office.com/en-us/article/VLOOKUP-function-0bbc8083-26fe-4963-8ab8-93a18ad188a1).)
 
 The example below shows how to call the `vlookup` function and pass these parameters with the Excel REST API.
-
 Request: 
 
 ```http 

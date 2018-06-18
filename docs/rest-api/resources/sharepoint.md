@@ -60,7 +60,7 @@ For efficiency, we recommend that you specify _select_ and _expand_ to only retu
 
 ## SharePoint API root resources
 
-The following examples are relative to `https://graph.microsoft.com/v1.0`.
+The following examples are relative to `https://graph.microsoft.com/beta`.
 
 | Path                                   | Description
 |:---------------------------------------|:------------------------------------
@@ -89,18 +89,18 @@ The root [site][] (`SPWeb`) in a site collection has a [siteCollection](sitecoll
 Because IDs for sites are only unique within their site collection, addressing a site by ID requires providing both the site collection identifier and the site identifier.
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id},{spweb-id}/
+GET https://graph.microsoft.com/beta/sites/{hostname},{spsite-id},{spweb-id}/
 ```
 A URL constructed with only the hostname will point to the root site (`SPWeb`) in the default site collection.
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname}
+GET https://graph.microsoft.com/beta/sites/{hostname}
 ```
 
 A URL constructed with only the hostname and siteCollection (`SPSite`) ID will point to the root site (`SPWeb`) in the given site collection.
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id}
+GET https://graph.microsoft.com/beta/sites/{hostname},{spsite-id}
 ```
 
 [site]: site.md

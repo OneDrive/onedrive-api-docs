@@ -1,4 +1,7 @@
 # rangeView resource type
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 RangeView represents a set of visible cells of the parent range.
 
 ## Methods
@@ -12,7 +15,6 @@ RangeView represents a set of visible cells of the parent range.
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|cellAddresses|Json|Represents the cell addresses
 |columnCount|Int32|Returns the number of visible columns. Read-only.|
 |formulas|Json|Represents the formula in A1-style notation.	|
 |formulasLocal|Json|Represents the formula in A1-style notation, in the user's language and number-formatting locale. For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.	|
@@ -33,7 +35,6 @@ RangeView represents a set of visible cells of the parent range.
 Here is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
   "optionalProperties": [  ],
   "@odata.type": "microsoft.graph.workbookRangeView"
 }-->
@@ -44,6 +45,7 @@ Here is a JSON representation of the resource.
   "formulas": "Json",
   "formulasLocal": "Json",
   "formulasR1C1": "Json",
+  "id": "String (identifier)",
   "index": 1024,
   "numberFormat": "Json",
   "rowCount": 1024,

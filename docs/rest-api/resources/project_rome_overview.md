@@ -1,8 +1,10 @@
-# Use the Microsoft Graph API to work with Project Rome
+# Use the Microsoft Graph API to work with Project Rome 
 
-[Project Rome](https://developer.microsoft.com/en-us/windows/project-rome) is a Microsoft initiative to build a cross-device experiences platform. Project Rome enables an app on a local client or service to interact with apps and services on a remote host when the user signs in with the same Microsoft account that they use to sign in on the client device. This allows you to program cross-device and cross-platform experiences that are centered around user tasks rather than devices.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
-A key component is exposed via Microsoft Graph to enable these experiences: activities.
+[Project Rome](https://developer.microsoft.com/en-us/windows/project-rome) is a Microsoft initiative to build a cross-device experiences platform. Project Rome enables an app on a local client or service to interact with apps and services on a remote host when the user signs in with the same Microsoft account that they use to sign in on the client device. This allows you to program cross-device and cross-platform experiences that are centered around user tasks rather than devices. 
+
+Two key components are exposed via Microsoft Graph to enable these experiences: devices and activities. 
 
 ## Activities
 
@@ -24,3 +26,19 @@ You can use the following Microsoft Graph APIs to create and retrieve user activ
 - [Delete an activity](../api/projectrome_delete_activity.md)
 - [Create or replace a history item](../api/projectrome_put_historyitem.md)
 - [Delete a history item](../api/projectrome_delete_historyitem.md)
+
+## Devices
+
+You can use Project Rome APIs in Microsoft Graph to:
+
+- Discover and connect to user's devices
+- Remotely launch apps on those devices
+- Send messages to your apps on those devices
+
+With these APIs, you can build apps that create rich experiences that transcend a single device. For example, you can extend your app to launch on a bigger screen. Or you can create a companion experience for an app on another of the user's devices.
+
+You can use the following Microsoft Graph APIs to communicate with other Windows devices:
+
+- [List the user's devices](../api/user_list_devices.md)
+- [Send a command to a device](../api/send_device_command.md)
+- [Get command status](../api/get_device_command_status.md)

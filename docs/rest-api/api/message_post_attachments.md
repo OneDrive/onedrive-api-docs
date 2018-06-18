@@ -1,5 +1,7 @@
 # Add attachment
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to add an [attachment](../resources/attachment.md) to a message. 
 
 An attachment can be one of the following types:
@@ -11,8 +13,8 @@ An attachment can be one of the following types:
 All these types of attachment resources are derived from the [attachment](../resources/attachment.md)
 resource. 
 
-You can add an attachment to an existing message by posting to its attachments collection, or you can 
-add an attachment to a message that is being [created and sent on the fly](../api/user_sendmail.md).
+You can add an attachment to an existing message by posting to its attachments collection, or to a new 
+message that is being [drafted](../api/user_post_messages.md), or [created and sent on the fly](../api/user_sendmail.md).
 
 Since there is currently a limit of 4MB on the total size of each REST request, this limits the 
 size of the attachment you can add to under 4MB.
@@ -54,7 +56,7 @@ In the request body, supply a JSON representation of [Attachment](../resources/a
 
 ## Response
 
-If successful, this method returns `201 Created` response code and [Attachment](../resources/attachment.md) object in the response body.
+If successful, this method returns `201 Created` response code and the [Attachment](../resources/attachment.md) object in the response body.
 
 ## Example (file attachment)
 
@@ -65,27 +67,27 @@ Here is an example of the request.
   "name": "create_file_attachment_from_message"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/messages/{message-id}/attachments
+POST https://graph.microsoft.com/beta/me/messages/AAMkpsDRVK/attachments
 Content-type: application/json
 Content-length: 142
 
 {
   "@odata.type": "#microsoft.graph.fileAttachment",
   "name": "smile",
-  "contentBytes": "base64R0lGODdhEAYEAA7"
+  "contentBytes": "R0lGODdhEAYEAA7"
 }
 ```
 
 In the request body, supply a JSON representation of [attachment](../resources/attachment.md) object.
 ##### Response
-Here is an example of the response.
+Here is an example of the response. 
 <!-- {
   "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.fileAttachment"
 } -->
 ```http
-HTTP 201 Created
+HTTP/1.1 201 Created
 Content-type: application/json
 Content-length: 202
 
@@ -98,9 +100,8 @@ Content-length: 202
     "isInline": false,
     "contentId": null,
     "contentLocation": null,
-    "contentBytes": "base64R0lGODdhEAYEAA7"
+    "contentBytes": "R0lGODdhEAYEAA7"
 }
-
 ```
 
 ## Example (item attachment)
@@ -113,7 +114,7 @@ Here is an example of the request.
 }-->
 
 ```
-POST https://graph.microsoft.com/v1.0/me/messages/{message-id}/attachments
+POST https://graph.microsoft.com/beta/me/messages/AAMkpsDRVK/attachments
 Content-type: application/json
 Content-length: 200
 
@@ -137,6 +138,7 @@ Content-length: 200
     }
   }
 }
+
 ```
 
 ##### Response
@@ -158,6 +160,60 @@ Content-length: 162
   "contentType":null,
   "size":2473,
   "isInline":false
+}
+```
+
+## Example (reference attachment)
+
+##### Request
+Here is an example of a request that adds a reference attachment to an existing message.
+The attachment points to a folder on OneDrive.
+<!-- {
+  "blockType": "request",
+  "name": "create_reference_attachment_from_message",
+  "@odata.type": "microsoft.graph.referenceAttachment"
+}-->
+
+```
+POST https://graph.microsoft.com/beta/me/messages/AAMkAGE1M88AADUv0uFAAA=/attachments
+Content-type: application/json
+Content-length: 319
+
+{ 
+    "@odata.type": "#microsoft.graph.referenceAttachment", 
+    "name": "Personal pictures", 
+    "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics", 
+    "providerType": "oneDriveConsumer", 
+    "permission": "Edit", 
+    "isFolder": "True" 
+} 
+```
+
+##### Response
+Here is an example of a full response.
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.referenceAttachment"
+} -->
+```http
+HTTP 201 Created
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#users/ddfcd489-628b-40d7-b48b-57002df800e5/messages/AAMkAGE1M88AADUv0uFAAA%3D/attachments/$entity",
+  "@odata.type": "#microsoft.graph.referenceAttachment",
+  "id": "AAMkAGE1Mg72tgf7hJp0PICVGCc0g=",
+  "lastModifiedDateTime": "2016-03-12T06:04:38Z",
+  "name": "Personal pictures",
+  "contentType": null,
+  "size": 382,
+  "isInline": false,
+  "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics",
+  "providerType": "oneDriveConsumer",
+  "thumbnailUrl": null,
+  "previewUrl": null,
+  "permission": "edit",
+  "isFolder": true
 }
 ```
 

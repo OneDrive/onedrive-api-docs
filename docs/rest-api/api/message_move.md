@@ -1,5 +1,7 @@
 # message: move
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Move a message to a folder. This creates a new copy of the message in the destination folder and removes the original message.
 
 ## Permissions
@@ -36,7 +38,7 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter   | Type |Description|
 |:---------------|:--------|:----------|
-|destinationId|String|The destination folder ID, or the `Inbox`, `Drafts`, `SentItems`, or `DeletedItems` well-known folder name.|
+|DestinationId|String|The destination folder ID, or a well-known folder name such as *Inbox*, *Drafts*, *SentItems*, or *DeletedItems*. For a list of supported well-known folder names, see [mailFolder resource type](../resources/mailfolder.md).|
 
 ## Response
 
@@ -55,12 +57,12 @@ Here is an example of the request.
 }-->
 
 ```http
-POST https://graph.microsoft.com/v1.0/me/messages/{id}/move
+POST https://graph.microsoft.com/beta/me/messages/{id}/move
 Content-type: application/json
 Content-length: 44
 
 {
-  "destinationId": "destinationId-value"
+  "DestinationId": "destinationId-value"
 }
 ```
 
@@ -79,8 +81,8 @@ Content-type: application/json
 Content-length: 248
 
 {
-  "receivedDateTime": "datetime-value",
-  "sentDateTime": "datetime-value",
+  "receivedDateTime": "2016-10-19T10:37:00Z",
+  "sentDateTime": "2016-10-19T10:37:00Z",
   "hasAttachments": true,
   "subject": "subject-value",
   "body": {

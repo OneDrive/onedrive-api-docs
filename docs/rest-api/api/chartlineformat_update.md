@@ -1,5 +1,7 @@
 # Update chartlineformat
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of chartlineformat object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,15 +9,15 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /workbook/worksheets/{id|name}/charts/{name}/axes/seriesAxis/format/line
-PATCH /workbook/worksheets/{id|name}/charts/{name}/axes/categoryaxis/format/line
-PATCH /workbook/worksheets/{id|name}/charts/{name}/axes/seriesAxis/majorgridlines/format/line
+PATCH /workbook/worksheets/{id|name}/charts(<name>)/axes/seriesaxis/format/line
+PATCH /workbook/worksheets/{id|name}/charts(<name>)/axes/categoryaxis/format/line
+PATCH /workbook/worksheets/{id|name}/charts(<name>)/axes/seriesaxis/majorgridlines/format/line
 ```
 ## Optional request headers
 | Name       | Description|
@@ -32,7 +34,7 @@ In the request body, supply the values for relevant fields that should be update
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and updated [WorkbookChartLineFormat](../resources/chartlineformat.md) object in the response body.
+If successful, this method returns a `200 OK` response code and updated [ChartLineFormat](../resources/chartlineformat.md) object in the response body.
 ## Example
 ##### Request
 Here is an example of the request.
@@ -41,7 +43,7 @@ Here is an example of the request.
   "name": "update_chartlineformat"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts/{name}/axes/seriesAxis/format/line
+PATCH https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts(<name>)/axes/seriesaxis/format/line
 Content-type: application/json
 Content-length: 28
 
@@ -54,7 +56,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookChartLineFormat"
+  "@odata.type": "microsoft.graph.chartLineFormat"
 } -->
 ```http
 HTTP/1.1 200 OK

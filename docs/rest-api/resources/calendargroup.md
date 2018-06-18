@@ -1,5 +1,7 @@
 # calendarGroup resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A group of user calendars.
 
 ## Methods
@@ -33,25 +35,13 @@ A group of user calendars.
 
 Here is a JSON representation of the resource
 
-<!--{
+<!-- {
   "blockType": "resource",
   "optionalProperties": [
     "calendars"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.calendarGroup",
-  "@odata.annotations": [
-    {
-      "property": "calendars",
-      "capabilities": {
-        "changeTracking": false,
-        "expandable": false,
-        "navigability": "single",
-        "searchable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.calendarGroup"
 }-->
 
 ```json

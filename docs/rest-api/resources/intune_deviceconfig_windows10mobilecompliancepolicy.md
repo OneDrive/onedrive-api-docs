@@ -1,4 +1,6 @@
-# windows10MobileCompliancePolicy resource type
+﻿# windows10MobileCompliancePolicy resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -40,14 +42,9 @@ Inherits from [deviceCompliancePolicy](../resources/intune_deviceconfig_deviceco
 |secureBootEnabled|Boolean|Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled.|
 |codeIntegrityEnabled|Boolean|Require devices to be reported as healthy by Windows Device Health Attestation.|
 |storageRequireEncryption|Boolean|Require encryption on windows devices.|
-
-### requiredPasswordType values
-
-| Value
-|:-------------------------
-| deviceDefault
-| alphanumeric
-| numeric
+|activeFirewallRequired|Boolean|Require active firewall on Windows devices.|
+|uacRequired|Boolean|Require UAC on Windows devices.|
+|validOperatingSystemBuildRanges|[operatingSystemVersionRange](../resources/intune_deviceconfig_operatingsystemversionrange.md) collection|The valid operating system build ranges on Windows devices. This collection can contain a maximum of 10000 elements.|
 
 ## Relationships
 |Relationship|Type|Description|
@@ -62,12 +59,12 @@ Inherits from [deviceCompliancePolicy](../resources/intune_deviceconfig_deviceco
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.deviceCompliancePolicy",
   "@odata.type": "microsoft.graph.windows10MobileCompliancePolicy"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.windows10MobileCompliancePolicy",
@@ -92,7 +89,17 @@ Here is a JSON representation of the resource.
   "bitLockerEnabled": true,
   "secureBootEnabled": true,
   "codeIntegrityEnabled": true,
-  "storageRequireEncryption": true
+  "storageRequireEncryption": true,
+  "activeFirewallRequired": true,
+  "uacRequired": true,
+  "validOperatingSystemBuildRanges": [
+    {
+      "@odata.type": "microsoft.graph.operatingSystemVersionRange",
+      "description": "String",
+      "lowestVersion": "String",
+      "highestVersion": "String"
+    }
+  ]
 }
 ```
 

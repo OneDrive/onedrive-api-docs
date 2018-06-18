@@ -1,5 +1,7 @@
 # contact: delta
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get a set of contacts that have been added, deleted, or updated in a specified folder.
 
 A **delta** function call for contacts in a folder is similar to a GET request, except that by appropriately 
@@ -21,7 +23,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/contactFolders/{id}/contacts/delta
-GET /users/{id}/contactFolders/{id}/contacts/delta
+GET /users/<id>/contactFolders/{id}/contacts/delta
 ```
 
 ### Query parameters
@@ -74,7 +76,8 @@ returning **contact** rather than **message** collections.
   "name": "contact_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/contactFolders/{id}/contacts/delta?$select=displayName
+GET https://graph.microsoft.com/beta/me/contactFolders/{id}/contacts/delta?$select=displayName
+
 Prefer: odata.maxpagesize=2
 ```
 
@@ -99,7 +102,7 @@ Content-type: application/json
 Content-length: 337
 
 {
-  "@odata.nextLink":"https://graph.microsoft.com/v1.0/me/contactfolders('{id}')/contacts/delta?$skiptoken={_skipToken_}",
+  "@odata.nextLink":"https://graph.microsoft.com/beta/me/contactfolders('{id}')/contacts/delta?$skiptoken={_skipToken_}",
   "value": [
     {
       "parentFolderId": "parentFolderId-value",
@@ -115,7 +118,7 @@ Content-length: 337
 
 ### See also
 
-- [Use delta query to track changes in Microsoft Graph data](../../../concepts/delta_query_overview.md)
+- [Microsoft Graph delta query](../../../concepts/delta_query_overview.md)
 - [Get incremental changes to messages in a folder](../../../concepts/delta_query_messages.md)
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

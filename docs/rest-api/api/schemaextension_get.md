@@ -1,4 +1,7 @@
 # Get schemaExtension
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the properties of the specified [schemaExtension](../resources/schemaextension.md) definition.
 
 ## Permissions
@@ -7,9 +10,9 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Directory.AccessAsUser.All    |
+|Delegated (work or school account) | Directory.Read.All, Directory.AccessAsUser.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | Directory.Read.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -35,16 +38,16 @@ If successful, this method returns a `200 OK` response code and [schemaExtension
 ##### Request
 Here is an example of the request.
 <!-- {
-  "blockType": "ignored",
+  "blockType": "request",
   "name": "get_schemaextension"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/schemaExtensions/graphlearn_test
+GET https://graph.microsoft.com/beta/schemaExtensions/graphlearn_test
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
-  "blockType": "ignored",
+  "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.schemaExtension"
 } -->

@@ -1,5 +1,7 @@
 ﻿# Create deviceComplianceDeviceStatus
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [deviceComplianceDeviceStatus](../resources/intune_deviceconfig_devicecompliancedevicestatus.md) object.
@@ -38,8 +40,9 @@ The following table shows the properties that are required when you create the d
 |deviceDisplayName|String|Device name of the DevicePolicyStatus.|
 |userName|String|The User Name that is being reported|
 |deviceModel|String|The device model that is being reported|
+|platform|Int32|Platform of the device that is being reported|
 |complianceGracePeriodExpirationDateTime|DateTimeOffset|The DateTime when device compliance grace period expires|
-|status|[complianceStatus](../resources/intune_deviceconfig_compliancestatus.md)|Compliance status of the policy report. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|status|[complianceStatus](../resources/intune_shared_compliancestatus.md)|Compliance status of the policy report. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |lastReportedDateTime|DateTimeOffset|Last modified date time of the policy report.|
 |userPrincipalName|String|UserPrincipalName.|
 
@@ -52,15 +55,16 @@ If successful, this method returns a `201 Created` response code and a [deviceCo
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/deviceStatuses
+POST https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/deviceStatuses
 Content-type: application/json
-Content-length: 426
+Content-length: 444
 
 {
   "@odata.type": "#microsoft.graph.deviceComplianceDeviceStatus",
   "deviceDisplayName": "Device Display Name value",
   "userName": "User Name value",
   "deviceModel": "Device Model value",
+  "platform": 8,
   "complianceGracePeriodExpirationDateTime": "2016-12-31T23:56:44.951111-08:00",
   "status": "notApplicable",
   "lastReportedDateTime": "2017-01-01T00:00:17.7769392-08:00",
@@ -73,7 +77,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 475
+Content-Length: 493
 
 {
   "@odata.type": "#microsoft.graph.deviceComplianceDeviceStatus",
@@ -81,6 +85,7 @@ Content-Length: 475
   "deviceDisplayName": "Device Display Name value",
   "userName": "User Name value",
   "deviceModel": "Device Model value",
+  "platform": 8,
   "complianceGracePeriodExpirationDateTime": "2016-12-31T23:56:44.951111-08:00",
   "status": "notApplicable",
   "lastReportedDateTime": "2017-01-01T00:00:17.7769392-08:00",

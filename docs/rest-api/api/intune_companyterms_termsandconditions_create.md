@@ -1,5 +1,7 @@
 ﻿# Create termsAndConditions
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [termsAndConditions](../resources/intune_companyterms_termsandconditions.md) object.
@@ -36,6 +38,7 @@ The following table shows the properties that are required when you create the t
 |:---|:---|:---|
 |id|String|Unique identifier of the T&C policy.|
 |createdDateTime|DateTimeOffset|DateTime the object was created.|
+|modifiedDateTime|DateTimeOffset|DateTime the object was last modified.|
 |lastModifiedDateTime|DateTimeOffset|DateTime the object was last modified.|
 |displayName|String|Administrator-supplied name for the T&C policy. |
 |description|String|Administrator-supplied description of the T&C policy.|
@@ -53,7 +56,7 @@ If successful, this method returns a `201 Created` response code and a [termsAnd
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/termsAndConditions
+POST https://graph.microsoft.com/beta/deviceManagement/termsAndConditions
 Content-type: application/json
 Content-length: 337
 
@@ -74,12 +77,13 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 445
+Content-Length: 505
 
 {
   "@odata.type": "#microsoft.graph.termsAndConditions",
   "id": "eefc80cf-80cf-eefc-cf80-fceecf80fcee",
   "createdDateTime": "2017-01-01T00:02:43.5775965-08:00",
+  "modifiedDateTime": "2017-01-01T00:00:22.8983556-08:00",
   "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00",
   "displayName": "Display Name value",
   "description": "Description value",

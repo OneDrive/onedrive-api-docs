@@ -1,16 +1,19 @@
 # groupLifecyclePolicy: removeGroup
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Removes a group from a lifecycle policy.
 
 ## Permissions
 
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
+
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Directory.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Not supported.    |
-|Application | Directory.ReadWrite.All |
+|Delegated (personal Microsoft account) | Not supported |
+|Application |  Directory.ReadWrite.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -45,7 +48,7 @@ If successful, this method returns `200 OK` response code. If the group is remov
   "name": "grouplifecyclepolicy_removegroup"
 } -->
 ```http
-POST https://graph.microsoft.com/v1.0/groupLifecyclePolicies/{id}/removeGroup
+POST https://graph.microsoft.com/beta/groupLifecyclePolicies/{id}/removeGroup
 Content-type: application/json
 Content-length: 57
 

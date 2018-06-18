@@ -1,5 +1,7 @@
 # List instances
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the instances (occurrences) of an event for a specified time range. If the event is a `SeriesMaster` type, this returns the 
 occurrences and exceptions of the event in the specified time range.
 
@@ -62,7 +64,7 @@ Here is an example of the request.
   "name": "get_instances"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/events/{id}/instances
+GET https://graph.microsoft.com/beta/me/events/{id}/instances
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -84,7 +86,7 @@ Content-length: 354
       "originalEndTimeZone": "originalEndTimeZone-value",
       "responseStatus": {
         "response": "",
-        "time": "datetime-value"
+        "time": "2016-10-19T10:37:00Z"
       },
       "iCalUId": "iCalUId-value",
       "reminderMinutesBeforeStart": 99,

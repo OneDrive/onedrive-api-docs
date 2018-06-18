@@ -1,5 +1,7 @@
 ﻿# Create deviceComplianceSettingState
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [deviceComplianceSettingState](../resources/intune_deviceconfig_devicecompliancesettingstate.md) object.
@@ -35,6 +37,7 @@ The following table shows the properties that are required when you create the d
 |Property|Type|Description|
 |:---|:---|:---|
 |id|String|Key of the entity|
+|platformType|[deviceType](../resources/intune_shared_devicetype.md)|Device platform type. Possible values are: `desktop`, `windowsRT`, `winMO6`, `nokia`, `windowsPhone`, `mac`, `winCE`, `winEmbedded`, `iPhone`, `iPad`, `iPod`, `android`, `iSocConsumer`, `unix`, `macMDM`, `holoLens`, `surfaceHub`, `androidForWork`, `androidEnterprise`, `blackberry`, `palm`, `unknown`.|
 |setting|String|The setting class name and property name.|
 |settingName|String|The Setting Name that is being reported|
 |deviceId|String|The Device Id that is being reported|
@@ -44,7 +47,7 @@ The following table shows the properties that are required when you create the d
 |userName|String|The User Name that is being reported|
 |userPrincipalName|String|The User PrincipalName that is being reported|
 |deviceModel|String|The device model that is being reported|
-|state|[complianceStatus](../resources/intune_deviceconfig_compliancestatus.md)|The compliance state of the setting. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|state|[complianceStatus](../resources/intune_shared_compliancestatus.md)|The compliance state of the setting. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |complianceGracePeriodExpirationDateTime|DateTimeOffset|The DateTime when device compliance grace period expires|
 
 
@@ -56,12 +59,13 @@ If successful, this method returns a `201 Created` response code and a [deviceCo
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummaryId}/deviceComplianceSettingStates
+POST https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummaryId}/deviceComplianceSettingStates
 Content-type: application/json
-Content-length: 517
+Content-length: 549
 
 {
   "@odata.type": "#microsoft.graph.deviceComplianceSettingState",
+  "platformType": "windowsRT",
   "setting": "Setting value",
   "settingName": "Setting Name value",
   "deviceId": "Device Id value",
@@ -81,11 +85,12 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 566
+Content-Length: 598
 
 {
   "@odata.type": "#microsoft.graph.deviceComplianceSettingState",
   "id": "9905f955-f955-9905-55f9-059955f90599",
+  "platformType": "windowsRT",
   "setting": "Setting value",
   "settingName": "Setting Name value",
   "deviceId": "Device Id value",

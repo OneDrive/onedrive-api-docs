@@ -1,8 +1,9 @@
 # Get calendar
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the properties and relationships of a [calendar](../resources/calendar.md) object. The calendar can be one for a [user](../resources/user.md), 
 or the default calendar of an Office 365 [group](../resources/group.md).
-
 
 ### Get another user's calendar
 
@@ -84,13 +85,15 @@ If successful, this method returns a `200 OK` response code and [calendar](../re
 ## Example
 ##### Request
 Here is an example of the request.
+
 <!-- {
   "blockType": "request",
   "name": "get_calendar"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendar
+GET https://graph.microsoft.com/beta/me/calendar
 ```
+
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
@@ -103,20 +106,25 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#me/calendars/$entity",
-    "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/calendars('AAMkAGI2TGuLAAA=')",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#me/calendars/$entity",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/calendars('AAMkAGI2TGuLAAA=')",
     "id": "AAMkAGI2TGuLAAA=",
     "name": "Calendar",
     "color": "auto",
+    "isDefaultCalendar": false,
     "changeKey": "nfZyf7VcrEKLNoU37KWlkQAAA0x0+w==",
     "canShare":true,
     "canViewPrivateItems":true,
+    "hexColor": "",
+    "isShared":false,
+    "isSharedWithMe":false,
     "canEdit":true,
     "owner":{
         "name":"Samantha Booth",
         "address":"samanthab@adatum.onmicrosoft.com"
     }
 }
+
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

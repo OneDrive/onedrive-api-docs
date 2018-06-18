@@ -1,5 +1,7 @@
 # List serviceConfigurationRecords
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieves a list of [domainDnsRecord](../resources/domaindnsrecord.md) objects needed to enable services for the domain.
 
 Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
@@ -48,7 +50,7 @@ If successful, this method returns a `200 OK` response code and collection of [d
   "name": "get_serviceconfigurationrecords"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/domains/{domain-name}/serviceConfigurationRecords
+GET https://graph.microsoft.com/beta/domains/contoso.com/serviceConfigurationRecords
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -66,7 +68,6 @@ Content-length: 220
 {
   "value": [
     {
-      "@odata.type":"microsoft.graph.domainDnsMxRecord",
       "isOptional": false,
       "label": "contoso.com",
       "recordType": "Mx",
@@ -76,11 +77,10 @@ Content-length: 220
       "preference": 0
     },
     {
-      "@odata.type":"microsoft.graph.domainDnsTxtRecord",
       "isOptional": false,
       "label": "contoso.com",
       "recordType": "Txt",
-      "supportedService": "Email",
+      "supportedServices": "Email",
       "ttl": 3600,
       "text": "v=spf1 include: spf.protection.outlook.com ~all"
     }

@@ -1,5 +1,7 @@
 # Range: Intersection
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Gets the range object that represents the rectangular intersection of the given ranges.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,15 +9,15 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /workbook/names/{name}/range/intersection
-GET /workbook/worksheets/{id|name}/range(address='<address>')/intersection
-GET /workbook/tables/{id|name}/columns/{id|name}/range/intersection
+GET /workbook/names(<name>)/range/Intersection
+GET /workbook/worksheets/{id|name}/range(address='<address>')/Intersection
+GET /workbook/tables/{id|name}/columns/{id|name}/range/Intersection
 
 ```
 ## Request headers
@@ -41,11 +43,10 @@ Here is an example of how to call this API.
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "isComposable": true,
   "name": "range_intersection"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names/{name}/range/intersection
+GET https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/names(<name>)/range/Intersection
 Content-type: application/json
 Content-length: 42
 
@@ -59,7 +60,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookRange"
+  "@odata.type": "microsoft.graph.range"
 } -->
 ```http
 HTTP/1.1 200 OK

@@ -1,11 +1,13 @@
 # Get user mailbox settings
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the user's [mailboxSettings](../resources/mailboxsettings.md). This includes settings for automatic replies (notify people automatically upon 
-receipt of their email), locale (language and country/region), and time zone, and working hours.
+receipt of their email), locale (language and country/region), time zone, and working hours.
 
 You can view all mailbox settings, or, get specific settings.
 
-Time zone is one of the preferred settings a user can set up for the user's mailbox. Valid time zone formats include the Windows time zone format and [Internet Assigned Numbers Authority (IANA) time zone](http://www.iana.org/time-zones) (also known as Olson time zone) format. The Windows format is the default. 
+Time zone is one of the preferred settings a user can set up for the user's mailbox. The user chooses it from the [supported time zones](outlookuser_supportedtimezones.md) that an administrator has set up for the user's mailbox server. The administrator sets up time zones in the Windows time zone format or  [Internet Assigned Numbers Authority (IANA) time zone](http://www.iana.org/time-zones) (also known as Olson time zone) format. The Windows format is the default. 
 
 When you get a user's preferred time zone, the time zone is returned in the format that it was set up. If you want that time zone to be in a specific format (Windows or IANA), you can first [update the preferred time zone in that format as a mailbox setting](user_update_mailboxsettings.md). Subsequently you will be able to get the time zone in that format. Alternatively, you can manage the format conversion separately in your app.
 
@@ -19,14 +21,14 @@ One of the following permissions is required to call this API. To learn more, in
 |Application | MailboxSettings.Read, MailboxSettings.ReadWrite |
 
 ## HTTP request
-To get all mailbox settings for a user:
+To get all the mailbox settings for a user:
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/mailboxSettings
 GET /users/{id|userPrincipalName}/mailboxSettings
 ```
 
-To get specific settings - for example, only the automatic replies settings, locale, time zone, or working hours:
+To get specific settings - only the automatic replies settings, locale, time zone, or working hours:
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/mailboxSettings/automaticRepliesSetting
@@ -70,10 +72,10 @@ locale (language and country/region), and working hours.
   "name": "get_mailboxsettings_1"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/mailboxSettings
+GET https://graph.microsoft.com/beta/me/mailboxSettings
 ```
 ##### Response 1
-The response includes all the mailbox settings. 
+The response includes all the mailbox settings of the signed-in user. 
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
@@ -86,7 +88,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Me/mailboxSettings",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/mailboxSettings",
     "automaticRepliesSetting": {
         "status": "Scheduled",
         "externalAudience": "All",
@@ -114,8 +116,8 @@ Content-type: application/json
             "thursday",
             "friday"
         ],
-        "startTime":"08:00:00.000",
-        "endTime":"17:00:00.000",
+        "startTime":"08:00:00.0000000",
+        "endTime":"17:00:00.0000000",
         "timeZone":{
             "name":"Pacific Standard Time"
         }
@@ -130,7 +132,7 @@ The second example gets specifically the automatic replies settings of the signe
   "name": "get_mailboxsettings_2"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/mailboxSettings/automaticRepliesSetting
+GET https://graph.microsoft.com/beta/me/mailboxSettings/automaticRepliesSetting
 ```
 ##### Response 2
 The response includes only the automatic replies settings. 
@@ -146,7 +148,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/api/v1.0/$metadata#Me/mailboxSettings/automaticRepliesSetting",
+    "@odata.context": "https://graph.microsoft.com/api/beta/$metadata#Me/mailboxSettings/automaticRepliesSetting",
     "status": "alwaysEnabled",
     "externalAudience": "None",
     "scheduledStartDateTime": {
@@ -170,7 +172,7 @@ The third example gets specifically the working hour settings of the signed-in u
   "name": "get_mailboxsettings_3"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/mailboxSettings/workingHours
+GET https://graph.microsoft.com/beta/me/mailboxSettings/workingHours
 ```
 ##### Response 3
 The response includes only the working hours settings. Notice that the user's work hours are in a [custom time zone](../resources/customtimezone.md). 
@@ -187,7 +189,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('94447c6e-ea4c-494c-a9ed-d905e366c5cb')/mailboxSettings/workingHours",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('94447c6e-ea4c-494c-a9ed-d905e366c5cb')/mailboxSettings/workingHours",
     "daysOfWeek":[
         "monday",
         "tuesday",

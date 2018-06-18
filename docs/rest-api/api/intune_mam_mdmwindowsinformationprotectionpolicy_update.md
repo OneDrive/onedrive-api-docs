@@ -1,5 +1,7 @@
 ﻿# Update mdmWindowsInformationProtectionPolicy
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [mdmWindowsInformationProtectionPolicy](../resources/intune_mam_mdmwindowsinformationprotectionpolicy.md) object.
@@ -72,7 +74,7 @@ If successful, this method returns a `200 OK` response code and an updated [mdmW
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicyId}
+PATCH https://graph.microsoft.com/beta/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicyId}
 Content-type: application/json
 Content-length: 3890
 
@@ -101,7 +103,7 @@ Content-length: 3890
     "certificate": "Y2VydGlmaWNhdGU="
   },
   "revokeOnUnenrollDisabled": true,
-  "rightsManagementServicesTemplateId": "79199ed9-e50b-4257-8de4-70b9c8685061",
+  "rightsManagementServicesTemplateId": "<Unknown Primitive Type Edm.Guid>",
   "azureRightsManagementServicesAllowed": true,
   "iconsVisible": true,
   "protectedApps": [
@@ -210,7 +212,7 @@ Content-Type: application/json
 Content-Length: 4074
 
 {
-  "@odata.type": "#microsoft.graph.mdmWindowsInformationProtectionPolicy",
+  "@odata.type": "#microsoft.intune_mam_graph.mdmWindowsInformationProtectionPolicy",
   "displayName": "Display Name value",
   "description": "Description value",
   "createdDateTime": "2017-01-01T00:02:43.5775965-08:00",
@@ -237,7 +239,7 @@ Content-Length: 4074
     "certificate": "Y2VydGlmaWNhdGU="
   },
   "revokeOnUnenrollDisabled": true,
-  "rightsManagementServicesTemplateId": "79199ed9-e50b-4257-8de4-70b9c8685061",
+  "rightsManagementServicesTemplateId": "<Unknown Primitive Type Edm.Guid>",
   "azureRightsManagementServicesAllowed": true,
   "iconsVisible": true,
   "protectedApps": [

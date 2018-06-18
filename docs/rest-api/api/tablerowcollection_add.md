@@ -1,5 +1,7 @@
 # TableRowCollection: add
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Adds rows to the end of the table. Note that the API can accept multiple rows data using this API. Adding one row at a time could lead to performance degradation. The recommended approach would be to batch the rows together in a single call rather than doing single row insertion. For best results, collect the rows to be inserted on the application side and perform single rows add operation. Experiment with the number of rows to determine the ideal number of rows to use in single API call. 
 
 ## Error Handling
@@ -12,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -33,12 +35,12 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|index|Int32|Optional. Specifies the relative position of the new row. If null, the addition happens at the end. Any rows below the inserted row are shifted downwards. Zero-indexed.|
-|values|Json|Optional. A 2-dimensional array of unformatted values of the table row.|
+|index|number|Optional. Specifies the relative position of the new row. If null, the addition happens at the end. Any rows below the inserted row are shifted downwards. Zero-indexed.|
+|values|(boolean or string or number)|Optional. A 2-dimensional array of unformatted values of the table rows.|
 
 ## Response
 
-If successful, this method returns `200 OK` response code and [WorkbookTableRow](../resources/tablerow.md) object in the response body.
+If successful, this method returns `200 OK` response code and [TableRow](../resources/tablerow.md) object in the response body.
 
 ## Example
 In this example two rows of data are inserted at the end of the table. 
@@ -50,12 +52,12 @@ Here is an example of the request.
   "name": "tablerowcollection_add"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{id|name}/rows/add
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/{id|name}/rows/add
 Content-type: application/json
 Content-length: 51
 
 {
-  "index": 5,
+  "index": null,
   "values": [
     [1, 2, 3],
     [4, 5, 6]
@@ -68,7 +70,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookTableRow"
+  "@odata.type": "microsoft.graph.tableRow"
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -88,11 +90,5 @@ Content-length: 45
   "description": "TableRowCollection: add",
   "keywords": "",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/api/tablerowcollection_add.md/tablerowcollection_add/values:
-      Inconsistent types between parameter (Collection) and table (None)",
-    "Error: /api-reference/v1.0/api/tablerowcollection_add.md/tablerowcollection_add/values:
-      Type mismatch between example and table. Parameter name: values; example type (Collection(Collection)) is a collection, while the table description type (microsoft.graph.Json) is not."
-  ],
   "tocPath": ""
 }-->

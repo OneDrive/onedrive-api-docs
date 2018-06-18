@@ -1,5 +1,7 @@
 # List classes
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of all class objects. 
 
 ## Permissions
@@ -37,7 +39,7 @@ The following is an example of the request.
   "name": "get_classes"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/classes
+GET https://graph.microsoft.com/beta/education/classes
 ```
 ##### Response
 The following is an example of the response. 

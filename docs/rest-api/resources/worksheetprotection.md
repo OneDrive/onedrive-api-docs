@@ -1,5 +1,7 @@
 # WorksheetProtection resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents the protection of a sheet object.
 
 
@@ -7,31 +9,35 @@ Represents the protection of a sheet object.
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Get WorksheetProtection](../api/worksheetprotection_get.md) | [WorkbookWorksheetProtection](worksheetprotection.md) |Read properties and relationships of worksheetProtection object.|
+|[Get WorksheetProtection](../api/worksheetprotection_get.md) | [WorksheetProtection](worksheetprotection.md) |Read properties and relationships of worksheetProtection object.|
 |[Protect](../api/worksheetprotection_protect.md)|None|Protect a worksheet. It throws if the worksheet has been protected.|
 |[Unprotect](../api/worksheetprotection_unprotect.md)|None|Unprotect a worksheet|
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|options|[WorkbookWorksheetProtectionOptions](worksheetprotectionoptions.md)|Sheet protection options. Read-only.|
 |protected|boolean|Indicates if the worksheet is protected.  Read-only.|
+
+## Relationships
+| Relationship | Type	|Description|
+|:---------------|:--------|:----------|
+|options|[WorksheetProtectionOptions](worksheetprotectionoptions.md)|Sheet protection options. Read-only.|
 
 ## JSON representation
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.workbookWorksheetProtection"
+  "optionalProperties": [
+
+  ],
+  "@odata.type": "microsoft.graph.worksheetProtection"
 }-->
 
 ```json
 {
-  "protected": true,
-  "options": { "@odata.type": "microsoft.graph.workbookWorksheetProtectionOptions" }
+  "protected": true
 }
 
 ```

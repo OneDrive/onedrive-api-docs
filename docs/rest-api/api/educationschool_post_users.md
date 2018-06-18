@@ -1,5 +1,7 @@
 # Add educationUser to an educationSchool
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Add a user to a school.
 
 ## Permissions
@@ -37,12 +39,12 @@ The following is an example of the request.
   "name": "create_educationuser_from_educationschool"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/education/schools/{id}/users/$ref
+POST https://graph.microsoft.com/beta/education/schools/<id>/users/$ref
 Content-type: application/json
 Content-length: 56
 
 {
-  "@odata.id":"https://graph.microsoft.com/v1.0/education/users/14008"
+  "@odata.id":"https://graph.microsoft.com/beta/education/users/14008"
 }
 ```
 

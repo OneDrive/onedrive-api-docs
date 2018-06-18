@@ -1,4 +1,6 @@
-# mobileThreatDefenseConnector resource type
+﻿# mobileThreatDefenseConnector resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -20,21 +22,26 @@ Entity which represents a connection to Mobile threat defense partner.
 |partnerState|[mobileThreatPartnerTenantState](../resources/intune_onboarding_mobilethreatpartnertenantstate.md)|Data Sync Partner state for this account. Possible values are: `unavailable`, `available`, `enabled`, `unresponsive`.|
 |androidEnabled|Boolean|For Android, set whether data from the data sync partner should be used during compliance evaluations|
 |iosEnabled|Boolean|For IOS, get or set whether data from the data sync partner should be used during compliance evaluations|
+|windowsEnabled|Boolean|For Windows, get or set whether data from the data sync partner should be used during compliance evaluations|
+|macEnabled|Boolean|For Mac, get or set whether data from the data sync partner should be used during compliance evaluations|
 |androidDeviceBlockedOnMissingPartnerData|Boolean|For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant|
 |iosDeviceBlockedOnMissingPartnerData|Boolean|For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant|
+|windowsDeviceBlockedOnMissingPartnerData|Boolean|For Windows, set whether Intune must receive data from the data sync partner prior to marking a device compliant|
+|macDeviceBlockedOnMissingPartnerData|Boolean|For Mac, get or set whether Intune must receive data from the data sync partner prior to marking a device compliant|
 |partnerUnsupportedOsVersionBlocked|Boolean|Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner|
 |partnerUnresponsivenessThresholdInDays|Int32|Get or Set days the per tenant tolerance to unresponsiveness for this partner integration|
+|allowPartnerToCollectIOSApplicationMetadata|Boolean|For IOS devices, allows the admin to configure whether the data sync partner may also collect metadata about installed applications from Intune|
 
 ## Relationships
 None
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.mobileThreatDefenseConnector"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.mobileThreatDefenseConnector",
@@ -43,10 +50,15 @@ Here is a JSON representation of the resource.
   "partnerState": "String",
   "androidEnabled": true,
   "iosEnabled": true,
+  "windowsEnabled": true,
+  "macEnabled": true,
   "androidDeviceBlockedOnMissingPartnerData": true,
   "iosDeviceBlockedOnMissingPartnerData": true,
+  "windowsDeviceBlockedOnMissingPartnerData": true,
+  "macDeviceBlockedOnMissingPartnerData": true,
   "partnerUnsupportedOsVersionBlocked": true,
-  "partnerUnresponsivenessThresholdInDays": 1024
+  "partnerUnresponsivenessThresholdInDays": 1024,
+  "allowPartnerToCollectIOSApplicationMetadata": true
 }
 ```
 

@@ -1,23 +1,18 @@
-# OneNoteResource resource type
+# resource resource type
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 An image or other file resource on a OneNote page. 
 
 You can get the binary data of a resource, but getting a JSON representation of a resource object or a resource collection is not supported.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.onenoteEntityBaseModel",
-  "optionalProperties": [],
-  "isMediaEntity": true,
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.onenoteResource"
 }-->
-
-```json
-{
-  "content": { "@odata.type": "Edm.Stream" },
-  "contentUrl": "string (url)"
-}
-```
 
 Get the binary data of a specific resource by sending a GET request to the resource's `content` endpoint:
 
@@ -50,11 +45,7 @@ An `object` tag (which represents files such as PDF, DOCX, and PNG) includes the
 ```
 
 ## Properties
-
-| Property             | Type            | Description
-|:---------------------|:----------------|:---------------------------------
-| content              | Stream          | The content stream
-| contentUrl           | String (url)    | The URL for downloading the content
+None.
 
 ## Relationships
 None.

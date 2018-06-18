@@ -1,11 +1,13 @@
 # recentNotebookLinks resource type
 
-Links for opening a OneNote notebook. This resource type exists as a property on a [recentNotebook](recentnotebook.md) resource.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Links to open a OneNote notebook. This resource type exists as a property on a [recentNotebook](recentnotebook.md) resource.
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|oneNoteClientUrl|[externalLink](externallink.md)|Opens the notebook in the OneNote native client if it's installed.|
+|oneNoteClientUrl|[externalLink](externallink.md)|Opens the notebook in the OneNote client, if it's installed.|
 |oneNoteWebUrl|[externalLink](externallink.md)|Opens the notebook in OneNote Online.|
 
 ## JSON representation

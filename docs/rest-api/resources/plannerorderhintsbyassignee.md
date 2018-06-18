@@ -1,5 +1,7 @@
 # plannerOrderHintsByAssignee resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **plannerOrderHintsByAssignee** is a resource that contains [ordering hints](planner_order_hint_format.md) for assignees in a [plannerTask](plannerTask.md) resource, to indicate the order of the task in Assigned To view of the Task Board.
 This type is an open type. The properties are the ids of users assigned to the task, and the values are order hints.
 
@@ -11,8 +13,9 @@ Example:
 
 <!-- {
   "blockType": "resource",
-  "openType": true,
-  "optionalProperties": [ "ca2a1df2-e36b-4987-9f6b-0ea462f4eb47", "4e98f8f1-bb03-4015-b8e0-19bb370949d8" ],
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.plannerOrderHintsByAssignee"
 }-->
 

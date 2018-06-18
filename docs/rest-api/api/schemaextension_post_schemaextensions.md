@@ -1,5 +1,7 @@
 # Create schemaExtension
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new [schemaExtension](../resources/schemaextension.md) definition to extend a [supporting resource type](../../../concepts/extensibility_overview.md#supported-resources).
 
 Schema extensions let you add strongly-typed custom data to a resource. The app that creates a schema extension is the owner app. Depending on the 
@@ -34,7 +36,7 @@ POST /schemaExtensions
 ## Request body
 In the request body, supply a JSON representation of [schemaExtension](../resources/schemaextension.md) object.
 
-The following table shows the properties that are required when you create a schema extension.
+The following table shows the properties that are available when you create a schema extension.
 
 | Parameter | Type | Description|
 |:---------------|:--------|:----------|
@@ -61,7 +63,7 @@ In the request body, supply a JSON representation of the [schemaExtension](../re
   "name": "create_schemaextension_from_schemaextensions_1"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/schemaExtensions
+POST https://graph.microsoft.com/beta/schemaExtensions
 Content-type: application/json
 
 {
@@ -135,7 +137,7 @@ properties in the [schemaExtension](../resources/schemaextension.md) object. Mic
   "name": "create_schemaextension_from_schemaextensions_2"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/schemaExtensions
+POST https://graph.microsoft.com/beta/schemaExtensions
 Content-type: application/json
 
 {

@@ -1,5 +1,7 @@
 # Delete conversation
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete conversation.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -35,7 +37,7 @@ Here is an example of the request.
   "name": "delete_conversation"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/groups/{id}/conversations/{id}
+DELETE https://graph.microsoft.com/beta/groups/{id}/conversations/{id}
 ```
 ##### Response
 Here is an example of the response. 

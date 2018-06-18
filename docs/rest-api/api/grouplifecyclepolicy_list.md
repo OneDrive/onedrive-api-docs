@@ -1,5 +1,7 @@
 # List groupLifecyclePolicies
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 List all the [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md).
 
 ## Permissions
@@ -10,7 +12,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Directory.Read.All or Directory.ReadWrite.All |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Not supported |
 |Application | Directory.Read.All or Directory.ReadWrite.All |
 
 ## HTTP request
@@ -42,7 +44,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
   "name": "get_grouplifecyclepolicy"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groupLifecyclePolicies
+GET https://graph.microsoft.com/beta/groupLifecyclePolicies
 ```
 ##### Response
 

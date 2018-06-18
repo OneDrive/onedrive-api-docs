@@ -1,5 +1,7 @@
 ﻿# Create mobileThreatDefenseConnector
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Create a new [mobileThreatDefenseConnector](../resources/intune_onboarding_mobilethreatdefenseconnector.md) object.
@@ -39,10 +41,15 @@ The following table shows the properties that are required when you create the m
 |partnerState|[mobileThreatPartnerTenantState](../resources/intune_onboarding_mobilethreatpartnertenantstate.md)|Data Sync Partner state for this account. Possible values are: `unavailable`, `available`, `enabled`, `unresponsive`.|
 |androidEnabled|Boolean|For Android, set whether data from the data sync partner should be used during compliance evaluations|
 |iosEnabled|Boolean|For IOS, get or set whether data from the data sync partner should be used during compliance evaluations|
+|windowsEnabled|Boolean|For Windows, get or set whether data from the data sync partner should be used during compliance evaluations|
+|macEnabled|Boolean|For Mac, get or set whether data from the data sync partner should be used during compliance evaluations|
 |androidDeviceBlockedOnMissingPartnerData|Boolean|For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant|
 |iosDeviceBlockedOnMissingPartnerData|Boolean|For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant|
+|windowsDeviceBlockedOnMissingPartnerData|Boolean|For Windows, set whether Intune must receive data from the data sync partner prior to marking a device compliant|
+|macDeviceBlockedOnMissingPartnerData|Boolean|For Mac, get or set whether Intune must receive data from the data sync partner prior to marking a device compliant|
 |partnerUnsupportedOsVersionBlocked|Boolean|Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner|
 |partnerUnresponsivenessThresholdInDays|Int32|Get or Set days the per tenant tolerance to unresponsiveness for this partner integration|
+|allowPartnerToCollectIOSApplicationMetadata|Boolean|For IOS devices, allows the admin to configure whether the data sync partner may also collect metadata about installed applications from Intune|
 
 
 
@@ -53,9 +60,9 @@ If successful, this method returns a `201 Created` response code and a [mobileTh
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/v1.0/deviceManagement/mobileThreatDefenseConnectors
+POST https://graph.microsoft.com/beta/deviceManagement/mobileThreatDefenseConnectors
 Content-type: application/json
-Content-length: 414
+Content-length: 622
 
 {
   "@odata.type": "#microsoft.graph.mobileThreatDefenseConnector",
@@ -63,10 +70,15 @@ Content-length: 414
   "partnerState": "available",
   "androidEnabled": true,
   "iosEnabled": true,
+  "windowsEnabled": true,
+  "macEnabled": true,
   "androidDeviceBlockedOnMissingPartnerData": true,
   "iosDeviceBlockedOnMissingPartnerData": true,
+  "windowsDeviceBlockedOnMissingPartnerData": true,
+  "macDeviceBlockedOnMissingPartnerData": true,
   "partnerUnsupportedOsVersionBlocked": true,
-  "partnerUnresponsivenessThresholdInDays": 6
+  "partnerUnresponsivenessThresholdInDays": 6,
+  "allowPartnerToCollectIOSApplicationMetadata": true
 }
 ```
 
@@ -75,7 +87,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 463
+Content-Length: 671
 
 {
   "@odata.type": "#microsoft.graph.mobileThreatDefenseConnector",
@@ -84,10 +96,15 @@ Content-Length: 463
   "partnerState": "available",
   "androidEnabled": true,
   "iosEnabled": true,
+  "windowsEnabled": true,
+  "macEnabled": true,
   "androidDeviceBlockedOnMissingPartnerData": true,
   "iosDeviceBlockedOnMissingPartnerData": true,
+  "windowsDeviceBlockedOnMissingPartnerData": true,
+  "macDeviceBlockedOnMissingPartnerData": true,
   "partnerUnsupportedOsVersionBlocked": true,
-  "partnerUnresponsivenessThresholdInDays": 6
+  "partnerUnresponsivenessThresholdInDays": 6,
+  "allowPartnerToCollectIOSApplicationMetadata": true
 }
 ```
 

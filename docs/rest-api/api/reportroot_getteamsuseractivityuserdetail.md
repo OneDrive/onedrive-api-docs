@@ -1,5 +1,7 @@
 # reportRoot: getTeamsUserActivityUserDetail
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get details about Microsoft Teams user activity by user.
 
 ## Permissions
@@ -14,11 +16,11 @@ One of the following permissions is required to call this API. To learn more, in
 
 ## HTTP request
 
-<!-- { "blockType": "samples" } -->
+<!-- { "blockType": "ignored" } -->
 
 ```http
-GET /reports/getTeamsUserActivityUserDetail(period='{period_value}')
-GET /reports/getTeamsUserActivityUserDetail(date={date_value})
+GET /reports/getTeamsUserActivityUserDetail(period='D7')
+GET /reports/getTeamsUserActivityUserDetail(date=2017-09-01)
 ```
 
 ## Request parameters
@@ -32,6 +34,8 @@ In the request URL, provide one of the following parameters with a valid value.
 
 > **Note:** You need to set either period or date in the URL.
 
+This method supports the `$format`, `$top`, and `$skipToken` [OData query parameters](../../../concepts/query_parameters.md) to customize the response. The default output type is text/csv. However, if you want to specify the output type, you can use the OData $format query parameter set to text/csv or application/json.
+
 ## Request headers
 
 | Name          | Description               |
@@ -40,11 +44,13 @@ In the request URL, provide one of the following parameters with a valid value.
 
 ## Response
 
+### CSV
+
 If successful, this method returns a `302 Found` response that redirects to a preauthenticated download URL for the report. That URL can be found in the `Location` header in the response.
 
 Preauthenticated download URLs are only valid for a short period of time (a few minutes) and do not require an `Authorization` header.
 
-The CSV file has the following headers for columns:
+The CSV file has the following headers for columns.
 
 - Report Refresh Date
 - User Principal Name
@@ -59,7 +65,17 @@ The CSV file has the following headers for columns:
 - Has Other Action
 - Report Period
 
+### JSON
+
+If successful, this method returns a `200 OK` response code and a **[teamsUserActivityUserDetail](../resources/teamsuseractivityuserdetail.md)** object in the response body.
+
+The default page size for this request is 2000 items.
+
 ## Example
+
+### CSV
+
+The following is an example that outputs CSV.
 
 #### Request
 
@@ -67,22 +83,18 @@ The following is an example of the request.
 
 <!-- {
   "blockType": "request",
-  "name": "reportroot_getteamsuseractivityuserdetail"
+  "name": "reportroot_getteamsuseractivityuserdetail_csv"
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/reports/getTeamsUserActivityUserDetail(period='D7')
+GET https://graph.microsoft.com/beta/reports/getTeamsUserActivityUserDetail(period='D7')?$format=text/csv
 ```
 
 #### Response
 
 The following is an example of the response.
 
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.report"
-} -->
+<!-- { "blockType": "ignored" } --> 
 
 ```http
 HTTP/1.1 302 Found
@@ -92,11 +104,72 @@ Location: https://reports.office.com/data/download/JDFKdf2_eJXKS034dbc7e0t__XDe
 
 Follow the 302 redirection and the CSV file that downloads will have the following schema.
 
-<!-- { "blockType": "ignored" } --> 
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "stream"
+} -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream
 
 Report Refresh Date,User Principal Name,Last Activity Date,Is Deleted,Deleted Date,Assigned Products,Team Chat Message Count,Private Chat Message Count,Call Count,Meeting Count,Has Other Action,Report Period
+```
+
+### JSON
+
+The following is an example that returns JSON.
+
+#### Request
+
+The following is an example of the request.
+
+<!-- {
+  "blockType": "request",
+  "name": "reportroot_getteamsuseractivityuserdetail_json"
+}-->
+
+```http
+GET https://graph.microsoft.com/beta/reports/getTeamsUserActivityUserDetail(period='D7')?$format=application/json
+```
+
+#### Response
+
+The following is an example of the response.
+
+> **Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.teamsUserActivityUserDetail"
+} -->
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 452
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.teamsUserActivityUserDetail)", 
+  "value": [
+    {
+      "reportRefreshDate": "2017-09-01", 
+      "userPrincipalName": "userPrincipalName-value", 
+      "lastActivityDate": "2017-09-01", 
+      "isDeleted": false, 
+      "deletedDate": null, 
+      "assignedProducts": [
+        "OFFICE 365 ENTERPRISE E5"
+      ], 
+      "teamChatMessageCount": 0, 
+      "privateChatMessageCount": 49, 
+      "callCount": 2, 
+      "meetingCount": 0, 
+      "hasOtherAction": true, 
+      "reportPeriod": "7"
+    }
+  ]
+}
 ```

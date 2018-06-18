@@ -1,5 +1,7 @@
 # List schools
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of schools for a user.
 
 >**Note:** If the delegated token is used, members can only see information about their own schools. Use the `...beta/education/me/schools` resource in this case.
@@ -39,7 +41,7 @@ The following is an example of the request.
   "name": "get_schools"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/me/schools
+GET https://graph.microsoft.com/beta/education/me/schools
 ```
 ##### Response
 The following is an example of the response. 

@@ -6,6 +6,8 @@ title: Shared
 ---
 # Shared resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **Shared** resource indicates a DriveItem has been shared with others.
 The resource includes information about how the item is shared.
 
@@ -37,7 +39,7 @@ If a [**Driveitem**](driveitem.md) has a non-null **shared** facet, the item has
 | sharedBy       | [identitySet](identityset.md) | The identity of the user who shared the item. Read-only.
 | sharedDateTime | DateTimeOffset                | The UTC date and time when the item was shared. Read-only.
 
-## Scope options
+## Scope values
 
 | Value          | Description                                                                           |
 |:---------------|:--------------------------------------------------------------------------------------|
@@ -54,9 +56,5 @@ For more information about the facets on a **driveItem**, see [**driveItem**](dr
   "description": "The shared facet provides info about shared items.",
   "keywords": "shared,share,item,facet,onedrive",
   "section": "documentation",
-  "suppressions": [
-    "Warning: /api-reference/v1.0/resources/shared.md:
-      Found potential enums in resource example that weren't defined in a table:(anonymous,organization,users) are in resource, but () are in table"
-  ],
   "tocPath": "Facets/Shared"
 } -->

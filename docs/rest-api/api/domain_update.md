@@ -1,5 +1,7 @@
 # Update domain
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of domain object.
 
 > **Important:**
@@ -44,11 +46,10 @@ If successful, this method returns a `204 No Content` response code and no respo
 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["contoso.com"],
   "name": "update_domain"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/domains/contoso.com
+PATCH https://graph.microsoft.com/beta/domains/contoso.com
 Content-type: application/json
 
 {

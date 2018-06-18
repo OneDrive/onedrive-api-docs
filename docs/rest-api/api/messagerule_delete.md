@@ -1,5 +1,6 @@
 # Delete messageRule
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Delete the specified [messageRule](../resources/messagerule.md) object.
 
@@ -15,8 +16,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /me/mailFolders/inbox/messageRules/{id}
-DELETE /users/{id | userPrincipalName}/mailFolders/inbox/messageRules/{id}
+DELETE /me/mailFolders/inbox/messagerules/{id}
+DELETE /users/{id | userPrincipalName}/mailFolders/inbox/messagerules/{id}
 ```
 ## Request headers
 | Name       | Description|
@@ -36,11 +37,10 @@ If successful, this method returns `204 No Content` response code. It does not r
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["inbox"],
   "name": "delete_messagerule"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules/{rule-id}
+DELETE https://graph.microsoft.com/beta/me/mailfolders/inbox/messagerules('AQAAAJ5dZp8=')
 
 ```
 ##### Response

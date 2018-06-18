@@ -1,5 +1,7 @@
 # List attachments
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of attachment objects.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -38,14 +40,14 @@ Here is an example of the request.
   "name": "get_attachments"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/messages/{id}/attachments
+GET https://graph.microsoft.com/beta/me/messages/{id}/attachments
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "collection(microsoft.graph.attachment)",
+  "@odata.type": "microsoft.graph.attachment",
   "isCollection": true
 } -->
 ```http
@@ -56,14 +58,15 @@ Content-length: 215
 {
   "value": [
     {
-      "@odata.type": "microsoft.graph.fileAttachment",
+      "@odata.type": "#Microsoft.OutlookServices.FileAttachment",
       "contentType": "contentType-value",
       "contentLocation": "contentLocation-value",
-      "contentBytes": "base64-contentBytes-value",
+      "contentBytes": "contentBytes-value",
       "contentId": "null",
-      "lastModifiedDateTime": "datetime-value",
+      "lastModifiedDateTime": "2016-10-19T10:37:00Z",
       "id": "id-value",
       "isInline": false,
+      "isContactPhoto": false,
       "name": "name-value",
       "size": 99
     }

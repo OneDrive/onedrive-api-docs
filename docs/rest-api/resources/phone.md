@@ -1,5 +1,7 @@
 # phone resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a phone number.
 
 
@@ -7,23 +9,7 @@ Represents a phone number.
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |number|string|The phone number.|
-|type|phoneType|The type of phone number. Possible values are: `home`, `business`, `mobile`, `other`, `assistant`, `homeFax`, `businessFax`, `otherFax`, `pager`, `radio`.|
-
-### phoneType values
-
-| Value
-|:-------------------------
-| home
-| business
-| mobile
-| other
-| assistant
-| homeFax
-| businessFax
-| otherFax
-| pager
-| radio
-
+|type|String|The type of phone number. Possible values are: `home`, `business`, `mobile`, `other`, `assistant`, `homeFax`, `businessFax`, `otherFax`, `pager`, `radio`.|
 
 ## JSON representation
 

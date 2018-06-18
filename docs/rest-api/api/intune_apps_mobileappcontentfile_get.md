@@ -1,5 +1,7 @@
 ﻿# Get mobileAppContentFile
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [mobileAppContentFile](../resources/intune_apps_mobileappcontentfile.md) object.
@@ -39,7 +41,7 @@ If successful, this method returns a `200 OK` response code and [mobileAppConten
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps/{mobileAppId}/contentVersions/{mobileAppContentId}/files/{mobileAppContentFileId}
+GET https://graph.microsoft.com/beta/deviceAppManagement/mobileApps/{mobileAppId}/contentVersions/{mobileAppContentId}/files/{mobileAppContentFileId}
 ```
 
 ### Response
@@ -47,7 +49,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 491
+Content-Length: 548
 
 {
   "value": {
@@ -61,7 +63,9 @@ Content-Length: 491
     "sizeEncrypted": 13,
     "azureStorageUriExpirationDateTime": "2017-01-01T00:00:08.4940464-08:00",
     "manifest": "bWFuaWZlc3Q=",
-    "uploadState": "transientError"
+    "uploadState": "transientError",
+    "isFrameworkFile": true,
+    "isDependency": true
   }
 }
 ```

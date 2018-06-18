@@ -1,5 +1,7 @@
 ﻿# Update roleAssignment
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [roleAssignment](../resources/intune_rbac_roleassignment.md) object.
@@ -37,6 +39,8 @@ The following table shows the properties that are required when you create the [
 |id|String|Key of the entity. This is read-only and automatically generated.|
 |displayName|String|The display or friendly name of the role Assignment.|
 |description|String|Description of the Role Assignment.|
+|scopeMembers|String collection|List of ids of role scope member security groups.  These are IDs from Azure Active Directory.|
+|scopeType|[roleAssignmentScopeType](../resources/intune_rbac_roleassignmentscopetype.md)|Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: `resourceScope`, `allDevices`, `allLicensedUsers`, `allDevicesAndLicensedUsers`.|
 |resourceScopes|String collection|List of ids of role scope member security groups.  These are IDs from Azure Active Directory.|
 
 
@@ -48,13 +52,17 @@ If successful, this method returns a `200 OK` response code and an updated [role
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/roleDefinitions/{roleDefinitionId}/roleAssignments/{roleAssignmentId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/roleDefinitions/{roleDefinitionId}/roleAssignments/{roleAssignmentId}
 Content-type: application/json
-Content-length: 140
+Content-length: 224
 
 {
   "displayName": "Display Name value",
   "description": "Description value",
+  "scopeMembers": [
+    "Scope Members value"
+  ],
+  "scopeType": "allDevices",
   "resourceScopes": [
     "Resource Scopes value"
   ]
@@ -66,13 +74,17 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 242
+Content-Length: 326
 
 {
   "@odata.type": "#microsoft.graph.roleAssignment",
   "id": "b3234d24-4d24-b323-244d-23b3244d23b3",
   "displayName": "Display Name value",
   "description": "Description value",
+  "scopeMembers": [
+    "Scope Members value"
+  ],
+  "scopeType": "allDevices",
   "resourceScopes": [
     "Resource Scopes value"
   ]

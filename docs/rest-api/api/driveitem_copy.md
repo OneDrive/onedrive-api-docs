@@ -6,6 +6,8 @@ title: Copy a file or folder
 ---
 # Copy a DriveItem
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Asynchronously creates a copy of an [driveItem][item-resource] (including any children), under a new parent item or with a new name.
 
 ## Permissions
@@ -47,7 +49,7 @@ In the request body, provide a JSON object with the following parameters.
 This example copies a file identified by `{item-id}` into a folder identified with a `driveId` and `id` value.
 The new copy of the file will be named `contoso plan (copy).txt`.
 
-<!-- { "blockType": "request", "name": "copy-item", "scopes": "files.readwrite", "tags": "service.graph", "target": "action" } -->
+<!-- { "blockType": "request", "name": "copy-item", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
 POST /me/drive/items/{item-id}/copy

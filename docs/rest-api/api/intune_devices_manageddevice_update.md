@@ -1,5 +1,7 @@
 ﻿# Update managedDevice
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [managedDevice](../resources/intune_devices_manageddevice.md) object.
@@ -20,7 +22,8 @@ One of the following permissions is required to call this API. To learn more, in
 ``` http
 PATCH /users/{usersId}/managedDevices/{managedDeviceId}
 PATCH /deviceManagement/managedDevices/{managedDeviceId}
-PATCH /deviceManagement/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}
+PATCH /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice
+PATCH /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}
 ```
 
 ## Request headers
@@ -39,11 +42,16 @@ The following table shows the properties that are required when you create the [
 |id|String|Unique Identifier for the device|
 |userId|String|Unique Identifier for the user associated with the device|
 |deviceName|String|Name of the device|
+|hardwareInformation|[hardwareInformation](../resources/intune_devices_hardwareinformation.md)|The hardward details for the device.  Includes information such as storage space, manufacturer, serial number, etc.|
+|ownerType|[ownerType](../resources/intune_devices_ownertype.md)|Ownership of the device. Can be 'company' or 'personal'. Possible values are: `unknown`, `company`, `personal`.|
 |managedDeviceOwnerType|[managedDeviceOwnerType](../resources/intune_devices_manageddeviceownertype.md)|Ownership of the device. Can be 'company' or 'personal'. Possible values are: `unknown`, `company`, `personal`.|
 |deviceActionResults|[deviceActionResult](../resources/intune_devices_deviceactionresult.md) collection|List of ComplexType deviceActionResult objects.|
+|managementState|[managementState](../resources/intune_devices_managementstate.md)|Management state of the device. Possible values are: `managed`, `retirePending`, `retireFailed`, `wipePending`, `wipeFailed`, `unhealthy`, `deletePending`, `retireIssued`, `wipeIssued`, `wipeCanceled`, `retireCanceled`, `discovered`.|
 |enrolledDateTime|DateTimeOffset|Enrollment time of the device.|
 |lastSyncDateTime|DateTimeOffset|The date and time that the device last completed a successful sync with Intune.|
+|chassisType|[chassisType](../resources/intune_devices_chassistype.md)|Chassis type of the device. Possible values are: `unknown`, `desktop`, `laptop`, `worksWorkstation`, `enterpriseServer`, `phone`, `tablet`, `mobileOther`, `mobileUnknown`.|
 |operatingSystem|String|Operating system of the device. Windows, iOS, etc.|
+|deviceType|[deviceType](../resources/intune_shared_devicetype.md)|Platform of the device. Possible values are: `desktop`, `windowsRT`, `winMO6`, `nokia`, `windowsPhone`, `mac`, `winCE`, `winEmbedded`, `iPhone`, `iPad`, `iPod`, `android`, `iSocConsumer`, `unix`, `macMDM`, `holoLens`, `surfaceHub`, `androidForWork`, `androidEnterprise`, `blackberry`, `palm`, `unknown`.|
 |complianceState|[complianceState](../resources/intune_devices_compliancestate.md)|Compliance state of the device. Possible values are: `unknown`, `compliant`, `noncompliant`, `conflict`, `error`, `inGracePeriod`, `configManager`.|
 |jailBroken|String|whether the device is jail broken or rooted.|
 |managementAgent|[managementAgentType](../resources/intune_devices_managementagenttype.md)|Management channel of the device. Intune, EAS, etc. Possible values are: `eas`, `mdm`, `easMdm`, `intuneClient`, `easIntuneClient`, `configurationManagerClient`, `configurationManagerClientMdm`, `configurationManagerClientMdmEas`, `unknown`, `jamf`, `googleCloudDevicePolicyController`.|
@@ -51,10 +59,13 @@ The following table shows the properties that are required when you create the [
 |easActivated|Boolean|Whether the device is Exchange ActiveSync activated.|
 |easDeviceId|String|Exchange ActiveSync Id of the device.|
 |easActivationDateTime|DateTimeOffset|Exchange ActivationSync activation time of the device.|
+|aadRegistered|Boolean|Whether the device is Azure Active Directory registered.|
 |azureADRegistered|Boolean|Whether the device is Azure Active Directory registered.|
-|deviceEnrollmentType|[deviceEnrollmentType](../resources/intune_devices_deviceenrollmenttype.md)|Enrollment type of the device. Possible values are: `unknown`, `userEnrollment`, `deviceEnrollmentManager`, `appleBulkWithUser`, `appleBulkWithoutUser`, `windowsAzureADJoin`, `windowsBulkUserless`, `windowsAutoEnrollment`, `windowsBulkAzureDomainJoin`, `windowsCoManagement`.|
+|deviceEnrollmentType|[deviceEnrollmentType](../resources/intune_shared_deviceenrollmenttype.md)|Enrollment type of the device. Possible values are: `unknown`, `userEnrollment`, `deviceEnrollmentManager`, `appleBulkWithUser`, `appleBulkWithoutUser`, `windowsAzureADJoin`, `windowsBulkUserless`, `windowsAutoEnrollment`, `windowsBulkAzureDomainJoin`, `windowsCoManagement`.|
+|lostModeState|[lostModeState](../resources/intune_devices_lostmodestate.md)|Indicates if Lost mode is enabled or disabled. Possible values are: `disabled`, `enabled`.|
 |activationLockBypassCode|String|Code that allows the Activation Lock on a device to be bypassed.|
 |emailAddress|String|Email(s) for the user associated with the device|
+|azureActiveDirectoryDeviceId|String|The unique identifier for the Azure Active Directory device. Read only.|
 |azureADDeviceId|String|The unique identifier for the Azure Active Directory device. Read only.|
 |deviceRegistrationState|[deviceRegistrationState](../resources/intune_devices_deviceregistrationstate.md)|Device registration state. Possible values are: `notRegistered`, `registered`, `revoked`, `keyConflict`, `approvalPending`, `certificateReset`, `notRegisteredPendingEnrollment`, `unknown`.|
 |deviceCategoryDisplayName|String|Device category display name|
@@ -63,6 +74,7 @@ The following table shows the properties that are required when you create the [
 |exchangeAccessState|[deviceManagementExchangeAccessState](../resources/intune_devices_devicemanagementexchangeaccessstate.md)|The Access State of the device in Exchange. Possible values are: `none`, `unknown`, `allowed`, `blocked`, `quarantined`.|
 |exchangeAccessStateReason|[deviceManagementExchangeAccessStateReason](../resources/intune_devices_devicemanagementexchangeaccessstatereason.md)|The reason for the device's access state in Exchange. Possible values are: `none`, `unknown`, `exchangeGlobalRule`, `exchangeIndividualRule`, `exchangeDeviceRule`, `exchangeUpgrade`, `exchangeMailboxPolicy`, `other`, `compliant`, `notCompliant`, `notEnrolled`, `unknownLocation`, `mfaRequired`, `azureADBlockDueToAccessPolicy`, `compromisedPassword`, `deviceNotKnownWithManagedApp`.|
 |remoteAssistanceSessionUrl|String|Url that allows a Remote Assistance session to be established with the device.|
+|remoteAssistanceSessionErrorString|String|An error string that identifies issues when creating Remote Assistance session objects.|
 |remoteAssistanceSessionErrorDetails|String|An error string that identifies issues when creating Remote Assistance session objects.|
 |isEncrypted|Boolean|Device encryption status|
 |userPrincipalName|String|Device user principal name|
@@ -83,6 +95,13 @@ The following table shows the properties that are required when you create the [
 |freeStorageSpaceInBytes|Int64|Free Storage in Bytes|
 |managedDeviceName|String|Automatically generated name to identify a device. Can be overwritten to a user friendly name.|
 |partnerReportedThreatState|[managedDevicePartnerReportedHealthState](../resources/intune_devices_manageddevicepartnerreportedhealthstate.md)|Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. Possible values are: `unknown`, `activated`, `deactivated`, `secured`, `lowSeverity`, `mediumSeverity`, `highSeverity`, `unresponsive`.|
+|usersLoggedOn|[loggedOnUser](../resources/intune_devices_loggedonuser.md) collection|Indicates the last logged on users of a device|
+|preferMdmOverGroupPolicyAppliedDateTime|DateTimeOffset|Reports the DateTime the preferMdmOverGroupPolicy setting was set.  When set, the Intune MDM settings will override Group Policy settings if there is a conflict. Read Only.|
+|autopilotEnrolled|Boolean|Reports if the managed device is enrolled via auto-pilot.|
+|requireUserEnrollmentApproval|Boolean|Reports if the managed iOS device is user approval enrollment.|
+|managementCertificateExpirationDate|DateTimeOffset|Reports device management certificate expiration date|
+|iccid|String|Integrated Circuit Card Identifier, it is A SIM card's unique identification number.|
+|udid|String|Unique Device Identifier for iOS and macOS devices.|
 
 
 
@@ -93,13 +112,47 @@ If successful, this method returns a `200 OK` response code and an updated [mana
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/users/{usersId}/managedDevices/{managedDeviceId}
+PATCH https://graph.microsoft.com/beta/users/{usersId}/managedDevices/{managedDeviceId}
 Content-type: application/json
-Content-length: 4604
+Content-length: 6801
 
 {
   "userId": "User Id value",
   "deviceName": "Device Name value",
+  "hardwareInformation": {
+    "@odata.type": "microsoft.graph.hardwareInformation",
+    "serialNumber": "Serial Number value",
+    "totalStorageSpace": 1,
+    "freeStorageSpace": 0,
+    "imei": "Imei value",
+    "meid": "Meid value",
+    "manufacturer": "Manufacturer value",
+    "model": "Model value",
+    "phoneNumber": "Phone Number value",
+    "subscriberCarrier": "Subscriber Carrier value",
+    "cellularTechnology": "Cellular Technology value",
+    "wifiMac": "Wifi Mac value",
+    "operatingSystemLanguage": "Operating System Language value",
+    "isSupervised": true,
+    "isEncrypted": true,
+    "isSharedDevice": true,
+    "sharedDeviceCachedUsers": [
+      {
+        "@odata.type": "microsoft.graph.sharedAppleDeviceUser",
+        "userPrincipalName": "User Principal Name value",
+        "dataToSync": true,
+        "dataQuota": 9,
+        "dataUsed": 8
+      }
+    ],
+    "tpmSpecificationVersion": "Tpm Specification Version value",
+    "operatingSystemEdition": "Operating System Edition value",
+    "deviceFullQualifiedDomainName": "Device Full Qualified Domain Name value",
+    "deviceGuardVirtualizationBasedSecurityHardwareRequirementState": "secureBootRequired",
+    "deviceGuardVirtualizationBasedSecurityState": "rebootRequired",
+    "deviceGuardLocalSystemAuthorityCredentialGuardState": "rebootRequired"
+  },
+  "ownerType": "company",
   "managedDeviceOwnerType": "company",
   "deviceActionResults": [
     {
@@ -110,9 +163,12 @@ Content-length: 4604
       "lastUpdatedDateTime": "2017-01-01T00:00:56.8321556-08:00"
     }
   ],
+  "managementState": "retirePending",
   "enrolledDateTime": "2016-12-31T23:59:43.797191-08:00",
   "lastSyncDateTime": "2017-01-01T00:02:49.3205976-08:00",
+  "chassisType": "desktop",
   "operatingSystem": "Operating System value",
+  "deviceType": "windowsRT",
   "complianceState": "compliant",
   "jailBroken": "Jail Broken value",
   "managementAgent": "mdm",
@@ -120,10 +176,13 @@ Content-length: 4604
   "easActivated": true,
   "easDeviceId": "Eas Device Id value",
   "easActivationDateTime": "2016-12-31T23:59:43.4878784-08:00",
+  "aadRegistered": true,
   "azureADRegistered": true,
   "deviceEnrollmentType": "userEnrollment",
+  "lostModeState": "enabled",
   "activationLockBypassCode": "Activation Lock Bypass Code value",
   "emailAddress": "Email Address value",
+  "azureActiveDirectoryDeviceId": "Azure Active Directory Device Id value",
   "azureADDeviceId": "Azure ADDevice Id value",
   "deviceRegistrationState": "registered",
   "deviceCategoryDisplayName": "Device Category Display Name value",
@@ -132,6 +191,7 @@ Content-length: 4604
   "exchangeAccessState": "unknown",
   "exchangeAccessStateReason": "unknown",
   "remoteAssistanceSessionUrl": "https://example.com/remoteAssistanceSessionUrl/",
+  "remoteAssistanceSessionErrorString": "Remote Assistance Session Error String value",
   "remoteAssistanceSessionErrorDetails": "Remote Assistance Session Error Details value",
   "isEncrypted": true,
   "userPrincipalName": "User Principal Name value",
@@ -193,7 +253,20 @@ Content-length: 4604
   "totalStorageSpaceInBytes": 8,
   "freeStorageSpaceInBytes": 7,
   "managedDeviceName": "Managed Device Name value",
-  "partnerReportedThreatState": "activated"
+  "partnerReportedThreatState": "activated",
+  "usersLoggedOn": [
+    {
+      "@odata.type": "microsoft.graph.loggedOnUser",
+      "userId": "User Id value",
+      "lastLogOnDateTime": "2016-12-31T23:58:37.4262708-08:00"
+    }
+  ],
+  "preferMdmOverGroupPolicyAppliedDateTime": "2016-12-31T23:57:34.4649887-08:00",
+  "autopilotEnrolled": true,
+  "requireUserEnrollmentApproval": true,
+  "managementCertificateExpirationDate": "2016-12-31T23:57:59.9789653-08:00",
+  "iccid": "Iccid value",
+  "udid": "Udid value"
 }
 ```
 
@@ -202,13 +275,47 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 4705
+Content-Length: 6902
 
 {
   "@odata.type": "#microsoft.graph.managedDevice",
   "id": "705c034c-034c-705c-4c03-5c704c035c70",
   "userId": "User Id value",
   "deviceName": "Device Name value",
+  "hardwareInformation": {
+    "@odata.type": "microsoft.graph.hardwareInformation",
+    "serialNumber": "Serial Number value",
+    "totalStorageSpace": 1,
+    "freeStorageSpace": 0,
+    "imei": "Imei value",
+    "meid": "Meid value",
+    "manufacturer": "Manufacturer value",
+    "model": "Model value",
+    "phoneNumber": "Phone Number value",
+    "subscriberCarrier": "Subscriber Carrier value",
+    "cellularTechnology": "Cellular Technology value",
+    "wifiMac": "Wifi Mac value",
+    "operatingSystemLanguage": "Operating System Language value",
+    "isSupervised": true,
+    "isEncrypted": true,
+    "isSharedDevice": true,
+    "sharedDeviceCachedUsers": [
+      {
+        "@odata.type": "microsoft.graph.sharedAppleDeviceUser",
+        "userPrincipalName": "User Principal Name value",
+        "dataToSync": true,
+        "dataQuota": 9,
+        "dataUsed": 8
+      }
+    ],
+    "tpmSpecificationVersion": "Tpm Specification Version value",
+    "operatingSystemEdition": "Operating System Edition value",
+    "deviceFullQualifiedDomainName": "Device Full Qualified Domain Name value",
+    "deviceGuardVirtualizationBasedSecurityHardwareRequirementState": "secureBootRequired",
+    "deviceGuardVirtualizationBasedSecurityState": "rebootRequired",
+    "deviceGuardLocalSystemAuthorityCredentialGuardState": "rebootRequired"
+  },
+  "ownerType": "company",
   "managedDeviceOwnerType": "company",
   "deviceActionResults": [
     {
@@ -219,9 +326,12 @@ Content-Length: 4705
       "lastUpdatedDateTime": "2017-01-01T00:00:56.8321556-08:00"
     }
   ],
+  "managementState": "retirePending",
   "enrolledDateTime": "2016-12-31T23:59:43.797191-08:00",
   "lastSyncDateTime": "2017-01-01T00:02:49.3205976-08:00",
+  "chassisType": "desktop",
   "operatingSystem": "Operating System value",
+  "deviceType": "windowsRT",
   "complianceState": "compliant",
   "jailBroken": "Jail Broken value",
   "managementAgent": "mdm",
@@ -229,10 +339,13 @@ Content-Length: 4705
   "easActivated": true,
   "easDeviceId": "Eas Device Id value",
   "easActivationDateTime": "2016-12-31T23:59:43.4878784-08:00",
+  "aadRegistered": true,
   "azureADRegistered": true,
   "deviceEnrollmentType": "userEnrollment",
+  "lostModeState": "enabled",
   "activationLockBypassCode": "Activation Lock Bypass Code value",
   "emailAddress": "Email Address value",
+  "azureActiveDirectoryDeviceId": "Azure Active Directory Device Id value",
   "azureADDeviceId": "Azure ADDevice Id value",
   "deviceRegistrationState": "registered",
   "deviceCategoryDisplayName": "Device Category Display Name value",
@@ -241,6 +354,7 @@ Content-Length: 4705
   "exchangeAccessState": "unknown",
   "exchangeAccessStateReason": "unknown",
   "remoteAssistanceSessionUrl": "https://example.com/remoteAssistanceSessionUrl/",
+  "remoteAssistanceSessionErrorString": "Remote Assistance Session Error String value",
   "remoteAssistanceSessionErrorDetails": "Remote Assistance Session Error Details value",
   "isEncrypted": true,
   "userPrincipalName": "User Principal Name value",
@@ -302,7 +416,20 @@ Content-Length: 4705
   "totalStorageSpaceInBytes": 8,
   "freeStorageSpaceInBytes": 7,
   "managedDeviceName": "Managed Device Name value",
-  "partnerReportedThreatState": "activated"
+  "partnerReportedThreatState": "activated",
+  "usersLoggedOn": [
+    {
+      "@odata.type": "microsoft.graph.loggedOnUser",
+      "userId": "User Id value",
+      "lastLogOnDateTime": "2016-12-31T23:58:37.4262708-08:00"
+    }
+  ],
+  "preferMdmOverGroupPolicyAppliedDateTime": "2016-12-31T23:57:34.4649887-08:00",
+  "autopilotEnrolled": true,
+  "requireUserEnrollmentApproval": true,
+  "managementCertificateExpirationDate": "2016-12-31T23:57:59.9789653-08:00",
+  "iccid": "Iccid value",
+  "udid": "Udid value"
 }
 ```
 

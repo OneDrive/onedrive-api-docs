@@ -1,5 +1,6 @@
 # Update Outlook category
 
+> **Important**: APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Update the writable property, **color**, of the specified [outlookCategory](../resources/outlookCategory.md) object. You cannot modify the **displayName** property 
 once you have created the category.
@@ -46,7 +47,7 @@ Here is an example of the request.
   "name": "update_outlookcategory"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/outlook/masterCategories/{category-id}
+PATCH https://graph.microsoft.com/beta/me/outlook/masterCategories('bac262b7-485d-4739-b436-e31467d64fac')
 Content-type: application/json
 Content-length: 30
 
@@ -67,7 +68,7 @@ Content-type: application/json
 Content-length: 251
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories/$entity",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users('8ae6f565-0d7f-4ead-853e-7db94c912a1f')/outlook/masterCategories/$entity",
   "id":"bac262b7-485d-4739-b436-e31467d64fac",
   "displayName":"Project expenses",
   "color":"preset15"

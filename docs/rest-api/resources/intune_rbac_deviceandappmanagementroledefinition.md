@@ -1,4 +1,6 @@
-# deviceAndAppManagementRoleDefinition resource type
+﻿# deviceAndAppManagementRoleDefinition resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -21,7 +23,9 @@ Inherits from [roleDefinition](../resources/intune_rbac_roledefinition.md)
 |id|String|Key of the entity. This is read-only and automatically generated. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |displayName|String|Display Name of the Role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |description|String|Description of the Role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
+|permissions|[rolePermission](../resources/intune_rbac_rolepermission.md) collection|List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |rolePermissions|[rolePermission](../resources/intune_rbac_rolepermission.md) collection|List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
+|isBuiltInRoleDefinition|Boolean|Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 |isBuiltIn|Boolean|Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition. Inherited from [roleDefinition](../resources/intune_rbac_roledefinition.md)|
 
 ## Relationships
@@ -31,21 +35,24 @@ Inherits from [roleDefinition](../resources/intune_rbac_roledefinition.md)
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.roleDefinition",
   "@odata.type": "microsoft.graph.deviceAndAppManagementRoleDefinition"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.deviceAndAppManagementRoleDefinition",
   "id": "String (identifier)",
   "displayName": "String",
   "description": "String",
-  "rolePermissions": [
+  "permissions": [
     {
       "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "String"
+      ],
       "resourceActions": [
         {
           "@odata.type": "microsoft.graph.resourceAction",
@@ -59,6 +66,26 @@ Here is a JSON representation of the resource.
       ]
     }
   ],
+  "rolePermissions": [
+    {
+      "@odata.type": "microsoft.graph.rolePermission",
+      "actions": [
+        "String"
+      ],
+      "resourceActions": [
+        {
+          "@odata.type": "microsoft.graph.resourceAction",
+          "allowedResourceActions": [
+            "String"
+          ],
+          "notAllowedResourceActions": [
+            "String"
+          ]
+        }
+      ]
+    }
+  ],
+  "isBuiltInRoleDefinition": true,
   "isBuiltIn": true
 }
 ```

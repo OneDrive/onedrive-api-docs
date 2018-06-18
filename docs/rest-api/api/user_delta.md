@@ -1,5 +1,7 @@
 # user: delta
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 [Delta query](../../../concepts/delta_query_overview.md) enables applications to discover newly created, updated, or deleted entities without performing a full read of the target resource with every request. To discover changes to users, perform a request using the *delta* function. See [Using Delta Query](../../../concepts/delta_query_overview.md) for details.
 
 ## Permissions
@@ -45,8 +47,9 @@ This method supports OData Query Parameters to help customize the response.
 _id_ property is always returned. 
 - Delta query support `$select`, `$top`, and `$expand` for messages. 
 - There is limited support for `$filter` and `$orderby`:
-  * The only supported `$filter` expression is for tracking changes on one or two specific users:  `$filter=id+eq+{value}` or `$filter=id+eq+{value1}+or+id+eq+{value2}` 
-  * The only supported `$orderby` expression is `$orderby=receivedDateTime+desc`. If you do not include  an `$orderby` expression, the return order is not guaranteed. 
+  * The only supported `$filter` expression is for tracking changes on one or two specific users:  `$filter=id+eq+{value}` or `$filter=id+eq+{value1}+or+id+eq+{value2}`
+  * The only supported `$orderby` expression is `$orderby=receivedDateTime+desc`. If you do not include
+  an `$orderby` expression, the return order is not guaranteed. 
 - There is no support for `$search`.
 
 ## Request headers
@@ -77,7 +80,7 @@ See:</br>
   "name": "user_delta"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/users/delta
+GET https://graph.microsoft.com/beta/users/delta
 ```
 
 ##### Response
@@ -93,8 +96,8 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users",
-  "@odata.nextLink":"https://graph.microsoft.com/v1.0/users/delta?$skiptoken=pqwSUjGYvb3jQpbwVAwEL7yuI3dU1LecfkkfLPtnIjsXoYQp_dpA3cNJWc",
+  "@odata.context":"https://graph.microsoft.com/beta/$metadata#users",
+  "@odata.nextLink":"https://graph.microsoft.com/beta/users/delta?$skiptoken=pqwSUjGYvb3jQpbwVAwEL7yuI3dU1LecfkkfLPtnIjsXoYQp_dpA3cNJWc",
   "value": [
     {
       "businessPhones": [

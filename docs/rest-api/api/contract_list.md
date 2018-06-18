@@ -1,5 +1,7 @@
 # List contracts
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve a list of [contract](../resources/contract.md) objects associated to a partner tenant.
 
 ## Permissions
@@ -48,7 +50,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
   "name": "get_contract"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/contracts
+GET https://graph.microsoft.com/beta/contracts
 ```
 
 ##### Response
@@ -57,7 +59,7 @@ Note: The response object shown here may be truncated for brevity. All of the pr
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.contract",
+  "@odata.type": "microsoft.graph.Contract",
   "isCollection": true
 } -->
 ```http

@@ -1,4 +1,7 @@
 # Create conversation
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new [conversation](../resources/conversation.md) by including a thread and a post. 
 
 Use [reply thread](conversationthread_reply.md) or [reply post](post_reply.md) to further post to that conversation.
@@ -28,7 +31,7 @@ POST /groups/{id}/conversations
 In the request body, supply a JSON representation of [conversation](../resources/conversation.md) object containing a [conversationThread](../resources/conversationThread.md) and a [post](../resources/post.md).
 
 ## Response
-If successful, this method returns `201 Created` response code and [conversation](../resources/conversation.md) object in the response body.
+If successful, this method returns `201 Created` response code and [conversation](../resources/conversation.md) object in the response body. 
 
 The response includes the IDs for the new conversation and thread, which you can use in the 
 [list posts](conversationthread_list_posts.md) operation to get the new post as well.
@@ -41,18 +44,18 @@ The following is an example of the request.
   "name": "create_conversation_from_group"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/groups/{group-id}/conversations
+POST https://graph.microsoft.com/beta/groups('29981b6a-0e57-42dc-94c9-cd24f5306196')/conversations
 Content-type: application/json
 
 {
-    "topic":"New locations for this quarter",
+    "topic":"New head count",
     "threads":[
         {
             "posts":[
                 {
                     "body":{
                         "contentType":"html",
-                        "content":"What do we know so far?"
+                        "content":"The confirmation will come by the end of the week."
                     },
                     "newParticipants":[
                         {
@@ -71,8 +74,7 @@ Content-type: application/json
 
 #### Response
 The following is an example of the response.
->**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
-
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -83,12 +85,12 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#groups('29981b6a-0e57-42dc-94c9-cd24f5306196')/conversations/$entity",
-    "id":"AAQkADDVKtMlRp4Txc6k=",
-    "threads@odata.context":"https://graph.microsoft.com/v1.0/$metadata#groups('29981b6a-0e57-42dc-94c9-cd24f5306196')/conversations('AAQkADDVKtMlRp4Txc6k%3D')/threads",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#groups('29981b6a-0e57-42dc-94c9-cd24f5306196')/conversations/$entity",
+    "id":"AAQkADPxBgqECsrFDTuM=",
+    "threads@odata.context":"https://graph.microsoft.com/beta/$metadata#groups('29981b6a-0e57-42dc-94c9-cd24f5306196')/conversations('AAQkADPxBgqECsrFDTuM%3D')/threads",
     "threads":[
         {
-            "id":"AAQkADQDarUNUq0yVGnhPFzqQ=="
+            "id":"AAQkADUNO4xAAMbGA93Sw-EGCoQKysUNO4w=="
         }
     ]
 }

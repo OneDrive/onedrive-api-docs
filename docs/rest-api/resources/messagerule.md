@@ -1,5 +1,6 @@
 # messageRule resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 A rule that applies to messages in the Inbox of a user.
 
@@ -31,7 +32,6 @@ Here is a JSON representation of the resource.
   "blockType": "resource",
   "optionalProperties": [
    ],
-   "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.messageRule"
 }-->
 

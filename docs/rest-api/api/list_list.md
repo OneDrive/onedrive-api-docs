@@ -6,6 +6,8 @@ title: List the SharePoint lists in a site
 ---
 # Enumerate lists in a site
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get the collection of [lists][] for a [site][].
 
 [lists]: ../resources/list.md
@@ -24,17 +26,17 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists
 ```
 
 ## Example
 
 #### Request
 
-<!-- { "blockType": "request", "name": "enum-lists", "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "request", "name": "enum-lists", "scopes": "sites.read.all service.sharepoint" } -->
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{site-id}/lists
+GET https://graph.microsoft.com/beta/sites/{site-id}/lists
 ```
 
 ##### Response

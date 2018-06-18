@@ -1,5 +1,7 @@
 # reportRoot: getSkypeForBusinessActivityUserDetail
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get details about Skype for Business activity by user.
 
 > **Note:** For details about different report views and names, see [Office 365 Reports - Skype for Business activity](https://support.office.com/client/Skype-for-Business-Online-activity-8cbe2eb2-1194-4fd7-b1ee-9f9287c82424).
@@ -16,7 +18,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 ## HTTP request
 
-<!-- { "blockType": "samples" } --> 
+<!-- { "blockType": "ignored" } --> 
 
 ```http
 GET /reports/getSkypeForBusinessActivityUserDetail(period='{period_value}')
@@ -34,14 +36,17 @@ In the request URL, provide one of the following parameters with a valid value.
 
 > **Note:** You need to set either period or date in the URL.
 
+This method supports the `$format`, `$top`, and `$skipToken` [OData query parameters](../../../concepts/query_parameters.md) to customize the response. The default output type is text/csv. However, if you want to specify the output type, you can use the OData $format query parameter set to text/csv or application/json.
+
 ## Request headers
 
-| Name          | Description                              |
-| :------------ | :--------------------------------------- |
-| Authorization | Bearer {token}. Required.                |
-| If-None-Match | If this request header is included and the eTag provided matches the current tag on the file, a `304 Not Modified` response code is returned. Optional. |
+| Name          | Description               |
+| :------------ | :------------------------ |
+| Authorization | Bearer {token}. Required. |
 
 ## Response
+
+### CSV
 
 If successful, this method returns a `302 Found` response that redirects to a preauthenticated download URL for the report. That URL can be found in the `Location` header in the response.
 
@@ -76,7 +81,7 @@ The CSV file has the following headers for columns.
 - Organized Conference Dial-in/out Microsoft Count
 - Organized Conference Dial-in Microsoft Minutes
 - Organized Conference Dial-out Microsoft Minutes
-- Paricipated Conference IM Count
+- Participated Conference IM Count
 - Participated Conference Audio/Video Count
 - Participated Conference Audio/Video Minutes
 - Participated Conference App Sharing Count
@@ -85,31 +90,36 @@ The CSV file has the following headers for columns.
 - Assigned Products
 - Report Period
 
+### JSON
+
+If successful, this method returns a `200 OK` response code and a **[skypeForBusinessActivityUserDetail](../resources/skypeforbusinessactivityuserdetail.md)** object in the response body.
+
+The default page size for this request is 200 items.
+
 ## Example
+
+### CSV
+
+The following is an example that outputs CSV.
 
 #### Request
 
 The following is an example of the request.
 
-<!--{
+<!-- {
   "blockType": "request",
-  "isComposable": true,
-  "name": "reportroot_getskypeforbusinessactivityuserdetail"
+  "name": "reportroot_getskypeforbusinessactivityuserdetail_csv"
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/reports/getSkypeForBusinessActivityUserDetail(period='D7')
+GET https://graph.microsoft.com/beta/reports/getSkypeForBusinessActivityUserDetail(period='D7')?$format=text/csv
 ```
 
 #### Response
 
 The following is an example of the response.
 
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.report"
-} -->
+<!-- { "blockType": "ignored" } --> 
 
 ```http
 HTTP/1.1 302 Found
@@ -119,11 +129,95 @@ Location: https://reports.office.com/data/download/JDFKdf2_eJXKS034dbc7e0t__XDe
 
 Follow the 302 redirection and the CSV file that downloads will have the following schema.
 
-<!-- { "blockType": "ignored" } --> 
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "stream"
+} -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream
 
-Report Refresh Date,User Principal Name,Is Deleted,Deleted Date,Last Activity Date,Total Peer-to-peer Session Count,Total Organized Conference Count,Total Participated Conference Count,Peer-to-peer Last Activity Date,Organized Conference Last Activity Date,Participated Conference Last Activity Date,Peer-to-peer IM Count,Peer-to-peer Audio Count,Peer-to-peer Audio Minutes,Peer-to-peer Video Count,Peer-to-peer Video Minutes,Peer-to-peer App Sharing Count,Peer-to-peer File Transfer Count,Organized Conference IM Count,Organized Conference Audio/Video Count,Organized Conference Audio/Video Minutes,Organized Conference App Sharing Count,Organized Conference Web Count,Organized Conference Dial-in/out 3rd Party Count,Organized Conference Dial-in/out Microsoft Count,Organized Conference Dial-in Microsoft Minutes,Organized Conference Dial-out Microsoft Minutes,Paricipated Conference IM Count,Participated Conference Audio/Video Count,Participated Conference Audio/Video Minutes,Participated Conference App Sharing Count,Participated Conference Web Count,Participated Conference Dial-in/out 3rd Party Count,Assigned Products,Report Period
+Report Refresh Date,User Principal Name,Is Deleted,Deleted Date,Last Activity Date,Total Peer-to-peer Session Count,Total Organized Conference Count,Total Participated Conference Count,Peer-to-peer Last Activity Date,Organized Conference Last Activity Date,Participated Conference Last Activity Date,Peer-to-peer IM Count,Peer-to-peer Audio Count,Peer-to-peer Audio Minutes,Peer-to-peer Video Count,Peer-to-peer Video Minutes,Peer-to-peer App Sharing Count,Peer-to-peer File Transfer Count,Organized Conference IM Count,Organized Conference Audio/Video Count,Organized Conference Audio/Video Minutes,Organized Conference App Sharing Count,Organized Conference Web Count,Organized Conference Dial-in/out 3rd Party Count,Organized Conference Dial-in/out Microsoft Count,Organized Conference Dial-in Microsoft Minutes,Organized Conference Dial-out Microsoft Minutes,Participated Conference IM Count,Participated Conference Audio/Video Count,Participated Conference Audio/Video Minutes,Participated Conference App Sharing Count,Participated Conference Web Count,Participated Conference Dial-in/out 3rd Party Count,Assigned Products,Report Period
+```
+
+### JSON
+
+The following is an example that returns JSON.
+
+#### Request
+
+The following is an example of the request.
+
+<!-- {
+  "blockType": "request",
+  "name": "reportroot_getskypeforbusinessactivityuserdetail_json"
+}-->
+
+```http
+GET https://graph.microsoft.com/beta/reports/getSkypeForBusinessActivityUserDetail(period='D7')?$format=application/json
+```
+
+#### Response
+
+The following is an example of the response.
+
+> **Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.skypeForBusinessActivityUserDetail"
+} -->
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 1419
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.skypeForBusinessActivityUserDetail)", 
+  "value": [
+    {
+      "totalPeerToPeerSessionCount": 12, 
+      "totalOrganizedConferenceCount": 0, 
+      "totalParticipatedConferenceCount": 1, 
+      "peerToPeerLastActivityDate": "2017-09-01", 
+      "organizedConferenceLastActivityDate": null, 
+      "participatedConferenceLastActivityDate": "2017-08-31", 
+      "peerToPeerIMCount": 12, 
+      "peerToPeerAudioCount": 0, 
+      "peerToPeerAudioMinutes": 0, 
+      "peerToPeerVideoCount": 0, 
+      "peerToPeerVideoMinutes": 0, 
+      "peerToPeerAppSharingCount": 0, 
+      "peerToPeerFileTransferCount": 0, 
+      "organizedConferenceIMCount": 0, 
+      "organizedConferenceAudioVideoCount": 0, 
+      "organizedConferenceAudioVideoMinutes": 0, 
+      "organizedConferenceAppSharingCount": 0, 
+      "organizedConferenceWebCount": 0, 
+      "organizedConferenceDialInOut3rdPartyCount": 0, 
+      "organizedConferenceCloudDialInOutMicrosoftCount": 0, 
+      "organizedConferenceCloudDialInMicrosoftMinutes": 0, 
+      "organizedConferenceCloudDialOutMicrosoftMinutes": 0, 
+      "participatedConferenceIMCount": 0, 
+      "participatedConferenceAudioVideoCount": 1, 
+      "participatedConferenceAudioVideoMinutes": 69, 
+      "participatedConferenceAppSharingCount": 0, 
+      "participatedConferenceWebCount": 0, 
+      "participatedConferenceDialInOut3rdPartyCount": 0, 
+      "reportRefreshDate": "2017-09-06", 
+      "userPrincipalName": "userPrincipalName-value", 
+      "isDeleted": false, 
+      "deletedDate": null, 
+      "lastActivityDate": "2017-09-01", 
+      "assignedProducts": [
+        "OFFICE 365 ENTERPRISE E5", 
+      ], 
+      "reportPeriod": "7"
+    }
+  ]
+}
 ```

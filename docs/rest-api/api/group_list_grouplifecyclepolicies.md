@@ -1,5 +1,7 @@
 # List groupLifecyclePolicies
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieves a list of [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md) objects to which a group belongs.
 
 ## Permissions
@@ -38,7 +40,7 @@ If successful, this method returns a `200 OK` response code and collection of [g
   "name": "get_grouplifecyclepolicies"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/groupLifecyclePolicies
+GET https://graph.microsoft.com/beta/groups/{id}/groupLifecyclePolicies
 ```
 ##### Response
 
@@ -52,7 +54,7 @@ Note: The response object shown here may be truncated for brevity. All of the pr
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 222
+Content-length: 227
 
 {
   "value": [

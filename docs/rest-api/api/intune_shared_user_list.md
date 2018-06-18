@@ -1,5 +1,7 @@
 ﻿# List users
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [user](../resources/intune_shared_user.md) objects.
@@ -8,11 +10,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type|Permissions (from most to least privileged)|
 |:---|:---|
-|Delegated (work or school account)| _varies by context_|
-| &nbsp; &nbsp; Devices | DeviceManagementManagedDevices.ReadWrite.All, DeviceManagementManagedDevices.Read.All |
-| &nbsp; &nbsp; MAM | DeviceManagementApps.ReadWrite.All, DeviceManagementApps.Read.All |
-| &nbsp; &nbsp; Onboarding | DeviceManagementServiceConfig.ReadWrite.All, DeviceManagementServiceConfig.Read.All |
-| &nbsp; &nbsp; Troubleshooting | DeviceManagementManagedDevices.ReadWrite.All, DeviceManagementManagedDevices.Read.All |
+|Delegated (work or school account)|(_devices_)<br/>DeviceManagementManagedDevices.ReadWrite.All, DeviceManagementManagedDevices.Read.All<br />(_mam_) <br/>DeviceManagementApps.ReadWrite.All, DeviceManagementApps.Read.All<br/>(_onboarding_)<br />DeviceManagementServiceConfig.ReadWrite.All, DeviceManagementServiceConfig.Read.All<br/>(_troubleshooting_)<br/> DeviceManagementManagedDevices.ReadWrite.All, DeviceManagementManagedDevices.Read.All|
 |Delegated (personal Microsoft account)|Not supported.|
 |Application|Not supported.|
 
@@ -41,7 +39,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/users
+GET https://graph.microsoft.com/beta/users
 ```
 
 ### Response

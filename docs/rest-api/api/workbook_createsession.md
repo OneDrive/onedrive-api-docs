@@ -50,12 +50,12 @@ Here is an example of the request.
   "name": "create_excel_session"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/createSession
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/createSession
 Content-type: application/json
 Content-length: 52
 
 {
-  "persistChanges": true
+  "persistSession": true
 }
 ```
 In the request body, supply a JSON representation of [WorkbookSessionInfo](../resources/workbooksessioninfo.md) object.
@@ -74,7 +74,7 @@ Content-length: 52
 
 {
   "id": "id-value",
-  "persistChanges": true
+  "persistSession": true
 }
 ```
 

@@ -1,5 +1,7 @@
 # Create Chart
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new Chart.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -7,7 +9,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite    |
-|Delegated (personal Microsoft account) | Not supported.    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
 |Application | Not supported. |
 
 ## HTTP request
@@ -23,11 +25,11 @@ POST /workbook/worksheets/{id|name}/charts/
 | Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
 
 ## Request body
-In the request body, supply a JSON representation of [WorkbookChart](../resources/chart.md) object.
+In the request body, supply a JSON representation of [Chart](../resources/chart.md) object.
 
 ## Response
 
-If successful, this method returns `201 Created` response code and [WorkbookChart](../resources/chart.md) object in the response body.
+If successful, this method returns `201 Created` response code and [Chart](../resources/chart.md) object in the response body.
 
 ## Example
 ##### Request
@@ -37,7 +39,7 @@ Here is an example of the request.
   "name": "create_chart_from_worksheet"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/worksheets/{id|name}/charts
+POST https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets/{id|name}/charts
 Content-type: application/json
 Content-length: 52
 
@@ -47,13 +49,13 @@ Content-length: 52
   "left": 99
 }
 ```
-In the request body, supply a JSON representation of [WorkbookChart](../resources/chart.md) object.
+In the request body, supply a JSON representation of [Chart](../resources/chart.md) object.
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookChart"
+  "@odata.type": "microsoft.graph.chart"
 } -->
 ```http
 HTTP/1.1 201 Created

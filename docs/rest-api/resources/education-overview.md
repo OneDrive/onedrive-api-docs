@@ -1,8 +1,10 @@
 # Working with education APIs in Microsoft Graph
 
-The education APIs in Microsoft Graph enhance Office 365 resources and data with information that is relevant for education scenarios, including schools, students, teachers, classes, and enrollments. This makes it easy for you to build solutions that integrate with educational resources.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
-The education APIs include rostering resources and assignments resources that you can use to interact with the rostering services in Microsoft Teams. You can use these resources to manage a school roster.
+The education APIs in Microsoft Graph enhance Office 365 resources and data with information that is relevant for education scenarios, including schools, students, teachers, classes, enrollments, and assignments. This makes it easy for you to build solutions that integrate with educational resources.
+
+The education APIs include rostering resources and assignments resources that you can use to interact with the rostering and assignment services in Microsoft Teams. You can use these resources to manage a school roster and automate student assignments.
 
 ## Authorization
 
@@ -12,7 +14,7 @@ To call the education APIs in Microsoft Graph, your app will need to acquire an 
 
 To deploy apps that are integrated with the Education APIs in Microsoft Graph, school IT admins must first grant consent to the permissions requested by the app. This consent has to be granted only once, unless the permissions change. After the admin consents, the app is provisioned for all users in the tenant.
 
-To show a consent dialog box, use the following REST call.
+To trigger a consent dialog box, use the following REST call.
 
 ```
 GET https://login.microsoftonline.com/{tenant}/adminconsent?
@@ -60,8 +62,56 @@ The rostering APIs support the following scenarios:
 
 <!-- Should you list delete scenarios here as well? -->
 
+## Assignments 
+
+You can use the assignment-related education APIs to integrate with assignments in Microsoft Teams. Microsoft Teams in Office 365 for Education is based on the same education APIs, and provides a use case for what you can do with the APIs. Your app can use these APIs to interact with assignments throughout the assignment lifecycle. 
+
+The assignment APIs provide the following key resources:
+
+- [educationAssignment](educationassignment.md) - The core object of the assignments API. Represents a task or unit of work assigned to a student or team member in a class as part of their study.
+- [educationSubmission](educationsubmission.md) - Represents the resources that an individual (or group) submits for an assignment and the associated grade and feedback for that assignment.
+- [educationResource](educationresource.md) - Represents the learning object that is being assigned or submitted. An **educationResource** is associated with an **educationAssignment** and/or an **educationSubmission**.
+
+The assignment APIs support the following scenarios:
+
+- [Create assignment](../api/educationclass_post_assignments.md)
+- [Publish assignment](../api/educationassignment_publish.md)
+- [Create assignment resource](../api/educationassignment_post_resources.md)
+- [Create submission resource](../api/educationsubmission_post_resources.md)
+- [Submit assignment](../api/educationsubmission_submit.md) 
+- [Unsubmit assignment](../api/educationsubmission_unsubmit.md)   
+- [Return grades and feedback to student](../api/educationsubmission_return.md) 
+- [Get assignment details](../api/educationuser_list_assignments.md)
+
+The following are some common use cases for the assignment-related education APIs.
+
+|Use case|Description|See also|
+|:-------|:----------|:-------|
+|Create assignments|An external system can create an assignment for the class and attach resources to the assignment.|[Create assignment](../api/educationassignment_post_resources.md)|
+|Read assignment information|An analytics application can get information about assignments and student submissions, including dates and grades.|[Get assignment](../api/educationassignment_get.md)|
+|Track student submissions|Your app can provide a teacher dashboard that shows how many submissions from students need to be graded.|[Submission resource](educationsubmission.md)|
+
+## School data sync management
+
+[School Data Sync](https://sds.microsoft.com/) helps to automate the process of importing and synchronizing roster data from student information systems with Azure Active Directory (Azure AD) and Office 365. You can use the school data sync management APIs in Microsoft Graph to set up synchronization from either a CSV file or a supported SIS API connector.
+
+The school data sync management APIs support the following scenarios:
+
+- [List synchronization profiles](../api/educationsynchronizationprofile_list.md)
+- [Get synchronization profile](../api/educationsynchronizationprofile_get.md)
+- [Create synchronization profile](../api/educationsynchronizationprofile_post.md)
+- [Delete synchronization profile](../api/educationsynchronizationprofile_delete.md)
+- [Pause an ongoing sync](../api/educationsynchronizationprofile_pause.md)
+- [Resume a paused sync](../api/educationsynchronizationprofile_resume.md)
+- [Reset a sync](../api/educationsynchronizationprofile_reset.md)
+- [Start sync for uploaded files](../api/educationsynchronizationprofile_start.md) 
+- [Get an upload URL](../api/educationsynchronizationprofile_uploadurl.md)
+- [Get status of a sync](../api/educationsynchronizationprofilestatus_get.md)
+- [Get synchronization errors](../api/educationsynchronizationerrors_get.md)
+
+
 ## Next steps
-Use the Microsoft Graph education APIs to build education solutions that access school rosters. To learn more:
+Use the Microsoft Graph education APIs to build education solutions that access student assignments and school rosters. To learn more:
 
 - Explore the resources and methods that are most helpful to your scenario.
 - Try the API in the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).

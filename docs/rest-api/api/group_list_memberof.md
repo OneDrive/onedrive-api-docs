@@ -1,16 +1,19 @@
 # List memberOf
-Get groups that the group is a direct member of. 
 
-This operation is not transitive. Unlike getting a user's Office 365 Groups, this returns all types of groups, not just Office 365 groups.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Get groups and administrative units that the group is a direct member of. 
+
+This operation is not transitive. Unlike getting a user's Office 365 Groups, this returns all types of groups, not just Office 365 Groups. 
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Group.Read.All    |
+|Delegated (work or school account) | Group.Read.All, Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Group.Read.All |
+|Application | Group.Read.All, Directory.Read.All, Directory.ReadWrite.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -40,7 +43,7 @@ The following is an example of the request.
   "name": "get_memberof"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/groups/{id}/memberOf
+GET https://graph.microsoft.com/beta/groups/{id}/memberOf
 ```
 
 #### Response

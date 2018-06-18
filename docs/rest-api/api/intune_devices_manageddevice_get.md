@@ -1,5 +1,7 @@
 ﻿# Get managedDevice
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Read properties and relationships of the [managedDevice](../resources/intune_devices_manageddevice.md) object.
@@ -20,7 +22,8 @@ One of the following permissions is required to call this API. To learn more, in
 ``` http
 GET /users/{usersId}/managedDevices/{managedDeviceId}
 GET /deviceManagement/managedDevices/{managedDeviceId}
-GET /deviceManagement/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}
+GET /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice
+GET /deviceManagement/deviceManagementScripts/{deviceManagementScriptId}/deviceRunStates/{deviceManagementScriptDeviceStateId}/managedDevice/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}
 ```
 
 ## Optional query parameters
@@ -41,7 +44,7 @@ If successful, this method returns a `200 OK` response code and [managedDevice](
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/users/{usersId}/managedDevices/{managedDeviceId}
+GET https://graph.microsoft.com/beta/users/{usersId}/managedDevices/{managedDeviceId}
 ```
 
 ### Response
@@ -49,7 +52,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 4920
+Content-Length: 7225
 
 {
   "value": {
@@ -57,6 +60,40 @@ Content-Length: 4920
     "id": "705c034c-034c-705c-4c03-5c704c035c70",
     "userId": "User Id value",
     "deviceName": "Device Name value",
+    "hardwareInformation": {
+      "@odata.type": "microsoft.graph.hardwareInformation",
+      "serialNumber": "Serial Number value",
+      "totalStorageSpace": 1,
+      "freeStorageSpace": 0,
+      "imei": "Imei value",
+      "meid": "Meid value",
+      "manufacturer": "Manufacturer value",
+      "model": "Model value",
+      "phoneNumber": "Phone Number value",
+      "subscriberCarrier": "Subscriber Carrier value",
+      "cellularTechnology": "Cellular Technology value",
+      "wifiMac": "Wifi Mac value",
+      "operatingSystemLanguage": "Operating System Language value",
+      "isSupervised": true,
+      "isEncrypted": true,
+      "isSharedDevice": true,
+      "sharedDeviceCachedUsers": [
+        {
+          "@odata.type": "microsoft.graph.sharedAppleDeviceUser",
+          "userPrincipalName": "User Principal Name value",
+          "dataToSync": true,
+          "dataQuota": 9,
+          "dataUsed": 8
+        }
+      ],
+      "tpmSpecificationVersion": "Tpm Specification Version value",
+      "operatingSystemEdition": "Operating System Edition value",
+      "deviceFullQualifiedDomainName": "Device Full Qualified Domain Name value",
+      "deviceGuardVirtualizationBasedSecurityHardwareRequirementState": "secureBootRequired",
+      "deviceGuardVirtualizationBasedSecurityState": "rebootRequired",
+      "deviceGuardLocalSystemAuthorityCredentialGuardState": "rebootRequired"
+    },
+    "ownerType": "company",
     "managedDeviceOwnerType": "company",
     "deviceActionResults": [
       {
@@ -67,9 +104,12 @@ Content-Length: 4920
         "lastUpdatedDateTime": "2017-01-01T00:00:56.8321556-08:00"
       }
     ],
+    "managementState": "retirePending",
     "enrolledDateTime": "2016-12-31T23:59:43.797191-08:00",
     "lastSyncDateTime": "2017-01-01T00:02:49.3205976-08:00",
+    "chassisType": "desktop",
     "operatingSystem": "Operating System value",
+    "deviceType": "windowsRT",
     "complianceState": "compliant",
     "jailBroken": "Jail Broken value",
     "managementAgent": "mdm",
@@ -77,10 +117,13 @@ Content-Length: 4920
     "easActivated": true,
     "easDeviceId": "Eas Device Id value",
     "easActivationDateTime": "2016-12-31T23:59:43.4878784-08:00",
+    "aadRegistered": true,
     "azureADRegistered": true,
     "deviceEnrollmentType": "userEnrollment",
+    "lostModeState": "enabled",
     "activationLockBypassCode": "Activation Lock Bypass Code value",
     "emailAddress": "Email Address value",
+    "azureActiveDirectoryDeviceId": "Azure Active Directory Device Id value",
     "azureADDeviceId": "Azure ADDevice Id value",
     "deviceRegistrationState": "registered",
     "deviceCategoryDisplayName": "Device Category Display Name value",
@@ -89,6 +132,7 @@ Content-Length: 4920
     "exchangeAccessState": "unknown",
     "exchangeAccessStateReason": "unknown",
     "remoteAssistanceSessionUrl": "https://example.com/remoteAssistanceSessionUrl/",
+    "remoteAssistanceSessionErrorString": "Remote Assistance Session Error String value",
     "remoteAssistanceSessionErrorDetails": "Remote Assistance Session Error Details value",
     "isEncrypted": true,
     "userPrincipalName": "User Principal Name value",
@@ -150,7 +194,20 @@ Content-Length: 4920
     "totalStorageSpaceInBytes": 8,
     "freeStorageSpaceInBytes": 7,
     "managedDeviceName": "Managed Device Name value",
-    "partnerReportedThreatState": "activated"
+    "partnerReportedThreatState": "activated",
+    "usersLoggedOn": [
+      {
+        "@odata.type": "microsoft.graph.loggedOnUser",
+        "userId": "User Id value",
+        "lastLogOnDateTime": "2016-12-31T23:58:37.4262708-08:00"
+      }
+    ],
+    "preferMdmOverGroupPolicyAppliedDateTime": "2016-12-31T23:57:34.4649887-08:00",
+    "autopilotEnrolled": true,
+    "requireUserEnrollmentApproval": true,
+    "managementCertificateExpirationDate": "2016-12-31T23:57:59.9789653-08:00",
+    "iccid": "Iccid value",
+    "udid": "Udid value"
   }
 }
 ```

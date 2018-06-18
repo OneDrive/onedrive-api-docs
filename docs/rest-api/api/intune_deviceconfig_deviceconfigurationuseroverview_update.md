@@ -1,5 +1,7 @@
 ﻿# Update deviceConfigurationUserOverview
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [deviceConfigurationUserOverview](../resources/intune_deviceconfig_deviceconfigurationuseroverview.md) object.
@@ -19,6 +21,13 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/rootCertificate/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/identityCertificate/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/identityCertificate/rootCertificate/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.iosScepCertificateProfile/rootCertificate/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.macOSScepCertificateProfile/rootCertificate/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windows81SCEPCertificateProfile/rootCertificate/userStatusOverview
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsPhone81VpnConfiguration/identityCertificate/userStatusOverview
 ```
 
 ## Request headers
@@ -36,10 +45,11 @@ The following table shows the properties that are required when you create the [
 |:---|:---|:---|
 |id|String|Key of the entity.|
 |pendingCount|Int32|Number of pending Users|
-|notApplicableCount|Int32|Number of not applicable devices|
+|notApplicableCount|Int32|Number of not applicable users|
 |successCount|Int32|Number of succeeded Users|
 |errorCount|Int32|Number of error Users|
 |failedCount|Int32|Number of failed Users|
+|conflictCount|Int32|Number of users in conflict|
 |lastUpdateDateTime|DateTimeOffset|Last update time|
 |configurationVersion|Int32|Version of the policy for that overview|
 
@@ -52,9 +62,9 @@ If successful, this method returns a `200 OK` response code and an updated [devi
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}/userStatusOverview
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}/userStatusOverview
 Content-type: application/json
-Content-length: 212
+Content-length: 236
 
 {
   "pendingCount": 12,
@@ -62,6 +72,7 @@ Content-length: 212
   "successCount": 12,
   "errorCount": 10,
   "failedCount": 11,
+  "conflictCount": 13,
   "lastUpdateDateTime": "2016-12-31T23:58:21.6459442-08:00",
   "configurationVersion": 4
 }
@@ -72,7 +83,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 331
+Content-Length: 355
 
 {
   "@odata.type": "#microsoft.graph.deviceConfigurationUserOverview",
@@ -82,6 +93,7 @@ Content-Length: 331
   "successCount": 12,
   "errorCount": 10,
   "failedCount": 11,
+  "conflictCount": 13,
   "lastUpdateDateTime": "2016-12-31T23:58:21.6459442-08:00",
   "configurationVersion": 4
 }

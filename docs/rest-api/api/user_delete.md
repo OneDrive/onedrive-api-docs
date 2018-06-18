@@ -1,5 +1,7 @@
 # Delete a user
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete user.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -36,7 +38,7 @@ Here is an example of the request.
   "name": "delete_user"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/users/{user-id}
+DELETE https://graph.microsoft.com/beta/users/ba9a3254-9f18-4209-aeb3-9e42a35b5be4 
 ```
 ##### Response
 Here is an example of the response. 

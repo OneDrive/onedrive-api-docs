@@ -1,5 +1,7 @@
 # Create or replace a historyItem
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create a new or replace an existing history item for an existing user activity.
 
 ## Permissions
@@ -49,7 +51,7 @@ Here is an example of the request.
 } -->
 
 ```http
-PUT https://graph.microsoft.com/v1.0/me/activities/{activity-id}/historyItems/{item-id}
+PUT https://graph.microsoft.com/beta/me/activities/13881113971988980728/historyItems/390e06e2-7e5b-4133-8014-fac7ac5991af
 Content-type: application/json
 Content-length: 364
 
@@ -67,7 +69,7 @@ Here is an example of the response.
 <!-- {
     "blockType": "ignored",
     "truncated": true,
-    "@odata.type": "microsoft.graph.activityHistoryItem"
+    "@odata.type": "microsoft.graph.historyItem"
 } -->
 
 ```http
@@ -75,7 +77,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('user%40contoso.com')/activities('13881113971988980728')/historyItems/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users('user%40contoso.com')/activities('13881113971988980728')/historyItems/$entity",
     "status": "updated",
     "userTimezone": "Africa/Casablanca",
     "createdDateTime": "2018-02-26T20:28:22.14Z",

@@ -1,5 +1,7 @@
 # List calendars
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get all the user's calendars (`/calendars` navigation property), get the calendars from the default calendar group or from a specific calendar group. 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -53,7 +55,7 @@ Here is an example of the request.
   "name": "get_calendars"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendars
+GET https://graph.microsoft.com/beta/me/calendars
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -68,16 +70,20 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#me/calendars",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#me/calendars",
     "value": [
         {
-            "@odata.id": "https://graph.microsoft.com/v1.0/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/calendars('AAMkAGI2TGuLAAA=')",
+            "@odata.id": "https://graph.microsoft.com/beta/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/calendars('AAMkAGI2TGuLAAA=')",
             "id": "AAMkAGI2TGuLAAA=",
             "name": "Calendar",
             "color": "auto",
             "changeKey": "nfZyf7VcrEKLNoU37KWlkQAAA0x0+w==",
+            "isDefaultCalendar": true,
             "canShare":true,
             "canViewPrivateItems":true,
+            "hexColor": "",
+            "isShared":false,
+            "isSharedWithMe":false,
             "canEdit":true,
             "owner":{
                 "name":"Samantha Booth",
@@ -86,6 +92,7 @@ Content-type: application/json
         }
     ]
 }
+
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

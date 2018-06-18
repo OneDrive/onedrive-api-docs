@@ -1,4 +1,6 @@
-# termsAndConditions resource type
+﻿# termsAndConditions resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -17,6 +19,7 @@ A termsAndConditions entity represents the metadata and contents of a given Term
 |:---|:---|:---|
 |id|String|Unique identifier of the T&C policy.|
 |createdDateTime|DateTimeOffset|DateTime the object was created.|
+|modifiedDateTime|DateTimeOffset|DateTime the object was last modified.|
 |lastModifiedDateTime|DateTimeOffset|DateTime the object was last modified.|
 |displayName|String|Administrator-supplied name for the T&C policy. |
 |description|String|Administrator-supplied description of the T&C policy.|
@@ -28,22 +31,24 @@ A termsAndConditions entity represents the metadata and contents of a given Term
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
+|groupAssignments|[termsAndConditionsGroupAssignment](../resources/intune_companyterms_termsandconditionsgroupassignment.md) collection|The list of group assignments for this T&C policy.|
 |assignments|[termsAndConditionsAssignment](../resources/intune_companyterms_termsandconditionsassignment.md) collection|The list of assignments for this T&C policy.|
 |acceptanceStatuses|[termsAndConditionsAcceptanceStatus](../resources/intune_companyterms_termsandconditionsacceptancestatus.md) collection|The list of acceptance statuses for this T&C policy.|
 
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
   "@odata.type": "microsoft.graph.termsAndConditions"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.termsAndConditions",
   "id": "String (identifier)",
   "createdDateTime": "String (timestamp)",
+  "modifiedDateTime": "String (timestamp)",
   "lastModifiedDateTime": "String (timestamp)",
   "displayName": "String",
   "description": "String",

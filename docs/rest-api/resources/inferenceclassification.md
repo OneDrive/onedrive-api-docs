@@ -1,5 +1,7 @@
 # inferenceClassification resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Classification of a user's messages to enable focus on those that are more relevant or important to the user. 
 
 For more information, see [Manage Focused Inbox](manage_focused_inbox.md).
@@ -31,18 +33,7 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.inferenceClassification",
-  "@odata.annotations": [
-    {
-      "property": "overrides",
-      "capabilities": {
-        "changeTracking": false,
-        "expandable": false,
-        "searchable": false
-      }
-    }
-  ]
+  "@odata.type": "microsoft.graph.inferenceClassification"
 }-->
 
 ```json

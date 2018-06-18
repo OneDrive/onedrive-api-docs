@@ -1,5 +1,7 @@
 # Create single-value extended property
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create one or more single-value extended properties in a new or existing instance of a resource. 
 
 The following user resources are supported:
@@ -9,7 +11,9 @@ The following user resources are supported:
 - [event](../resources/event.md)
 - [calendar](../resources/calendar.md)
 - [contact](../resources/contact.md)
-- [contactFolder](../resources/contactfolder.md) 
+- [contactFolder](../resources/contactfolder.md)
+- [Outlook task](../resources/outlooktask.md)
+- [Outlook task folder](../resources/outlooktaskfolder.md)
 
 As well as the following group resources:
 
@@ -27,6 +31,7 @@ creating the extended property in. To learn more, including how to choose permis
 - Mail.ReadWrite
 - Calendars.ReadWrite
 - Contacts.ReadWrite
+- Tasks.ReadWrite
 - Group.ReadWrite.All
  
 ## HTTP request
@@ -38,6 +43,7 @@ Note that some resources support creation in more than one way. For more informa
 see the corresponding topics for creating a [message](../resources/message.md), [mailFolder](../api/user_post_mailfolders.md),
 [event](../api/user_post_events.md), [calendar](../api/user_post_calendars.md),
 [contact](../api/user_post_contacts.md), [contactFolder](../api/user_post_contactfolders.md),
+[Outlook task](../resources/outlooktask.md), [Outlook task folder](../resources/outlooktaskfolder.md),
 [group event](../api/group_post_events.md), and [group post](../resources/post.md). 
  
 The following is the syntax of the requests. 
@@ -62,6 +68,18 @@ POST /users/{id|userPrincipalName}/contacts
 
 POST /me/contactFolders
 POST /users/{id|userPrincipalName}/contactFolders
+
+POST /me/outlook/tasks
+POST /users/{id|userPrincipalName}/outlook/tasks
+POST /me/outlook/taskFolders/{id}/tasks
+POST /users/{id|userPrincipalName}/outlook/taskFolders/{id}/tasks
+POST /me/outlook/taskGroups/{id}/taskFolders/{id}/tasks
+POST /users/{id|userPrincipalName}/outlook/taskGroups/{id}/taskFolders/{id}/tasks
+
+POST /me/outlook/taskFolders
+POST /users/{id|userPrincipalName}/outlook/taskFolders
+POST /me/outlook/taskGroups/{id}/taskFolders
+POST /users/{id|userPrincipalName}/outlook/taskGroups/{id}/taskFolders
 
 POST /groups/{id}/events
 
@@ -99,17 +117,28 @@ PATCH /users/{id|userPrincipalName}/contacts/{id}
 PATCH /me/contactFolders/{id}
 PATCH /users/{id|userPrincipalName}/contactFolders/{id}
 
+PATCH /me/outlook/tasks/{id}
+PATCH /users/{id|userPrincipalName}/outlook/tasks/{id}
+PATCH /me/outlook/taskFolders/{id}/tasks/{id}
+PATCH /users/{id|userPrincipalName}/outlook/taskFolders/{id}/tasks/{id}
+PATCH /me/outlook/taskGroups/{id}/taskFolders/{id}/tasks/{id}
+PATCH /users/{id|userPrincipalName}/outlook/taskGroups/{id}/taskFolders/{id}/tasks/{id}
+
+PATCH /me/outlook/taskFolders/{id}
+PATCH /users/{id|userPrincipalName}/outlook/taskFolders/{id}
+PATCH /me/outlook/taskGroups/{id}/taskFolders/{id}
+PATCH /users/{id|userPrincipalName}/outlook/taskGroups/{id}/taskFolders/{id}
+
 PATCH /groups/{id}/events/{id}
 ```
 
 
-## Path parameters
-|Parameter|Type|Description|
+## Parameters
+|**Parameter**|**Type**|**Description**|
 |:-----|:-----|:-----|
-|id|string|A unique identifier for an object in the corresponding collection. Required.|
-
-## Request body parameters
-|Parameter|Type|Description|
+|_URL parameters_|
+|id|string|A unique identifier for an object, represented by its **id** property, in the corresponding collection. Required.|
+|_Body parameters_|
 |singleValueExtendedProperties|[singleValueLegacyExtendedProperty](../resources/singleValueLegacyExtendedProperty.md) collection| An array of one or more single-valued extended properties. |
 |id|String|For each property in the **singleValueExtendedProperties** collection, specify this to identify the property. It must follow one of the supported formats. See [Outlook extended properties overview](../resources/extended-properties-overview.md) for more information. Required.|
 |value|string|For each property in the **singleValueExtendedProperties** collection, specify the property value. Required.|
@@ -154,12 +183,13 @@ a response code but not the new post nor the extended property.
 The first example creates a new event and a single-value extended property in the same POST operation. Apart from the properties you'd normally 
 include for a new event, the request body includes the **singleValueExtendedProperties** collection that contains one single-value 
 extended property, and the following for the property:
+
 - **id** specifies the property type as `String`, the GUID, and the property named `Fun`.
 - **value** specifies `Food` as the value of the `Fun` property. 
 
 <!-- { "blockType": "ignored" } -->
 ```http
-POST https://graph.microsoft.com/v1.0/me/events
+POST https://graph.microsoft.com/beta/me/events
 Content-Type: application/json
 
 {
@@ -215,7 +245,7 @@ extended property:
 
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/messages/AAMkAGE1M2_bs88AACHsLqWAAA=
+PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2_bs88AACHsLqWAAA=')
 
 Content-Type: application/json
 

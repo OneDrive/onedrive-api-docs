@@ -1,14 +1,16 @@
 # Get Icon
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of icon object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-|Permission type      | Permissions (from least to most privileged)              | 
-|:--------------------|:---------------------------------------------------------| 
-|Delegated (work or school account) | Files.ReadWrite    | 
-|Delegated (personal Microsoft account) | Not supported.    | 
-|Application | Not supported. | 
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
+|Delegated (work or school account) | Files.ReadWrite    |
+|Delegated (personal Microsoft account) | Files.ReadWrite    |
+|Application | Not supported. |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -24,7 +26,6 @@ This method supports the [OData Query Parameters](http://developer.microsoft.com
 |:----------|:----------|
 | Authorization  | Bearer {token}. Required. |
 
-
 ## Request body
 Do not supply a request body for this method.
 
@@ -39,14 +40,14 @@ Here is an example of the request.
   "name": "get_icon"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables/{id|name}/sort/fields/icon
+GET https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/tables/{id|name}/sort/fields/icon
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.workbookIcon"
+  "@odata.type": "microsoft.graph.icon"
 } -->
 ```http
 HTTP/1.1 200 OK

@@ -1,5 +1,7 @@
 # reportRoot: getYammerDeviceUsageUserDetail function
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Get details about Yammer device usage by user.
 
 > **Note:** For details about different report views and names, see [Office 365 Reports - Yammer device usage](https://support.office.com/client/Yammer-device-usage-b793ffdd-effa-43d0-849a-b1ca2e899f38).
@@ -25,7 +27,7 @@ GET /reports/getYammerDeviceUsageUserDetail(date={date_value})
 
 ## Request parameters
 
-In the request URL, provide the query parameter with a valid value.
+In the request URL, provide one of the following parameters with a valid value.
 
 | Parameter | Type   | Description                              |
 | :-------- | :----- | :--------------------------------------- |
@@ -34,14 +36,17 @@ In the request URL, provide the query parameter with a valid value.
 
 > **Note:** You need to set either period or date in the URL.
 
+This method supports the `$format`, `$top`, and `$skipToken` [OData query parameters](../../../concepts/query_parameters.md) to customize the response. The default output type is text/csv. However, if you want to specify the output type, you can use the OData $format query parameter set to text/csv or application/json.
+
 ## Request headers
 
-| Name          | Description                              |
-| :------------ | :--------------------------------------- |
-| Authorization | Bearer {token}. Required.                |
-| If-None-Match | If this request header is included and the eTag provided matches the current tag on the file, a `304 Not Modified` response code is returned. Optional. |
+| Name          | Description               |
+| :------------ | :------------------------ |
+| Authorization | Bearer {token}. Required. |
 
 ## Response
+
+### CSV
 
 If successful, this method returns a `302 Found` response that redirects to a preauthenticated download URL for the report. That URL can be found in the `Location` header in the response.
 
@@ -63,57 +68,36 @@ The CSV file has the following headers for columns.
 - Used Others
 - Report Period
 
+### JSON
+
+If successful, this method returns a `200 OK` response code and a **[yammerDeviceUsageUserDetail](../resources/yammerdeviceusageuserdetail.md)** object in the response body.
+
+The default page size for this request is 200 items.
+
 ## Example
+
+### CSV
+
+The following is an example that outputs CSV.
 
 #### Request
 
 The following is an example of the request.
 
-<!--{
-  "blockType": "request",
-  "isComposable": true,
-  "name": "reportroot_getyammerdeviceusageuserdetail"
-}-->
-
-```http
-GET https://graph.microsoft.com/v1.0/reports/getYammerDeviceUsageUserDetail(period='D7')
-```
-
-#### Response
-
-The following is an example of the response.
-
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.report" } --> 
-
-```http
-HTTP/1.1 302 Found
-Content-Type: text/plain
-Location: https://reports.office.com/data/download/JDFKdf2_eJXKS034dbc7e0t__XDe
-```
-
-#### Request
-
-If called with the `date` parameter, the report is scoped to usage on the given date.
-
-<!--{
-  "blockType": "request",
-  "isComposable": true,
-  "name": "reportroot_getyammerdeviceusageuserdetail_date"
-}-->
-
-```http
-GET https://graph.microsoft.com/v1.0/reports/getYammerDeviceUsageUserDetail(date='2018-03-05')
-```
-
-#### Response
-
-The following is an example of the response.
-
 <!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.report"
-} -->
+  "blockType": "request",
+  "name": "reportroot_getyammerdeviceusageuserdetail_csv"
+}-->
+
+```http
+GET https://graph.microsoft.com/beta/reports/getYammerDeviceUsageUserDetail(period='D7')?$format=text/csv
+```
+
+#### Response
+
+The following is an example of the response.
+
+<!-- { "blockType": "ignored" } --> 
 
 ```http
 HTTP/1.1 302 Found
@@ -123,11 +107,71 @@ Location: https://reports.office.com/data/download/JDFKdf2_eJXKS034dbc7e0t__XDe
 
 Follow the 302 redirection and the CSV file that downloads will have the following schema.
 
-<!-- { "blockType": "ignored" } --> 
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "stream"
+} -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream
 
 Report Refresh Date,User Principal Name,Display Name,User State,State Change Date,Last Activity Date,Used Web,Used Windows Phone,Used Android Phone,Used iPhone,Used iPad,Used Others,Report Period
+```
+
+### JSON
+
+The following is an example that returns JSON.
+
+#### Request
+
+The following is an example of the request.
+
+<!-- {
+  "blockType": "request",
+  "name": "reportroot_getyammerdeviceusageuserdetail_json"
+}-->
+
+```http
+GET https://graph.microsoft.com/beta/reports/getYammerDeviceUsageUserDetail(period='D7')?$format=application/json
+```
+
+#### Response
+
+The following is an example of the response.
+
+> **Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.yammerDeviceUsageUserDetail"
+} -->
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 442
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.yammerDeviceUsageUserDetail)", 
+  "value": [
+    {
+      "reportRefreshDate": "2017-09-06", 
+      "userPrincipalName": "userPrincipalName-value", 
+      "displayName": "displayName-value", 
+      "userState": "active", 
+      "stateChangeDate": "2012-06-26", 
+      "lastActivityDate": "2017-09-06", 
+      "usedWeb": true, 
+      "usedWindowsPhone": false, 
+      "usedAndroidPhone": false, 
+      "usediPhone": false, 
+      "usediPad": false, 
+      "usedOthers": false, 
+      "reportPeriod": "7"
+    }
+  ]
+}
 ```

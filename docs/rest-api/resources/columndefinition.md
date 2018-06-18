@@ -6,17 +6,14 @@ title: ColumnDefinition
 ---
 # ColumnDefinition resource
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 ## JSON representation
 
 Here is a JSON representation of a ColumnDefinition resource.
 
-<!--{
-  "blockType": "resource",
-  "optionalProperties": [],
-  "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.columnDefinition"
-}-->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.columnDefinition",
+       "keyProperty": "id", "optionalProperties": [ ] } -->
 
 ```json
 {
@@ -80,12 +77,6 @@ These properties are mutually exclusive -- a column can only have one of them sp
 Note: These properties correspond to SharePoint's [SPFieldType][] enumeration.
 While the most common field types are represented above, this beta API is still missing some.
 In those cases, none of the column type facets will be populated, and the column will only have its basic properties.
-
-## Remarks
-
-ColumnDefinitions and field values for `hidden` columns are not shown by default.
-To see them when listing **columnDefinitions**, include `hidden` in your `$select` statement.
-To see them when showing **field** values on [listItems][listItem], include the desired columns by name in your `$select` statement.
 
 [booleanColumn]: booleanColumn.md
 [calculatedColumn]: calculatedColumn.md

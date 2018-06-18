@@ -1,5 +1,7 @@
 # customTimeZone resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Represents a time zone where the transition from standard to daylight saving time, or vice versa is not standard.
 
 
@@ -21,7 +23,6 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "baseType": "microsoft.graph.timeZoneBase",
   "@odata.type": "microsoft.graph.customTimeZone"
 }-->
 

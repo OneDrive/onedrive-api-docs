@@ -1,5 +1,7 @@
 ﻿# Update windows10SecureAssessmentConfiguration
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [windows10SecureAssessmentConfiguration](../resources/intune_deviceconfig_windows10secureassessmentconfiguration.md) object.
@@ -19,6 +21,8 @@ One of the following permissions is required to call this API. To learn more, in
 -->
 ``` http
 PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/groupAssignments/{deviceConfigurationGroupAssignmentId}/deviceConfiguration
+PATCH /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.windowsDomainJoinConfiguration/networkAccessConfigurations/{deviceConfigurationId}
 ```
 
 ## Request headers
@@ -42,6 +46,7 @@ The following table shows the properties that are required when you create the [
 |version|Int32|Version of the device configuration. Inherited from [deviceConfiguration](../resources/intune_deviceconfig_deviceconfiguration.md)|
 |launchUri|String|Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http\[s\]://msdn.microsoft.com/).|
 |configurationAccount|String|The account used to configure the Windows device for taking the test. The user can be a domain account (domain\user), an AAD account (username@tenant.com) or a local account (username).|
+|configurationAccountType|[secureAssessmentAccountType](../resources/intune_deviceconfig_secureassessmentaccounttype.md)|The account type used to by ConfigurationAccount. Possible values are: `azureADAccount`, `domainAccount`, `localAccount`.|
 |allowPrinting|Boolean|Indicates whether or not to allow the app from printing during the test.|
 |allowScreenCapture|Boolean|Indicates whether or not to allow screen capture capability during a test.|
 |allowTextSuggestion|Boolean|Indicates whether or not to allow text suggestions during the test.|
@@ -55,9 +60,9 @@ If successful, this method returns a `200 OK` response code and an updated [wind
 ### Request
 Here is an example of the request.
 ``` http
-PATCH https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/{deviceConfigurationId}
+PATCH https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}
 Content-type: application/json
-Content-length: 346
+Content-length: 394
 
 {
   "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00",
@@ -66,6 +71,7 @@ Content-length: 346
   "version": 7,
   "launchUri": "Launch Uri value",
   "configurationAccount": "Configuration Account value",
+  "configurationAccountType": "domainAccount",
   "allowPrinting": true,
   "allowScreenCapture": true,
   "allowTextSuggestion": true
@@ -77,7 +83,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 531
+Content-Length: 579
 
 {
   "@odata.type": "#microsoft.graph.windows10SecureAssessmentConfiguration",
@@ -89,6 +95,7 @@ Content-Length: 531
   "version": 7,
   "launchUri": "Launch Uri value",
   "configurationAccount": "Configuration Account value",
+  "configurationAccountType": "domainAccount",
   "allowPrinting": true,
   "allowScreenCapture": true,
   "allowTextSuggestion": true

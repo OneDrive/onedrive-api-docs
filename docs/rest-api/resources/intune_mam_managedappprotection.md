@@ -1,4 +1,6 @@
-# managedAppProtection resource type
+﻿# managedAppProtection resource type
+
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
@@ -39,7 +41,7 @@ Inherits from [managedAppPolicy](../resources/intune_mam_managedapppolicy.md)
 |minimumPinLength|Int32|Minimum pin length required for an app-level pin if PinRequired is set to True|
 |pinCharacterSet|[managedAppPinCharacterSet](../resources/intune_mam_managedapppincharacterset.md)|Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: `numeric`, `alphanumericAndSymbol`.|
 |periodBeforePinReset|Duration|TimePeriod before the all-level pin must be reset if PinRequired is set to True.|
-|allowedDataStorageLocations|[managedAppDataStorageLocation enum](../resources/intune_mam_managedappdatastoragelocation.md) collection|Data storage locations where a user may store managed data.|
+|allowedDataStorageLocations|[managedAppDataStorageLocation](../resources/intune_mam_managedappdatastoragelocation.md) collection|Data storage locations where a user may store managed data.|
 |contactSyncBlocked|Boolean|Indicates whether contacts can be synced to the user's device.|
 |printBlocked|Boolean|Indicates whether printing is allowed from managed apps.|
 |fingerprintBlocked|Boolean|Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.|
@@ -48,18 +50,23 @@ Inherits from [managedAppPolicy](../resources/intune_mam_managedapppolicy.md)
 |minimumWarningOsVersion|String|Versions less than the specified version will result in warning message on the managed app from accessing company data.|
 |minimumRequiredAppVersion|String|Versions less than the specified version will block the managed app from accessing company data.|
 |minimumWarningAppVersion|String|Versions less than the specified version will result in warning message on the managed app.|
+|minimumWipeOsVersion|String|Versions less than or equal to the specified version will wipe the managed app and the associated company data.|
+|minimumWipeAppVersion|String|Versions less than or equal to the specified version will wipe the managed app and the associated company data.|
+|appActionIfDeviceComplianceRequired|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, when the device is either rooted or jailbroken, if DeviceComplianceRequired is set to true. Possible values are: `block`, `wipe`.|
+|appActionIfMaximumPinRetriesExceeded|[managedAppRemediationAction](../resources/intune_mam_managedappremediationaction.md)|Defines a managed app behavior, either block or wipe, based on maximum number of incorrect pin retry attempts. Possible values are: `block`, `wipe`.|
+|pinRequiredOnLaunchInsteadOfBiometric|Boolean|Requires an app pin on launch instead of non biometrics passcode|
+|pinRequiredInsteadOfBiometricTimeout|Duration|Timeout in minutes for an app pin instead of non biometrics passcode|
 
 ## Relationships
 None
 ## JSON Representation
 Here is a JSON representation of the resource.
-<!--{
+<!-- {
   "blockType": "resource",
-  "abstract": true,
   "keyProperty": "id",
-  "baseType": "microsoft.graph.managedAppPolicy",
   "@odata.type": "microsoft.graph.managedAppProtection"
-}-->
+}
+-->
 ``` json
 {
   "@odata.type": "#microsoft.graph.managedAppProtection",
@@ -96,7 +103,13 @@ Here is a JSON representation of the resource.
   "minimumRequiredOsVersion": "String",
   "minimumWarningOsVersion": "String",
   "minimumRequiredAppVersion": "String",
-  "minimumWarningAppVersion": "String"
+  "minimumWarningAppVersion": "String",
+  "minimumWipeOsVersion": "String",
+  "minimumWipeAppVersion": "String",
+  "appActionIfDeviceComplianceRequired": "String",
+  "appActionIfMaximumPinRetriesExceeded": "String",
+  "pinRequiredOnLaunchInsteadOfBiometric": true,
+  "pinRequiredInsteadOfBiometricTimeout": "String (duration)"
 }
 ```
 

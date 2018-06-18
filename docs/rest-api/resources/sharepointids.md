@@ -6,6 +6,8 @@ title: SharePointIds
 ---
 # SharePointIds resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **SharePointIds** resource groups the various identifiers for an item stored in a SharePoint site or OneDrive for Business into a single structure.
 
 **Note:** items returned from OneDrive personal will not include a **SharePointIds** facet.
@@ -27,6 +29,7 @@ Here is a JSON representation of the resource
     "listItemUniqueId": "string",
     "siteId": "string",
     "siteUrl": "url",
+    "tenantId": "string",
     "webId": "string"
 }
 ```
@@ -40,6 +43,7 @@ Here is a JSON representation of the resource
 | listItemUniqueId | string       | The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site.
 | siteId           | string       | The unique identifier (guid) for the item's site collection (SPSite).
 | siteUrl          | string (url) | The SharePoint URL for the site that contains the item.
+| tenantId         | string       | The unique identifier (guid) for the tenancy.
 | webId            | string       | The unique identifier (guid) for the item's site (SPWeb).
 
 ## Remarks

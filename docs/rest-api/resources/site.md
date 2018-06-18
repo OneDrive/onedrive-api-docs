@@ -6,6 +6,8 @@ title: Site
 ---
 # Site resource
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 The **site** resource provides metadata and relationships for a SharePoint site.
 
 ## Tasks
@@ -18,34 +20,26 @@ All examples below are relative to `https://graph.microsoft.com/v1.0`.
 | [Get site][]             | GET /sites/{site-id}
 | [Get site by path][]     | GET /sites/{hostname}:/{site-path}
 | [Get site for a group][] | GET /groups/{group-id}/sites/root
+| [List root sites][]      | GET /sites?filter=root ne null&select=siteCollection,webUrl
 | [Search for sites][]     | GET /sites?search={query}
 
 [Get site]: ../api/site_get.md
 [Get root site]: ../api/site_get.md
 [Get site by path]: ../api/site_getbypath.md
 [Get site for a group]: ../api/site_get.md
+[List root sites]: ../api/site_list.md
 [Search for sites]: ../api/site_search.md
 
 ## JSON representation
 
 Here is a JSON representation of a **site** resource.
 
-The **site** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
+The **driveItem** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
-<!--{
-  "blockType": "resource",
-  "optionalProperties": [
-    "root",
-    "sharepointIds",
-    "siteCollection",
-    "drive",
-    "drives",
-    "sites"
-  ],
-  "keyProperty": "id",
-  "baseType": "microsoft.graph.baseItem",
-  "@odata.type": "microsoft.graph.site"
-}-->
+<!-- { "blockType": "resource",
+       "@odata.type": "microsoft.graph.site",
+       "keyProperty": "id",
+       "optionalProperties": [ "root", "sharepointIds", "siteCollection", "drive", "drives", "sites" ] } -->
 
 ```json
 {
@@ -63,7 +57,7 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
   "lists": [ { "@odata.type": "microsoft.graph.list" }],
   "sites": [ { "@odata.type": "microsoft.graph.site"} ],
   "columns": [ { "@odata.type": "microsoft.graph.columnDefinition" }],
-  "onenote": { "@odata.type": "microsoft.graph.onenote"},
+  "onenote": [ { "@odata.type": "microsoft.graph.onenote"} ],
 
   /* inherited from baseItem */
   "name": "string",
@@ -83,7 +77,6 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 | **createdDateTime**      | DateTimeOffset                      | The date and time the item was created. Read-only.                                             |
 | **description**          | string                              | The descriptive text for the site.                                                             |
 | **displayName**          | string                              | The full title for the site. Read-only.                                                        |
-| **eTag**                 | string                              | ETag for the item. Read-only.                                                                  |
 | **lastModifiedDateTime** | DateTimeOffset                      | The date and time the item was last modified. Read-only.                                       |
 | **name**                 | string                              | The name / title of the item.                                                                  |
 | **root**                 | [root](root.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
@@ -118,6 +111,8 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
   "description": "",
   "keywords": "",
   "section": "documentation",
-  "tocPath": "Sites",
-  "tocBookmarks": { "Resources/Site": "#" }
+  "tocPath": "Resources/Site",
+  "tocBookmarks": {
+    "Site": "#"
+  }
 } -->

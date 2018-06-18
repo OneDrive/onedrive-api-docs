@@ -1,5 +1,7 @@
 # Delete eventMessage
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete eventMessage.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -39,7 +41,7 @@ Here is an example of the request.
   "name": "delete_eventmessage"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/me/messages/{id}
+DELETE https://graph.microsoft.com/beta/me/messages/{id}
 ```
 ##### Response
 Here is an example of the response. 

@@ -1,5 +1,7 @@
 # Create plannerBucket
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Use this API to create a new **plannerBucket**.
 
 ## Permissions
@@ -39,7 +41,7 @@ Here is an example of the request.
   "name": "create_plannerbucket_from_planner"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/planner/buckets
+POST https://graph.microsoft.com/beta/planner/buckets
 Content-type: application/json
 Content-length: 92
 

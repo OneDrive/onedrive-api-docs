@@ -1,5 +1,7 @@
 # Get subscription
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of a subscription.
 
 ## Permissions
@@ -17,6 +19,8 @@ The following table lists the suggested permission needed for each resource. To 
 | Drive  (User's OneDrive)    | Files.ReadWrite     |
 | Drives (SharePoint shared content and drives) | Files.ReadWrite.All |
 
+***Note:*** The /beta endpoint allows application permissions for most resources. Conversations in a Group and OneDrive drive root items are not supported with application permissions.
+
 ## HTTP request
 
 <!-- { "blockType": "ignored" } -->
@@ -32,7 +36,7 @@ This method supports the [OData Query Parameters](http://developer.microsoft.com
 ## Request headers
 
 | Name       | Type | Description|
-|:-----------|:------|:----------|
+|:-----------|:-----|:-----------|
 | Authorization  | string  | Bearer {token}. Required. |
 
 ## Request body
@@ -54,7 +58,7 @@ Here is an example of the request.
 }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/subscriptions/{id}
+GET https://graph.microsoft.com/beta/subscriptions/{id}
 ```
 
 ##### Response

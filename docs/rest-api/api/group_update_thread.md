@@ -1,4 +1,7 @@
 # Update conversation thread
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update a [thread](../resources/conversationthread.md) object.
 
 ## Permissions
@@ -36,7 +39,7 @@ The following is an example of the request.
   "name": "update_group_thread"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/groups/{group-id}/threads/{thread-id}
+PATCH https://graph.microsoft.com/beta/groups/02bd9fd6-8f93-4758-87c3-1fb73740a315/threads/AAQkAGI5MWY5ZmUyLTJiNzYtNDE0ZC04OWEwLWM3M2FjYmM3NzNlZgMkABAAG5c7eC4NYEynIoXsuxXB9RAAG5c7eC4NYEynIoXsuxXB9Q==
 Content-type: application/json
 Content-length: 655
 

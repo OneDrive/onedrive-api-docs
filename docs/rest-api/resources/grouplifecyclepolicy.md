@@ -12,6 +12,7 @@ Represents a a lifecycle policy for an Office 365 group. A group lifecycle polic
 |[Delete groupLifecyclePolicy](../api/grouplifecyclepolicy_delete.md) | None | Delete a groupLifecyclePolicy object. |
 |[Add a group to a groupLifecyclePolicy](../api/grouplifecyclepolicy_addgroup.md)|None| Add a group to a lifecycle policy |
 |[Remove a group from a groupLifecyclePolicy](../api/grouplifecyclepolicy_removegroup.md)|None| Remove a group to a lifecycle policy. |
+|[Renew a group](../api/grouplifecyclepolicy_renewgroup.md)|None| Renew a group's expiration date. |
 
 ## Properties
 
@@ -30,11 +31,11 @@ None.
 
 Here is a JSON representation of the resource.
 
-<!--{
+<!-- {
   "blockType": "resource",
-  "optionalProperties": [],
-  "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [
+
+  ],
   "@odata.type": "microsoft.graph.groupLifecyclePolicy"
 }-->
 

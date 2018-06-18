@@ -1,5 +1,7 @@
 # Remove educationClass
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Delete a class from a school.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "create_educationclass_from_educationschool"
 }-->
 ```http
-DELETE https://graph.microsoft.com/v1.0/education/schools/{school-id}/classes/{class-id}
+DELETE https://graph.microsoft.com/beta/education/schools/10001/classes/11001
 ```
 
 ##### Response

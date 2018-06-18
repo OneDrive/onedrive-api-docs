@@ -1,5 +1,7 @@
 # Get educationUser
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of a user.
 
 ## Permissions
@@ -36,7 +38,7 @@ The following is an example of the request.
   "name": "get_educationuser"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/education/users/{user-id}
+GET https://graph.microsoft.com/beta/education/users/13012
 ```
 ##### Response
 The following is an example of the response. 

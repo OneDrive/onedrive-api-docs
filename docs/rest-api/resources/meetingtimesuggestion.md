@@ -1,5 +1,7 @@
 # meetingTimeSuggestion resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 A meeting suggestion that includes information like meeting time, attendance likelihood, individual 
 availability, and available meeting locations.
 
@@ -18,7 +20,7 @@ Here is a JSON representation of the resource
 ```json
 {
   "attendeeAvailability": [{"@odata.type": "microsoft.graph.attendeeAvailability"}],
-  "confidence": 100.0,
+  "confidence": 1024.0,
   "locations": [{"@odata.type": "microsoft.graph.location"}],
   "meetingTimeSlot": {"@odata.type": "microsoft.graph.timeSlot"},
   "organizerAvailability": "String",
@@ -33,7 +35,7 @@ Here is a JSON representation of the resource
 |confidence|Double|A percentage that represents the likelhood of all the attendees attending.|
 |locations|[location](location.md) collection|An array that specifies the name and geographic location of each meeting location for this meeting suggestion.|
 |meetingTimeSlot|[timeSlot](timeslot.md)|A time period suggested for the meeting.|
-|organizerAvailability|freeBusyStatus| Availability of the meeting organizer for this meeting suggestion. Possible values are: `free`, `tentative`, `busy`, `oof`, `workingElsewhere`, `unknown`.|
+|organizerAvailability|String| Availability of the meeting organizer for this meeting suggestion. Possible values are: `free`, `tentative`, `busy`, `oof`, `workingElsewhere`, `unknown`.|
 |suggestionReason|String|Reason for suggesting the meeting time.|
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

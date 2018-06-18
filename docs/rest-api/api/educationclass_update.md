@@ -1,5 +1,7 @@
 # Update educationclass properties
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Update the properties of a class.
 
 ## Permissions
@@ -46,7 +48,7 @@ The following is an example of the request.
   "name": "update_educationclass"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/education/classes/{class-id}
+PATCH https://graph.microsoft.com/beta/education/classes/11014
 Content-type: application/json
 Content-length: 224
 

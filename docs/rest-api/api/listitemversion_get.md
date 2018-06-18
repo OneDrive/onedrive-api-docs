@@ -1,4 +1,12 @@
-# Get a ListItemVersion resource
+---
+author: rgregg
+ms.author: rgregg
+ms.date: 09/10/2017
+title: Get a previous version of a list item - SharePoint API
+---
+# Get a ListItemVersion resource (preview)
+
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Retrieve the metadata for a specific version of a [ListItem](../resources/listitem.md).
 
@@ -34,10 +42,10 @@ This example retrieves a version of a listItem and expands the fields collection
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-single-version-listItem", "scopes": "files.read sites.read.all", "tags": "service.graph service.sharepoint" } -->
+<!-- { "blockType": "request", "name": "get-single-version-listItem", "scopes": "files.read" } -->
 
 ```http
-GET /sites/{site-id}/lists/{list-id}/items/{item-id}/versions/{version-id}?expand=fields
+GET /sites/{site-id}/items/{item-id}/versions/{version-id}?expand=fields
 ```
 
 ### Response

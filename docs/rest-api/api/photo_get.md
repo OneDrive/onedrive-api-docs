@@ -1,5 +1,7 @@
 # Get photo
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the properties and relationships of photo object.
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -31,7 +33,7 @@ Do not supply a request body for this method.
 ## Response
 
 If successful, this method returns a `200 OK` response code and [photo](../resources/photo.md) object in the response body.
-## Example
+## Examples
 ##### Request
 Here is an example of the request for photo metadata.
 <!-- {
@@ -39,7 +41,7 @@ Here is an example of the request for photo metadata.
   "name": "get_photo"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/users/{id|userPrincipalName}/photo
+GET https://graph.microsoft.com/beta/users/{id|userPrincipalName}/photo
 ```
 ##### Response
 Here is an example of the response.
@@ -62,16 +64,16 @@ Content-length: 53
 ##### Request
 Here is an example of the request for the photo bytes.
 <!-- {
-  "blockType": "request",
-  "name": "get_photo_value"
+  "blockType": "ignored",
+  "name": "get_photo"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/users/{id|userPrincipalName}/photo/$value
+GET https://graph.microsoft.com/beta/users/{id|userPrincipalName}/photo/$value
 ```
 ##### Response
 Here is an example of the response.
 
-<!-- { "blockType": "response", "@odata.type": "Edm.Stream" } -->
+<!-- { "blockType": "ignored","@odata.type": "stream" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -89,6 +91,10 @@ Content-Length: 250526
 
 <binary image data>
 ```
+
+
+
+
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {

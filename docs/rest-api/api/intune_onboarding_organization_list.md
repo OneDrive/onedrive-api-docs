@@ -1,5 +1,7 @@
 ﻿# List organizations
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 List properties and relationships of the [organization](../resources/intune_onboarding_organization.md) objects.
@@ -37,7 +39,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/organization
+GET https://graph.microsoft.com/beta/organization
 ```
 
 ### Response
@@ -45,14 +47,23 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 196
+Content-Length: 622
 
 {
   "value": [
     {
       "@odata.type": "#microsoft.graph.organization",
       "id": "9efe224a-224a-9efe-4a22-fe9e4a22fe9e",
-      "mobileDeviceManagementAuthority": "intune"
+      "mobileDeviceManagementAuthority": "intune",
+      "certificateConnectorSetting": {
+        "@odata.type": "microsoft.graph.certificateConnectorSetting",
+        "status": 6,
+        "certExpiryTime": "2017-01-01T00:00:03.9979674-08:00",
+        "enrollmentError": "Enrollment Error value",
+        "lastConnectorConnectionTime": "2017-01-01T00:02:50.2393584-08:00",
+        "connectorVersion": "Connector Version value",
+        "lastUploadVersion": 1
+      }
     }
   ]
 }
