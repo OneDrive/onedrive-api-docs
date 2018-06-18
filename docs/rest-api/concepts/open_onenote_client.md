@@ -24,10 +24,10 @@ Opens the language-specific version if one is installed on the device. Otherwise
 
 The OneNote API returns the **links** property in the HTTP response for the following operations:
 
-- Create a page by sending a [`POST pages`](../api-reference/v1.0/api/section_post_pages.md) request
-- Create a notebook by sending a [`POST notebooks`](../api-reference/v1.0/api/onenote_post_notebooks.md) request
-- Get page metadata by sending a [`GET pages`](../api-reference/v1.0/api/page_get.md) or [`GET pages/{id}`](../api-reference/v1.0/api/page_get.md) request
-- Get notebook metadata by sending a [`GET notebooks`](../api-reference/v1.0/api/notebook_get.md) or [`GET notebooks/{id}`](../api-reference/v1.0/api/notebook_get.md) request
+- Create a page by sending a [`POST pages`](../api/section_post_pages.md) request
+- Create a notebook by sending a [`POST notebooks`](../api/onenote_post_notebooks.md) request
+- Get page metadata by sending a [`GET pages`](../api/page_get.md) or [`GET pages/{id}`](../api/page_get.md) request
+- Get notebook metadata by sending a [`GET notebooks`](../api/notebook_get.md) or [`GET notebooks/{id}`](../api/notebook_get.md) request
 
 The following examples show how to check the status code of the response, parse the JSON to extract the URLs, and then open the OneNote client.
 
@@ -171,4 +171,4 @@ if (response.getResponseCode() == 201) {
 ## See also
 
 - [Get OneNote content and structure](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-get-content)
-- [Create OneNote pages](../api-reference/v1.0/api/section_post_pages.md)
+- [Create OneNote pages](../api/section_post_pages.md)

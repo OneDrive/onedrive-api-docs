@@ -42,7 +42,7 @@ Your full request URI will look like one of these examples:
 * `https://graph.microsoft.com/v1.0/me/onenote/sections/{id}/pages`
 * `https://graph.microsoft.com/v1.0/me/onenote/pages?sectionName=Homework`
 
-Learn more about the [service root URL](../api-reference/v1.0/resources/onenote-api-overview.md#root-url).
+Learn more about the [service root URL](../resources/onenote-api-overview.md#root-url).
 
 <a name="post-pages-section-name"></a>
 ### Using the *sectionName* URL parameter

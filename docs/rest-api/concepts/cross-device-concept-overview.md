@@ -16,6 +16,6 @@ In addition to Microsoft devices (PCs, Windows Phones, Xbox, IoT, HoloLens, and 
 
 ## Next steps
 
-- [Use the Microsoft Graph API to enable cross-device experiences](../api-reference/v1.0/resources/cross-device-reference-overview.md)
+- [Use the Microsoft Graph API to enable cross-device experiences](../resources/cross-device-reference-overview.md)
 - [Learn more about the activity feed API in Microsoft Graph](activity-feed-concept-overview.md)
 - [Learn more about the device replay API in Microsoft Graph](device-relay-concept-overview.md)

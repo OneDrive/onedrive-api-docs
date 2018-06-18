@@ -56,7 +56,7 @@ None.
 
 ### Remarks
 
-The _Application.ReadWrite.OwnedBy_ permission allows the same operations as _Application.ReadWrite.All_ except that the former allows these operations only on applications and service principals that the calling app is an owner of. Ownership is indicated by the `owners` navigation property on the target [application](../api-reference/beta/api/application_list_owners.md) or [service principal](../api-reference/beta/api/serviceprincipal_list_owners.md) resource.
+The _Application.ReadWrite.OwnedBy_ permission allows the same operations as _Application.ReadWrite.All_ except that the former allows these operations only on applications and service principals that the calling app is an owner of. Ownership is indicated by the `owners` navigation property on the target [application](../api/application_list_owners.md) or [service principal](../api/serviceprincipal_list_owners.md) resource.
 > NOTE: Using the _Application.ReadWrite.OwnedBy_ permission to call `GET /applications` to list applications will fail with a 403.  Instead use `GET servicePrincipals/{id}/ownedObjects` to list the applications owned by the calling application.
 
 ### Example usage
@@ -233,9 +233,9 @@ For more complex scenarios involving multiple permissions, see [Permission scena
 ### Remarks
 Directory permissions are not supported on Microsoft accounts. 
 
-Directory permissions provide the highest level of privilege for accessing directory resources such as [User](../api-reference/v1.0/resources/user.md), [Group](../api-reference/v1.0/resources/group.md), and [Device](../api-reference/v1.0/resources/device.md) in an organization. 
+Directory permissions provide the highest level of privilege for accessing directory resources such as [User](../resources/user.md), [Group](../resources/group.md), and [Device](../resources/device.md) in an organization. 
 
-They also exclusively control access to other directory resources like: [organizational contacts](../api-reference/beta/resources/orgcontact.md), [schema extension APIs](../api-reference/beta/resources/schemaextension.md), [Privileged Identity Management (PIM) APIs](../api-reference/beta/resources/privilegedidentitymanagement_root.md), as well as many of the resources and APIs listed under the **Azure Active Directory** node in the v1.0 and beta API reference documentation. These include administrative units, directory roles, directory settings, policy, and many more. 
+They also exclusively control access to other directory resources like: [organizational contacts](../resources/orgcontact.md), [schema extension APIs](../resources/schemaextension.md), [Privileged Identity Management (PIM) APIs](../resources/privilegedidentitymanagement_root.md), as well as many of the resources and APIs listed under the **Azure Active Directory** node in the v1.0 and beta API reference documentation. These include administrative units, directory roles, directory settings, policy, and many more. 
 
 The _Directory.ReadWrite.All_ permission grants the following privileges:
 
@@ -337,7 +337,7 @@ Note that for personal accounts, Files.Read and Files.ReadWrite also grant acces
 The Files.Read.Selected and Files.ReadWrite.Selected delegated permissions are only valid on work or school accounts and are only exposed for working with [Office 365 file handlers (v1.0)](https://msdn.microsoft.com/office/office365/howto/using-cross-suite-apps).
 They should not be used for directly calling Microsoft Graph APIs. 
 
-The Files.ReadWrite.AppFolder delegated permission is only valid for personal accounts and is used for accessing the [App Root special folder](https://dev.onedrive.com/misc/appfolder.htm) with the OneDrive [Get special folder](../api-reference/v1.0/api/drive_get_specialfolder.md) Microsoft Graph API.
+The Files.ReadWrite.AppFolder delegated permission is only valid for personal accounts and is used for accessing the [App Root special folder](https://dev.onedrive.com/misc/appfolder.htm) with the OneDrive [Get special folder](../api/drive_get_specialfolder.md) Microsoft Graph API.
 
 
 ### Example usage
@@ -379,9 +379,9 @@ For Office 365 groups, Group permissions grant the app access to the contents of
 
 For application permissions, there are some limitations for the APIs that are supported. For more information, see [known issues](../concepts/known_issues.md).
 
-In some cases, an app may need [Directory permissions](#directory-permissions) to read some group properties like `member` and `memberOf`. For example, if a group has a one or more [servicePrincipals](../api-reference/beta/resources/serviceprincipal.md) as members, the app will need effective permissions to read service principals through being granted one of the _Directory.\*_ permissions, otherwise Microsoft Graph will return an error. (In the case of delegated permissions, the signed-in user will also need sufficient privileges in the organization to read service principals.) The same guidance applies for the `memberOf` property, which can return [administrativeUnits](../api-reference/beta/resources/administrativeunit.md).
+In some cases, an app may need [Directory permissions](#directory-permissions) to read some group properties like `member` and `memberOf`. For example, if a group has a one or more [servicePrincipals](../resources/serviceprincipal.md) as members, the app will need effective permissions to read service principals through being granted one of the _Directory.\*_ permissions, otherwise Microsoft Graph will return an error. (In the case of delegated permissions, the signed-in user will also need sufficient privileges in the organization to read service principals.) The same guidance applies for the `memberOf` property, which can return [administrativeUnits](../resources/administrativeunit.md).
 
-Group permissions are also used to control access to [Microsoft Planner](../api-reference/beta/resources/planner_overview.md) resources and APIs. Only delegated permissions are supported for Microsoft Planner APIs; application permissions are not supported. Personal Microsoft accounts are not supported.
+Group permissions are also used to control access to [Microsoft Planner](../resources/planner_overview.md) resources and APIs. Only delegated permissions are supported for Microsoft Planner APIs; application permissions are not supported. Personal Microsoft accounts are not supported.
 
 
 ### Example usage
@@ -885,9 +885,9 @@ For more complex scenarios involving multiple permissions, see [Permission scena
 
 The only permissions valid for Microsoft accounts are _User.Read_ and _User.ReadWrite_. For work or school accounts, all permissions are valid.
 
-With the _User.Read_ permission, an app can also read the basic company information of the signed-in user for a work or school account through the [organization](../api-reference/v1.0/resources/organization.md) resource. The following properties are available: id, displayName, and verifiedDomains.
+With the _User.Read_ permission, an app can also read the basic company information of the signed-in user for a work or school account through the [organization](../resources/organization.md) resource. The following properties are available: id, displayName, and verifiedDomains.
 
-For work or school accounts, the full profile includes all of the declared properties of the [User](../api-reference/v1.0/resources/user.md) resource. On reads, only a limited number of properties are returned by default. To read properties that are not in the default set, use `$select`. The default properties are:
+For work or school accounts, the full profile includes all of the declared properties of the [User](../resources/user.md) resource. On reads, only a limited number of properties are returned by default. To read properties that are not in the default set, use `$select`. The default properties are:
 
 - displayName
 - givenName
@@ -927,7 +927,7 @@ The _User.ReadBasic.All_ permission constrains app access to a limited set of pr
 - surname
 - userPrincipalName
 
-To read the group memberships of a user (`memberOf`), the app must have either [_Group.Read.All_](#group-permissions) or [_Group.ReadWrite.All_](#group-permissions). However, if the user also has membership in a [directoryRole](../api-reference/v1.0/resources/directoryrole.md) or an [administrativeUnit](../api-reference/beta/resources/administrativeunit.md), the app will need effective permissions to read those resources too, or Microsoft Graph will return an error. This means the app will also need [Directory permissions](#directory-permissions), and, for delegated permissions, the signed-in user will also need sufficient privileges in the organization to access directory roles and administrative units. 
+To read the group memberships of a user (`memberOf`), the app must have either [_Group.Read.All_](#group-permissions) or [_Group.ReadWrite.All_](#group-permissions). However, if the user also has membership in a [directoryRole](../resources/directoryrole.md) or an [administrativeUnit](../resources/administrativeunit.md), the app will need effective permissions to read those resources too, or Microsoft Graph will return an error. This means the app will also need [Directory permissions](#directory-permissions), and, for delegated permissions, the signed-in user will also need sufficient privileges in the organization to access directory roles and administrative units. 
 
 ### Example usage
 
@@ -950,7 +950,7 @@ For more complex scenarios involving multiple permissions, see [Permission scena
 
 ## Permission scenarios
 
-This section shows some common scenarios that target [user](../api-reference/v1.0/resources/user.md) and [group](../api-reference/v1.0/resources/group.md) resources in an organization. The tables show the permissions that an app needs to be able to perform specific operations required by the scenario. Note that in some cases the ability of the app to perform specific operations will depend on whether a permission is an application or delegated permission. In the case of delegated permissions, the app's effective permissions will also depend on the privileges of the signed-in user within the organization. For more information, see  [Delegated permissions, Application permissions, and effective permissions](#delegated-permissions-application-permissions-and-effective-permissions).
+This section shows some common scenarios that target [user](../resources/user.md) and [group](../resources/group.md) resources in an organization. The tables show the permissions that an app needs to be able to perform specific operations required by the scenario. Note that in some cases the ability of the app to perform specific operations will depend on whether a permission is an application or delegated permission. In the case of delegated permissions, the app's effective permissions will also depend on the privileges of the signed-in user within the organization. For more information, see  [Delegated permissions, Application permissions, and effective permissions](#delegated-permissions-application-permissions-and-effective-permissions).
 
 ### Access scenarios on the User resource
 

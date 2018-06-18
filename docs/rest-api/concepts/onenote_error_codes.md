@@ -186,19 +186,19 @@ The HTML in the "Presentation" part contains a **data-attachment** attribute tha
 Your request specifies a PATCH target that can't be located.
 
 ### 20121
-Your request contains an invalid PATCH argument. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your request contains an invalid PATCH argument. See [Update page content](../api/page_update.md).
 
 ### 20122
-Your request specifies an unsupported PATCH action. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your request specifies an unsupported PATCH action. See [Update page content](../api/page_update.md).
 
 ### 20123
 The PATCH request is unable to alter the specified page.
 
 ### 20124
-Your multipart PATCH request doesn't include a "commands" part with the PATCH action JSON structure. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your multipart PATCH request doesn't include a "commands" part with the PATCH action JSON structure. See [Update page content](../api/page_update.md).
 
 ### 20125
-Your PATCH request contains no actions. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your PATCH request contains no actions. See [Update page content](../api/page_update.md).
 
 ### 20126
 The message body contains either incorrectly formatted JSON or fields that are not supported for this operation.
@@ -222,13 +222,13 @@ Your request contains an invalid value for Content-Type. Use the value indicated
 Your request contains invalid content. Common causes for this are a missing Content-Type request header and/or no content in the body of the request. 
 
 ### 20133
-Your request specifies a PATCH target that is not supported. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your request specifies a PATCH target that is not supported. See [Update page content](../api/page_update.md).
 
 ### 20134
-Your request specifies an invalid element as the target of the PATCH action. If the target uses the **data-id** identifier, make sure it's prefixed with a # symbol. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your request specifies an invalid element as the target of the PATCH action. If the target uses the **data-id** identifier, make sure it's prefixed with a # symbol. See [Update page content](../api/page_update.md).
 
 ### 20135
-Your request specifies an entity type that is not supported for the PATCH operation. See [Update page content](../api-reference/v1.0/api/page_update.md).
+Your request specifies an entity type that is not supported for the PATCH operation. See [Update page content](../api/page_update.md).
 
 ### 20136
 Your request contains an invalid or missing **data-render-src** or **data-render-method** attribute. See [Extract data from captures](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-extract-data).
@@ -237,7 +237,7 @@ Your request contains an invalid or missing **data-render-src** or **data-render
 The target page does not support PATCH requests.
 
 ### 20138
-The target element type in your PATCH request doesn't support the **append** action. See [Update page content](../api-reference/v1.0/api/page_update.md).
+The target element type in your PATCH request doesn't support the **append** action. See [Update page content](../api/page_update.md).
 
 ### 20139
 Your request contains an invalid **data-tag** attribute value. See [Use note tags](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-note-tags).
@@ -250,7 +250,7 @@ Your request contains an invalid **data-tag** status value. Check box note tags 
 See [Use note tags](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-note-tags).
 
 ### 20141
-The target in your PATCH request doesn't support the specified action. See [Update page content](../api-reference/v1.0/api/page_update.md).
+The target in your PATCH request doesn't support the specified action. See [Update page content](../api/page_update.md).
 
 ### 20142
 Your request contains an **expand** expression for a parent of child entities or a child of parent entities, which is not supported. See [Supported OData query string options](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-get-content#query-options).
@@ -397,5 +397,5 @@ The container is already in use by another resource.
 ## See also
 
 - [Microsoft Graph error responses and resource types](errors.md)
-- [OneNote reference](../api-reference/v1.0/resources/onenote.md)
+- [OneNote reference](../resources/onenote.md)
 

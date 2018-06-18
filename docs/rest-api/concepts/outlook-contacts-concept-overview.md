@@ -13,9 +13,9 @@ Hundreds of millions of consumers and tens of millions of organization customers
 
 The contacts API lets you keep your customers organized, in close parity as the customers do it themselves through Outlook:
 
-- Similarly to the customer experience, you can create [contact](../api-reference/v1.0/resources/contact.md) instances and assign them to [contactFolder](../api-reference/v1.0/resources/contactfolder.md) objects.
-- The contacts API lets you assign categories contacts, as well as events, messages, tasks, and group posts in a consistent way to enhance organization and disovery. In addition, you can [define a user's master list of categories](../api-reference/v1.0/api/outlookuser_post_mastercategories.md), which can open up additional creative scenarios.
-- You can set a flag on a [contact](../api-reference/v1.0/resources/contact.md) for follow-up. (Flagging is currently [in preview](versioning_and_support.md#beta-version) in Microsoft Graph.)
+- Similarly to the customer experience, you can create [contact](../resources/contact.md) instances and assign them to [contactFolder](../resources/contactfolder.md) objects.
+- The contacts API lets you assign categories contacts, as well as events, messages, tasks, and group posts in a consistent way to enhance organization and disovery. In addition, you can [define a user's master list of categories](../api/outlookuser_post_mastercategories.md), which can open up additional creative scenarios.
+- You can set a flag on a [contact](../resources/contact.md) for follow-up. (Flagging is currently [in preview](versioning_and_support.md#beta-version) in Microsoft Graph.)
 
 
 ### Share contact information
@@ -25,17 +25,17 @@ The contacts API lets you get contact items of the signed-in user, or of the use
 
 ### Leverage people API in Microsoft Graph to make better use of all people data
 
-You can use the typical CRUD operations for an Outlook [contact](../api-reference/v1.0/resources/contact.md) to create and manage contacts. As part of Microsoft Graph, you can also use the [people API](people_example.md) that looks at a user's Outlook contacts, as well as social networks, organization directory, and people from recent communication, and return information about people from all these sources that are most relevant to the user. Take advantage of this additional intelligence in people picker scenarios.
+You can use the typical CRUD operations for an Outlook [contact](../resources/contact.md) to create and manage contacts. As part of Microsoft Graph, you can also use the [people API](people_example.md) that looks at a user's Outlook contacts, as well as social networks, organization directory, and people from recent communication, and return information about people from all these sources that are most relevant to the user. Take advantage of this additional intelligence in people picker scenarios.
 
 
 ### Take advantage of other shared features and conveniences in Microsoft Graph
 
-- The **contact** entity supports a contact photo which is implemented as the same [profilePhoto](../api-reference/v1.0/resources/profilephoto.md) entity as a user photo stored in Exchange Online or Azure Active Directory. This eliminates the overhead in converting between contact and user profile photos.
-- You can keep the app local store synchronized by subscribing to [change notifications](../api-reference/v1.0/resources/webhooks.md) and [tracking changes](delta_query_overview.md) to contacts and contact folders.
+- The **contact** entity supports a contact photo which is implemented as the same [profilePhoto](../resources/profilephoto.md) entity as a user photo stored in Exchange Online or Azure Active Directory. This eliminates the overhead in converting between contact and user profile photos.
+- You can keep the app local store synchronized by subscribing to [change notifications](../resources/webhooks.md) and [tracking changes](delta_query_overview.md) to contacts and contact folders.
 - You can extend app storage in a contact instance as an [open extension](extensibility_overview.md#open-extensions), or add strongly typed custom data to the contact schema as a [schema extension](extensibility_overview.md#schema-extensions).
 
 
 ## Next steps
 
 - Select and try contacts sample queries in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/?request=me%2Fcontacts&version=v1.0). Choose **Show more samples** in the column on the left. Use the menu to turn on **Personal contacts**.
-- Take a look at the Outlook [contacts API](../api-reference/v1.0/resources/contact.md) reference.
+- Take a look at the Outlook [contacts API](../resources/contact.md) reference.

@@ -42,12 +42,12 @@ To learn about these models in more detail, visit the [SharePoint Dev Center][] 
 
 Get started with SharePoint in Microsoft Graph by learning more about [working with sites][SharePoint].
 
-[list]: ../api-reference/v1.0/resources/list.md
-[columns]: ../api-reference/v1.0/resources/columndefinition.md
-[list type]: ../api-reference/v1.0/resources/listinfo.md
-[create]: ../api-reference/v1.0/api/list_create.md
-[querying]: ../api-reference/v1.0/api/listitem_get.md
-[drive]: ../api-reference/v1.0/resources/drive.md
+[list]: ../resources/list.md
+[columns]: ../resources/columndefinition.md
+[list type]: ../resources/listinfo.md
+[create]: ../api/list_create.md
+[querying]: ../api/listitem_get.md
+[drive]: ../resources/drive.md
 [OneDrive API]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/onedrive
 [SharePoint Framework]: https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview
 [SharePoint Add-ins]: https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins

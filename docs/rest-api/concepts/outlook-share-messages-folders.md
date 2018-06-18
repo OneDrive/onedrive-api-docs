@@ -21,7 +21,7 @@ You can get a specific message in Garth's Inbox:
 GET users/{Garth-userId | Garth-userPrincipalName}/mailfolders('Inbox')/messages/{id}
 ```
 
-On successful completion, you'll get HTTP 200 OK and the [message](../api-reference/v1.0/resources/message.md) instance identified by `{id}` from Garth's Inbox.
+On successful completion, you'll get HTTP 200 OK and the [message](../resources/message.md) instance identified by `{id}` from Garth's Inbox.
 
 ## Get all messages in the shared folder
 
@@ -32,7 +32,7 @@ Get all the messages in Garth's Inbox:
 GET users/{Garth-userId | Garth-userPrincipalName}/mailfolders('Inbox')/messages
 ```
 
-On successful completion, you'll get HTTP 200 OK and a collection of [message](../api-reference/v1.0/resources/message.md) instances in Garth's Inbox.
+On successful completion, you'll get HTTP 200 OK and a collection of [message](../resources/message.md) instances in Garth's Inbox.
 
 ## Get the shared folder
 
@@ -43,7 +43,7 @@ Get the folder (Inbox) that Garth has shared with John.
 GET users/{Garth-userId | Garth-userPrincipalName}/mailfolders('Inbox')
 ```
 
-On successful completion, you'll get HTTP 200 OK and a [mailFolder](../api-reference/v1.0/resources/mailfolder.md) instance that represents Garth's Inbox folder.
+On successful completion, you'll get HTTP 200 OK and a [mailFolder](../resources/mailfolder.md) instance that represents Garth's Inbox folder.
 
 The same GET capabilities apply if Garth had delegated John further access to Garth's Inbox, or if Garth had delegated John his entire mailbox.
 
@@ -55,4 +55,4 @@ If Garth has not shared his message folder with John, nor has he delegated his m
 Find out more about:
 
 - [Why integrate with Outlook mail](outlook-mail-concept-overview.md)
-- [Using the mail API](../api-reference/v1.0/resources/mail_api_overview.md) and its [use cases](../api-reference/v1.0/resources/mail_api_overview.md#common-use-cases) in Microsoft Graph v1.0.
+- [Using the mail API](../resources/mail_api_overview.md) and its [use cases](../resources/mail_api_overview.md#common-use-cases) in Microsoft Graph v1.0.

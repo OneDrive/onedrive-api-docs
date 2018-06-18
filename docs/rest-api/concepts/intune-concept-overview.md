@@ -12,27 +12,27 @@ You can use the Intune API in Microsoft Graph to access Intune device and applic
 
 You can use the Intune API to:
 
-- Define and enforce [device compliance](../api-reference/v1.0/resources/intune_deviceconfig_devicecomplianceactionitem.md) policies, such as password complexity and duration, encryption, threat protection levels, and so on.  (Supported policies vary according to operating system and version).
-- [Protect company data](../api-reference/v1.0/resources/intune_mam_windowsinformationprotectionpolicy.md), regardless of whether the device platform is Windows, Android, Mac, or iOS.
-- Create and deploy [device configuration](../api-reference/v1.0/resources/intune_deviceconfig_deviceconfiguration.md) policies, including operating system platform/versioning, domain membership, and configuration setting management.
-- Create and deploy device [access control](../api-reference/v1.0/resources/intune_onboarding_onpremisesconditionalaccesssettings.md) policies, including restricted download, network accessory access, and file transfer.
-- Perform [remote actions](../api-reference/v1.0/resources/intune_devices_manageddevice.md), such as locate device, change password, and wipe device.
+- Define and enforce [device compliance](../resources/intune_deviceconfig_devicecomplianceactionitem.md) policies, such as password complexity and duration, encryption, threat protection levels, and so on.  (Supported policies vary according to operating system and version).
+- [Protect company data](../resources/intune_mam_windowsinformationprotectionpolicy.md), regardless of whether the device platform is Windows, Android, Mac, or iOS.
+- Create and deploy [device configuration](../resources/intune_deviceconfig_deviceconfiguration.md) policies, including operating system platform/versioning, domain membership, and configuration setting management.
+- Create and deploy device [access control](../resources/intune_onboarding_onpremisesconditionalaccesssettings.md) policies, including restricted download, network accessory access, and file transfer.
+- Perform [remote actions](../resources/intune_devices_manageddevice.md), such as locate device, change password, and wipe device.
 
 ### Manage apps 
 
 You can use the Intune API to perform the following app management tasks:
 
-- Deploy [apps to devices](../api-reference/v1.0/resources/intune_apps_mobileapp.md) or prevent apps from being deployed.
-- Manage access to [ebooks](../api-reference/v1.0/resources/intune_books_ebookinstallsummary.md) and related services.
+- Deploy [apps to devices](../resources/intune_apps_mobileapp.md) or prevent apps from being deployed.
+- Manage access to [ebooks](../resources/intune_books_ebookinstallsummary.md) and related services.
 - Define and deploy app configuration settings, app protection settings, and app usage policies.
 
 ### Automate Intune
 
 Automate Intune by using the Intune API to:
 
-- Define and assign [role based](../api-reference/v1.0/resources/intune_rbac_conceptual.md) access controls.
+- Define and assign [role based](../resources/intune_rbac_conceptual.md) access controls.
 - Audit and report compliance, usage, and access.
-- Manage [telecom expenses](../api-reference/v1.0/resources/intune_tem_conceptual.md).
+- Manage [telecom expenses](../resources/intune_tem_conceptual.md).
 
 
 ## Next steps

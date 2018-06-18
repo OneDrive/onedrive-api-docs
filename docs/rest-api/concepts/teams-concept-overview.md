@@ -34,18 +34,18 @@ If a Microsoft Teams tab or bot app is not the ideal way to complete your scenar
 
 ### Create multiple teams and channels
 
-Allow your customers to create new [teams](../api-reference/beta/resources/team.md) and [channels](../api-reference/beta/resources/channel.md) linked to your app. Make creating large numbers of teams and populating them with users and channels easy by using the Microsoft Teams API.
+Allow your customers to create new [teams](../resources/team.md) and [channels](../resources/channel.md) linked to your app. Make creating large numbers of teams and populating them with users and channels easy by using the Microsoft Teams API.
 
 ### Automate team lifecycles
 
-Use Microsoft Graph to create a new virtual team when a new business issue arises, [populate the team](../api-reference/v1.0/api/group_post_members.md) with the right people, and configure the team with channels. To start a team channel discussion around the new business issue, you can seed the channel with a new conversation thread to post a welcome message to new team members. If you want to get the new team together to discuss the business issue, add a new event to the team calendar and then invite the members of the team to the event.
+Use Microsoft Graph to create a new virtual team when a new business issue arises, [populate the team](../api/group_post_members.md) with the right people, and configure the team with channels. To start a team channel discussion around the new business issue, you can seed the channel with a new conversation thread to post a welcome message to new team members. If you want to get the new team together to discuss the business issue, add a new event to the team calendar and then invite the members of the team to the event.
 
 When the business issue is resolved and you no longer need the virtual team, use the Microsoft Teams API to tear down the team. If you know the maximum duration of the virtual team when you create it, set an [Office 365 group expiration policy](https://support.office.com/en-us/article/office-365-group-expiration-policy-8d253fe5-0e09-4b3c-8b5e-f48def064733?ui=en-US&rs=en-US&ad=US) for the team that automatically removes the team according to the policy.
 
 ## Next steps
 
-- Learn how to [use the Microsoft Teams API](../api-reference/beta/resources/teams_api_overview.md).
-- Drill down on the methods, properties, and relationships of the [team](../api-reference/beta/resources/team.md), [channel](../api-reference/beta/resources/channel.md), and [group](../api-reference/v1.0/resources/group.md) resources.
+- Learn how to [use the Microsoft Teams API](../resources/teams_api_overview.md).
+- Drill down on the methods, properties, and relationships of the [team](../resources/team.md), [channel](../resources/channel.md), and [group](../resources/group.md) resources.
 - Try the API in the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
 - Read more about the [Microsoft Teams programming model](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/concepts-overview).
 - Get a jump-start with [sample code](https://github.com/OfficeDev/microsoft-teams-sample-graph).

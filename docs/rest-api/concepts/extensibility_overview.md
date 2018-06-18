@@ -1,6 +1,6 @@
 # Add custom data to resources using extensions
 
-Microsoft Graph provides a single API endpoint that gives you access to rich people-centric data and insights through a number of resources such as [user](../api-reference/v1.0/resources/user.md) and [message](../api-reference/v1.0/resources/message.md). You can also extend Microsoft Graph with your own application data. You can add custom properties to Microsoft Graph resources without requiring an external data store.
+Microsoft Graph provides a single API endpoint that gives you access to rich people-centric data and insights through a number of resources such as [user](../resources/user.md) and [message](../resources/message.md). You can also extend Microsoft Graph with your own application data. You can add custom properties to Microsoft Graph resources without requiring an external data store.
 
 For example, you might decide to keep your app lightweight and store app-specific user profile data in Microsoft Graph by extending the **user** resource. Alternatively, you might want to retain your app’s existing user profile store, and simply add an app-specific store identifier to the **user** resource.
 
@@ -17,22 +17,22 @@ The following table lists the resources that support open and schema extensions,
 
 |Resource |Open extensions |Schema extensions |
 |:------- |:------ |:------ |
-| [Administrative unit](../api-reference/beta/resources/administrativeunit.md) | Preview only | Preview only |
-| [Calendar event](../api-reference/v1.0/resources/event.md) | GA | GA |
-| [Device](../api-reference/v1.0/resources/device.md) | GA | GA |
-| [Group](../api-reference/v1.0/resources/group.md) | GA | GA |
-| [Group calendar event](../api-reference/v1.0/resources/event.md) | GA | GA |
-| [Group conversation post](../api-reference/v1.0/resources/post.md) | GA | GA |
-| [Message](../api-reference/v1.0/resources/message.md) | GA | GA |
-| [Organization](../api-reference/v1.0/resources/organization.md) | GA | GA |
-| [Personal contact](../api-reference/v1.0/resources/contact.md)| GA | GA |
-| [User](../api-reference/v1.0/resources/user.md) | GA | GA |
+| [Administrative unit](../resources/administrativeunit.md) | Preview only | Preview only |
+| [Calendar event](../resources/event.md) | GA | GA |
+| [Device](../resources/device.md) | GA | GA |
+| [Group](../resources/group.md) | GA | GA |
+| [Group calendar event](../resources/event.md) | GA | GA |
+| [Group conversation post](../resources/post.md) | GA | GA |
+| [Message](../resources/message.md) | GA | GA |
+| [Organization](../resources/organization.md) | GA | GA |
+| [Personal contact](../resources/contact.md)| GA | GA |
+| [User](../resources/user.md) | GA | GA |
 
 You can use extensions on all these resources when signed in with a work or school account. In addition, you can use extensions on the **event**, **post**, **group**, **message**, **contact**, and **user** resources when signed in with a personal account.
 
 ## Open extensions
 
-[Open extensions](../api-reference/v1.0/resources/opentypeextension.md) (formerly known as Office 365 data extensions) are
+[Open extensions](../resources/opentypeextension.md) (formerly known as Office 365 data extensions) are
 [open types](http://www.odata.org/getting-started/advanced-tutorial/#openType) that offer a flexible way to
 add untyped app data directly to a resource instance.
 
@@ -43,16 +43,16 @@ One way to do this is to use a reverse domain name system (DNS) format that is d
 
 Do not use the Microsoft domain (`Com.Microsoft` or `Com.OnMicrosoft`) in an extension name.
 
-You can [create an open extension](../api-reference/v1.0/api/opentypeextension_post_opentypeextension.md) in a resource instance and store custom data to it all in the same operation (note [known limitation](known_issues.md#extensions) for some of the supported resources).
+You can [create an open extension](../api/opentypeextension_post_opentypeextension.md) in a resource instance and store custom data to it all in the same operation (note [known limitation](known_issues.md#extensions) for some of the supported resources).
 
-You can subsequently [read](../api-reference/v1.0/api/opentypeextension_get.md), [update](../api-reference/v1.0/api/opentypeextension_update.md), or [delete](../api-reference/v1.0/api/opentypeextension_delete.md)
+You can subsequently [read](../api/opentypeextension_get.md), [update](../api/opentypeextension_update.md), or [delete](../api/opentypeextension_delete.md)
 the extension and its data.
 
 Open extension example: [Add custom data to users using open extensions](extensibility_open_users.md)
 
 ## Schema extensions
 
-[Schema extensions](../api-reference/v1.0/resources/schemaextension.md) allow you to define a schema that you can use to extend a resource type. First, you create your schema extension definition. Then, use it to extend resource instances with strongly-typed custom data. In addition, you can control the [status](#schema-extensions-lifecycle) of your schema extension and let it
+[Schema extensions](../resources/schemaextension.md) allow you to define a schema that you can use to extend a resource type. First, you create your schema extension definition. Then, use it to extend resource instances with strongly-typed custom data. In addition, you can control the [status](#schema-extensions-lifecycle) of your schema extension and let it
 be discoverable by other apps. These apps can in turn use the extension for their data and build further experiences on top of it.
 
 When creating a schema extension definition, you must provide a unique name for its **id**. There are two naming options:
@@ -62,7 +62,7 @@ When creating a schema extension definition, you must provide a unique name for 
 
 You will see this unique name in **id** used as the name of the complex type that will store your custom data on the extended resource instance.
 
-Unlike open extensions, managing schema extension definitions ([list](../api-reference/v1.0/api/schemaextension_list.md), [create](../api-reference/v1.0/api/schemaextension_post_schemaextensions.md), [get](../api-reference/v1.0/api/schemaextension_get.md), [update](../api-reference/v1.0/api/schemaextension_update.md), and [delete](../api-reference/v1.0/api/schemaextension_delete.md))
+Unlike open extensions, managing schema extension definitions ([list](../api/schemaextension_list.md), [create](../api/schemaextension_post_schemaextensions.md), [get](../api/schemaextension_get.md), [update](../api/schemaextension_update.md), and [delete](../api/schemaextension_delete.md))
 and managing their data (add, get, update, and delete data) are separate sets of API operations.
 
 Because schema extensions are accessible as complex types in instances of the targeted resources, you can do CRUD operations on the custom data in a schema extension in the following ways:
@@ -103,7 +103,7 @@ The following data types are supported when defining a property in a schema exte
 
 ### Azure AD directory schema extensions
 
-Azure AD supports a similar type of extension, known as [directory schema extensions](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions), on a few [directoryObject](../api-reference/v1.0/resources/directoryObject.md) resources. Although you have to use the [Azure AD Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) to create and manage the definitions of directory schema extensions, you can use the Microsoft Graph API to add, get, update and delete _data_ in the properties of these extensions.
+Azure AD supports a similar type of extension, known as [directory schema extensions](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions), on a few [directoryObject](../resources/directoryObject.md) resources. Although you have to use the [Azure AD Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) to create and manage the definitions of directory schema extensions, you can use the Microsoft Graph API to add, get, update and delete _data_ in the properties of these extensions.
 
 ## Permissions
 
@@ -122,7 +122,7 @@ The following limits apply to directory resources (such as **user**, **group**, 
 
 The following limits apply to Outlook resources (such as **message**, **event**, and **contact**):
 
-- Each open extension is stored in a [MAPI named property](https://msdn.microsoft.com/en-us/library/cc765864(v=office.15).aspx), which are a limited resource in a user's mailbox. For more details, see [openTypeExtension resource type](../api-reference/v1.0/resources/opentypeextension.md).
+- Each open extension is stored in a [MAPI named property](https://msdn.microsoft.com/en-us/library/cc765864(v=office.15).aspx), which are a limited resource in a user's mailbox. For more details, see [openTypeExtension resource type](../resources/opentypeextension.md).
 
 ### Schema extension limits
 

@@ -36,4 +36,4 @@ You can access a set of Excel objects (such as Table, Range, or Chart) by using 
 * [Use workbook functions in Excel with Microsoft Graph](excel-use-functions.md)
 * [Update a range’s format in Excel with Microsoft Graph](excel-update-range-format.md)
 * [Display a chart image in Excel with Microsoft Graph](excel-display-chart-image.md)
-* [Use the Excel REST API](../api-reference/v1.0/resources/excel.md)
+* [Use the Excel REST API](../resources/excel.md)

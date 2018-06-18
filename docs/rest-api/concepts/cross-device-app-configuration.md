@@ -33,7 +33,7 @@ You can access all Project Rome capabilities using a cross-device app managed in
 ### Externally hosted JSON file (limited) 
 You can use the following Project Rome capabilities on all supported platforms using a cross-device app managed as an externally hosted JSON file:  
 
-* Read and write user activities from all platforms using the [activity feed API](../api-reference/v1.0/resources/activity-feed-api-overview.md)
+* Read and write user activities from all platforms using the [activity feed API](../resources/activity-feed-api-overview.md)
 * Write user activities from all platforms (Windows, iOS, Android, web) using the Project Rome SDKs.
 
 If you **only** access these capabilities, you can host your cross-device app configuration externally on your domain as a JSON file.
