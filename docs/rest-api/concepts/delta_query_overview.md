@@ -51,7 +51,7 @@ For users and groups APIs, scoping filters allow you to track changes to one or 
 Removed instances are represented by their **id** and an `@removed` object. The `@removed` object may include additional information about why the instance was removed. For example,  "@removed": {"reason": “changed”}.
 
 Possible @removed reasons can be *changed* or *deleted*.
-- *Changed* indicates the item was deleted and can be restored from [deletedItems](../api-reference/beta/resources/directory.md).
+- *Changed* indicates the item was deleted and can be restored from [deletedItems](../resources/directory.md).
 - *Deleted* indicates the item is deleted and cannot be restored.
 
 The `@removed` object can be returned in the initial delta query response and in tracked (deltaLink) responses. Clients using delta query requests should be designed to handle these objects in the responses.
@@ -62,20 +62,20 @@ Delta query is currently supported for the following resources.
 
 | **Resource collection** | **API** |
 |:------ | :------ |
-| Events in a calendar view (date range) of the primary calendar | [delta](../api-reference/v1.0/api/event_delta.md) function of the [event](../api-reference/v1.0/resources/event.md) resource |
-| Groups | [delta](../api-reference/v1.0/api/group_delta.md) function of the [group](../api-reference/v1.0/resources/group.md) resource |
-| Mail folders | [delta](../api-reference/v1.0/api/mailfolder_delta.md) function of the [mailFolder](../api-reference/v1.0/resources/mailFolder.md) resource |
-| Messages in a folder | [delta](../api-reference/v1.0/api/message_delta.md) function of the [message](../api-reference/v1.0/resources/message.md) resource | 
-| Personal contact folders | [delta](../api-reference/v1.0/api/contactfolder_delta.md) function of the [contactFolder](../api-reference/v1.0/resources/contactfolder.md) resource |
-| Personal contacts in a folder | [delta](../api-reference/v1.0/api/contact_delta.md) function of the [contact](../api-reference/v1.0/resources/contact.md) resource |
-| Users | [delta](../api-reference/v1.0/api/user_delta.md) function of the [user](../api-reference/v1.0/resources/user.md) resource | 
-| Drive items\* | [delta](../api-reference/v1.0/api/driveitem_delta.md) function of the [driveItem](../api-reference/v1.0/resources/driveitem.md) resource |
-| Planner items\*\* | [delta](../api-reference/beta/api/planneruser_list_delta.md) function of the all segment of [plannerUser](../api-reference/beta/resources/planneruser.md) resource (preview) |
+| Events in a calendar view (date range) of the primary calendar | [delta](../api/event_delta.md) function of the [event](../resources/event.md) resource |
+| Groups | [delta](../api/group_delta.md) function of the [group](../resources/group.md) resource |
+| Mail folders | [delta](../api/mailfolder_delta.md) function of the [mailFolder](../resources/mailFolder.md) resource |
+| Messages in a folder | [delta](../api/message_delta.md) function of the [message](../resources/message.md) resource | 
+| Personal contact folders | [delta](../api/contactfolder_delta.md) function of the [contactFolder](../resources/contactfolder.md) resource |
+| Personal contacts in a folder | [delta](../api/contact_delta.md) function of the [contact](../resources/contact.md) resource |
+| Users | [delta](../api/user_delta.md) function of the [user](../resources/user.md) resource | 
+| Drive items\* | [delta](../api/driveitem_delta.md) function of the [driveItem](../resources/driveitem.md) resource |
+| Planner items\*\* | [delta](../api/planneruser_list_delta.md) function of the all segment of [plannerUser](../resources/planneruser.md) resource (preview) |
 
 > \* The usage pattern for OneDrive resources is similar to the other supported resources with some minor syntax differences. Delta query for drives will be updated in the future to be consistent with other resource types. For more detail about the current syntax, see
 [Track changes for a Drive](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/item_delta).
 
-> \*\* The usage pattern for Planner resources is similar to other supported resources with a few differences.  For details, see [Track changes for Planner](../api-reference/beta/api/planneruser_list_delta.md).
+> \*\* The usage pattern for Planner resources is similar to other supported resources with a few differences.  For details, see [Track changes for Planner](../api/planneruser_list_delta.md).
 
 ## Prerequisites
 

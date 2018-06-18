@@ -30,6 +30,6 @@ Today, Microsoft Graph gives easy access to Azure AD Premium P1 and P2 customers
 
 ## Next steps
 
-- [Use the security API](../api-reference/beta/resources/security-api-overview.md)
-- [Use the Azure AD Identity Protection API](../api-reference/beta/resources/identityprotection_root.md)
+- [Use the security API](../resources/security-api-overview.md)
+- [Use the Azure AD Identity Protection API](../resources/identityprotection_root.md)
 

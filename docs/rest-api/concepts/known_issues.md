@@ -10,7 +10,7 @@ Users can be created immediately through a POST on the user entity. An Office 36
 
 ### Photo restrictions
 
-Reading and updating a user's profile photo is only possible if the user has a mailbox. Additionally, any photos that *may* have been previously stored using the **thumbnailPhoto** property (using the Office 365 unified API preview, or the Azure AD Graph, or through AD Connect synchronization) are no longer accessible through the Microsoft Graph **photo** property of the [user](../api-reference/v1.0/resources/user.md) resource.
+Reading and updating a user's profile photo is only possible if the user has a mailbox. Additionally, any photos that *may* have been previously stored using the **thumbnailPhoto** property (using the Office 365 unified API preview, or the Azure AD Graph, or through AD Connect synchronization) are no longer accessible through the Microsoft Graph **photo** property of the [user](../resources/user.md) resource.
 Failure to read or update a photo, in this case, would result in the following error:
 
 ```javascript
@@ -46,7 +46,7 @@ Examples of group features that support delegated and app-only permissions:
 
 * Creating and deleting groups
 * Getting and updating group properties pertaining to group administration or management
-* Group [directory settings](../api-reference/v1.0/resources/directoryobject.md), type, and synchronization
+* Group [directory settings](../resources/directoryobject.md), type, and synchronization
 * Group owners and membership
 
 Examples of group features that support only delegated permissions:
@@ -58,7 +58,7 @@ Examples of group features that support only delegated permissions:
 
 ### Teams in Microsoft Teams (preview)
 
-Microsoft Teams and Office 365 groups [share similar functionality](../api-reference/beta/resources/teams_api_overview.md). All group APIs can be used with teams, with the exception that the Create group API does not currently allow you to create a team.  Future API releases will support this.
+Microsoft Teams and Office 365 groups [share similar functionality](../resources/teams_api_overview.md). All group APIs can be used with teams, with the exception that the Create group API does not currently allow you to create a team.  Future API releases will support this.
 
 ### Microsoft Teams channels (preview)
 
@@ -70,7 +70,7 @@ Currently, you can create chat threads in channels, but you cannot read existing
 
 ### Microsoft Teams user's list of joined teams (preview)
 
-Currrently, [listing the teams a user has joined](../api-reference/beta/api/user_list_joinedteams.md) only works for the 'me' user for which the caller has [delegated permissions](permissions_reference.md).  Future releases will support this operation for any specified user ID.
+Currrently, [listing the teams a user has joined](../api/user_list_joinedteams.md) only works for the 'me' user for which the caller has [delegated permissions](permissions_reference.md).  Future releases will support this operation for any specified user ID.
 
 ### Adding and getting attachments of group posts
 
@@ -156,10 +156,10 @@ In the above query:
 
 ### Accessing contacts via a contact folder in beta
 
-In the `/beta` version, there is currently an issue that prevents accessing a [contact](../api-reference/beta/resources/contact.md)
+In the `/beta` version, there is currently an issue that prevents accessing a [contact](../resources/contact.md)
 by specifying its parent folder in the REST request URL, as shown in the 2 scenarios below.
 
-* Accessing a contact from a top level [contactFolder](../api-reference/beta/resources/contactfolder.md) of the user's.
+* Accessing a contact from a top level [contactFolder](../resources/contactfolder.md) of the user's.
 
 ```http
 GET /me/contactfolders/{id}/contacts/{id}
@@ -173,7 +173,7 @@ GET /me/contactFolder/{id}/childFolders/{id}/.../contacts/{id}
 GET /users/{id | userPrincipalName}/contactFolders/{id}/childFolders/{id}/contacts/{id}
 ```
 
-As an alternative, you can simply [get](../api-reference/beta/api/contact_get.md) the contact by specifying its ID as shown below,
+As an alternative, you can simply [get](../api/contact_get.md) the contact by specifying its ID as shown below,
 since GET /contacts in the `/beta` version applies to all the contacts in the user's mailbox:
 
 ```http
@@ -185,8 +185,8 @@ GET /users/{id | userPrincipalName}/contacts/{id}
 
 ### The comment parameter for creating a draft
 
-The **comment** parameter for creating a reply or forward draft ([createReply](../api-reference/v1.0/api/message_createreply.md),
-[createReplyAll](../api-reference/v1.0/api/message_createreplyall.md), [createForward](../api-reference/v1.0/api/message_createforward.md))
+The **comment** parameter for creating a reply or forward draft ([createReply](../api/message_createreply.md),
+[createReplyAll](../api/message_createreplyall.md), [createForward](../api/message_createforward.md))
 does not become part of the body of the resultant message draft.
 
 ## Drives, files and content streaming
@@ -218,7 +218,7 @@ does not become part of the body of the resultant message draft.
 
 ## Application and servicePrincipal API changes
 
-There are changes to the [application](../api-reference/beta/resources/application.md) and [servicePrincipal](../api-reference/beta/resources/serviceprincipal.md) entities currently in development. The following is a summary of current limitations and in-development API features.
+There are changes to the [application](../resources/application.md) and [servicePrincipal](../resources/serviceprincipal.md) entities currently in development. The following is a summary of current limitations and in-development API features.
 
 Current limitations:
 

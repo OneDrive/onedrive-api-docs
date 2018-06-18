@@ -26,7 +26,7 @@ Your full request URI will look like one of these examples:
 - `https://graph.microsoft.com/v1.0/me/onenote/notes/pages`</p>
 - `https://graph.microsoft.com/v1.0/me/onenote/pages?select=title,self`</p>
 
-> **Note:** Learn more about the [service root URL](../api-reference/v1.0/resources/onenote-api-overview.md#root-url).
+> **Note:** Learn more about the [service root URL](../resources/onenote-api-overview.md#root-url).
 
 <a name="resource-paths"></a>
 ## Resource paths for GET requests
@@ -260,10 +260,10 @@ To get public, pre-authenticated URLs to the image resources on a page, include 
 When you get a file resource, you don't need to include an **Accept** content type in the request.
 
 For more information about GET requests, see: 
-- [GET Pages](../api-reference/v1.0/api/page_get.md)
-- [GET Sections](../api-reference/v1.0/api/section_get.md)
-- [GET SectionGroups](../api-reference/v1.0/api/sectiongroup_get.md)
-- [GET Notebooks](../api-reference/v1.0/api/notebook_get.md) 
+- [GET Pages](../api/page_get.md)
+- [GET Sections](../api/section_get.md)
+- [GET SectionGroups](../api/sectiongroup_get.md)
+- [GET Notebooks](../api/notebook_get.md) 
 
 in the Microsoft Graph API REST reference.
 
@@ -274,7 +274,7 @@ You can query for OneNote entities and search page content to get just the infor
 
 **Remember:**
 
-- All GET requests start with the [service root URL](../api-reference/v1.0/resources/onenote-api-overview.md#root-url).
+- All GET requests start with the [service root URL](../resources/onenote-api-overview.md#root-url).
 
   **Examples:** 
   - `https://www.onenote.com/api/v1.0/me/notes`
@@ -553,10 +553,10 @@ Property names are case sensitive in query expressions.
 
 For the list of properties and property types, see:
 
-- [GET Pages](../api-reference/v1.0/api/page_get.md)
-- [GET Sections](../api-reference/v1.0/api/section_get.md)
-- [GET SectionGroups](../api-reference/v1.0/api/sectiongroup_get.md)
-- [GET Notebooks](../api-reference/v1.0/api/notebook_get.md) 
+- [GET Pages](../api/page_get.md)
+- [GET Sections](../api/section_get.md)
+- [GET SectionGroups](../api/sectiongroup_get.md)
+- [GET Notebooks](../api/notebook_get.md) 
 
 in the Microsoft Graph API REST reference.
 

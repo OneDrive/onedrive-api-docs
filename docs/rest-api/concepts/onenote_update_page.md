@@ -33,7 +33,7 @@ Your full request URI will look like this:
 `https://graph.microsoft.com/v1.0/me/onenote/pages/{id}/content`
 
 
-Learn more about the [service root URL](../api-reference/v1.0/resources/onenote-api-overview.md#root-url).
+Learn more about the [service root URL](../resources/onenote-api-overview.md#root-url).
 
 
 <a name="message-body"></a>

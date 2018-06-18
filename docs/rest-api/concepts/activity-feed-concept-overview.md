@@ -19,6 +19,6 @@ Integrating with user activities not only enables users to resume activities in 
 ## See also
 
 - [Cross-device experiences in Microsoft Graph](cross-device-concept-overview.md)
-- [Use the activity feed API to resume a user's activity across devices](../api-reference/v1.0/resources/activity-feed-api-overview.md)
+- [Use the activity feed API to resume a user's activity across devices](../resources/activity-feed-api-overview.md)
 - [Publish activities and history items with one request using deep insert](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/projectrome_put_activity#example-2---deep-insert)
 - [Learn more about Project Rome](http://aka.ms/projectrome)

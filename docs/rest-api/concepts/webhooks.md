@@ -49,7 +49,7 @@ Certain limits apply to Azure AD based resources (users, groups) and may generat
 
 ## Subscription lifetime
 
-Subscriptions have a limited lifetime. Apps need to renew their subscriptions before the expiration time. Otherwise, they need to create a new subscription. For a list of maximum expiration times, see [Maximum length of subscription per resource type](../api-reference/v1.0/resources/subscription.md#maximum-length-of-subscription-per-resource-type).
+Subscriptions have a limited lifetime. Apps need to renew their subscriptions before the expiration time. Otherwise, they need to create a new subscription. For a list of maximum expiration times, see [Maximum length of subscription per resource type](../resources/subscription.md#maximum-length-of-subscription-per-resource-type).
 
 Apps can also unsubscribe at any time to stop getting notifications.
 
@@ -88,11 +88,11 @@ Content-Type: application/json
 }
 ```
 
-The `changeType`, `notificationUrl`, `resource`, and `expirationDateTime` properties are required. See [subscription resource type](../api-reference/v1.0/resources/subscription.md) for property definitions and values.
+The `changeType`, `notificationUrl`, `resource`, and `expirationDateTime` properties are required. See [subscription resource type](../resources/subscription.md) for property definitions and values.
 
 Although `clientState` is not required, you must include it to comply with our recommended notification handling process. Setting this property will allow you to confirm that notifications you receive originate from the Microsoft Graph service. For this reason, the value of the property should remain secret and known only to your application and the Microsoft Graph service.
 
-If successful, Microsoft Graph returns a `201 Created` code and a [subscription](../api-reference/v1.0/resources/subscription.md) object in the body.
+If successful, Microsoft Graph returns a `201 Created` code and a [subscription](../resources/subscription.md) object in the body.
 
 #### Notification endpoint validation
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 }
 ```
 
-If successful, Microsoft Graph returns a `200 OK` code and a [subscription](../api-reference/v1.0/resources/subscription.md) object in the body. The subscription object includes the new `expirationDateTime` value.
+If successful, Microsoft Graph returns a `200 OK` code and a [subscription](../resources/subscription.md) object in the body. The subscription object includes the new `expirationDateTime` value.
 
 ### Deleting a subscription
 
@@ -222,12 +222,12 @@ The following code samples are available on GitHub.
 
 ## See also
 
-- [Subscription resource type](../api-reference/v1.0/resources/subscription.md)
-- [Get subscription](../api-reference/v1.0/api/subscription_get.md)
-- [Create subscription](../api-reference/v1.0/api/subscription_post_subscriptions.md)
+- [Subscription resource type](../resources/subscription.md)
+- [Get subscription](../api/subscription_get.md)
+- [Create subscription](../api/subscription_post_subscriptions.md)
 
-[contact]: ../api-reference/v1.0/resources/contact.md
-[conversation]: ../api-reference/v1.0/resources/conversation.md
-[drive]: ../api-reference/v1.0/resources/drive.md
-[event]: ../api-reference/v1.0/resources/event.md
-[message]: ../api-reference/v1.0/resources/message.md
+[contact]: ../resources/contact.md
+[conversation]: ../resources/conversation.md
+[drive]: ../resources/drive.md
+[event]: ../resources/event.md
+[message]: ../resources/message.md

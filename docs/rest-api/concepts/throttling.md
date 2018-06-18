@@ -31,14 +31,14 @@ When you implement error handling, use the HTTP error code 429 to detect throttl
 3. If the request fails again with a 429 error code, you are still being throttled. Continue to use the recommended Retry-After delay and retry the request until it succeeds.
 
 The following resources currently provide a retry-after header:
-- [User](../api-reference/v1.0/resources/user.md)
-- [Photo](../api-reference/v1.0/resources/profilephoto.md)
-- [Mail](../api-reference/v1.0/resources/message.md)
-- [Calendar (users and groups)](../api-reference/v1.0/resources/event.md)
-- [Contact](../api-reference/v1.0/resources/contact.md)
-- [Attachment](../api-reference/v1.0/resources/attachment.md)
-- [Group conversations](../api-reference/v1.0/resources/conversation.md)
-- [People and social](../api-reference/beta/resources/social_overview.md)
-- [Drive (OneDrive)](../api-reference/v1.0/resources/drive.md)
+- [User](../resources/user.md)
+- [Photo](../resources/profilephoto.md)
+- [Mail](../resources/message.md)
+- [Calendar (users and groups)](../resources/event.md)
+- [Contact](../resources/contact.md)
+- [Attachment](../resources/attachment.md)
+- [Group conversations](../resources/conversation.md)
+- [People and social](../resources/social_overview.md)
+- [Drive (OneDrive)](../resources/drive.md)
 
 For a broader discussion of throttling on the Microsoft Cloud, see [Throttling Pattern](https://msdn.microsoft.com/en-us/library/office/dn589798.aspx).
