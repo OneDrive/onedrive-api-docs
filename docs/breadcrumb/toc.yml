@@ -3,9 +3,11 @@
   topicHref: /onedrive/developer/index
   items:
   - name: EXPLORE
+    expanded: true
     tocHref: /onedrive/developer/rest-api/concepts
     topicHref: /onedrive/developer/rest-api/concepts/index
   - name: LEARN
+    expanded: true
     tocHref: /onedrive/developer/rest-api/concepts
     topicHref: /onedrive/developer/rest-api/concepts/index
   - name: DEVELOP
