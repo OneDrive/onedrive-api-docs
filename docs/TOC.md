@@ -70,7 +70,7 @@
 ### [Use workbook functions](rest-api/concepts/excel-use-functions.md)
 ### [Update a range format](rest-api/concepts/excel-update-range-format.md)
 ### [Write data to a workbook](rest-api/concepts/excel-write-to-workbook.md)
-## [DEVELOP](.md)
+# [DEVELOP](.md)
 ## [Get auth tokens](rest-api/concepts/auth_overview.md)
 ### [Register your app](rest-api/concepts/auth_register_app_v2.md)
 ### [Get access on behalf of a user](rest-api/concepts/auth_v2_user.md)
