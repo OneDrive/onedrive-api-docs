@@ -6,7 +6,7 @@ ms.topic: overview
 ---
 # OneDrive file picker for JavaScript v7.0 overview
 
-**Note:** This version has been replaced by [file picker v7.2](../js-v72/index.md).
+**Note:** This version has been replaced by [file picker v7.3](../js-v73/index.md).
 New integrations should use the latest version of the file picker SDK.
 
 The OneDrive file picker SDK enables your web app to quickly integrate
