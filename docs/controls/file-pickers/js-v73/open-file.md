@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Open from OneDrive in JavaScript
 ---
-# Opening Files with the OneDrive File Picker JavaScript SDK v7.2
+# Opening Files with the OneDrive File Picker JavaScript SDK v7.3
 
 The following walk through shows how to integrate the file picker SDK into your client-side JavaScript application.
 
@@ -19,7 +19,7 @@ This can either be the page hosting the picker SDK or a custom URL you define. F
 Embed the OneDrive JavaScript SDK into your page.
 
 ```html
-<script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+<script type="text/javascript" src="https://js.live.net/v7.3/OneDrive.js"></script>
 ```
 
 ## 3. Launch the file picker
@@ -252,7 +252,7 @@ The page you redirect to needs only to load the OneDrive SDK script:
 
 ```html
 <html>
-<script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+<script type="text/javascript" src="https://js.live.net/v7.3/OneDrive.js"></script>
 </html>
 ```
 
@@ -299,7 +299,7 @@ var odOptions = {
   "section": "sdks",
   "tocPath": "OneDrive SDKs/File pickers/JavaScript/Open a file",
   "headerAdditions": [
-    "<script type=\"text/javascript\" src=\"https://js.live.net/v7.2/OneDrive.js\"></script>"
+    "<script type=\"text/javascript\" src=\"https://js.live.net/v7.3/OneDrive.js\"></script>"
   ],
   "footerAdditions": [
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"js-sample.css\" />",

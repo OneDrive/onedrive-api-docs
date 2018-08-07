@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Save to OneDrive from JavaScript
 ---
-# Saving Files with the OneDrive File Picker JavaScript SDK v7.2
+# Saving Files with the OneDrive File Picker JavaScript SDK v7.3
 
 To save files from OneDrive, your app should provide a button to programmatically start the OneDrive picker experience.
 
@@ -19,7 +19,7 @@ This can either be the page hosting the picker SDK or a custom URL you define. F
 Embed the OneDrive JavaScript SDK into your page.
 
 ```html
-<script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+<script type="text/javascript" src="https://js.live.net/v7.3/OneDrive.js"></script>
 ```
 
 ## 3. Launch the file picker
@@ -176,7 +176,7 @@ The page you redirect to needs only to load the OneDrive SDK script:
 
 ```html
 <html>
-<script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+<script type="text/javascript" src="https://js.live.net/v7.3/OneDrive.js"></script>
 </html>
 ```
 
@@ -190,7 +190,7 @@ When using the inline experience the default redirect URI is always used.
   "section": "sdks",
   "tocPath": "OneDrive SDKs/File pickers/JavaScript/Save a file",
   "headerAdditions": [
-    "<script type=\"text/javascript\" src=\"https://js.live.net/v7.2/OneDrive.js\"></script>"
+    "<script type=\"text/javascript\" src=\"https://js.live.net/v7.3/OneDrive.js\"></script>"
   ],
   "footerAdditions": [
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"js-sample.css\" />",
