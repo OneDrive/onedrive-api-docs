@@ -5,7 +5,7 @@ ms.date: 09/10/2017
 ---
 # Opening Files with the OneDrive File Picker JavaScript SDK v7.0
 
-**Note:** This version has been replaced by [file picker v7.2](../js-v72/index.md).
+**Note:** This version has been replaced by [file picker v7.3](../js-v73/index.md).
 New integrations should use the latest version of the file picker SDK.
 
 

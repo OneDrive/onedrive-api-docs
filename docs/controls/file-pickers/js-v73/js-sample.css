@@ -1,0 +1,82 @@
+div.pickerDemo {
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+    padding-left: 16px;
+    background-color: #EEE;
+    padding-top: 10px;
+    font-size: 0.9em;
+}
+
+.pickerDemo .console {
+  display: block;
+  font-family: monospace;
+  white-space: pre;
+  max-width: 1024px;
+  word-break: break-word;
+}
+
+/*.pickerDemo .table {
+    display: table;
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+    border-spacing: 5px;
+    padding-left: 16px;
+}*/
+
+.pickerDemo .row {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pickerDemo .cell {
+    display: table-cell;
+    margin-left: 16px;
+}
+
+.pickerDemo .heading {
+    margin-right: 12px;
+}
+
+.pickerDemo input[type="text"] {
+    margin-right: 16px;
+}
+
+.pickerDemo input[type="radio"] {
+    margin-right: 4px;
+}
+.pickerDemo input[type="checkbox"] {
+    margin-right: 4px;
+}
+
+.pickerDemo .heading {
+    width: 90px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.pickerDemo label {
+    font-weight: normal;
+}
+
+.pickerDemo .oneDriveButton {
+    font-family: "Segoe UI", "Segoe UI Web Regular", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif; 
+    font-size: 12px; 
+    font-weight: bold; 
+    color: white;
+    text-align: center; 
+    vertical-align: middle; 
+    margin-left: 2px; 
+    margin-right: 0px; 
+}
+
+.pickerDemo button {
+    border: 1px solid rgb(9, 74, 178); 
+    height: 24px; 
+    padding-left: 4px; 
+    padding-right: 4px; 
+    padding-bottom: 2px; 
+    text-align: center; 
+    cursor: pointer; 
+    background-color: rgb(9, 74, 178);
+}
