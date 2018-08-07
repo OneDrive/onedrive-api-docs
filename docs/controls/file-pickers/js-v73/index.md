@@ -1,15 +1,16 @@
 ---
-author: rgregg
-ms.author: rgregg
-ms.date: 09/10/2017
+author: KevinTCoughlin
+ms.author: keco
+ms.date: 08/08/2018
 ms.topic: overview
 title: File Picker SDK for JavaScript - OneDrive
 ---
-# OneDrive file picker for JavaScript v7.2 overview
+# OneDrive file picker for JavaScript v7.3 overview
 
 The OneDrive file picker makes it easy for your web app to connect to content stored in OneDrive and SharePoint.
+
 Using the file picker you can open, save, and share files stored in OneDrive or SharePoint without writing custom file UI code. 
- 
+
 You can use the file picker SDK to integrate with OneDrive and SharePoint in the following ways:
 
 * Open a file and receive a short-lived URL to download the content of the file.
@@ -19,7 +20,6 @@ You can use the file picker SDK to integrate with OneDrive and SharePoint in the
 * Save a file to OneDrive or SharePoint team site.
 
 ![Screenshot of the OneDrive file picker opening a file](file-picker-comp-866.png)
-
 
 ## Setting up
 
@@ -41,6 +41,10 @@ from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.
 Learn more about [opening files with the OneDrive file picker](open-file.md) or
 [saving files with the OneDrive file picker SDK](save-file.md).
 
+## Bug Fixes
+
+* Fix query parameter parsing so `access_token` is not dropped. ([#891](https://github.com/OneDrive/onedrive-api-docs/issues/891))
+
 ## Supported browsers
 
 The OneDrive picker and saver supports the following web browsers:
@@ -55,6 +59,7 @@ The OneDrive picker and saver supports the following web browsers:
 
 ## Previous versions
 
+* [File picker SDK v7.2](../js-v72/index.md)
 * [File picker SDK v7.0](../js-v7/index.md)
 * [File picker SDK v6.0](../js-v6/index.md)
 * [File picker SDK v5.0](../js-v5/index.md)
