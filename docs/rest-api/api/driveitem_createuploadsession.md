@@ -30,16 +30,28 @@ To begin a large file upload, your app must first request a new upload session.
 This creates a temporary storage location where the bytes of the file will be saved until the complete file is uploaded.
 Once the last byte of the file has been uploaded the upload session is completed and the final file is shown in the destination folder.
 
-### HTTP request
+## HTTP request (to replace an existing item)
 
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /drives/{driveId}/items/{itemId}/createUploadSession
-POST /groups/{groupId}/drive/items/{itemId}/createUploadSession
-POST /me/drive/items/{itemId}/createUploadSession
-POST /sites/{siteId}/drive/items/{itemId}/createUploadSession
-POST /users/{userId}/drive/items/{itemId}/createUploadSession
+PUT /drives/{drive-id}/items/{item-id}/createUploadSession
+PUT /groups/{group-id}/drive/items/{item-id}/createUploadSession
+PUT /me/drive/items/{item-id}/createUploadSession
+PUT /sites/{site-id}/drive/items/{item-id}/createUploadSession
+PUT /users/{user-id}/drive/items/{item-id}/createUploadSession
+```
+
+## HTTP request (to upload a new file)
+
+<!-- { "blockType": "ignored" } -->
+
+```http
+PUT /drives/{drive-id}/items/{parent-id}:/{filename}:/createUploadSession
+PUT /groups/{group-id}/drive/items/{parent-id}:/{filename}:/createUploadSession
+PUT /me/drive/items/{parent-id}:/{filename}:/createUploadSession
+PUT /sites/{site-id}/drive/items/{parent-id}:/{filename}:/createUploadSession
+PUT /users/{user-id}/drive/items/{parent-id}:/{filename}:/createUploadSession
 ```
 
 ### Request body
