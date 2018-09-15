@@ -5,7 +5,7 @@ ms.date: 09/10/2017
 ms.topic: overview
 title: Access OneDrive and SharePoint via the v2.0 REST API
 ---
-# Connect to sites, lists, and files in SharePoint Server
+# Work with files, lists, and sites in SharePoint
 
 The OneDrive and SharePoint REST API allows your app to connect to content stored in OneDrive and SharePoint.
 The REST API is shared between OneDrive, OneDrive for Business, SharePoint document libraries, and Office Groups, to allow your app the flexibility to read and store content in any of these locations with the same code.

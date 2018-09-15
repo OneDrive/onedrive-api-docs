@@ -3,11 +3,11 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: get-started-article
-title: Get started using OneDrive API with SharePoint Server 2016
+title: Get started using OneDrive API with SharePoint Server 2019
 ---
-# Getting started with OneDrive API with SharePoint Server 2016
+# Getting started with the OneDrive and SharePoint API on SharePoint Server 2019
 
-To get started using the OneDrive API with SharePoint Server 2016, follow these steps.
+To get started using the OneDrive API with SharePoint Server 2019 or 2016 feature pack 2, follow these steps.
 
 If you are using Microsoft Graph or connecting to OneDrive, OneDrive for Business, or SharePoint online, see [Getting started with OneDrive API](index.md).
 
