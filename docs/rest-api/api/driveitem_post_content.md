@@ -111,5 +111,9 @@ The multipart upload method is not supported in OneDrive for Business, SharePoin
   "type": "#page.annotation",
   "description": "Create a new item with custom metadata and content upload.",
   "keywords": "create,upload,post,custom metadata",
-  "section": "documentation"
+  "section": "documentation",
+  "suppressions": [
+    "Warning: /api/driveitem_post_content.md:
+      Failed to parse any rows out of table with headers: |Part name|Type|Description|"
+  ]
 } -->

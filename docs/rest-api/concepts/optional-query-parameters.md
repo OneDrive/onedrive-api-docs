@@ -23,7 +23,7 @@ list of properties to return on [Items][item-resource].
 
 This example selects only the **name** and **size** properties to be returned, when retrieving the children of an item.
 
-<!-- { "name": "select-root-children", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "select-root-children", "scopes": "files.read" } -->
 ```http
 GET /drive/root/children?select=name,size
 ```
@@ -32,7 +32,7 @@ By submitting the request with the `select=name,size` query string, the objects
 in the response will only have those property values included. When using the
 select statement, you need to specify all properties to return in the statement.
 
-<!-- { "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

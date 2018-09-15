@@ -133,7 +133,7 @@ Make sure to include the trailing / character, otherwise your app will be denied
 
 If the call is successful, the response body is a JSON string that includes `access_token`, `expires_in`, and `refresh_token` properties.
 
-<!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse" } -->
+<!-- {"blockType": "ignored", "@odata.type": "oauth2.tokenResponse" } -->
 ```json
 {
   "expires_in": 3600,
@@ -171,7 +171,7 @@ Authorization: Bearer {access_token}
 If the call is successful, the response body contains JSON data with information about the services available for the user and your app.
 You can parse this response to find the endpoint URL for the OneDrive for Business API.
 
-<!-- { "blockType": "example", "@odata.type": "Microsoft.DiscoveryServices.ServiceInfo",
+<!-- { "blockType": "ignored", "@odata.type": "Microsoft.DiscoveryServices.ServiceInfo",
        "isCollection": true, "truncated": true} -->
 ```json
 {
@@ -231,7 +231,7 @@ The request body is a URL encoded string, with the following parameters:
 
 If the call is successful, the response body is a JSON string that including `access_token`, `expires_in`, and `refresh_token`.
 
-<!-- {"blockType": "example", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example-2" } -->
+<!-- {"blockType": "ignored", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example-2" } -->
 ```json
 {
   "expires_in": 3600,

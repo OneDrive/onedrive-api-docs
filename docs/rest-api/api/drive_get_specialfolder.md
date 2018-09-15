@@ -29,7 +29,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "request", "name": "get-special-folder", "scopes": "files.read" } -->
 
 ```http
-GET /me/drive/special/{name}
+GET /me/drive/special/{special-folder-name}
 ```
 
 ### Special folder names

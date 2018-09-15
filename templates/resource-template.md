@@ -37,9 +37,9 @@ The {type} resource has these properties.
 
 The following table defines the relationships that the Drive resource has to other resources.
 
-| Relationship name | Type             | Description                                                             |
-|:------------------|:-----------------|:------------------------------------------------------------------------|
-| **items**         | Collection(item) | All items contained in the drive. This collection cannot be enumerated. |
+| Relationship name | Type                  | Description                                                             |
+|:------------------|:----------------------|:------------------------------------------------------------------------|
+| **items**         | Collection(driveItem) | All items contained in the drive. This collection cannot be enumerated. |
 
 <!--
  {

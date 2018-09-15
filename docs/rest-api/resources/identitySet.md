@@ -14,12 +14,13 @@ It is used to represent a set of identities associated with various events for a
 Here is a JSON representation of the resource.
 
 <!-- { "blockType": "resource", "@odata.type": "microsoft.graph.identitySet",
-       "optionalProperties": ["user", "application", "device"],
+       "optionalProperties": ["user", "application", "group", "device"],
        "openType": true } -->
 ```json
 {
   "application": {"@odata.type": "microsoft.graph.identity"},
   "device": {"@odata.type": "microsoft.graph.identity"},
+  "group": {"@odata.type": "microsoft.graph.identity"},
   "user": {"@odata.type": "microsoft.graph.identity"}
 }
 ```

@@ -38,7 +38,7 @@ GET /drive/root:/{path and filename}:/content?format={format}
 | _format_  | string | Specify the format the item's content should be downloaded as. |
 
 
-The following values are valid for the **convert** parameter:
+#### Format options
 
 | Value | Description                        | Supported source extensions
 |:------|:-----------------------------------|---------------------------------

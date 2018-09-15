@@ -4,7 +4,7 @@
 
 ## HTTP request
 
-<!-- {"blockType": "request", "name": "template-method-name", "scopes": "files.readwrite service.sharepoint" } -->
+<!-- {"blockType": "request", "name": "template-method-name", "scopes": "files.readwrite", "tags": "service.sharepoint" } -->
 
 ```http
 GET /drives

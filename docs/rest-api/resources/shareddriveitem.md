@@ -53,7 +53,6 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
 | **listItem**      | [**listItem**][listItem]    | Used to access the underlying **listItem**
 | **site**          | [**site**][site]        | Used to access the underlying **site**
 
-
 Alternatively, for **driveItems** shared from personal OneDrive accounts, the following relationships may also be used.
 
 | Relationship name | Type                         | Description

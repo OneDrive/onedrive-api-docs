@@ -1,106 +1,359 @@
 {
-  "scenarios":[
+  "canned-requests": [
+    {
+      "name": "get-sites-root",
+      "http-request": "GET /sites/root",
+      "capture": {
+        "[site-id]": "$.id"
+      }
+    }
+  ],
+  "scenarios": [
     {
       "name": "Get File Versions",
       "method": "get-previous-versions",
-      "enabled": false,
-      "request-parameters":
-      {
+      "enabled": true,
+      "request-parameters": {
         "{item-id}": "[new-item-id]"
       },
-      "test-setup":
-      [
+      "test-setup": [
         {
-          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
-          "allowed-status-codes": [204, 404]
-        },
-        {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will make multiple versions of.",
-          "capture":
-          {
-            "[new-item-id]": "$.id"
-          }
-        },
-        {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will."
-        },
-        {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nTest file that we will look at old versions of."
-        }
-      ]
-    },
-    {
-      "name": "Get Version Content",
-      "method": "get-version-content",
-      "enabled": false,
-      "request-parameters":
-      {
-        "{item-id}": "[new-item-id]",
-        "{version-id}": "[new-version-id]"
-      },
-      "test-setup":
-      [
-        {
-          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
-          "allowed-status-codes": [204, 404]
-        },
-        {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent A",
-          "capture":
-          {
-            "[new-item-id]": "$.id"
-          }
-        },
-        {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent BB"
-        },
-        {
-          "http-request": "GET /drive/items/{item-id}/versions",
-          "request-parameters":
-          {
-            "{item-id}": "[new-item-id]"
+          "method": "delete-item",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt"
           },
-          "capture":
-          {
-            "[new-version-id]": "$.value[0].id"
+          "allowed-status-codes": [ 204, 404 ]
+        },
+        {
+          "method": "upload-via-put-id",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt:",
+            "!body": "Test file that we will make multiple versions of."
+          },
+          "capture": {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "method": "upload-via-put-id",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt:",
+            "!body": "Test file that we will make multiple versions of."
           }
         }
       ]
     },
+
     {
       "name": "Get Single Version",
       "method": "get-single-version",
-      "enabled": false,
-      "request-parameters":
-      {
+      "enabled": true,
+      "request-parameters": {
         "{item-id}": "[new-item-id]",
         "{version-id}": "[new-version-id]"
       },
-      "test-setup":
-      [
+      "test-setup": [
         {
-          "http-request": "DELETE /drive/root:/Documents/previous-versions.txt",
-          "allowed-status-codes": [204, 404]
+          "method": "delete-item",
+          "request-parameters": {
+            "!url": "/drive/items/{item-id}",
+            "{item-id}": "root:/Documents/previous-versions.txt"
+          },
+          "allowed-status-codes": [ 204, 404 ]
         },
         {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent A",
-          "capture":
-          {
+          "method": "upload-via-put-id",
+          "request-parameters": {
+            "!url": "/drive/items/{item-id}/content",
+            "{item-id}": "root:/Documents/previous-versions.txt:"
+          },
+          "capture": {
             "[new-item-id]": "$.id"
           }
         },
         {
-          "http-request": "PUT /drive/root:/Documents/previous-versions.txt:/content\r\nContent-Type: application/octet-stream\r\n\r\nContent BB"
+          "method": "upload-via-put-id",
+          "request-parameters": {
+            "!url": "/drive/items/{item-id}/content",
+            "{item-id}": "root:/Documents/previous-versions.txt:",
+            "!body": "Content B"
+          }
         },
         {
-          "http-request": "GET /drive/items/{item-id}/versions",
-          "request-parameters":
-          {
+          "method": "get-previous-versions",
+          "request-parameters": {
+            "!url": "/drive/items/{item-id}/versions",
             "{item-id}": "[new-item-id]"
           },
-          "capture":
-          {
+          "capture": {
             "[new-version-id]": "$.value[0].id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Delete item version",
+      "method": "delete-version",
+      "enabled": true,
+      "request-parameters": {
+        "{item-id}": "[new-item-id]",
+        "{version-id}": "[new-version-id]"
+      },
+      "test-setup": [
+        {
+          "method": "delete-item",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt"
+          },
+          "allowed-status-codes": [ 204, 404 ]
+        },
+        {
+          "method": "upload-via-put",
+          "request-parameters": {
+            "!url": "/me/drive/root:{item-path}:/content",
+            "{item-path}": "/Documents/previous-versions.txt"
+          },
+          "capture": {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "method": "upload-via-put",
+          "request-parameters": {
+            "!url": "/me/drive/root:{item-path}:/content",
+            "{item-path}": "/Documents/previous-versions.txt",
+            "!body": "Content B"
+          }
+        },
+        {
+          "method": "get-previous-versions",
+          "request-parameters": {
+            "{item-id}": "[new-item-id]"
+          },
+          "capture": {
+            "[new-version-id]": "$.value[1].id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Get contents of version",
+      "method": "get-version-contents",
+      "enabled": true,
+      "request-parameters": {
+        "{item-id}": "[new-item-id]",
+        "{version-id}": "[new-version-id]"
+      },
+      "test-setup": [
+        {
+          "method": "delete-item",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt"
+          },
+          "allowed-status-codes": [ 204, 404 ]
+        },
+        {
+          "method": "upload-via-put-id",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt:"
+          },
+          "capture": {
+            "[new-item-id]": "$.id"
+          }
+        },
+        {
+          "method": "upload-via-put-id",
+          "request-parameters": {
+            "{item-id}": "root:/Documents/previous-versions.txt:",
+            "!body": "Content B"
+          }
+        },
+        {
+          "method": "get-previous-versions",
+          "request-parameters": {
+            "{item-id}": "[new-item-id]"
+          },
+          "capture": {
+            "[new-version-id]": "$.value[0].id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Delete a version of a list item",
+      "method": "delete-version-listItem",
+      "enabled": false,
+      "request-parameters": {
+        "{site-id}": "seattleappworks.sharepoint.com,70a23224-bf15-4b5e-b6f8-a20eefdf881a,17b3eab0-65b5-4f06-8672-e146e18e6b6b",
+        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/microsoft.graph.listItem\"",
+        "{version-id}": "1.0"
+      },
+      "test-setup": [
+        {
+          "http-request": "GET /sites/seattleappworks.sharepoint.com,70a23224-bf15-4b5e-b6f8-a20eefdf881a,17b3eab0-65b5-4f06-8672-e146e18e6b6b/lists",
+          "allowed-status-codes": [ 200 ],
+          "capture": {
+            "[list-id]": "$.value[0].id"
+          }
+        },
+        {
+          "method": "get-list-item",
+          "request-parameters": {
+            "{site-id}": "seattleappworks.sharepoint.com,70a23224-bf15-4b5e-b6f8-a20eefdf881a,17b3eab0-65b5-4f06-8672-e146e18e6b6b",
+            "{list-id}": "[list-id]",
+            "{item-id}": "1"
+          },
+          "capture": {
+            "[item-id]": "$.eTag"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Get versions of a list item",
+      "method": "get-previous-versions-listitem",
+      "enabled": true,
+      "request-parameters": {
+        "{site-id}": "[site-id]",
+        "{item-id}": "[item-id]"
+      },
+      "test-setup": [
+        { "canned-request": "get-sites-root" },
+        {
+          "http-request": "GET /sites/{site-id}/drive/root/children?select=file,id",
+          "allowed-status-codes": [ 200 ],
+          "request-parameters": {
+            "{site-id}": "[site-id]"
+          },
+          "capture": {
+            "[item-id]": "$.value[0].id"
+              // do something here to make sure you get a text file
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Get a version of a list item",
+      "method": "get-single-version-listItem",
+      "enabled": true,
+      "request-parameters": {
+        "{site-id}": "[site-id]",
+        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/microsoft.graph.listItem\"",
+        "{version-id}": "1.0"
+      },
+      "test-setup": [
+        { "canned-request": "get-sites-root" },
+        {
+          "method": "enum-lists",
+          "request-parameters": {
+            "{site-id}": "[site-id]"
+          },
+          "capture": {
+            "[list-id]": "$.value[2].id"
+          }
+        },
+        {
+          "method": "get-list-item",
+          "request-parameters": {
+            "{site-id}": "[site-id]",
+            "{list-id}": "[list-id]",
+            "{item-id}": "1"
+          },
+          "capture": {
+            "[item-id]": "$.eTag"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Restore item version",
+      "method": "restore-item-version-listItem",
+      "enabled": true,
+      "request-parameters": {
+        "{site-id}": "[site-id]",
+        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/microsoft.graph.listItem\"",
+        "{version-id}": "[version-id]",
+        "!body": ""
+      },
+      "test-setup": [
+        { "canned-request": "get-sites-root" },
+        {
+          "method": "enum-lists",
+          "request-parameters": {
+            "{site-id}": "[site-id]"
+          },
+          "capture": {
+            "[list-id]": "$.value[2].id"
+          }
+        },
+        {
+          "method": "get-list-item",
+          "request-parameters": {
+            "{site-id}": "[site-id]",
+            "{list-id}": "[list-id]",
+            "{item-id}": "1"
+          },
+          "capture": {
+            "[item-id]": "$.eTag"
+          }
+        },
+        {
+          "http-request": "GET /sites/{site-id}/lists/{list-id}/items/{item-id}/versions",
+          "request-parameters": {
+            "{site-id}": "[site-id]",
+            "{list-id}": "[list-id]",
+            "{item-id}": "1"
+          },
+          "capture": {
+            "[version-id]": "$.value[1].id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Restore item version",
+      "method": "restore-item-version",
+      "enabled": true,
+      "request-parameters": {
+        "{drive-id}": "[drive-id]",
+        "{item-id}": "[item-id]",
+        "{version-id}": "current",
+        "!body": ""
+      },
+      "test-setup": [
+        {
+          "method": "get-drive-default",
+          "request-parameters": {
+            "!url": "/drive"
+          },
+          "capture": {
+            "[drive-id]": "$.id"
+          }
+        },
+        {
+          "method": "delete-item",
+          "request-parameters": {
+            "!url": "/drive/items/{item-id}",
+            "{item-id}": "root:/Documents/previous-versions.txt"
+          },
+          "allowed-status-codes": [ 204, 404 ]
+        },
+        {
+          "method": "upload-via-put",
+          "request-parameters": {
+            "!url": "/drive/items/{item-id}/content",
+            "!body": "Content A",
+            "{item-id}": "root:/Documents/previous-versions.txt:"
+          },
+          "capture": {
+            "[item-id]": "$.id"
           }
         }
       ]

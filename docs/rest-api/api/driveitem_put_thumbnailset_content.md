@@ -55,6 +55,7 @@ GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,sourc
 <!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
+Content-Type: application/json
 
 {
    "thumbnails":[
@@ -87,3 +88,11 @@ HTTP/1.1 200 OK
 
 **Note:** The response object is truncated for clarity. All default properties
 will be returned from the actual call.
+
+<!-- {
+  "type": "#page.annotation",
+  "suppressions": [
+    "Warning: ExampleRequest_drive/items/{var}/thumbnails/0:
+      Assuming 0 under microsoft.graph.thumbnailSet is a hard-coded key in the example path. Please fix to be a placeholder."
+  ]
+} -->

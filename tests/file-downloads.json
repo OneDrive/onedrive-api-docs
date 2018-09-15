@@ -60,7 +60,7 @@
     {
       "name": "Convert to PDF",
       "method": "convert-item-content",
-      "enabled": false,
+      "enabled": true,
       "tags": [ "service.graph" ],
 
       "request-parameters": {
