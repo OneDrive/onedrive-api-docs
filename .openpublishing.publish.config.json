@@ -6,7 +6,7 @@
       "build_output_subfolder": "onedrive",
       "locale": "en-us",
       "monikers": [],
-      "moniker_ranges": ["<= exchserver-2016", ">= exchserver-2013"],
+      "moniker_ranges": [">= odsp-graph-online", "<= odsp-graph-2019"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -34,9 +34,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "docs/sp19",
+      "path_to_root": "docs/sp2019",
       "url": "https://github.com/onedrive/onedrive-api-docs",
-      "branch": "sp19test",
+      "branch": "sp2019",
       "branch_mapping": {}
     }
   ],

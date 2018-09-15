@@ -14,7 +14,7 @@
           "ThirdPartyNotices"
         ],
         "group": "sp2019",
-        "src": "sp19/docs"
+        "src": "sp2019/docs"
       },
       {
         "files": [
@@ -22,7 +22,7 @@
           "**/*.yml"
         ],
         "exclude": [
-          "sp19",
+          "sp2019",
           "**/obj/**",
           "**/includes/**",
           "LICENSE",
@@ -44,7 +44,7 @@
           "**/includes/**"
         ],
         "group": "sp2019",
-        "src": "sp19/docs"
+        "src": "sp2019/docs"
       },
       {
         "files": [
@@ -52,7 +52,7 @@
           "**/*.jpg"
         ],
         "exclude": [
-          "sp19",
+          "sp2019",
           "**/obj/**",
           "**/includes/**"
         ],
@@ -74,12 +74,12 @@
     "dest": "onedrive",
     "groups": {
       "sp2019": {
-        "dest": "sp19temp",
-        "moniker_range": ">= exchserver-2013"
+        "dest": "sp2019temp",
+        "moniker_range": "<= odsp-graph-2019"
       },
       "online": {
-        "dest": "spotemp",
-        "moniker_range": "<= exchserver-2016"
+        "dest": "onlinetemp",
+        "moniker_range": ">= odsp-graph-online"
       }
     }
   }
