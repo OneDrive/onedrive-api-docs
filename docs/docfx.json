@@ -9,6 +9,7 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**",
+          "**/appveyor.yml",
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices"
@@ -25,6 +26,7 @@
           "sp2019",
           "**/obj/**",
           "**/includes/**",
+          "**/appveyor.yml",
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices"
