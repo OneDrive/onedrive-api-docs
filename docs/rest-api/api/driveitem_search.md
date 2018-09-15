@@ -16,7 +16,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -24,11 +24,9 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-GET /drives/{drive-id}/root/search(q='{search-text}')
-GET /groups/{group-id}/drive/root/search(q='{search-text}')
-GET /me/drive/root/search(q='{search-text}')
-GET /sites/{site-id}/drive/root/search(q='{search-text}')
-GET /users/{user-id}/drive/root/search(q='{search-text}')
+GET /drives/{drive-id}/root/oneDrive.search(q='{search-text}')
+GET /drive/root/oneDrive.search(q='{search-text}')
+GET /sites/{site-id}/drive/root/oneDrive.search(q='{search-text}')
 ```
 
 ## Optional query parameters
@@ -47,10 +45,10 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$order
 
 Here is an example of the request searching the current user's OneDrive
 
-<!-- { "blockType": "request", "name": "item_search", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "item_search",  }-->
 
 ```http
-GET /me/drive/root/search(q='{search-query}')
+GET /drive/root/oneDrive.search(q='{search-query}')
 ```
 
 ### Response
@@ -61,7 +59,7 @@ If no items were found, an empty collection is returned.
 If there are too many matches the response will be paged and an **@odata.nextLink** property will contain a URL to the next page of results.
 You can use the `$top` query parameter to specify the number of items in the page.
 
-<!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.driveItem)", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "Collection(oneDrive.item)", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -82,7 +80,7 @@ Content-type: application/json
         "searchResult": { "onClickTelemetryUrl": "https://bing.com/0123456789abc!456" }
       }
     ],
-    "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/drive/root/search(query='contoso project')&skipToken=1asdlnjnkj1nalkm!asd"
+    "@odata.nextLink": "https://sp-my.contoso.com/_api/v2.0/drive/root/oneDrive.search(query='contoso project')&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
 
@@ -93,10 +91,10 @@ To broaden the search scope, use the **search** method on the [Drive](../resourc
 
 ### Example
 
-<!-- { "blockType": "request", "name": "item_search_all", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "item_search_all",  }-->
 
 ```http
-GET /me/drive/search(q='{search-query}')
+GET /drive/oneDrive.search(q='{search-query}')
 ```
 
 ### Response
@@ -104,7 +102,7 @@ GET /me/drive/search(q='{search-query}')
 Responses when searching from the **drive** resource may include items outside of the drive (items shared with the current user).
 These items will include the [**remoteItem**](../resources/remoteitem.md) facet to indicate they are stored outside of the target drive. 
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "Collection(microsoft.graph.driveItem)" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "Collection(oneDrive.item)" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -126,13 +124,13 @@ Content-type: application/json
         "searchResult": { "onClickTelemetryUrl": "https://bing.com/0123456789abc!456" }
       }
     ],
-    "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/drive/root/search(query='contoso project')&skipToken=1asdlnjnkj1nalkm!asd"
+    "@odata.nextLink": "https://sp-my.contoso.com/_api/v2.0/drive/root/oneDrive.search(query='contoso project')&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
 
 ## Remarks
 
-*Note:* In OneDrive for Business and SharePoint, when searching under a folder hierarchy, image file types, may not be returned in the results.
+*Note:* When searching under a folder hierarchy, image file types, may not be returned in the results.
 
 ## Error responses
 

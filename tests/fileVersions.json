@@ -111,7 +111,7 @@
         {
           "method": "upload-via-put",
           "request-parameters": {
-            "!url": "/me/drive/root:{item-path}:/content",
+            "!url": "/drive/root:{item-path}:/content",
             "{item-path}": "/Documents/previous-versions.txt"
           },
           "capture": {
@@ -121,7 +121,7 @@
         {
           "method": "upload-via-put",
           "request-parameters": {
-            "!url": "/me/drive/root:{item-path}:/content",
+            "!url": "/drive/root:{item-path}:/content",
             "{item-path}": "/Documents/previous-versions.txt",
             "!body": "Content B"
           }
@@ -188,7 +188,7 @@
       "enabled": false,
       "request-parameters": {
         "{site-id}": "seattleappworks.sharepoint.com,70a23224-bf15-4b5e-b6f8-a20eefdf881a,17b3eab0-65b5-4f06-8672-e146e18e6b6b",
-        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/microsoft.graph.listItem\"",
+        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/oneDrive.listItem\"",
         "{version-id}": "1.0"
       },
       "test-setup": [
@@ -243,7 +243,7 @@
       "enabled": true,
       "request-parameters": {
         "{site-id}": "[site-id]",
-        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/microsoft.graph.listItem\"",
+        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/oneDrive.listItem\"",
         "{version-id}": "1.0"
       },
       "test-setup": [
@@ -277,7 +277,7 @@
       "enabled": true,
       "request-parameters": {
         "{site-id}": "[site-id]",
-        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/microsoft.graph.listItem\"",
+        "{item-id}": "#values[\"[item-id]\"].Substring(1, values[\"[item-id]\"].LastIndexOf(',') - 1) + \"/oneDrive.listItem\"",
         "{version-id}": "[version-id]",
         "!body": ""
       },

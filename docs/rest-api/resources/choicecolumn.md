@@ -11,7 +11,7 @@ The **choiceColumn** on a [columnDefinition](columnDefinition.md) resource indic
 ## JSON representation
 
 Here is a JSON representation of a **choiceColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.choiceColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.choiceColumn" } -->
 
 ```json
 {

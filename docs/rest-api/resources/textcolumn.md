@@ -11,7 +11,7 @@ The **textColumn** on a [columnDefinition](columnDefinition.md) resource indicat
 ## JSON representation
 
 Here is a JSON representation of a **textColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.textColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.textColumn" } -->
 
 ```json
 {

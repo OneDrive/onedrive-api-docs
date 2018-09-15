@@ -21,7 +21,7 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
   "state"
   ],
-  "@odata.type": "microsoft.graph.deleted"
+  "@odata.type": "oneDrive.deleted"
 }-->
 ```json
 {

@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -24,10 +24,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 POST /drives/{driveId}/items/{itemId}/checkout
-POST /groups/{groupId}/drive/items/{itemId}/checkout
-POST /me/drive/items/{item-id}/checkout
+POST /drive/items/{item-id}/checkout
 POST /sites/{siteId}/drive/items/{itemId}/checkout
-POST /users/{userId}/drive/items/{itemId}/checkout
 ```
 
 ### Request body

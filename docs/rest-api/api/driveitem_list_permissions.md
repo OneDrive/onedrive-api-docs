@@ -23,7 +23,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -32,11 +32,9 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 GET /drives/{drive-id}/items/{item-id}/permissions
-GET /groups/{group-id}/drive/items/{item-id}/permissions
-GET /me/drive/items/{item-id}/permissions
-GET /me/drive/root:/{path}:/permissions
+GET /drive/items/{item-id}/permissions
+GET /drive/root:/{path}:/permissions
 GET /sites/{siteId}/drive/items/{itemId}/permissions
-GET /users/{userId}/drive/items/{itemId}/permissions
 ```
 
 ## Optional query parameters
@@ -58,26 +56,23 @@ Effective sharing permissions of a DriveItem can come from two sources:
 * Sharing permissions applied directly on the DriveItem itself
 * Sharing permissions inherited from the DriveItem's ancestors
 
-Callers can differentiate if the permission is inherited or not by checking the **inheritedFrom** property.
-This property is an [**itemReference**](../resources/itemreference.md) resource referencing the ancestor that the permission is inherited from.
-
 SharePoint permission levels set on an item are returned with an 'SP' prefix. For example, SP.View Only, SP.Limited Access, SP.View Web Analytics Data. See [Full list of SharePoint roles](https://technet.microsoft.com/en-us/library/cc721640.aspx#section1).
 
 ## Example
 
 This example retrieves the collection of permissions on an item in the signed in user's drive.
 
-<!-- { "blockType": "request", "name": "get-item-permissions", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get-item-permissions", "scopes": "files.read",  } -->
 
 ```http
-GET /me/drive/items/{item-id}/permissions
+GET /drive/items/{item-id}/permissions
 ```
 
 ### Response
 
 This example response includes three permissions, the first is a sharing link with edit permissions, the second is an explicit permission for a user named John, which was inherited from a parent folder, and the third is a read-write sharing link created by an application.
 
-<!-- {"blockType": "response", "@odata.type": "Collection(microsoft.graph.permission)", "truncated": true} -->
+<!-- {"blockType": "response", "@odata.type": "Collection(oneDrive.permission)", "truncated": true} -->
 
 ```http
 HTTP/1.1 200 OK
@@ -89,7 +84,7 @@ Content-Type: application/json
       "id": "1",
       "roles": ["write"],
       "link": {
-        "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
+        "webUrl": "https://sp.contoso.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
         "type": "edit"
       }
     },
@@ -102,16 +97,12 @@ Content-Type: application/json
           "displayName": "John Doe"
         }
       },
-      "inheritedFrom": {
-        "driveId": "1234567890ABD",
-        "id": "1234567890ABC!123",
-        "path": "/drive/root:/Documents" }
     },
     {
       "id": "3",
       "roles": ["write"],
       "link": {
-        "webUrl": "https://onedrive.live.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
+        "webUrl": "https://sp.contoso.com/redir?resid=5D33DD65C6932946!70859&authkey=!AL7N1QAfSWcjNU8&ithint=folder%2cgif",
         "type": "edit",
         "application": {
           "id": "12345",

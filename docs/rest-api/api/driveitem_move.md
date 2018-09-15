@@ -20,7 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -29,10 +29,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 PATCH /drives/{drive-id}/items/{item-id}
-PATCH /groups/{group-id}/drive/{item-id}
-PATCH /me/drive/items/{item-id}
+PATCH /drive/items/{item-id}
 PATCH /sites/{site-id}/drive/items/{item-id}
-PATCH /users/{user-id}/drive/items/{item-id}
 ```
 
 ## Optional request headers
@@ -58,10 +56,10 @@ If successful, this method returns a `200 OK` response code and updated [DriveIt
 
 This example moves an item specified by {item-id} into a folder in the user's drive with the ID `new-parent-folder-id`.
 
-<!-- { "blockType": "request", "name": "move-item", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "move-item", "scopes": "files.readwrite",  } -->
 
 ```http
-PATCH /me/drive/items/{item-id}
+PATCH /drive/items/{item-id}
 Content-type: application/json
 
 {
@@ -76,7 +74,7 @@ Content-type: application/json
 
 The following example shows the response for this move request.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

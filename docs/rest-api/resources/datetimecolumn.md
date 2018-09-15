@@ -11,7 +11,7 @@ The **dateTimeColumn** on a [columnDefinition](columnDefinition.md) resource ind
 ## JSON representation
 
 Here is a JSON representation of a **dateTimeColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.dateTimeColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.dateTimeColumn" } -->
 
 ```json
 {

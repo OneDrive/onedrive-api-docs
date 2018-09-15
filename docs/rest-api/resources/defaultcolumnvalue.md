@@ -12,7 +12,7 @@ The default value can either be specified directly or as a formula.
 ## JSON representation
 
 Here is a JSON representation of a **defaultColumnValue** resource.
-<!-- { "blockType": "resource", "@type": "microsoft.graph.defaultColumnValue" } -->
+<!-- { "blockType": "resource", "@type": "oneDrive.defaultColumnValue" } -->
 
 ```json
 {

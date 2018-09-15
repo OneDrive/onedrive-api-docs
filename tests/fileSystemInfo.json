@@ -20,7 +20,7 @@
         {
           "method": "upload-via-put",
           "request-parameters": {
-            "!url": "/me/drive/root:{item-path}:/content",
+            "!url": "/drive/root:{item-path}:/content",
             "{item-path}": "/pictures/2014-08-26lrg.png"
           },
           "capture": {

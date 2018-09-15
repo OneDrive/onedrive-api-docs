@@ -20,7 +20,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -28,11 +28,9 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /drives/{driveId}/items/{itemId}/createLink
-POST /groups/{groupId}/drive/items/{itemId}/createLink
-POST /me/drive/items/{itemId}/createLink
-POST /sites/{siteId}/drive/items/{itemId}/createLink
-POST /users/{userId}/drive/items/{itemId}/createLink
+POST /drives/{driveId}/items/{itemId}/oneDrive.createLink
+POST /drive/items/{itemId}/oneDrive.createLink
+POST /sites/{siteId}/drive/items/{itemId}/oneDrive.createLink
 ```
 
 ### Request body
@@ -54,7 +52,6 @@ The following values are allowed for the **type** parameter.
 |:-----------|:---------------------------------------------------------------------------------------------|
 | `view`     | Creates a read-only link to the DriveItem.                                                        |
 | `edit`     | Creates a read-write link to the DriveItem.                                                       |
-| `embed`    | Creates an embeddable link to the DriveItem. This option is only available for files in OneDrive personal. |
 
 ### Scope types
 
@@ -64,7 +61,7 @@ If the **scope** parameter is not specified, the default link type for the organ
 | Value          | Description
 |:---------------|:------------------------------------------------------------
 | `anonymous`    | Anyone with the link has access, without needing to sign in. This may include people outside of your organization. Anonymous link support may be disabled by an administrator.
-| `organization` | Anyone signed into your organization (tenant) can use the link to get access. Only available in OneDrive for Business and SharePoint.
+| `organization` | Anyone signed into your organization can use the link to get access.
 
 
 ## Response
@@ -86,7 +83,7 @@ The sharing link is configured to be read-only and usable by anyone with the lin
 }-->
 
 ```http
-POST /me/drive/items/{item-id}/createLink
+POST /drive/items/{item-id}/oneDrive.createLink
 Content-type: application/json
 
 {
@@ -97,7 +94,7 @@ Content-type: application/json
 
 ### Response
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.permission" } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.permission" } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -129,7 +126,7 @@ To create a company sharable link, use the **scope** parameter with a value of `
 <!-- { "blockType": "request", "name": "create-link-scoped", "scopes": "files.readwrite", "tags": "service.sharepoint" } -->
 
 ```http
-POST /me/drive/items/{item-id}/createLink
+POST /drive/items/{item-id}/oneDrive.createLink
 Content-Type: application/json
 
 {
@@ -140,7 +137,7 @@ Content-Type: application/json
 
 ### Response
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.permission" } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.permission" } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -152,50 +149,7 @@ Content-Type: application/json
   "link": {
     "type": "edit",
     "scope": "organization",
-    "webUrl": "https://contoso-my.sharepoint.com/personal/ellen_contoso_com/...",
-    "application": {
-      "id": "1234",
-      "displayName": "Sample Application"
-    },
-  }
-}
-```
-
-## Creating embeddable links
-
-When using the `embed` link type, the webUrl returned can be embedded in an `<iframe>` HTML element.
-When an embed link is created the `webHtml` property contains the HTML code for an `<iframe>` to host the content.
-
-**Note:** Embed links are only supported for OneDrive personal.
-
-### Request
-
-<!-- { "blockType": "request", "name": "create-embedded-link", "scopes": "files.readwrite", "tags": "service.onedrive service.graph" } -->
-
-```http
-POST /me/drive/items/{item-id}/createLink
-Content-Type: application/json
-
-{
-  "type": "embed"
-}
-```
-
-### Response
-
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.permission" } -->
-
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-
-{
-  "id": "123ABC",
-  "roles": ["read"],
-  "link": {
-    "type": "embed",
-    "webHtml": "<IFRAME src=\"https://onedrive.live.com/...\"></IFRAME>",
-    "webUrl": "https://onedive.live.com/...",
+    "webUrl": "https://sp-my.contoso.com/personal/ellen_contoso_com/...",
     "application": {
       "id": "1234",
       "displayName": "Sample Application"
@@ -208,7 +162,7 @@ Content-Type: application/json
 
 * Links created using this action do not expire unless a default expiration policy is enforced for the organization.
 * Links are visible in the sharing permissions for the item and can be removed by an owner of the item.
-* Links always point to the current version of a item unless the item is checked out (SharePoint only).
+* Links always point to the current version of a item unless the item is checked out.
 
 <!-- {
   "type": "#page.annotation",

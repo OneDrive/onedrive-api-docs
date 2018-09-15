@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -23,11 +23,9 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /drives/{driveId}/items/{itemId}/copy
-POST /groups/{groupId}/drive/items/{itemId}/copy
-POST /me/drive/items/{item-id}/copy
-POST /sites/{siteId}/drive/items/{itemId}/copy
-POST /users/{userId}/drive/items/{itemId}/copy
+POST /drives/{driveId}/items/{itemId}/oneDrive.copy
+POST /drive/items/{item-id}/oneDrive.copy
+POST /sites/{siteId}/drive/items/{itemId}/oneDrive.copy
 ```
 
 ### Request body
@@ -47,10 +45,10 @@ In the request body, provide a JSON object with the following parameters.
 This example copies a file identified by `{item-id}` into a folder identified with a `driveId` and `id` value.
 The new copy of the file will be named `contoso plan (copy).txt`.
 
-<!-- { "blockType": "request", "name": "copy-item", "scopes": "files.readwrite", "tags": "service.graph", "target": "action" } -->
+<!-- { "blockType": "request", "name": "copy-item", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
-POST /me/drive/items/{item-id}/copy
+POST /drive/items/{item-id}/oneDrive.copy
 Content-Type: application/json
 
 {
@@ -70,7 +68,7 @@ Returns details about how to [monitor the progress](../concepts/long-running-act
 
 ```http
 HTTP/1.1 202 Accepted
-Location: https://contoso.sharepoint.com/_api/v2.0/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
+Location: https://sp.contoso.com/_api/v2.0/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 ```
 
 The value of the `Location` header provides a URL for a service that will return the current state of the copy operation.

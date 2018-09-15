@@ -27,7 +27,7 @@ tunnel the verb to the API to ensure that your app can still delete a file.
 
 ```http
 POST /drive/items/{item-id} HTTP/1.1
-Host: api.onedrive.com
+Host: sp.contoso.com
 X-HTTP-Method-Override: DELETE
 ```
 

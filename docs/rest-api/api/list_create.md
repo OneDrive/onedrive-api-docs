@@ -67,7 +67,7 @@ If the **list** facet or **template** is unspecified, the list defaults to the `
 
 If successful, this method returns a [list][] in the response body for the created list.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.list", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.list", "truncated": true } -->
 
 ```json
 HTTP/1.1 201 Created

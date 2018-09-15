@@ -18,13 +18,12 @@ folder metadata, and so on.
 In this example, a canonical URL for a file might look like this.
 
 ```
-https://graph.microsoft.com/v1.0/me/drive/root:/Documents/MyFile.xlsx:/content
+https://sp-my.contoso.com/_api/v2.0/drive/root:/Documents/MyFile.xlsx:/content
 ```
 
 This example URL has these components:
 
-* `https://graph.microsoft.com/v1.0` - The version of the Microsoft Graph being used.
-* `/me` - A top-level Microsoft Graph resource being addressed, in this case the current user.
+* `https://sp-my.contoso.com/_api/v2.0` - The version of the API being used (v2.0).
 * `/drive` - The default drive for the previous resource, in this case the user's OneDrive.
 * `/root` - The root folder for the drive.
 * `:/Documents/MyFile.xlsx:` - The `: :` around `/Documents/MyFile.xlsx` represents
@@ -76,8 +75,8 @@ user's OneDrive. However, because the path contains user specified content which
 can potentially contain characters that are not URL safe, you should ensure proper
 encoding of any path segments.
 
-Microsoft Graph expects that URLs conform to [RFC 3986](http://tools.ietf.org/html/rfc3986).
-The following is a summary of how to properly encode paths for Microsoft Graph.
+This API expects that URLs conform to [RFC 3986](http://tools.ietf.org/html/rfc3986).
+The following is a summary of how to properly encode paths for this API.
 
 ### OneDrive reserved characters
 The following characters are OneDrive reserved characters, and can't be used in OneDrive folder and file names.
@@ -108,7 +107,7 @@ When constructing the path segment of a URL for the OneDrive API, the following 
 Item name characters, which are not included in the `pchar` group, such as `#` and ` ` (space), must be percent encoded.
 
 ### Encoding characters
-Microsoft Graph uses standard percent encoding, where URL-invalid characters are encoded with a % and then the UTF-8 character code for the character. 
+This API uses standard percent encoding, where URL-invalid characters are encoded with a % and then the UTF-8 character code for the character. 
 For example:
 
 * `" "` -> `%20`
@@ -122,13 +121,13 @@ As such, you need to encode the URL path when building your URL string.
 For example, instead of writing this:
 
 ```
-string url = url_encode("https://api.onedrive.com/v1.0/drive/root:/" + path + ":/children")
+string url = url_encode("https://sp-my.contoso.com/_api/v2.0/drive/root:/" + path + ":/children")
 ```
 
 Write this:
 
 ```
-string url = "https://api.onedrive.com/v1.0/drive/root:/" + url_path_encode(path) + ":/children")
+string url = "https://sp-my.contoso.com/_api/v2.0/drive/root:/" + url_path_encode(path) + ":/children")
 ```
 
 However, not all URL encoding libraries respect all the requirements of standard URL path encoding.
@@ -143,7 +142,7 @@ Instead of using those methods, you should use `UriBuilder` to construct a
 properly escaped URL.
 
 ```csharp
-UriBuilder builder = new UriBuilder("https://api.onedrive.com");
+UriBuilder builder = new UriBuilder("https://sp.contoso.com");
 builder.Path = "/v1.0/drive/root:/Documents/My Files/#nine.docx";
 Uri url = builder.Uri;
 ```
@@ -155,7 +154,7 @@ For Objective-C, iOS and Mac OS X development, use the `stringByAddingPercentEnc
 component of the URL.
 
 ```objc
-NSString *root = @"https://api.onedrive.com/v1.0/drive/root:/";
+NSString *root = @"https://sp-my.contoso.com/_api/v2.0/drive/root:/";
 NSString *path = @"Documents/My Files/#nine.docx";
 NSString *encPath = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 NSURL *url = [[NSURL alloc] initWithString:[root stringByAppendingString:encPath]];
@@ -170,7 +169,7 @@ Use the `Uri.Builder` class to construct a properly encoded URL.
 Uri.Builder builder = new Uri.Builder();
 builder.
   scheme("https").
-  authority("api.onedrive.com").
+  authority("sp.contoso.com").
   appendPath("v1.0").
   appendPath("drive").
   appendPath("root:").
@@ -185,7 +184,7 @@ String url = builder.build().toString();
 Use `escape()` in JavaScript to properly encode a path component.
 
 ```javascript
-var root = "https://api.onedrive.com/v1.0/drive/root:";
+var root = "https://sp-my.contoso.com/_api/v2.0/drive/root:";
 var path = "/Documents/My Files/#nine.docx";
 var url = root + escape(path);
 ```

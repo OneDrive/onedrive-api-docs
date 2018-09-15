@@ -1,17 +1,10 @@
 {
   "schemaConfig": {
-    "defaultNamespace": "microsoft.graph",
+    "defaultNamespace": "oneDrive",
     "baseUrls": [
-      "https://api.onedrive.com/v1.0",
-      "https://graph.microsoft.com/v1.0/me",
-      "https://graph.microsoft.com/beta/me",
-      "https://graph.microsoft.com/v1.0",
-      "https://graph.microsoft.com/beta",
-      "/v1.0/me",
-      "/v1.0",
-      "/beta/me",
-      "/beta",
-      "/me"
+      "https://sp-my.contoso.com/_api/v2.0",
+      "https://sp-my.contoso.com/_api/v2.0",
+      "/v2.0"
     ],
     "notLowerCamel": [
       "Json"

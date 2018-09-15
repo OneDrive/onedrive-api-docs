@@ -11,13 +11,13 @@ The **personOrGroupColumn** on a [columnDefinition](columnDefinition.md) resourc
 ## JSON representation
 
 Here is a JSON representation of a **personOrGroupColumn** resource.
-<!-- { "blockType": "resource", "@type": "microsoft.graph.personOrGroupColumn", "@property.aka": "chooseFromType=format" } -->
+<!-- { "blockType": "resource", "@type": "oneDrive.personOrGroupColumn" } -->
 
 ```json
 {
   "allowMultipleSelection": true,
   "displayAs": "account | contentType | created | department | ...",
-  "chooseFromType": "peopleAndGroups | peopleOnly"
+  "format": "peopleAndGroups | peopleOnly"
 }
 ```
 
@@ -27,7 +27,7 @@ Here is a JSON representation of a **personOrGroupColumn** resource.
 |:---------------------------|:--------|:--------------------------------------
 | **allowMultipleSelection** | boolean | Indicates whether multiple values can be selected from the source.
 | **displayAs**              | string  | How to display the information about the person or group chosen. See below.
-| **chooseFromType**         | string  | Whether to allow selection of people only, or people and groups. Must be one of `peopleAndGroups` or `peopleOnly`.
+| **format**                 | string  | Whether to allow selection of people only, or people and groups. Must be one of `peopleAndGroups` or `peopleOnly`.
 
 ## DisplayAs options
 

@@ -17,7 +17,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -26,10 +26,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 PATCH /drives/{drive-id}/items/{item-id}/permissions/{perm-id}
-PATCH /groups/{group-id}/drive/items/{item-id}/permissions/{perm-id}
-PATCH /me/drive/items/{item-id}/permissions/{perm-id}
+PATCH /drive/items/{item-id}/permissions/{perm-id}
 PATCH /sites/{site-id}/drive/items/{item-id}/permissions/{perm-id}
-PATCH /users/{user-id}/drive/items/{item-id}/permissions/{perm-id}
 ```
 
 ## Optional request headers
@@ -57,10 +55,10 @@ If successful, this method returns a `200 OK` response code and updated [permiss
 
 Here is an example of the request that changes the role on the sharing permission to read-only.
 
-<!-- { "blockType": "request", "name": "update-permission", "@odata.type": "microsoft.graph.permission", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "update-permission", "@odata.type": "oneDrive.permission", "scopes": "files.readwrite",  } -->
 
 ```http
-PATCH /me/drive/items/{item-id}/permissions/{perm-id}
+PATCH /drive/items/{item-id}/permissions/{perm-id}
 Content-type: application/json
 
 {
@@ -72,7 +70,7 @@ Content-type: application/json
 
 If successful, this method returns a [Permission](../resources/permission.md) resource in the response body that represents the updated state of the permission.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.permission", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.permission", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

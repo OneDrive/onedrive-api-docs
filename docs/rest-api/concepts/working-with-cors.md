@@ -42,7 +42,7 @@ var createCORSRequest = function(method, url) {
   return xhr;
 };
 
-var url = 'https://graph.microsoft.com/v1.0/me/drive/root/children';
+var url = 'https://sp-my.contoso.com/_api/v2.0/drive/root/children';
 var method = 'GET';
 var xhr = createCORSRequest(method, url);
 
@@ -63,16 +63,16 @@ xhr.send();
 To download files from OneDrive in a JavaScript app you cannot use the `/content` API, since this responds with a `302` redirect. 
 A `302` redirect is explicitly prohibited when a CORS _preflight_ is required, such as when providing the **Authorization** header.
 
-Instead, your app needs to select the `@microsoft.graph.downloadUrl` property, which returns the same URL that `/content` would have redirected to.
+Instead, your app needs to select the `@content.downloadUrl` property, which returns the same URL that `/content` would have redirected to.
 This URL can then be requested directly using XMLHttpRequest.
 Because these URLs are pre-authenticated they can be retrieved without a CORS preflight request.
 
 ### Example
 
-To retrieve the download URL for a file, first make a request that includes the `@microsoft.graph.downloadUrl` property:
+To retrieve the download URL for a file, first make a request that includes the `@content.downloadUrl` property:
 
 ```http
-GET /drive/items/{item-id}?select=id,@microsoft.graph.downloadUrl
+GET /drive/items/{item-id}?select=id,@content.downloadUrl
 ```
 
 This returns the id and download URL for a file:
@@ -83,11 +83,11 @@ Content-Type: application/json
 
 {
   "id": "12319191!11919",
-  "@microsoft.graph.downloadUrl": "https://..."
+  "@content.downloadUrl": "https://..."
 }
 ```
 
-You can then make an XMLHttpRequest for the URL provided in `@microsoft.graph.downloadUrl` to retrieve the file.
+You can then make an XMLHttpRequest for the URL provided in `@content.downloadUrl` to retrieve the file.
 
 <!-- {
   "type": "#page.annotation",

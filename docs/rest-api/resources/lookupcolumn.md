@@ -11,7 +11,7 @@ The **lookupColumn** on a [columnDefinition](columnDefinition.md) resource indic
 ## JSON representation
 
 Here is a JSON representation of a **lookupColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.lookupColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.lookupColumn" } -->
 
 ```json
 {

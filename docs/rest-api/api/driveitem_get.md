@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -25,14 +25,10 @@ One of the following permissions is required to call this API. To learn more, in
 ```http
 GET /drives/{drive-id}/items/{item-id}
 GET /drives/{drive-id}/root:/{item-path}
-GET /groups/{group-id}/drive/items/{item-id}
-GET /groups/{group-id}/drive/root:/{item-path}
-GET /me/drive/items/{item-id}
-GET /me/drive/root:/{item-path}
+GET /drive/items/{item-id}
+GET /drive/root:/{item-path}
 GET /sites/{siteId}/drive/items/{itemId}
 GET /sites/{siteId}/drive/root:/{item-path}
-GET /users/{userId}/drive/items/{itemId}
-GET /users/{userId}/drive/root:/{item-path}
 ```
 
 ## Optional query parameters
@@ -57,17 +53,17 @@ If successful, this method returns a `200 OK` response code and the [DriveItem](
 
 Here is an example of the request to the root folder of the user's OneDrive.
 
-<!-- { "blockType": "request", "name": "get-drive-root", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "get-drive-root",  }-->
 
 ```http
-GET /me/drive/root
+GET /drive/root
 ```
 
 ## Response
 
 Here is an example of the response.
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "microsoft.graph.driveItem" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.item" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -95,7 +91,7 @@ Content-type: application/json
   "name": "OneDrive",
   "root": { },
   "size": 157286400,
-  "webUrl": "https://contoso-my.sharepoint.com/personal/rgregg_contoso_com/Documents"
+  "webUrl": "https://sp-my.contoso.com/personal/rgregg_contoso_com/Documents"
 }
 ```
 

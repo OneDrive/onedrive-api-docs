@@ -6,7 +6,7 @@
       "enabled": true,
       "tags": [ "service.graph" ],
       "request-parameters": {
-        "!url": "/me/drive/root:{item-path}:/content",
+        "!url": "/drive/root:{item-path}:/content",
         "!body": "This is a test file uploaded to test-folder.",
         "{item-path}": "/test-folder/test-file.txt"
       },

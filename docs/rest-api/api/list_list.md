@@ -39,7 +39,7 @@ GET /sites/{site-id}/lists
 
 ##### Response
 
-<!-- { "blockType": "response", "@type": "microsoft.graph.list", "isCollection": true, "truncated": true } -->
+<!-- { "blockType": "response", "@type": "oneDrive.list", "isCollection": true, "truncated": true } -->
 
 ```json
 HTTP/1.1 200 OK

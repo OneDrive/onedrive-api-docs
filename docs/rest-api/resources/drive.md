@@ -20,7 +20,6 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 <!--{
   "blockType": "resource",
   "optionalProperties": [
-    "activities",
     "createdBy",
     "createdDateTime",
     "description",
@@ -35,28 +34,27 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
     "system"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.baseItem",
-  "@odata.type": "microsoft.graph.drive"
+  "baseType": "oneDrive.baseItem",
+  "@odata.type": "oneDrive.drive"
 }-->
 
 ```json
 {
-  "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
   "id": "string",
-  "createdBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "createdBy": { "@odata.type": "oneDrive.identitySet" },
   "createdDateTime": "string (timestamp)",
   "description": "string",
-  "driveType": "personal | business | documentLibrary",
-  "items": [ { "@odata.type": "microsoft.graph.driveItem" } ],
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "driveType": "business | documentLibrary",
+  "items": [ { "@odata.type": "oneDrive.item" } ],
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "string (timestamp)",
   "name": "string",
-  "owner": { "@odata.type": "microsoft.graph.identitySet" },
-  "quota": { "@odata.type": "microsoft.graph.quota" },
-  "root": { "@odata.type": "microsoft.graph.driveItem" },
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
-  "special": [ { "@odata.type": "microsoft.graph.driveItem" }],
-  "system": { "@odata.type": "microsoft.graph.systemFacet" },
+  "owner": { "@odata.type": "oneDrive.identitySet" },
+  "quota": { "@odata.type": "oneDrive.quota" },
+  "root": { "@odata.type": "oneDrive.item" },
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
+  "special": [ { "@odata.type": "oneDrive.item" }],
+  "system": { "@odata.type": "oneDrive.system" },
   "webUrl": "url"
 }
 ```
@@ -68,7 +66,7 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 | createdBy            | [identitySet][]               | Identity of the user, device, or application which created the item. Read-only.                                                                                                                                                  |
 | createdDateTime      | dateTimeOffset                | Date and time of item creation. Read-only.                                                                                                                                                                                       |
 | description          | String                        | Provide a user-visible description of the drive. Read-write.
-| driveType            | String                        | Describes the type of drive represented by this resource. OneDrive personal drives will return `personal`. OneDrive for Business will return `business`. SharePoint document libraries will return `documentLibrary`. Read-only. |
+| driveType            | String                        | Describes the type of drive represented by this resource. OneDrive for Business will return `business`. SharePoint document libraries will return `documentLibrary`. Read-only.
 | id                   | String                        | The unique identifier of the drive. Read-only.                                                                                                                                                                                   |
 | lastModifiedBy       | [identitySet][]               | Identity of the user, device, and application which last modified the item. Read-only.                                                                                                                                           |
 | lastModifiedDateTime | dateTimeOffset                | Date and time the item was last modified. Read-only.                                                                                                                                                                             |
@@ -76,21 +74,20 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 | owner                | [identitySet](identityset.md) | Optional. The user account that owns the drive. Read-only.                                                                                                                                                                       |
 | quota                | [quota](quota.md)             | Optional. Information about the drive's storage space quota. Read-only.                                                                                                                                                          |
 | sharepointIds        | [sharepointIds][]             | Returns identifiers useful for SharePoint REST compatibility. Read-only.                                                                                                                                                         |
-| system               | [systemFacet][]               | If present, indicates that this is a system-managed drive. Read-only.
+| system               | [system][]               | If present, indicates that this is a system-managed drive. Read-only.
 | webUrl               | string (url)                  | URL that displays the resource in the browser. Read-only.                                                                                                                                                                        |
 
 [identitySet]: identityset.md
 [sharepointIds]: sharepointids.md
-[systemFacet]: systemfacet.md
+[system]: systemfacet.md
 
 ## Relationships
 
 | Relationship | Type                                 | Description
 |:-------------|:-------------------------------------|:-----------------------
-| activities   | [itemActivity][] collection          | The list of recent activities that took place under this drive.
-| items        | [DriveItem](driveitem.md) collection | All items contained in the drive. Read-only. Nullable.
-| root         | [DriveItem](driveitem.md)            | The root folder of the drive. Read-only.
-| special      | [DriveItem](driveitem.md) collection | Collection of common folders available in OneDrive. Read-only. Nullable.
+| items        | [Item](driveitem.md) collection | All items contained in the drive. Read-only. Nullable.
+| root         | [Item](driveitem.md)            | The root folder of the drive. Read-only.
+| special      | [Item](driveitem.md) collection | Collection of common folders available in OneDrive. Read-only. Nullable.
 | list         | [List](list.md)                      | For drives in SharePoint, the underlying document library list. Read-only. Nullable.
 
 ## Methods
@@ -99,20 +96,17 @@ The **drive** resource is derived from [**baseItem**](baseitem.md) and inherits 
 | :--------------------------------------------------------- | :-------------------------- |
 | [Get Drive metadata of another Drive][drive-get]           | `GET /drives/{drive-id}`    |
 | [Get root folder for user's default Drive][item-get]       | `GET /drive/root`           |
-| [List activities under the Drive][drive-activities]        | `GET /drive/activities`     |
 | [List children under the Drive][item-children]             | `GET /drive/root/children`  |
-| [List changes for all Items in the Drive][item-changes]    | `GET /drive/root/delta`     |
-| [Search for Items in the Drive][item-search]               | `GET /drive/root/search`    |
+| [List changes for all Items in the Drive][item-changes]    | `GET /drive/root/oneDrive.delta`     |
+| [Search for Items in the Drive][item-search]               | `GET /drive/root/oneDrive.search`    |
 | [Access special folder](../api/drive_get_specialfolder.md) | `GET /drive/special/{name}` |
 
 In the previous table, the examples use `/drive`, but other pathes are valid too.
 
-[itemActivity]: itemActivity.md
 [item-resource]: driveitem.md
 [identity-set]: identityset.md
 [quota-facet]: quota.md
 [drive-resource]: drive.md
-[drive-activities]: ../api/activities_list.md
 [drive-get]: ../api/drive_get.md
 [item-get]: ../api/driveitem_get.md
 [item-changes]: ../api/driveitem_delta.md
@@ -127,7 +121,7 @@ In the previous table, the examples use `/drive`, but other pathes are valid too
   "section": "documentation",
   "suppressions": [
     "Warning: /api-reference/v1.0/resources/drive.md:
-      Found potential enums in resource example that weren't defined in a table:(personal,business,documentLibrary) are in resource, but () are in table"
+      Found potential enums in resource example that weren't defined in a table:(business,documentLibrary) are in resource, but () are in table"
   ],
   "tocPath": "Drives",
   "tocBookmarks": { "Resources/Drive": "#" }

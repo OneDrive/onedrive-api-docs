@@ -7,12 +7,6 @@ title: Using Azure Active Directory to sign-in - OneDrive API
 ---
 # OneDrive for Business authentication and sign in
 
-## Use Microsoft Graph
-
-This topic contains information about authorizing an application using Microsoft accounts for OneDrive personal.
-However, this approach is no longer recommended.
-New applications should be developed using Microsoft Graph and follow the authorization process in [Authorization and sign-in for OneDrive in Microsoft Graph](graph-oauth.md).
-
 ## Using Azure Active Directory for authentication
 
 To use the [OneDrive API](../../index.md) with OneDrive for Business, you need to have an access token that authenticates your app to a particular set of permissions for a user.
@@ -181,8 +175,8 @@ You can parse this response to find the endpoint URL for the OneDrive for Busine
       "@odata.type": "#Microsoft.DiscoveryServices.ServiceInfo",
       "capability": "MyFiles",
       "serviceApiVersion": "v2.0",
-      "serviceEndpointUri": "https:\/\/contoso-my.sharepoint.com\/_api\/v2.0",
-      "serviceResourceId": "https:\/\/contoso-my.sharepoint.com\/"
+      "serviceEndpointUri": "https:\/\/sp-my.contoso.com\/_api\/v2.0",
+      "serviceResourceId": "https:\/\/sp-my.contoso.com\/"
     }
   ]
 }
@@ -288,7 +282,6 @@ to the OneDrive API.
 
 * [Develop with the OneDrive API](../../index.md)
 * [Using Azure Active Directory for authentication](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/)
-* [OneDrive authentication and sign-in using Microsoft accounts](msa-oauth.md)
 * [Office 365 authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks)
 * [OAuth 2.0 in Auzure AD](https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx)
 * [Authorization Code Grant Flow](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)

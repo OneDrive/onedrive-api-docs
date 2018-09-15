@@ -41,7 +41,7 @@ GET /sites/{site-id}/lists/{list-id}/items?expand=fields(select=Name,Color,Quant
 
 #### Response
 
-<!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.listItem)", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "Collection(oneDrive.listItem)", "truncated": true } -->
 
 ```json
 HTTP/1.1 200 OK

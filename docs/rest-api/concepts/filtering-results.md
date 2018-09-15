@@ -63,22 +63,15 @@ and are evaluated from left-to-right.
 
 ## Filterable properties
 
-While the **filter** syntax can be used on any property of an item, we have
-optimized certain properties to be fast and efficient to filter on.
+The **filter** syntax is only available on the following properties in the types below:
 
-**Note:** In OneDrive for Business, SharePoint Online and SharePoint Server 2016, filtering support only **name** and **url** properties.
+| Resource type       | Filterable properties
+|:--------------------|:------------------
+| [DriveItem][]       | `name`, `webUrl`
+| [List][]            | `displayName`
+| [ListItem][] fields | Any field marked as filterable. Calculated fields are not filterable.
 
-* audio
-* createdDateTime (for gt, ge, lt, le)
-* deleted
-* file
-* folder
-* image
-* lastModifiedDateTime (for gt, ge, lt, le)
-* video
-
-Filtering on other properties which are not optimized can result in the following
-behaviors:
+Note: the use of filtering may result in the following behaviors:
 
 * Higher API latency (longer return time for response)
 * Empty pages (no items in the value collection but an **odata.nextLink**
@@ -86,20 +79,19 @@ behaviors:
 
 ### Example
 
-Below is an example of filtering search results for only items that have a
-**file** and **image** facet.
+Below is an example of filtering search results for only items with a certain name.
 
 #### Request
 
-<!-- { "blockType": "request", "name": "filtering-image-file", "scopes": "files.read", "tags": "service.onedrive", "target": "action" } -->
+<!-- { "blockType": "request", "name": "filtering-file-name", "scopes": "files.read", "target": "action" } -->
 
 ```
-GET /drive/root/search(q='vacation')?filter=image%20ne%20null%20and%20file%20ne%20null
+GET /drive/root/oneDrive.search(q='vacation')?filter=name%20eq%20'vacation.jpg'
 ```
 
 #### Response
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -129,10 +121,12 @@ Content-type: application/json
       }
     ],
     "@search.approximateCount": 12,
-    "@odata.nextLink": "https://api.onedrive.com/drive/root/search?query=vacation&skipToken=1asdlnjnkj1nalkm!asd"
+    "@odata.nextLink": "https://sp.contoso.com/drive/root/search?query=vacation&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
-
+[DriveItem]: ../resources/driveitem.md
+[List]: ../resources/list.md
+[ListItem]: ../resources/listitem.md
 [odata-filter-grammar]: http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part1-protocol/odata-v4.0-errata02-os-part1-protocol-complete.html#_Toc406398301
 
 <!-- {
@@ -141,8 +135,10 @@ Content-type: application/json
   "keywords": "search,filter,restrict,limit,query,items,files",
   "section": "documentation",
   "suppressions": [
-    "Error: search(q={var}):
-      Couldn't find definition for parameter q={var} in search(q={var}) after looking in /docs/rest-api/concepts/filtering-results.md"
+    "Warning: /docs/rest-api/concepts/filtering-results.md:
+      Failed to parse any rows out of table with headers: |Resource type|Filterable properties|",
+    "Warning: /docs/rest-api/concepts/filtering-results.md:
+      Table 'Filterable properties' of type ResourcePropertyDescriptions is not supported for methods 'filtering-file-name' and was ignored."
   ],
   "tocPath": "Items/Filter"
 } -->

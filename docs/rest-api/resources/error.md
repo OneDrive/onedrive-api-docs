@@ -20,7 +20,7 @@ handling errors with the OneDrive API.
 
 The error resource is composed of these resources:
 
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.error" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.error" } -->
 ```json
 {
   "error": { "@odata.type": "odata.error" }  
@@ -55,7 +55,7 @@ properties:
   "section": "documentation",
   "suppressions": [
     "Warning: /resources/error.md:
-      Multiple resources found in file, but we only support one per file. 'microsoft.graph.error,odata.error'. Skipping."
+      Multiple resources found in file, but we only support one per file. 'oneDrive.error,odata.error'. Skipping."
   ],
   "tocPath": "Resources/Error"
 } -->

@@ -17,7 +17,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -26,10 +26,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 PATCH /drives/{drive-id}/items/{item-id}
-PATCH /groups/{group-id}/drive/items/{item-id}
-PATCH /me/drive/items/{item-id}
+PATCH /drive/items/{item-id}
 PATCH /sites/{site-id}/drive/items/{item-id}
-PATCH /users/{user-id}/drive/items/{item-id}
 ```
 
 ## Optional request headers
@@ -53,10 +51,10 @@ If successful, this method returns a `200 OK` response code and updated [DriveIt
 
 This example renames the DriveItem resource to "new-file-name.docx".
 
-<!-- { "blockType": "request", "name": "update-item", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "update-item",  } -->
 
 ```http
-PATCH /me/drive/items/{item-id}
+PATCH /drive/items/{item-id}
 Content-type: application/json
 
 {
@@ -68,7 +66,7 @@ Content-type: application/json
 
 If successful, this method returns an [driveItem][item-resource] resource in the response body.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

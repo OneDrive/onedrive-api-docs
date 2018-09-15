@@ -16,7 +16,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -24,11 +24,10 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "request",
        "name": "view-recent-files", 
        "scopes": "files.read",
-       "tags": "service.graph",
        "target": "action" } -->
 
 ```http
-GET /me/drive/recent
+GET /drive/oneDrive.recent
 ```
 
 ## Response
@@ -36,7 +35,7 @@ GET /me/drive/recent
 This method returns a collection of [DriveItem](../resources/driveitem.md) resources for items which the owner of the drive has recently accessed.
 
 <!-- { "blockType": "response",
-       "@odata.type": "Collection(microsoft.graph.driveItem)",
+       "@odata.type": "Collection(oneDrive.item)",
        "truncated": true} -->
 
 ```http
@@ -57,9 +56,6 @@ Content-Type: application/json
           "driveId": "1991210caf",
           "id": "1991210caf!104"
         }
-      },
-      "fileSystemInfo": {
-        "lastAccessedDateTime": "2017-02-20T19:13:00Z"
       }
     },
     {
@@ -70,9 +66,6 @@ Content-Type: application/json
       "parentReference": {
         "driveId": "1312def",
         "id": "1312def!123"
-      },
-      "fileSystemInfo": {
-        "lastAccessedDateTime": "2017-02-20T16:43:21Z"
       }
     }
   ]

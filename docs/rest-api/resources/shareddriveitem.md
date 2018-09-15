@@ -16,23 +16,21 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
 
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.baseItem",
+  "baseType": "oneDrive.baseItem",
   "optionalProperties": [  ],
-  "@odata.type": "microsoft.graph.sharedDriveItem"
+  "@odata.type": "oneDrive.sharedDriveItem"
 }-->
 
 ```json
 {
   "id": "string",
   "name": "string",
-  "owner": { "@odata.type": "microsoft.graph.identitySet" },
+  "owner": { "@odata.type": "oneDrive.identitySet" },
 
-  "driveItem": { "@odata.type": "microsoft.graph.driveItem" },
-  "items": [ { "@odata.type": "microsoft.graph.driveItem" }],
-  "list": { "@odata.type": "microsoft.graph.list" },
-  "listItem": { "@odata.type": "microsoft.graph.listItem" },
-  "root": { "@odata.type": "microsoft.graph.driveItem" },
-  "site": { "@odata.type": "microsoft.graph.site" }
+  "driveItem": { "@odata.type": "oneDrive.item" },
+  "list": { "@odata.type": "oneDrive.list" },
+  "listItem": { "@odata.type": "oneDrive.listItem" },
+  "site": { "@odata.type": "oneDrive.site" }
 }
 ```
 
@@ -48,17 +46,10 @@ The **sharedDriveItem** resource is derived from [**baseItem**](baseitem.md) and
 
 | Relationship name | Type                | Description
 | ------------------|:--------------------|:-----------------------------------
-| **driveItem**     | [**driveItem**][driveItem]   | Used to access the underlying **driveItem**
+| **driveItem**     | [**item**][driveItem]   | Used to access the underlying **driveItem**
 | **list**          | [**list**][list]        | Used to access the underlying **list**
 | **listItem**      | [**listItem**][listItem]    | Used to access the underlying **listItem**
 | **site**          | [**site**][site]        | Used to access the underlying **site**
-
-Alternatively, for **driveItems** shared from personal OneDrive accounts, the following relationships may also be used.
-
-| Relationship name | Type                         | Description
-| ------------------|:-----------------------------|:-----------------------------------
-| **items**         | [**driveItem**][driveItem] collection | All driveItems contained in the sharing root. This collection cannot be enumerated.
-| **root**          | [**driveItem**][driveItem]   | Used to access the underlying **driveItem**. Deprecated -- use `driveItem` instead.
 
 [driveItem]: driveItem.md
 [list]: list.md
@@ -73,7 +64,7 @@ Alternatively, for **driveItems** shared from personal OneDrive accounts, the fo
 
 ## Remarks
 
-For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
+For more information about the facets on a DriveItem, see [Item](driveitem.md).
 
 <!-- {
   "type": "#page.annotation",

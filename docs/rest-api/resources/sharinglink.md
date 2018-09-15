@@ -17,12 +17,12 @@ Here is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ "application", "scope" ],
-  "@odata.type": "microsoft.graph.sharingLink"
+  "@odata.type": "oneDrive.sharingLink"
 }-->
 
 ```json
 {
-  "application": { "@odata.type": "microsoft.graph.identity" },
+  "application": { "@odata.type": "oneDrive.identity" },
   "type": "view | edit | embed",
   "scope": "anonymous | organization",
   "webHtml": "string",
@@ -50,14 +50,13 @@ This table defines the possible values for the **type** property:
 |:--------|:--------|:---------------------------------------------------------
 | `view`  | `read`  | A view-only sharing link, allowing read-only access.
 | `edit`  | `write` | An edit sharing link, allowing read-write access.
-| `embed` | `read`  | A view-only sharing link that can be used to embed content into a host webpage. Embed links are not available for OneDrive for Business or SharePoint.
 
 ## Scope options
 
 | Value          | Description
 |:---------------|:------------------------------------------------------------
 | `anonymous`    | Anyone with the link has access, without needing to sign in. This may include people outside of your organization.
-| `organization` | Anyone signed into your organization (tenant) can use the link to get access. Only available in OneDrive for Business and SharePoint.
+| `organization` | Anyone signed into your organization can use the link to get access.
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

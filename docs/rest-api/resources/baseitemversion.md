@@ -14,17 +14,16 @@ The **baseItemVersion** resource represents a previous version of an item or ent
 <!--{
   "blockType": "resource",
   "abstract": true,
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.baseItemVersion",
-  "@type.aka": "oneDrive.baseItemVersion"
+  "keyProperty": "id",
+  "@odata.type": "oneDrive.baseItemVersion"
 }-->
 
 ```json
 {
   "id": "string",
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "2016-01-01T15:20:01.125Z",
-  "publication": { "@odata.type": "microsoft.graph.publicationFacet" }
+  "publication": { "@odata.type": "oneDrive.publicationFacet" }
 }
 ```
 

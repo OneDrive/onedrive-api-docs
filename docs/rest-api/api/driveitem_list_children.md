@@ -18,7 +18,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -27,10 +27,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 GET /drives/{drive-id}/items/{item-id}/children
-GET /groups/{group-id}/drive/items/{item-id}/children
-GET /me/drive/items/{item-id}/children
+GET /drive/items/{item-id}/children
 GET /sites/{site-id}/drive/items/{item-id}/children
-GET /users/{user-id}/drive/items/{item-id}/children
 ```
 
 ## Optional query parameters
@@ -49,10 +47,10 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top` and `$orderb
 
 To retrieve files in the root of the drive, use the `root` relationship on the drive, then access the children relationship.
 
-<!-- { "blockType": "request", "name": "list-children-root", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "list-children-root", "scopes": "files.read",  } -->
 
 ```http
-GET /me/drive/root/children
+GET /drive/root/children
 ```
 
 
@@ -80,7 +78,7 @@ If successful, this method returns the list of items in the children collection 
 The children collection will be composed of [driveItem][item-resource] resources.
 
 <!-- { "blockType": "response", 
-       "@odata.type": "Collection(microsoft.graph.driveItem)", 
+       "@odata.type": "Collection(oneDrive.item)", 
        "truncated": true,
        "name": [ "list-children-root", "list-children", "list-children-from-path" ] } -->
 
@@ -101,7 +99,7 @@ Content-type: application/json
 
 **Note:** If a collection exceeds the default page size (200 items), the **@odata.nextLink** property is returned in the response to indicate more items are available and provide the request URL for the next page of items.
 
-You can control the page size through [optional query string parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters)
+You can control the page size through [optional query string parameters](../concepts/optional-query-parameters.md)
 
 ### Error responses
 

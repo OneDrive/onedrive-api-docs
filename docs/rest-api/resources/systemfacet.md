@@ -13,7 +13,7 @@ Most apps should ignore items that have a System facet.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@type": "microsoft.graph.systemFacet", "@type.aka": "microsoft.graph.systemFacet" } -->
+<!-- { "blockType": "resource", "@type": "oneDrive.system" } -->
 
 ```json
 {

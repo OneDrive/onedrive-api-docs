@@ -6,7 +6,7 @@ title: Site - OneDrive API
 ---
 # Working with SharePoint site resources
 
-The SharePoint API in Microsoft Graph supports the following core scenarios:
+The SharePoint API supports the following core scenarios:
 
 * Access to SharePoint **sites**, **lists**, and **drives** (document libraries)
 * Read-only support for **site** resources (no ability to create new sites)
@@ -21,26 +21,23 @@ The SharePoint API exposes three major resource types:
 
 ## Tasks
 
-All examples below are relative to `https://graph.microsoft.com/v1.0`.
+All examples below are relative to `https://sp-my.contoso.com/_api/v2.0`.
 
 | Task name                                                     | Example Request                    |
 | :------------------------------------------------------------ | :--------------------------------- |
 | [Get root site][]                                             | GET /sites/root                    |
 | [Get site][]                                                  | GET /sites/{site-id}               |
 | [Get site by path][]                                          | GET /sites/{hostname}:/{site-path} |
-| [Get site for a group][]                                      | GET /groups/{group-id}/sites/root  |
 | [Search for sites][]                                          | GET /sites?search={query}          |
 | [Access the default document library for a site][]            | GET /sites/{site-id}/drive         |
 | [Enumerate the collection of document libraries under site][] | GET /sites/{site-id}/drives        |
 | [Enumerate the lists under a site][]                          | GET /sites/{site-id}/lists         |
-| [List root sites][]            | GET /sites?filter=root ne null&select=siteCollection,webUrl
 | [Search for sites][]           | GET /sites?search={query}
 
 [Get site]: ../api/site_get.md
 [Get root site]: ../api/site_get.md
 [Get site by path]: ../api/site_getbypath.md
 [Get site for a group]: ../api/site_get.md
-[List root sites]: ../api/site_list.md
 [Search for sites]: ../api/site_search.md
 [Access the default document library for a site]: ../api/drive_get.md
 [Enumerate the collection of document libraries under site]: ../api/drive_list.md
@@ -51,8 +48,8 @@ You can optionally transition back to addressing the resource model by putting a
 
 | Path                                           | Description
 |:-----------------------------------------------|:-----------------------------------
-| /sites/contoso.sharepoint.com:/teams/hr        | The site associated with https://contoso.sharepoint.com/teams/hr
-| /sites/contoso.sharepoint.com:/teams/hr:/drive | Access the default [drive](drive.md) for this site.
+| /sites/sp.contoso.com:/teams/hr        | The site associated with https://sp.contoso.com/teams/hr
+| /sites/sp.contoso.com:/teams/hr:/drive | Access the default [drive](drive.md) for this site.
 
 ## JSON representation
 
@@ -71,26 +68,26 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
     "sites"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.baseItem",
-  "@odata.type": "microsoft.graph.site"
+  "baseType": "oneDrive.baseItem",
+  "@odata.type": "oneDrive.site"
 }-->
 
 ```json
 {
   "id": "string",
-  "root": { "@odata.type": "microsoft.graph.root" },
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
-  "siteCollection": {"@odata.type": "microsoft.graph.siteCollection"},
+  "root": { "@odata.type": "oneDrive.root" },
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
+  "siteCollection": {"@odata.type": "oneDrive.siteCollection"},
   "displayName": "string",
 
   /* relationships */
-  "contentTypes": [ { "@odata.type": "microsoft.graph.contentType" }],
-  "drive": { "@odata.type": "microsoft.graph.drive" },
-  "drives": [ { "@odata.type": "microsoft.graph.drive" }],
-  "items": [ { "@odata.type": "microsoft.graph.baseItem" }],
-  "lists": [ { "@odata.type": "microsoft.graph.list" }],
-  "sites": [ { "@odata.type": "microsoft.graph.site"} ],
-  "columns": [ { "@odata.type": "microsoft.graph.columnDefinition" }],
+  "contentTypes": [ { "@odata.type": "oneDrive.contentType" }],
+  "drive": { "@odata.type": "oneDrive.drive" },
+  "drives": [ { "@odata.type": "oneDrive.drive" }],
+  "items": [ { "@odata.type": "oneDrive.baseItem" }],
+  "lists": [ { "@odata.type": "oneDrive.list" }],
+  "sites": [ { "@odata.type": "oneDrive.site"} ],
+  "columns": [ { "@odata.type": "oneDrive.columnDefinition" }],
 
   /* inherited from baseItem */
   "name": "string",
@@ -143,24 +140,24 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 
 ## Note for existing SharePoint developers
 
-The Microsoft Graph SharePoint API has a few key differences with the CSOM APIs.
+The v2.0 SharePoint API has a few key differences with the CSOM APIs.
 The [site][] resource maps to `SPWeb`.
 The root [site][] (`SPWeb`) in a site collection has a [siteCollection](sitecollection.md) facet, which contains information about the `SPSite`.
 Because IDs for sites are only unique within their site collection, addressing a site by ID requires providing both the site collection identifier and the site identifier.
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id},{spweb-id}/
+GET https://sp-my.contoso.com/_api/v2.0/sites/{hostname},{spsite-id},{spweb-id}/
 ```
 A URL constructed with only the hostname will point to the root site (`SPWeb`) in the default site collection.
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname}
+GET https://sp-my.contoso.com/_api/v2.0/sites/{hostname}
 ```
 
 A URL constructed with only the hostname and siteCollection (`SPSite`) ID will point to the root site (`SPWeb`) in the given site collection.
 
 ```http
-GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id}
+GET https://sp-my.contoso.com/_api/v2.0/sites/{hostname},{spsite-id}
 ```
 
 

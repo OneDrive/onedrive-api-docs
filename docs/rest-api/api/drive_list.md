@@ -15,45 +15,25 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
-
-## List a group's drives
-
-To list the document libraries for a group, your app requests the **drives** relationship on the Group.
-
-### HTTP request
-
-<!-- {"blockType": "request", "name": "group-list-drives", "scopes": "groups.read.all", "tags": "service.graph" } -->
-
-```http
-GET /groups/{groupId}/drives
-```
 
 ## List a site's drives
 
 To list the document libraries for a site, your app requests the **drives** relationship on the Site.
 
-<!-- {"blockType": "request", "name": "site-list-drives", "scopes": "sites.read.all", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "site-list-drives", "scopes": "sites.read.all",  } -->
 
 ```http
 GET /sites/{siteId}/drives
 ```
 
-## List a user's drives
-
-<!-- {"blockType": "request", "name": "user-list-drives", "scopes": "files.read", "tags": "service.graph" } -->
-
-```http
-GET /users/{userId}/drives
-```
-
 ## List the current user's drives
 
-<!-- {"blockType": "request", "name": "enum-drives", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- {"blockType": "request", "name": "enum-drives", "scopes": "files.read",  } -->
 
 ```http
-GET /me/drives
+GET /drives
 ```
 
 ## Optional query parameters
@@ -66,8 +46,8 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$order
 If successful, this method returns a `200 OK` response code and collection of [Drive](../resources/drive.md) objects in the response body.
 
 <!-- { "blockType": "response", 
-       "@odata.type": "Collection(microsoft.graph.drive)",
-       "name": ["group-list-drives", "site-list-drives", "user-list-drives", "enum-drives"],
+       "@odata.type": "Collection(oneDrive.drive)",
+       "name": ["site-list-drives", "enum-drives"],
        "truncated": true } -->
 
 ```http

@@ -11,9 +11,9 @@ Represents the column values in a [listItem](listItem.md) resource.
 ## JSON representation
 
 Here is a JSON representation of a **fieldValueSet** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.fieldValueSet",
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.fieldValueSet",
       "optionalProperties": ["Author", "AuthorLookupId", "Name", "Color", "Quantity" ],
-       "baseType": "microsoft.graph.entity", "openType": true } -->
+       "openType": true } -->
 
 ```json
 {

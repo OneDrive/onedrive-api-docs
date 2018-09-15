@@ -21,7 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Sites.ReadWrite.All |
 
 ## Create an upload session
@@ -35,11 +35,9 @@ Once the last byte of the file has been uploaded the upload session is completed
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /drives/{driveId}/items/{itemId}/createUploadSession
-POST /groups/{groupId}/drive/items/{itemId}/createUploadSession
-POST /me/drive/items/{itemId}/createUploadSession
-POST /sites/{siteId}/drive/items/{itemId}/createUploadSession
-POST /users/{userId}/drive/items/{itemId}/createUploadSession
+POST /drives/{driveId}/items/{itemId}/oneDrive.createUploadSession
+POST /drive/items/{itemId}/oneDrive.createUploadSession
+POST /sites/{siteId}/drive/items/{itemId}/oneDrive.createUploadSession
 ```
 
 ### Request body
@@ -47,12 +45,11 @@ POST /users/{userId}/drive/items/{itemId}/createUploadSession
 No request body is required.
 However, you can specify an `item` property in the request body, providing additional data about the file being uploaded.
 
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.driveItemUploadableProperties" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.itemUploadableProperties" } -->
 ```json
 {
-  "@microsoft.graph.conflictBehavior": "rename | fail | overwrite",
-  "description": "description",
-  "fileSystemInfo": { "@odata.type": "microsoft.graph.fileSystemInfo" },
+  "@name.conflictBehavior": "rename | fail | overwrite",
+  "fileSystemInfo": { "@odata.type": "oneDrive.fileSystemInfo" },
   "name": "filename.txt"
 }
 ```
@@ -63,7 +60,7 @@ For example, to control the behavior if the filename is already taken, you can s
 ```json
 {
   "item": {
-    "@microsoft.graph.conflictBehavior": "rename"
+    "@name.conflictBehavior": "rename"
   }
 }
 ```
@@ -78,7 +75,6 @@ For example, to control the behavior if the filename is already taken, you can s
 
 | Property             | Type               | Description
 |:---------------------|:-------------------|:---------------------------------
-| description          | String             | Provides a user-visible description of the item. Read-write. Only on OneDrive Personal
 | fileSystemInfo       | [fileSystemInfo][] | File system information on client. Read-write.
 | name                 | String             | The name of the item (filename and extension). Read-write.
 
@@ -89,13 +85,13 @@ The response to this request will provide the details of the newly created [uplo
 <!-- { "blockType": "request", "name": "upload-fragment-create-session", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
-POST /drive/root:/{item-path}:/createUploadSession
+POST /drive/root:/{item-path}:/oneDrive.createUploadSession
 Content-Type: application/json
 
 {
   "item": {
-    "@odata.type": "microsoft.graph.driveItemUploadableProperties",
-    "@microsoft.graph.conflictBehavior": "rename",
+    "@odata.type": "oneDrive.itemUploadableProperties",
+    "@name.conflictBehavior": "rename",
     "name": "largefile.dat"
   }
 }
@@ -107,7 +103,7 @@ The response to this request, if successful, will provide the details for where 
 
 This resource provides details about where the byte range of the file should be uploaded and when the upload session expires.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.uploadSession",
+<!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession",
        "optionalProperties": [ "nextExpectedRanges" ]  } -->
 
 ```http
@@ -156,7 +152,7 @@ If a byte range declares a different file size, the request will fail.
 
 When the request is complete, the server will respond with `202 Accepted` if there are more byte ranges that need to be uploaded.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession", "truncated": true } -->
 
 ```http
 HTTP/1.1 202 Accepted
@@ -176,7 +172,7 @@ You should always determine the size of your byte ranges according to the best p
 Do not assume that **nextExpectedRanges** will return reanges of proper size for a byte range to upload.
 The **nextExpectedRanges** property indicates ranges of the file that have not been received and not a pattern for how your app should upload the file.
 
-<!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
+<!-- { "blockType": "ignored", "@odata.type": "oneDrive.uploadSession", "truncated": true } -->
 
 ```http
 HTTP/1.1 202 Accepted
@@ -214,7 +210,7 @@ Content-Range: bytes 101-127/128
 <final bytes of the file>
 ```
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -240,7 +236,7 @@ Content-Type: application/json
   "error":
   {
     "code": "upload_name_conflict",
-    "message": "Another file exists with the same name as the uploaded session. You can redirect the upload session to use a new filename by calling PUT with the new metadata and @microsoft.graph.sourceUrl attribute.",
+    "message": "Another file exists with the same name as the uploaded session. You can redirect the upload session to use a new filename by calling PUT with the new metadata and @content.sourceUrl attribute.",
   }
 }
 ```
@@ -292,7 +288,7 @@ GET https://sn3302.up.1drv.com/up/fe6987415ace7X4e1eF86633784148bb98a1zjcUhf7b0m
 
 The server will respond with a list of missing byte ranges that need to be uploaded and the expiration time for the upload session.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.uploadSession", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.uploadSession", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -317,29 +313,29 @@ The upload session will be preserved until the expiration time, which allows you
 To explicitly commit the upload session, your app must make a PUT request with a new **driveItem** resource that will be used when committing the upload session.
 This new request should correct the source of error that generated the original upload error.
 
-To indicate that your app is committing an existing upload session, the PUT request must include the `@microsoft.graph.sourceUrl` property with the value of your upload session URL.
+To indicate that your app is committing an existing upload session, the PUT request must include the `@content.sourceUrl` property with the value of your upload session URL.
 
-<!-- { "blockType": "ignored", "name": "explicit-upload-commit", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "ignored", "name": "explicit-upload-commit", "scopes": "files.readwrite",  } -->
 
 ```http
-PUT /me/drive/root:/{path_to_parent}
+PUT /drive/root:/{path_to_parent}
 Content-Type: application/json
 If-Match: {etag or ctag}
 
 {
   "name": "largefile.vhd",
-  "@microsoft.graph.conflictBehavior": "rename",
-  "@microsoft.graph.sourceUrl": "{upload session URL}"
+  "@name.conflictBehavior": "rename",
+  "@content.sourceUrl": "{upload session URL}"
 }
 ```
 
-**Note:** You can use the `@microsoft.graph.conflictBehavior` and `if-match` headers as expected in this call.
+**Note:** You can use the `@name.conflictBehavior` and `if-match` headers as expected in this call.
 
 ### HTTP response
 
 If the file can be committed using the new metadata, an `HTTP 201 Created` or `HTTP 200 OK` response will be returned with the Item metadata for the uploaded file.
 
-<!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "ignored", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created

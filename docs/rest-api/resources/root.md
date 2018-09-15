@@ -14,7 +14,7 @@ A null (or missing) value indicates the object is not the root.
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@type": "microsoft.graph.root" } -->
+<!-- { "blockType": "resource", "@type": "oneDrive.root" } -->
 
 ```json
 {

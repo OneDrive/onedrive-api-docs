@@ -17,7 +17,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -46,7 +46,7 @@ To encode a sharing URL, use the following logic:
 As an example, to encode a URL in C#:
 
 ```csharp
-string sharingUrl = "https://onedrive.live.com/redir?resid=1231244193912!12&authKey=1201919!12921!1";
+string sharingUrl = "https://sp.contoso.com/redir?resid=1231244193912!12&authKey=1201919!12921!1";
 string base64Value = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(sharingUrl));
 string encodedUrl = "u!" + base64Value.TrimEnd('=').Replace('/','_').Replace('+','-');
 ```
@@ -71,7 +71,7 @@ GET /shares/{shareIdOrEncodedSharingUrl}
 
 Here is an example of the response.
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "microsoft.graph.sharedDriveItem" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.sharedDriveItem" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -108,7 +108,7 @@ GET /shares/{shareIdOrUrl}/driveItem
 
 ### Response
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "microsoft.graph.driveItem" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.item" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -137,7 +137,7 @@ GET /shares/{shareIdOrUrl}/driveItem?$expand=children
 
 ### Response
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "microsoft.graph.driveItem" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.item" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -173,7 +173,7 @@ how errors are returned.
 
 ## Remarks
 
-* For OneDrive for Business and SharePoint, the Shares API always requires authentication and cannot be used to access anonymously shared content without a user context.
+* The Shares API always requires authentication and cannot be used to access anonymously shared content without a user context.
 
 [error-response]: ../concepts/errors.md
 

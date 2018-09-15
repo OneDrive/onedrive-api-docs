@@ -18,14 +18,13 @@ Here is a JSON representation of the resource.
   "blockType": "resource",
   "optionalProperties": [
   ],
-  "@odata.type": "microsoft.graph.siteCollection"
+  "@odata.type": "oneDrive.siteCollection"
 }-->
 
 ```json
 {
-  "dataLocationCode": "JPN",
-  "hostname": "contoso.sharepoint.com",
-  "root": {"@odata.type": "microsoft.graph.root" }
+  "hostname": "sp.contoso.com",
+  "root": {"@odata.type": "oneDrive.root" }
 }
 ```
 
@@ -33,9 +32,8 @@ Here is a JSON representation of the resource.
 
 | Property name    | Type     | Description
 |:-----------------|:---------|:---------------------------------------------------
-| dataLocationCode | string   | The string in Azure Active Directory representing the geographic location of the data (eg. `JPN`, `NAM`). Read-only.
 | hostname         | string   | The hostname for the site collection. Read-only.
-| root             | [root][] | If present, indicates that this is a root-level site collection in the tenancy.
+| root             | [root][] | If present, indicates that this is a root-level site collection on the server.
 
 [root]: root.md
 

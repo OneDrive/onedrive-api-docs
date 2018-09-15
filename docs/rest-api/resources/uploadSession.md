@@ -15,7 +15,7 @@ Here is a JSON representation of the resource
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ "uploadUrl", "nextExpectedRanges" ],
-  "@odata.type": "microsoft.graph.uploadSession"
+  "@odata.type": "oneDrive.uploadSession"
 }-->
 
 ```json

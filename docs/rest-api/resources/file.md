@@ -18,14 +18,13 @@ Here is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ ],
-  "@odata.type": "microsoft.graph.file"
+  "@odata.type": "oneDrive.file"
 }-->
 
 ```json
 {
-  "hashes": {"@odata.type": "microsoft.graph.hashes"},
-  "mimeType": "string",
-  "processingMetadata": false
+  "hashes": {"@odata.type": "oneDrive.hashes"},
+  "mimeType": "string"
 }
 ```
 
@@ -35,7 +34,6 @@ Here is a JSON representation of the resource.
 |:---------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
 | hashes   | [Hashes](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
 | mimeType | string                  | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. |
-| **processingMetadata** | Boolean                       | Flag indicating if the item is still being processed to extract metadata                                                                    |
 
 ## Remarks 
 

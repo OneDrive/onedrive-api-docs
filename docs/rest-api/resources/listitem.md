@@ -12,7 +12,7 @@ Column values in the list are available through the `fieldValueSet` dictionary.
 ## Tasks on a listItem
 
 The following tasks are available for **listItem** resources.
-All examples below are relative to a **[list][]**, eg: `https://graph.microsoft.com/v1.0/sites/{site-id}/lists/{list-id}`.
+All examples below are relative to a **[list][]**, eg: `https://sp-my.contoso.com/_api/v2.0/sites/{site-id}/lists/{list-id}`.
 
 | Common task                    | HTTP method
 |:-------------------------------|:------------------------
@@ -35,31 +35,30 @@ Here is a JSON representation of a **listItem** resource.
 <!--{
   "blockType": "resource",
   "keyProperty": "id",
-  "baseType": "microsoft.graph.baseItem",
-  "@odata.type": "microsoft.graph.listItem"
+  "baseType": "oneDrive.baseItem",
+  "@odata.type": "oneDrive.listItem"
 }-->
 
 ```json
 {
-  "contentType": { "@odata.type": "microsoft.graph.contentTypeInfo" },
-  "fields": { "@odata.type": "microsoft.graph.fieldValueSet" },
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
+  "contentType": { "@odata.type": "oneDrive.contentTypeFacet" },
+  "fields": { "@odata.type": "oneDrive.fieldValueSet" },
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
 
   /* relationships */
-  "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
-  "driveItem": { "@odata.type": "microsoft.graph.driveItem" },
-  "versions": [{"@odata.type": "microsoft.graph.listItemVersion"}],
+  "driveItem": { "@odata.type": "oneDrive.item" },
+  "versions": [{"@odata.type": "oneDrive.listItemVersion"}],
 
   /* inherited from baseItem */
   "id": "string",
   "name": "name of resource",
-  "createdBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "createdBy": { "@odata.type": "oneDrive.identitySet" },
   "createdDateTime": "timestamp",
   "description": "description of resource",
   "eTag": "string",
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "timestamp",
-  "parentReference": { "@odata.type": "microsoft.graph.itemReference"},
+  "parentReference": { "@odata.type": "oneDrive.itemReference"},
   "webUrl": "url"
 }
 ```
@@ -70,7 +69,7 @@ The **listItem** resource has the following properties.
 
 | Property name | Type                | Description
 |:--------------|:--------------------|:-------------------------------
-| contentType   | [contentTypeInfo][] | The content type of this list item
+| contentType   | [contentTypeFacet][] | The content type of this list item
 
 The following properties are inherited from **[baseItem][]**.
 
@@ -94,17 +93,15 @@ The following properties are inherited from **[baseItem][]**.
 
 | Relationship name | Type                           | Description
 |:------------------|:-------------------------------|:-------------------------------
-| activities        | [itemActivity][] collection    | The list of recent activities that took place on this item.
-| driveItem         | [driveItem][]                  | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
+| driveItem         | [item][driveItem]              | For document libraries, the **driveItem** relationship exposes the listItem as a **[driveItem][]**
 | fields            | [fieldValueSet][]              | The values of the columns set on this list item.
 | versions          | [listItemVersion][] collection | The list of previous versions of the list item.
 
 [baseItem]: baseItem.md
-[contentTypeInfo]: contentTypeInfo.md
+[contentTypeFacet]: contentTypeInfo.md
 [driveItem]: driveItem.md
 [fieldValueSet]: fieldValueSet.md
 [identitySet]: identitySet.md
-[itemActivity]: itemActivity.md
 [itemReference]: itemreference.md
 [list]: list.md
 [listItemVersion]: listItemVersion.md

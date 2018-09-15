@@ -13,24 +13,20 @@ If a [**DriveItem**](driveitem.md) has a non-null **image** facet, the item repr
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.image" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.image" } -->
 ```json
 {
-  "width": 100,
-  "height": 200
 }
 ```
 
 ## Properties
 
-| Property   | Type  | Description                                |
-|:-----------|:------|:-------------------------------------------|
-| **height** | Int32 | Optional. Height of the image, in pixels. Read-only. |
-| **width**  | Int32 | Optional. Width of the image, in pixels. Read-only.  |
+The presence of the **Image** facet indicates that an item is an image.
+There are no additional properties.
 
 ## Remarks
 
-In OneDrive for Business, this resource is returned on items that are expected to be images based on file extension.
+This resource is returned on items that are expected to be images based on file extension.
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 

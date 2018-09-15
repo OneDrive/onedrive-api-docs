@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -24,10 +24,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 POST /drives/{drive-id}/items/{parent-item-id}/children
-POST /groups/{group-id}/drive/items/{parent-item-id}/children
-POST /me/drive/items/{parent-item-id}/children
+POST /drive/items/{parent-item-id}/children
 POST /sites/{site-id}/drive/items/{parent-item-id}/children
-POST /users/{user-id}/drive/items/{parent-item-id}/children
 ```
 
 ## Request body
@@ -43,18 +41,18 @@ If successful, this method returns `201 Created` response code and a [Driveitem]
 ### Request
 
 Here is an example of the request to create a new folder in the signed-in user's OneDrive root folder.
-The `@microsoft.graph.conflictBehavior` property used indicates that if an item already exists with the same name, the service should choose a new name for the folder while creating it.
+The `@name.conflictBehavior` property used indicates that if an item already exists with the same name, the service should choose a new name for the folder while creating it.
 
 <!-- { "blockType": "request", "name": "create-folder", "scopes": "files.readwrite" } -->
 
 ```http
-POST /me/drive/root/children
+POST /drive/root/children
 Content-Type: application/json
 
 {
   "name": "New Folder",
   "folder": { },
-  "@microsoft.graph.conflictBehavior": "rename"
+  "@name.conflictBehavior": "rename"
 }
 ```
 
@@ -62,7 +60,7 @@ Content-Type: application/json
 
 If successful, this method returns the newly created folder as a [DriveItem][item-resource] resource.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created

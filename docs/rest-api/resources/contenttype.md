@@ -17,8 +17,8 @@ Content types allow you to define a set of columns that must be present on every
 Here is a JSON representation of a **contentType** resource.
 <!-- {
   "blockType": "resource",
- "baseType": "microsoft.graph.entity",
- "@odata.type": "microsoft.graph.contentType" } -->
+  "keyProperty": "id",
+ "@odata.type": "oneDrive.contentType" } -->
 
 ```json
 {
@@ -26,14 +26,14 @@ Here is a JSON representation of a **contentType** resource.
   "group": "string",
   "hidden": false,
   "id": "string",
-  "inheritedFrom": { "@type": "microsoft.graph.itemReference" },
+  "inheritedFrom": { "@type": "oneDrive.itemReference" },
   "name": "string",
-  "order": { "@type": "microsoft.graph.contentTypeOrder" },
+  "order": { "@type": "oneDrive.contentTypeOrderFacet" },
   "parentId": "string",
   "readOnly": false,
   "sealed": false,
 
-  "columnLinks": [{ "@type": "microsoft.graph.columnLink" }]
+  "columnLinks": [{ "@type": "oneDrive.columnLink" }]
 }
 ```
 
@@ -47,7 +47,7 @@ Here is a JSON representation of a **contentType** resource.
 | **id**            | string               | The unique identifier of the content type.
 | **inheritedFrom** | [itemReference][]    | If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
 | **name**          | string               | The name of the content type.
-| **order**         | [contentTypeOrder][] | Specifies the order in which the content type appears in the selection UI.
+| **order**         | [contentTypeOrderFacet][] | Specifies the order in which the content type appears in the selection UI.
 | **parentId**      | string               | The unique identifier of the content type.
 | **readOnly**      | boolean              | If `true`, the content type cannot be modified unless this value is first set to `false`.
 | **sealed**        | boolean              | If `true`, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
@@ -63,7 +63,7 @@ See [Introduction to content types and content type publishing][contentTypeIntro
 [columnLink]: columnLink.md
 [contentTypeIntro]: https://support.office.com/en-us/article/Introduction-to-content-types-and-content-type-publishing-e1277a2e-a1e8-4473-9126-91a0647766e5
 [itemReference]: itemReference.md
-[contentTypeOrder]: contentTypeOrder.md
+[contentTypeOrderFacet]: contentTypeOrder.md
 
 <!-- {
   "type": "#page.annotation",

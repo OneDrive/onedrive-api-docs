@@ -15,15 +15,15 @@ If a [**Driveitem**](driveitem.md) has a non-null **shared** facet, the item has
 
 <!-- {
   "blockType": "resource",
-  "@odata.type": "microsoft.graph.shared",
+  "@odata.type": "oneDrive.shared",
   "optionalProperties": [ "sharedBy", "sharedDateTime" ]
 }-->
 
 ```json
 {
-  "owner": { "@odata.type": "microsoft.graph.identitySet" },
+  "owner": { "@odata.type": "oneDrive.identitySet" },
   "scope": "anonymous | organization | users",
-  "sharedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "sharedBy": { "@odata.type": "oneDrive.identitySet" },
   "sharedDateTime": "datetime"
 }
 ```

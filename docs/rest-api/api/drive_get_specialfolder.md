@@ -21,7 +21,7 @@ One of the following permissions is required to call this API. To learn more, in
 |            Permission type             |                                           Permissions (from least to most privileged)                                            |
 | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
 | Delegated (work or school account)     | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All                            |
-| Delegated (personal Microsoft account) | Files.ReadWrite.AppFolder, Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
+| Delegated (personal Microsoft account) | Not supported. |
 | Application                            | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All                                                         |
 
 ## HTTP Request
@@ -29,12 +29,12 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "request", "name": "get-special-folder", "scopes": "files.read" } -->
 
 ```http
-GET /me/drive/special/{special-folder-name}
+GET /drive/special/{special-folder-name}
 ```
 
 ### Special folder names
 
-The follow special folder names are available in OneDrive and OneDrive for Business.
+The following special folder names are available in OneDrive and OneDrive for Business.
 
 | Name        | Folder id    | Description                                                              |
 |:------------|:-------------|:-------------------------------------------------------------------------|
@@ -55,7 +55,7 @@ This method returns a `200 OK` response code and a [driveItem](../resources/driv
 
 You can use this method of addressing a special folder inline with additional calls to properties or relationships on the driveItem.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -78,15 +78,15 @@ collection or use the [expand](../concepts/optional-query-parameters.md) option 
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-special-children", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get-special-children", "scopes": "files.read",  } -->
 
 ```http
-GET /me/drive/special/{special-folder-name}/children
+GET /drive/special/{special-folder-name}/children
 ```
 
 ### HTTP response
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "isCollection": true, "truncated": true} -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "isCollection": true, "truncated": true} -->
 
 ```http
 HTTP/1.1 200 OK

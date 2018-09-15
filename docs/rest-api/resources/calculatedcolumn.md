@@ -11,7 +11,7 @@ The **calculatedColumn** on a [columnDefinition](columnDefinition.md) resource i
 ## JSON representation
 
 Here is a JSON representation of a **calculatedColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.calculatedColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.calculatedColumn" } -->
 
 ```json
 {

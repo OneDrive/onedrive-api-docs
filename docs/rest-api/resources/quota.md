@@ -15,7 +15,7 @@ Here is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ ],
-  "@odata.type": "microsoft.graph.quota"
+  "@odata.type": "oneDrive.quota"
 }-->
 
 ```json
@@ -38,7 +38,7 @@ Here is a JSON representation of the resource.
 | remaining     | Int64  | Total space remaining before reaching the quota limit, in bytes. Read-only. |
 | deleted       | Int64  | Total space consumed by files in the recycle bin, in bytes. Read-only.      |
 | state         | string | Enumeration value that indicates the state of the storage space. Read-only. |
-| fileCount     | Int64  | Total number of files. Read-only. Not available on Personal OneDrive.       |
+| fileCount     | Int64  | Total number of files. Read-only.                                           |
 
 ## State Enumeration
 

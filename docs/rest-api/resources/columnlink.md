@@ -15,8 +15,7 @@ A **columnLink** on a [contentType][] attaches a site **columnDefinition** to th
 Here is a JSON representation of a **columnLink** resource.
 <!-- {
   "blockType": "resource",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.columnLink" } -->
+  "@odata.type": "oneDrive.columnLink" } -->
 
 ```json
 {

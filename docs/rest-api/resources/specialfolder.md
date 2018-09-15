@@ -26,7 +26,7 @@ If a user deletes one, it is recreated when written to again.
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.specialFolder"
+  "@odata.type": "oneDrive.specialFolder"
 }-->
 ```json
 {
@@ -42,15 +42,14 @@ If a user deletes one, it is recreated when written to again.
 
 ## Special folders
 
-Here are the special folders available in OneDrive Personal and OneDrive for Business.
+Here are the special folders available in OneDrive for Business.
 
-| Name        | Folder id    | Description                                                              |
-|:------------|:-------------|:-------------------------------------------------------------------------|
-| App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}` |
-| Camera Roll | `cameraroll` | The Camera Roll Backup folder. Not available in OneDrive for Business.   |
-| Documents   | `documents`  | The Documents folder.                                                    |
-| Music       | `music`      | The Music folder. Not available in OneDrive for Business.                |
-| Photos      | `photos`     | The Photos folder.                                                       |
+| Name        | Folder id    | Description
+|:------------|:-------------|:-------------------------------------------------------------------------
+| App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}`
+| Documents   | `documents`  | The Documents folder.
+| Music       | `music`      | The Music folder.
+| Photos      | `photos`     | The Photos folder.
 
 ## Remarks 
 

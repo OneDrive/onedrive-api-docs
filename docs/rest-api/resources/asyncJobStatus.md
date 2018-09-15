@@ -11,11 +11,10 @@ This resource provides information on the status of a asynchronous job progress.
 The following API calls return **AsyncJobStatus** resources:
 
 * [Copy Item](../api/driveitem_copy.md)
-* [Upload From URL](../api/driveitem_upload_url.md)
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@type": "microsoft.graph.asyncJobStatus", "@type.aka": "microsoft.graph.asyncOperationStatus", "optionalProperties": [ "operation", "resourceId", "statusDescription"] } -->
+<!-- { "blockType": "resource", "@type": "oneDrive.asyncOperationStatus", "optionalProperties": [ "operation", "resourceId", "statusDescription"] } -->
 
 ```json
 {

@@ -51,7 +51,7 @@ GET /sites/{site-id}/lists/{list-id}/items/{item-id}/versions
 
 This returns a collection of versions:
 
-<!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.listItemVersion)", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "Collection(oneDrive.listItemVersion)", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

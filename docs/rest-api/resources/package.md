@@ -15,7 +15,7 @@ DriveItems with the **package** facet do not include a **folder** or **file** fa
 
 ## JSON representation
 
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.package" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.package" } -->
 ```json
 {
   "type": "oneNote"

@@ -11,7 +11,7 @@ The **booleanColumn** on a [columnDefinition](columnDefinition.md) resource indi
 ## JSON representation
 
 Here is a JSON representation of a **booleanColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.booleanColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.booleanColumn" } -->
 
 ```json
 {

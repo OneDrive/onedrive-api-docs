@@ -16,7 +16,7 @@ One of the following permissions is required to call this API. To learn more, in
 | Permission type                   | Permissions (from least to most privileged)              |
 |:----------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -25,10 +25,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 POST /drives/{drive-id}/items/{item-id}/invite
-POST /groups/{group-id}/drive/items/{item-id}/invite
-POST /me/drive/items/{item-id}/invite
+POST /drive/items/{item-id}/invite
 POST /sites/{siteId}/drive/items/{itemId}/invite
-POST /users/{userId}/drive/items/{itemId}/invite
 ```
 
 ## Request body
@@ -43,8 +41,8 @@ In the request body, provide a JSON object with the following parameters.
   "sendInvitation": false,
   "roles": [ "read | write"],
   "recipients": [
-    { "@odata.type": "microsoft.graph.driveRecipient" },
-    { "@odata.type": "microsoft.graph.driveRecipient" }
+    { "@odata.type": "oneDrive.driveRecipient" },
+    { "@odata.type": "oneDrive.driveRecipient" }
   ],
   "message": "string"
 }
@@ -70,7 +68,7 @@ If successful, this method returns `200 OK` response code and [permission](../re
 <!-- { "blockType": "request", "name": "send-sharing-invite", "scopes": "files.readwrite", "target": "action" } -->
 
 ```json
-POST /me/drive/items/{item-id}/invite
+POST /drive/items/{item-id}/invite
 Content-type: application/json
 
 {
@@ -90,7 +88,7 @@ Content-type: application/json
 
 Here is an example of the response.
 
-<!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.permission)", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "Collection(oneDrive.permission)", "truncated": true } -->
 
 ```json
 HTTP/1.1 200 OK
@@ -106,10 +104,6 @@ Content-type: application/json
         }
       },
       "id": "CCFC7CA3-7A19-4D57-8CEF-149DB9DDFA62",
-      "invitation": {
-        "email": "ryan@contoso.com",
-        "signInRequired": true
-      },
       "roles": [ "write" ]
     }
   ]
@@ -118,7 +112,6 @@ Content-type: application/json
 
 ## Remarks
 
-* [Drives](../resources/drive.md) with a **driveType** of `personal` (OneDrive personal) cannot create or modify permissions on the root DriveItem.
 * For a list of available roles, see [Roles enumeration](../resources/permission.md#roles-enumeration).
 
 ## Error Responses

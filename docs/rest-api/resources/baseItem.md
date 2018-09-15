@@ -23,21 +23,19 @@ Here is a JSON representation of a **baseItem** resource.
   "optionalProperties": [ "createdBy", "lastModifiedBy", "description", "parentReference", "webUrl" ],
   "keyProperty": "id",
   "abstract": true,
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.baseItem"
+  "@odata.type": "oneDrive.baseItem"
 }-->
 
 ```json
 {
   "id": "string (identifier)",
-  "createdBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "createdBy": { "@odata.type": "oneDrive.identitySet" },
   "createdDateTime": "datetime",
-  "description": "string",
   "eTag": "string",
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "datetime",
   "name": "string",
-  "parentReference": { "@odata.type": "microsoft.graph.itemReference" },
+  "parentReference": { "@odata.type": "oneDrive.itemReference" },
   "webUrl": "url"
 }
 ```
@@ -49,7 +47,6 @@ Here is a JSON representation of a **baseItem** resource.
 | id                   | string            | The unique identifier of the drive. Read-only.                                         |
 | createdBy            | [identitySet][]   | Identity of the user, device, or application which created the item. Read-only.        |
 | createdDateTime      | dateTimeOffset    | Date and time of item creation. Read-only.                                             |
-| description          | string            | Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.|
 | eTag                 | string            | ETag for the item. Read-only.                                                          |
 | lastModifiedBy       | [identitySet][]   | Identity of the user, device, and application which last modified the item. Read-only. |
 | lastModifiedDateTime | dateTimeOffset    | Date and time the item was last modified. Read-only.                                   |

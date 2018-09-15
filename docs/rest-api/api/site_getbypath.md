@@ -13,13 +13,12 @@ A **site** resource represents a team site in SharePoint.
 
 In addition to retrieving a [site by ID](site_get.md) you can retrieve a site based on server-relative URL path.
 
-* Site collection hostname (contoso.sharepoint.com)
+* Site collection hostname (sp.contoso.com)
 * Site path, relative to server hostname.
 
 There is also a reserved site identifier, `root`, which always references the root site for a given target, as follows:
 
-* `/sites/root`: The tenant root site.
-* `/groups/{group-id}/sites/root`: The group's team site.
+* `/sites/root`: The root site.
 
 ## Permissions
 
@@ -45,19 +44,19 @@ GET /sites/{hostname}:/{relative-path}
 
 This method returns a [site][] resource for the site referenced by the unique identifier.
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "microsoft.graph.site" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "oneDrive.site" } -->
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "contoso.sharepoint.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D2244C3-251A-49EA-93A8-39E1C3A060FE",
+  "id": "sp.contoso.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D2244C3-251A-49EA-93A8-39E1C3A060FE",
   "displayName": "OneDrive Team Site",
   "name": "1drvteam",
   "createdDateTime": "2017-05-09T20:56:00Z",
   "lastModifiedDateTime": "2017-05-09T20:56:01Z",
-  "webUrl": "https://contoso.sharepoint.com/teams/1drvteam"
+  "webUrl": "https://sp.contoso.com/teams/1drvteam"
 }
 ```
 

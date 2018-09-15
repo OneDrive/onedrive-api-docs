@@ -16,15 +16,13 @@ It is available on the fileSystemInfo property of [driveItem][item-resource] res
 <!-- {
   "blockType": "resource",
   "optionalProperties": [
-    "lastAccessedDateTime"
   ],
-  "@odata.type": "microsoft.graph.fileSystemInfo"
+  "@odata.type": "oneDrive.fileSystemInfo"
 }-->
 
 ```json
 {
   "createdDateTime" : "datetime",
-  "lastAccessedDateTime": "datetime",
   "lastModifiedDateTime" : "datetime"
 }
 ```
@@ -34,7 +32,6 @@ It is available on the fileSystemInfo property of [driveItem][item-resource] res
 | Property                 | Type           | Description                                                                                                          |
 | :----------------------- | :------------- | :------------------------------------------------------------------------------------------------------------------- |
 | **createdDateTime**      | DateTimeOffset | The UTC date and time the file was created on a client.                                                              |
-| **lastAccessedDateTime** | DateTimeOffset | The UTC date and time the file was last accessed. Available for the [recent file list](../api/drive_recent.md) only. |
 | **lastModifiedDateTime** | DateTimeOffset | The UTC date and time the file was last modified on a client.                                                        |
 
 ## Notes
@@ -53,7 +50,6 @@ If the file's content is updated and these properties are not provided, **lastMo
 
 ## Remarks
 
-* **lastAccessedDateTime** is not available for items in SharePoint online or OneDrive for Business.
 * The **FileSystemInfo** property is not available for items in SharePoint Server 2016.
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).

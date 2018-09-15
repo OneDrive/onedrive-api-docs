@@ -13,7 +13,7 @@ The **SearchResult** resource indicates than an item is the response to a search
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ "onClickTelemtryUrl" ],
-  "@odata.type": "microsoft.graph.searchResult"
+  "@odata.type": "oneDrive.searchResult"
 }-->
 
 ```json

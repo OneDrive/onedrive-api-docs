@@ -33,7 +33,7 @@
     },
     "ignorableProperties": [
       "@content.downloadUrl",
-      "@microsoft.graph.downloadUrl",
+      "@content.downloadUrl",
       "@odata.context",
       "@odata.type",
       "@odata.id",

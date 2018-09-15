@@ -9,7 +9,6 @@ title: Remove access to an item - OneDrive API
 Remove access to a [DriveItem](../resources/driveitem.md).
 
 Only sharing permissions that are **not** inherited can be deleted.
-The **inheritedFrom** property must be `null`.
 
 ## Permissions
 
@@ -18,7 +17,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -27,10 +26,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 DELETE /drives/{drive-id}/items/{item-id}/permissions/{perm-id}
-DELETE /groups/{group-id}/drive/items/{item-id}/permissions/{perm-id}
-DELETE /me/drive/items/{item-id}/permissions/{perm-id}
+DELETE /drive/items/{item-id}/permissions/{perm-id}
 DELETE /sites/{site-id}/drive/items/{item-id}/permissions/{perm-id}
-DELETE /users/{user-id}/drive/items/{item-id}/permissions/{perm-id}
 ```
 
 ## Optional request headers
@@ -47,10 +44,10 @@ If successful, this method returns `204 No Content` response code.
 
 This example removes the permission identified as {perm-id} from the item {item-id} in the current user's OneDrive.
 
-<!-- { "blockType": "request", "name": "delete-permission", "scopes": "files.readwrite", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "delete-permission", "scopes": "files.readwrite",  }-->
 
 ```http
-DELETE /me/drive/items/{item-id}/permissions/{perm-id}
+DELETE /drive/items/{item-id}/permissions/{perm-id}
 ```
 
 ### Response
@@ -60,10 +57,6 @@ DELETE /me/drive/items/{item-id}/permissions/{perm-id}
 ```http
 HTTP/1.1 204 No Content
 ```
-
-## Remarks
-
-* [Drives](../resources/drive.md) with a **driveType** of `personal` (OneDrive Personal) cannot create or modify permissions on the root DriveItem. 
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

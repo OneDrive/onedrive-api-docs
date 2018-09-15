@@ -15,18 +15,18 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
-**Note:** while the /sharedWithMe request will succeed with Files.Read or Files.ReadWrite permissions, some properties may be missing.
+**Note:** while the _sharedWithMe_ request will succeed with Files.Read or Files.ReadWrite permissions, some properties may be missing.
 Additionally, without one of the  **All** permissions, shared items returned from this API will not be accessible.
 
 ## HTTP request
 
-<!-- { "blockType": "request", "name": "shared-with-me", "scopes": "files.read", "tags": "service.graph", "target": "action" } -->
+<!-- { "blockType": "request", "name": "shared-with-me", "scopes": "files.read", "target": "action" } -->
 
 ```http
-GET /me/drive/sharedWithMe
+GET /drive/oneDrive.sharedWithMe
 ```
 
 ## Response
@@ -34,7 +34,7 @@ GET /me/drive/sharedWithMe
 This returns a collection of [DriveItem](../resources/driveitem.md) resources which contain the DriveItem resources shared with the owner of the drive.
 In this example, since the drive is the user's default drive, this returns items shared with the signed in user.
 
-<!-- {"blockType": "response", "@odata.type": "Collection(microsoft.graph.driveItem)", "truncated": true} -->
+<!-- {"blockType": "response", "@odata.type": "Collection(oneDrive.item)", "truncated": true} -->
 
 ```http
 HTTP/1.1 200 OK

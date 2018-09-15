@@ -11,7 +11,7 @@ The **currencyColumn** on a [columnDefinition](columnDefinition.md) resource ind
 ## JSON representation
 
 Here is a JSON representation of a **currencyColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.currencyColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.currencyColumn" } -->
 
 ```json
 {

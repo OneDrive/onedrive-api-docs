@@ -25,10 +25,8 @@ Below are the most common calls your app can make to create the folder for the f
 * [Get your app folder's metadata](../api/driveitem_get.md): `GET /drive/special/approot`
 * [List your app folder's children](../api/driveitem_list_children.md): `GET /drive/special/approot/children`
 * [Create a folder under the approot](../api/driveitem_post_children.md): `POST /drive/special/approot/children`
-* [Create an upload session](../api/driveitem_createuploadsession.md): `POST /drive/special/approot:/{filename}:/createUploadSession`
+* [Create an upload session](../api/driveitem_createuploadsession.md): `POST /drive/special/approot:/{filename}:/oneDrive.createUploadSession`
 * [Upload an item's content](../api/driveitem_put_content.md): `PUT /drive/special/approot:/{fileName}:/content`
-* [Upload an item's content w/ metadata](../api/driveitem_post_content.md): `POST /drive/special/approot/children`
-* [Upload an item's content from URL](../api/driveitem_upload_url.md): `POST /drive/special/approot/children`
 
 ### Naming your app's folder
 
@@ -53,13 +51,10 @@ Your app's folder supports all the standard `item` operations.
 | [Move an Item](../api/driveitem_move.md)                    | `PATCH /drive/special/approot:/{path}`                      |
 | [Copy an Item](../api/driveitem_copy.md)                    | `POST /drive/special/approot:/{path}:/action.copy`          |
 | [Download an Item's contents](../api/driveitem_get_content.md) | `GET /drive/special/approot:/{path}:/content`               |
-| [Download specific file format](../api/driveitem_get_content_format.md)   | `GET /drive/special/approot:/{path}:/content?format={format}` |
-| [Search for an Item](../api/driveitem_search.md)            | `GET /drive/special/approot:/{path}:/search`                |
-| [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/delta`                 |
-| [Get thumbnails for an Item][get-thumbnails]        | `GET /drive/special/approot:/{path}:/thumbnails`            |
+| [Search for an Item](../api/driveitem_search.md)            | `GET /drive/special/approot:/{path}:/oneDrive.search`                |
+| [View changes on an Item][item-changes]             | `GET /drive/special/approot:/{path}:/oneDrive.delta`                 |
 
 [item-changes]: ../api/driveitem_delta.md
-[get-thumbnails]: ../api/driveitem_list_thumbnails.md
 
 <!-- {
   "type": "#page.annotation",

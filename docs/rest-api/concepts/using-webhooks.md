@@ -57,7 +57,7 @@ request, if multiple users have changes that occur within the same time period.
 The body of the HTTP request to your notification URL will contain a [Webhook Notification](../resources/webhooknotification.md)
 resource similar to the following:
 
-<!-- { "blockType": "example", "@odata.type": "microsoft.graph.webhookNotification",
+<!-- { "blockType": "example", "@odata.type": "oneDrive.webhookNotification",
 "truncated": true, "isCollection": true } -->
 ```json
 {
@@ -65,7 +65,7 @@ resource similar to the following:
     {
       "subscriptionId": "A640DFF3-0429-44FC-AF7E-30523A476864",
       "expirationDateTime": "2017-02-22T16:00:00Z",
-      "resource": "/me/drive/root",
+      "resource": "/drive/root",
       "clientState": "client-specific string"
     }
   ]

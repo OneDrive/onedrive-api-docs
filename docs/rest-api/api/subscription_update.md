@@ -19,7 +19,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -34,10 +34,10 @@ PATCH /subscriptions/{id}
 
 ### Request
 
-<!-- { "blockType": "request", "name": "patch-subscription-graph", "@odata.type": "microsoft.graph.subscription", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "patch-subscription", "@odata.type": "oneDrive.subscription",  } -->
 
 ```http
-PATCH /subscriptions/{id}
+PATCH /drive/root/subscriptions/{id}
 Content-type: application/json
 
 {
@@ -49,7 +49,7 @@ Content-type: application/json
 
 If the subscription is patched successfully then the resulting subscription object is returned:
 
-<!-- { "blockType": "response",  "name": "patch-subscription-graph", "@odata.type": "microsoft.graph.subscription" } -->
+<!-- { "blockType": "response",  "name": "patch-subscription", "@odata.type": "oneDrive.subscription" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -57,8 +57,6 @@ Content-type: application/json
 
 {
  "id": "1039149811asbc",
- "resource": "/me/drive/root",
- "changeType": "updated",
  "clientState": "subscription-identifier",
  "notificationUrl": "https://contoso.azurewebsites.net/api/v2/webhook-receiver",
  "expirationDateTime": "2018-01-03T11:23:00.000Z"

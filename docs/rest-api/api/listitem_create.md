@@ -53,7 +53,7 @@ Content-Type: application/json
 
 If successful, this method returns a [listItem][] in the response body for the created list item.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.listItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.listItem", "truncated": true } -->
 
 ```json
 HTTP/1.1 201 Created

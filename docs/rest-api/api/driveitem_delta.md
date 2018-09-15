@@ -27,7 +27,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -35,11 +35,9 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-GET /drives/{drive-id}/root/delta
-GET /groups/{groupId}/drive/root/delta
-GET /me/drive/root/delta
-GET /sites/{siteId}/drive/root/delta
-GET /users/{userId}/drive/root/delta
+GET /drives/{drive-id}/root/oneDrive.delta
+GET /drive/root/oneDrive.delta
+GET /sites/{siteId}/drive/root/oneDrive.delta
 ```
 
 ## Optional query parameters
@@ -71,17 +69,17 @@ Here is an example of how to call this API to establish your local state.
 
 Here is an example of the initial request.
 
-<!-- { "blockType": "request", "name": "get_item_delta_first", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get_item_delta_first"  } -->
 
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/root/delta
+GET /drive/root/oneDrive.delta
 ```
 
 ### Response
 
 Here is an example of the response.
 
-<!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.driveItem)", "truncated": true, "scope": "file.read" } -->
+<!-- { "blockType": "response", "@odata.type": "Collection(oneDrive.item)", "truncated": true, "scope": "file.read" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -105,7 +103,7 @@ Content-type: application/json
             "deleted": { }
         }
     ],
-    "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/drive/delta(token=1230919asd190410jlka)"
+    "@odata.nextLink": "https://sp-my.contoso.com/_api/v2.0/drive/oneDrive.delta(token=1230919asd190410jlka)"
 }
 ```
 
@@ -120,17 +118,17 @@ Here is an example of how to call this API to update your local state.
 
 Here is an example request after the initial request.
 
-<!-- { "blockType": "request", "name": "get-item-delta-last", "tags": "service.graph" }-->
+<!-- { "blockType": "request", "name": "get-item-delta-last"  }-->
 
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/root/delta(token='1230919asd190410jlka')
+GET /drive/root/oneDrive.delta(token='1230919asd190410jlka')
 ```
 
 ### Response
 
 Here is an example of the response.
 
-<!-- { "blockType": "response", "truncated": true, "@odata.type": "Collection(microsoft.graph.driveItem)", "scope": "file.read" } -->
+<!-- { "blockType": "response", "truncated": true, "@odata.type": "Collection(oneDrive.item)", "scope": "file.read" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -150,7 +148,7 @@ Content-type: application/json
             "file": { }
         }
     ],
-    "@odata.deltaLink": "https://graph.microsoft.com/v1.0/me/drive/root/delta?(token='1230919asd190410jlka')"
+    "@odata.deltaLink": "https://sp-my.contoso.com/_api/v2.0/drive/root/oneDrive.delta?(token='1230919asd190410jlka')"
 }
 ```
 
@@ -180,15 +178,15 @@ Using `delta` is the only way to guarantee that you've read all of the data you 
 
 ### Request
 
-<!-- { "blockType": "request", "name": "get-delta-latest", "scopes": "files.read", "tags": "service.graph", "target": "action" } -->
+<!-- { "blockType": "request", "name": "get-delta-latest", "scopes": "files.read", "target": "action" } -->
 
 ```http
-GET /me/drive/root/delta?token=latest
+GET /drive/root/oneDrive.delta?token=latest
 ```
 
 ### Response
 
-<!-- { "blockType": "response", "isEmpty": true, "@odata.type": "Collection(microsoft.graph.driveItem)" } -->
+<!-- { "blockType": "response", "isEmpty": true, "@odata.type": "Collection(oneDrive.item)" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -196,7 +194,7 @@ Content-type: application/json
 
 {
     "value": [ ],
-    "@odata.deltaLink": "https://graph.microsoft.com/v1.0/me/drive/root/delta?token=1230919asd190410jlka"
+    "@odata.deltaLink": "https://sp-my.contoso.com/_api/v2.0/drive/root/oneDrive.delta?token=1230919asd190410jlka"
 }
 ```
 
@@ -205,7 +203,7 @@ Content-type: application/json
 * The delta feed shows the latest state for each item, not each change. If an item were renamed twice, it would only show up once, with its latest name.
 * The same item may appear more than once in a delta feed, for various reasons. You should use the last occurrence you see.
 * The `parentReference` property on items will not include a value for **path**. This occurs because renaming a folder does not result in any descendants of the folder being returned from **delta**. **When using delta you should always track items by id**.
-* In OneDrive for Business and SharePoint, `delta` is only supported on the `root` folder, not on other folders within a drive.
+* The `delta` API is only supported on the `root` folder, not on other folders within a drive.
 
 * Delta will not return the following DriveItem properties:
 

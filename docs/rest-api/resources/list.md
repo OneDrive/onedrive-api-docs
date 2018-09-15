@@ -15,7 +15,7 @@ The following tasks are available for list resources.
 **Note:** This beta only allows navigating lists, not creating or updating them.
 You can, however, create or update [list items][listItem].
 
-All examples below are relative to a site, eg: `https://graph.microsoft.com/v1.0/sites/{site-id}`.
+All examples below are relative to a site, eg: `https://sp-my.contoso.com/_api/v2.0/sites/{site-id}`.
 
 | Common task               | HTTP method
 |:--------------------------|:------------------------------
@@ -24,14 +24,12 @@ All examples below are relative to a site, eg: `https://graph.microsoft.com/v1.0
 | [Update list item][]      | PATCH /lists/{list-id}/items/{item-id}
 | [Delete list item][]      | DELETE /lists/{list-id}/items/{item-id}
 | [Create list item][]      | POST /lists/{list-id}
-| [Get recent activities][] | GET /lists/{list-id}/activities
 
 [Get list]: ../api/list_get.md
 [Enumerate list items]: ../api/listitem_list.md
 [Update list item]: ../api/listItem_update.md
 [Delete list item]: ../api/listItem_delete.md
 [Create list item]: ../api/listItem_create.md
-[Get recent activities]: ../api/activities_list.md
 
 ## JSON representation
 
@@ -44,36 +42,35 @@ Here is a JSON representation of a **list** resource.
     "drive"
   ],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.baseItem",
-  "@odata.type": "microsoft.graph.list"
+  "baseType": "oneDrive.baseItem",
+  "@odata.type": "oneDrive.list"
 }-->
 
 ```json
 {
-  "activities": [{"@odata.type": "microsoft.graph.itemActivity"}],
-  "columns": [ { "@odata.type": "microsoft.graph.columnDefinition" }],
-  "contentTypes": [ { "@odata.type": "microsoft.graph.contentType" }],
+  "columns": [ { "@odata.type": "oneDrive.columnDefinition" }],
+  "contentTypes": [ { "@odata.type": "oneDrive.contentType" }],
   "displayName": "title of list",
-  "drive": { "@odata.type": "microsoft.graph.drive" },
-  "items": [ { "@odata.type": "microsoft.graph.listItem" } ],
+  "drive": { "@odata.type": "oneDrive.drive" },
+  "items": [ { "@odata.type": "oneDrive.listItem" } ],
   "list": {
-    "@odata.type": "microsoft.graph.listInfo",
+    "@odata.type": "oneDrive.listInfo",
     "hidden": false,
     "template": "documentLibrary | genericList | survey | links | announcements | contacts | accessRequest ..."
   },
-  "system": false,
+  "system": { "@odata.type": "oneDrive.system" },
 
   /* inherited from baseItem */
   "id": "string",
   "name": "name of list",
-  "createdBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "createdBy": { "@odata.type": "oneDrive.identitySet" },
   "createdDateTime": "timestamp",
   "description": "description of list",
   "eTag": "string",
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "timestamp",
-  "parentReference": { "@odata.type": "microsoft.graph.itemReference" },
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
+  "parentReference": { "@odata.type": "oneDrive.itemReference" },
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
   "webUrl": "url to visit the list in a browser"
 }
 ```
@@ -86,7 +83,7 @@ The **list** resource has the following properties.
 |:-----------------|:---------------------------------|:---------------------------
 | **displayName**  | string                           | The displayable title of the list.
 | **list**         | [listInfo][]                     | Provides additional details about the list.
-| **system**       | [systemFacet][]                  | If present, indicates that this is a system-managed list. Read-only.
+| **system**       | [system][]                  | If present, indicates that this is a system-managed list. Read-only.
 
 The following properties are inherited from **[baseItem][]**.
 
@@ -110,7 +107,6 @@ The **list** resource has the following relationships to other resources.
 
 | Relationship name | Type                             | Description
 |:------------------|:---------------------------------|:----------------------
-| **activities**    | [itemActivity][] collection      | The recent activities that took place within this list.
 | **drive**         | [drive][]                        | Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
 | **items**         | Collection([listItem][])         | All items contained in the list.
 | **columns**       | Collection([columnDefinition][]) | The collection of field definitions for this list.
@@ -122,13 +118,12 @@ The **list** resource has the following relationships to other resources.
 [driveItem]: driveItem.md
 [columnDefinition]: columnDefinition.md
 [identitySet]: identitySet.md
-[itemActivity]: itemActivity.md
 [itemReference]: itemreference.md
 [listInfo]: listInfo.md
 [listItem]: listItem.md
 [sharepointIds]: sharepointIds.md
 [site]: site.md
-[systemFacet]: systemFacet.md
+[system]: systemFacet.md
 
 <!-- {
   "type": "#page.annotation",

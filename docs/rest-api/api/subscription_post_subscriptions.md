@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -23,7 +23,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /subscriptions
+POST /drive/root/subscriptions
 ```
 
 ## Response
@@ -36,16 +36,14 @@ If successful, this method returns `201 Created` response code and a [subscripti
 
 Here is an example of the request to send a notification when the contents of a user's drive changes.
 
-<!-- { "blockType": "request", "name": "add-subscription-graph", "@odata.type": "microsoft.graph.subscription", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "add-subscription", "@odata.type": "oneDrive.subscription",  } -->
 
 ```http
-POST /subscriptions
+POST /drive/root/subscriptions
 Content-type: application/json
 
 {
- "changeType": "updated",
  "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
- "resource": "/me/drive/root",
  "expirationDateTime": "2018-01-01T11:23:00.000Z",
  "clientState": "client-specific string"
 }
@@ -56,7 +54,7 @@ Content-type: application/json
 If the subscription is added, then a `201 Created` response is returned that
 includes the newly created subscription object.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.subscription" } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.subscription" } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -64,8 +62,6 @@ Content-Type: application/json
 
 {
     "id": "1039149811asbc",
-    "resource": "/me/drive/root",
-    "changeType": "updated",
     "clientState": "client-specific string",
     "notificationUrl": "https://contoso.azurewebsites.net/api/webhook-receiver",
     "expirationDateTime": "2016-01-01T11:23:00.000Z"
@@ -74,7 +70,7 @@ Content-Type: application/json
 
 ## Subscription validation
 
-Before a new subscription is created, Microsoft Graph will send a request to the URL provided in the request to create a new subscription.
+Before a new subscription is created, the server will send a request to the URL provided in the request to create a new subscription.
 Your service must respond to this request by returning the validation key.
 
 If your service fails to validate the request in this way, the subscription will fail to be created.

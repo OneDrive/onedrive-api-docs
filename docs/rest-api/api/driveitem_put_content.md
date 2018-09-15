@@ -18,7 +18,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request (to replace an existing item)
@@ -27,10 +27,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 PUT /drives/{drive-id}/items/{item-id}/content
-PUT /groups/{group-id}/drive/items/{item-id}/content
-PUT /me/drive/items/{item-id}/content
+PUT /drive/items/{item-id}/content
 PUT /sites/{site-id}/drive/items/{item-id}/content
-PUT /users/{user-id}/drive/items/{item-id}/content
 ```
 
 ## HTTP request (to upload a new file)
@@ -39,10 +37,8 @@ PUT /users/{user-id}/drive/items/{item-id}/content
 
 ```http
 PUT /drives/{drive-id}/items/{parent-id}:/{filename}:/content
-PUT /groups/{group-id}/drive/items/{parent-id}:/{filename}:/content
-PUT /me/drive/items/{parent-id}:/{filename}:/content
+PUT /drive/items/{parent-id}:/{filename}:/content
 PUT /sites/{site-id}/drive/items/{parent-id}:/{filename}:/content
-PUT /users/{user-id}/drive/items/{parent-id}:/{filename}:/content
 ```
 
 ## Request body
@@ -60,7 +56,7 @@ This example uploads the string "The contents of the file goes here." to a file 
 <!-- { "blockType": "request", "name": "upload-via-put", "scopes": "files.readwrite" } -->
 
 ```http
-PUT /me/drive/root:/FolderA/FileB.txt:/content
+PUT /drive/root:/FolderA/FileB.txt:/content
 Content-Type: text/plain
 
 The contents of the file goes here.
@@ -70,7 +66,7 @@ The contents of the file goes here.
 
 If successful, this method returns an [driveItem][item-resource] resource in the response body for the newly created file.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created
@@ -91,7 +87,7 @@ This example replaces the contents of a file with a known ID.
 <!-- { "blockType": "request", "name": "upload-via-put-id", "scopes": "files.readwrite" } -->
 
 ```http
-PUT /me/drive/items/{item-id}/content
+PUT /drive/items/{item-id}/content
 Content-Type: text/plain
 
 The contents of the file goes here.
@@ -101,7 +97,7 @@ The contents of the file goes here.
 
 If successful, this method returns an [driveItem][item-resource] resource in the response body for the newly created file.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.item", "truncated": true } -->
 
 ```http
 HTTP/1.1 201 Created

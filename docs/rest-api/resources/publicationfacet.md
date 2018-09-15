@@ -13,7 +13,7 @@ The **publicationFacet** resource provides details on the published status of a 
 <!-- {
   "blockType": "resource",
   "optionalProperties": [  ],
-  "@odata.type": "microsoft.graph.publicationFacet"
+  "@odata.type": "oneDrive.publicationFacet"
 }-->
 
 ```json

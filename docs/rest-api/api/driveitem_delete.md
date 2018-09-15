@@ -16,7 +16,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.ReadWrite, Files.ReadWrite.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.ReadWrite, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.ReadWrite.All, Sites.ReadWrite.All |
 
 ## HTTP request
@@ -25,10 +25,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 DELETE /drives/{drive-id}/items/{item-id}
-DELETE /groups/{group-id}/drive/items/{item-id}
-DELETE /me/drive/items/{item-id}
+DELETE /drive/items/{item-id}
 DELETE /sites/{siteId}/drive/items/{itemId}
-DELETE /users/{userId}/drive/items/{itemId}
 ```
 
 ## Optional request headers
@@ -41,10 +39,10 @@ DELETE /users/{userId}/drive/items/{itemId}
 
 Here is an example of how to call this API.
 
-<!-- { "blockType": "request", "name": "delete-item", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "delete-item", "scopes": "files.readwrite",  } -->
 
 ```http
-DELETE /me/drive/items/{item-id}
+DELETE /drive/items/{item-id}
 ```
 
 ## Response

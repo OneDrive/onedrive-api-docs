@@ -14,8 +14,7 @@ Here is a JSON representation of a ColumnDefinition resource.
   "blockType": "resource",
   "optionalProperties": [],
   "keyProperty": "id",
-  "baseType": "microsoft.graph.entity",
-  "@odata.type": "microsoft.graph.columnDefinition"
+  "@odata.type": "oneDrive.columnDefinition"
 }-->
 
 ```json
@@ -30,16 +29,16 @@ Here is a JSON representation of a ColumnDefinition resource.
   "name": "staticNameForApi",
   "readOnly": false,
   "required": false,
-  "boolean": { "@odata.type": "microsoft.graph.booleanColumn" },
-  "calculated": { "@odata.type": "microsoft.graph.calculatedColumn" },
-  "choice": { "@odata.type": "microsoft.graph.choiceColumn" },
-  "currency": { "@odata.type": "microsoft.graph.currencyColumn" },
-  "dateTime": { "@odata.type": "microsoft.graph.dateTimeColumn" },
-  "defaultValue": { "@odata.type": "microsoft.graph.defaultColumnValue" },
-  "lookup": { "@odata.type": "microsoft.graph.lookupColumn" },
-  "number": { "@odata.type": "microsoft.graph.numberColumn" },
-  "personOrGroup": { "@odata.type": "microsoft.graph.personOrGroupColumn" },
-  "text": { "@odata.type": "microsoft.graph.textColumn" }
+  "boolean": { "@odata.type": "oneDrive.booleanColumn" },
+  "calculated": { "@odata.type": "oneDrive.calculatedColumn" },
+  "choice": { "@odata.type": "oneDrive.choiceColumn" },
+  "currency": { "@odata.type": "oneDrive.currencyColumn" },
+  "dateTime": { "@odata.type": "oneDrive.dateTimeColumn" },
+  "defaultValue": { "@odata.type": "oneDrive.defaultColumnValue" },
+  "lookup": { "@odata.type": "oneDrive.lookupColumn" },
+  "number": { "@odata.type": "oneDrive.numberColumn" },
+  "personOrGroup": { "@odata.type": "oneDrive.personOrGroupColumn" },
+  "text": { "@odata.type": "oneDrive.textColumn" }
 }
 ```
 

@@ -11,7 +11,7 @@ The **contentTypeInfo** resource indicates the SharePoint content type of an ite
 ## JSON representation
 
 Here is a JSON representation of a **contentTypeInfo** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.contentTypeInfo", "@type.aka": "oneDrive.contentTypeFacet" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.contentTypeFacet" } -->
 
 ```json
 {

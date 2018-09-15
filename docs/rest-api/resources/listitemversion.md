@@ -27,18 +27,17 @@ The following tasks are available for listItemVersion resources.
 
 <!--{
   "blockType": "resource",
-  "baseType": "microsoft.graph.baseItemVersion",
-  "@odata.type": "microsoft.graph.listItemVersion",
-  "@type.aka": "oneDrive.baseItemVersion"
+  "baseType": "oneDrive.baseItemVersion",
+  "@odata.type": "oneDrive.listItemVersion"
 }-->
 
 ```json
 {
-  "fields": { "@odata.type": "microsoft.graph.fieldValueSet" },
+  "fields": { "@odata.type": "oneDrive.fieldValueSet" },
   "id": "string",
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "2016-01-01T15:20:01.125Z",
-  "published": { "@odata.type": "microsoft.graph.publicationFacet" }
+  "published": { "@odata.type": "oneDrive.publicationFacet" }
 }
 ```
 

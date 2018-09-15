@@ -15,19 +15,19 @@ Here is a JSON representation of the resource
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ "path", "shareId", "sharepointIds" ],
-  "@odata.type": "microsoft.graph.itemReference"
+  "@odata.type": "oneDrive.itemReference"
 }-->
 
 ```json
 {
   "driveId": "string",
-  "driveType": "personal | business | documentLibrary",
+  "driveType": "business | documentLibrary",
   "id": "string",
   "listId": "string",
   "name": "string",
   "path": "string",
   "shareId": "string",
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
   "siteId": "string"
 }
 ```
@@ -57,7 +57,7 @@ Here is a JSON representation of the resource
 To address a **driveItem** from an **itemReference** resource, construct a URL of the format:
 
 ```http
-GET https://graph.microsoft.com/v1.0/drives/{driveId}/items/{id}
+GET https://sp-my.contoso.com/_api/v2.0/drives/{driveId}/items/{id}
 ```
 
 The **path** value is an API path relative to the target drive, for example: `/drive/root:/Documents/myfile.docx`.
@@ -72,7 +72,7 @@ To retrieve the human-readable path for a breadcrumb, you can safely ignore ever
   "section": "documentation",
   "suppressions": [
     "Warning: /api-reference/v1.0/resources/itemreference.md:
-      Found potential enums in resource example that weren't defined in a table:(personal,business,documentLibrary) are in resource, but () are in table"
+      Found potential enums in resource example that weren't defined in a table:(business,documentLibrary) are in resource, but () are in table"
   ],
   "tocPath": "Resources/ItemReference"
 } -->

@@ -16,25 +16,25 @@ This resource provides the unique IDs of the source drive and target item.
 ## JSON representation
 
 <!-- { "blockType": "resource", 
-       "@odata.type": "microsoft.graph.remoteItem", 
+       "@odata.type": "oneDrive.remoteItem", 
        "optionalProperties": ["name", "fileSystemInfo", "file", "folder"] } -->
 
 ```json
 {
   "id": "string",
-  "createdBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "createdBy": { "@odata.type": "oneDrive.identitySet" },
   "createdDateTime": "timestamp",
-  "file": { "@odata.type": "microsoft.graph.file" },
-  "fileSystemInfo": { "@odata.type": "microsoft.graph.fileSystemInfo" },
-  "folder": { "@odata.type": "microsoft.graph.folder" },
-  "lastModifiedBy": { "@odata.type": "microsoft.graph.identitySet" },
+  "file": { "@odata.type": "oneDrive.file" },
+  "fileSystemInfo": { "@odata.type": "oneDrive.fileSystemInfo" },
+  "folder": { "@odata.type": "oneDrive.folder" },
+  "lastModifiedBy": { "@odata.type": "oneDrive.identitySet" },
   "lastModifiedDateTime": "timestamp",
   "name": "string",
-  "package": { "@odata.type": "microsoft.graph.package" },
-  "parentReference": { "@odata.type": "microsoft.graph.itemReference" },
-  "shared": { "@odata.type": "microsoft.graph.shared" },
-  "sharepointIds": { "@odata.type": "microsoft.graph.sharepointIds" },
-  "specialFolder": { "@odata.type": "microsoft.graph.specialFolder" },
+  "package": { "@odata.type": "oneDrive.package" },
+  "parentReference": { "@odata.type": "oneDrive.itemReference" },
+  "shared": { "@odata.type": "oneDrive.shared" },
+  "sharepointIds": { "@odata.type": "oneDrive.sharepointIds" },
+  "specialFolder": { "@odata.type": "oneDrive.specialFolder" },
   "size": 1024,
   "webDavUrl": "url",
   "webUrl": "url"

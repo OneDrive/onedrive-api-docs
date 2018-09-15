@@ -11,7 +11,7 @@ The **numberColumn** on a [columnDefinition](columnDefinition.md) resource indic
 ## JSON representation
 
 Here is a JSON representation of a **numberColumn** resource.
-<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.numberColumn" } -->
+<!-- { "blockType": "resource", "@odata.type": "oneDrive.numberColumn" } -->
 
 ```json
 {

@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type      | Permissions (from least to most privileged)              |
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Files.Read, Files.ReadWrite, Files.Read.All, Files.ReadWrite.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
 |Application | Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All |
 
 
@@ -25,10 +25,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 ```http
 GET /drives/{drive-id}/items/{item-id}/versions/{version-id}
-GET /groups/{group-id}/drive/{item-id}/versions/{version-id}
-GET /me/drive/items/{item-id}/versions/{version-id}
+GET /drive/items/{item-id}/versions/{version-id}
 GET /sites/{site-id}/drive/items/{item-id}/versions/{version-id}
-GET /users/{user-id}/drive/items/{item-id}/versions/{version-id}
 ```
 
 ## Response
@@ -42,7 +40,7 @@ This example retrieves a version of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read",  } -->
 
 ```http
 GET /drive/items/{item-id}/versions/{version-id}
@@ -52,7 +50,7 @@ GET /drive/items/{item-id}/versions/{version-id}
 
 This returns a collection of versions:
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItemVersion", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.driveItemVersion", "truncated": true } -->
 
 ```http
 HTTP/1.1 200 OK

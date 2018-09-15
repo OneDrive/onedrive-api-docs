@@ -43,7 +43,7 @@ GET /sites/{site-id}/lists/{list-id}
 
 #### Response
 
-<!-- { "blockType": "response", "@type": "microsoft.graph.list", "truncated": true, "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "response", "@type": "oneDrive.list", "truncated": true, "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
 
 ```json
 HTTP/1.1 200 OK
@@ -73,7 +73,7 @@ GET /sites/{site-id}/lists/{list-id}?select=id,name,lastModifiedDateTime&expand=
 
 #### Response
 
-<!-- { "blockType": "response", "@type": "microsoft.graph.list", "truncated": true, "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
+<!-- { "blockType": "response", "@type": "oneDrive.list", "truncated": true, "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
 
 ```json
 HTTP/1.1 200 OK

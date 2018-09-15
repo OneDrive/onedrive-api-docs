@@ -15,7 +15,7 @@ instance:
 
 <!-- {
 "blockType": "resource",
-"@odata.type": "microsoft.graph.webhookNotification",
+"@odata.type": "oneDrive.webhookNotification",
 "optionalProperties": ["context", "tenantId", "expirationDateTime", "resource" ]
 } -->
 
@@ -32,20 +32,20 @@ instance:
 Since multiple notifications may be submitted to your service in a single
 request, these are combined together in an object with a single array **value**:
 
-<!-- { "blockType": "ignored", "@odata.type": "Collection(microsoft.graph.webhookNotifiation)" } -->
+<!-- { "blockType": "ignored", "@odata.type": "Collection(oneDrive.webhookNotification)" } -->
 
 ```json
 {
   "value": [
     {
       "subscriptionId": "101010111",
-      "resource": "/me/drive/root",
+      "resource": "/drive/root",
       "changeType": "updated",
       "clientState": "sub2"
     },
     {
       "subscriptionId": "222020202",
-      "resource": "/me/drive/root",
+      "resource": "/drive/root",
       "changeType": "updated",
       "clientState": "sub1"
     }

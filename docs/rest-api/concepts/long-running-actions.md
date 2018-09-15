@@ -7,7 +7,7 @@ title: Calling long running actions - OneDrive API
 ---
 # Working with APIs that make take a long time to complete
 
-Some scenarios, like [copy](../api/driveitem_copy.md) or [upload from URL](../api/driveitem_upload_url.md) cannot always be completed in a finite amount of time.
+Some scenarios, like [copy](../api/driveitem_copy.md) cannot always be completed in a finite amount of time.
 To handle these scenarios and keep API response latency low, these actions are implemented using a long running actions pattern.
 
 1. App requests a long running action via the API. The API accepts the action and returns a `202 Accepted` response along with a Location header for the API URL to retrieve action status reports.
@@ -20,10 +20,10 @@ Let's walk through the steps for an example [copy](../api/driveitem_copy.md) sce
 In this scenario, an app requests to copy a folder with a large amount of data contained within.
 This request will likely take several seconds to complete since the amount of data is large.
 
-<!-- { "blockType": "request", "name": "lro-copy-item-example", "scopes": "files.readwrite", "tags": "service.graph" } -->
+<!-- { "blockType": "request", "name": "lro-copy-item-example", "scopes": "files.readwrite",  } -->
 
 ```http
-POST /drive/items/{folder-item-id}/copy
+POST /drive/items/{folder-item-id}/oneDrive.copy
 Content-Type: application/json
 Prefer: respond-async
 
@@ -41,7 +41,7 @@ The API responds that the action was accepted and the URL for retrieving the sta
 
 ```http
 HTTP/1.1 202 Accepted
-Location: https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
+Location: https://sp.contoso.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 ```
 
 In many cases this many be the end of the request, since the copy action will complete without the app doing any additional work.
@@ -54,12 +54,12 @@ To check on the status of the copy action, the app makes a request to the URL pr
 
 <!-- { "blockType": "ignored", "name": "lro-check-status", "scopes": "files.readwrite" } -->
 ```http
-GET https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
+GET https://sp.contoso.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 ```
 
 The service responses with information that the long running action is still in progress:
 
-<!-- { "blockType": "ignored", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
+<!-- { "blockType": "ignored", "@odata.type": "oneDrive.asynchronousOperationStatus" } -->
 ```http
 HTTP/1.1 202 Accepted
 Content-type: application/json
@@ -82,12 +82,12 @@ This time when the app makes a request to the monitor URL the response is a redi
 <!-- { "blockType": "ignored", "name": "lro-check-status-complete", "scopes": "files.readwrite" } -->
 
 ```http
-GET https://api.onedrive.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
+GET https://sp.contoso.com/monitor/4A3407B5-88FC-4504-8B21-0AABD3412717
 ```
 
 When the action has completed, the response from the monitor service will return the resourceId for the results.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.asyncJobStatus" } -->
+<!-- { "blockType": "response", "@odata.type": "oneDrive.asynchronousOperationStatus" } -->
 
 ```http
 HTTP/1.1 303 See Other

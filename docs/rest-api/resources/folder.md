@@ -18,13 +18,12 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.folder"
+  "@odata.type": "oneDrive.folder"
 }-->
 
 ```json
 {
-  "childCount": 1024,
-  "view": { "@odata.type": "microsoft.graph.folderView" }
+  "childCount": 1024
 }
 ```
 
@@ -33,13 +32,11 @@ Here is a JSON representation of the resource.
 | Property       | Type           | Description
 |:---------------|:---------------|:-------------------------------------------
 | **childCount** | Int32          | Number of children contained immediately within this container.
-| **view**       | [folderView][] | A collection of properties defining the recommended view for the folder.
 
 ## Remarks 
 
 For more information about the facets on a DriveItem, see [DriveItem][].
 
-[folderView]: folderView.md
 [DriveItem]: driveItem.md
 
 <!-- {
