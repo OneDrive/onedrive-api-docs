@@ -50,7 +50,7 @@ However, you can specify an `item` property in the request body, providing addit
 <!-- { "blockType": "resource", "@odata.type": "microsoft.graph.driveItemUploadableProperties" } -->
 ```json
 {
-  "@microsoft.graph.conflictBehavior": "rename | fail | overwrite",
+  "@microsoft.graph.conflictBehavior": "rename | fail | replace",
   "description": "description",
   "fileSystemInfo": { "@odata.type": "microsoft.graph.fileSystemInfo" },
   "name": "filename.txt"
