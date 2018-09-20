@@ -17,6 +17,7 @@
 ### [Migrate from LiveSDK](rest-api/concepts/migrating-from-live-sdk.md)
 ### [OneDrive endpoint](rest-api/concepts/direct-endpoint-differences.md)
 ### [Query string parameters](rest-api/concepts/optional-query-parameters.md)
+### [Scanning guidance](rest-api/concepts/scan-guidance.md)
 ### [Uploading files](rest-api/concepts/upload.md)
 ### [Using sharing links](rest-api/concepts/using-sharing-links.md)
 ### [Working with CORS](rest-api/concepts/working-with-cors.md)
