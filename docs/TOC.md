@@ -10,6 +10,7 @@
 ## [Concepts](rest-api/concepts/index.md)
 ### [Addressing items](rest-api/concepts/addressing-driveitems.md)
 ### [App folder](rest-api/concepts/special-folders-appfolder.md)
+### [Scanning guidance](rest-api/concepts/scan-guidance.md)
 ### [Custom metadata](rest-api/concepts/custom-metadata-facets.md)
 ### [Error responses](rest-api/concepts/errors.md)
 ### [Filter](rest-api/concepts/filtering-results.md)
