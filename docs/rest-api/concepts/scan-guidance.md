@@ -10,7 +10,7 @@ For applications that process large amounts of data from SharePoint and OneDrive
 
 The pattern will look like the following diagram.  This article goes into detail on each step for implementation.
 
-![Scanning calling flow between Microsoft Graph and client application](../../media/scanprocessflow.png)
+![Scanning calling flow between Microsoft Graph and client application](../../media/ScanProcessFlow.png)
 
 Each of these elements may have several mechanisms to accomplish them in the Microsoft Graph API and existing SharePoint APIs.  The goal of this article is to give you the best way available today to complete each task.
 
