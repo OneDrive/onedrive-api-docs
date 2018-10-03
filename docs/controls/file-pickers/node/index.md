@@ -1,5 +1,5 @@
 ---
-author: keco
+author: kevintcoughlin
 ms.author: keco
 ms.date: 10/02/2018
 ms.topic: overview
