@@ -42,7 +42,7 @@ Below is an example `package.json` excerpt showing the dependency on `@microsoft
 ## Render the File Browser
 
 Once the required dependencies have been added to your project, you are ready to render the File Browser component for Microsoft Graph. 
-The SDK exposes the component `GraphFileBrowser` which requires a valid `access_token` be returned via the `getAuthenticationToken` prop. The 
+The SDK exposes the component `GraphFileBrowser` that requires a valid `access_token` be returned via the `getAuthenticationToken` prop. The 
 below component code shows an example usage:
 
 ```jsx

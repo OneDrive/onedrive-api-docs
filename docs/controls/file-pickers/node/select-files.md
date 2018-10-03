@@ -63,7 +63,7 @@ With the above code, one can select files in the File Explorer and upon clicking
 
 #### Cancel Callback
 
-The `onCancel` prop expects a function which receives an `Error` as its only argument upon selection of the default "Cancel" action button. Building upon our previous example, an example usage of the prop is:
+The `onCancel` prop expects a function that receives an `Error` as its only argument upon selection of the default "Cancel" action button. Building upon our previous example, an example usage of the prop is:
 
 ```jsx
 class App extends React.Component {
