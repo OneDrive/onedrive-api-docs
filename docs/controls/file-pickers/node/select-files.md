@@ -33,7 +33,7 @@ Reload your application with the above change and you should see the File Browse
 
 ### 2. Attach success and cancel callbacks
 
-The `GraphFileBrowser` component exposes the following callback props, `onSuccess` and `onCancel`. The `onSuccess` callback is invoked when a User selects files via the default "Select" action button. The `onCancel` callback is invoked when a User cancels a select action via the default "Cancel" action button.
+The `GraphFileBrowser` component exposes the following callback props, `onSuccess` and `onCancel`. The `onSuccess` callback is invoked when a user selects files via the default "Select" action button. The `onCancel` callback is invoked when a user cancels a select action via the default "Cancel" action button.
 
 #### Select File Callback
 
@@ -90,7 +90,7 @@ class App extends React.Component {
 }
 ```
 
-With the above code, one can click the default "Cancel" action button. Upon doing so an `Error` with the canceled by User message will be output to the Browser's console.
+With the above code, one can click the default "Cancel" action button. Upon doing so an `Error` with the canceled by user message will be output to the Browser's console.
 
 <!-- {
   "type": "#page.annotation",
