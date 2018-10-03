@@ -1,6 +1,6 @@
 ---
-author: keco
-ms.author: keco
+author: keco,natalieethell
+ms.author: keco,natalieethell
 ms.date: 10/02/2018
 ---
 # Selecting Files with the Microsoft File Browser SDK
@@ -91,6 +91,8 @@ class App extends React.Component {
 ```
 
 With the above code, one can click the default "Cancel" action button. Upon doing so an `Error` with the canceled by User message will be output to the Browser's console.
+
+In the next section, we cover [applying a custom theme to your File Browser](theming-customization.md).
 
 <!-- {
   "type": "#page.annotation",
