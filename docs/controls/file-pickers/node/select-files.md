@@ -1,6 +1,8 @@
 ---
-author: keco natalieethell
-ms.author: keco natalieethell
+author: keco
+author: natalieethell
+ms.author: keco
+ms.author: natalieethell
 ms.date: 10/02/2018
 ---
 # Selecting Files with the Microsoft File Browser SDK
