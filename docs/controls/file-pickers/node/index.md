@@ -10,21 +10,21 @@ The [Microsoft File Browser SDK](https://www.npmjs.com/package/@microsoft/file-b
 
 ## Setup
 
-### Add Microsoft File Browser as a dependency
+### 1. Add Microsoft File Browser as a dependency
 
-You will need to add `@microsoft/file-browser` to your project as a dependency. Using NPM, you can add the dependency by running the following command: 
+In order to use the SDK, you will need to add `@microsoft/file-browser` to your project as a dependency. Using NPM, you can add the dependency by running the following command: 
 
 ```shell
 $ npm i --save @microsoft/file-browser
 ```
 
-### Add SDK peer dependencies
+### 2. Add SDK peer dependencies
 
 The Microsoft File Browser SDK relies on several peer dependencies. The bundle requires its consumers to provide `react` and `react-dom`.
 If you are using TypeScript, the package also relies on typings for React and `office-ui-fabric-react`. The `office-ui-fabric-react` components
 themselves are included in the bundle.
 
-Below is an example `package.json` excerpt showing the dependency on `@microsoft/file-browser` with appropriate peer dependencies:
+Below is an example `package.json` excerpt showing the dependency on `@microsoft/file-browser` with appropriate peer dependencies that you should match in your project:
 
 ```json
 "dependencies": {
@@ -39,11 +39,9 @@ Below is an example `package.json` excerpt showing the dependency on `@microsoft
 }
 ```
 
-## Render the File Browser
+### 3. Render the File Browser
 
-Once the required dependencies have been added to your project, you are ready to render the File Browser component for Microsoft Graph. 
-The SDK exposes the component `GraphFileBrowser` that requires a valid `access_token` be returned via the `getAuthenticationToken` prop. The 
-below component code shows an example usage:
+Once the required dependencies have been added to your project, you are ready to render the `GraphFileBrowser` component. To successfully fetch and display files, the component expects a valid `access_token` be returned via the required `getAuthenticationToken` prop. Below is an example implementation:
 
 ```jsx
 class App extends React.Component {
@@ -60,7 +58,9 @@ class App extends React.Component {
 }
 ```
 
-To successfully fetch files, you will need to return a valid `access_token` via the `getAuthenticationToken` prop. More information
+In the above example, you will need to replace `<access_token>` with your valid access token for authentication to succeed. One way to quickly test a valid token is to sign-in to the [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Once signed-in, you can copy the access token for your account from the `access_token` query parameter.
+
+More information
 on acquiring valid authentication tokens for the Microsoft Graph can be found in [this tutorial](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). In the next section, we cover [selecting files with the File Browser SDK](select-files.md).
 
 <!-- {
