@@ -1,6 +1,6 @@
 ---
 author: natalieethell
-ms.author: natalieethell
+ms.author: nethell
 ms.date: 10/03/2018
 ms.topic: conceptual
 title: Add custom theme to file browser component
