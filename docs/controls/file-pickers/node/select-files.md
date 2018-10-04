@@ -41,6 +41,23 @@ class App extends React.Component {
 
 To invoke the `onSuccess` callback, click the default "Select" action button. The keys of any selected files will then be output to the Browser's console.
 
+#### onSuccess Callback Parameter
+
+When the `onSuccess` callback is invoked, it is passed a single argument that is an Array of keys of the selected items. Each key contains the following structure:
+
+```ts
+{
+  // the key of the item in the File Browser's cache
+  [key: string]: {
+    endpoint: string, // the endpoint url the item was fetched from
+    driveId?: string, // the identifier of the drive that contains the item
+    itemId?: string   // the identifier of the itme
+  } 
+}
+```
+
+With the above information and a valid `access_token`, you may act upon the file using the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/onedrive).
+
 ### 2. Attach an onCancel callback
 
 The `onCancel` callback is invoked when a user cancels a select action via the default "Cancel" action button.
