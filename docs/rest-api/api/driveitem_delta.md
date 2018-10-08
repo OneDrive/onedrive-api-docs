@@ -206,17 +206,13 @@ Content-type: application/json
 * The same item may appear more than once in a delta feed, for various reasons. You should use the last occurrence you see.
 * The `parentReference` property on items will not include a value for **path**. This occurs because renaming a folder does not result in any descendants of the folder being returned from **delta**. **When using delta you should always track items by id**.
 * In OneDrive for Business and SharePoint, `delta` is only supported on the `root` folder, not on other folders within a drive.
-
-* Delta will not return the following DriveItem properties:
-
-* **cTag**
-* **lastModifiedBy**
-* **size**
+* Delta does not return some DriveItem properties for OneDrive for Business, refer to the [release notes][release-notes] for those differences.
 
 ## Error responses
 
 In addition to the resync errors detailed above, see [Error Responses][error-response] for details about how errors are returned.
 
+[release-notes]: ../getting-started/release-notes.md
 [error-response]: ../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 
