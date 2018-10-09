@@ -6,13 +6,15 @@ ms.topic: conceptual
 title: Add custom theme to file browser component
 ---
 
-# Theming customization
+# Apply a Custom Theme
 
-You can give your File Browser a custom theme by utilizing Fabric's `Customizer` component.
+You can easily apply a custom theme to the File Browser by utilizing Office UI Fabric's `Customizer` component. The following steps demonstrate how to apply a custom theme to the `GraphFileBrowser`:
 
-In your React app, import `Customizer` from `office-ui-fabric-react/lib/Utilities` and `ITheme` from `office-ui-fabric/lib/Styling`. Create a custom `ITheme` and pass it into the `settings` prop of `Customizer`. Finally, wrap `Customizer` around `GraphFileBrowser` to see your custom theme reflected in your component.
+1. In your React app, import `Customizer` from `office-ui-fabric-react/lib/Utilities` and `ITheme` from `office-ui-fabric/lib/Styling`.
+1. Create a custom `ITheme` and pass it into the `settings` prop of `Customizer`. You can use [Office UI Fabric's Theme Generator](https://developer.microsoft.com/en-us/fabric#/styles/themegenerator) to create a custom palette.
+1. Wrap `GraphFileBrowser` with `Customizer` to see your custom theme reflected in your component.
 
-The following example uses a theme pulled directly from [Fabric's theme generator](https://developer.microsoft.com/en-us/fabric#/styles/themegenerator) and passes it into an instance of Fabric's `createTheme` method.
+After following the above steps, your code should resemble:
 
 ```tsx
 import * as React from "react";
@@ -66,8 +68,7 @@ class App extends React.Component {
     return (
         <Customizer settings={{theme}}>
             <GraphFileBrowser
-                getAuthenticationToken={this.getAuthenticationToken}
-            />
+                getAuthenticationToken={this.getAuthenticationToken} />
         </Customizer>
     );
   }
@@ -81,7 +82,7 @@ ReactDOM.render(
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Use the Microsoft File Browser SDK to select OneDrive files.",
+  "description": "Applying a custom theme to the Microsoft File Browser SDK.",
   "keywords": "js,javascript,onedrive,graph,file,browser,picker,saver,open,save,cloud,theming,customizer,theme",
   "section": "sdks",
   "headerAdditions": [],

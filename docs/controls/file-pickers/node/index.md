@@ -21,7 +21,7 @@ $ npm i --save @microsoft/file-browser
 ### 2. Add SDK peer dependencies
 
 The Microsoft File Browser SDK relies on several peer dependencies. The bundle requires its consumers to provide `react` and `react-dom`.
-If you are using TypeScript, the package also relies on typings for React and `office-ui-fabric-react`. The `office-ui-fabric-react` components
+If you are using [TypeScript](https://www.typescriptlang.org/), the package also relies on typings for [React](https://github.com/facebook/react/) and [office-ui-fabric-react](https://github.com/OfficeDev/office-ui-fabric-react). The `office-ui-fabric-react` components
 themselves are included in the bundle.
 
 Below is an example `package.json` excerpt showing the dependency on `@microsoft/file-browser` with appropriate peer dependencies that you should match in your project:
@@ -41,7 +41,7 @@ Below is an example `package.json` excerpt showing the dependency on `@microsoft
 
 ### 3. Render the File Browser
 
-Once the required dependencies have been added to your project, you are ready to render the `GraphFileBrowser` component. To successfully fetch and display files, the component expects a valid `access_token` be returned via the required `getAuthenticationToken` prop. Below is an example implementation:
+Once the required dependencies have been added to your React project, you are ready to render the `GraphFileBrowser` component. To successfully fetch and display files, the component expects a valid `access_token` be returned via the required `getAuthenticationToken` prop. Below is an example implementation:
 
 ```jsx
 class App extends React.Component {
@@ -58,10 +58,11 @@ class App extends React.Component {
 }
 ```
 
-In the above example, you will need to replace `<access_token>` with your valid access token for authentication to succeed. One way to quickly test a valid token is to sign-in to the [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Once signed-in, you can copy the access token for your account from the `access_token` query parameter.
+In the above example, you will need to replace `<access_token>` with a valid access token for authentication. One way to quickly test a valid token is to sign-in to the [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Once signed-in, you can copy the access token for your account from the `access_token` query parameter.
 
 More information
-on acquiring valid authentication tokens for the Microsoft Graph can be found in [this tutorial](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). In the next section, we cover [selecting files with the File Browser SDK](select-files.md).
+on acquiring valid authentication tokens for the Microsoft Graph can be found in [this tutorial](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). 
+In the next section, we cover [selecting files with the File Browser SDK](select-files.md).
 
 <!-- {
   "type": "#page.annotation",

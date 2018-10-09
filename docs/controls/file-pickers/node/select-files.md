@@ -51,7 +51,7 @@ When the `onSuccess` callback is invoked, it is passed a single argument that is
   [key: string]: {
     endpoint: string, // the endpoint url the item was fetched from
     driveId?: string, // the identifier of the drive that contains the item
-    itemId?: string   // the identifier of the itme
+    itemId?: string   // the identifier of the item
   } 
 }
 ```
