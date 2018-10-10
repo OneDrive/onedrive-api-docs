@@ -13,11 +13,13 @@ The following walk through demonstrates how to integrate the [Microsoft File Bro
 
 ### 1. Attach an onSuccess callback
 
-The `GraphFileBrowser` component exposes the following callback props, `onSuccess` and `onCancel`. The `onSuccess` callback is invoked when a user selects files via the default "Select" action button.
+The `GraphFileBrowser` component exposes the following callback props, `onSuccess` and `onCancel`.
+The `onSuccess` callback is invoked when a user selects files via the default "Select" action button.
 
 #### The onSuccess Callback
 
-The `onSuccess` prop expects a function that receives an Array of keys for the items selected in the File Browser. Below is an example implementation of the `onSuccess` prop that logs the selected file keys to the Browser's console:
+The `onSuccess` prop expects a function that receives an Array of keys for the items selected in the File Browser.
+Below is an example implementation of the `onSuccess` prop that logs the selected file keys to the Browser's console:
 
 ```jsx
 class App extends React.Component {
@@ -39,11 +41,13 @@ class App extends React.Component {
 }
 ```
 
-To invoke the `onSuccess` callback, click the default "Select" action button. The keys of any selected files will then be output to the Browser's console.
+To invoke the `onSuccess` callback, click the default "Select" action button.
+The keys of any selected files will then be output to the Browser's console.
 
 #### onSuccess Callback Parameter
 
-When the `onSuccess` callback is invoked, it is passed a single argument that is an Array of keys of the selected items. Each key contains the following structure:
+When the `onSuccess` callback is invoked, it is passed a single argument that is an Array of keys of the selected items.
+Each key contains the following structure:
 
 ```ts
 {
@@ -64,7 +68,8 @@ The `onCancel` callback is invoked when a user cancels a select action via the d
 
 #### Cancel Callback
 
-The `onCancel` prop expects a function that receives an `Error` as its only argument upon selection of the default "Cancel" action button. Building upon our previous example, an example implementation of the `onCancel` prop is:
+The `onCancel` prop expects a function that receives an `Error` as its only argument upon selection of the default "Cancel" action button.
+Building upon our previous example, an example implementation of the `onCancel` prop is:
 
 ```jsx
 class App extends React.Component {
@@ -91,7 +96,8 @@ class App extends React.Component {
 }
 ```
 
-To invoke the `onCancel` callback, click the default "Cancel" action button. An `Error` with the canceled by user message will then be output to the Browser's console.
+To invoke the `onCancel` callback, click the default "Cancel" action button.
+An `Error` with the canceled by user message will then be output to the Browser's console.
 
 In the next section, we cover [applying a custom theme to your File Browser](theming-customization.md).
 
