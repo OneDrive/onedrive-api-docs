@@ -8,7 +8,8 @@ title: Add custom theme to file browser component
 
 # Apply a Custom Theme
 
-You can easily apply a custom theme to the File Browser by utilizing Office UI Fabric's `Customizer` component. The following steps demonstrate how to apply a custom theme to the `GraphFileBrowser`:
+You can easily apply a custom theme to the File Browser by utilizing Office UI Fabric's `Customizer` component. 
+The following steps demonstrate how to apply a custom theme to the `GraphFileBrowser`:
 
 1. In your React app, import `Customizer` from `office-ui-fabric-react/lib/Utilities` and `ITheme` from `office-ui-fabric/lib/Styling`.
 1. Create a custom `ITheme` and pass it into the `settings` prop of `Customizer`. You can use [Office UI Fabric's Theme Generator](https://developer.microsoft.com/en-us/fabric#/styles/themegenerator) to create a custom palette.
