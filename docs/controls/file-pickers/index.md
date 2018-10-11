@@ -17,7 +17,7 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 | Platform                   | Documentation                                                            |
 | -------------------------- | ------------------------------------------------------------------------ |
 | Web / JavaScript           | [JavaScript File picker SDK][web-picker]                                 |
-|                            | [File Browser SDK][node-file-browser]                                    |
+|                            | [File Browser SDK][file-browser]                                    |
 | Android                    | [Android file picker SDK][android-picker]                                |
 | iOS                        | [Use UIDocumentPicker][ios-picker]                                       |
 | Universal Windows Platform | [Use FileOpenPicker][windows-picker], or [FileSavePicker][windows-saver] |
@@ -26,7 +26,7 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 [android-picker]: android/index.md
 [ios-picker]: https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/DocumentPickerProgrammingGuide/AccessingDocuments/AccessingDocuments.html
 [web-picker]: js-v72/index.md
-[node-file-browser]: node/index.md
+[file-browser]: npm/index.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
 [windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 

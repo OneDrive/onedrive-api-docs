@@ -4,7 +4,7 @@ ms.author: keco
 ms.date: 10/02/2018
 ms.topic: overview
 ---
-# Microsoft File Browser SDK for Node.js (Preview)
+# Microsoft File Browser SDK (Preview)
 
 The [Microsoft File Browser SDK](https://www.npmjs.com/package/@microsoft/file-browser) provides a reusable React component for building file experiences with the [Microsoft Graph](https://developer.microsoft.com/en-us/graph).
 By using the SDK, any React application can render and perform actions on files by providing a valid `access_token`.
