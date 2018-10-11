@@ -1,6 +1,6 @@
 ---
-author: kevintcoughlin natalieethell
-ms.author: keco naethell
+author: kevintcoughlin
+ms.author: keco
 ms.date: 10/02/2018
 ---
 

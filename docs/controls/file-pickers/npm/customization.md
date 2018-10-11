@@ -1,6 +1,6 @@
 ---
-author: natalieethell kevintcoughlin
-ms.author: nethell keco
+author: natalieethell
+ms.author: nethell
 ms.date: 10/03/2018
 ms.topic: conceptual
 title: Customizing the File Browser
