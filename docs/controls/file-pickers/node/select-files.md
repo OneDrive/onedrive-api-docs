@@ -19,6 +19,9 @@ The `onSuccess` callback prop expects a function that receives an Array of keys 
 Below is an example implementation of the `onSuccess` prop which logs the selected file keys to the Browser's console:
 
 ```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 class App extends React.Component {
   public render(): JSX.Element {
     return (
@@ -36,6 +39,11 @@ class App extends React.Component {
     console.log('onSuccess', keys);
   }
 }
+
+ReactDOM.render(
+  <App />,
+  mountNode
+);
 ```
 
 To invoke the `onSuccess` callback in the File Browser, click the "Select" action button once rendered.
@@ -69,6 +77,9 @@ The `onCancel` callback prop expects a function that receives an `Error` as its 
 Building upon our previous example, an example implementation of the `onCancel` prop is:
 
 ```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 class App extends React.Component {
   public render(): JSX.Element {
     return (
@@ -91,6 +102,11 @@ class App extends React.Component {
     console.log('onCancel', err.message);
   }
 }
+
+ReactDOM.render(
+  <App />,
+  mountNode
+);
 ```
 
 To invoke the `onCancel` callback, click the "Cancel" action button.
