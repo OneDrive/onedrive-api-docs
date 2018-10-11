@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 
   private getAuthenticationToken() {
-    return new Promise(resolve => resolve('<access_token>'));
+    return Promise.resolve('<access_token>');
   }
 }
 ```
