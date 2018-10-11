@@ -131,7 +131,7 @@ The props are defined as follows:
 
 ## Next Step
 
-In the next section, we cover [customizing the File Browser](theming-customization.md).
+In the next section, we cover [customizing the File Browser](customization.md).
 
 <!-- {
   "type": "#page.annotation",
