@@ -8,22 +8,24 @@ ms.date: 10/02/2018
 
 The following walk through demonstrates how to integrate the [Microsoft File Browser SDK](https://www.npmjs.com/package/@microsoft/file-browser) with the sample React application used in [project setup](index.md).
 
-## 1. Attach an onSuccess callback
+## Handling File Selection
+
+### 1. Attach an onSuccess callback
 
 The `GraphFileBrowser` component exposes the following action callback props, `onSuccess` and `onCancel`.
 The `onSuccess` callback is invoked when a user selects files via the default "Select" action button.
 
-### onSuccess Callback
+#### onSuccess Callback
 
 The `onSuccess` callback prop expects a function that receives an Array of keys for the items selected in the File Browser.
 Below is an example implementation of the `onSuccess` prop which logs the selected file keys to the Browser's console:
 
-```tsx
+```jsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 class App extends React.Component {
-  public render(): JSX.Element {
+  public render() {
     return (
       <GraphFileBrowser 
         getAuthenticationToken={this.getAuthenticationToken}
@@ -31,11 +33,11 @@ class App extends React.Component {
     );
   }
 
-  private getAuthenticationToken(): Promise<string> {
+  private getAuthenticationToken() {
     return Promise.resolve('<access_token>');
   }
 
-  private onSuccess(keys: any[]): void {
+  private onSuccess(keys) {
     console.log('onSuccess', keys);
   }
 }
@@ -49,7 +51,7 @@ ReactDOM.render(
 To invoke the `onSuccess` callback in the File Browser, click the "Select" action button once rendered.
 The keys of any selected files will be logged to the Browser's console.
 
-### onSuccess Callback Parameter
+#### onSuccess Payload
 
 When the `onSuccess` callback is invoked, it is passed a single argument that is an Array of keys of the selected items.
 Each key has the following structure:
@@ -67,21 +69,21 @@ Each key has the following structure:
 
 With the above information and a valid `access_token`, you may act upon the file using the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/onedrive).
 
-## 2. Attach an onCancel callback
+### 2. Attach an onCancel callback
 
 The `onCancel` callback is invoked when a user cancels a select action via the default "Cancel" action button.
 
-### onCancel Callback
+#### onCancel Callback
 
 The `onCancel` callback prop expects a function that receives an `Error` as its only argument upon selection of the default "Cancel" action button.
 Building upon our previous example, an example implementation of the `onCancel` prop is:
 
-```tsx
+```jsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 class App extends React.Component {
-  public render(): JSX.Element {
+  public render() {
     return (
       <GraphFileBrowser 
         getAuthenticationToken={this.getAuthenticationToken}
@@ -90,15 +92,15 @@ class App extends React.Component {
     );
   }
 
-  private getAuthenticationToken(): Promise<string> {
+  private getAuthenticationToken() {
     return Promise.resolve('<access_token>');
   }
 
-  private onSuccess(keys: any[]): void {
+  private onSuccess(keys) {
     console.log('onSuccess', keys);
   }
 
-  private onCancel(err: Error): void {
+  private onCancel(err) {
     console.log('onCancel', err.message);
   }
 }

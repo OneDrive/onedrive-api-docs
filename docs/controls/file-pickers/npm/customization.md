@@ -8,7 +8,7 @@ title: Customizing the File Browser
 
 # Customizing the File Browser
 
-## Custom Theme
+## Applying Custom Themes
 
 You can easily apply a custom theme to the File Browser by utilizing [Office UI Fabric](https://developer.microsoft.com/en-us/fabric)'s `Customizer` component.
 The following walk through covers applying a theme to the `GraphFileBrowser` using `Customizer`:
@@ -19,7 +19,7 @@ The following walk through covers applying a theme to the `GraphFileBrowser` usi
 
 Below is a code sample after completing the above steps:
 
-```tsx
+```jsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -27,7 +27,7 @@ import { GraphFileBrowser } from '@microsoft/file-browser';
 import { Customizer } from 'office-ui-fabric-react/lib/Utilities';
 import { createTheme, ITheme } from 'office-ui-fabric-react/lib/Styling';
 
-export const theme: ITheme = createTheme({
+export const theme = createTheme({
   palette: {
     themePrimary: '#6264a7',
     themeLighterAlt: '#f7f7fb',
@@ -59,11 +59,11 @@ export const theme: ITheme = createTheme({
 });
 
 class App extends React.Component {
-  getAuthenticationToken(): Promise<string> {
+  getAuthenticationToken() {
     return Promise.resolve('<access_token>');
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Customizer
         settings={ { theme } }>
@@ -80,7 +80,7 @@ ReactDOM.render(
 );
 ```
 
-# Custom Action Buttons
+## Render Custom Action Buttons
 
 To support advanced scenarios, the File Browser SDK exposes React Component props for customizing its "Select" and "Cancel" action buttons.
 By default, the `GraphFileBrowser` component renders "Select" and "Cancel" buttons in the footer.
@@ -105,14 +105,14 @@ The developer is then free to apply those props on and return a valid `JSX.Eleme
 
 This walk through covers customizing both the text and style of the action buttons.
 
-## Custom text
+### Custom Button Text
 
 The above mentioned render functions allow for complete customization of the action buttons.
 For example, you may customize the text of the controls while retaining the remaining default props by using the following implementations:
 
-```tsx
+```jsx
 class App extends React.Component {
-  public render(): JSX.Element {
+  public render() {
     return (
       <GraphFileBrowser
         getAuthenticationToken={this.getAuthenticationToken}
@@ -121,15 +121,15 @@ class App extends React.Component {
     );
   }
 
-  private getAuthenticationToken(): Promise<string> {
+  private getAuthenticationToken() {
     return Promise.resolve('<access_token>');
   }
 
-  private onRenderSuccessButton(props: IButtonProps): JSX.Element {
+  private onRenderSuccessButton(props) {
     return <PrimaryButton {...props} text="Ok" />
   }
 
-  private onRenderCancelButton(props: IButtonProps): JSX.Element {
+  private onRenderCancelButton(props) {
     return <DefaultButton {...props} text="Discard" />
   }
 }
@@ -137,7 +137,7 @@ class App extends React.Component {
 
 This replaces the text to be "Ok" and "Discard" for the "Select" and "Cancel" buttons for the `GraphFileBrowser` component.
 
-## Custom styles
+### Custom Button Styles
 
 By using `IRenderFunction<IButtonProps>`, a developer may customize the File Browser buttons beyond changing their text values.
 For example, custom styles can be applied per button by overriding the styles for default, hovered, and pressed states.
@@ -145,9 +145,9 @@ For example, custom styles can be applied per button by overriding the styles fo
 Building off of the above customized "Select" button, let's apply a custom `background-color` in default, hovered, and pressed states.
 Since we're rendering an `office-ui-fabric-react` Button, we can style a `PrimaryButton` component using the library's `styles` approach covered in this [Wiki](https://github.com/OfficeDev/office-ui-fabric-react/wiki/Component-Styling#using-a-styleable-component) entry.
 
-```tsx
-private onRenderSuccessButton(props: IButtonProps): JSX.Element {
-  const styles: Partial<IButtonStyles> = {
+```jsx
+private onRenderSuccessButton(props) {
+  const styles = {
     root: {
       backgroundColor: '#5c2d91'
     },
