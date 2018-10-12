@@ -68,7 +68,10 @@ One way to quickly test a valid token is to sign-in to the [Microsoft Graph Expl
 Once signed-in, you can copy the access token for your account from the `access_token` query parameter.
 
 More information on acquiring valid authentication tokens for the Microsoft Graph can be found in [this tutorial](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview).
-In the next section, we cover [selecting files with the File Browser SDK](select-files.md).
+
+## Next Step
+
+Learn more about [selecting files with the File Browser](select-files.md) or [customizing the File Browser](customization.md).
 
 <!-- {
   "type": "#page.annotation",
