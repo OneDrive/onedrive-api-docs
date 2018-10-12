@@ -167,7 +167,7 @@ After applying the above changes, refresh your application to see the "Ok" butto
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Customizing the Microsoft File Browser SDK.",
+  "description": "Customize the Microsoft File Browser SDK's theme and action buttons.",
   "keywords": "js,javascript,onedrive,graph,file,browser,picker,saver,open,save,cloud,theming,customizer,theme,customizing",
   "section": "sdks",
   "headerAdditions": [],

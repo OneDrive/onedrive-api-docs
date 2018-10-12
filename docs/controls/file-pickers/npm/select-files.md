@@ -137,7 +137,7 @@ In the next section, we cover [customizing the File Browser](customization.md).
 
 <!-- {
   "type": "#page.annotation",
-  "description": "Use the Microsoft File Browser SDK to select OneDrive files.",
+  "description": "Use the Microsoft File Browser SDK to select files from the Microsoft Graph.",
   "keywords": "js,javascript,onedrive,graph,file,browser,picker,saver,open,save,cloud",
   "section": "sdks",
   "headerAdditions": [],
