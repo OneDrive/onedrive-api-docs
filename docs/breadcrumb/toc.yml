@@ -25,6 +25,9 @@
       - name: JavaScript
         tocHref: /onedrive/developer/controls/file-pickers/js-v72
         topicHref: /onedrive/developer/controls/file-pickers/js-v72/index
+      - name: JavaScript (Preview)
+        tocHref: /onedrive/developer/controls/file-pickers/npm
+        topicHref: /onedrive/developer/controls/file-pickers/npm/index
       - name: Android
         tocHref: /onedrive/developer/controls/file-pickers/android
         topicHref: /onedrive/developer/controls/file-pickers/android/index

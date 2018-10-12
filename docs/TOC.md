@@ -162,3 +162,6 @@
 ## [JavaScript](controls/file-pickers/js-v72/index.md)
 ### [Open a file](controls/file-pickers/js-v72/open-file.md)
 ### [Save a file](controls/file-pickers/js-v72/save-file.md)
+## [JavaScript (Preview)](controls/file-pickers/npm/index.md)
+### [Select files](controls/file-pickers/npm/select-files.md)
+### [Customization](controls/file-pickers/npm/customization.md)
