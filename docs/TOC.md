@@ -163,5 +163,5 @@
 ### [Open a file](controls/file-pickers/js-v72/open-file.md)
 ### [Save a file](controls/file-pickers/js-v72/save-file.md)
 ## [React (Preview)](controls/file-pickers/react/index.md)
-### [Select files](controls/file-pickers/npm/select-files.md)
-### [Customization](controls/file-pickers/npm/customization.md)
+### [Select files](controls/file-pickers/react/select-files.md)
+### [Customization](controls/file-pickers/react/customization.md)
