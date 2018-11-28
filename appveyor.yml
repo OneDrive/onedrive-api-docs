@@ -1,0 +1,12 @@
+version: 1.0.{build}
+clone_depth: 1
+build_script:
+- ps: >-
+    Write-Host "no build required. this custom build script is here to override appveyor's default behavior of looking for csproj files to build."
+test_script:
+- ps: >-
+    $scriptPath = Join-Path $env:APPVEYOR_BUILD_FOLDER -ChildPath "Test-Docs.ps1"
+   
+    & $scriptPath
+    
+    if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }

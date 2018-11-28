@@ -1,4 +1,4 @@
-<!-- { "blockType": "request", "name": "get-url" } -->
+<!-- { "blockType": "request", "name": "get-url", "tags": "service.graph" } -->
 ```http
 GET https://onedrive.com
 ```

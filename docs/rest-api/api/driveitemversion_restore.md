@@ -38,7 +38,7 @@ No request body is required.
 
 This example restores a version of a file identified by `{item-id}` and `{version-id}`.
 
-<!-- { "blockType": "request", "name": "restore-item-version", "scopes": "files.readwrite", "apiVersions": "beta", "target": "action" } -->
+<!-- { "blockType": "request", "name": "restore-item-version", "scopes": "files.readwrite", "target": "action" } -->
 
 ```http
 POST /drives/{drive-id}/items/{item-id}/versions/{version-id}/restoreVersion

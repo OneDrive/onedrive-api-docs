@@ -6,7 +6,7 @@
       "build_output_subfolder": "onedrive",
       "locale": "en-us",
       "monikers": [],
-      "moniker_ranges": [],
+      "moniker_ranges": [">= odsp-graph-online", "<= odsp-graph-2019"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -31,6 +31,12 @@
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "docs/sp2019",
+      "url": "https://github.com/onedrive/onedrive-api-docs",
+      "branch": "sp2019",
       "branch_mapping": {}
     }
   ],

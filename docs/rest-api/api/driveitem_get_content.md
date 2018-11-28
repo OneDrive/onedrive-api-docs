@@ -54,7 +54,7 @@ Returns a `302 Found` response redirecting to a pre-authenticated download URL f
 This is the same URL available through the `@microsoft.graph.downloadUrl` property on the DriveItem.
 
 To download the contents of the file your application will need to follow the `Location` header in the response.
-Many HTTP client libraries will automatically follow the 302 redirection and start downloading the file immedately.
+Many HTTP client libraries will automatically follow the 302 redirection and start downloading the file immediately.
 
 Pre-authenticated download URLs are only valid for a short period of time (a few minutes) and do not require an `Authorization` header to download.
 
@@ -85,6 +85,7 @@ If the range cannot be generated the Range header may be ignored and an `HTTP 20
 ```http
 HTTP/1.1 206 Partial Content
 Content-Range: bytes 0-1023/2048
+Content-Type: application/octet-stream
 
 <first 1024 bytes of file>
 ```

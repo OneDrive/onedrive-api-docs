@@ -15,7 +15,6 @@ The **ItemActivityTimeSet** resource provides information about when an [activit
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ ],
-  "keyProperty": "id",
   "@type": "microsoft.graph.itemActivityTimeSet",
   "@type.aka": "oneDrive.times",
   "@property.aka": "observedDateTime=observedTime recordedDateTime=recordedTime"

@@ -64,7 +64,7 @@ Content-type: application/json
             },
             "id": "EJalEvjV1EgIYFQAAAAAAA==",
             "times": {
-                "recordedTime": "2017-07-29T18:34:40Z"
+                "recordedDateTime": "2017-07-29T18:34:40Z"
             }
         },
         {
@@ -81,7 +81,7 @@ Content-type: application/json
             },
             "id": "cInT6/fV1EgFYFQAAAAAAA==",
             "times": {
-                "recordedTime": "2017-07-29T16:23:35Z"
+                "recordedDateTime": "2017-07-29T16:23:35Z"
             }
         },
         {
@@ -103,7 +103,7 @@ Content-type: application/json
             },
             "id": "EBJa0vPV1EjFX1QAAAAAAA==",
             "times": {
-                "recordedTime": "2017-07-28T20:14:14Z"
+                "recordedDateTime": "2017-07-28T20:14:14Z"
             }
         },
         {
@@ -119,7 +119,7 @@ Content-type: application/json
             },
             "id": "QFJFlfPV1Ei/X1QAAAAAAA==",
             "times": {
-                "recordedTime": "2017-07-28T20:12:32Z"
+                "recordedDateTime": "2017-07-28T20:12:32Z"
             }
         },
         {
@@ -133,7 +133,7 @@ Content-type: application/json
             },
             "id": "IJydkPPV1Ei9X1QAAAAAAA==",
             "times": {
-                "recordedTime": "2017-07-28T20:02:24Z"
+                "recordedDateTime": "2017-07-28T20:02:24Z"
             }
         }
     ]

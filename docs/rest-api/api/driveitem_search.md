@@ -117,7 +117,7 @@ Content-type: application/json
         "name": "Contoso Project",
         "folder": {},
         "searchResult": { "onClickTelemetryUrl": "https://bing.com/0123456789abc!123" },
-        "remoteItem": { "id": "!23141901", "driveId": "s!1020101jlkjl12lx" }
+        "remoteItem": { "id": "!23141901", "parentReference": { "driveId": "s!1020101jlkjl12lx" } }
       },
       {
         "id": "0123456789abc!456",
@@ -132,6 +132,10 @@ Content-type: application/json
 ## Remarks
 
 * In OneDrive for Business and SharePoint, when searching under a folder hierarchy, partial results may be returned. Some file types, such as image files, may not be returned.
+
+## Remarks
+
+*Note:* In OneDrive for Business and SharePoint, when searching under a folder hierarchy, image file types, may not be returned in the results.
 
 ## Error responses
 

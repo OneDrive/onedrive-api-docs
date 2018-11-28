@@ -4,15 +4,15 @@ Param(
     [switch]$debug
 )
 $repoPath = (Get-Location).Path
-$downloadedApiDocs = $false
+$downloadedApiDoctor = $false
 $downloadedNuGet = $false
 
 Write-Host "Repository location: ", $repoPath
 
-# Check for Markdown Scanner in path
-$apidocs = $null
-if (Get-Command "apidocs.exe" -ErrorAction SilentlyContinue) {
-    $apidocs = (Get-Command "apidocs.exe").Source
+# Check for ApiDoctor in path
+$apidoc = $null
+if (Get-Command "apidoc.exe" -ErrorAction SilentlyContinue) {
+    $apidoc = (Get-Command "apidoc.exe").Source
 } else {
     $nugetPath = $null
     if (Get-Command "nuget.exe" -ErrorAction SilentlyContinue) {
@@ -31,49 +31,40 @@ if (Get-Command "apidocs.exe" -ErrorAction SilentlyContinue) {
         $downloadedNuGet = $true
     }
 
-    $packagesPath = Join-Path $repoPath -ChildPath "markdown-scanner"
+    $packagesPath = Join-Path $repoPath -ChildPath "apidoctor"
     $result = New-Item -ItemType Directory -Force -Path $packagesPath
 
-    # install markdown scanner from nuget
+    # install apidoctor from nuget
     Write-Host "Running nuget.exe from ", $nugetPath
-    $nugetParams = "install", "MarkdownScanner.BinaryTools", "-OutputDirectory", $packagesPath, "-NonInteractive"
+    $nugetParams = "install", "ApiDoctor", "-OutputDirectory", $packagesPath, "-NonInteractive", "-DisableParallelProcessing"
     & $nugetPath $nugetParams
 
     if ($LastExitCode -ne 0) { 
         # nuget error, so we can't proceed
-        Write-Host "Error installing Markdown Scanner from NuGet. Aborting."
+        Write-Host "Error installing ApiDoctor from NuGet. Aborting."
         Remove-Item $nugetPath
         exit $LastExitCode
     }
 
-    # get the path to the markdown-scanner exe
-    $pkgfolder = Get-ChildItem -LiteralPath $packagesPath -Directory | Where-Object {$_.name -match "MarkdownScanner.BinaryTools."}
-    $apidocs = [System.IO.Path]::Combine($packagesPath, $pkgfolder.Name, "tools\apidocs.exe")
-    $downloadedApiDocs = $true
+    # get the path to the Api Doctor exe
+    $pkgfolder = Get-ChildItem -LiteralPath $packagesPath -Directory | Where-Object {$_.name -match "ApiDoctor"}
+    $apidoc = [System.IO.Path]::Combine($packagesPath, $pkgfolder.Name, "tools\apidoc.exe")
+    $downloadedApiDoctor = $true
 }
 
 $lastResultCode = 0
 
 # check links at the root of the repository
-$parms = "check-links", "--path", $repoPath
-& $apidocs $parms
+$appVeyorUrl = $env:APPVEYOR_API_URL
 
-if ($LastExitCode -ne 0) { 
-    $lastResultCode = $LastExitCode
+$parms = "check-all", "--path", $repoPath
+
+if ($appVeyorUrl -ne $null)
+{
+    $parms = $parms += "--appveyor-url", $appVeyorUrl
 }
 
-# check documents in each api reference set
-
-$path = Join-Path $repoPath -ChildPath "docs"
-
-# Run the checks on all files
-if ($debug -eq $true) {
-    $parms = "check-docs", "--path", $path, "--debug"
-} else {
-    $parms = "check-docs", "--path", $path
-}
-
-& $apidocs $parms    
+& $apidoc $parms    
 if ($LastExitCode -ne 0) { 
     $lastResultCode = $LastExitCode
 }
@@ -86,13 +77,12 @@ if($checkService -eq $true) {
     }
 }
 
-
 # Clean up the stuff we downloaded
 if ($cleanUp -eq $true) {
     if ($downloadedNuGet -eq $true) {
         Remove-Item $nugetPath 
     }
-    if ($downloadedApiDocs -eq $true) {
+    if ($downloadedApiDoctor -eq $true) {
         Remove-Item $packagesPath -Recurse
     }
 }

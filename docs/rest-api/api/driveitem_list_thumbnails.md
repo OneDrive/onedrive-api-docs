@@ -23,7 +23,6 @@ Here are the most common ones:
 * Upload a custom thumbnail for an item
 * Determine if a custom uploaded thumbnail exists
 
-
 ## Permissions
 
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
@@ -181,9 +180,9 @@ Content-type: application/json
       "thumbnails": [
         {
           "small": { "width": 96,
-                   "height": 96,
-                   "url": "https://sn3302files..."
-                 }
+                     "height": 96,
+                     "url": "https://sn3302files..."
+                   }
         }
       ]
     },
@@ -193,9 +192,9 @@ Content-type: application/json
       "thumbnails": [
         {
           "small": { "width": 96,
-                   "height": 96,
-                   "url": "https://sn3302files..."
-                 }
+                     "height": 96,
+                     "url": "https://sn3302files..."
+                   }
         }
       ]
     }
@@ -203,7 +202,7 @@ Content-type: application/json
 }
 ```
 
-## Size values
+## Size options
 
 This table defines the possible thumbnail sizes.
 While you can request any arbitrary thumbnail size, the defined values are likely to exist and return a value quickly:
@@ -281,5 +280,13 @@ how errors are returned.
   "description": "Get metadata and content for thumbnails of multiple sizes for OneDrive items.",
   "keywords": "thumbnail,content,download,sizes",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/api/driveitem_list_thumbnails.md:
+      Unable to map some markdown elements into schema.
+         Unmapped methods:
+      enum-item-thumbnails, get-one-thumbnail, get-thumbnail-content, get-thumbnail-while-listing, get-thumbnail-custom-size
+         Unmapped tables:
+      Permissions - AuthScopes, Path parameters - PathParameters, Size options - Unknown, Examples of custom identifiers - Unknown"
+  ],
   "tocPath": "Items/Thumbnails"
 } -->

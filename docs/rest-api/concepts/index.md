@@ -10,6 +10,7 @@ While working with data in OneDrive via the Microsoft Graph, the following conce
 
 * [Addressing items in a drive](addressing-driveitems.md)
 * [API permissions](permissions_reference.md)
+* [Best practices for discovering files and detecting changes at scale](scan-guidance.md)
 * [Calling the API from JavaScript and CORS](working-with-cors.md)
 * [Case sensitivity](case-sensitivity.md)
 * [Common error responses](errors.md)
@@ -28,6 +29,6 @@ While working with data in OneDrive via the Microsoft Graph, the following conce
 <!-- {
   "type": "#page.annotation",
   "description": "Learn about the concepts necessary to work with OneDrive items",
-  "section": "documentation"
-  "tocPath": "REST APIs\Concepts
+  "section": "documentation",
+  "tocPath": "REST APIs/Concepts"
 } -->

@@ -24,7 +24,7 @@ To list the document libraries for a group, your app requests the **drives** rel
 
 ### HTTP request
 
-<!-- {"blockType": "request", "name": "group-list-drives", "scopes": "groups.read.all" } -->
+<!-- {"blockType": "request", "name": "group-list-drives", "scopes": "groups.read.all", "tags": "service.graph" } -->
 
 ```http
 GET /groups/{groupId}/drives
@@ -34,7 +34,7 @@ GET /groups/{groupId}/drives
 
 To list the document libraries for a site, your app requests the **drives** relationship on the Site.
 
-<!-- {"blockType": "request", "name": "site-list-drives", "scopes": "sites.read.all" } -->
+<!-- {"blockType": "request", "name": "site-list-drives", "scopes": "sites.read.all", "tags": "service.graph" } -->
 
 ```http
 GET /sites/{siteId}/drives

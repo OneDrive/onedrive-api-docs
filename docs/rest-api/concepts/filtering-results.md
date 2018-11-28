@@ -91,10 +91,10 @@ Below is an example of filtering search results for only items that have a
 
 #### Request
 
-<!-- { "blockType": "request", "name": "filtering-image-file", "scopes": "files.read service.onedrive", "target": "action" } -->
+<!-- { "blockType": "request", "name": "filtering-image-file", "scopes": "files.read", "tags": "service.onedrive", "target": "action" } -->
 
 ```
-GET /drive/root/search?q=vacation&filter=image%20ne%20null%20and%20file%20ne%20null
+GET /drive/root/search(q='vacation')?filter=image%20ne%20null%20and%20file%20ne%20null
 ```
 
 #### Response
@@ -140,5 +140,9 @@ Content-type: application/json
   "description": "Filter the results of a collection based on values for properties of items returned.",
   "keywords": "search,filter,restrict,limit,query,items,files",
   "section": "documentation",
+  "suppressions": [
+    "Error: search(q={var}):
+      Couldn't find definition for parameter q={var} in search(q={var}) after looking in /docs/rest-api/concepts/filtering-results.md"
+  ],
   "tocPath": "Items/Filter"
 } -->
