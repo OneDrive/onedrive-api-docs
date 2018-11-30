@@ -70,6 +70,7 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
   "permissions": [ {"@odata.type": "microsoft.graph.permission"} ],
   "thumbnails": [ {"@odata.type": "microsoft.graph.thumbnailSet"}],
   "versions": [ {"@odata.type": "microsoft.graph.driveItemVersion"}],
+  "listItem": {"@odata.type": "microsoft.graph.listItem"},
 
   /* inherited from baseItem */
   "id": "string (identifier)",
