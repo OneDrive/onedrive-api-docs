@@ -24,6 +24,8 @@ For example:
 
 Items with the **folder** facet act as containers of items and therefore have a `children` reference pointing to a collection of **driveItems** under the folder.
 
+Items created under **lists** have a `listItem` reference pointing to the related **listItem** of **driveItem**. `drive/items/{item-id}/{listItem}` can be used to address the **listItem** resource.
+
 ## JSON representation
 
 Here is a JSON representation of a **driveItem** resource.
@@ -70,6 +72,7 @@ The **driveItem** resource is derived from [**baseItem**][baseItem] and inherits
   "permissions": [ {"@odata.type": "microsoft.graph.permission"} ],
   "thumbnails": [ {"@odata.type": "microsoft.graph.thumbnailSet"}],
   "versions": [ {"@odata.type": "microsoft.graph.driveItemVersion"}],
+  "listItem": {"@odata.type": "microsoft.graph.listItem"},
 
   /* inherited from baseItem */
   "id": "string (identifier)",
