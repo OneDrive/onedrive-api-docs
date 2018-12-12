@@ -9,7 +9,10 @@
         "stateful",
         "Contoso",
         "guid",
+        "docx",
         "odata",
+        "readwrite",
+        "rgregg",
         "Addins"
     ],
     // flagWords - list of words to be always considered incorrect

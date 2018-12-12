@@ -44,7 +44,7 @@ In the request body, provide a JSON object with the following parameters.
 
 This example checks in a file identified by `{item-id}`.
 
-<!-- { "blockType": "request", "name": "checkin-item", "scopes": "files.readwrite", "target": "action" } -->
+<!-- { "blockType": "request", "name": "checkin-item", "scopes": "files.readwrite sites.readwrite.all", "target": "action", "apiVersions": "beta" } -->
 
 ```http
 POST /drives/{drive-id}/items/{item-id}/checkin
@@ -57,12 +57,12 @@ Content-Type: application/json
 
 ## Response
 
-If successful, the API call returns a `204 No content`.
+If successful, the API call returns a `204 No Content`.
 
 <!-- { "blockType": "response" } -->
 
 ```http
-HTTP/1.1 204 No content
+HTTP/1.1 204 No Content
 ```
 
 ### Remarks

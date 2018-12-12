@@ -23,7 +23,6 @@ Here are the most common ones:
 * Upload a custom thumbnail for an item
 * Determine if a custom uploaded thumbnail exists
 
-
 ## Permissions
 
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../concepts/permissions_reference.md).
@@ -58,7 +57,7 @@ If successful, this method returns a `200 OK` response code and collection of [T
 
 Here is an example of the request which retrieves available thumbnails for an item in the current user's OneDrive.
 
-<!-- { "blockType": "request", "name": "enum-item-thumbnails", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "enum-item-thumbnails", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/thumbnails
@@ -97,7 +96,7 @@ Retrieve the metadata for a single thumbnail and size by addressing it directly 
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-one-thumbnail", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-one-thumbnail", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/thumbnails/{thumb-id}/{size}
@@ -130,7 +129,7 @@ You can directly retrieve the content of the thumbnail by requesting the **conte
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name":"get-thumbnail-content", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name":"get-thumbnail-content", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/thumbnails/{thumb-id}/{size}/content
@@ -157,7 +156,7 @@ This enables your app to retrieve thumbnails and items in a single request, inst
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name":"get-thumbnail-while-listing", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name":"get-thumbnail-while-listing", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/children?$expand=thumbnails
@@ -181,9 +180,9 @@ Content-type: application/json
       "thumbnails": [
         {
           "small": { "width": 96,
-                   "height": 96,
-                   "url": "https://sn3302files..."
-                 }
+                     "height": 96,
+                     "url": "https://sn3302files..."
+                   }
         }
       ]
     },
@@ -193,9 +192,9 @@ Content-type: application/json
       "thumbnails": [
         {
           "small": { "width": 96,
-                   "height": 96,
-                   "url": "https://sn3302files..."
-                 }
+                     "height": 96,
+                     "url": "https://sn3302files..."
+                   }
         }
       ]
     }
@@ -203,7 +202,7 @@ Content-type: application/json
 }
 ```
 
-## Size values
+## Size options
 
 This table defines the possible thumbnail sizes.
 While you can request any arbitrary thumbnail size, the defined values are likely to exist and return a value quickly:
@@ -222,7 +221,7 @@ While you can request any arbitrary thumbnail size, the defined values are likel
 In addition to the defined sizes, your app can request a custom thumbnail size by specifying the dimensions of the thumbnail prefixed with `c`.
 For example if your app needs thumbnails that are 300x400, it can request that size like this:
 
-<!-- { "name": "get-thumbnail-custom-size", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-thumbnail-custom-size", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive/items/{item-id}/thumbnails?select=c300x400_Crop
@@ -281,5 +280,13 @@ how errors are returned.
   "description": "Get metadata and content for thumbnails of multiple sizes for OneDrive items.",
   "keywords": "thumbnail,content,download,sizes",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /api-reference/v1.0/api/driveitem_list_thumbnails.md:
+      Unable to map some markdown elements into schema.
+         Unmapped methods:
+      enum-item-thumbnails, get-one-thumbnail, get-thumbnail-content, get-thumbnail-while-listing, get-thumbnail-custom-size
+         Unmapped tables:
+      Permissions - AuthScopes, Path parameters - PathParameters, Size options - Unknown, Examples of custom identifiers - Unknown"
+  ],
   "tocPath": "Items/Thumbnails"
 } -->

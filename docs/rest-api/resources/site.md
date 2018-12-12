@@ -33,17 +33,18 @@ All examples below are relative to `https://graph.microsoft.com/v1.0`.
 | [Access the default document library for a site][]            | GET /sites/{site-id}/drive         |
 | [Enumerate the collection of document libraries under site][] | GET /sites/{site-id}/drives        |
 | [Enumerate the lists under a site][]                          | GET /sites/{site-id}/lists         |
-| [Access a group's site][]                                     | GET /groups/{group-id}/sites/root  |
+| [List root sites][]            | GET /sites?filter=root ne null&select=siteCollection,webUrl
+| [Search for sites][]           | GET /sites?search={query}
 
 [Get site]: ../api/site_get.md
 [Get root site]: ../api/site_get.md
 [Get site by path]: ../api/site_getbypath.md
 [Get site for a group]: ../api/site_get.md
+[List root sites]: ../api/site_list.md
 [Search for sites]: ../api/site_search.md
 [Access the default document library for a site]: ../api/drive_get.md
 [Enumerate the collection of document libraries under site]: ../api/drive_list.md
 [Enumerate the lists under a site]: ../api/list_list.md
-[Access a group's site]: ../api/site_get.md
 
 Sites can also be addressed by path by using the SharePoint hostname, followed by a colon and the relative path to the site.
 You can optionally transition back to addressing the resource model by putting another colon at the end.
@@ -59,10 +60,20 @@ Here is a JSON representation of a **site** resource.
 
 The **site** resource is derived from [**baseItem**](baseitem.md) and inherits properties from that resource.
 
-<!-- { "blockType": "resource",
-       "@odata.type": "microsoft.graph.site",
-       "keyProperty": "id",
-       "optionalProperties": [ "root", "sharepointIds", "siteCollection", "drive", "drives", "sites" ] } -->
+<!--{
+  "blockType": "resource",
+  "optionalProperties": [
+    "root",
+    "sharepointIds",
+    "siteCollection",
+    "drive",
+    "drives",
+    "sites"
+  ],
+  "keyProperty": "id",
+  "baseType": "microsoft.graph.baseItem",
+  "@odata.type": "microsoft.graph.site"
+}-->
 
 ```json
 {
@@ -80,7 +91,6 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
   "lists": [ { "@odata.type": "microsoft.graph.list" }],
   "sites": [ { "@odata.type": "microsoft.graph.site"} ],
   "columns": [ { "@odata.type": "microsoft.graph.columnDefinition" }],
-  "onenote": [ { "@odata.type": "microsoft.graph.onenote"} ],
 
   /* inherited from baseItem */
   "name": "string",
@@ -94,18 +104,19 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 
 ## Properties
 
-| Property name            | Type                                | Description                                                                                    |
-| :----------------------- | :---------------------------------- | :--------------------------------------------------------------------------------------------- |
-| **id**                   | string                              | The unique identifier of the item. Read-only.                                                  |
-| **createdDateTime**      | DateTimeOffset                      | The date and time the item was created. Read-only.                                             |
-| **description**          | string                              | The descriptive text for the site.                                                             |
-| **displayName**          | string                              | The full title for the site. Read-only.                                                        |
-| **lastModifiedDateTime** | DateTimeOffset                      | The date and time the item was last modified. Read-only.                                       |
-| **name**                 | string                              | The name / title of the item.                                                                  |
-| **root**                 | [root](root.md)                     | If present, indicates that this is the root site in the site collection. Read-only.            |
-| **sharepointIds**        | [sharepointIds](sharepointids.md)   | Returns identifiers useful for SharePoint REST compatibility. Read-only.                       |
-| **siteCollection**       | [siteCollection](sitecollection.md) | Provides details about the site's site collection. Available only on the root site. Read-only. |
-| **webUrl**               | string (url)                        | URL that displays the item in the browser. Read-only.                                          |
+| Property name            | Type               | Description
+|:-------------------------|:-------------------|:-----------------------------
+| **id**                   | string             | The unique identifier of the item. Read-only.
+| **createdDateTime**      | DateTimeOffset     | The date and time the item was created. Read-only.
+| **description**          | string             | The descriptive text for the site.
+| **eTag**                 | string             | ETag for the item. Read-only.                                                                  |
+| **displayName**          | string             | The full title for the site. Read-only.
+| **lastModifiedDateTime** | DateTimeOffset     | The date and time the item was last modified. Read-only.
+| **name**                 | string             | The name / title of the item.
+| **root**                 | [root][]           | If present, indicates that this is the root site in the site collection. Read-only.
+| **sharepointIds**        | [sharepointIds][]  | Returns identifiers useful for SharePoint REST compatibility. Read-only.
+| **siteCollection**       | [siteCollection][] | Provides details about the site's site collection. Available only on the root site. Read-only.
+| **webUrl**               | string (url)       | URL that displays the item in the browser. Read-only.
 
 ## Relationships
 
@@ -118,7 +129,6 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 | **items**         | Collection([baseItem][])         | Used to address any item contained in this site. This collection cannot be enumerated.
 | **lists**         | Collection([list][])             | The collection of lists under this site.
 | **sites**         | Collection([site][])             | The collection of the sub-sites under this site.
-| **onenote**       | [onenote][]                      | Calls the OneNote service for notebook related operations.
 
 [columnDefinition]: columndefinition.md
 [baseItem]: baseitem.md
@@ -126,8 +136,10 @@ The **site** resource is derived from [**baseItem**](baseitem.md) and inherits p
 [drive]: drive.md
 [identitySet]: identityset.md
 [list]: list.md
+[root]: root.md
+[sharepointIds]: sharepointIds.md
 [site]: site.md
-[onenote]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/onenote
+[siteCollection]: siteCollection.md
 
 ## Note for existing SharePoint developers
 
@@ -151,10 +163,7 @@ A URL constructed with only the hostname and siteCollection (`SPSite`) ID will p
 GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id}
 ```
 
-[site]: site.md
-[list]: list.md
-[drive]: drive.md
-[siteCollection]: siteCollection.md
+
 
 
 <!-- {

@@ -50,7 +50,7 @@ The request will be rejected if more than two parts are included.
 Each part must specify a **name** value in the `Content-Disposition` header that indicates which part it is.
 Parts can be in either order, but should specify the metadata part first.
 
-<!-- { "blockType": "request", "name": "upload-multipart", "@odata.type": "microsoft.graph.driveItem", "scopes": "files.readwrite service.onedrive" } -->
+<!-- { "blockType": "request", "name": "upload-multipart", "@odata.type": "microsoft.graph.driveItem", "scopes": "files.readwrite", "tags": "service.onedrive" } -->
 
 ```http
 POST /drive/items/{folder-id}/children
@@ -111,5 +111,9 @@ The multipart upload method is not supported in OneDrive for Business, SharePoin
   "type": "#page.annotation",
   "description": "Create a new item with custom metadata and content upload.",
   "keywords": "create,upload,post,custom metadata",
-  "section": "documentation"
+  "section": "documentation",
+  "suppressions": [
+    "Warning: /api/driveitem_post_content.md:
+      Failed to parse any rows out of table with headers: |Part name|Type|Description|"
+  ]
 } -->

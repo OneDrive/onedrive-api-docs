@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: Get a previous version - OneDrive API
 ---
-# Get a DriveItemVersion resource (preview)
+# Get a DriveItemVersion resource
 
 Retrieve the metadata for a specific version of a [DriveItem](../resources/driveitem.md).
 
@@ -42,10 +42,10 @@ This example retrieves a version of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-single-version", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
-GET /me/drive/items/{item-id}/versions/{version-id}
+GET /drive/items/{item-id}/versions/{version-id}
 ```
 
 ### Response

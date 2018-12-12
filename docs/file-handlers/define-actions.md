@@ -26,7 +26,7 @@ An example of the definition for the three built-in actions and a single custom 
 
 <!-- {"blockType": "example",
       "name": "list-file-handler-actions",
-      "@odata.type": "oneDrive.driveAppAction",
+      "@odata.type": "microsoft.graph.driveAppAction",
       "isCollection": true,
       "truncated": true
       } -->
@@ -67,7 +67,7 @@ An example of the definition for the three built-in actions and a single custom 
         },
         "availableOn": {
             "file": { "extensions": ["*"] },
-            "folder": {},
+            "folder": { },
             "allowMultiSelect": true,
             "web": { }
         }
@@ -105,7 +105,7 @@ For example, the actions defined above would be stored in the file handler manif
 
 Each action declared in the action parameter takes the following shape:
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.driveAppAction" } -->
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.driveAppAction" } -->
 
 ```json
 {
@@ -114,26 +114,28 @@ Each action declared in the action parameter takes the following shape:
     "displayName": "string",
     "shortDisplayName": "string",
     "icon": { 
-        "@odata.type": "oneDrive.displayIcon",
+        "@odata.type": "microsoft.graph.displayIcon",
         "svg": "url",
         "png1x": "url",
         "png1_5x": "url",
         "png2x": "url"
     },
     "availableOn": {
-        "@odata.type": "oneDrive.availableOn",
+        "@odata.type": "microsoft.graph.availableOn",
         "file": {
-            "@odata.type": "oneDrive.availableOnFile",
+            "@odata.type": "microsoft.graph.availableOnFile",
             "extensions": [ ".pdf", ".png", ".psd" ]
         },
         "folder": {
-            "@odata.type": "oneDrive.availableOnFolder"
+            "@odata.type": "microsoft.graph.availableOnFolder"
         },
         "allowMultiSelect": false,
-        "web": { "@odata.type": "oneDrive.availableOnWeb" }
+        "web": { "@odata.type": "microsoft.graph.availableOnWeb" }
     }
 }
 ```
+
+## Properties
 
 Not all properties are required, depending on the type of action specified.
 
@@ -144,8 +146,11 @@ Not all properties are required, depending on the type of action specified.
 | displayName    | string | A default locale string used for `type: "custom"` to represent the action. Optional. |
 | shortDisplayName    | string | A default locale string used for `type: "custom"` to represent the action in the toolbar or collapsed action menu. Optional. |
 | availableOn    | object | A collection of properties the define where this action is available. Required.      |
+| icon           | displayIcon | An object containing URLs to icon images for this file type. Optional. |
 
 * The `displayName` property is only applicable to actions of type `custom` and is ignored for actions of any other type.
+
+### AvailableOn Properties
 
 By setting properties within the  **availableOn** property, you can customize where the action is available:
 
@@ -165,5 +170,23 @@ By setting properties within the  **availableOn** property, you can customize wh
   "description": "Create a copy of an existing item.",
   "keywords": "copy existing item",
   "section": "documentation",
+  "suppressions": [
+    "Warning: /docs/file-handlers/define-actions.md:
+      Found potential enums in resource example that weren't defined in a table:(newFile,open,preview,custom) are in resource, but () are in table",
+    "Error: microsoft.graph.driveAppAction/folder:
+      Referenced type microsoft.graph.object is not defined in the doc set! Potential suggestion: UNKNOWN",
+    "Error: microsoft.graph.driveAppAction/web:
+      Referenced type microsoft.graph.object is not defined in the doc set! Potential suggestion: UNKNOWN",
+    "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
+      Property 'file.extensions' found in markdown table but not in resource definition.",
+    "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
+      Property 'folder' found in markdown table but not in resource definition.",
+    "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
+      Property 'allowMultiSelect' found in markdown table but not in resource definition.",
+    "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
+      Property 'web' found in markdown table but not in resource definition.",
+    "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction/availableOn:
+      Type mismatch between example and table. Parameter name: availableOn; example type: (microsoft.graph.availableOn); table type: (microsoft.graph.object)"
+  ],
   "tocPath": "File handlers/Defining actions"
 } -->

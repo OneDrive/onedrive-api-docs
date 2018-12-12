@@ -17,7 +17,7 @@ custom uploaded thumbnail.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "add-custom-thumbnail", "scopes": "files.readwrite service.onedrive" } -->
+<!-- { "blockType": "request", "name": "add-custom-thumbnail", "scopes": "files.readwrite", "tags": "service.onedrive" } -->
 ```
 PUT /drive/items/{item-id}/thumbnails/0/source/content
 Content-Type: application/octet-stream
@@ -45,7 +45,7 @@ thumbnail. If it is not present, then no custom uploaded thumbnail exists.
 
 **Note:** Custom thumbnails are only available on OneDrive Personal.
 
-<!-- { "blockType": "request", "name": "get-custom-thumbnail", "scopes": "files.read service.onedrive" } -->
+<!-- { "blockType": "request", "name": "get-custom-thumbnail", "scopes": "files.read", "tags": "service.onedrive service.graph" } -->
 ```
 GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,source)
 ```
@@ -55,6 +55,7 @@ GET /drive/items/{item-id}/?expand=thumbnails(select=id,large,medium,small,sourc
 <!-- { "blockType": "response", "@odata.type": "microsoft.graph.driveItem", "truncated": true } -->
 ```http
 HTTP/1.1 200 OK
+Content-Type: application/json
 
 {
    "thumbnails":[
@@ -87,3 +88,11 @@ HTTP/1.1 200 OK
 
 **Note:** The response object is truncated for clarity. All default properties
 will be returned from the actual call.
+
+<!-- {
+  "type": "#page.annotation",
+  "suppressions": [
+    "Warning: ExampleRequest_drive/items/{var}/thumbnails/0:
+      Assuming 0 under microsoft.graph.thumbnailSet is a hard-coded key in the example path. Please fix to be a placeholder."
+  ]
+} -->

@@ -17,7 +17,6 @@ The **ItemActionSet** resource provides information about the actions that made 
 <!-- {
   "blockType": "resource",
   "optionalProperties": [ ],
-  "keyProperty": "id",
   "@type": "microsoft.graph.itemActionSet",
   "@type.aka": "oneDrive.action"
 }-->

@@ -28,10 +28,18 @@ If a user's OneDrive is not provisioned but the user has a license to use OneDri
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-drive-default", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-drive-default", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
 GET /me/drive
+```
+
+When using the direct OneDrive service endpoint, leave out the `/me` segment.
+
+<!-- { "blockType": "request", "name": "get-drive-default-direct", "scopes": "files.read", "tags": "onedrive.only" } -->
+
+```http
+GET /drive
 ```
 
 ## Get a user's OneDrive
@@ -42,7 +50,7 @@ If a user's OneDrive is not provisioned but the user has a license to use OneDri
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-drive-by-user", "scopes": "files.read.all" } -->
+<!-- { "blockType": "request", "name": "get-drive-by-user", "scopes": "files.read.all", "tags": "service.graph" } -->
 
 ```http
 GET /users/{idOrUserPrincipalName}/drive
@@ -60,7 +68,7 @@ To access a Group's default document library, your app requests the **drive** re
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-drive-by-group", "scopes": "group.read.all" } -->
+<!-- { "blockType": "request", "name": "get-drive-by-group", "scopes": "group.read.all", "tags": "service.graph" } -->
 
 ```http
 GET /groups/{groupId}/drive
@@ -97,7 +105,7 @@ If you have the unique identifier for a drive, you can access it directly from t
 <!-- { "blockType": "request", "name": "get-drive-by-id", "scopes": "files.read" } -->
 
 ```http
-GET /drives/{driveId}
+GET /drives/{drive-id}
 ```
 
 ### Path parameters
@@ -114,7 +122,7 @@ These method support the [$select query parameter][odata-query-parameters] to sh
 
 Each of these methods returns a [Drive resource][drive-resource] for the matching drive in the response body.
 
-<!-- { "blockType": "response", "@odata.type": "microsoft.graph.drive", "truncated": true, "name": ["get-drive-by-id", "get-drive-by-group", "get-drive-by-user", "get-drive-default"] } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.drive", "truncated": true, "name": ["get-drive-by-id", "get-drive-by-group", "get-drive-by-user", "get-drive-default", "get-drive-default-direct"] } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -131,6 +139,7 @@ Content-type: application/json
     },
     "quota": {
         "deleted": 256938,
+        "fileCount": 2,
         "remaining": 1099447353539,
         "state": "normal",
         "total": 1099511627776
@@ -150,5 +159,13 @@ If the drive does not exist and cannot be provisioned automatically (when using 
   "description": "Get metadata for a OneDrive, OneDrive for Business, or Office 365 group drive",
   "keywords": "drive,onedrive,default drive,group drive",
   "section": "documentation",
+  "suppressions": [
+      "Warning: /api/drive_get.md:
+        Unable to map some markdown elements into schema.
+            Unmapped methods:
+        get-drive-default, get-drive-default-direct, get-drive-by-user, get-drive-by-group, get-drive-by-id
+            Unmapped tables:
+        Permissions - AuthScopes, Path parameters - PathParameters, Path parameters - PathParameters, Path parameters - PathParameters, Path parameters - PathParameters"
+  ],
   "tocPath": "Drives/Get drive"
 } -->

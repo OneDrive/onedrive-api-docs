@@ -181,7 +181,7 @@ If the call is successful, the response for the POST request contains a JSON str
 that includes several properties, including `access_token`, `token_type`, and
 `refresh_token` (if you requested the **wl.offline_access** scope).
 
-<!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse", "optionalProperties": ["token_type", "scope"] } -->
+<!-- {"blockType": "ignored", "@odata.type": "oauth2.tokenResponse", "optionalProperties": ["token_type", "scope"] } -->
 ```json
 {
   "token_type":"bearer",
@@ -236,7 +236,7 @@ If the call is successful, the response for the POST request contains a JSON str
 that includes several properties including `access_token`, `authentication_token` and
 `refresh_token` if you requested the **wl.offline_access** scope.
 
-<!-- {"blockType": "example", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example" } -->
+<!-- {"blockType": "ignored", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example" } -->
 ```json
 {
   "token_type":"bearer",

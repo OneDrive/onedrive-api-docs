@@ -4,7 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 title: List versions of a file - OneDrive API
 ---
-# Listing versions of a DriveItem (preview)
+# Listing versions of a DriveItem
 
 OneDrive and SharePoint can be configured to retain the history for files.
 Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never.
@@ -27,11 +27,11 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored"} -->
 
 ```http
-GET /beta/drives/{drive-id}/items/{item-id}/versions
-GET /beta/groups/{group-id}/drive/{item-id}/versions
-GET /beta/me/drive/items/{item-id}/versions
-GET /beta/sites/{site-id}/drive/items/{item-id}/versions
-GET /beta/users/{user-id}/drive/items/{item-id}/versions
+GET /drives/{drive-id}/items/{item-id}/versions
+GET /groups/{group-id}/drive/{item-id}/versions
+GET /me/drive/items/{item-id}/versions
+GET /sites/{site-id}/drive/items/{item-id}/versions
+GET /users/{user-id}/drive/items/{item-id}/versions
 ```
 
 ## Response
@@ -45,10 +45,10 @@ This example retrieves the versions of a file in the current user's drive.
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-previous-versions", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-previous-versions", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
-GET /beta/me/drive/items/{item-id}/versions
+GET /me/drive/items/{item-id}/versions
 ```
 
 ### Response

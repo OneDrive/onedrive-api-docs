@@ -9,10 +9,30 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**",
+          "**/appveyor.yml",
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices"
-        ]
+        ],
+        "group": "sp2019",
+        "src": "sp2019/docs"
+      },
+      {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "sp2019",
+          "**/obj/**",
+          "**/includes/**",
+          "**/appveyor.yml",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices"
+        ],
+        "group": "online",
+        "src": "."
       }
     ],
     "resource": [
@@ -24,7 +44,22 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**"
-        ]
+        ],
+        "group": "sp2019",
+        "src": "sp2019/docs"
+      },
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg"
+        ],
+        "exclude": [
+          "sp2019",
+          "**/obj/**",
+          "**/includes/**"
+        ],
+        "group": "online",
+        "src": "."
       }
     ],
     "overwrite": [],
@@ -34,10 +69,23 @@
       "ms.topic": "reference",
       "titleSuffix": "OneDrive dev center",
       "breadcrumb_path": "/onedrive/developer/breadcrumb/toc.json",
-      "uhfHeaderId": "MSDocsHeader-OneDrive"
+      "uhfHeaderId": "MSDocsHeader-OneDrive",
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "onedrive/onedrive-api-docs",
+      "feedback_product_url": "https://onedrive.uservoice.com/forums/913708/"
     },
     "fileMetadata": {},
     "template": [],
-    "dest": "onedrive"
+    "dest": "onedrive",
+    "groups": {
+      "sp2019": {
+        "dest": "sp2019temp",
+        "moniker_range": "<= odsp-graph-2019"
+      },
+      "online": {
+        "dest": "onlinetemp",
+        "moniker_range": ">= odsp-graph-online"
+      }
+    }
   }
 }

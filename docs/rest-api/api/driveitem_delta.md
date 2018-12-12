@@ -46,6 +46,12 @@ GET /users/{userId}/drive/root/delta
 
 This method supports the `$select`, `$expand`, and `$top` [OData query parameters](../concepts/optional-query-parameters.md) to customize the response.
 
+## Parameters
+
+| Name   | Value  | Description                                                                                                                          |
+|:-------|:-------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| token  | string | Optional. If unspecified, enumerates the hierarchy's current state. If `latest`, returns empty response with latest delta token. If a previous delta token, returns new state since that token.
+
 ## Response
 
 If successful, this method returns a `200 OK` response code and a collection of [DriveItem](../resources/driveitem.md) resources in the response body.
@@ -65,7 +71,7 @@ Here is an example of how to call this API to establish your local state.
 
 Here is an example of the initial request.
 
-<!-- { "blockType": "request", "name": "get_item_delta_first" } -->
+<!-- { "blockType": "request", "name": "get_item_delta_first", "tags": "service.graph" } -->
 
 ```http
 GET https://graph.microsoft.com/v1.0/me/drive/root/delta
@@ -114,7 +120,7 @@ Here is an example of how to call this API to update your local state.
 
 Here is an example request after the initial request.
 
-<!-- { "blockType": "request", "name": "get_item_delta_last" }-->
+<!-- { "blockType": "request", "name": "get-item-delta-last", "tags": "service.graph" }-->
 
 ```http
 GET https://graph.microsoft.com/v1.0/me/drive/root/delta(token='1230919asd190410jlka')
@@ -174,7 +180,7 @@ Using `delta` is the only way to guarantee that you've read all of the data you 
 
 ### Request
 
-<!-- { "blockType": "request", "name": "get-delta-latest", "scope": "files.read", "target": "action" } -->
+<!-- { "blockType": "request", "name": "get-delta-latest", "scopes": "files.read", "tags": "service.graph", "target": "action" } -->
 
 ```http
 GET /me/drive/root/delta?token=latest
@@ -182,7 +188,7 @@ GET /me/drive/root/delta?token=latest
 
 ### Response
 
-<!-- { "blockType": "response", "@odata.type": "Collection(microsoft.graph.driveItem)" } -->
+<!-- { "blockType": "response", "isEmpty": true, "@odata.type": "Collection(microsoft.graph.driveItem)" } -->
 
 ```http
 HTTP/1.1 200 OK
@@ -197,20 +203,20 @@ Content-type: application/json
 ## Remarks
 
 * The delta feed shows the latest state for each item, not each change. If an item were renamed twice, it would only show up once, with its latest name.
+
 * The same item may appear more than once in a delta feed, for various reasons. You should use the last occurrence you see.
+
 * The `parentReference` property on items will not include a value for **path**. This occurs because renaming a folder does not result in any descendants of the folder being returned from **delta**. **When using delta you should always track items by id**.
-* In OneDrive for Business and SharePoint, `delta` is only supported on the `root` folder, not on other folders within a drive.
 
-* Delta will not return the following DriveItem properties:
+* For shared folders added to a drive, delta will not return any information about changes within the shared folder. Instead, another delta call should be made that targets the shared folder itself.
 
-* **cTag**
-* **lastModifiedBy**
-* **size**
+* Delta has additional restrictions for OneDrive for Business; please refer to the [release notes][release-notes] for details.
 
 ## Error responses
 
 In addition to the resync errors detailed above, see [Error Responses][error-response] for details about how errors are returned.
 
+[release-notes]: ../getting-started/release-notes.md
 [error-response]: ../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 

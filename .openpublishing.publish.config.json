@@ -1,6 +1,4 @@
 {
-  "need_generate_pdf": false,
-  "need_generate_intellisense": false,
   "docsets_to_publish": [
     {
       "docset_name": "onedrive",
@@ -8,7 +6,7 @@
       "build_output_subfolder": "onedrive",
       "locale": "en-us",
       "monikers": [],
-      "moniker_ranges": [],
+      "moniker_ranges": [">= odsp-graph-online", "<= odsp-graph-2019"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -20,19 +18,31 @@
     }
   ],
   "notification_subscribers": [
-    "rgregg@microsoft.com"
+    "dspektor@microsoft.com"
   ],
   "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "https://github.com/OneDrive/onedrive-api-docs",
+  "git_repository_branch_open_to_public_contributors": "live",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
+  "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "docs/sp2019",
+      "url": "https://github.com/onedrive/onedrive-api-docs",
+      "branch": "sp2019",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false
+  "need_generate_pdf_url_template": false,
+  "targets": {},
+  "need_generate_pdf": false,
+  "need_generate_intellisense": false
 }

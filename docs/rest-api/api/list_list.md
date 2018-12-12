@@ -31,7 +31,7 @@ GET /sites/{site-id}/lists
 
 #### Request
 
-<!-- { "blockType": "request", "name": "enum-lists", "scopes": "sites.read.all service.sharepoint" } -->
+<!-- { "blockType": "request", "name": "enum-lists", "scopes": "sites.read.all", "tags": "service.sharepoint" } -->
 
 ```http
 GET /sites/{site-id}/lists

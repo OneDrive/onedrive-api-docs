@@ -1,0 +1,30 @@
+{
+  "schemaConfig": {
+    "defaultNamespace": "microsoft.graph",
+    "baseUrls": [
+      "https://api.onedrive.com/v1.0",
+      "https://graph.microsoft.com/v1.0/me",
+      "https://graph.microsoft.com/beta/me",
+      "https://graph.microsoft.com/v1.0",
+      "https://graph.microsoft.com/beta",
+      "/v1.0/me",
+      "/v1.0",
+      "/beta/me",
+      "/beta",
+      "/me"
+    ],
+    "notLowerCamel": [
+      "Json"
+    ],
+    "supportedTags": [
+      "service.onedrive",
+      "onedrive.only"
+    ]
+  },
+  "schemaDiffConfig": {
+    "dropElementsContaining": [
+    ],
+    "keepElementsContaining": [
+    ]
+  }
+}

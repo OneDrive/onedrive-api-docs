@@ -36,7 +36,7 @@ If successful, this method returns `201 Created` response code and a [subscripti
 
 Here is an example of the request to send a notification when the contents of a user's drive changes.
 
-<!-- { "blockType": "request", "name": "add-subscription-graph", "@odata.type": "microsoft.graph.subscription", "scopes": "service.graph" } -->
+<!-- { "blockType": "request", "name": "add-subscription-graph", "@odata.type": "microsoft.graph.subscription", "tags": "service.graph" } -->
 
 ```http
 POST /subscriptions

@@ -29,7 +29,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "request", "name": "get-special-folder", "scopes": "files.read" } -->
 
 ```http
-GET /me/drive/special/{name}
+GET /me/drive/special/{special-folder-name}
 ```
 
 ### Special folder names
@@ -78,10 +78,10 @@ collection or use the [expand](../concepts/optional-query-parameters.md) option 
 
 ### HTTP request
 
-<!-- { "blockType": "request", "name": "get-special-children", "scopes": "files.read" } -->
+<!-- { "blockType": "request", "name": "get-special-children", "scopes": "files.read", "tags": "service.graph" } -->
 
 ```http
-GET /me/drive/special/{name}/children
+GET /me/drive/special/{special-folder-name}/children
 ```
 
 ### HTTP response

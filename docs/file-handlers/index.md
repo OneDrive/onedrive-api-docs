@@ -164,5 +164,14 @@ The following table lists the Office 365 services that support file handlers.
   "type": "#page.annotation",
   "description": "Learn about integrating your app inside OneDrive with file handlers",
   "section": "documentation",
+  "suppressions": [
+    "Warning: Resource oneDriveAddins.fileHandlerManifest is defined in multiple files: /docs/file-handlers/index.md, /docs/file-handlers/resources.md",
+    "Warning: /docs/file-handlers/index.md:
+      Property 'id' found in resource definition for 'oneDriveAddins.fileHandlerManifest', but not described in markdown table.",
+    "Warning: /docs/file-handlers/index.md:
+      Property 'type' found in resource definition for 'oneDriveAddins.fileHandlerManifest', but not described in markdown table.",
+    "Warning: /docs/file-handlers/index.md:
+      Property 'properties' found in resource definition for 'oneDriveAddins.fileHandlerManifest', but not described in markdown table."
+  ],
   "tocPath": "File handlers"
 } -->
