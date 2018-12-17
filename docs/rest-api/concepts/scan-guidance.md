@@ -2,7 +2,7 @@
 Millions and millions of files live in SharePoint and OneDrive.  It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level.  Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor an Office 365 tenant or OneDrive so that your application integrates with Office 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers. 
 
 ## Getting the right permissions
-To build trust with users it is important to use the right set of permission scopes and authorization requests needed for an app to function.  Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user.  To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope.  For access to SharePoint resources, **Sites.Read.All** or **Sites.ReadWrite.All** are appropriate.
+To build trust with users it is important to use the right set of [permission scopes][] needed for an app to function.  Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user.  To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope.  For access to SharePoint resources, **Sites.Read.All** or **Sites.ReadWrite.All** are appropriate.
 
 ### Authorization types, permission scopes and users
 When you configure an application's permissions in Microsoft Azure you can choose between Application permissions and Delegated permissions.  As noted above most scanning applications will want [Application permissions][].  Delegated permissions require your application to operate in the context of a signed in user rather than globally.  In the delegated model you are restricted to content that the current user has access to.
@@ -84,9 +84,9 @@ If your processing requires downloading the contents of an individual file, you 
 
 ### Scanning permissions hierarchies
 
-By default, the delta query response will include sharing information for all items in the query that changed even if they inherit their permissions from their parent and did not have direct sharing changes themselves.  This typically then results in a follow up call to get the item details for every item rather than just the ones whose sharing information changed.  You can optimize your understanding of how permission changes happen by adding the "Prefer: hierarchicalsharing" header to your delta query request.
+By default, the delta query response will include sharing information for all items in the query that changed even if they inherit their permissions from their parent and did not have direct sharing changes themselves.  This typically then results in a follow up call to get the permission details for every item rather than just the ones whose sharing information changed.  You can optimize your understanding of how permission changes happen by adding the "Prefer: hierarchicalsharing" header to your delta query request.
 
-When the "Prefer hierarchicalsharing" header is provided sharing information will only be returned for either items that explicitly have sharing changes, or the root of the permissions hierarchy.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inhereit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.  
+When the "Prefer hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inhereit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.  
 
 ## What happens when you get throttled? 
 
@@ -94,6 +94,7 @@ In some scenarios, your application may get a 429 or 503 response from Microsoft
 
 To recover from receiving a 429 or 503 response code, try again after waiting for the duration specified in the Retry-After field in the response header.  If throttling persists, the Retry-After value may become longer over time, allowing the system to recover.  Apps that do not honor the retry after duration before calling back will be blocked due to abusive calling patterns. For more detailed information about how Microsoft Graph resources work with throttling, see the [Microsoft Graph throttling guidance][].
 
+[permission scopes]: https://aka.ms/permissionscopesdoc
 [Application permissions]: https://aka.ms/applicationpermissiondoc
 [drive]: https://aka.ms/drivedoc
 [delta query]: https://aka.ms/deltadoc
