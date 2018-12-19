@@ -95,7 +95,7 @@ In some scenarios, your application might get a 429 or 503 response from Microso
 
 To recover from receiving a 429 or 503 response code, try again after waiting for the duration specified in the Retry-After field in the response header. If throttling persists, the Retry-After value can become longer over time, allowing the system to recover. Apps that do not honor the retry after duration before calling back will be blocked due to abusive calling patterns. For more detailed information about how Microsoft Graph resources work with throttling, see the [Microsoft Graph throttling guidance][].
 
-[permission scopes]: https://aka.ms/permissionscopesdoc
+[permissions]: https://aka.ms/permissionscopesdoc
 [Application permissions]: https://aka.ms/applicationpermissiondoc
 [drive]: https://aka.ms/drivedoc
 [delta query]: https://aka.ms/deltadoc
