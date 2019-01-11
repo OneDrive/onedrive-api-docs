@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Modifying responses with query parameters - OneDrive API
+localization_priority: Priority
 ---
 # Using query parameters to change the shape of a response
 

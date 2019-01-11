@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
 title: Get an entry from a SharePoint list
+localization_priority: Normal
 ---
 # Get an item in a list
 

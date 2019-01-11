@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Localize file handlers - OneDrive
+localization_priority: Normal
 ---
 # Localizing file handler strings
 

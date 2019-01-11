@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: List Recent Files - OneDrive API
+localization_priority: Normal
 ---
 # List recent files
 

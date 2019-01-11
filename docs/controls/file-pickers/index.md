@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
 title: OneDrive Controls for Developers
+localization_priority: Priority
 ---
 # Shared controls for OneDrive integration
 

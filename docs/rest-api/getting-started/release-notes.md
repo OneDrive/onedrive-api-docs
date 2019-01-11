@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: OneDrive API release notes
+localization_priority: Normal
 ---
 # Release notes for using Microsoft Graph with OneDrive for Business and SharePoint
 

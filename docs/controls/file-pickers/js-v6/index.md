@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
+localization_priority: Normal
 ---
 # OneDrive file picker SDK for JavaScript v6.0 overview
 

@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
 title: DateTimeColumn - OneDrive API
+localization_priority: Normal
 ---
 # DateTimeColumn resource type
 

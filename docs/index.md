@@ -5,6 +5,7 @@ ms.date: 09/18/2017
 ms.topic: landing-page
 ms.prod: onedrive
 title: OneDrive for Developers
+localization_priority: Priority
 ---
 # OneDrive developer platform
 

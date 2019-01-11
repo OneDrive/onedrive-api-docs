@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
 title: File Picker SDK for JavaScript - OneDrive
+localization_priority: Priority
 ---
 # OneDrive file picker for JavaScript v7.2 overview
 
