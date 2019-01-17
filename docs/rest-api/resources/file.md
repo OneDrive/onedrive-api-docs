@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: File - OneDrive API
+localization_priority: Normal
 ---
 # File resource type
 

@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Photo - OneDrive API
+localization_priority: Normal
 ---
 # Photo resource type
 

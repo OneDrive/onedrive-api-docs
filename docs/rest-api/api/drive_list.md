@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: List Drives - OneDrive API
+localization_priority: Priority
 ---
 # List available drives
 

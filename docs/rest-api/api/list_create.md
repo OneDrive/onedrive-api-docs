@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/11/2017
 title: Create a SharePoint List
+localization_priority: Normal
 ---
 # Create a new list
 

@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Create a new folder - OneDrive API
+localization_priority: Priority
 ---
 # Create a new folder in a drive
 

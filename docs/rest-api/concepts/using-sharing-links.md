@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Accessing shared files and folders - OneDrive API
+localization_priority: Priority
 ---
 # Using remote items to access shared files and folders
 

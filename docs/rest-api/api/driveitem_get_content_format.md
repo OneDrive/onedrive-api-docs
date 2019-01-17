@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Convert to other formats - OneDrive API
+localization_priority: Priority
 ---
 # Download a file in another format
 

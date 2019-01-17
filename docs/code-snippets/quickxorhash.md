@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: sample
 title: QuickXOR Hash Sample - OneDrive
+localization_priority: Normal
 ---
 # Code Snippets: QuickXorHash Algorithm
 

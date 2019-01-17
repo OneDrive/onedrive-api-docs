@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Find SharePoint sites by keyword - OneDrive API
+localization_priority: Normal
 ---
 # Search for sites
 

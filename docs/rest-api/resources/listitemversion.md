@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/17/2017
 title: ListItemVersion - OneDrive API
+localization_priority: Normal
 ---
 # ListItemVersion resource type
 

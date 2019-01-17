@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Add custom actions to files - OneDrive
+localization_priority: Normal
 ---
 # Specifying actions for file handlers 2.0
 

@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Set a thumbnail on a file - OneDrive API
+localization_priority: Normal
 ---
 # Upload a custom thumbnail for a DriveItem
 

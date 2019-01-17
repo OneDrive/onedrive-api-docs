@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
 title: Access OneDrive and SharePoint via Microsoft Graph API
+localization_priority: Priority
 ---
 # OneDrive and SharePoint in Microsoft Graph
 
