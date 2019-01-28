@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Authorization for OneDrive API for Microsoft Accounts
+localization_priority: Priority
 ---
 # OneDrive authentication and sign-in
 

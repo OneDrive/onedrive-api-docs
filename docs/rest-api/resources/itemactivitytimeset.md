@@ -3,6 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/14/2017
 title: ItemActivityTimeSet - OneDrive API
+localization_priority: Normal
 ---
 # ItemActivityTimeSet resource type
 

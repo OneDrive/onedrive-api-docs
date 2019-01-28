@@ -3,6 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/10/2017
 title: File Activities - OneDrive API
+localization_priority: Normal
 ---
 # Enumerate activities (preview)
 

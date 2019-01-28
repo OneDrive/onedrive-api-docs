@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Get a SharePoint Site - OneDrive API
+localization_priority: Normal
 ---
 # Get a site resource
 
