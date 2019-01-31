@@ -10,6 +10,8 @@ This action allows you to obtain short-lived embeddable URLs for an item.
 
 If you wish to obtain long-lived embeddable links, use the [createLink][] API instead.
 
+> **Note:** The **preview** action is currently only available on SharePoint and OneDrive for Business.
+
 [createLink]: driveItem_createLink.md
 
 ## Permissions
