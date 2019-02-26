@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Calling long running actions - OneDrive API
+localization_priority: Normal
 ---
 # Working with APIs that make take a long time to complete
 

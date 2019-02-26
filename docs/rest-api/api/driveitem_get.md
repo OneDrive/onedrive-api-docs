@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Get a file or folder - OneDrive API
+localization_priority: Priority
 ---
 # Get a DriveItem resource
 

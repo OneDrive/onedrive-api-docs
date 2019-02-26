@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Download a file - OneDrive API
+localization_priority: Priority
 ---
 # Download the contents of a DriveItem
 

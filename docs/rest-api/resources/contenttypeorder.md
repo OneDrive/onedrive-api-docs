@@ -3,6 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/13/2017
 title: ContentTypeOrder - OneDrive API
+localization_priority: Normal
 ---
 # ContentTypeOrder resource type
 
