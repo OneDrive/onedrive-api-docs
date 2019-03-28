@@ -40,7 +40,9 @@ As part of the `OneDrive.open(...)` method, you specify the options for how the 
 <button onClick="launchOneDrivePicker()">Open from OneDrive</button>
 ```
 
-> **Note:** When the OneDrive picker is opened, a new window with your page will open, and the SDK will use a query string to redirect the window to the picker. If the SDK is not present on your page on load (if it is lazy loaded in response to a user interaction, for example), the picker may not properly open. You may wish to use the [`redirectUri` advanced option](#advanced-options) to redirect the popup to a page that loads the SDK without any user interaction.
+> **Note:** When the OneDrive picker is opened, a new window with your page will open, and the SDK will use a query string to redirect the window to the picker.
+If the SDK is not present on your page on load (if it is lazy loaded in response to a user interaction, for example), the picker may not properly open.
+You may wish to use the [`redirectUri` advanced option](#advanced-options) to redirect the popup to a page that loads the SDK without any user interaction.
 
 ### Picker options
 
