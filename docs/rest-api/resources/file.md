@@ -36,7 +36,7 @@ Here is a JSON representation of the resource.
 | Property | Type                    | Description                                                                                                                                      |
 |:---------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
 | hashes   | [Hashes](hashes.md) | Hashes of the file's binary content, if available. Read-only.                                                                                    |
-| irmEnabled | Boolean                       | Flag indicating if the item is information-rights protected.                                                                    |
+| irmEnabled | Boolean                       | Flag indicating if information rights management is enabled on this file.                              |
 | mimeType | string                  | The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. |
 | **processingMetadata** | Boolean                       | Flag indicating if the item is still being processed to extract metadata                                                                    |
 
