@@ -33,13 +33,16 @@ Here is a JSON representation of the resource.
 
 ## Properties
 
-| Property    | Type          | Description
-|:------------|:--------------|:-------------------------------------
-| application | [identity][]  | The app the link is associated with.
-| type        | String        | The type of the link created.
-| scope       | String        | The scope of the link represented by this permission. Value `anonymous` indicates the link is usable by anyone, `organization` indicates the link is only usable for users signed into the same tenant.
-| webHtml     | String        | For `embed` links, this property contains the HTML code for an `<iframe>` element that will embed the item in a webpage.
-| webUrl      | String        | A URL that opens the item in the browser on the OneDrive website.
+| Property       | Type          | Description
+|:---------------|:--------------|:-------------------------------------
+| application    | [identity][]  | The app the link is associated with.
+| type           | String        | The type of the link created.
+| scope          | String        | The scope of the link represented by this permission. Value `anonymous` indicates the link is usable by anyone, `organization` indicates the link is only usable for users signed into the same tenant.
+| webHtml        | String        | For `embed` links, this property contains the HTML code for an `<iframe>` element that will embed the item in a webpage.
+| webUrl         | String        | A URL that opens the item in the browser on the OneDrive website.
+| blocksDownload | Boolean       | This property specifies if the link doesn not allow downloading file contents. 
+| createOnly     | Boolean       | This property specifies whether this link can only create file or not.
+| iconUrl        | String        | A URL that opens an icon associated with the link. 
 
 [Identity]: identity.md
 
