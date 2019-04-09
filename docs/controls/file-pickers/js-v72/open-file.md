@@ -59,7 +59,7 @@ var odOptions = {
   advanced: {},
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -166,7 +166,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -187,7 +187,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -206,7 +206,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -236,7 +236,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -252,7 +252,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 ```
 
 The page you redirect to needs only to load the OneDrive SDK script:
@@ -295,7 +295,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 ```
 
 

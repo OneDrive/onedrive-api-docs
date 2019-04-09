@@ -59,9 +59,9 @@ var odOptions = {
   openInNewWindow: true,
   advanced: {},
   success: function(files) { /* success handler */ },
-  progress: function(p) { /* progress handler */ },
+  progress: function(percent) { /* progress handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -171,7 +171,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
