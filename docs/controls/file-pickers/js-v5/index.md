@@ -271,6 +271,12 @@ The OneDrive picker and saver supports the following web browsers:
 * Latest version of Firefox
 * Latest version of Safari  
 
+## License
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
+
 <!-- {
   "type": "#page.annotation",
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
