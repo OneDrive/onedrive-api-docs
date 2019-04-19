@@ -54,6 +54,12 @@ The OneDrive picker and saver supports the following web browsers:
 * Firefox Desktop & Mobile 8+
 * Safari Desktop & Mobile 5+
 
+## License
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
+
 ## Previous versions
 
 * [File picker SDK v7.0](../js-v7/index.md)

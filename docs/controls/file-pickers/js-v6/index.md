@@ -94,6 +94,12 @@ The OneDrive picker and saver supports the following web browsers:
 * The SDK will fail to upload a file to OneDrive for Business if the file name is taken.
 * Data URIs are not supported with OneDrive for Business.
 
+## License
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
+
 <!-- {
   "type": "#page.annotation",
   "description": "Learn how to use the JavaScript file picker SDK to connect your web app to OneDrive.",
