@@ -31,9 +31,9 @@
 
 #### Observed Behavior
 
-> If you are reporting a bug, please describe the behavior you expected to occur when performing the action.
+> If you are reporting a bug, please describe the observed behavior.
 >
-> The following response headers would also be helpful if they are available: 
+> Please also provide the following response headers corresponding to your request(s):
 > - Date (in UTC, please)
 > - request-id
 > - SPRequestGuid (for requests made to OneDrive for Business)
