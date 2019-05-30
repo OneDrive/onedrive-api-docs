@@ -118,6 +118,8 @@ Content-Type: application/json
 
 ## Remarks
 
+### Forbidden File Types
+
 SharePoint Server 2016 blocks several file extensions from being uploaded to the server.
 
 * .ashx - ASP.NET Web handler file
@@ -131,6 +133,13 @@ See [Types of files that cannot be added to a list or library][blocked-extension
 for more information on blocked file extensions.
 
 [blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
+
+### Handling Filename Conflicts
+
+The default behavior for this endpoint is to overwrite existing documents which have the same filename as that of the newly uploaded file. In order to avoid this, you can specify that the new file should be renamed in the case of a conflict by using one of the following query parameters:
+
+* `@microsoft.graph.conflictBehavior=rename`
+* `@name.conflictBehavior=rename`
 
 ## Error responses
 
