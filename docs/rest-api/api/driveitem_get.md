@@ -1,7 +1,6 @@
 ---
 author: rgregg
 ms.author: rgregg
-ms.date: 09/10/2017
 title: Get a file or folder - OneDrive API
 localization_priority: Priority
 ---
@@ -41,6 +40,7 @@ GET /users/{userId}/drive/root:/{item-path}
 This method supports the `$expand` and `$select` [OData query parameters](../concepts/optional-query-parameters.md) to customize the response.
 
 You can use the [`$expand` query string parameter](../concepts/optional-query-parameters.md) to include the children of an item in the same call as retrieving the metadata of an item if the item has a **children** relationship.
+You also can use the `includeDeletedItems` query parameter to return deleted items as well. However, this is only valid when targeting a [DriveItem](../resources/driveitem.md) by ID, and otherwise will be ignored. This is only available on OneDrive Personal.
 
 ## Optional request headers
 

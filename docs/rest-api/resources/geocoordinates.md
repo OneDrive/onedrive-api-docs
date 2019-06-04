@@ -1,7 +1,6 @@
 ---
 author: rgregg
 ms.author: rgregg
-ms.date: 09/10/2017
 title: GeoCoordinates - OneDrive API
 localization_priority: Normal
 ---
@@ -35,8 +34,8 @@ Here is a JSON representation of the resource
 | Property  | Type   | Description
 |:----------|:-------|:--------------------------------------------------------
 | altitude  | Double | Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-| latitude  | Double | Optional. The latitude, in decimal, for the item. Read-only.
-| longitude | Double | Optional. The longitude, in decimal, for the item. Read-only.
+| latitude  | Double | Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+| longitude | Double | Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
 
 ## Remarks
 

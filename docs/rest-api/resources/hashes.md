@@ -1,7 +1,6 @@
 ---
 author: rgregg
 ms.author: rgregg
-ms.date: 09/10/2017
 title: Hashes - OneDrive API
 localization_priority: Normal
 ---
@@ -25,6 +24,7 @@ Here is a JSON representation of the resource.
 {
   "crc32Hash": "string (hex)",
   "sha1Hash": "string (hex)",
+  "sha256Hash": "string (hex)",
   "quickXorHash": "string (base64)"
 }
 ```
@@ -34,6 +34,7 @@ Here is a JSON representation of the resource.
 | Property         | Type   | Description                                                       |
 |:-----------------|:-------|:------------------------------------------------------------------|
 | **sha1Hash**     | String | (Hex string). SHA1 hash for the contents of the file (if available). Read-only. |
+| **sha256Hash**   | String | (Hex string). SHA256 hash for the contents of the file (if available). Read-only. |
 | **crc32Hash**    | String | (Hex string). The CRC32 value of the file in little endian (if available). Read-only.            |
 | **quickXorHash** | String | (Base64 string). A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only. |
 
@@ -42,7 +43,7 @@ If this is the case, the hash values on an item will be updated after the item i
 
 ## Remarks
 
-In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Hash** are not available.
+In OneDrive for Business and SharePoint Server 2016, **sha1Hash**, **crc32Hash** and **sha256Hash** are not available.
 
 In OneDrive Personal, **quickXorHash** is not available.
 
