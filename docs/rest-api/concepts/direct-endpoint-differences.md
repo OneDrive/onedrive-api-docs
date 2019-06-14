@@ -39,6 +39,7 @@ The following actions or methods must be prefixed on the direct endpoint:
 * [Delta](../api/driveitem_delta.md)
 * [Invite](../api/driveitem_invite.md)
 * [Recent Files](../api/drive_recent.md)
+* [Restore](../api/driveitem_restore.md)
 * [Search](../api/driveitem_search.md)
 * [Shared With Me](../api/drive_sharedwithme.md)
 
