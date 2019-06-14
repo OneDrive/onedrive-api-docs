@@ -118,7 +118,7 @@ Content-Type: application/json
 
 ## Remarks
 
-### Forbidden File Types
+### Blocked File Types
 
 SharePoint Server 2016 blocks several file extensions from being uploaded to the server.
 
@@ -134,12 +134,9 @@ for more information on blocked file extensions.
 
 [blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
 
-### Handling Filename Conflicts
+### Conflict Resolution Behavior
 
-The default behavior for this endpoint is to overwrite existing documents which have the same filename as that of the newly uploaded file. In order to avoid this, you can specify that the new file should be renamed in the case of a conflict by using one of the following query parameters:
-
-* `@microsoft.graph.conflictBehavior=rename`
-* `@name.conflictBehavior=rename`
+By default, this API will replace an existing item with the same name. To customize the conflict resolution behavior, add a query parameter named @microsoft.graph.conflictBehavior with values fail, replace, or rename, to the request.
 
 ## Error responses
 
