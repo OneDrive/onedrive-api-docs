@@ -39,6 +39,8 @@ Here is a JSON representation of the resource
 
 ## Remarks
 
+When updating the latitude and longitude of a photo, a [PhotoFacet](photo.md) (empty or otherwise) must be provided.
+
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 
 <!-- {
