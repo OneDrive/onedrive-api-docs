@@ -260,4 +260,7 @@ Last Updated: February 16, 2015.
   "description": "Terms of Use and License Agreement for the OneDrive API",
   "keywords": "onedrive api license agreement tos terms of use",
   "section": "documentation"
+  "suppressions": [
+    "Error: /docs/terms-of-use.md:\r\n      Exception processing links.\r\n    System.ArgumentException: Link Definition was null. Link text: !IMPORTANT\r\n      at ApiDoctor.Validation.DocFile.get_LinkDestinations()\r\n      at ApiDoctor.Validation.DocSet.ValidateLinks(Boolean includeWarnings, String[] relativePathForFiles, IssueLogger issues, Boolean requireFilenameCaseMatch, Boolean printOrphanedFiles)"
+    ]
 } -->
