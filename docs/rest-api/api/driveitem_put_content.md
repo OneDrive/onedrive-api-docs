@@ -118,6 +118,8 @@ Content-Type: application/json
 
 ## Remarks
 
+### Blocked File Types
+
 SharePoint Server 2016 blocks several file extensions from being uploaded to the server.
 
 * .ashx - ASP.NET Web handler file
@@ -131,6 +133,10 @@ See [Types of files that cannot be added to a list or library][blocked-extension
 for more information on blocked file extensions.
 
 [blocked-extensions]: https://support.office.com/en-us/article/Types-of-files-that-cannot-be-added-to-a-list-or-library-30be234d-e551-4c2a-8de8-f8546ffbf5b3?ui=en-US&rs=en-AU&ad=AU&fromAR=1#__toc355959797]
+
+### Conflict Resolution Behavior
+
+By default, this API will replace an existing item with the same name. To customize the conflict resolution behavior, add a query parameter named @microsoft.graph.conflictBehavior with values _fail_, _replace_, or _rename_, to the request.
 
 ## Error responses
 
