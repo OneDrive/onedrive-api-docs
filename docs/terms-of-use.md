@@ -7,6 +7,9 @@ localization_priority: Normal
 ---
 # OneDrive API Terms and Conditions
 
+> [!IMPORTANT]  
+> These terms of use are obsolete and have been archived. They do not reflect current best practices for API terms of use. If you’re looking for current API terms of use, see [Microsoft APIs Terms](https://docs.microsoft.com/legal/microsoft-apis/terms-of-use) of Use or other API terms of use applied to Microsoft online services.
+
 Last Updated: February 16, 2015.
 
 1. Thank you for developing with OneDrive! This agreement (the “Agreement”) governs
@@ -256,5 +259,8 @@ Last Updated: February 16, 2015.
   "type": "#page.annotation",
   "description": "Terms of Use and License Agreement for the OneDrive API",
   "keywords": "onedrive api license agreement tos terms of use",
-  "section": "documentation"
+  "section": "documentation",
+  "suppressions": [
+    "Error: /docs/terms-of-use.md:\r\n      Exception processing links.\r\n    System.ArgumentException: Link Definition was null. Link text: !IMPORTANT\r\n      at ApiDoctor.Validation.DocFile.get_LinkDestinations()\r\n      at ApiDoctor.Validation.DocSet.ValidateLinks(Boolean includeWarnings, String[] relativePathForFiles, IssueLogger issues, Boolean requireFilenameCaseMatch, Boolean printOrphanedFiles)"
+    ]
 } -->

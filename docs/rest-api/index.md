@@ -204,7 +204,7 @@ The following topics contain high level overviews of other concepts that apply t
 * [Error responses](concepts/errors.md)
 * [HTTP verb tunneling](concepts/http-verb-tunneling.md)
 * [Migrating from Live Connect and Live SDK](concepts/migrating-from-live-sdk.md)
-* [Terms of use](../terms-of-use.md)
+* [Terms of use](https://docs.microsoft.com/legal/microsoft-apis/terms-of-use)
 
 [drive-resource]: resources/drive.md
 [drive-list]: api/drive_list.md
