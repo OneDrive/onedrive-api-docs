@@ -136,7 +136,7 @@ for more information on blocked file extensions.
 
 ### Conflict Resolution Behavior
 
-By default, this API will replace an existing item with the same name. To customize the conflict resolution behavior, add a query parameter named @microsoft.graph.conflictBehavior with values fail, replace, or rename, to the request.
+By default, this API will replace an existing item with the same name. To customize the conflict resolution behavior, add a query parameter named @microsoft.graph.conflictBehavior with values _fail_, _replace_, or _rename_, to the request.
 
 ## Error responses
 
