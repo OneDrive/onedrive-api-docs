@@ -12,7 +12,7 @@ To use the OneDrive from the Microsoft Graph, you need to first register your ap
 
 For most applications, we recommend using the Microsoft Application Registration Portal.
 However, for some enterprise-class applications, your app may need features that are only available via the Azure Active Directory management portal.
-If you are unsure about which approach to use, see [Deciding between Azure AD and Azure AD v2.0 endpoints](https://graph.microsoft.io/en-us/docs/authorization/auth_overview#deciding-between-the-azure-ad-and-azure-ad-v2.0-endpoints).
+If you are unsure about which approach to use, see [Deciding between Azure AD and Azure AD v2.0 endpoints](https://aka.ms/graph-auth-overview#deciding-between-the-azure-ad-and-azure-ad-v2.0-endpoints).
 
 ## Register your app with Microsoft
 
