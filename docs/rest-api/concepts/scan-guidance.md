@@ -34,6 +34,16 @@ https://graph.microsoft.com/v1.0/sites/root/drives
 
 The drive is the starting point for large-scale file activities.  You’ll use these drives to get complete lists of files, connect webhooks for notifications, and use delta query to get sets of changes to items in the drives.
 
+### How to find SharePoint site collections and OneDrive for Business drives
+
+Using Microsoft Graph with Application permissions, you can obtain the full list of site collections and OneDrive for Business drives.  To get this list use the following API call:
+
+```
+GET /sites
+```
+
+The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Please keep reading for more information about delta query.
+
 ## Crawl and process by using delta query
 
 To get the initial list of files in a drive, make a single [delta query][] call with no parameters.  The delta query gives apps an initial crawl of all content and then subsequent changes from a point in time.  The delta query returns the link necessary to get future changes each time it is called.
@@ -74,6 +84,9 @@ You will need to create a subscription that is associated with a specific resour
 
 Even with webhooks sending your application notifications, you may want to provide a periodic delta query to ensure that no changes are missed if it appears to have been a long time since a notification was received.  We recommend no more than once per day for this periodic check.  The delta query still allows you to easily catch up and not miss any changes in the system.
 
+### Receiving webhook notifications for security events
+OneDrive and SharePoint support sending your application notifications of security events.  To subscribe to these events you will need to add the "prefer:includesecuritywebhooks" header to your request to register a webhook.  Once the webhook is registered you will receive notifications when the permissions on an item change.
+
 ## Process changes
 
 After your application receives a notification through a webhook, you need to acknowledge the notification by immediately sending a 202 – Accepted code back to Microsoft Graph.  You should send this code before beginning any time-consuming processing.  Failing to do so results in additional retries being sent, which your app might view as false notifications.
@@ -86,13 +99,21 @@ If your processing requires downloading the contents of an individual file, you 
 
 By default, the delta query response will include sharing information for all items in the query that changed even if they inherit their permissions from their parent and did not have direct sharing changes themselves.  This typically then results in a follow up call to get the permission details for every item rather than just the ones whose sharing information changed.  You can optimize your understanding of how permission changes happen by adding the "Prefer: hierarchicalsharing" header to your delta query request.
 
-When the "Prefer: hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inherit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.  
+When the "Prefer: hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inherit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.
+
+In many scanning scenarios you may be interested specifically in changes to permissions.  To make it clear in the delta query response which changes are the result permissions being changed you can provide the "Prefer: deltashowsharingchanges" header.  When this header is provided all items that appear in the delta query response will have the "@shared.changed":"True" OData annotation present. 
 
 ## What happens when you get throttled? 
 
 In some scenarios, your application may get a 429 or 503 response from Microsoft Graph.  This indicates that your request is currently being throttled.  There could be multiple reasons this is happening.  It is critical that your app responds correctly to throttle requests.
 
-To recover from receiving a 429 or 503 response code, try again after waiting for the duration specified in the Retry-After field in the response header.  If throttling persists, the Retry-After value may become longer over time, allowing the system to recover.  Apps that do not honor the retry after duration before calling back will be blocked due to abusive calling patterns. For more detailed information about how Microsoft Graph resources work with throttling, see the [Microsoft Graph throttling guidance][].
+One thing to keep in mind is that SharePoint throttles applications based on an application's use with each customer tenant.  Serving a request for one resource in a tenant will correspondingly give you less resources to make a call to another resource for that same tenant.
+
+To recover from receiving a 429 or 503 response code, try again after waiting for the duration specified in the Retry-After field in the response header.  If throttling persists, the Retry-After value may become longer over time, allowing the system to recover.  Apps that do not honor the retry after duration before calling back will be blocked due to abusive calling patterns. 
+
+When waiting for 429 or 503 recovery you should ensure that you pause all further requests you are making to the service. This is especially important in multi-threaded scenarios.  Making additional calls while receiving throttle responses will extend the time it takes for your app to become unthrottled. 
+
+For more detailed information about how Microsoft Graph resources work with throttling, see the [Microsoft Graph throttling guidance][].
 
 [permission scopes]: https://aka.ms/permissionscopesdoc
 [Application permissions]: https://aka.ms/applicationpermissiondoc
