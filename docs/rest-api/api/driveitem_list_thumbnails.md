@@ -48,7 +48,7 @@ GET /users/{user-id}/drive/items/{item-id}/thumbnails
 
 ## Optional query parameters
 
-This method supports the `$select` [OData puery parameter](../concepts/optional-query-parameters.md) to customize the response.
+This method supports the `$select` [OData query parameter](../concepts/optional-query-parameters.md) to customize the response.
 
 ## Response
 
