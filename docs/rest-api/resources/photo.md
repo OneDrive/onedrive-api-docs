@@ -42,7 +42,7 @@ The **photo** resource provides photo and camera properties, for example, EXIF m
 | **exposureNumerator**   | Double         | The numerator for the exposure time fraction from the camera. Read-only.
 | **focalLength**         | Double         | The focal length from the camera. Read-only.
 | **iso**                 | Int32          | The ISO value from the camera. Read-only.
-| **orientation**         | Int16          | The orientation value from the camera.
+| **orientation**         | Int16          | The orientation value from the camera. Writable on OneDrive Personal.
 
 ## Remarks
 
