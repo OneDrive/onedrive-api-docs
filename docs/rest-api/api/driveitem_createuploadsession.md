@@ -118,6 +118,7 @@ Content-Type: application/json
 The response to this request, if successful, will provide the details for where the remainder of the requests should be sent as an [UploadSession](../resources/uploadSession.md) resource.
 
 This resource provides details about where the byte range of the file should be uploaded and when the upload session expires.
+
 If the `fileSize` parameter was specified and exceeds the available quota, a `507 Insufficent Storage` response will be returned and the upload session will not be created.
 
 <!-- { "blockType": "response", "@odata.type": "microsoft.graph.uploadSession",

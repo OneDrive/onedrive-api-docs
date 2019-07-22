@@ -5,7 +5,7 @@ title: Restore a drive item - OneDrive API
 ---
 # Restore a drive item
 
-Restore a [driveItem](../resources/driveitem.md).
+Restore a [driveItem](../resources/driveitem.md) that has been deleted and is currently in the recycle bin.
 
 ## Permissions
 
@@ -29,7 +29,9 @@ POST /users/{user-id}/drive/items/{item-id}/restore
 
 ### Request body
 
-In the request body, you may optionally supply a value for the **parentReference** property to allow you to restore the item to the target parent, otherwise it will be restored to the same directory it was deleted from. You may also optionally supply a value for the **name** property to allow you to rename the item when it is restored.
+In the request body, you may optionally supply a value for the **parentReference** property to allow you to restore the item to the target parent, otherwise it will be restored to the same directory it was deleted from.
+
+You may also optionally supply a value for the **name** property to allow you to rename the item when it is restored.
 
 ## Example
 
