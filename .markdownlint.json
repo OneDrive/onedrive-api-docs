@@ -3,7 +3,6 @@
   "MD001": false,
   "MD012": false,
   "MD013": false,
-  "MD014": false,
   "MD022": false,
   "MD024": false,
   "MD025": false,
@@ -11,7 +10,11 @@
   "MD029": {
     "style": "ordered"
   },
-  "MD033": false,
+  "MD033": {
+    "allowed_elements": [
+      "br"
+    ]
+  },
   "MD034": false,
   "MD036": false,
   "MD040": false,

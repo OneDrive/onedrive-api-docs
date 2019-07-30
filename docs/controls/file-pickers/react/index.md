@@ -19,7 +19,7 @@ In order to use the SDK, you will need to add `@microsoft/file-browser` to your 
 Using NPM, you can add the dependency by running the following command:
 
 ```shell
-$ npm i --save @microsoft/file-browser
+npm i --save @microsoft/file-browser
 ```
 
 ### 2. Add SDK peer dependencies
