@@ -106,6 +106,7 @@ When constructing the path segment of a URL for the OneDrive API, the following 
               / "*" / "+" / "," / ";" / "="
 ```
 
+<!--markdownlint-disable MD038 -->
 Item name characters, which are not included in the `pchar` group, such as `#` and ` ` (space), must be percent encoded.
 
 ### Encoding characters
