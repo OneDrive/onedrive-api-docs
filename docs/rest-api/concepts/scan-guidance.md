@@ -11,6 +11,7 @@ One important aspect of permissions to note is that when an administrator grants
 
 ## Recommended calling pattern
 For applications that process large amounts of data from SharePoint and OneDrive, you should follow a consistent calling pattern like the following.
+
 1. **Discover** – Configure the locations that you want to scan.
 2. **Crawl** – Discover and process the entire set of files that you are interested in.
 3. **Notify** – Monitor changes to those files via notification.
