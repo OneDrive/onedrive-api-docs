@@ -1,7 +1,7 @@
 # entity resource type
 
 ## Properties
-| Property	   | Type	|Description|
+| Property | Type |Description|
 |:---------------|:--------|:----------|
 |id|String| Read-only.|
 

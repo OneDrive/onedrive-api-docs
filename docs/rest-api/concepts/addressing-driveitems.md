@@ -196,11 +196,11 @@ var url = root + escape(path);
 Here is an example of a OneDrive user (Ryan) with the following folder hierarchy:
 ```
 OneDrive
-	\Ryan's Files
-		\doc (1).docx
+    \Ryan's Files
+        \doc (1).docx
     \estimate%s.docx
-	\Break#Out
-		\saved_game[1].bin
+    \Break#Out
+        \saved_game[1].bin
 ```
 
 To address each of Ryan's files, you use percent encoding, as follows:

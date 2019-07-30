@@ -106,7 +106,7 @@ var pickerOptions = {
   },
 
   error: function(e) {
-	// Handle when there is an error getting a link to the selected file
+    // Handle when there is an error getting a link to the selected file
   },
 
   linkType: "downloadLink", // or webLink
