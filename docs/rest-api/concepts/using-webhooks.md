@@ -60,6 +60,7 @@ resource similar to the following:
 
 <!-- { "blockType": "example", "@odata.type": "microsoft.graph.webhookNotification",
 "truncated": true, "isCollection": true } -->
+
 ```json
 {
   "value": [

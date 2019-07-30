@@ -24,11 +24,13 @@ Here is a JSON representation of the resource.
   ],
   "@odata.type": "microsoft.graph.deleted"
 }-->
+
 ```json
 {
   "state": "string"
 }
 ```
+
 ## Properties
 
 | Property | Type   | Description                               |

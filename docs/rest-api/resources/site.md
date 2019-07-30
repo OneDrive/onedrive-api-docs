@@ -152,6 +152,7 @@ Because IDs for sites are only unique within their site collection, addressing a
 ```http
 GET https://graph.microsoft.com/v1.0/sites/{hostname},{spsite-id},{spweb-id}/
 ```
+
 A URL constructed with only the hostname will point to the root site (`SPWeb`) in the default site collection.
 
 ```http

@@ -29,6 +29,7 @@ If a user deletes one, it is recreated when written to again.
   ],
   "@odata.type": "microsoft.graph.specialFolder"
 }-->
+
 ```json
 {
   "name": "string"

@@ -15,6 +15,7 @@ The **DriveRecipient** resource represents a person, group, or other recipient t
   "blockType": "resource", 
   "@odata.type": "microsoft.graph.driveRecipient", 
   "optionalProperties": ["alias", "objectId", "email"] } -->
+
 ```json
 {
   "email": "string",

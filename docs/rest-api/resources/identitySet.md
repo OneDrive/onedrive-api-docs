@@ -17,6 +17,7 @@ Here is a JSON representation of the resource.
 <!-- { "blockType": "resource", "@odata.type": "microsoft.graph.identitySet",
        "optionalProperties": ["user", "application", "group", "device"],
        "openType": true } -->
+
 ```json
 {
   "application": {"@odata.type": "microsoft.graph.identity"},
