@@ -11,7 +11,7 @@ New integrations should use the latest version of the file picker SDK.
 
 
 To save files from OneDrive, your app should provide a button to programmatically
-start the OneDrive picker experience.   
+start the OneDrive picker experience.
 
 ### Save demo
 

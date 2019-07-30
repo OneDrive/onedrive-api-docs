@@ -28,7 +28,7 @@ import * as ReactDOM from 'react-dom';
 class App extends React.Component {
   public render() {
     return (
-      <GraphFileBrowser 
+      <GraphFileBrowser
         getAuthenticationToken={this.getAuthenticationToken}
         onSuccess={this.onSuccess} />
     );
@@ -64,7 +64,7 @@ Each key has the following structure:
     endpoint: string, // the endpoint url the item was fetched from
     driveId?: string, // the identifier of the drive that contains the item
     itemId?: string   // the identifier of the item
-  } 
+  }
 }
 ```
 
@@ -86,7 +86,7 @@ import * as ReactDOM from 'react-dom';
 class App extends React.Component {
   public render() {
     return (
-      <GraphFileBrowser 
+      <GraphFileBrowser
         getAuthenticationToken={this.getAuthenticationToken}
         onSuccess={this.onSuccess}
         onCancel={this.onCancel} />
@@ -116,7 +116,7 @@ To invoke the `onCancel` callback, click the "Cancel" action button.
 An `Error` with the canceled by user message will then be output to the Browser's console.
 
 ## Advanced Configuration
- 
+
 The `GraphFileBrowser` component accepts props to support additional advanced scenarios.
 The props are defined as follows:
 

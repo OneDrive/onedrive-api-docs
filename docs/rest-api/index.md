@@ -54,7 +54,7 @@ The following is an example of a **driveItem** resource.
 Data about a resource is provided in three ways:
 
 * _Properties_ (like **id** and **name**) expose simple values.
-* _Facets_ (like **file** and **photo**) expose complex values. 
+* _Facets_ (like **file** and **photo**) expose complex values.
   The presence of facets on an item generally indicate behaviors or capabilities of an item and related properties.
 * _References_ (like **children**) point to collections of other resources.
 
@@ -163,7 +163,7 @@ As such, any code calling the API needs to:
 * Have no dependency on the order of properties returned in JSON responses.
 * Use documented API paths, resources, properties, and enumerated values only.
   Non-documented values are not guaranteed to remain consistent.
-* All URLs returned by OneDrive API should be treated as opaque URLs. 
+* All URLs returned by OneDrive API should be treated as opaque URLs.
   Your app should not make any assumptions about format or parameters in these URLs.
   They are subject to change without notice.
 

@@ -33,6 +33,7 @@ with the details of the shared folder in the **remoteItem** facet. For example:
 
 <!-- { "blockType": "request", "name": "add-mountpoint",
        "@odata.type": "microsoft.graph.driveItem", "truncated": true, "scopes": "files.readwrite", "tags": "service.onedrive" } -->
+
 ```http
 POST /drive/root/children
 Content-Type: application/json

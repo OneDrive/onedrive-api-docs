@@ -73,6 +73,7 @@ The following resource definitions are used for documentation testing on the One
 <!-- { "blockType": "resource", "@odata.type": "microsoft.graph.availableOnFile",
        "optionalProperties": [ "
        parameters" ] } -->
+
 ```json
 {
     "extensions": [ ".jpg", ".png" ]

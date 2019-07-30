@@ -62,6 +62,7 @@ The OneDrive picker and saver supports the following web browsers:
 
 
 ## Known issues
+
 * The SDK does not support saving files through a form upload on IE9.
 * The SDK returns thumbnail links that require authentication for image files selected from a user's OneDrive for Business.
 * Files selected from OneDrive for Business may not have a thumbnail collection available. You should check for a null value.

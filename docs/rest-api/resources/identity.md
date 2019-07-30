@@ -15,6 +15,7 @@ For example, an actor can be a user, device, or application.
 <!-- { "blockType": "resource", "@odata.type": "microsoft.graph.identity",
   "openType": true,
  "optionalProperties": ["displayName", "thumbnails"] } -->
+
 ```json
 {
   "displayName": "string",

@@ -1,8 +1,22 @@
 {
-    "MD012": false,
-    "MD013": false,
-    "MD024": false,
-    "MD029": {
-		"style": "ordered"
-	}
+  "default": true,
+  "MD001": false,
+  "MD012": false,
+  "MD013": false,
+  "MD022": false,
+  "MD024": false,
+  "MD025": false,
+  "MD026": false,
+  "MD029": {
+    "style": "ordered"
+  },
+  "MD033": {
+    "allowed_elements": [
+      "br"
+    ]
+  },
+  "MD034": false,
+  "MD036": false,
+  "MD040": false,
+  "MD041": false
 }

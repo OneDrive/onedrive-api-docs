@@ -37,7 +37,7 @@ Here is a JSON representation of the resource.
 | **crc32Hash**    | String | (Hex string). The CRC32 value of the file in little endian (if available). Read-only.            |
 | **quickXorHash** | String | (Base64 string). A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only. |
 
-**Note:** In some cases hash values may not be available. 
+**Note:** In some cases hash values may not be available.
 If this is the case, the hash values on an item will be updated after the item is downloaded.
 
 ## Remarks

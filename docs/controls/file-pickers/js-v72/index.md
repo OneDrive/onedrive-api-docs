@@ -9,8 +9,8 @@ localization_priority: Priority
 # OneDrive file picker for JavaScript v7.2 overview
 
 The OneDrive file picker makes it easy for your web app to connect to content stored in OneDrive and SharePoint.
-Using the file picker you can open, save, and share files stored in OneDrive or SharePoint without writing custom file UI code. 
- 
+Using the file picker you can open, save, and share files stored in OneDrive or SharePoint without writing custom file UI code.
+
 You can use the file picker SDK to integrate with OneDrive and SharePoint in the following ways:
 
 * Open a file and receive a short-lived URL to download the content of the file.

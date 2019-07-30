@@ -15,7 +15,7 @@ In this section, you'll learn how to:
 2. Sign your user in with the specified [scopes](#authentication-scopes) using the token flow or code flow.
 3. Sign the user out (optional).
 
-The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authorization framework to authorize apps and generate access tokens. 
+The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authorization framework to authorize apps and generate access tokens.
 You must provide an access token for every authenticated API call by using an HTTP header:
 
 ```
@@ -23,7 +23,7 @@ Authorization: bearer {token}
 ```
 
 **Note:** The recommended authorization framework is using the Azure AD v2.0 endpoint.
-However, some enterprise scenarios may require using the original Azure AD endpoint. 
+However, some enterprise scenarios may require using the original Azure AD endpoint.
 For more information see [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview).
 
 ## Register your app
@@ -67,7 +67,7 @@ While Azure Active Directory supports multiple authorization flows, the most com
 ## Token flow
 
 The most straightforward authorization flow is the token flow.
-This flow is useful for quickly obtaining an access token to use the OneDrive API in an interactive fashion. 
+This flow is useful for quickly obtaining an access token to use the OneDrive API in an interactive fashion.
 This flow does not provide a refresh token, and therefore is not a good fit for longterm access to resources.
 
 ![Token Flow Diagram](../../media/implicit_grant_flow.png)

@@ -104,21 +104,21 @@ Last Updated: February 16, 2015.
 
 6. **Privacy.**
 
-  a. **Your Information.** See the [Microsoft Privacy Statement](http://privacy.microsoft.com/en-us/fullnotice.mspx)
-     for disclosures relating to the collection and use of your information.
+   a. **Your Information.** See the [Microsoft Privacy Statement](http://privacy.microsoft.com/en-us/fullnotice.mspx)
+      for disclosures relating to the collection and use of your information.
 
-  b. **End User Information.** Where an Authorized Application seeks permission
-     from an end user to access, collect, or transmit any user’s personal
-     information from Microsoft Services, you must maintain a privacy policy.
-     **You are responsible for informing end users of your privacy policy. Your
-     privacy policy must (i) comply with applicable laws and regulations, (ii)
-     inform end users of the information collected by you and how that
-     information is used, stored, secured and disclosed, and (iii) describe the
-     controls that end users have over the use and sharing of their information,
-     and how they may access their information. You must also provide access to
-     your privacy policy in the Authorized Application. Unauthorized use of end
-     users’ personal information or email addresses will be subject to immediate
-     revocation of your Client ID.**
+   b. **End User Information.** Where an Authorized Application seeks permission
+      from an end user to access, collect, or transmit any user’s personal
+      information from Microsoft Services, you must maintain a privacy policy.
+      **You are responsible for informing end users of your privacy policy. Your
+      privacy policy must (i) comply with applicable laws and regulations, (ii)
+      inform end users of the information collected by you and how that
+      information is used, stored, secured and disclosed, and (iii) describe the
+      controls that end users have over the use and sharing of their information,
+      and how they may access their information. You must also provide access to
+      your privacy policy in the Authorized Application. Unauthorized use of end
+      users’ personal information or email addresses will be subject to immediate
+      revocation of your Client ID.**
 
    The Authorized Application must also provide a link to
    [https://account.live.com/consent/Manage](https://account.live.com/consent/Manage),
@@ -155,27 +155,27 @@ Last Updated: February 16, 2015.
 
 10. **NO WARRANTIES.**
 
-   **MICROSOFT, AND OUR AFFILIATES, RESELLERS, DISTRIBUTORS, AND VENDORS, MAKE
-   NO WARRANTIES, EXPRESS OR IMPLIED, GUARANTEES OR CONDITIONS WITH RESPECT TO
-   YOUR USE OF THE ONEDRIVE APIS AND THE SERVICES. YOU UNDERSTAND THAT USE OF
-   THE ONEDRIVE APIS, AND THE SERVICES IS AT YOUR OWN RISK AND THAT WE PROVIDE
-   THE ONEDRIVE APIS, AND THE SERVICES ON AN “AS IS” BASIS “WITH ALL FAULTS” AND
-   "AS AVAILABLE." MICROSOFT DOESN'T GUARANTEE THE ACCURACY OR TIMELINESS OF
-   INFORMATION AVAILABLE FROM THE SERVICES. TO THE EXTENT PERMITTED UNDER YOUR
-   LOCAL LAW, WE EXCLUDE ANY IMPLIED WARRANTIES, INCLUDING FOR MERCHANTABILITY,
-   SATISFACTORY QUALITY, FITNESS FOR A PARTICULAR PURPOSE, WORKMANLIKE EFFORT,
-   AND NON-INFRINGEMENT. YOU MAY HAVE CERTAIN RIGHTS UNDER YOUR LOCAL LAW.
-   NOTHING IN THIS AGREEMENT IS INTENDED TO AFFECT THOSE RIGHTS, IF THEY ARE
-   APPLICABLE.**
+    **MICROSOFT, AND OUR AFFILIATES, RESELLERS, DISTRIBUTORS, AND VENDORS, MAKE
+    NO WARRANTIES, EXPRESS OR IMPLIED, GUARANTEES OR CONDITIONS WITH RESPECT TO
+    YOUR USE OF THE ONEDRIVE APIS AND THE SERVICES. YOU UNDERSTAND THAT USE OF
+    THE ONEDRIVE APIS, AND THE SERVICES IS AT YOUR OWN RISK AND THAT WE PROVIDE
+    THE ONEDRIVE APIS, AND THE SERVICES ON AN “AS IS” BASIS “WITH ALL FAULTS” AND
+    "AS AVAILABLE." MICROSOFT DOESN'T GUARANTEE THE ACCURACY OR TIMELINESS OF
+    INFORMATION AVAILABLE FROM THE SERVICES. TO THE EXTENT PERMITTED UNDER YOUR
+    LOCAL LAW, WE EXCLUDE ANY IMPLIED WARRANTIES, INCLUDING FOR MERCHANTABILITY,
+    SATISFACTORY QUALITY, FITNESS FOR A PARTICULAR PURPOSE, WORKMANLIKE EFFORT,
+    AND NON-INFRINGEMENT. YOU MAY HAVE CERTAIN RIGHTS UNDER YOUR LOCAL LAW.
+    NOTHING IN THIS AGREEMENT IS INTENDED TO AFFECT THOSE RIGHTS, IF THEY ARE
+    APPLICABLE.**
 
-   **YOU ACKNOWLEDGE THAT COMPUTER AND TELECOMMUNICATIONS SYSTEMS ARE NOT
-   FAULT-FREE AND OCCASIONAL PERIODS OF DOWNTIME OCCUR. WE DON'T GUARANTEE
-   THE ONEDRIVE APIS, AND THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE,
-   OR ERROR-FREE OR THAT CONTENT LOSS WON'T OCCUR.**
+    **YOU ACKNOWLEDGE THAT COMPUTER AND TELECOMMUNICATIONS SYSTEMS ARE NOT
+    FAULT-FREE AND OCCASIONAL PERIODS OF DOWNTIME OCCUR. WE DON'T GUARANTEE
+    THE ONEDRIVE APIS, AND THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE,
+    OR ERROR-FREE OR THAT CONTENT LOSS WON'T OCCUR.**
 
-   **YOU MAY BE ABLE TO ACCESS THIRD-PARTY WEBSITES OR SERVICES VIA THE ONEDRIVE
-   APIS; YOU ACKNOWLEDGE THAT WE ARE NOT RESPONSIBLE FOR SUCH WEBSITES OR
-   SERVICES OR CONTENT THAT MAY BE AVAILABLE THERE.**
+    **YOU MAY BE ABLE TO ACCESS THIRD-PARTY WEBSITES OR SERVICES VIA THE ONEDRIVE
+    APIS; YOU ACKNOWLEDGE THAT WE ARE NOT RESPONSIBLE FOR SUCH WEBSITES OR
+    SERVICES OR CONTENT THAT MAY BE AVAILABLE THERE.**
 
 11. **LIABILITY LIMITATION.**
 

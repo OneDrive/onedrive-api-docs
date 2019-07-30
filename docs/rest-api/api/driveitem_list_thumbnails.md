@@ -64,7 +64,7 @@ Here is an example of the request which retrieves available thumbnails for an it
 GET /me/drive/items/{item-id}/thumbnails
 ```
 
-This returns an array of available **thumbnailSets** for the item. 
+This returns an array of available **thumbnailSets** for the item.
 Any item in a drive can have zero or more thumbnails.
 
 **Note:** You can use the _select_ query string parameter to control which thumbnail sizes are returned in the **ThumbnailSet**.

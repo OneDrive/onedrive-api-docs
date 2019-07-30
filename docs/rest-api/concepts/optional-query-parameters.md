@@ -142,7 +142,7 @@ Here is a table of optional OData query parameters you can use in your OneDrive 
 
 
 
-**Note:** The OData standard prefixes these terms with a `$`. 
+**Note:** The OData standard prefixes these terms with a `$`.
 OneDrive API supports using these query parameters either with or without the special character, but you must be consistent throughout the request with your usage of the `$` character on these arguments.
 
  [item-resource]: ../resources/driveitem.md
