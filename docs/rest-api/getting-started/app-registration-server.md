@@ -80,19 +80,16 @@ your Office 365 subscription by following these steps:
    Navigate to the **Active Directory** node and, under **Directory**, you
    should now see your Office 365 subscription.
 
-For more info about setting up an Azure AD tenant, see [Set up Azure Active
-Directory access for your Developer Site](https://msdn.microsoft.com/en-us/office/office365/howto/setup-development-environment#bk_CreateAzureSubscription).
+For more info about setting up an Azure AD tenant, see [Set up Azure Active Directory access for your Developer Site](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_CreateAzureSubscription).
 
 ### 3. Register your app with Azure Active Directory
 
 To authenticate your app, you need to register your app with Azure AD, and provide some details about your app. You can register your app manually by using the [Azure Management Portal](https://manage.windowsazure.com/),
 or by using Visual Studio.
 
-To register your app manually, see [Manually register your app with Azure AD so
-it can access Office 365 APIs](https://msdn.microsoft.com/en-us/office/office365/howto/add-common-consent-manually).
+To register your app manually, see [Manually register your app with Azure AD so it can access Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/add-common-consent-manually).
 
-To register your app by using Visual Studio, see [Using Visual Studio to
-register your app and add Office 365 APIs](https://msdn.microsoft.com/office/office365/HowTo/adding-service-to-your-Visual-Studio-project).
+To register your app by using Visual Studio, see [Using Visual Studio to register your app and add Office 365 APIs](https://msdn.microsoft.com/office/office365/HowTo/adding-service-to-your-Visual-Studio-project).
 
 After you've registered your app, Azure AD will generate a client ID and client
 secret (web apps only) for your app. You'll need to use this client ID to get

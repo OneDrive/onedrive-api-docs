@@ -147,8 +147,8 @@ To enable single sign-on and avoid prompting the user to select an account, you 
 In some scenarios, your file handler may need to prompt the user to sign-in.
 If your file handler is running as a `preview` action, you cannot redirect to the sign-in experience inside an IFRAME and will need to popup the sign-in experience for your file handler.
 
-[aad-auth]: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios
-[aad-odic]: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oidc
+[aad-auth]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios
+[aad-odic]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oidc
 
 ## File handler availability
 

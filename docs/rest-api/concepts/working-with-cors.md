@@ -12,7 +12,7 @@ The OneDrive API supports [HTTP access control (CORS)](http://www.w3.org/TR/cors
 
 You can read more about CORS (Cross-Origin Resource Sharing) on [Wikipedia](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) or the [W3C CORS Wiki](http://www.w3.org/wiki/CORS).
 
-[xhr-scenario]: https://msdn.microsoft.com/en-us/library/hh772834(v=vs.85).aspx
+[xhr-scenario]: https://msdn.microsoft.com/library/hh772834(v=vs.85).aspx
 
 ## Sample code
 

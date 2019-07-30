@@ -36,7 +36,7 @@ You provide an access token for every API call via an HTTP header:
 You access the API by sending HTTP requests to a specific endpoint URL.
 The root URL is based on the host name of the server that serves as the REST endpoint.
 You can use the discovery API to find endpoints for Office 365 services.
-For more information see [Common endpoint discovery tasks using the Discovery Service API](https://msdn.microsoft.com/en-us/office/office365/howto/discover-service-endpoints).
+For more information see [Common endpoint discovery tasks using the Discovery Service API](https://msdn.microsoft.com/office/office365/howto/discover-service-endpoints).
 Your root URL appears in the next example, where `{tenant}` comes from your discovered endpoint URL:
 
 `https://{tenant}-my.sharepoint.com/_api/v2.0/`
@@ -59,7 +59,7 @@ To sign into OneDrive for Business the first time, your app needs the following 
 The following steps will walk you through the requests necessary to get all of these values.
 
 The flow follows standard OAuth 2.0 authentication flows and requires calls from a web browser or web-browser control.
-See [Understanding Office 365 app authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks) for general Office 365 authentication info.
+See [Understanding Office 365 app authentication concepts](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) for general Office 365 authentication info.
 However, getting all of the required values to use the OneDrive for Business API requires a few additional steps.
 
 The code flow for authentication is a three-step process with separate calls to authenticate and authorize the application and to generate an access token to use the OneDrive API.
@@ -244,7 +244,7 @@ If the call is successful, the response body is a JSON string that including `ac
 **Note:** Replace refresh token values that you have previously stored with those returned from subsequent calls to the token service to ensure that your app has a token with the latest expiration.
 
 The value of the **access_token** property can now be used to make authenticated requests to the OneDrive API.
-For more info about refresh tokens, see [Refresh Tokens for Multiple Resources](https://msdn.microsoft.com/en-us/library/azure/dn645538.aspx).
+For more info about refresh tokens, see [Refresh Tokens for Multiple Resources](https://msdn.microsoft.com/library/azure/dn645538.aspx).
 
 **Important:** Treat the values of `access_token` and `refresh_token` in this response as securely as you would a user's password.
 
@@ -278,7 +278,7 @@ The page content will always display a generic error message for the user.
 
 If the user selects not to provide consent to your application, the flow will redirect to your redirect_uri and include the same error parameters.
 
-For more info about handling errors, see [Error Handling in OAuth 2.0](https://msdn.microsoft.com/en-us/library/azure/dn645540.aspx).
+For more info about handling errors, see [Error Handling in OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645540.aspx).
 
 [app-portal]: http://go.microsoft.com/fwlink/p/?LinkId=193157
 
@@ -288,11 +288,11 @@ The following topics contain high-level overviews of other concepts that apply
 to the OneDrive API.
 
 * [Develop with the OneDrive API](../../index.md)
-* [Using Azure Active Directory for authentication](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/)
+* [Using Azure Active Directory for authentication](https://azure.microsoft.com/documentation/articles/web-sites-authentication-authorization/)
 * [OneDrive authentication and sign-in using Microsoft accounts](msa-oauth.md)
-* [Office 365 authentication concepts](https://msdn.microsoft.com/en-us/office/office365/howto/common-app-authentication-tasks)
-* [OAuth 2.0 in Auzure AD](https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx)
-* [Authorization Code Grant Flow](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)
+* [Office 365 authentication concepts](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks)
+* [OAuth 2.0 in Auzure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+* [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx)
 
 <!-- {
   "type": "#page.annotation",

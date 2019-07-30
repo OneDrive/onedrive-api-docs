@@ -70,7 +70,7 @@ following:
   and needs either **Read user files** permissions (for downloading only) or
  **Read and write user files** permission (for sharing links and saving files).
 
-[aad-implicit-flow]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/#enabling-oauth-20-implicit-grant-for-single-page-applications
+[aad-implicit-flow]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#enabling-oauth-20-implicit-grant-for-single-page-applications
 
 ### Next Step
 

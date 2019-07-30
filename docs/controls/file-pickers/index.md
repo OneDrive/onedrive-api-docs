@@ -29,7 +29,7 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 [web-picker]: js-v72/index.md
 [file-browser]: react/index.md
 [windows-picker]: https://msdn.microsoft.com/library/windows/apps/br207847
-[windows-saver]: https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
+[windows-saver]: https://msdn.microsoft.com/library/windows/apps/windows.storage.pickers.filesavepicker.aspx
 
 ## Microsoft Graph SDKs and sample code
 
