@@ -35,7 +35,7 @@ Here is a JSON representation of the resource.
 |:---------|:-------|:------------------------------------------|
 | state    | String | Represents the state of the deleted item. |
 
-## Remarks 
+## Remarks
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 

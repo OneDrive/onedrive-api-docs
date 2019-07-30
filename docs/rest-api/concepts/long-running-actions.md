@@ -51,7 +51,7 @@ However, if the app wants to show the status of the copy action or ensure that i
 ## Retrieve a status report from the monitor URL
 
 To check on the status of the copy action, the app makes a request to the URL provided in the previous response.
-*Note:* This request does not require authentication, since the URL is short-lived and unique to the original caller. 
+*Note:* This request does not require authentication, since the URL is short-lived and unique to the original caller.
 
 <!-- { "blockType": "ignored", "name": "lro-check-status", "scopes": "files.readwrite" } -->
 ```http

@@ -8,7 +8,7 @@ localization_priority: Priority
 ---
 # OneDrive Files Sample Code
 
-The following samples are available on GitHub in the OneDrive organization. 
+The following samples are available on GitHub in the OneDrive organization.
 All of our samples are licensed under the [MIT license](https://opensource.org/licenses/MIT) and are open source projects.
 
 Additional samples for the Microsoft Graph are available from the [Microsoft Graph organization on GitHub](https://github.com/MicrosoftGraph/?q=sample).

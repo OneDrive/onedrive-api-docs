@@ -44,7 +44,7 @@ Values for **createdDateTime** and **lastModifiedDateTime** vary from the same p
 The values on the DriveItem resource are the created and modified date and time as seen from the service.
 The values stored in the **FileSystemInfo** resource are provided by the client.
 
-For example, if a file was created on the device on Monday, but not uploaded to the service until Tuesday, the client that uploads the file should write the `fileSystemInfo` facet to include the created date on Monday. 
+For example, if a file was created on the device on Monday, but not uploaded to the service until Tuesday, the client that uploads the file should write the `fileSystemInfo` facet to include the created date on Monday.
 When the item metadata is retrieved, the created date for the item will reflect Tuesday, but the `fileSystemInfo` facet will show the original created date on Monday.
 
 These properties are read/write.

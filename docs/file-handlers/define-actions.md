@@ -114,7 +114,7 @@ Each action declared in the action parameter takes the following shape:
     "url": "url",
     "displayName": "string",
     "shortDisplayName": "string",
-    "icon": { 
+    "icon": {
         "@odata.type": "microsoft.graph.displayIcon",
         "svg": "url",
         "png1x": "url",

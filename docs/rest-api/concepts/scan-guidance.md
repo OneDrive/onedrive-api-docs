@@ -1,5 +1,5 @@
 # Best practices for discovering files and detecting changes at scale
-SharePoint and OneDrive store millions of files.  It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level.  Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor an Office 365 tenant or OneDrive so that your application integrates with Office 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers. 
+SharePoint and OneDrive store millions of files.  It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level.  Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor an Office 365 tenant or OneDrive so that your application integrates with Office 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers.
 
 ## Getting the right permissions
 To build trust with users it is important to use the right set of [permission scopes][] needed for an app to function.  Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user.  To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope.  For access to SharePoint resources, **Sites.Read.All** or **Sites.ReadWrite.All** are appropriate.
@@ -11,7 +11,7 @@ One important aspect of permissions to note is that when an administrator grants
 
 ## Recommended calling pattern
 For applications that process large amounts of data from SharePoint and OneDrive, you should follow a consistent calling pattern like the following.
-1. **Discover** – Configure the locations that you want to scan. 
+1. **Discover** – Configure the locations that you want to scan.
 2. **Crawl** – Discover and process the entire set of files that you are interested in.
 3. **Notify** – Monitor changes to those files via notification.
 4. **Process changes** – Reprocess only files that have changed by using delta query.
@@ -86,9 +86,9 @@ If your processing requires downloading the contents of an individual file, you 
 
 By default, the delta query response will include sharing information for all items in the query that changed even if they inherit their permissions from their parent and did not have direct sharing changes themselves.  This typically then results in a follow up call to get the permission details for every item rather than just the ones whose sharing information changed.  You can optimize your understanding of how permission changes happen by adding the "Prefer: hierarchicalsharing" header to your delta query request.
 
-When the "Prefer: hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inherit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.  
+When the "Prefer: hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inherit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.
 
-## What happens when you get throttled? 
+## What happens when you get throttled?
 
 In some scenarios, your application may get a 429 or 503 response from Microsoft Graph.  This indicates that your request is currently being throttled.  There could be multiple reasons this is happening.  It is critical that your app responds correctly to throttle requests.
 

@@ -9,7 +9,7 @@ localization_priority: Normal
 
 If you are using the Live SDK or Live Connect APIs to connect to profile, calendar, contacts, or files, your app needs to be updated to maintain functionality.
 
-Live SDK and Live Connect APIs have been marked as deprecated for over a year. 
+Live SDK and Live Connect APIs have been marked as deprecated for over a year.
 As announced on the [Office Developer blog](https://dev.office.com/blogs), these APIs are now end of life and will no longer be available after **November 1, 2018**.
 
 Profile and contacts data will no longer be available from the Live Connect APIs as of **Decmeber 1, 2017**.

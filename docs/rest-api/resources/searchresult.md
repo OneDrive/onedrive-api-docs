@@ -29,7 +29,7 @@ The **SearchResult** resource indicates than an item is the response to a search
 |:--------------------|:-------|:----------------------------------------------
 | onClickTelemetryUrl | String | A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.
 
-## Remarks 
+## Remarks
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 

@@ -102,7 +102,7 @@ Content-type: application/json
 
 ## HEAD requests
 
-In most cases, a HEAD request will behave the same way as a GET request. 
+In most cases, a HEAD request will behave the same way as a GET request.
 
 There are a couple differences:
 

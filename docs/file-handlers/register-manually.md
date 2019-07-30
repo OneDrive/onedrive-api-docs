@@ -63,7 +63,7 @@ To obtain an access token with these permissions, you can use a tool like [Postm
     6. Click **Save**.
     7. Click on **Keys**, then create a new key by changing the Expires drop down to **Never expires** and clicking **Save**.
     8. Copy the value of the new key, and paste it into Postman next to **Client Secret**.
-7. In Postman, complete the access token form, by providing the following values: 
+7. In Postman, complete the access token form, by providing the following values:
     * **Token name**: `File handler registration tool`
     * **Auth URL**: `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://graph.windows.net`
     * **Access Token URL**: `https://login.microsoftonline.com/common/oauth2/token`

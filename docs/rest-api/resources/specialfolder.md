@@ -53,7 +53,7 @@ Here are the special folders available in OneDrive Personal and OneDrive for Bus
 | Music       | `music`      | The Music folder. Not available in OneDrive for Business.                |
 | Photos      | `photos`     | The Photos folder.                                                       |
 
-## Remarks 
+## Remarks
 
 For more information about the facets on a DriveItem, see [DriveItem](driveitem.md).
 

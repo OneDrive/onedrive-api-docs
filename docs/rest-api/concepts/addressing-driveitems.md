@@ -91,7 +91,7 @@ The following characters are OneDrive reserved characters, and can't be used in 
 
 **Note:** Folder names can't end with a period (`.`).
 
-**Note:** OneDrive for Business file or folder names cannot begin with a tilde ('~'). 
+**Note:** OneDrive for Business file or folder names cannot begin with a tilde ('~').
 See [Restrictions and limitations with OneDrive for Business](https://support.microsoft.com/en-us/kb/2933738) for more information.
 
 ### URI path characters
@@ -110,7 +110,7 @@ When constructing the path segment of a URL for the OneDrive API, the following 
 Item name characters, which are not included in the `pchar` group, such as `#` and ` ` (space), must be percent encoded.
 
 ### Encoding characters
-Microsoft Graph uses standard percent encoding, where URL-invalid characters are encoded with a % and then the UTF-8 character code for the character. 
+Microsoft Graph uses standard percent encoding, where URL-invalid characters are encoded with a % and then the UTF-8 character code for the character.
 For example:
 
 * `" "` -> `%20`

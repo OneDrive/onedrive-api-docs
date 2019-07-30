@@ -10,7 +10,7 @@ localization_priority: Priority
 OneDrive and SharePoint expose a few granular permissions that control the access that apps have to resources.
 When a user signs in to your app they, or, in some cases, an administrator, are required to consent to these permissions.
 If consent is given, your app is given access to the resources and APIs that it has requested.
-For apps that don't take a signed-in user, permissions can be pre-consented to by an administrator when the app is installed or during sign-up. 
+For apps that don't take a signed-in user, permissions can be pre-consented to by an administrator when the app is installed or during sign-up.
 
 For more details about the full set of Microsoft Graph permissions, please see [Permissions reference for Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
 
@@ -38,10 +38,10 @@ For more details about the full set of Microsoft Graph permissions, please see [
 ### Remarks
 
 The Files.Read, Files.ReadWrite, Files.Read.All, and Files.ReadWrite.All delegated permissions are valid on both personal Microsoft accounts and work or school accounts.
-Note that for personal accounts, Files.Read and Files.ReadWrite also grant access to files shared with the signed-in user. 
+Note that for personal accounts, Files.Read and Files.ReadWrite also grant access to files shared with the signed-in user.
 
 The Files.Read.Selected and Files.ReadWrite.Selected delegated permissions are only valid on work or school accounts and are only exposed for working with [Office 365 file handlers (v1.0)](https://msdn.microsoft.com/office/office365/howto/using-cross-suite-apps).
-They should not be used for directly calling Microsoft Graph APIs. 
+They should not be used for directly calling Microsoft Graph APIs.
 
 The Files.ReadWrite.AppFolder delegated permission is only valid for personal accounts and is used for accessing the [App Root special folder](special-folders-appfolder.md) with the OneDrive [Get special folder](../api/drive_get_specialfolder.md) Microsoft Graph API.
 
@@ -55,7 +55,7 @@ The Files.ReadWrite.AppFolder delegated permission is only valid for personal ac
 * _Files.ReadWrite.All_ : Write a file shared with the user (`PUT /users/rgregg@contoso.com/drive/root/children/file.txt/content`)
 * _Files.ReadWrite.AppFolder_ : Write files into the app's folder in OneDrive (`PUT /me/drive/special/approot/children/file.txt/content`)
 
---- 
+---
 
 ## Sites permissions
 

@@ -58,7 +58,7 @@ prepared to handle any one of these errors.
 
 | Code                      | Description
 |:--------------------------|:--------------
-| **accessDenied**          | The caller doesn't have permission to perform the action. 
+| **accessDenied**          | The caller doesn't have permission to perform the action.
 | **activityLimitReached**  | The app or user has been throttled.
 | **generalException**      | An unspecified error has occurred.
 | **invalidRange**          | The specified byte range is invalid or unavailable.
@@ -70,7 +70,7 @@ prepared to handle any one of these errors.
 | **notSupported**          | The request is not supported by the system.
 | **resourceModified**      | The resource being updated has changed since the caller last read it, usually an eTag mismatch.
 | **resyncRequired**        | The delta token is no longer valid, and the app must reset the sync state.
-| **serviceNotAvailable**   | The service is not available. Try the request again after a delay. There may be a Retry-After header. 
+| **serviceNotAvailable**   | The service is not available. Try the request again after a delay. There may be a Retry-After header.
 | **quotaLimitReached**     | The user has reached their quota limit.
 | **unauthenticated**       | The caller is not authenticated.
 

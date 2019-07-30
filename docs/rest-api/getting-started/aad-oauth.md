@@ -28,7 +28,7 @@ In this section, you'll learn how to:
 1. [Register your app with Azure Active Directory][step1].
 2. [Sign into OneDrive for Business][step2]
 
-The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. 
+The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens.
 You provide an access token for every API call via an HTTP header:
 
 `Authorization: bearer {token}`
@@ -125,7 +125,7 @@ The body for this request is a URL encoded string, with the following required p
 | *code*          | string | The authorization code you received in the first authentication request.                                                                 |
 | *resource*      | string | The resource you want to access.                                                                                                         |
 
-In most cases, the OneDrive for Business API endpoint URL will not be known. 
+In most cases, the OneDrive for Business API endpoint URL will not be known.
 To discovery the endpoint URL, you need to make a call to the Office 365 Discovery API.
 To authenticate with the discovery API, you need to request an access token for resource `https://api.office.com/discovery/`.
 Make sure to include the trailing / character, otherwise your app will be denied access to the discovery API.

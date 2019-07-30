@@ -16,7 +16,7 @@ You can read more about CORS (Cross-Origin Resource Sharing) on [Wikipedia](http
 
 ## Sample code
 
-The OneDrive Explorer JS sample app demonstrates how to use the OneDrive API from a JavaScript app. 
+The OneDrive Explorer JS sample app demonstrates how to use the OneDrive API from a JavaScript app.
 This sample shows you how to browse and navigate the contents of a user's OneDrive in JavaScript.
 
 You can try the [OneDrive explorer sample app](https://dev.onedrive.com/odx) or [view the source code](https://github.com/onedrive/onedrive-explorer-js).
@@ -61,7 +61,7 @@ xhr.send();
 
 ## Downloading OneDrive files in JavaScript apps
 
-To download files from OneDrive in a JavaScript app you cannot use the `/content` API, since this responds with a `302` redirect. 
+To download files from OneDrive in a JavaScript app you cannot use the `/content` API, since this responds with a `302` redirect.
 A `302` redirect is explicitly prohibited when a CORS _preflight_ is required, such as when providing the **Authorization** header.
 
 Instead, your app needs to select the `@microsoft.graph.downloadUrl` property, which returns the same URL that `/content` would have redirected to.
