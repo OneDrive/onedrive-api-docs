@@ -34,16 +34,6 @@ https://graph.microsoft.com/v1.0/sites/root/drives
 
 The drive is the starting point for large-scale file activities.  You’ll use these drives to get complete lists of files, connect webhooks for notifications, and use delta query to get sets of changes to items in the drives.
 
-### How to find SharePoint site collections and OneDrive for Business drives
-
-Using Microsoft Graph with Application permissions, you can obtain the full list of site collections and OneDrive for Business drives.  To get this list use the following API call:
-
-```
-GET /sites
-```
-
-The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Please keep reading for more information about delta query.
-
 ## Crawl and process by using delta query
 
 To get the initial list of files in a drive, make a single [delta query][] call with no parameters.  The delta query gives apps an initial crawl of all content and then subsequent changes from a point in time.  The delta query returns the link necessary to get future changes each time it is called.
@@ -85,7 +75,7 @@ You will need to create a subscription that is associated with a specific resour
 Even with webhooks sending your application notifications, you may want to provide a periodic delta query to ensure that no changes are missed if it appears to have been a long time since a notification was received.  We recommend no more than once per day for this periodic check.  The delta query still allows you to easily catch up and not miss any changes in the system.
 
 ### Receiving webhook notifications for security events
-OneDrive and SharePoint support sending your application notifications of security events.  To subscribe to these events you will need to add the "prefer:includesecuritywebhooks" header to your request to register a webhook.  Once the webhook is registered you will receive notifications when the permissions on an item change.
+OneDrive and SharePoint support sending your application notifications of security events.  To subscribe to these events you will need to add the "prefer:includesecuritywebhooks" header to your request to register a webhook.  Once the webhook is registered you will receive notifications when the permissions on an item change.  This header is applicable to SharePoint and OneDrive for Business but not consumer OneDrive accounts.
 
 ## Process changes
 
@@ -101,7 +91,7 @@ By default, the delta query response will include sharing information for all it
 
 When the "Prefer: hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inherit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.
 
-In many scanning scenarios you may be interested specifically in changes to permissions.  To make it clear in the delta query response which changes are the result permissions being changed you can provide the "Prefer: deltashowsharingchanges" header.  When this header is provided all items that appear in the delta query response will have the "@shared.changed":"True" OData annotation present. 
+In many scanning scenarios you may be interested specifically in changes to permissions.  To make it clear in the delta query response which changes are the result permissions being changed you can provide the "Prefer: deltashowsharingchanges" header.  When this header is provided all items that appear in the delta query response due to permission changes will have the "@shared.changed":"True" OData annotation present.  Like the security webhooks, this feature is applicable to SharePoint and OneDrive for Business but not consumer OneDrive accounts.  
 
 ## What happens when you get throttled? 
 
