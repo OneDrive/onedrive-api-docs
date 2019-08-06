@@ -19,7 +19,7 @@ For existing solutions using OneDrive API outside of Microsoft Graph, or solutio
 
 ## Getting started
 
-To quickly experiment with Microsoft Graph and accessing files, check out the [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer?request=me%2Fdrive%2Froot%2Fchildren&method=GET&version=v1.0) and the [Microsoft Graph Quick Start](https://graph.microsoft.io/getting-started).
+To quickly experiment with Microsoft Graph and accessing files, check out the [Graph Explorer](https://aka.ms/ge?request=me%2Fdrive%2Froot%2Fchildren&method=GET&version=v1.0) and the [Microsoft Graph Quick Start](https://aka.ms/graph-get-started).
 
 OneDrive's REST API provides a few top-level types that represent addressable resources in the API:
 
@@ -79,9 +79,9 @@ The follow entities in Microsoft Graph may contain one or more drives:
 | [Group][graph-group]     | `/v1.0/groups/{id}`                |
 | [Site][graph-site]       | `/v1.0/sites/{id}`      |
 
-[graph-user]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/users
-[graph-group]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/group
-[graph-site]: https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/site
+[graph-user]: https://aka.ms/graph-resources-user
+[graph-group]: https://aka.ms/graph-resources-group
+[graph-site]: https://aka.ms/graph-resources-site
 
 ### OneDrive root resources
 
@@ -204,7 +204,7 @@ The following topics contain high level overviews of other concepts that apply t
 * [Error responses](concepts/errors.md)
 * [HTTP verb tunneling](concepts/http-verb-tunneling.md)
 * [Migrating from Live Connect and Live SDK](concepts/migrating-from-live-sdk.md)
-* [Terms of use](../terms-of-use.md)
+* [Terms of use](https://docs.microsoft.com/legal/microsoft-apis/terms-of-use)
 
 [drive-resource]: resources/drive.md
 [drive-list]: api/drive_list.md

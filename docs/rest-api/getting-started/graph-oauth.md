@@ -24,7 +24,7 @@ Authorization: bearer {token}
 
 **Note:** The recommended authorization framework is using the Azure AD v2.0 endpoint.
 However, some enterprise scenarios may require using the original Azure AD endpoint. 
-For more information see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
+For more information see [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview).
 
 ## Register your app
 
@@ -267,7 +267,7 @@ You will need to repeat the authentication flow to request a new access and refr
 The following topics contain high-level overviews of other concepts that apply to the OneDrive API.
 
 * [Develop with the OneDrive API](index.md)
-* [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview)
+* [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview)
 
 <!-- {
   "type": "#page.annotation",
