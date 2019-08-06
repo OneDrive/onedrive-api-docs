@@ -26,7 +26,7 @@ To get started, take a look at using OAuth with Microsoft Graph:
 | [Refresh](graph-oauth.md#step-3-get-a-new-access-token-or-refresh-token) | Refresh your access token.                           |
 | [Sign out](graph-oauth.md#sign-the-user-out)                             | Sign out of Microsoft account and OneDrive personal. |
 
-For more details about the full list of authentication scenarios for Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
+For more details about the full list of authentication scenarios for Microsoft Graph, see [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview).
 
 ## SharePoint Server 2016
 
