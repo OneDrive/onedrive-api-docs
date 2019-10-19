@@ -126,7 +126,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={cl
 | Parameter name   | Value    | Description                                                                                           |
 | ---------------- | -------- | ----------------------------------------------------------------------------------------------------- |
 | *client_id*      | string   | The client ID created for your app.                                                                   |
-| *scope*          | string   | A space-separated list of scopes that your app requires.                                              |
+| *scope*          | string   | A space-separated list of scopes that your app requires. If you want use "offline_access", you should pass it at first.                                              |
 | *redirect_uri*   | string   | The redirect URL that the browser is sent to when authentication is complete.                         |
 | *response_type*  | string   | The type of response expected from the authorization flow. For this flow, the value must be **code**. |
 
@@ -163,14 +163,14 @@ The request body is a properly encoded URL string, with some required parameters
 **Note**  For web apps, the domain portion of the redirect URI must match the domain portion of the redirect URI that you specified in the [Microsoft Developer Center][app-portal].
 
 #### Response
-If the call is successful, the response for the POST request contains a JSON string that includes several properties, including `access_token`, `token_type`, and `refresh_token` (if you requested the **wl.offline_access** scope).
+If the call is successful, the response for the POST request contains a JSON string that includes several properties, including `access_token`, `token_type`, and `refresh_token` (if you requested the **offline_access** scope).
 
 <!-- {"blockType": "ignored", "@odata.type": "oauth2.tokenResponse", "optionalProperties": ["token_type", "scope"] } -->
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope":"wl.basic onedrive.readwrite",
+  "scope":"basic onedrive.readwrite",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
 }
@@ -216,7 +216,7 @@ If the call is successful, the response for the POST request contains a JSON str
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope": "wl.basic onedrive.readwrite wl.offline_access",
+  "scope": "basic onedrive.readwrite offline_access",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
 }
