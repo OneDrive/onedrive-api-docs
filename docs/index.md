@@ -7,9 +7,7 @@ ms.prod: onedrive
 title: OneDrive for Developers
 localization_priority: Priority
 ---
-# OneDrive developer platform
-
-Only for test
+# OneDrive developer platform test
 
 The OneDrive developer platform provides APIs, components, and tools to connect your application to files and content across Office 365, including:
 
