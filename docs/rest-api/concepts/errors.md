@@ -19,13 +19,14 @@ response object. The following HTTP status codes should be expected.
 | 405         | Method Not Allowed              | The HTTP method in the request is not allowed on the resource.                                                                         |
 | 406         | Not Acceptable                  | This service doesn’t support the format requested in the Accept header.                                                                |
 | 409         | Conflict                        | The current state conflicts with what the request expects. For example, the specified parent folder might not exist.                   |
-| 410         | Gone                            | The requested resource is no longer available at the server.                                               |
+| 410         | Gone                            | The requested resource is no longer available at the server.                                                                           |
 | 411         | Length Required                 | A Content-Length header is required on the request.                                                                                    |
 | 412         | Precondition Failed             | A precondition provided in the request (such as an if-match header) does not match the resource's current state.                       |
 | 413         | Request Entity Too Large        | The request size exceeds the maximum limit.                                                                                            |
 | 415         | Unsupported Media Type          | The content type of the request is a format that is not supported by the service.                                                      |
 | 416         | Requested Range Not Satisfiable | The specified byte range is invalid or unavailable.                                                                                    |
 | 422         | Unprocessable Entity            | Cannot process the request because it is semantically incorrect.                                                                       |
+| 423         | Locked                          | The resource that is being accessed is locked. It may be opened by another user.                                                       |
 | 429         | Too Many Requests               | Client application has been throttled and should not attempt to repeat the request until an amount of time has elapsed.                |
 | 500         | Internal Server Error           | There was an internal server error while processing the request.                                                                       |
 | 501         | Not Implemented                 | The requested feature isn’t implemented.                                                                                               |
