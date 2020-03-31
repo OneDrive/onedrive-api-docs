@@ -2,7 +2,7 @@
 SharePoint and OneDrive store millions of files.  It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level.  Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor an Office 365 tenant or OneDrive so that your application integrates with Office 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers. 
 
 ## Getting the right permissions
-To build trust with users it is important to use the right set of [permission scopes][] needed for an app to function.  Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user.  To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope.  For access to SharePoint resources, **Sites.Read.All** or **Sites.ReadWrite.All** are appropriate.
+To build trust with users it is important to use the right set of [permission scopes][] needed for an app to function.  Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user.  To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope.  For access to SharePoint resources, including the list of all site collections, **Sites.Read.All** or **Sites.ReadWrite.All** is appropriate.  In order to process permissions correctly you will also need to request **Sites.FullControl.All**.
 
 ### Authorization types, permission scopes and users
 When you configure an application's permissions in Microsoft Azure you can choose between Application permissions and Delegated permissions.  As noted above most scanning applications will want [Application permissions][].  Delegated permissions require your application to operate in the context of a signed in user rather than globally.  In the delegated model you are restricted to content that the current user has access to.
@@ -33,6 +33,16 @@ https://graph.microsoft.com/v1.0/sites/root/drives
 ```
 
 The drive is the starting point for large-scale file activities.  You’ll use these drives to get complete lists of files, connect webhooks for notifications, and use delta query to get sets of changes to items in the drives.
+
+### How to find SharePoint site collections and OneDrive for Business drives
+
+Using Microsoft Graph with Application permissions, you can obtain the full list of site collections and OneDrive for Business drives.  To get this list use the following API call:
+
+```
+GET /sites
+```
+
+The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Please keep reading for more information about delta query.
 
 ## Crawl and process by using delta query
 
