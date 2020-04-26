@@ -209,7 +209,7 @@ To address each of Ryan's files, you use percent encoding, as follows:
 |:-------------------------|:------------------------------------------|
 | `\Ryan's Files`          | `/root:/Ryan's%20Files`                   |
 | `\...\doc (1).docx`      | `/root:/Ryan's%20Files/doc%20(1).docx`    |
-| `\...\estimate%.docx`    | `/root:/Ryan's%20Files/estimate%25s.docx` |
+| `\...\estimate%s.docx`   | `/root:/Ryan's%20Files/estimate%25s.docx` |
 | `\Break#Out`             | `/root:/Break%23Out`                      |
 | `\...\saved_game[1].bin` | `/root:/Break%23Out/saved_game[1].bin`    |
 
