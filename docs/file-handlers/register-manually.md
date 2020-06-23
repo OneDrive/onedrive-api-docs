@@ -84,10 +84,11 @@ Now that your file handler manifest has been registered with your application in
 
 **Note** The **addIns** property is part of the [Azure AD Graph 1.6 schema](https://graph.windows.net/microsoft.com/$metadata?api-version=1.6), so you need to specify 1.6 for the **api-version** parameter, as show in the examples.
 
-**Note** Changes to the addIn manifest many not be immediately applied. The file handlers manifest is cached for performance.
-Changes to the file handler manifest can take up to 24 hours to appear.
-See [Refresh file handler cache](reset-cache.md) for information about how to force the cache to be cleared for development purposes.
+> [!NOTE]
+> The **addIns** property is part of the [Azure AD Graph 1.6 schema](https://graph.windows.net/microsoft.com/$metadata?api-version=1.6), so you need to specify 1.6 for the **api-version** parameter, as show in the examples.
 
+> [!IMPORTANT]
+> Changes to the addIn manifest many not be immediately applied. The file handlers manifest is cached for performance. Changes to the file handler manifest can take up to 24 hours to appear. See [Refresh file handler cache](reset-cache.md) for information about how to force the cache to be cleared for development purposes.
 
 <!-- {
   "type": "#page.annotation",
