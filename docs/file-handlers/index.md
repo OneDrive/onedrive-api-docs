@@ -22,7 +22,7 @@ With file handlers, you can enable the following user experiences in OneDrive fo
 Check out the [Markdown File Handler example project][markdown-file-handler] for more specifics.
 
 > [!IMPORTANT]
-> Changes to the File Handler addIn manifest many not be immediately applied. The file handlers manifest is cached for performance. Changes to the file handler manifest can take up to 24 hours to appear. See [Refresh file handler cache](reset-cache.md) for information about how to force the cache to be cleared for development purposes.
+> File Handler configurations are aggressively cached throughout the system for optimal performance. It may take 24 hours for any configuration changes to take effect. See [Registering](register-manually.md) for information about how to configure file handlers.
 
 ## What's changed with file handlers 2.0
 
