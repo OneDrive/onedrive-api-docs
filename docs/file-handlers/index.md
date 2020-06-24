@@ -21,6 +21,8 @@ With file handlers, you can enable the following user experiences in OneDrive fo
 
 Check out the [Markdown File Handler example project][markdown-file-handler] for more specifics.
 
+> [!IMPORTANT]
+> File Handler configurations are aggressively cached throughout the system for optimal performance. It may take 24 hours for any configuration changes to take effect. See [Registering](register-manually.md) for information about how to configure file handlers.
 
 ## What's changed with file handlers 2.0
 
