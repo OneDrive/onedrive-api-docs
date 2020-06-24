@@ -1,3 +1,33 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: OneDrive Developer
+  tocHref: /onedrive/developer
+  topicHref: /onedrive/developer/index
+  items:
+  - name: REST API
+    tocHref: /onedrive/developer/rest-api
+    topicHref: /onedrive/developer/rest-api/index
+    items:
+      - name: Getting Started
+        tocHref: /onedrive/developer/rest-api/getting-started
+        topicHref: /onedrive/developer/rest-api/getting-started/index
+      - name: Concepts
+        tocHref: /onedrive/developer/rest-api/concepts
+        topicHref: /onedrive/developer/rest-api/concepts/index
+      - name: Resources
+        tocHref: /onedrive/developer/rest-api/resources
+        topicHref: /onedrive/developer/rest-api/resources/index
+  - name: File Handlers
+    tocHref: /onedrive/developer/file-handlers
+    topicHref: /onedrive/developer/file-handlers/index
+  - name: File Pickers
+    tocHref: /onedrive/developer/controls/file-pickers
+    topicHref: /onedrive/developer/controls/file-pickers/index
+    items:
+      - name: JavaScript
+        tocHref: /onedrive/developer/controls/file-pickers/js-v72
+        topicHref: /onedrive/developer/controls/file-pickers/js-v72/index
+      - name: React (Preview)
+        tocHref: /onedrive/developer/controls/file-pickers/react
+        topicHref: /onedrive/developer/controls/file-pickers/react/index
+      - name: Android
+        tocHref: /onedrive/developer/controls/file-pickers/android
+        topicHref: /onedrive/developer/controls/file-pickers/android/index

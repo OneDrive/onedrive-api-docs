@@ -1,0 +1,222 @@
+{
+  "checkServiceEnabledBranches": ["master", "release", "release-stage"],
+
+  "accounts": [
+    {
+      "name": "OneDriveProd",
+      "enabled": true,
+      "clientId": "000000004C111501",
+      "clientSecret": "$env:ODC_PROD_SECRET",
+      "authService": "https://login.live.com/oauth20_authorize.srf",
+      "tokenService": "https://login.live.com/oauth20_token.srf",
+      "redirectUri": "http://onedriveapi.azurewebsites.net/o2c.html",
+      "oauthMode": "RefreshToken",
+      "refreshToken": "$env:ODC_PROD_REFRESH",
+      "serviceUrl": "https://api.onedrive.com/v1.0",
+      "scopes": [ "files.read", "files.readwrite" ],
+      "tags": [ "service.onedrive", "onedrive.only" ],
+      "transformations": {
+        "request": {
+          "properties": {
+            "@microsoft.graph.": "@oneDrive."
+          },
+          "actions": {
+            "prefix": "oneDrive."
+          }
+        },
+        "response": {
+          "properties": {
+            "@content.": "@microsoft.graph.",
+            "@name.": "@microsoft.graph."
+          }
+        }
+      }
+    },
+    {
+      "name": "OneDriveProdSecondary",
+      "enabled": true,
+      "clientId": "000000004C111501",
+      "clientSecret": "$env:ODC_PROD_SECRET",
+      "authService": "https://login.live.com/oauth20_authorize.srf",
+      "tokenService": "https://login.live.com/oauth20_token.srf",
+      "redirectUri": "http://onedriveapi.azurewebsites.net/o2c.html",
+      "oauthMode": "RefreshToken",
+      "refreshToken": "$env:ODC_PROD_REFRESH_SECONDARY",
+      "serviceUrl": "https://api.onedrive.com/v1.0",
+      "scopes": [ "files.read", "files.readwrite" ],
+      "tags": [ "service.onedrive", "onedrive.only" ],
+      "transformations": {
+        "request": {
+          "properties": {
+            "@microsoft.graph.": "@oneDrive."
+          },
+          "actions": {
+            "prefix": "oneDrive."
+          }
+        },
+        "response": {
+          "properties": {
+            "@content.": "@microsoft.graph.",
+            "@name.": "@microsoft.graph."
+          }
+        }
+      }
+    },
+    {
+      "name": "OneDriveDogfood",
+      "enabled": false,
+      "clientId": "000000004C111501",
+      "clientSecret": "$env:ODC_PROD_SECRET",
+      "tokenService": "https://login.live.com/oauth20_token.srf",
+      "redirectUri": "http://onedriveapi.azurewebsites.net/o2c.html",
+      "refreshToken": "$env:ODC_DOGFOOD_REFRESH",
+      "scopes": [ "files.read", "files.readwrite" ],
+      "oauthMode": "RefreshToken",
+      "serviceUrl": "https://api.onedrive.com/v1.0",
+      "tags": [ "service.onedrive" ],
+      "transformations": {
+        "request": {
+          "properties": {
+            "@microsoft.graph.": "@oneDrive."
+          },
+          "actions": {
+            "prefix": "oneDrive."
+          }
+        },
+        "response": {
+          "properties": {
+            "@content.": "@microsoft.graph.",
+            "@name.": "@microsoft.graph."
+          }
+        }
+      }
+    },
+    {
+      "name": "SharePointPreProduction",
+      "clientId": "0b4b1692-c683-47b6-b5df-f9435a9be3f8",
+      "enabled": false,
+      "oauthType": "UserPassword",
+      "username": "$env:SPO_PPE_USERNAME",
+      "password": "$env:SPO_PPE_PASSWORD",
+      "resource": "https://prepsp-my.spoppe.com",
+      "scopes": [ "files.read", "files.readwrite" ],
+      "serviceUrl": "https://prepsp-my.spoppe.com/personal/billtest_prepsp_ccsctp_net/_api/v2.0",
+      "tags": [ "service.sharepoint" ],
+      "tokenService": "https://login.windows-ppe.net/common",
+
+      "transformations": {
+        "request": {
+          "properties": {
+            "@microsoft.graph.": "@oneDrive."
+          },
+          "actions": {
+            "prefix": "oneDrive."
+          }
+        },
+        "response": {
+          "properties": {
+            "@content.": "@microsoft.graph.",
+            "@name.": "@microsoft.graph."
+          }
+        }
+      }
+    },
+    {
+      "name": "SharePointProduction",
+      "clientId": "420c986a-edcf-4662-821b-7f58dfdd2631",
+      "enabled": true,
+      "oauthType": "UserPassword",
+      "username": "$env:SPO_PROD_USERNAME",
+      "password": "$env:SPO_PROD_PASSWORD",
+      "resource": "https://seattleappworks-my.sharepoint.com",
+      "scopes": [ "files.read", "files.readwrite", "sites.read.all" ],
+      "serviceUrl": "https://seattleappworks-my.sharepoint.com/_api/v2.0",
+      "tags": [ "service.sharepoint" ],
+      "tokenService": "https://login.microsoftonline.com/common",
+      
+      "transformations": {
+        "request": {
+          "properties": {
+            "@microsoft.graph.": "@oneDrive."
+          },
+          "actions": {
+            "prefix": "oneDrive."
+          }
+        },
+        "response": {
+          "properties": {
+            "@content.": "@microsoft.graph.",
+            "@name.": "@microsoft.graph."
+          }
+        }
+      }
+    },
+    {
+      "name": "MicrosoftGraphProdBusiness",
+      "enabled": true,
+
+      "oauthType": "RefreshToken",
+      "clientId": "37ea5b32-31ca-471a-b546-17dc4efabbf3",
+      "clientSecret": "$env:GRAPH_PROD_BUSINESS_SECRET",
+      "authService": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "tokenService": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "redirectUri": "https://onedriveapi.azurewebsites.net/o2c.html",
+      "refreshToken": "$env:GRAPH_PROD_BUSINESS_REFRESH",
+      "responseType": "code id_token",
+      "state": "convergedAuthGraphUser",
+      "scopes": [ "files.read", "files.readwrite", "sites.read.all", "sites.readwrite.all" ],
+      "serviceUrl": "https://graph.microsoft.com/v1.0",
+      "tags": [ "service.sharepoint", "service.graph" ],
+      "apiVersions": [ "v1.0" ]
+    },
+    {
+      "name": "MicrosoftGraphProdConsumer",
+      "enabled": true,
+
+      "oauthType": "RefreshToken",
+      "clientId": "6f9f1420-26e0-498f-a3b9-25643198be8b",
+      "clientSecret": "$env:GRAPH_PROD_CONSUMER_SECRET",
+      "authService": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "tokenService": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "redirectUri": "https://onedriveapi.azurewebsites.net/o2c.html",
+      "responseType": "code",
+      "refreshToken": "$env:GRAPH_PROD_CONSUMER_REFRESH",
+      "scopes": [ "files.read", "files.readwrite" ],
+      "serviceUrl": "https://graph.microsoft.com/v1.0",
+      "tags": [ "service.onedrive", "service.graph" ],
+      "apiVersions": [ "v1.0" ]
+    },
+    {
+      "name": "MicrosoftGraphBetaBusiness",
+      "enabled": false,
+
+      "oauthType": "RefreshToken",
+      "clientId": "37ea5b32-31ca-471a-b546-17dc4efabbf3",
+      "clientSecret": "$env:GRAPH_PROD_BUSINESS_SECRET",
+      "tokenService": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "redirectUri": "https://onedriveapi.azurewebsites.net/o2c.html",
+      "refreshToken": "$env:GRAPH_PROD_BUSINESS_REFRESH",
+      "scopes": [ "files.read", "files.readwrite", "sites.read.all", "sites.readwrite.all" ],
+      "serviceUrl": "https://graph.microsoft.com/beta",
+      "tags": [ "service.sharepoint", "service.graph" ],
+      "apiVersions": [ "beta" ]
+    },
+    {
+      "name": "MicrosoftGraphBetaConsumer",
+      "enabled": true,
+
+      "oauthType": "RefreshToken",
+      "clientId": "6f9f1420-26e0-498f-a3b9-25643198be8b",
+      "clientSecret": "$env:GRAPH_PROD_CONSUMER_SECRET",
+      "authService": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "tokenService": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "redirectUri": "https://onedriveapi.azurewebsites.net/o2c.html",
+      "responseType": "code",
+      "refreshToken": "$env:GRAPH_PROD_CONSUMER_REFRESH",
+      "scopes": [ "files.read", "files.readwrite" ],
+      "serviceUrl": "https://graph.microsoft.com/beta",
+      "tags": [ "service.onedrive", "service.graph" ],
+      "apiVersions": [ "beta" ]
+    }
+  ]
+}

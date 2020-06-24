@@ -4,19 +4,22 @@
 
 ## HTTP request
 
-<!-- {"blockType": "request", "name": "template-method-name", "scopes": "files.readwrite service.sharepoint" } -->
+<!-- {"blockType": "request", "name": "template-method-name", "scopes": "files.readwrite", "tags": "service.sharepoint" } -->
+
 ```http
 GET /drives
 ```
 
 ### Request body
+
 Do not provide a request body with this method.
 
-### HTTP response
+## Response
 
 If successful, this method returns a collection of Drive resources for the available drives either for the current user or the target SharePoint site.
 
-<!-- { "blockType": "response", "@odata.type": "oneDrive.drive", "truncated": true } -->
+<!-- { "blockType": "response", "@odata.type": "microsoft.graph.drive", "truncated": true } -->
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -26,11 +29,7 @@ Content-Type: application/json
 }
 ```
 
-**Note:** The Response object is truncated for clarity.
-All default properties will be returned from the actual call.
-
-
-### Remarks
+## Remarks
 
 {Remarks}
 
@@ -38,7 +37,7 @@ All default properties will be returned from the actual call.
 
 See the [Error Responses][error-response] topic for more info about how errors are returned.
 
-[error-response]: ../misc/errors.md
+[error-response]: ../docs/rest-api/concepts/errors.md
 
 <!--
  {

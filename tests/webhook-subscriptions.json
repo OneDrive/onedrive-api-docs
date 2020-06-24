@@ -2,48 +2,24 @@
   "scenarios":[
     {
         "name": "Add a subscription",
-        "method": "add-subscription",
+        "method": "add-subscription-graph",
         "enabled": true,
         "request-parameters": {
-          "{item-id}": "root",
           "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
-          "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
-        }
-    },
-
-    {
-        "name": "Get subscriptions",
-        "method": "get-subscriptions",
-        "enabled": true,
-        "test-setup": [
-            {
-                "method": "add-subscription",
-                "request-parameters": {
-                  "{item-id}": "root",
-                  "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
-                  "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
-                },
-                "capture": {
-                    "[subscription-id]": "$.id"
-                }
-            }
-        ],
-        "request-parameters": {
-            "{item-id}": "root"
+          "$.notificationUrl": "https://onedrivewebhookstest.azurewebsites.net/api/OneDriveHookTest"
         }
     },
 
     {
       "name": "Delete a Subscription",
-      "method": "delete-subscription",
+      "method": "delete-subscription-graph",
       "enabled": true,
       "test-setup": [
         {
-          "method": "add-subscription",
+          "method": "add-subscription-graph",
           "request-parameters": {
-            "{item-id}": "root",
             "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
-            "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+            "$.notificationUrl": "https://onedrivewebhookstest.azurewebsites.net/api/OneDriveHookTest"
           },
           "capture": {
             "[subscription-id]": "$.id"
@@ -52,22 +28,20 @@
       ],
       "request-parameters":
       {
-        "{item-id}": "root",
         "{id}": "[subscription-id]"
       }
     },
 
     {
       "name": "Update a Subscription",
-      "method": "patch-subscription",
+      "method": "patch-subscription-graph",
       "enabled": true,
       "test-setup": [
         {
-          "method": "add-subscription",
+          "method": "add-subscription-graph",
           "request-parameters": {
-            "{item-id}": "root",
             "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(3)",
-            "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+            "$.notificationUrl": "https://onedrivewebhookstest.azurewebsites.net/api/OneDriveHookTest"
           },
           "capture": {
             "[subscription-id]": "$.id"
@@ -77,9 +51,8 @@
       "request-parameters":
       {
         "{id}": "[subscription-id]",
-        "{item-id}": "root",
         "$.expirationDateTime": "#DateTimeOffset.UtcNow.AddDays(15)",
-        "$.notificationUrl": "https://odwebhooktest.azurewebsites.net/notification/listen"
+        "$.notificationUrl": "https://onedrivewebhookstest.azurewebsites.net/api/OneDriveHookTest"
       }
     }
   ]

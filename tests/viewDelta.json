@@ -1,15 +1,29 @@
 {
-  "scenarios":[
+  "scenarios": [
     {
       "name": "Get root folder deltas",
       "method": "get-delta",
       "enabled": true,
 
-      "request-parameters":
-      {
-        "{item-id}": "root",
+      "request-parameters": {
         "{token}": "a"
       }
+    },
+
+    {
+      "name": "Get latest deltaLink",
+      "method": "get-delta-latest",
+      "enabled": true,
+
+      "request-parameters": {
+        "{token}": "a"
+      }
+    },
+
+    {
+      "name": "Get last deltaLink",
+      "method": "get-item-delta-last",
+      "enabled": true
     }
   ]
 }

@@ -2,23 +2,28 @@
   "scenarios":[
     {
       "name": "Patch FileSystemInfo facet",
-      "method": "update-item-move-folder",
+      "method": "update-item",
       "enabled": true,
-      "scopes": ["service.onedrive"],
-      "request-parameters":
-      {
+      "tags": ["service.onedrive"],
+      "request-parameters": {
         "{item-id}": "[new-item-id]",
         "$.fileSystemInfo.createdDateTime": "2015-01-01T00:00:00Z",
         "$.fileSystemInfo.lastModifiedDateTime": "2015-05-15T15:20:00Z",
-        "$.parentReference": null,
         "$.name": null
       },
-      "test-setup":
-      [
+      "test-setup": [
         {
-          "http-request": "PATCH /drive/root:/pictures/2014-08-26lrg.png\r\nContent-Type: application/json\r\n\r\n{\"file\":{},\"@content.sourceUrl\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==\"}",
-          "capture":
-          {
+          "method": "delete-item",
+          "request-parameters": { "{item-id}": "root:/pictures/2014-08-26lrg.png" },
+          "allowed-status-codes": [ 204, 404 ]
+        },
+        {
+          "method": "upload-via-put",
+          "request-parameters": {
+            "!url": "/me/drive/root:{item-path}:/content",
+            "{item-path}": "/pictures/2014-08-26lrg.png"
+          },
+          "capture": {
             "[new-item-id]": "$.id"
           }
         }

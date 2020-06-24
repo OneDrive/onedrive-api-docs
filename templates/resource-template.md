@@ -14,12 +14,13 @@ The following tasks are available for {type} resources.
 
 Here is a JSON representation of a {type} resource.
 
-<!-- { "blockType": "resource", "@odata.type": "oneDrive.typeTemplate",
+<!-- { "blockType": "resource", "@type": "microsoft.graph.typeTemplate",
        "keyProperty": "id", "optionalProperties": [ ] } -->
+
 ```json
 {
   "id": "string",
-  "complexType": { "@odata.type": "oneDrive.typeTemplate" },
+  "complexType": { "@type": "microsoft.graph.typeTemplate" },
 }
 ```
 
@@ -36,9 +37,9 @@ The {type} resource has these properties.
 
 The following table defines the relationships that the Drive resource has to other resources.
 
-| Relationship name | Type             | Description                                                             |
-|:------------------|:-----------------|:------------------------------------------------------------------------|
-| **items**         | Colletion(item)  | All items contained in the drive. This collection cannot be enumerated. |
+| Relationship name | Type                  | Description                                                             |
+|:------------------|:----------------------|:------------------------------------------------------------------------|
+| **items**         | Collection(driveItem) | All items contained in the drive. This collection cannot be enumerated. |
 
 <!--
  {

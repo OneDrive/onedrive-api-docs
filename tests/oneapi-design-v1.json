@@ -23,7 +23,7 @@
       "contentTypes": ["application/json", "multipart/related", "text/plain", "application/octet-stream"]
     },
     "httpResponse": {
-      "contentTypes": ["application/json", "multipart/related", "text/plain"],
+      "contentTypes": [ "application/json", "application/pdf", "multipart/related", "text/plain", "text/html; charset=us-ascii" ],
       "standardHeaders":
       [
         "Content-Range"
@@ -32,6 +32,18 @@
     "jsonSerialization": {
       "collectionPropertyNames": ["value"],
       "dateTimeFormats": ["yyyy-MM-ddThh:MM:SSz"]
-    }
+    },
+    "ignorableProperties": [
+      "@odata.context",
+      "@odata.type",
+      "@odata.id",
+      "@odata.etag",
+      "@odata.editLink",
+      "@odata.navigationLink",
+      "@odata.nextLink",
+      "@odata.deltaLink",
+      "oneDriveSync",
+      "effectiveRoles"
+    ]
   }
 }
