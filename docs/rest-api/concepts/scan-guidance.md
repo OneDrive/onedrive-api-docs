@@ -42,7 +42,9 @@ Using Microsoft Graph with Application permissions, you can obtain the full list
 GET /sites
 ```
 
-The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Please keep reading for more information about delta query.
+The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Delta query support for site enumeration is currently rolling out to the Microsoft Graph Beta version.  Please keep reading for more information about delta query.
+
+To receive notifications about new site collections you can subscribe to web hooks using the Microsoft Graph [subscriptions][] endpoint.  The target resource for these notifications is **/sites**.  You will receive notifications when new site collections are created or deleted as well as when sub sites or lists are created.
 
 ## Crawl and process by using delta query
 
@@ -97,7 +99,7 @@ If your processing requires downloading the contents of an individual file, you 
 
 ### Scanning permissions hierarchies
 
-By default, the delta query response will include sharing information for all items in the query that changed even if they inherit their permissions from their parent and did not have direct sharing changes themselves.  This typically then results in a follow up call to get the permission details for every item rather than just the ones whose sharing information changed.  You can optimize your understanding of how permission changes happen by adding the "Prefer: hierarchicalsharing" header to your delta query request.
+By default, the delta query response will include sharing information for items even if they inherit their permissions from their parent and did not have direct sharing changes themselves.  Note that the delta query response only includes items with direct changes to their content or metadata.  This typically then results in a follow up call to get the permission details for every item rather than just the ones whose sharing information changed.  You can optimize your understanding of how permission changes happen by adding the "Prefer: hierarchicalsharing" header to your delta query request.
 
 When the "Prefer: hierarchicalsharing" header is provided, sharing information will be returned for the root of the permissions hierarchy, as well as items that explicitly have sharing changes.  In cases where the sharing change is to remove sharing from an item you will find an empty sharing facet to differentiate between items that inherit from their parent and those that are unique but have no sharing links.  You will also see this empty sharing facet on the root of a permission hierarchy that is not shared to establish the initial scope.
 
@@ -122,3 +124,4 @@ For more detailed information about how Microsoft Graph resources work with thro
 [on the Microsoft Graph site]: https://aka.ms/webhookdoc
 [Microsoft Graph throttling guidance]: https://aka.ms/throttlingdoc
 [/content]: https://aka.ms/driveitemcontentdoc
+[subscriptions]: https://aka.ms/webhookdoc
