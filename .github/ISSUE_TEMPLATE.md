@@ -10,9 +10,9 @@
 >
 
 #### Category
--  Question
--  Documentation issue
--  Bug
+- [ ] Question
+- [ ] Documentation issue
+- [ ] Bug
 
 > For the above list, an empty checkbox is  as in <kbd></kbd>. A checked checkbox is  with no space between the brackets. Use the `PREVIEW` tab at the top right to preview the rendering before submitting your issue.
 >
