@@ -36,7 +36,7 @@ The drive is the starting point for large-scale file activities.  You’ll use t
 
 ### How to find SharePoint site collections and OneDrive for Business drives
 
-Using Microsoft Graph with Application permissions, you can obtain the full list of site collections and OneDrive for Business drives.  To get this list use the following API call:
+Using Microsoft Graph with Application permissions, you can obtain the full list of site collections, including sites containing OneDrive for Business drives.  To get this list use the following API call:
 
 ```
 GET /sites
