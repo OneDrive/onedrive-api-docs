@@ -42,7 +42,7 @@ For more information about multipart/related encoding, see [RFC 2387](https://ww
 
 The uploaded document must contain exactly two parts:
 
-| Part name    | Type             | Description                                        |
+| Name         | Type             | Description                                        |
 |:-------------|:-----------------|:---------------------------------------------------|
 | **metadata** | application/json | The metadata values to use when creating the item. |
 | **content**  | various          | The binary content of the item being created.      |
