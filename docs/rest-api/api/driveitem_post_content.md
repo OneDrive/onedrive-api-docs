@@ -45,7 +45,7 @@ The uploaded document must contain exactly two parts:
 | Name         | Type             | Description                                        |
 |:-------------|:-----------------|:---------------------------------------------------|
 | **metadata** | application/json | The metadata values to use when creating the item. |
-| **content**  | various          | The binary content of the item being created.      |
+| **content**  | binary           | The binary content of the item being created.      |
 
 The request will be rejected if more than two parts are included.
 Each part must specify a **name** value in the `Content-Disposition` header that indicates which part it is.
