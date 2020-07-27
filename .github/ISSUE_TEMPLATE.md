@@ -10,11 +10,11 @@
 >
 
 #### Category
-- [ ] Question
-- [ ] Documentation issue
-- [ ] Bug
+-  Question
+-  Documentation issue
+-  Bug
 
-> For the above list, an empty checkbox is [ ] as in <kbd>[</kbd><kbd>SPACE</kbd><kbd>]</kbd>. A checked checkbox is [x] with no space between the brackets. Use the `PREVIEW` tab at the top right to preview the rendering before submitting your issue.
+> For the above list, an empty checkbox is  as in <kbd></kbd>. A checked checkbox is  with no space between the brackets. Use the `PREVIEW` tab at the top right to preview the rendering before submitting your issue.
 >
 > If you are planning to share a new feature request (enhancement / suggestion), please use the OneDrive Developer Platform UserVoice at http://aka.ms/od-dev-uservoice, or the SharePoint Developer Platform UserVoice at http://aka.ms/sp-dev-uservoice.
 > If you have a question about Azure Active Directory, outside of issues with the documentation provided in the OneDrive Developer Center, please ask it here: https://stackoverflow.com/questions/tagged/azure-active-directory
