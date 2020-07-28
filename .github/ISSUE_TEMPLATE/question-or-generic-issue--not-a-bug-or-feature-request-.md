@@ -1,7 +1,6 @@
 ---
 name: Question or generic issue (not a bug or feature request)
-about: Do you have a question that isn't a bug or feature request, or something else
-  that doesn't fit one of our provided templates? Select this option.
+about: Do you have a question that isn't a bug or feature request, or something else that doesn't fit one of our provided templates? Select this option.
 title: ''
 labels: ''
 assignees: ''
