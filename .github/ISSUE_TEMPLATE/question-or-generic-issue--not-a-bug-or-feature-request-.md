@@ -9,7 +9,7 @@ assignees: ''
 ---
 
 #### Category
-- [ ] Question
+- [x] Question
 
 #### Question
 
@@ -31,3 +31,6 @@ assignees: ''
 > - If you have multiple issues, please submit them as separate issues so we can track resolution.
 
 *Thanks for your contribution!*
+
+[ ]: http://aka.ms/onedrive-api-issues
+[x]: http://aka.ms/onedrive-api-issues

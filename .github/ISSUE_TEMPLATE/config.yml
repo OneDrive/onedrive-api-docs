@@ -1,0 +1,17 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Azure Active Directory Developer Questions
+    url: https://stackoverflow.com/questions/tagged/azure-active-directory
+    about: If you have a question about Azure Active Directory, outside of issues with the documentation provided in the OneDrive Developer Center, please ask it here.
+  - name: Microsoft Graph Developer Documentation
+    url: https://graph.microsoft.com
+    about: All developer documentation for Microsoft Graph can be found here.
+  - name: Microsoft Graph Developer Questions
+    url: https://stackoverflow.com/questions/tagged/microsoft-graph
+    about: If you have a question about Microsoft Graph, outside of issues with the documentation provided in the OneDrive Developer Center, please ask it here.
+  - name: OneDrive Developer Platform UserVoice
+    url: http://aka.ms/od-dev-uservoice
+    about: Please submit feature requests and suggestions for OneDrive Personal and OneDrive for Business developer platform features here.
+  - name: SharePoint Developer Platform UserVoice
+    url: http://aka.ms/sp-dev-uservoice
+    about: Please submit feature requests and suggestions for SharePoint developer platform features here.

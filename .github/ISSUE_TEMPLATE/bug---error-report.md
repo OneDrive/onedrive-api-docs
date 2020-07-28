@@ -48,3 +48,6 @@ assignees: ''
 >
 
 *Thanks for your contribution!*
+
+[ ]: http://aka.ms/onedrive-api-issues
+[x]: http://aka.ms/onedrive-api-issues
