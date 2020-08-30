@@ -1,7 +1,6 @@
 ---
 author: rgregg
 ms.author: rgregg
-ms.date: 09/10/2017
 title: Retrieve thumbnails for a file or folder - OneDrive API
 localization_priority: Priority
 ---
@@ -49,6 +48,9 @@ GET /users/{user-id}/drive/items/{item-id}/thumbnails
 ## Optional query parameters
 
 This method supports the `$select` [OData query parameter](../concepts/optional-query-parameters.md) to customize the response.
+
+Additionally, this method supports retrieving the thumbnail with the original orientation EXIF value and without the applied rotation by appending the `originalOrientation=true` query parameter.
+This is currently only supported on OneDrive Personal.
 
 ## Response
 
