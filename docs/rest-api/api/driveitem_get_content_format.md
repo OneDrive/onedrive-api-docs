@@ -85,3 +85,11 @@ See [Error Responses][error-response] for more info about how errors are returne
   "section": "documentation",
   "tocPath": "Items/Download formats"
 } -->
+
+### Known constraints with HTML to PDF conversion
+
+(1)	The component used to transform HTML to PDF is not as smart as modern web browsers at correctly parsing HTML that is not well-formed. For example, if a table row is missing an end tag (</tr>) this component is not smart enough to detect that the next open tag (<tr>) is the beginning of a new row. The component will render a table with one long row, much of which ends up being clipped beyond the page. For best performance validate that the HTML is well formed – ideally following the XHTML standard. 
+
+(2)	Under some circumstances non-Latin characters will not render as expected. For example, a set of predefined fonts are installed for languages like Chinese, but if the HTML does not specify a commonly known font the component under some circumstances will fail to determine which font to use and the character won’t be displayed properly.
+
+(3) Each html file is coverted to a A4-size PDF. When a single HTML line width is greater than the A4-size width the line will be truncated in the PDF rendering.
