@@ -7,16 +7,16 @@ localization_priority: Normal
 ---
 # Resetting the file handler cache
 
-File handlers are cached per-user, with a cache expiration period of 24 hours.
-As a result, it can take up to a day before a new file handler appears, or changes to a file handler registration are visible.
+File handlers are cached in two ways - locally in the browser and on the server. These caches have a timeout of 24 hours, meaning it can take up to 48 hours for updates to a File Handler manifest to appear for users.
 
 When developing a file handler, it's useful to be able to reset the local cache for your account to see the latest file handlers.
+
 To reset the cache, you should:
 
 1. Submit the below request to refresh the server-side cache.
-2. Close the OneDrive browser window.
-3. Open the browser window and navigate back to OneDrive.
-
+2. Clear the browser's local data
+3. Close the OneDrive browser window.
+4. Open the browser window and navigate back to OneDrive.
 
 Via the OneDrive API (not Microsoft Graph) you can request that the list of file handlers be refreshed by making the following request:
 
@@ -41,7 +41,6 @@ This cache is automatically cleared when the browser session ends (when the last
 
 For user-consent scenarios (instead of admin deployment), it may be beneficial to your user experience to call the above request after a user consents to your application for the first time.
 This way, the user will be presented with the file handler next time they visit the OneDrive web app, instead of needing to wait up to 24 hours for the file handler to appear.
-
 
 
 <!-- {
