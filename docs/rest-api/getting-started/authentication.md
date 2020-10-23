@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Sign-in and authorization - OneDrive API
+localization_priority: Priority
 ---
 # Authorizing your app to access OneDrive
 
@@ -25,7 +26,7 @@ To get started, take a look at using OAuth with Microsoft Graph:
 | [Refresh](graph-oauth.md#step-3-get-a-new-access-token-or-refresh-token) | Refresh your access token.                           |
 | [Sign out](graph-oauth.md#sign-the-user-out)                             | Sign out of Microsoft account and OneDrive personal. |
 
-For more details about the full list of authentication scenarios for Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
+For more details about the full list of authentication scenarios for Microsoft Graph, see [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview).
 
 ## SharePoint Server 2016
 

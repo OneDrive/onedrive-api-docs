@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Authorization for OneDrive API via Microsoft Graph
+localization_priority: Priority
 ---
 # Authorization and sign-in for OneDrive in Microsoft Graph
 
@@ -23,12 +24,12 @@ Authorization: bearer {token}
 
 **Note:** The recommended authorization framework is using the Azure AD v2.0 endpoint.
 However, some enterprise scenarios may require using the original Azure AD endpoint. 
-For more information see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
+For more information see [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview).
 
 ## Register your app
 
 The first step is to register an app with Microsoft and provide some details about your app.
-You can register your application and receive a new app ID from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
+You can register your application and receive a new app ID from the [Azure App registrations page](https://aka.ms/AppRegistrations).
 
 For detailed steps on how to register your application, see [registering your app for OneDrive API](app-registration.md).
 
@@ -266,7 +267,7 @@ You will need to repeat the authentication flow to request a new access and refr
 The following topics contain high-level overviews of other concepts that apply to the OneDrive API.
 
 * [Develop with the OneDrive API](index.md)
-* [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview)
+* [App authentication with Microsoft Graph](https://aka.ms/graph-auth-overview)
 
 <!-- {
   "type": "#page.annotation",

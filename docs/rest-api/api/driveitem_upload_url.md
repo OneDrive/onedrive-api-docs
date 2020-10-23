@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Upload from a URL - OneDrive API
+localization_priority: Priority
 ---
 # Upload an item to OneDrive from a URL (preview)
 

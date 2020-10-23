@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Save to OneDrive from JavaScript
+localization_priority: Priority
 ---
 # Saving Files with the OneDrive File Picker JavaScript SDK v7.2
 
@@ -10,7 +11,7 @@ To save files from OneDrive, your app should provide a button to programmaticall
 
 ## 1. Register your application
 
-To use the OneDrive picker, you need to register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) and receive an Application Id.
+To use the OneDrive picker, you need to register your application through the [Azure App registrations page](https://aka.ms/AppRegistrations) and receive an Application Id.
 You also need to add a valid redirect URI for your web application using the picker.
 This can either be the page hosting the picker SDK or a custom URL you define. For more information see [Setting up](index.md#setting-up).
 
@@ -58,9 +59,9 @@ var odOptions = {
   openInNewWindow: true,
   advanced: {},
   success: function(files) { /* success handler */ },
-  progress: function(p) { /* progress handler */ },
+  progress: function(percent) { /* progress handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 
@@ -74,6 +75,8 @@ var odOptions = {
 | **sourceUri**            | An http, https, or data URI for the file to be uploaded. OneDrive for Business and SharePoint only supports data URI values.                                                                                                                      |
 | **fileName**             | Required if the `sourceUri` parameter is a [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme). If not provided, the file name will be inferred from the name attribute of the input element.                                               |
 | **openInNewWindow**      | The default value is **true**, which opens the OneDrive picking experience in a popup window. **false** opens the OneDrive picking experience in the same window.                                                                                 |
+| **viewType** | The type of item that can be selected. The default value is `files`. You can specify `folders` to limit selection to _only_ folders or specify `all` which enables the selection of _both_ files and folders. |
+| **accountSwitchEnabled** | The default value is `true`, which renders the "Switch account" UI on the hosted File Picker page. |
 | **advanced**             | A collection of additional properties which can further customize the behavior of the picker, but are not necessary for most scenarios. See [Advanced Save Scenarios](#advanced-save-scenarios) for more details.                                 |
 | **nameConflictBehavior** | An optional parameter passed in for situation when an uploading file has name conflict with file in the destination folder. See the [parameter definition](../../../rest-api/resources/driveitem.md#instance-attributes) for more detail.     |
 | **success**              | Called when the file upload to the server is complete. The files parameter is a collection of metadata returned by the service for the uploaded file.                                                                                             |
@@ -168,7 +171,7 @@ var odOptions = {
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
-  error: function(e) { /* error handler */ }
+  error: function(error) { /* error handler */ }
 }
 ```
 

@@ -4,6 +4,7 @@ ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
 title: OneDrive Controls for Developers
+localization_priority: Priority
 ---
 # Shared controls for OneDrive integration
 
@@ -32,7 +33,7 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 
 ## Microsoft Graph SDKs and sample code
 
-[Microsoft Graph makes a wide variety of SDKs and sample code](https://graph.microsoft.io/en-us/code-samples-and-sdks) available for a number of developer platforms that enable you to quickly start writing code to leverage the Microsoft Graph and have access to files in OneDrive and SharePoint.
+[Microsoft Graph makes a wide variety of SDKs and sample code](https://aka.ms/graph-get-started) available for a number of developer platforms that enable you to quickly start writing code to leverage the Microsoft Graph and have access to files in OneDrive and SharePoint.
 
 
 

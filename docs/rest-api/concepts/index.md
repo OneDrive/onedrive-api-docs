@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: OneDrive API concepts overview
+localization_priority: Priority
 ---
 # OneDrive integration concepts
 
@@ -18,7 +19,7 @@ While working with data in OneDrive via the Microsoft Graph, the following conce
 * [OneDrive API direct endpoint differences](direct-endpoint-differences.md)
 * [Receiving webhook notifications](using-webhooks.md)
 * [Sharing items in OneDrive](sharing.md)
-* [Storing user concent in an application folder](special-folders-appfolder.md)
+* [Storing user content in an application folder](special-folders-appfolder.md)
 * [Tunneling HTTP verbs](http-verb-tunneling.md)
 * [Uploading files to OneDrive](upload.md)
 * [Using custom metadata](custom-metadata-facets.md)

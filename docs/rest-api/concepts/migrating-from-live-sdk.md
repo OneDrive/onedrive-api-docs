@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 10/16/2017
 title: Migrating from Live SDK to Microsoft Graph
+localization_priority: Normal
 ---
 # Migrating from Live SDK to Microsoft Graph
 
@@ -19,7 +20,7 @@ Live Connect APIs are all hosted from `https://apis.live.net/v5.0`. This prefix 
 ## Switching to Microsoft Graph
 
 The functionality previously available through Live SDK and Live Connect APIs is available via [Microsoft Graph](https://graph.microsoft.com).
-To continue to integrate with Microsoft services, developers must update their apps to update their apps to use Microsoft Graph in advance of the timeline for the these services being discontinued.
+To continue to integrate with Microsoft services, developers must update their apps to use Microsoft Graph in advance of the timeline for the these services being discontinued.
 
 Similar to the capabilities of Live Connect, Microsoft Graph has a number of resources available depending on the type of user data your app interacts with:
 

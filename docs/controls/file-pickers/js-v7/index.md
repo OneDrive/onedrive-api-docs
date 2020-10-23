@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
+localization_priority: Normal
 ---
 # OneDrive file picker for JavaScript v7.0 overview
 
@@ -30,9 +31,9 @@ can get shareable links for all files.
 ## Setting up
 
 To get started you need to register your application and receive an app ID
-from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
+from the [Azure App registrations page](https://aka.ms/AppRegistrations).
 
-1. Log in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com)
+1. Log in to the [Azure App registrations page](https://aka.ms/AppRegistrations)
    using your Microsoft account, or a work or school account.
 2. Click **Add an app** and enter a name for your app.
 3. After your application is created, configure it to support the JavaScript picker:
@@ -72,6 +73,11 @@ The OneDrive picker and saver supports the following web browsers:
 * [File picker SDK v6.0](../js-v6/index.md)
 * [File picker SDK v5.0](../js-v5/index.md)
 
+## License
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
 
 <!-- {
   "type": "#page.annotation",

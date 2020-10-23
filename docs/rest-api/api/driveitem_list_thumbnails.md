@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: Retrieve thumbnails for a file or folder - OneDrive API
+localization_priority: Priority
 ---
 # List thumbnails for a DriveItem
 
@@ -47,7 +48,7 @@ GET /users/{user-id}/drive/items/{item-id}/thumbnails
 
 ## Optional query parameters
 
-This method supports the `$select` [OData puery parameter](../concepts/optional-query-parameters.md) to customize the response.
+This method supports the `$select` [OData query parameter](../concepts/optional-query-parameters.md) to customize the response.
 
 ## Response
 

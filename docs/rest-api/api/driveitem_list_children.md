@@ -1,8 +1,9 @@
-﻿---
+---
 author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: List the contents of a folder - OneDrive API
+localization_priority: Priority
 ---
 # List children of a driveItem
 

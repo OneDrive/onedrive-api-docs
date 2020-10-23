@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 title: RemoteItem - OneDrive API
+localization_priority: Normal
 ---
 # RemoteItem resource type
 

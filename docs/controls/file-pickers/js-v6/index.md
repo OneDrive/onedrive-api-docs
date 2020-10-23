@@ -3,6 +3,7 @@ author: rgregg
 ms.author: rgregg
 ms.date: 09/10/2017
 ms.topic: overview
+localization_priority: Normal
 ---
 # OneDrive file picker SDK for JavaScript v6.0 overview
 
@@ -92,6 +93,12 @@ The OneDrive picker and saver supports the following web browsers:
 * The SDK returns thumbnail links that require authentication for image files selected from OneDrive for Business.
 * The SDK will fail to upload a file to OneDrive for Business if the file name is taken.
 * Data URIs are not supported with OneDrive for Business.
+
+## License
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
 
 <!-- {
   "type": "#page.annotation",

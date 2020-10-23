@@ -2,6 +2,7 @@
 author: kevintcoughlin
 ms.author: keco
 ms.date: 10/02/2018
+localization_priority: Normal
 ---
 
 # Selecting Files with the Microsoft File Browser SDK
@@ -126,8 +127,8 @@ The props are defined as follows:
 | **onCancel**               | The callback with signature `(err: Error) => void` invoked on "Cancel" or when an error is thrown.  |
 | **onRenderSuccessButton**  | The optional render function to override the default "Select" action button. |
 | **onRenderCancelButton**   | The optional render function to override the default "Cancel" action button. |
-| **selectionMode**          | The selection mode for the picker, where the value is one of `files`, `folders`, or `all` (default). A selection mode of `files` will restrict user selection to file types, similarly `folders` will restrict selection to folders, and `all` allows for the selection of both Files and Folders.   |
-| **itemMode**               | Controls item selection behavior, where the value is one of `pick`, `single`, or `multiple` (default). An `itemMode` of `single`, allows for only a single item to be selected at a time, while `multiple` allows for the selection of any number of items. An `itemMode` of `pick` invokes `onSelect` on item "click" rather than when the "Select" action button is pressed. |
+| **itemMode**               | The item selection mode for the File Browser, where the value is one of `files`, `folders`, or `all` (default). A mode of `files` will restrict user selection to file types, `folders` will restrict selection to folders, and `all` allows for the selection of both Files and Folders.   |
+| **selectionMode**          | The selection behavior mode for the File Browser, where the value is one of `pick`, `single`, or `multiple` (default). An `itemMode` of `single`, allows for only a single item to be selected at a time, while `multiple` allows for the selection of any number of items. An `itemMode` of `pick` invokes `onSelect` on item "click" rather than when the "Select" action button is pressed. |
 | **endpoint**               | By default, the File Browser will fetch items from the Microsoft Graph endpoint at `https://graph.microsoft.com/v1.0/me`. You may specify a valid OneDrive for Business or SharePoint document library URL to override the default endpoint.|
 | **itemId**                 | By default, the File Browser will open to the `root` drive. You may choose a different drive to open on render by specifying the drive's unique identifier. |
 
