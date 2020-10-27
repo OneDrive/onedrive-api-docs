@@ -139,9 +139,9 @@ You can see an example of using a data model object and handler method for cachi
 
 ### File Handler example solutions
 
-[GPXFileHandler]: https://github.com/OfficeDev/GPX-FileHandler
-[markdown-file-handler]: https://github.com/rgregg/o365-markdown-file-handler
-[markdown-file-handler]: https://github.com/rgregg/o365-markdown-file-handler
+- [GPXFileHandler](https://github.com/OfficeDev/GPX-FileHandler)
+- [markdown-file-handler (C#)](https://github.com/rgregg/o365-markdown-file-handler)
+- [markdown-file-handler (TypeScript)](https://github.com/pnp/contoso/tree/main/filehandler)
 
 ## Seamless authentication with file handlers 2.0
 
