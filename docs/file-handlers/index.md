@@ -135,7 +135,7 @@ The **activation parameters** should be cached when the request comes in, either
 For the initial file handler request, it's likely that the file handler app will need to redirect the user to retrieve an accessToken via Azure Active Directory OAuth2 experience.
 The activation parameters will be lost if not persisted before this redirect occurs.
 
-You can see an example of using a data model object and handler method for caching the activation parameters in a cookie, in the [Markdown File Handler sample][markdown-file-handler].
+You can see an example of using a data model object and handler method for caching the activation parameters in a cookie, in either the C# or TypeScript examples [linked below in the example solutions](#file-handler-example-solutions).
 
 ### File Handler example solutions
 
