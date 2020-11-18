@@ -248,7 +248,7 @@ var odOptions = {
   action: "download",
   advanced: {
     endpointHint: "https://contoso.sharepoint.com/shared%20documents/",
-    accessToken "INSERT-ACCESS-TOKEN-HERE"
+    accessToken: "INSERT-ACCESS-TOKEN-HERE"
   },
   success: function(files) { /* success handler */ },
   cancel: function() { /* cancel handler */ },
