@@ -1,7 +1,7 @@
 ---
 author: rgregg
 ms.author: rgregg
-ms.date: 09/10/2017
+ms.date: 07/07/2020
 title: Search for files - OneDrive API
 localization_priority: Priority
 ---
@@ -46,12 +46,12 @@ This method supports the `$expand`, `$select`, `$skipToken`, `$top`, and `$order
 
 ### Request
 
-Here is an example of the request searching the current user's OneDrive
+The following example searches for a match for “Contoso Project” across several fields in the signed-in user’s drive items. 
 
 <!-- { "blockType": "request", "name": "item_search", "tags": "service.graph" }-->
 
 ```http
-GET /me/drive/root/search(q='{search-query}')
+GET /me/drive/root/search(q='Contoso Project')
 ```
 
 ### Response
@@ -97,7 +97,7 @@ To broaden the search scope, use the **search** method on the [Drive](../resourc
 <!-- { "blockType": "request", "name": "item_search_all", "tags": "service.graph" }-->
 
 ```http
-GET /me/drive/search(q='{search-query}')
+GET /me/drive/search(q='Contoso Project')
 ```
 
 ### Response
