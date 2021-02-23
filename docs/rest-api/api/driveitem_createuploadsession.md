@@ -37,7 +37,7 @@ Once the last byte of the file has been uploaded the upload session is completed
 
 ```http
 POST /drives/{driveId}/items/{itemId}/createUploadSession
-POST /drives/{drive}/items/{itemId}:/{fileName}:/createUploadSession
+POST /drives/{driveId}/items/{itemId}:/{fileName}:/createUploadSession
 POST /groups/{groupId}/drive/items/{itemId}/createUploadSession
 POST /me/drive/items/{itemId}/createUploadSession
 POST /sites/{siteId}/drive/items/{itemId}/createUploadSession
