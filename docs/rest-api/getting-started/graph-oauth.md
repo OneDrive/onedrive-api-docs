@@ -29,7 +29,7 @@ For more information see [App authentication with Microsoft Graph](https://aka.m
 ## Register your app
 
 The first step is to register an app with Microsoft and provide some details about your app.
-You can register your application and receive a new app ID from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
+You can register your application and receive a new app ID from the [Azure App registrations page](https://aka.ms/AppRegistrations).
 
 For detailed steps on how to register your application, see [registering your app for OneDrive API](app-registration.md).
 
