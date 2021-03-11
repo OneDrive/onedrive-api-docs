@@ -1,6 +1,6 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 02/16/2021
 title: Reload OneDrive File Handlers
 localization_priority: Normal

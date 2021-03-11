@@ -1,5 +1,5 @@
 ---
-author: rgregg
+author: JeremyKelley
 ms.author: dspektor
 ms.date: 09/10/2017
 ms.topic: conceptual
