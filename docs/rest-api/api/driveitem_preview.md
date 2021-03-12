@@ -6,7 +6,7 @@ title: Get short-lived embeddable link for preview purposes - OneDrive API
 localization_priority: Normal
 ---
 # Embeddable file previews
-This action allows you to obtain short-lived embeddable URLs for an item.
+This action allows you to obtain short-lived embeddable URLs for an item. These previews expire after five minutes.
 
 If you wish to obtain long-lived embeddable links, use the [createLink][] API instead.
 
