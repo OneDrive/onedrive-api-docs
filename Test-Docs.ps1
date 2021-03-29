@@ -36,7 +36,7 @@ if (Get-Command "apidoc.exe" -ErrorAction SilentlyContinue) {
 
     # install apidoctor from nuget
     Write-Host "Running nuget.exe from ", $nugetPath
-    $nugetParams = "install", "ApiDoctor", "-OutputDirectory", $packagesPath, "-NonInteractive", "-DisableParallelProcessing"
+    $nugetParams = "install", "ApiDoctor", "-OutputDirectory", $packagesPath, "-Version", "1.2.2002.101", "-NonInteractive", "-DisableParallelProcessing"
     & $nugetPath $nugetParams
 
     if ($LastExitCode -ne 0) { 
