@@ -1,6 +1,6 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 10/16/2017
 title: Migrating from Live SDK to Microsoft Graph
 localization_priority: Normal
