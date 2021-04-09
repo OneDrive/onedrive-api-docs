@@ -12,7 +12,7 @@ How you contribute depends on who you are:
 
 * **Community - minor updates**: If you are contributing minor updates out of the goodness of your heart, you can find the article in this repository, or visit the article on [https://docs.microsoft.com/onedrive/developer](https://docs.microsoft.com/onedrive/developer) and click the **Edit** link in the article that goes to the GitHub source for the article.
 Then, just use the GitHub UI to make your updates.
-Or, you are welcome to fork the repository and submit updates from your fork.
+Or, you are welcome to fork the repository and [submit updates](https://github.com/OneDrive/onedrive-api-docs/compare) from your fork.
 
 * **Community - new articles**: If you're part of the OneDrive or SharePoint community and you want to create a new article, you need to work with an employee to help bring that new content in through a combination of work in the public and private repository.
 
@@ -28,7 +28,7 @@ Minor corrections or clarifications you submit for documentation and code exampl
 
 ### Larger submissions
 
-If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are not an employee of Microsoft.
+If you submit a [pull request](https://github.com/OneDrive/onedrive-api-docs/pulls) with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are not an employee of Microsoft.
 We need you to complete the online form before we can accept your pull request.
 
 ## Tools and setup
@@ -61,6 +61,11 @@ All the articles in this repository use GitHub flavored markdown.
 Here's a list of resources.
 
 * [Markdown basics](https://help.github.com/articles/markdown-basics/)
+
+## How to make a pull request
+
+* [Make pull request](https://help.github.com/articles/creating-a-pull-request/)
+
 
 ## Microsoft Open Source Code of Conduct
 
