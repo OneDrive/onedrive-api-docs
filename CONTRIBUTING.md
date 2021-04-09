@@ -21,7 +21,7 @@ To get started:
 
 1. Fork the repo or update an existing fork.
 2. Create a new branch for each correction (logically grouped, not literally every file you change).
-3. Submit a pull request to the **master** branch with your change.
+3. Submit a pull request to the **live** branch with your change.
 
 The OneDrive team will then review your contribution and decide how to move forward.
 
