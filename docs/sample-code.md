@@ -75,7 +75,7 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
   This sample illustrates basic concepts for interacting with the OneDrive API
   from an Android application.
 
-* [File picker for Android](https://msdn.microsoft.com/EN-US/library/dn833235.aspx)
+* [File picker for Android](https://msdn.microsoft.com/library/dn833235.aspx)
   Connect your Android app to OneDrive with a few lines of code. No need to
   use the API or build a user interface.
 

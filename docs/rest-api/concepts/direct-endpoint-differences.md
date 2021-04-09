@@ -77,7 +77,7 @@ To discover the correct endpoint for OneDrive API, you must use Microsoft Graph.
 To access OneDrive API for OneDrive personal, your app must use the `https://api.onedrive.com/v1.0` endpoint for all requests.
 
 You can determine if the signed in user is a OneDrive personal user by checking the `id_token` for `tid: 9188040d-6c67-4c5b-b112-36a304b66dad`. 
-More information about this is available on the [Active Directory v2 protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-implicit) topic.
+More information about this is available on the [Active Directory v2 protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-implicit) topic.
 
 ### OneDrive for Business and SharePoint
 
