@@ -39,12 +39,12 @@ The follow special folder names are available in OneDrive and OneDrive for Busin
 
 | Name        | Folder id    | Description                                                              |
 |:------------|:-------------|:-------------------------------------------------------------------------|
-| Documents   | `documents`  | The Documents folder.                                                    |
-| Photos      | `photos`     | The Photos folder.                                                       |
-| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
 | App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}` |
+| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
+| Desktop     | `desktop`    | The Desktop folder.                                                      |
+| Documents   | `documents`  | The Documents folder.                                                    |
 | Music       | `music`      | The Music folder.                                                        |
-
+| Photos      | `photos`     | The Photos folder.                                                       |
 
 ### Optional query parameters
 
