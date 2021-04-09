@@ -117,7 +117,7 @@ For OneDrive Personal, the scope string is passed into the OAuth workflow direct
 | Files.Read                 | OneDrive.Read      | MyFiles.Read                         |
 | Files.ReadWrite            | OneDrive.ReadWrite | MyFiles.Write                        |
 | Files.ReadWrite.All        | OneDrive.ReadWrite | Files.ReadWrite.All                  |
-| Files.ReadWrite.AppFolder  | OneDrive.AppFolder | Files.ReadWrite ([Files.ReadWrite.AppFolder Not currently supported)[https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/special-folders-appfolder?view=odsp-graph-online#getting-authorization-from-the-user] |
+| Files.ReadWrite.AppFolder  | OneDrive.AppFolder | Files.ReadWrite ([Files.ReadWrite.AppFolder Not currently supported](./special-folders-appfolder.md#getting-authorization-from-the-user) |
 | Sites.Read.All             | N/A                | Sites.Read.All                       |
 | Sites.ReadWrite.All        | N/A                | Sites.ReadWrite.All                  |
 
