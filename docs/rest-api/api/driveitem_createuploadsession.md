@@ -1,6 +1,6 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Resumable file upload - OneDrive API
 localization_priority: Priority
@@ -37,6 +37,7 @@ Once the last byte of the file has been uploaded the upload session is completed
 
 ```http
 POST /drives/{driveId}/items/{itemId}/createUploadSession
+POST /drives/{driveId}/items/{itemId}:/{fileName}:/createUploadSession
 POST /groups/{groupId}/drive/items/{itemId}/createUploadSession
 POST /me/drive/items/{itemId}/createUploadSession
 POST /sites/{siteId}/drive/items/{itemId}/createUploadSession

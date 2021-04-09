@@ -1,6 +1,6 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/17/2017
 title: BaseItemVersion - OneDrive API
 localization_priority: Normal
