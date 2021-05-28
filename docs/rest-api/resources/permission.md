@@ -63,8 +63,8 @@ Here is a JSON representation of the resource
 |:------------|:-------------------------------------------------------------------------------|
 | `read`      | Provides the ability to read the metadata and contents of the item.            |
 | `write`     | Provides the ability to read and modify the metadata and contents of the item. |
-| `sp.owner`  | For SharePoint and OneDrive for Business this represents the owner role.       |
-| `sp.member` | For SharePoint and OneDrive for Business this represents the member role.      |
+| `owner`  | For SharePoint and OneDrive for Business this represents the owner role.       |
+| `member` | For SharePoint and OneDrive for Business this represents the member role.      |
 
 The permission resource uses _facets_ to provide information about the kind of permission represented by the resource.
 
