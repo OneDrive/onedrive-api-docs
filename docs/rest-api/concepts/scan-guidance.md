@@ -1,4 +1,10 @@
 # Best practices for discovering files and detecting changes at scale
+
+## Important 
+
+Many SharePoint Online and OneDrive customers run business-critical applications against the service that run in the background. These include content migration, Data Loss Prevention (DLP), and backup solutions. During these unprecedented times, we are taking steps to ensure that SharePoint Online and OneDrive services remain highly available and reliable for your users who depend on the service more than ever in remote work scenarios.
+
+In support of this objective, we have implemented tighter throttling limits on background apps (migration, DLP and backup solutions) during weekday daytime hours. You should expect that these apps will achieve very limited throughput during these times. However, during evening and weekend hours for the region, the service will be ready to process a significantly higher volume of requests from background apps.
 SharePoint and OneDrive store millions of files.  It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level.  Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor an Office 365 tenant or OneDrive so that your application integrates with Office 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers. 
 
 ## Getting the right permissions
