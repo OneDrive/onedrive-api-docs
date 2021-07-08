@@ -59,7 +59,7 @@ However, you can specify an `item` property in the request body, providing addit
 }
 ```
 
-For example, to control the behavior if the filename is already taken, you can specify the conflict behavior property in the body of the request.
+For example, to control the behavior if the filename is already taken, you can use an [Instance Attribute](../resources/driveitem.md#instance-attributes) to specify the conflict behavior property in the body of the request.
 
 <!-- { "blockType": "ignored" } -->
 ```json
@@ -204,7 +204,7 @@ Content-Type: application/json
 ## Completing a file
 
 When the last byte range of a file is received the server will response with an `HTTP 201 Created` or `HTTP 200 OK`.
-The response body will also include the default property set for the **driveItem** representing the completed file.
+The response body will also include the default property set for the [driveItem](../resources/driveitem.md) representing the completed file.
 
 <!-- { "blockType": "request", "opaqueUrl": true, "name": "upload-fragment-final", "scopes": "files.readwrite" } -->
 
