@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: AsyncJobStatus - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # AsyncJobStatus resource
 

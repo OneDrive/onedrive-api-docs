@@ -2,7 +2,7 @@
 author: kevintcoughlin
 ms.author: keco
 ms.date: 10/02/2018
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 
 # Selecting Files with the Microsoft File Browser SDK

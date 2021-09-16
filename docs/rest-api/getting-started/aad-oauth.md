@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Using Azure Active Directory to sign-in - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive for Business authentication and sign in
 

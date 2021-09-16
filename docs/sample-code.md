@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: sample
 topic: Sample code for OneDrive integration
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive Files Sample Code
 

@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Uploading files - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Upload contents for an item on OneDrive
 

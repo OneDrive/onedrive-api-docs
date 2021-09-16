@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Download a previous version - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Download contents of a DriveItemVersion resource
 

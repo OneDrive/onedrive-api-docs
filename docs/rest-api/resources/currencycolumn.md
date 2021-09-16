@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/11/2017
 title: CurrencyColumn - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # CurrencyColumn resource type
 

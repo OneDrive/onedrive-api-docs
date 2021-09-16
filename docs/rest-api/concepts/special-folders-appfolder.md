@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: What is an App Folder - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Using an App Folder to store user content without access to all files
 

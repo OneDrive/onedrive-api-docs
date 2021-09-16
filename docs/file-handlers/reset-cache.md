@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 02/16/2021
 title: Reload OneDrive File Handlers
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Resetting the file handler cache
 

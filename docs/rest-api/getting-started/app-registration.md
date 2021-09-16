@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Create an app with Microsoft Graph - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Registering your app for Microsoft Graph
 
