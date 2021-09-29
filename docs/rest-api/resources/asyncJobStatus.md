@@ -38,7 +38,7 @@ The following API calls return **AsyncJobStatus** resources:
 | **status**             | String | A string value that maps to an enumeration of possible values about the status of the job.
 | **statusDescription**  | String | A description detailing the status of the job.
 
-## statusDescription Meaning
+## status Meaning
 
 | String Value           | Description
 |:-----------------------|:-------------------------------------------
