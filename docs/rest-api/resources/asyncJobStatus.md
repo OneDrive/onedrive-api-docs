@@ -23,7 +23,7 @@ The following API calls return **AsyncJobStatus** resources:
   "operation": "ItemCopy | DownloadUrl",
   "percentageComplete": 100.0,
   "resourceId": "01MOWKYVJML57KN2ANMBA3JZJS2MBGC7KM",
-  "status": "notStarted | inProgress | completed | updating | failed | deletePending | deleteFailed | waiting",
+  "status": "notStarted | inProgress | completed | failed | cancelled | waiting | cancelPending",
   "statusDescription": "URL was successfully downloaded to target"
 }
 ```
@@ -37,6 +37,18 @@ The following API calls return **AsyncJobStatus** resources:
 | **resourceId**         | String | A unique identifier for the results.
 | **status**             | String | A string value that maps to an enumeration of possible values about the status of the job.
 | **statusDescription**  | String | A description detailing the status of the job.
+
+## statusDescription Meaning
+
+| String Value           | Description
+|:-----------------------|:-------------------------------------------
+| **notStarted**         | The work has been enqueued but not yet picked up.
+| **inProgress**         | The work is being actively processed.
+| **completed**          | The work has been completed.
+| **failed**             | The work failed.
+| **cancelled**          | The work was cancelled.
+| **waiting**            | The work was interrupted, but will be tried again.
+| **cancelPending**      | The work was cancelled, but processing has not yet aborted.
 
 <!-- {
   "type": "#page.annotation",
