@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Resumable file upload - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Upload large files with an upload session
 

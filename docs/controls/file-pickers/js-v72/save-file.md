@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Save to OneDrive from JavaScript
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Saving Files with the OneDrive File Picker JavaScript SDK v7.2
 

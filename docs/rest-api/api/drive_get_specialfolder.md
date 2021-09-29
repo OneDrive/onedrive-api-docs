@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Get Special Folders - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Get a special folder by name
 

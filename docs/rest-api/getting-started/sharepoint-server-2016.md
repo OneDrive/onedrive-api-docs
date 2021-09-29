@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: get-started-article
 title: Get started using OneDrive API with SharePoint Server 2016
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Getting started with OneDrive API with SharePoint Server 2016
 

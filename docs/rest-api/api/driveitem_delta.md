@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Sync the contents of a drive - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Track changes for a Drive
 
