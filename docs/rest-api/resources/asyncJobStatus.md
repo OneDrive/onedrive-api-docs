@@ -55,5 +55,10 @@ The following API calls return **AsyncJobStatus** resources:
   "description": "AsyncJobResource provides details about how to poll for an async completion.",
   "keywords": "async,job status,async status,copy,upload from url",
   "section": "documentation",
-  "suppressions": []
+  "suppressions": [
+  "Warning: /docs/rest-api/resources/asyncJobStatus.md:
+      Found potential enums in resource example that weren't defined in a table:(ItemCopy,DownloadUrl) are in resource, but () are in table",
+  "Warning: /docs/rest-api/resources/asyncJobStatus.md:
+      Found potential enums in resource example that weren't defined in a table:(notStarted,inProgress,completed,failed,cancelled,waiting,cancelPending) are in resource, but ()       are in table"
+  ]
 } -->
