@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Understand differences between OneDrive API and Microsoft Graph
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive API Endpoint Differences
 

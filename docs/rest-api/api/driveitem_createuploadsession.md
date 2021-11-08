@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Resumable file upload - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Upload large files with an upload session
 
@@ -29,6 +29,8 @@ One of the following permissions is required to call this API. To learn more, in
 
 To begin a large file upload, your app must first request a new upload session.
 This creates a temporary storage location where the bytes of the file will be saved until the complete file is uploaded.
+To upload a new file, specify the ID or path of the parent folder.
+To update an existing file, specify the ID or path of the file to update.
 Once the last byte of the file has been uploaded the upload session is completed and the final file is shown in the destination folder.
 
 ### HTTP request

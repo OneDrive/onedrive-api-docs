@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Error responses - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Common error responses and codes
 

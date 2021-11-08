@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Tunneling HTTP verbs - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Using additional HTTP verbs when your client is limited
 

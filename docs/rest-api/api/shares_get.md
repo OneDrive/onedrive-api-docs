@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Access shared items - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Accessing shared DriveItems
 

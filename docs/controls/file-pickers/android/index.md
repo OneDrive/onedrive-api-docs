@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: overview
 title: File Picker SDK for Android - OneDrive
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive picker for Android
 

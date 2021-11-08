@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: DriveItem - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # DriveItem resource type
 

@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: List who has access to a file - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # List sharing permissions on a DriveItem
 
