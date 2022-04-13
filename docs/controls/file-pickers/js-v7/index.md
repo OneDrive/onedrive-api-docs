@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: overview
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # OneDrive file picker for JavaScript v7.0 overview
 

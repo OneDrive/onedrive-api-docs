@@ -1,11 +1,11 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/18/2017
 ms.topic: landing-page
 ms.prod: onedrive
 title: OneDrive for Developers
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive developer platform
 

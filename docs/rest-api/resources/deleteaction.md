@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/14/2017
 title: DeleteAction - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # DeleteAction resource type
 

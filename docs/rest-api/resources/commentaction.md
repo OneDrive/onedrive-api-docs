@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/14/2017
 title: CommentAction - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # CommentAction resource type
 

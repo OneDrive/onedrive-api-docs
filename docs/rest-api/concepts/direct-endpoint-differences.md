@@ -1,10 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Understand differences between OneDrive API and Microsoft Graph
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive API Endpoint Differences
 
@@ -117,7 +117,7 @@ For OneDrive Personal, the scope string is passed into the OAuth workflow direct
 | Files.Read                 | OneDrive.Read      | MyFiles.Read                         |
 | Files.ReadWrite            | OneDrive.ReadWrite | MyFiles.Write                        |
 | Files.ReadWrite.All        | OneDrive.ReadWrite | Files.ReadWrite.All                  |
-| Files.ReadWrite.AppFolder  | OneDrive.AppFolder | Files.ReadWrite.AppFolder            |
+| Files.ReadWrite.AppFolder  | OneDrive.AppFolder | Files.ReadWrite ([Files.ReadWrite.AppFolder Not currently supported](./special-folders-appfolder.md#getting-authorization-from-the-user) |
 | Sites.Read.All             | N/A                | Sites.Read.All                       |
 | Sites.ReadWrite.All        | N/A                | Sites.ReadWrite.All                  |
 

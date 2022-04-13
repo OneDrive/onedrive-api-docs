@@ -4,7 +4,7 @@ ms.author: naethell
 ms.date: 10/03/2018
 ms.topic: conceptual
 title: Customizing the File Browser
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 
 # Customizing the File Browser

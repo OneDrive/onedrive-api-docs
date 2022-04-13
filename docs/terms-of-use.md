@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: OneDrive API Terms of Use
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # OneDrive API Terms and Conditions
 

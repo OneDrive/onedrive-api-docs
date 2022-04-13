@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/11/2017
 title: Get an entry from a SharePoint list
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Get an item in a list
 

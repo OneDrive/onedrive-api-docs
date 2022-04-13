@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Get a previous version of a list item - SharePoint API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Get a ListItemVersion resource
 

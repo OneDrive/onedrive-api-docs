@@ -1,10 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: get-started-article
 title: Get started using OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Getting started with OneDrive API
 

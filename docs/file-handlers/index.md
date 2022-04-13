@@ -1,10 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: overview
 title: Integrate with OneDrive file handlers
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Adding custom preview, open, and actions to files with File Handlers 2.0
 

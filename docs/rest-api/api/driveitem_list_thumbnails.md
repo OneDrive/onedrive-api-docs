@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Retrieve thumbnails for a file or folder - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # List thumbnails for a DriveItem
 
