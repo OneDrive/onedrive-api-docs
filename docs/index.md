@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/18/2017
 ms.topic: landing-page
-ms.prod: onedrive
+ms.service: one-drive
 title: OneDrive for Developers
 ms.localizationpriority: High
 ---
