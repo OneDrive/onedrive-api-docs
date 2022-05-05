@@ -1,3 +1,12 @@
+---
+author: patrick-rodgers
+ms.author: patrodg
+ms.date: 05/05/2022
+ms.topic: overview
+title: v8 File Picker Configuration Schema
+ms.localizationpriority: High
+---
+
 # Picker Configuration Schema
 
 This outlines the full schema available to configure the picker. These options are passed as shown in the samples.
