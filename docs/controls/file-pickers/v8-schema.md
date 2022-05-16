@@ -71,16 +71,6 @@ This outlines the full schema available to configure the picker. These options a
              */
             folder?: string;
          };
-         /**
-         * Indicates SharePoint ID values which may be used as a backup in case path-based navigation to the initial item fails.
-         * Id-based lookup in SharePoint is slower, as should only be used as a last-resort.
-         * The File Picker will return an error if only ID values are specified.
-         */
-         byId?: {
-            webId?: string;
-            listId?: string;
-            uniqueId?: string;
-         };
       };
       /**
        * Indicates that the File Picker should start in the user's OneDrive.
@@ -103,26 +93,12 @@ This outlines the full schema available to configure the picker. These options a
       * Indicates that File Picker should start in the user's recent files.
       */
       recent?: {};
-      /**
-      * Indicates that File Picker should start in the files shared with the user.
-      * (NOT currently working in preview picker)
-      */
-      sharedWithMe?: {};
    };
    /**
     * Providing this object indicates that the host app can provide OAuth tokens
     * via the existing messaging support.
     */
    authentication: {};
-   localization?: {
-    /**
-     * The language code from the Host application.
-     * File Picker will render components which are not user content using the specified language.
-     * If the backing SharePoint Web has an override language setting, some strings such as column headers will render
-     * using the Web's language instead.
-     */
-    language: string;
-
    /**
     * Specifies what types of items may be picked and where they come from. Support for these features is inconsistent currently for external applications.
     */
@@ -145,8 +121,6 @@ This outlines the full schema available to configure the picker. These options a
          recent?: boolean;
          oneDrive?: boolean;
          sharedLibraries?: boolean;
-         shared?: boolean;
-         search?: boolean;
       };
    };
    /**
@@ -157,10 +131,6 @@ This outlines the full schema available to configure the picker. These options a
        * @default 'single'
        */
       mode?: "single" | "multiple" | "pick";
-      /**
-       * Does not appear to be enforced currently
-       */
-      maxCount?: number;
    };
    /**
     * Specifies what happens when users pick files and what the user may do with files in the picker.
@@ -170,10 +140,6 @@ This outlines the full schema available to configure the picker. These options a
        * Sets the default 'pick' behavior once the user selects items.
        */
       pick?: {
-         /**
-          * Does not currently have any effect, actions should be handled by the host application
-          */ 
-         action: "select" | "share" | "download" | "move";
          /**
          * A custom label to apply to the button to pick the items.
          * The default varies based on `action`, but is typically 'Select'.
@@ -194,12 +160,9 @@ This outlines the full schema available to configure the picker. These options a
     * Specifies accessibility cues such as auto-focus behaviors.
     */
    accessibility?: {
-      focusTrap?: "initial" | "always" | "none";
+      enableFocusTrap?: boolean;
+      trapFocusOnLoad?: boolean;
+      showFocusOnLoad?: boolean;
    };
-
-   /**
-    * No effect, reserved for future development
-    */ 
-   navigation?: {};
 }
 ```

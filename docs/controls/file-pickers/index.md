@@ -1,19 +1,19 @@
 ---
-author: JeremyKelley
-ms.author: JeremyKe
+author: patrick-rodgers
+ms.author: patrodg
 ms.date: 09/10/2017
 ms.topic: overview
-title: OneDrive Controls for Developers
+title: OneDrive File Picker
 ms.localizationpriority: High
 ---
 
 # File picker
 
-The latest interation of the File Picker shared control allows you to use the same picker functionality used within the M365 service in your solutions. Meaning as we iterate and improve the service, those new capabilities appear for your users!
+The File Picker v8 allows you to use the same functionality used within the M365 service within your solutions. Meaning as we iterate and improve the service, those new capabilities appear for your users!
 
 This new "control" is a page hosted within the Microsoft service which you interact with via post messages. The page can be hosted either embedded in an iframe or as a popup.
 
-**[Just Show Me The Sample Code](https://github.com/microsoft/odsp/tree/main/samples/file-picker)**
+**[Just Show Me The Sample Code](https://aka.ms/OneDrive/samples/file-picking)**
 
 > You can find the [documentation for the 7.2 picker here](./js-v72/index.md).
 
@@ -229,15 +229,6 @@ async function messageListener(message: MessageEvent): Promise<void> {
     }
 }
 ```
-
-
-
-
-
-
-
-
-
 
 <!-- {
   "type": "#page.annotation",
