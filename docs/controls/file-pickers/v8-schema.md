@@ -77,22 +77,24 @@ This outlines the full schema available to configure the picker. These options a
        */
       oneDrive?: {
          /**
+         * Indicates that File Picker should start in the user's recent files.
+         */
+         recent?: {};
+         /**
          * Specifies that File Picker should start in the user's Files tab.
          */
          files?: {
-         /**
-          * Path segment for sub-folder within the user's OneDrive.
-          * @example
-          *  'Pictures'
-          * @example
-          *  '/personal/user_contoso_com/Documents/Attachments'
-          */
-         folder?: string;
+            /**
+             * Path segment for sub-folder within the user's OneDrive.
+             * @example
+             *  'Pictures'
+             * @example
+             *  '/personal/user_contoso_com/Documents/Attachments'
+             */
+            folder?: string;
+         }
       };
-      /**
-      * Indicates that File Picker should start in the user's recent files.
-      */
-      recent?: {};
+
    };
    /**
     * Providing this object indicates that the host app can provide OAuth tokens
