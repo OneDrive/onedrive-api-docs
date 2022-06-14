@@ -112,6 +112,16 @@ This outlines the full schema available to configure the picker. These options a
        */
       mode?: "files" | "folders" | "all";
       /**
+       * Set of file extensions or 'item types'.
+       * File extensions should be lower-case and prefixed with a `.`.
+       * Item types should be lowercase and come from the following set:
+       * 
+       * - photo
+       * - video
+       * - audio
+       * - folder
+       * - file
+       * 
        * @default `['folder']` if `itemTypes` is 'folders', otherwise `[]`
        */
       filters?: string[];
@@ -162,8 +172,19 @@ This outlines the full schema available to configure the picker. These options a
     * Specifies accessibility cues such as auto-focus behaviors.
     */
    accessibility?: {
+      /**
+       * The File Picker can provide a 'tab-loop' behavior within its frame or window.
+       */
       enableFocusTrap?: boolean;
+      /**
+       * The File Picker can automatically grab focus once it loads.
+       */
       trapFocusOnLoad?: boolean;
+      /**
+       * By default, the File Picker does not initialally highlight the focused elements,
+       * but does so once a user starts using the keyboard. Set this option to force
+       * an initial highlight.
+       */
       showFocusOnLoad?: boolean;
    };
 }
