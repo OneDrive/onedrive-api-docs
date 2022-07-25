@@ -90,7 +90,7 @@ GET https://login.microsoftonline.com/common/oauth2/authorize?response_type=code
 | *response_type* | string | Specifies the requested response type. In an authorization code grant request, the value must be code. |
 | *redirect_uri*  | string | The redirect URL that the browser is sent to when authentication is complete.                          |
 
-**Note** The redirect URI must match one of the redirect URI that you specified in the [Azure Management Portal](https://manage.windowsazure.com/).
+**Note** The redirect URI must match one of the redirect URI that you specified in the [Azure Management Portal](https://portal.azure.com).
 
 #### Response
 
@@ -226,7 +226,7 @@ The request body is a URL encoded string, with the following parameters:
 | *resource*      | string | The resource you want to access. This should be the previously discovered **serviceResourceId** value.                                              |
 
 
-**Note**  The redirect URI must match the the redirect URI that you specified in the [Azure Management Portal](https://manage.windowsazure.com/).
+**Note**  The redirect URI must match the the redirect URI that you specified in the [Azure Management Portal](https://portal.azure.com).
 
 #### Response
 

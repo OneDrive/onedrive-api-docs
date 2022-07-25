@@ -104,7 +104,7 @@ Last Updated: February 16, 2015.
 
 6. **Privacy.**
 
-  a. **Your Information.** See the [Microsoft Privacy Statement](http://privacy.microsoft.com/en-us/fullnotice.mspx)
+  a. **Your Information.** See the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)
      for disclosures relating to the collection and use of your information.
 
   b. **End User Information.** Where an Authorized Application seeks permission

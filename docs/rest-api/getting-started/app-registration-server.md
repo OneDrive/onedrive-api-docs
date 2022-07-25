@@ -63,18 +63,18 @@ with the name of your Office 365 tenant.
 If you already have an existing Azure AD tenant, you can associate it with
 your Office 365 subscription by following these steps:
 
-1. Sign in to the [Microsoft Azure Management](https://manage.windowsazure.com/)
+1. Sign in to the [Microsoft Azure Management](https://portal.azure.com)
    portal with your existing Azure credentials (for example, your Microsoft ID
    such as user@live.com), and navigate to the **Active Directory** node.
 2. Choose the **Active Directory** node, then choose the **Directory** tab and,
    at the bottom of the screen, choose **New**. In the next dialog box, choose **Use
    existing directory**, select the check box, and then choose the check mark in the
-   lower-right corner. This brings you back to the [Azure Management Portal](https://manage.windowsazure.com/).
+   lower-right corner. This brings you back to the [Azure Management Portal](https://portal.azure.com).
 3. Sign in with your Office 365 subscription information. You will be prompted
    whether to use your directory with Azure.
 4. Choose **Continue** and a screen appears to confirm your action. Now,
    choose **Sign out now**.
-5. Close the browser and open the [portal](https://manage.windowsazure.com/) again.
+5. Close the browser and open the [portal](https://portal.azure.com) again.
    Otherwise, you will get an access denied error.
 6. Sign in again to your Azure subscription (for example, with your Microsoft ID).
    Navigate to the **Active Directory** node and, under **Directory**, you
@@ -85,7 +85,7 @@ Directory access for your Developer Site](https://msdn.microsoft.com/en-us/offic
 
 ### 3. Register your app with Azure Active Directory
 
-To authenticate your app, you need to register your app with Azure AD, and provide some details about your app. You can register your app manually by using the [Azure Management Portal](https://manage.windowsazure.com/),
+To authenticate your app, you need to register your app with Azure AD, and provide some details about your app. You can register your app manually by using the [Azure Management Portal](https://portal.azure.com),
 or by using Visual Studio.
 
 To register your app manually, see [Manually register your app with Azure AD so
@@ -102,7 +102,7 @@ your access token.
 as you would a user's password. The secret represents the key to your
 application and, if made available, can be used to impersonate your application.
 
-When you register your app in the [Azure Management Portal](https://manage.windowsazure.com/),
+When you register your app in the [Azure Management Portal](https://portal.azure.com),
 you will need to configure details about your application with the following steps:
 
 1. Specify whether your application is a mobile, desktop, or web application.
@@ -114,7 +114,7 @@ you will need to configure details about your application with the following ste
    tenancy you registered it in, or across multiple tenancies.
 4. For web apps, generate the app secret and its duration.
 5. Specify the permission levels your app requires from the Office 365 API
-   applications in Azure using [app permissions](https://msdn.microsoft.com/office/office365/howto/application-manifest).
+   applications in Azure using [app permissions](/office/office-365-management-api/get-started-with-office-365-management-apis).
    Using OneDrive API or the file picker requires at least **Read user files**. Uploading, editing, or sharing files
    requires the **Read and write user files** permission.
 
