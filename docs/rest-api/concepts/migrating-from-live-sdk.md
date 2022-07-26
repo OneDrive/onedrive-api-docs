@@ -84,7 +84,7 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 [1]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 [2]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/photo/$value&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 [user]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users
-[user-photo]: /graph/api/profilephoto-get?
+[user-photo]: /graph/api/profilephoto-get
 
 ## Contacts API
 
