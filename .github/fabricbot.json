@@ -1020,7 +1020,7 @@
           {
             "name": "addReply",
             "parameters": {
-              "comment": "Thanks for your feedback; however, we need more information to understand the issue further.  If you have not provided the following information, could you please provide the following?<br><br>Could you please provide the following response headers:<br> - Date (in UTC, please)<br> - request-id<br> - SPRequestGuid (for requests made to OneDrive for Business)<br>Please provide as recent values as possible.<br><br>Could you please describe the steps to reproduce the bug in sufficient detail for another person to be able to reproduce it?<br><br>Could you please provide sample requests and responses that illustrate the issue that you are encountering?<br><br>Could you please describe the behavior you expected to occur when performing the action?"
+              "comment": "Thanks for your feedback; however, we need more information to understand the issue further.  If you have not provided the following information, could you please provide the following?<br><br>Could you please provide the following response headers:<br> - Date (in UTC, please)<br> - request-id<br> - SPRequestGuid (for requests made to OneDrive for Business and SharePoint)<br>Please provide as recent values as possible.<br><br>Could you please describe the steps to reproduce the bug in sufficient detail for another person to be able to reproduce it?<br><br>Could you please provide sample requests and responses that illustrate the issue that you are encountering?<br><br>Could you please describe the behavior you expected to occur when performing the action?"
             }
           },
           {
