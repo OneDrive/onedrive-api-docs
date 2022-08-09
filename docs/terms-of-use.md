@@ -8,7 +8,7 @@ localization_priority: Normal
 # OneDrive API Terms and Conditions
 
 > [!IMPORTANT]  
-> These terms of use are obsolete and have been archived. They do not reflect current best practices for API terms of use. If you’re looking for current API terms of use, see [Microsoft APIs Terms](https://docs.microsoft.com/legal/microsoft-apis/terms-of-use) of Use or other API terms of use applied to Microsoft online services.
+> These terms of use are obsolete and have been archived. They do not reflect current best practices for API terms of use. If you’re looking for current API terms of use, see [Microsoft APIs Terms](/legal/microsoft-apis/terms-of-use) of Use or other API terms of use applied to Microsoft online services.
 
 Last Updated: February 16, 2015.
 
@@ -17,8 +17,8 @@ Last Updated: February 16, 2015.
    foregoing are collectively referred to as the "APIs"); and is a contract between
    you and Microsoft Corporation (“Microsoft”, “we”, or “us”). Your use of any of
    the OneDrive APIs is governed by this Agreement. You acknowledge that Microsoft
-   has a [Microsoft Services Agreement](http://go.microsoft.com/fwlink/p/?LinkId=137876)
-   and [Microsoft Online Privacy Statement](http://go.microsoft.com/fwlink/p/?LinkId=74170)
+   has a [Microsoft Services Agreement](https://go.microsoft.com/fwlink/p/?LinkId=137876)
+   and [Microsoft Online Privacy Statement](https://go.microsoft.com/fwlink/p/?LinkId=74170)
    with its customers for OneDrive and Microsoft account (the “Microsoft Services”), and
    agree that your use of any of the OneDrive APIs will not contravene Microsoft’s
    obligations under the Microsoft Services Agreement and Microsoft Online Privacy
@@ -104,7 +104,7 @@ Last Updated: February 16, 2015.
 
 6. **Privacy.**
 
-  a. **Your Information.** See the [Microsoft Privacy Statement](http://privacy.microsoft.com/en-us/fullnotice.mspx)
+  a. **Your Information.** See the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)
      for disclosures relating to the collection and use of your information.
 
   b. **End User Information.** Where an Authorized Application seeks permission
