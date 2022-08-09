@@ -10,7 +10,7 @@ localization_priority: Normal
 If you are using the Live SDK or Live Connect APIs to connect to profile, calendar, contacts, or files, your app needs to be updated to maintain functionality.
 
 Live SDK and Live Connect APIs have been marked as deprecated for over a year. 
-As announced on the [Office Developer blog](https://dev.office.com/blogs), these APIs are now end of life and will no longer be available after **November 1, 2018**.
+As announced on the [Office Developer blog](https://devblogs.microsoft.com/microsoft365dev/), these APIs are now end of life and will no longer be available after **November 1, 2018**.
 
 Profile and contacts data will no longer be available from the Live Connect APIs as of **Decmeber 1, 2017**.
 Calendar data has not been available from Live Connect since **June 2017**.
@@ -24,10 +24,10 @@ To continue to integrate with Microsoft services, developers must update their a
 
 Similar to the capabilities of Live Connect, Microsoft Graph has a number of resources available depending on the type of user data your app interacts with:
 
-* [Microsoft account authentication](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview)
+* [Microsoft account authentication](/graph/auth/)
 * [OneDrive files](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/onedrive)
 * [Outlook calendar](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/calendar)
-* [Outlook messages](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/mail_api_overview)
+* [Outlook messages](/graph/outlook-mail-concept-overview)
 * [Personal contacts](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/contact)
 * [Profile and Identity API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users)
 
@@ -41,7 +41,7 @@ Microsoft Graph uses a different set of permission scopes than Live Connect.
 To access the Microsoft Graph APIs, your app will need to switch permission scopes.
 This requires your app to prompt the user for consent to sign in and consent to the new permissions.
 
-See the [Microsoft Graph permission reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) for the complete details.
+See the [Microsoft Graph permission reference](/graph/permissions-reference) for the complete details.
 
 | Live Connect Scope      | Microsoft Graph Permission | Description                                                                                                                     |
 | ----------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,7 +84,7 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 [1]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 [2]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/photo/$value&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 [user]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users
-[user-photo]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/profilephoto_get
+[user-photo]: /graph/api/profilephoto-get
 
 ## Contacts API
 
@@ -102,8 +102,8 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 
 [3]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/contacts&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 [4]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/contacts/AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAAiIsqMbYjsT5e-T7KzowPTAAAYbuK-AAA=&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[contacts]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_contacts
-[create-contact]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_contacts
+[contacts]: /graph/api/user-list-contacts
+[create-contact]: /graph/api/user-post-contacts
 
 ## Calendar API
 
@@ -121,9 +121,9 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 
 [5]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/calendars&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 [6]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/events?$select=subject,body,bodyPreview,organizer,attendees,start,end,location&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[calendars]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_calendars
-[events]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_events
-[create-event]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_events
+[calendars]: /graph/api/user-list-calendars
+[events]: /graph/api/user-list-events
+[create-event]: /graph/api/user-post-events
 
 ## OneDrive REST API
 
