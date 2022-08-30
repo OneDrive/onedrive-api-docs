@@ -71,7 +71,7 @@ For details about resources and facets, see [Resources](resources/index.md) and 
 
 Within the Microsoft Graph, the OneDrive functionality is available from several root resources.
 These resources correspond to where OneDrive and SharePoint document libraries are available within Office 365.
-The follow entities in Microsoft Graph may contain one or more drives:
+The following entities in Microsoft Graph may contain one or more drives:
 
 | Entity                   | Example Path                       |
 | ------------------------ | ---------------------------------- |
