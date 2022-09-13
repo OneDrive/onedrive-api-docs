@@ -45,7 +45,7 @@ To use the control you must:
 
 The following sections explain each step.
 
-> We also have a [variety of samples](https://github.com/microsoft/odsp/tree/main/samples/file-picker) showing different ways to integrate with the control.
+> We also have a [variety of samples](https://aka.ms/OneDrive/samples/file-picking) showing different ways to integrate with the control.
 
 ## Initiate the Picker
 
