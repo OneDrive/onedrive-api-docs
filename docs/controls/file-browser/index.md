@@ -1,21 +1,19 @@
 ---
 author: patrick-rodgers
 ms.author: patrodg
-ms.date: 09/10/2017
+ms.date: 09/28/2022
 ms.topic: overview
-title: OneDrive File Picker
+title: OneDrive File Browser
 ms.localizationpriority: High
 ---
 
-# File Picker
+# File Browser
 
-The File Picker v8 allows you to use the same functionality used within the M365 service within your solutions. Meaning as we iterate and improve the service, those new capabilities appear for your users!
+The File Browser v8 allows you to use the same functionality used within the M365 service within your solutions. Meaning as we iterate and improve the service, those new capabilities appear for your users!
 
 This new "control" is a page hosted within the Microsoft service which you interact with via post messages. The page can be hosted either embedded in an iframe or as a popup.
 
-**[Just Show Me The Sample Code](https://aka.ms/OneDrive/samples/file-picking)**
-
-> You can find the [documentation for the 7.2 picker here](./js-v72/index.md).
+**[Just Show Me The Sample Code](https://aka.ms/OneDrive/samples/file-browsing)**
 
 ## Required Setup
 
@@ -36,26 +34,26 @@ To run the samples or use the control in your solution you will need to create a
 
 To use the control you must:
 
-1. Make a POST request to the "control" page hosted at /_layouts/15/FilePicker.aspx. Using this request you supply some parameters, the key one being [the picker configuration](./v8-schema.md).
+1. Make a POST request to the "control" page hosted at /_layouts/15/FileBrowser.aspx. Using this request you supply some parameters, the key one being [the browser configuration](./v8-schema.md).
 2. Setup messaging between your host application and the control using [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) and [message ports](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort).
 3. Once the communication channel is established you must respond to various "commands", the first of which is to provide authentication tokens.
-4. Finally, you will need to respond to additional command messages to supply new/different auth tokens, handle picked files, or close the popup.
+4. Finally, you will need to respond to additional command messages to supply new/different auth tokens, handle browser events, or allow the default actions to occur.
 
 The following sections explain each step.
 
-> We also have a [variety of samples](https://aka.ms/onedrive/samples/file-picking) showing different ways to integrate with the control.
+> We also have a [variety of samples](https://aka.ms/onedrive/samples/file-browsing) showing different ways to integrate with the control.
 
-## Initiate the Picker
+## Initiate the Browser
 
-To initate the picker you need to create a "window" which can either be an iframe or a popup. Once you have a window you should construct a form and POST the form to the URL `{baseUrl}/_layouts/15/FilePicker.aspx` with the query string parameters defined.
+To initate the browser you need to create a "window" which can either be an iframe or a popup. Once you have a window you should construct a form and POST the form to the URL `{baseUrl}/_layouts/15/FileBrowser.aspx` with the query string parameters defined.
 
 The `{baseUrl}` value above is either the SharePoint web url of the target web, or the user's onedrive. Some examples are: "https://tenant.sharepoint.com/sites/dev" or "https://tenant-my.sharepoint.com".
 
-- View [file picker configuration schema](./v8-schema.md).
+- View [file browser configuration schema](./v8-schema.md).
 
 ```TypeScript
-// create a new window
-const win = window.open("", "Picker", "width=800,height=600");
+// get a reference to a "window", here an iframe is used, could also be a pop-up
+const { contentWindow } = document.getElementById("IdOfIFrame");
 
 // we need to get an authentication token to use in the form below (more information in auth section)
 const authToken = await getToken({
@@ -64,49 +62,36 @@ const authToken = await getToken({
     type: "SharePoint",
 });
 
-// to use an iframe you can use code like:
-// const frame = document.getElementById("iframe-id");
-// const win = frame.contentWindow;
-
 // now we need to construct our query string
-// options: These are the picker configuration, see the schema link for a full explaination of the available options
+// options: These are the browser configuration, see the schema link for a full explaination of the available options
 const queryString = new URLSearchParams({
-   filePicker: JSON.stringify(options),
+    fileBrowser: JSON.stringify(options),
 });
 
-// we create the absolute url by combining the base url, appending the _layouts path, and including the query string
-const url = baseUrl + `_layouts/15/FilePicker.aspx?${queryString}`);
+const url = combine(baseUrl, `_layouts/15/fileBrowser.aspx?${queryString}`);
 
-// create a form
-const form = win.document.createElement("form");
-
-// set the action of the form to the url defined above
+const form = contentWindow.document.createElement("form");
 form.setAttribute("action", url);
-
-// must be a post request
 form.setAttribute("method", "POST");
+contentWindow.document.body.append(form);
 
-const input = win.document.createElement("input");
+const input = contentWindow.document.createElement("input");
 input.setAttribute("type", "hidden")
 input.setAttribute("name", "access_token");
 input.setAttribute("value", authToken);
 form.appendChild(input);
 
-// append the form to the body
-win.document.body.append(form);
-
-// submit the form, this will load the picker page
 form.submit();
 ```
 
-### Picker Configuration
+### Browser Configuration
 
-The picker is configured through serializing a json object containing the desired settings, and appending it to the querystring values as showin in the [Initiate the Picker](#initiate-the-picker) section. You can also view the [full schema](./v8-schema.md). At a minimum you must supply the authentication, entry, and messaging settings.
+The browser is configured through serializing a json object containing the desired settings, and appending it to the querystring values as showin in the [Initiate the Browser](#initiate-the-browser) section. You can also view the [full schema](./v8-schema.md). At a minimum you must supply the authentication, entry, and messaging settings.
 
-An example minimal settings object is shown below. This sets up messaging on channel 27, lets the picker know we can supply tokens, and that we want the "My Files" tab to represent the user's OneDrive files. This configuration would use a baseUrl of the form "https://{tenant}-my.sharepoint.com";
+An example minimal settings object is shown below. This sets up messaging on channel 27, lets the browser know we can supply tokens, and that we want the "My Files" tab to represent the user's OneDrive files. This configuration would use a baseUrl of the form "https://{tenant}-my.sharepoint.com";
 
 ```TypeScript
-{
+const paramsTest: IFileBrowserOptions = {
     sdk: "8.0",
     entry: {
         oneDrive: {
@@ -118,14 +103,14 @@ An example minimal settings object is shown below. This sets up messaging on cha
         origin: "http://localhost:3000",
         channelId: "27"
     },
-}
+};
 ```
 
-> The picker is designed to work with _either_ OneDrive OR SharePoint in a given instance and only one of the entry sections should be included.
+> The browser is designed to work with _either_ OneDrive OR SharePoint in a given instance and only one of the entry sections should be included.
 
 ## Establish Messaging
 
-Once the window is created and the form submitted you will need to establish a messaging channel. This is used to receive the commands from the picker and respond.
+Once form is submitted you will need to establish a messaging channel. This is used to receive the commands from the browser and respond.
 
 ```TypeScript
 let port: MessagePort;
@@ -138,7 +123,7 @@ window.addEventListener("message", (event) => {
 
       const message = event.data;
 
-      // the channelId is part of the configuration options, but we could have multiple pickers so that is supported via channels
+      // the channelId is part of the configuration options, but we could have multiple browsers so that is supported via channels
       if (message.type === "initialize" && message.channelId === options.messaging.channelId) {
 
          // grab the port from the event
@@ -150,7 +135,7 @@ window.addEventListener("message", (event) => {
          // start ("open") the port
          port.start();
 
-         // tell the picker to activate
+         // tell the browser to activate
          port.postMessage({
                type: "activate",
          });
@@ -161,7 +146,7 @@ window.addEventListener("message", (event) => {
 
 ## Message Listener Implementation
 
-Your solution must handle various messages from the picker, classified as either notifications or commands. Notifications expect no response and can be considered log information. The one exception is the `page-loaded` notification highlighted below, which will tell you the picker is ready.
+Your solution must handle various messages from the browser, classified as either notifications or commands. Notifications expect no response and can be considered log information. The one exception is the `page-loaded` notification highlighted below, which will tell you the browser is ready.
 
 Commands require that you acknowledge, and depending on the command, respond. This section show an example implementation of the `messageListener` function added as an event listener to the port. The next sections talks in detail about notifications and commands.
 
@@ -173,7 +158,7 @@ async function messageListener(message: MessageEvent): Promise<void> {
         case "notification":
 
             if (message.data.data.notification === "page-loaded") {
-                // here we know that the picker page is loaded and ready for user interaction
+                // here we know that the browser page is loaded and ready for user interaction
             }
 
             console.log(message.data);
@@ -195,7 +180,7 @@ async function messageListener(message: MessageEvent): Promise<void> {
 
                 case "authenticate":
 
-                    // the first command to handle is authenticate. This command will be issued any time the picker requires a token
+                    // the first command to handle is authenticate. This command will be issued any time the browser requires a token
                     // 'getToken' represents a method that can take a command and return a valid auth token for the requested resource
                     const token = await getToken(command);
 
@@ -214,17 +199,11 @@ async function messageListener(message: MessageEvent): Promise<void> {
 
                     break;
 
-                case "close":
+                case "open":
 
-                    // in the base of popup this is triggered by a user request to close the window
-                    win.close();
-                    break;
+                    // here we have intercepted an "open" command and can handle it within our application
 
-                case "pick":
-
-                    await pick(command);
-
-                    // let the picker know that the pick command was handled (required)
+                    // let the browser know that the open command was handled (required)
                     port.postMessage({
                         type: "result",
                         id: message.data.id,
@@ -296,6 +275,6 @@ async function getToken(command: IAuthenticateCommand): Promise<string> {
   "tocPath": "OneDrive SDKs",
   "tocBookmarks": {
     "OneDrive SDKs/Client libraries": "#microsoft-graph-sdks-and-sample-code",
-    "OneDrive SDKs/File pickers": "#file-picker-sdks"
+    "OneDrive SDKs/File browsers": "#file-browser-sdks"
   }
 } -->
