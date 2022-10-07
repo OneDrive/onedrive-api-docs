@@ -9,8 +9,8 @@ ms.localizationpriority: Medium
 
 List the recent [activities][] that took place on an item or under a hierarchy.
 
-**Note:** Activities is in a limited Preview and not yet available to all tenants.
 
+[activities]: ../resources/itemActivity.md
 
 ## Permissions
 
