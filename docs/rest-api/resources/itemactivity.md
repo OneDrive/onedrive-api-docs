@@ -10,7 +10,6 @@ ms.localizationpriority: Medium
 The **ItemActivity** resource provides information about activities that took place on an item or within a container.
 Currently only available on SharePoint and OneDrive for Business.
 
-**Note:** Activities is in a limited Preview and not yet available to all tenants.
 
 ## JSON representation
 

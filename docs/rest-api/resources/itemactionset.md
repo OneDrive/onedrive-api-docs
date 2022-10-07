@@ -9,7 +9,6 @@ ms.localizationpriority: Medium
 
 The **ItemActionSet** resource provides information about the actions that made up an [activity][itemActivity] on an item.
 
-**Note:** Activities is in a limited Preview and not yet available to all tenants.
 
 [itemActivity]: itemActivity.md
 
