@@ -58,16 +58,6 @@ This outlines the full schema available to configure the btowser. These options 
                  */
                 fallbackToRoot?: boolean;
             };
-            /**
-             * Indicates SharePoint ID values which may be used as a backup in case path-based navigation to the initial item fails.
-             * Id-based lookup in SharePoint is slower, as should only be used as a last-resort.
-             * The File Browser will return an error if only ID values are specified.
-             */
-            byId?: {
-                webId?: string;
-                listId?: string;
-                uniqueId?: string;
-            };
         };
         /**
          * Indicates that the File Browser should start in the user's OneDrive.
@@ -90,39 +80,19 @@ This outlines the full schema available to configure the btowser. These options 
                  */
                 fallbackToRoot?: boolean;
             };
-            /**
-             * Indicates that File Browser should start in the user's recent files.
-             */
-            recent?: {};
-            /**
-             * Indicates that File Browser should start in the files shared with the user.
-             */
-            sharedWithMe?: {};
-            /**
-             * Indicates that File Browser should start in the phone link data.
-             */
-            phoneLink?: {};
-            /**
-             * Indicates that File Browser should start in the user's photos.
-             */
-            photos?: {};
-            /**
-             * Indicates that File Browser should start in the user's lists.
-             */
-            myLists?: {};
         };
         /**
          * Providing this object indicates that the host app can provide OAuth tokens
          * via the existing messaging support.
+         * Indicate that passing at least authentication: {} is required in order for the File 
+         * Browser to be able to authenticate and load in an iframe.
          */
-        authentication: {};
+        authentication: {
+            claimsChallenge?: {
+                enabled?: boolean;
+            };
+        };
         breadcrumb?: {
-            /**
-             * Indicate whether set the root crumb folder path to the entry folder specified in IEntryConfiguration
-             * TODO: deprecated. Should use root to specific the actual root crumb folder path.
-             */
-            setRootToEntry?: boolean;
-
             /**
              * Specify the root crumb folder path
              */
@@ -191,32 +161,6 @@ This outlines the full schema available to configure the btowser. These options 
                 label?: string;
             };
             /**
-             * Behavior for a "Browse this device" command to pick local files.
-             */
-            browseThisDevice?: {
-                enabled?: boolean;
-                label?: string;
-            };
-            /**
-             * Behavior for a "From a link" command to pick from a link.
-             */
-            fromALink?: {
-                enabled?: boolean;
-            };
-            /**
-             * Behavior for a "Switch account" command.
-             */
-            switchAccount?: {
-                mode?: 'host' | 'none';
-            };
-            /**
-             * Behavior for a "Manage accounts" command.
-             */
-            manageAccounts?: {
-                mode?: 'host' | 'none';
-                label?: string;
-            };
-            /**
              * Behavior for "Upload"
              */
             upload?: {
@@ -251,15 +195,6 @@ This outlines the full schema available to configure the btowser. These options 
                 mode: 'external' | 'inline' | 'host' | 'none';
             };
             /**
-             * How to handle actions defined by custom formatters.
-             */
-            customFormatter?: {
-                actions?: {
-                    key: string;
-                    mode?: 'host' | 'none';
-                }[];
-            };
-            /**
              * How to handle specified values for `key` in custom commands
              * in the tray, nav, or command bar.
              */
@@ -289,73 +224,10 @@ This outlines the full schema available to configure the btowser. These options 
          */
         typesAndSources?: {
             /**
-             * Configures the base type of item which will be picked and displayed.
-             * Only items of this general type will be selectable.
-             */
-            mode?: 'files' | 'folders' | 'all';
-            /**
              * `filters` options: file extension, i.e. .xlsx, .docx, .ppt, etc.
              * `filters` options: 'photo', 'folder', 'video', 'documentLibrary'
              */
             filters?: `.${string}`[];
-            /**
-             * Specifies a filter for *where* the item may come from.
-             */
-            locations?: {
-                /**
-                 * Items may only come from the user's OneDrive.
-                 */
-                oneDrive?: {};
-                /**
-                 * Items may only come from a specific location within SharePoint.
-                 */
-                sharePoint?: {
-                    byPath?: {
-                        web?: string;
-                        list?: string;
-                        folder?: string;
-                    };
-                };
-            };
-            /**
-             * Specifies which pivots the user may access while browsing files and lists.
-             * Note that if a pivot is disabled here but still targeted in `entry`, it will still be visible
-             * in the nav.
-             */
-            pivots?: {
-                /**
-                 * Show "My files".
-                 */
-                oneDrive?: boolean;
-                /**
-                 * Show "Photos". Consumer accounts only.
-                 */
-                photos?: boolean;
-                /**
-                 * Show "Recent".
-                 */
-                recent?: boolean;
-                /**
-                 * Show "Shared"
-                 */
-                shared?: boolean;
-                /**
-                 * Show "Quick access".
-                 */
-                sharedLibraries?: boolean;
-                /**
-                 * Show "Stock images".
-                 */
-                stockImages?: boolean;
-                /**
-                 * Show "Bing search".
-                 */
-                bing?: boolean;
-                /**
-                 * Show "My lists".
-                 */
-                myLists?: boolean;
-            };
         };
         accessibility?: {
             /**
@@ -387,26 +259,9 @@ This outlines the full schema available to configure the btowser. These options 
          */
         selection?: {
             /**
-             * Controls how selection works within the list.
-             * @default 'multiple' for the Browser.
-             */
-            mode?: 'single' | 'multiple' | 'pick';
-            /**
-             * Whether or not to allow the user to maintain a selection across folders and pivots.
-             */
-            enablePersistence?: boolean;
-            /**
              * Whether or not the host expectes to be notified whenever selection changes.
              */
             enableNotifications?: boolean;
-            /**
-             * The maximum number of items which may selected.
-             */
-            maximumCount?: number;
-            /**
-             * A set of items to pre-select.
-             */
-            sourceItems?: any[];
         };
         list?: {
             /**
@@ -417,19 +272,6 @@ This outlines the full schema available to configure the btowser. These options 
                  * Sets the preferred starting layout for the initial content.
                  */
                 type?: 'details' | 'compact-details' | 'tiles';
-            };
-            /**
-             * Configures scrolling behavior within the Picker or Browser.
-             */
-            scrolling?: {
-                enableStickyHeaders?: boolean;
-            };
-        };
-        layer?: {
-            mode?: 'z-index' | 'projection-frame' | 'default';
-            offset?: {
-                top?: number;
-                left?: number;
             };
         };
     }
