@@ -1,7 +1,7 @@
 ---
 author: patrick-rodgers
 ms.author: patrodg
-ms.date: 09/28/2022
+ms.date: 10/24/2022
 ms.topic: overview
 title: OneDrive File Browser
 ms.localizationpriority: High
@@ -28,7 +28,7 @@ To run the samples or use the control in your solution you will need to create a
    1. Add `Files.Read.All`, `Sites.Read.All`, Leave `User.Read` for Graph delegated permissions
    2. Add `AllSites.Read`, `MyFiles.Read` for SharePoint delegated permissions
 
-> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://docs.microsoft.com/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
+> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
 
 ## How it works
 

@@ -1,3 +1,12 @@
+---
+author: patrick-rodgers
+ms.author: patrodg
+ms.date: 10/24/2022
+ms.topic: overview
+title: OneDrive File Browser
+ms.localizationpriority: High
+---
+
 # Browser Configuration Schema
 
 This outlines the full schema available to configure the btowser. These options are passed as shown in the samples.

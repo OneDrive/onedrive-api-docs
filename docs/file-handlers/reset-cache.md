@@ -49,7 +49,7 @@ This way, the user will be presented with the file handler next time they visit 
   "section": "documentation"
 } -->
 
-# Tenant Admin Reset
+## Tenant Admin Reset
 
 Because updates to apps take time to propagate through the system tenant admins can refresh the stored app cache globally, which affects the visibility of file handlers to users. This impacts changes based on user assignment, hidden flag, or other updates to the AAD app hosting the file handler. To reset the cached app data for all users a tenant admin can visit the url:
 
