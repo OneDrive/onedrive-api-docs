@@ -3,7 +3,7 @@ author: patrick-rodgers
 ms.author: patrodg
 ms.date: 10/24/2022
 ms.topic: overview
-title: OneDrive File Browser
+title: OneDrive File Browser Schema
 ms.localizationpriority: High
 ---
 

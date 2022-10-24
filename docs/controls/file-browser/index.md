@@ -28,14 +28,14 @@ To run the samples or use the control in your solution you will need to create a
    1. Add `Files.Read.All`, `Sites.Read.All`, Leave `User.Read` for Graph delegated permissions
    2. Add `AllSites.Read`, `MyFiles.Read` for SharePoint delegated permissions
 
-> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
+> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://learn.microsoft.com/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
 
 ## How it works
 
 To use the control you must:
 
 1. Make a POST request to the "control" page hosted at /_layouts/15/FileBrowser.aspx. Using this request you supply some parameters, the key one being [the browser configuration](./v8-schema.md).
-2. Setup messaging between your host application and the control using [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) and [message ports](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort).
+2. Setup messaging between your host application and the control using [postMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) and [message ports](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort).
 3. Once the communication channel is established you must respond to various "commands", the first of which is to provide authentication tokens.
 4. Finally, you will need to respond to additional command messages to supply new/different auth tokens, handle browser events, or allow the default actions to occur.
 
