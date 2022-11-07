@@ -7,7 +7,7 @@ title: OneDrive for Developers
 ms.localizationpriority: High
 ---
 
-# OneDrive & SharePoint developer platform
+# OneDrive & SharePoint developer platform 
 
 The OneDrive & SharePoint developer platform provides the APIs, components, and tools to access files and content across Microsoft 365, including:
 
