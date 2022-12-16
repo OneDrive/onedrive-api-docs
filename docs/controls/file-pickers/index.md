@@ -303,6 +303,10 @@ async function channelMessageListener(message: MessageEvent): Promise<void> {
 }
 ```
 
+## Uploading Files
+
+If you grant `Files.ReadWrite.All` permissions to the application you are using for picker tokens a widget in the top menu will appear allowing you to upload files and folders to the OneDrive or SharePoint document library. No other configuration changes are required, this behavior is controlled by the application + user permissions. Note, that if the user does not have access to the location to upload, the picker will not show the option.
+
 <!-- {
   "type": "#page.annotation",
   "description": "SDKs to make integrating with OneDrive easy.",
