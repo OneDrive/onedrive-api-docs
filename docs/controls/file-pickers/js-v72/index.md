@@ -60,12 +60,6 @@ Copyright (c) Microsoft Corporation. All rights reserved.
 
 Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
 
-## Previous versions
-
-* [File picker SDK v7.0](../js-v7/index.md)
-* [File picker SDK v6.0](../js-v6/index.md)
-* [File picker SDK v5.0](../js-v5/index.md)
-
 <!-- {
   "type": "#page.annotation",
   "description": "Use the JavaScript picker and saver SDKs to connect your web app to OneDrive.",
