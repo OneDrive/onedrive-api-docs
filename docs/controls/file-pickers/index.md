@@ -303,6 +303,28 @@ async function channelMessageListener(message: MessageEvent): Promise<void> {
 }
 ```
 
+## Picked Item Results
+
+When an item is selected the picker will return, through the messaging channel, an array of selected items. While there is a set of information that may be returned the following is always guaranteed to be included:
+
+```TS
+{
+    "id": string,
+    "parentReference": {
+        "driveId": string
+    },
+    "@sharePoint.endpoint": string
+}
+```
+
+Using this you can construct a URL to make a GET request to get any information you need about the selected file. It would generally be of the form:
+
+```
+@sharePoint.endpoint + /drives/ + parentReference.driveId + /items/ + id
+```
+
+You will need to include a valid token with appropriate rights to read the file in the request.
+
 ## Uploading Files
 
 If you grant `Files.ReadWrite.All` permissions to the application you are using for picker tokens a widget in the top menu will appear allowing you to upload files and folders to the OneDrive or SharePoint document library. No other configuration changes are required, this behavior is controlled by the application + user permissions. Note, that if the user does not have access to the location to upload, the picker will not show the option.
