@@ -34,6 +34,20 @@ To run the samples or use the control in your solution you will need to create a
 
 > To allow the user to upload files and create folders within the Picker experience, you may request access to `Files.ReadWrite.All`, `Sites.ReadWrite.All`, `AllSites.Write`, and `MyFiles.Write`.
 
+## Permissions
+
+The file picker always operates using delegated permissions and as such can only ever access file and folders to which the current user already has access.
+
+At a minimum you must request the SharePoint MyFiles.Read permission to read files from a user's OneDrive and SharePoint sites.
+
+Please review the table below to understand what permission are required based on the operations you wish to perform. All permissions in this table refer to delegated permissions.
+
+| |Read|Write|
+|--|--|--|
+|OneDrive|SharePoint.MyFiles.Read<br />or<br />Graph.Files.Read|SharePoint.MyFiles.Write<br />or<br />Graph.Files.ReadWrite|
+|SharePoint Sites|SharePoint.MyFiles.Read<br />or<br />Graph.Files.Read<br />or<br />SharePoint.AllSites.Read|SharePoint.MyFiles.Write<br />or<br />Graph.Files.ReadWrite<br />or<br />SharePoint.AllSites.Write|
+|Teams Channels|Graph.ChannelSettings.Read.All and SharePoint.AllSites.Read|Graph.ChannelSettings.Read.All and SharePoint.AllSites.Write
+
 ## How it works
 
 To use the control you must:
