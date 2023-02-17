@@ -1,0 +1,22 @@
+{
+  "name": "issue-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsc -p . && node ./lib/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@pnp/core": "^3.12.1",
+    "dotenv": "^16.0.3",
+    "octokit": "^2.0.14"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0-dev.20221109"
+  }
+}
