@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Shared - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Shared resource type
 

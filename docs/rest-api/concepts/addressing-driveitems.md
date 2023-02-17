@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: How to address resources - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Addressing resources in a drive on OneDrive
 

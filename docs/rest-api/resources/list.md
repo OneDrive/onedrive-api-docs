@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/11/2017
 title: List - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # List resource
 

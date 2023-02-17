@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/11/2017
 title: Update a record in a SharePoint list
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Update an item in a list
 

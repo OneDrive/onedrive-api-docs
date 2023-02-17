@@ -3,7 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Restore a previous version of a SharePoint list item
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Restore a previous version of a ListItem
 

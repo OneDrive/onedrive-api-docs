@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/14/2017
 title: CreateAction - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # CreateAction resource type
 

@@ -4,7 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Webhook notifications - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Using webhooks to receive service-to-service notifications
 
