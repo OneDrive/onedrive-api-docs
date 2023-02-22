@@ -42,6 +42,8 @@ If this is the case, the hash values on an item will be updated after the item i
 
 ## Remarks
 
+**sha1Hash** property will no longer be available in OneDrive Personal _starting from July 2023_
+
 In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Hash** are not available.
 
 In OneDrive Personal, **quickXorHash** is not available.
