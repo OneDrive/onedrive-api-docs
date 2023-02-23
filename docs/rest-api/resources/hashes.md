@@ -42,7 +42,8 @@ If this is the case, the hash values on an item will be updated after the item i
 
 ## Remarks
 
-***Note*** starting from _July 2023_ we will only support **sha1Hash** and **quickXorHash** in both OneDrive for Business and OneDriver Personal. Everything else mentioned below will be still valid before that date.
+***Note*** starting from _July 2023_ **sha1Hash** and **quickXorHash** will be the only available properties for both OneDrive for Business and OneDriver Personal.
+Everything else mentioned below is still valid until that date.
 
 In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Hash** are not available.
 
