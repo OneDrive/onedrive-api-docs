@@ -3,6 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
+description: "Use the app root special folder to create a home for your app's user content."
 title: What is an App Folder - OneDrive API
 ms.localizationpriority: High
 ---
