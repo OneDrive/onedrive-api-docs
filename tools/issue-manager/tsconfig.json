@@ -16,7 +16,7 @@
         "pretty": true,
         "experimentalDecorators": true,
         "noFallthroughCasesInSwitch": true,
-        "sourceMap": false,
+        "sourceMap": true,
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
         "strictNullChecks": true,
