@@ -1,7 +1,17 @@
 import { dateAdd, combine } from "@pnp/core";
 import { Octokit } from "octokit";
+import { ListForRepoData } from "../types.js";
 
-export async function lockIssues(octokit: Octokit, owner: string, repo: string, repo_url: string, issues: { data: any[] }): Promise<void> {
+export interface LockIssuesProps {
+    octokit: Octokit;
+    owner: string;
+    repo: string;
+    repo_url: string;
+}
+
+export async function lockIssues(issues: ListForRepoData, props: LockIssuesProps): Promise<void> {
+
+    const { octokit, owner, repo, repo_url } = props;
 
     const oneYearAgo = <Date>dateAdd(new Date(), "year", -1);
 
@@ -9,9 +19,9 @@ export async function lockIssues(octokit: Octokit, owner: string, repo: string, 
 
     try {
 
-        for (let i = 0; i < issues.data.length; i++) {
+        for (let i = 0; i < issues.length; i++) {
 
-            const issue = issues.data[i];
+            const issue = issues[i];
 
             const issueCreatedDate = new Date(issue.created_at);
             const issueUrl = combine(repo_url, "/issues/", issue.number.toString());
