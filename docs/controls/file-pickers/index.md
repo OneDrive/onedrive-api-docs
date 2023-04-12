@@ -63,11 +63,21 @@ The following sections explain each step.
 
 ## Initiate the Picker
 
+- View [file picker configuration schema](./v8-schema.md).
+
 To initate the picker you need to create a "window" which can either be an iframe or a popup. Once you have a window you should construct a form and POST the form to the URL `{baseUrl}/_layouts/15/FilePicker.aspx` with the query string parameters defined.
 
 The `{baseUrl}` value above is either the SharePoint web url of the target web, or the user's onedrive. Some examples are: "https://tenant.sharepoint.com/sites/dev" or "https://tenant-my.sharepoint.com".
 
-- View [file picker configuration schema](./v8-schema.md).
+### OneDrive Consumer Configuration
+
+|name|descriptions|
+|---|---|
+|authority|https://login.microsoftonline.com/consumers|
+|Scope|OneDrive.ReadWrite or OneDrive.Read|
+|baseUrl|https://onedrive.live.com/picker|
+
+> When you request a token you will use the `OneDrive.Read` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
 
 ```TypeScript
 // create a new window. The Picker's recommended maximum size is 1080x680, but it can scale down to
