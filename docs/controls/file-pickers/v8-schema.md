@@ -94,8 +94,13 @@ This outlines the full schema available to configure the picker. These options a
             folder?: string;
          }
       };
-
    };
+   /**
+    * Specifies how to enable a Search behavior.
+    */ 
+   search?: {
+      enabled: boolean;
+   },
    /**
     * Providing this object indicates that the host app can provide OAuth tokens
     * via the existing messaging support.
@@ -125,7 +130,6 @@ This outlines the full schema available to configure the picker. These options a
        * @default `['folder']` if `itemTypes` is 'folders', otherwise `[]`
        */
       filters?: string[];
-
       /**
        * Configures whether or not specific pivots may be browsed for content by the user.
        */
@@ -186,6 +190,22 @@ This outlines the full schema available to configure the picker. These options a
        * an initial highlight.
        */
       showFocusOnLoad?: boolean;
+   };
+   tray?: {
+      /**
+      * Configures a component to render in the picker tray to the left of the commands.
+      * @default 'selection-summary'
+      */
+      prompt?: "selection-summary" | "save-as";
+      /**
+      * Configures use of the 'save-as' prompt.
+      */
+      saveAs?: {
+         /**
+          * Default file name to show in 'save-as' prompt.
+          */
+         fileName?: string;
+      };
    };
 }
 ```

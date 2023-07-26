@@ -34,6 +34,20 @@ To run the samples or use the control in your solution you will need to create a
 
 > To allow the user to upload files and create folders within the Picker experience, you may request access to `Files.ReadWrite.All`, `Sites.ReadWrite.All`, `AllSites.Write`, and `MyFiles.Write`.
 
+## Permissions
+
+The file picker always operates using delegated permissions and as such can only ever access file and folders to which the current user already has access.
+
+At a minimum you must request the SharePoint MyFiles.Read permission to read files from a user's OneDrive and SharePoint sites.
+
+Please review the table below to understand what permission are required based on the operations you wish to perform. All permissions in this table refer to delegated permissions.
+
+| |Read|Write|
+|--|--|--|
+|OneDrive|SharePoint.MyFiles.Read<br />or<br />Graph.Files.Read|SharePoint.MyFiles.Write<br />or<br />Graph.Files.ReadWrite|
+|SharePoint Sites|SharePoint.MyFiles.Read<br />or<br />Graph.Files.Read<br />or<br />SharePoint.AllSites.Read|SharePoint.MyFiles.Write<br />or<br />Graph.Files.ReadWrite<br />or<br />SharePoint.AllSites.Write|
+|Teams Channels|Graph.ChannelSettings.Read.All and SharePoint.AllSites.Read|Graph.ChannelSettings.Read.All and SharePoint.AllSites.Write
+
 ## How it works
 
 To use the control you must:
@@ -49,11 +63,21 @@ The following sections explain each step.
 
 ## Initiate the Picker
 
+- View [file picker configuration schema](./v8-schema.md).
+
 To initate the picker you need to create a "window" which can either be an iframe or a popup. Once you have a window you should construct a form and POST the form to the URL `{baseUrl}/_layouts/15/FilePicker.aspx` with the query string parameters defined.
 
 The `{baseUrl}` value above is either the SharePoint web url of the target web, or the user's onedrive. Some examples are: "https://tenant.sharepoint.com/sites/dev" or "https://tenant-my.sharepoint.com".
 
-- View [file picker configuration schema](./v8-schema.md).
+### OneDrive Consumer Configuration
+
+|name|descriptions|
+|---|---|
+|authority|https://login.microsoftonline.com/consumers|
+|Scope|OneDrive.ReadWrite or OneDrive.Read|
+|baseUrl|https://onedrive.live.com/picker|
+
+> When you request a token you will use the `OneDrive.Read` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
 
 ```TypeScript
 // create a new window. The Picker's recommended maximum size is 1080x680, but it can scale down to
@@ -308,6 +332,7 @@ async function channelMessageListener(message: MessageEvent): Promise<void> {
 }
 ```
 
+
 ## Get Token
 
 The control requires that we are able to provide it with authentication tokens based on the sent command. To do so we create a method that takes a command and returns a token as shown below. We are using the `@azure/msal-browser` package to handle the authentication work.
@@ -352,6 +377,32 @@ async function getToken(command: IAuthenticateCommand): Promise<string> {
     return accessToken;
 }
 ```
+
+## Picked Item Results
+
+When an item is selected the picker will return, through the messaging channel, an array of selected items. While there is a set of information that may be returned the following is always guaranteed to be included:
+
+```TS
+{
+    "id": string,
+    "parentReference": {
+        "driveId": string
+    },
+    "@sharePoint.endpoint": string
+}
+```
+
+Using this you can construct a URL to make a GET request to get any information you need about the selected file. It would generally be of the form:
+
+```
+@sharePoint.endpoint + /drives/ + parentReference.driveId + /items/ + id
+```
+
+You will need to include a valid token with appropriate rights to read the file in the request.
+
+## Uploading Files
+
+If you grant `Files.ReadWrite.All` permissions to the application you are using for picker tokens a widget in the top menu will appear allowing you to upload files and folders to the OneDrive or SharePoint document library. No other configuration changes are required, this behavior is controlled by the application + user permissions. Note, that if the user does not have access to the location to upload, the picker will not show the option.
 
 <!-- {
   "type": "#page.annotation",

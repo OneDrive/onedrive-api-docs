@@ -3,6 +3,7 @@ author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
+description: "Use the app root special folder to create a home for your app's user content."
 title: What is an App Folder - OneDrive API
 ms.localizationpriority: High
 ---
@@ -36,6 +37,7 @@ Below are the most common calls your app can make to create the folder for the f
 When OneDrive creates your app's folder, it uses the Application name set at that point for the calling app id.
 You may change your app's folder name in the [Azure App registrations page][1].
 If you choose to do so, you may localize your app's folder name by going to the [Azure App registrations page][1] and editing your app's localization settings.
+Changing your app's folder name in the [Azure App registrations page][1] will not rename existing special folders associated with your app.
 
 [1]: https://aka.ms/AppRegistrations
 

@@ -8,6 +8,8 @@ ms.localizationpriority: High
 ---
 # OneDrive file picker for JavaScript v7.2 overview
 
+> **Note:** The v7.2 File Picker Library is no longer receiving updates and we encourage you to migrate to using the [v8 picker](../index.md) as soon as practical in your solutions.
+
 The OneDrive file picker makes it easy for your web app to connect to content stored in OneDrive and SharePoint.
 Using the file picker you can open, save, and share files stored in OneDrive or SharePoint without writing custom file UI code. 
  
