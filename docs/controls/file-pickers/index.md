@@ -7,7 +7,7 @@ title: OneDrive File Picker
 ms.localizationpriority: High
 ---
 
-# File picker
+# File Picker
 
 The File Picker v8 allows you to use the same functionality used within the M365 service within your solutions. Meaning as we iterate and improve the service, those new capabilities appear for your users!
 
@@ -30,7 +30,7 @@ To run the samples or use the control in your solution you will need to create a
    1. Add `Files.Read.All`, `Sites.Read.All`, Leave `User.Read` for Graph delegated permissions
    2. Add `AllSites.Read`, `MyFiles.Read` for SharePoint delegated permissions
 
-> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://docs.microsoft.com/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
+> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://learn.microsoft.com/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
 
 > To allow the user to upload files and create folders within the Picker experience, you may request access to `Files.ReadWrite.All`, `Sites.ReadWrite.All`, `AllSites.Write`, and `MyFiles.Write`.
 
@@ -84,6 +84,13 @@ The `{baseUrl}` value above is either the SharePoint web url of the target web, 
 // a minimum size of 250x230 for very small screens or very large zoom.
 const win = window.open("", "Picker", "width=1080,height=680");
 
+// we need to get an authentication token to use in the form below (more information in auth section)
+const authToken = await getToken({
+    resource: baseUrl,
+    command: "authenticate",
+    type: "SharePoint",
+});
+
 // to use an iframe you can use code like:
 // const frame = document.getElementById("iframe-id");
 // const win = frame.contentWindow;
@@ -114,11 +121,9 @@ form.setAttribute("method", "POST");
 // Create a hidden input element to send the OAuth token to the Picker.
 // This optional when using a popup window but required when using an iframe.
 const tokenInput = win.document.createElement("input");
-
 tokenInput.setAttribute("type", "hidden");
 tokenInput.setAttribute("name", "access_token");
 tokenInput.setAttribute("value", accessToken);
-
 form.appendChild(tokenInput);
 
 // append the form to the body
@@ -324,6 +329,52 @@ async function channelMessageListener(message: MessageEvent): Promise<void> {
 
             break;
     }
+}
+```
+
+
+## Get Token
+
+The control requires that we are able to provide it with authentication tokens based on the sent command. To do so we create a method that takes a command and returns a token as shown below. We are using the `@azure/msal-browser` package to handle the authentication work.
+
+> Currently the control relies on SharePoint tokens and not Graph, so you will need to ensure your resource is correct and you cannot reuse tokens for Graph calls.
+
+```TS
+import { PublicClientApplication, Configuration, SilentRequest } from "@azure/msal-browser";
+import { combine } from "@pnp/core";
+import { IAuthenticateCommand } from "./types";
+
+const app = new PublicClientApplication(msalParams);
+
+async function getToken(command: IAuthenticateCommand): Promise<string> {
+    let accessToken = "";
+    const authParams = { scopes: [`${combine(command.resource, ".default")}`] };
+
+    try {
+
+        // see if we have already the idtoken saved
+        const resp = await app.acquireTokenSilent(authParams!);
+        accessToken = resp.accessToken;
+
+    } catch (e) {
+
+        // per examples we fall back to popup
+        const resp = await app.loginPopup(authParams!);
+        app.setActiveAccount(resp.account);
+
+        if (resp.idToken) {
+
+            const resp2 = await app.acquireTokenSilent(authParams!);
+            accessToken = resp2.accessToken;
+
+        } else {
+
+            // throw the error that brought us here
+            throw e;
+        }
+    }
+
+    return accessToken;
 }
 ```
 
