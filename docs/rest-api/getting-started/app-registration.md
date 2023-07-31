@@ -5,6 +5,7 @@ ms.date: 09/10/2017
 ms.topic: conceptual
 title: Create an app with Microsoft Graph - OneDrive API
 localization_priority: Priority
+description: Learn to Register Your App for OneDrive API with Microsoft Graph. Get an Application ID & Secure Your App. Maximize Features with Azure AD.
 ---
 # Registering your app for Microsoft Graph
 
