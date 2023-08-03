@@ -74,10 +74,10 @@ The `{baseUrl}` value above is either the SharePoint web url of the target web, 
 |name|descriptions|
 |---|---|
 |authority|https://login.microsoftonline.com/consumers|
-|Scope|OneDrive.ReadWrite or OneDrive.Read|
+|Scope|OneDrive.ReadWrite or OneDrive.ReadOnly|
 |baseUrl|https://onedrive.live.com/picker|
 
-> When you request a token you will use the `OneDrive.Read` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
+> When you request a token you will use the `OneDrive.ReadOnly` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
 
 ```TypeScript
 // create a new window. The Picker's recommended maximum size is 1080x680, but it can scale down to
