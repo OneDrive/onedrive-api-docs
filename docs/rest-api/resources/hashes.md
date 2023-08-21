@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Hashes - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Hashes resource type
 
@@ -41,6 +41,9 @@ Here is a JSON representation of the resource.
 If this is the case, the hash values on an item will be updated after the item is downloaded.
 
 ## Remarks
+
+***Note*** starting from _July 2023_ **quickXorHash** will be the only available property for both OneDrive for Business and OneDriver Personal.
+Everything else mentioned below is still valid until that date.
 
 In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Hash** are not available.
 

@@ -1,12 +1,14 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: overview
 title: File Picker SDK for JavaScript - OneDrive
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive file picker for JavaScript v7.2 overview
+
+> **Note:** The v7.2 File Picker Library is no longer receiving updates and we encourage you to migrate to using the [v8 picker](../index.md) as soon as practical in your solutions.
 
 The OneDrive file picker makes it easy for your web app to connect to content stored in OneDrive and SharePoint.
 Using the file picker you can open, save, and share files stored in OneDrive or SharePoint without writing custom file UI code. 
@@ -25,9 +27,9 @@ You can use the file picker SDK to integrate with OneDrive and SharePoint in the
 ## Setting up
 
 To get started you need to register your application and receive an app ID
-from the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
+from the [Azure App registrations page](https://aka.ms/AppRegistrations).
 
-1. Log in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com)
+1. Log in to the [Azure App registrations page](https://aka.ms/AppRegistrations)
    using your Microsoft account, or a work or school account.
 2. Click **Add an app** and enter a name for your app.
 3. After your application is created, configure it to support the JavaScript picker:
@@ -59,12 +61,6 @@ The OneDrive picker and saver supports the following web browsers:
 Copyright (c) Microsoft Corporation. All rights reserved.
 
 Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
-
-## Previous versions
-
-* [File picker SDK v7.0](../js-v7/index.md)
-* [File picker SDK v6.0](../js-v6/index.md)
-* [File picker SDK v5.0](../js-v5/index.md)
 
 <!-- {
   "type": "#page.annotation",

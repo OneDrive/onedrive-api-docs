@@ -1,11 +1,13 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: CORS support - OneDrive API
+
 localization_priority: Normal
 description: Master OneDrive API with CORS for seamless JavaScript integration. Explore sample code, requests, and file downloads. Boost your app's performance.
+
 ---
 # Using the OneDrive API in JavaScript apps (CORS support)
 

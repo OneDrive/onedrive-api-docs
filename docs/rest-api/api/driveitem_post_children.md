@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Create a new folder - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Create a new folder in a drive
 
@@ -103,6 +103,7 @@ Content-Type: application/json
 
 Read the [Error Responses][error-response] topic for more info about
 how errors are returned.
+
 [error-response]: ../concepts/errors.md
 [item-resource]: ../resources/driveitem.md
 [folder-facet]: ../resources/folder.md
