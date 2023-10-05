@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
-ms.topic: get-started-article
+ms.topic: get-started
 title: Get started using OneDrive API
 localization_priority: Priority
 description: Learn Microsoft OneDrive API & Microsoft Graph integration for user authentication, app authorization, and resource access. Get started now.
