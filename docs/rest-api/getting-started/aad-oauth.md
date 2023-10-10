@@ -5,6 +5,7 @@ ms.date: 09/10/2017
 ms.topic: conceptual
 title: Using Azure Active Directory to sign-in - OneDrive API
 ms.localizationpriority: High
+description: Learn how to authenticate your app for OneDrive for Business using Azure Active Directory and Microsoft Graph. Detailed guide on OAuth 2.0 authentication scheme.
 ---
 # OneDrive for Business authentication and sign in
 

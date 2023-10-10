@@ -5,6 +5,7 @@ ms.date: 09/10/2017
 ms.topic: conceptual
 title: Sign-in and authorization - OneDrive API
 ms.localizationpriority: High
+description: Learn how to authenticate and authorize your app for OneDrive access. Explore different methods for OneDrive, SharePoint online, and SharePoint Server 2016.
 ---
 # Authorizing your app to access OneDrive
 
