@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "module": "esnext",
+        "declaration": false,
+        "removeComments": true,
+        "lib": [],
+        "baseUrl": "./src",
+        "rootDir": "./src",
+        "outDir": "./lib",
+        "allowUnreachableCode": false,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "pretty": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "sourceMap": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+    },
+    "include": [
+        "./src/**/*.ts",
+    ]
+}
