@@ -4,6 +4,7 @@ ms.author: dspektor
 ms.date: 09/14/2017
 title: RestoreAction - OneDrive API
 ms.localizationpriority: Medium
+description: Learn how to restore an item using the RestoreAction resource on SharePoint and OneDrive for Business. Stay updated with future API revisions.
 ---
 # RestoreAction resource type
 
