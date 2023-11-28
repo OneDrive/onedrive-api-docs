@@ -264,7 +264,7 @@ This outlines the full schema available to configure the btowser. These options 
             showFocusOnLoad?: boolean;
         };
         /*
-        * Speicifies which files browser theme is used
+        * Specifies which files browser theme is used
         */
         theme?: 'default' | 'dark' | 'lists' | 'teams' | 'teams-default' | 'teams-dark' | 'teams-contrast'
         /**
