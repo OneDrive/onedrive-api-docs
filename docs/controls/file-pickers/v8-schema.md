@@ -85,7 +85,7 @@ This outlines the full schema available to configure the picker. These options a
          */
          files?: {
             /**
-             * Path segment for sub-folder within the user's OneDrive.
+             * Path segment for sub-folder within the user's OneDrive for business.
              * @example
              *  'Pictures'
              * @example
