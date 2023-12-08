@@ -101,7 +101,7 @@ This outlines the full schema available to configure the btowser. These options 
              */
             files?: {
                 /**
-                 * Path segment for sub-folder within the user's OneDrive.
+                 * Path segment for sub-folder within the user's OneDrive for business.
                  * @example
                  *  'Pictures'
                  * @example
@@ -121,18 +121,6 @@ This outlines the full schema available to configure the btowser. These options 
              * Indicates that File Browser should start in the files shared with the user.
              */
             sharedWithMe?: {};
-            /**
-             * Indicates that File Browser should start in the files user's favorite files.
-             */
-            favorites?: {};
-            /**
-             * Indicates that File Browser should start in the phone link data.
-             */
-            phoneLink?: {};
-            /**
-             * Indicates that File Browser should start in the user's photos.
-             */
-            photos?: {};
             /**
              * Indicates that File Browser should start in the user's lists.
              */
@@ -227,16 +215,6 @@ This outlines the full schema available to configure the btowser. These options 
              */
             enabled?: boolean;
         };
-    };
-    /**
-     * Configuration for being hosted on Secure Broker
-     * Presence of this object indicates that FileBrowser is being hosted via SecureBroker
-     */
-    secureBroker?: {
-        /**
-         * @default false
-         */
-        enabled?: boolean;
     };
     breadcrumb?: {
         /**
@@ -438,10 +416,6 @@ This outlines the full schema available to configure the btowser. These options 
              */
             oneDrive?: boolean;
             /**
-             * Show "Photos". Consumer accounts only.
-             */
-            photos?: boolean;
-            /**
              * Show "Recent".
              */
             recent?: boolean;
@@ -449,18 +423,6 @@ This outlines the full schema available to configure the btowser. These options 
              * Show "Shared"
              */
             shared?: boolean;
-            /**
-             * Show "Favorites"
-             */
-            favorites?: boolean;
-            /**
-             * Show "Mobile device". The host app must be able to authenticate this service separately.
-             */
-            phoneLink?: boolean;
-            /**
-             * Show "Communities". The host app must be Yammer.
-             */
-            yammerCommunities?: boolean;
             /**
              * Show "Cloud storage". The host app must be Teams.
              */
@@ -470,29 +432,13 @@ This outlines the full schema available to configure the btowser. These options 
              */
             sharedLibraries?: boolean;
             /**
-             * Show "Stock images".
-             */
-            stockImages?: boolean;
-            /**
-             * Show "Bing search".
-             */
-            bing?: boolean;
-            /**
              * Show "My lists".
              */
             myLists?: boolean;
             /**
-             * Show "My organization".
-             */
-            myOrganization?: boolean;
-            /**
              * Show "Recent lists".
              */
             recentLists?: boolean;
-            /**
-             * Show the site pivot
-             */
-            site?: boolean;
         };
     };
     accessibility?: {
@@ -528,7 +474,7 @@ This outlines the full schema available to configure the btowser. These options 
         mode?: 'host' | 'notify';
     };
     /**
-     * Configuration for what item types may be selected within the picker and returned to the host.
+     * Configuration for what item types may be selected within the browser and returned to the host.
      */
     selection?: {
         /**
