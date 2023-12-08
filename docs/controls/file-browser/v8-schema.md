@@ -1,7 +1,7 @@
 ---
-author: patrick-rodgers
-ms.author: patrodg
-ms.date: 10/24/2022
+author: patrick-rodgers & justin-carway
+ms.author: patrodg & justincarway
+ms.date: 12/07/2023
 ms.topic: overview
 title: OneDrive File Browser Schema
 ms.localizationpriority: High
@@ -24,6 +24,30 @@ This outlines the full schema available to configure the btowser. These options 
          * The host app's authority, used as the target origin for post-messaging.
          */
         origin: string;
+        /**
+         * Whether or not the host app window will need to identify itself.
+         */
+        identifyParent?: boolean;
+        /**
+         * Whether or not the client app must wait for a 'configure' command to be sent by the host before rendering.
+         */
+        waitForConfiguration?: boolean;
+        /**
+         * Whether or not the client app can re-establish a connection to the host after a reload.
+         */
+        restartable?: boolean;
+        /**
+         * Override timeout for acknowledgement messages.
+         */
+        acknowledgeTimeout?: number;
+        /**
+         * Override timeout for the initialization handshake.
+         */
+        initializeTimeout?: number;
+        /**
+         * Override timeout for command responses.
+         */
+        resultTimeout?: number;
     };
     entry: {
         sharePoint?: {
@@ -89,204 +113,502 @@ This outlines the full schema available to configure the btowser. These options 
                  */
                 fallbackToRoot?: boolean;
             };
+            /**
+             * Indicates that File Browser should start in the user's recent files.
+             */
+            recent?: {};
+            /**
+             * Indicates that File Browser should start in the files shared with the user.
+             */
+            sharedWithMe?: {};
+            /**
+             * Indicates that File Browser should start in the files user's favorite files.
+             */
+            favorites?: {};
+            /**
+             * Indicates that File Browser should start in the phone link data.
+             */
+            phoneLink?: {};
+            /**
+             * Indicates that File Browser should start in the user's photos.
+             */
+            photos?: {};
+            /**
+             * Indicates that File Browser should start in the user's lists.
+             */
+            myLists?: {};
+            /**
+             * Indicates that File Browser should start in the user's recent lists.
+             */
+            recentLists?: {};
         };
         /**
-         * Providing this object indicates that the host app can provide OAuth tokens
-         * via the existing messaging support.
-         * Indicate that passing at least authentication: {} is required in order for the File 
-         * Browser to be able to authenticate and load in an iframe.
+         * If the entry location is to be loaded via a shortcut lens, where was the shortcut from?
          */
-        authentication: {
-            claimsChallenge?: {
-                enabled?: boolean;
+        shortcut?: {
+            sharePoint?: {
+                byPath?: {
+                    web?: string;
+                    list?: string;
+                    folder?: string;
+                };
             };
-        };
-        breadcrumb?: {
-            /**
-             * Specify the root crumb folder path
-             */
-            root?: {
-                sharePoint?: {
-                    byPath?: {
-                        web?: string;
-                        list?: string;
-                        folder?: string;
-                    };
+            teamChannel?: {
+                web?: string;
+                list?: string;
+                groupId?: string;
+                channelId?: string;
+                displayName?: string;
+            };
+            graph?: {
+                byId?: {
+                    driveId?: string;
+                    itemId?: string;
                 };
             };
         };
+        /**
+         * If the entry location is to be rendered in a OneUp configuration, what item should be 'focused'?
+         * The specified item will be rendered in context of the main item's children.
+         */
+        focus?: {
+            sharePoint?: {
+                byPath?: {
+                    web?: string;
+                    list?: string;
+                    folder?: string;
+                };
+            };
+
+            graph?: {
+                byId?: {
+                    driveId?: string;
+                    itemId?: string;
+                };
+            };
+        };
+        sortBy?: {
+            /**
+             * Name of the field *in SharePoint* on which to sort.
+             */
+            fieldName: string;
+            /**
+             * Whether or not to sort in ascending order. Default is `true`.
+             */
+            isAscending?: boolean;
+        };
+        filterBy?: {
+            /**
+             * Name of the field *in SharePoint* on which to filter on.
+             */
+            fieldName: string;
+            /**
+             * Filter value
+             */
+            value: string;
+        };
+    };
+    /**
+     * Configuration for handling authentication requests from the embedded app.
+     * Presence of this object (even if empty) indicates that the host will handle authentication.
+     * Omitting this will make the embedded content attempt to rely on cookies.
+     */
+    authentication?: {
+        /**
+         * @default true
+         */
+        enabled?: boolean;
+        /**
+         * Indicates that the host app can handle 'claims' challenges.
+         */
+        claimsChallenge?: {
+            /**
+             * @default false
+             */
+            enabled?: boolean;
+        };
+    };
+    /**
+     * Configuration for being hosted on Secure Broker
+     * Presence of this object indicates that FileBrowser is being hosted via SecureBroker
+     */
+    secureBroker?: {
+        /**
+         * @default false
+         */
+        enabled?: boolean;
+    };
+    breadcrumb?: {
+        /**
+         * Specify the root crumb folder path
+         */
+        root?: {
+            sharePoint?: {
+                byPath?: {
+                    web?: string;
+                    list?: string;
+                    folder?: string;
+                };
+            };
+        };
+    };
+    /**
+     * Configures how commands behave within the experience.
+     */
+    commands?: {
+        /**
+         * Overrides the "open" behavior for files and folders.
+         */
+        open?: {
+            /**
+             * Specifies a series of 'handlers' for clicking files and folders.
+             * For each handler, the invoked item is tested against `filters`,
+             * and the first matching handler has its behavior applied.
+             * If no handler matches, the default behavior applies.
+             */
+            handlers?: {
+                filters?: `.${string}`[];
+                /**
+                 * Specifies the target for opening the item
+                 * - `none`: Do not allow the item to be opened.
+                 * - `navigate`: Open the item within the experience.
+                 * - `external`: Open the item in a new tab.
+                 * - `host`: Ask the host to open the item.
+                 */
+                target?: 'none' | 'navigate' | 'external' | 'host';
+            }[];
+        };
+        /**
+         * Overrides behaviors for the view-switch dropdown.
+         */
+        switchView?: {
+            enabled?: boolean;
+            views: {
+                /**
+                 * @default false
+                 */
+                smartTemplate?: boolean;
+            };
+        };
+        /**
+         * Overrides behaviors for editing SharePoint views.
+         */
+        editView?: {
+            enabled?: boolean;
+        };
+        /**
+         * Overrides behaviors for creating SharePoint views.
+         */
+        createView?: {
+            enabled?: boolean;
+        };
+        /**
+         * Specifies the behavior for closing the experience.
+         */
+        close?: {
+            /**
+             * A custom label to apply to the 'cancel' button.
+             * This must be localized by the host app if supplied.
+             */
+            label?: string;
+        };
+        /**
+         * Behavior for a "Switch account" command.
+         */
+        switchAccount?: {
+            mode?: 'host' | 'none';
+        };
+        /**
+         * Behavior for a "Manage accounts" command.
+         */
+        manageAccounts?: {
+            mode?: 'host' | 'none';
+            label?: string;
+        };
+        /**
+         * Behavior for "Upload"
+         */
+        upload?: {
+            enabled?: boolean;
+        };
+        /**
+         * Behavior for "Create folder"
+         */
+        createFolder?: {
+            enabled?: boolean;
+        };
+        /**
+         * Behavior for "Filter by" in the column headers.
+         */
+        filterByColumn?: {
+            mode?: 'panel' | 'menu';
+        };
+        /**
+         * Configuration for a command to open the current item in the full SharePoint site.
+         */
+        openInSharePoint?: {
+            enabled?: boolean;
+            location?: 'header' | 'command-bar';
+        };
+        /**
+         * How to handle "Open in Desktop" protocol callbacks
+         */
+        openInDesktop?: {
+            /**
+             * @default 'inline'
+             */
+            mode: 'external' | 'inline' | 'host' | 'none';
+        };
+        /**
+         * How to handle actions defined by custom formatters.
+         */
+        customFormatter?: {
+            actions?: {
+                key: string;
+                mode?: 'host' | 'none';
+            }[];
+        };
+        /**
+         * How to handle specified values for `key` in custom commands
+         * in the tray, nav, or command bar.
+         */
+        custom?: {
+            actions?: {
+                key: string;
+                /**
+                 * Filters defining what types of items the action operates on.
+                 * If specified, the action will only be available for items which match the given filters.
+                 */
+                filters?: `.${string}`[];
+                /**
+                 * How the action is invoked.
+                 * 'host': Invokes a `custom` command message against the host app.
+                 * 'none': Disables the action.
+                 */
+                mode?: 'host' | 'none';
+                /**
+                 * Selection criteria to which the item applies.
+                 */
+                selection?: 'single' | 'multiple' | 'current' | 'none';
+            }[];
+        };
+    };
+    /**
+     * Configures what types of items are allowed to be browsered and selected within the experience.
+     * Note that the default configuration accounts for the expected authentication capabilities of the host app.
+     * Depending on what else is enabled by the host, the host may be expected to provide tokens for more services and scopes.
+     */
+    typesAndSources?: {
+        /**
+         * Configures the base type of item which will be displayed.
+         * Only items of this general type will be selectable.
+         */
+        mode?: 'files' | 'folders' | 'all';
+        /**
+         * `filters` options: file extension, i.e. .xlsx, .docx, .ppt, etc.
+         * `filters` options: 'photo', 'folder', 'video', 'documentLibrary'
+         */
+        filters?: `.${string}`[];
+        /**
+         * Specifies a filter for *where* the item may come from.
+         */
+        locations?: {
+            /**
+             * Items may only come from the user's OneDrive.
+             */
+            oneDrive?: {};
+            /**
+             * Items may only come from a specific location within SharePoint.
+             */
+            sharePoint?: {
+                byPath?: {
+                    web?: string;
+                    list?: string;
+                    folder?: string;
+                };
+            };
+        };
+        /**
+         * Specifies which pivots the user may access while browsing files and lists.
+         * Note that if a pivot is disabled here but still targeted in `entry`, it will still be visible in the nav.
+         */
+        pivots?: {
+            /**
+             * Show "My files".
+             */
+            oneDrive?: boolean;
+            /**
+             * Show "Photos". Consumer accounts only.
+             */
+            photos?: boolean;
+            /**
+             * Show "Recent".
+             */
+            recent?: boolean;
+            /**
+             * Show "Shared"
+             */
+            shared?: boolean;
+            /**
+             * Show "Favorites"
+             */
+            favorites?: boolean;
+            /**
+             * Show "Mobile device". The host app must be able to authenticate this service separately.
+             */
+            phoneLink?: boolean;
+            /**
+             * Show "Communities". The host app must be Yammer.
+             */
+            yammerCommunities?: boolean;
+            /**
+             * Show "Cloud storage". The host app must be Teams.
+             */
+            teamsCloudStorage?: boolean;
+            /**
+             * Show "Quick access".
+             */
+            sharedLibraries?: boolean;
+            /**
+             * Show "Stock images".
+             */
+            stockImages?: boolean;
+            /**
+             * Show "Bing search".
+             */
+            bing?: boolean;
+            /**
+             * Show "My lists".
+             */
+            myLists?: boolean;
+            /**
+             * Show "My organization".
+             */
+            myOrganization?: boolean;
+            /**
+             * Show "Recent lists".
+             */
+            recentLists?: boolean;
+            /**
+             * Show the site pivot
+             */
+            site?: boolean;
+        };
+    };
+    accessibility?: {
+        /**
+         * Whether or not to 'trap focus' within the component. If this is enabled, tab-stops will loop from the last element back to the left navigation automatically. 
+         * This is useful if the components's frame is hosted as the only content of a modal overlay and focus should not jump to the outside content.
+         *
+         * @default false
+         */
+        enableFocusTrap?: boolean;
+        /**
+         * Whether or not the component should immediately grab focus once the content has loaded.
+         *
+         * @default true
+         */
+        trapFocusOnLoad?: boolean;
+        /**
+         * Whether or not to force the currently-focused element within the component to be highlighted.
+         * By default, the focused element is highlighted if the user navigates elements with the keyboard but not when the user interacts via the mouse.
+         * However, if a host application launches the component due to keyboard input it should set this flag to `true` to ensure continuity of behavior.
+         *
+         * @default false
+         */
+        showFocusOnLoad?: boolean;
+    };
+    theme?: | 'default' | 'dark' | 'lists' | 'teams' | 'teams-default' | 'teams-dark' | 'teams-contrast';
+    navigation?: {
+        /**
+         * How navigation within the File Browser should work.
+         * - @default 'notify': File Browser handles navigation internally, notifies host of changes.
+         * - 'host': File Browser sends navigation request to host, does not immediately navigate.
+         */
+        mode?: 'host' | 'notify';
+    };
+    /**
+     * Configuration for what item types may be selected within the picker and returned to the host.
+     */
+    selection?: {
+        /**
+         * Controls how selection works within the list.
+         * @default 'multiple' for the Browser.
+         */
+        mode?: 'single' | 'multiple' | 'pick';
+        /**
+         * Whether or not to allow the user to maintain a selection across folders and pivots.
+         */
+        enablePersistence?: boolean;
+        /**
+         * Whether or not the host expectes to be notified whenever selection changes.
+         */
+        enableNotifications?: boolean;
+        /**
+         * The maximum number of items which may selected.
+         */
+        maximumCount?: number;
+    };
+    leftNav?: {
+        /**
+         * Whether or not a Left Nav should be rendered by the embedded content.
+         */
+        enabled?: boolean;
+        /**
+         * Mode of presentation of the nav.
+         * If the nav is enabled but this is set to `host`, the embedded app
+         * will show a button to ask the host app to show a nav.
+         */
+        mode?: 'host' | 'default';
+        /**
+         * Indicates whether the left nav will be initially modal.
+         */
+        initialModality?: 'modal' | 'hidden';
+
+        /**
+         * Type of left nav
+         */
+        preset?: 'oneDrive' | 'current-site';
+
+        /**
+         * Custom commands to insert at the end of the left nav. Will appear before the default set.
+         */
         commands?: {
             /**
-             * Overrides the "open" behavior for files and folders.
+             * Name to use when notifying the host that the command is being invoked.
              */
-            open?: {
-                /**
-                 * Specifies a series of 'handlers' for clicking files and folders.
-                 * For each handler, the invoked item is tested against `filters`,
-                 * and the first matching handler has its behavior applied.
-                 * If no handler matches, the default behavior applies.
-                 */
-                handlers?: {
-                    filters?: `.${string}`[];
-                    /**
-                     * Specifies the target for opening the item
-                     * - `none`: Do not allow the item to be opened.
-                     * - `navigate`: Open the item within the experience.
-                     * - `external`: Open the item in a new tab.
-                     * - `host`: Ask the host to open the item.
-                     */
-                    target?: 'none' | 'navigate' | 'external' | 'host';
-                }[];
-            };
+            key: string;
             /**
-             * Overrides behaviors for the view-switch dropdown.
+             * Localized string to use for the button text.
              */
-            switchView?: {
-                enabled?: boolean;
-                views: {
-                    smartTemplate?: boolean; // default false
-                };
-            };
+            label: string;
             /**
-             * Overrides behaviors for editing SharePoint views.
+             * Type of action which will be performed when the command is clicked.
+             * 'custom': Configured via `commands.custom`.
              */
-            editView?: {
-                enabled?: boolean;
-            };
+            action: 'custom' | 'pick' | 'close' | 'browse-this-device';
             /**
-             * Overrides behaviors for creating SharePoint views.
+             * Name of a Fluent icon to use for the command button.
              */
-            createView?: {
-                enabled?: boolean;
-            };
+            icon?: string;
+        }[];
+    };
+    list?: {
+        /**
+         * A custom override for the initial list layout.
+         */
+        layout?: {
             /**
-             * Specifies the behavior for closing the experience.
+             * Sets the preferred starting layout for the initial content.
              */
-            close?: {
-                /**
-                 * A custom label to apply to the 'cancel' button.
-                 * This must be localized by the host app if supplied.
-                 */
-                label?: string;
-            };
-            /**
-             * Behavior for "Upload"
-             */
-            upload?: {
-                enabled?: boolean;
-            };
-            /**
-             * Behavior for "Create folder"
-             */
-            createFolder?: {
-                enabled?: boolean;
-            };
-            /**
-             * Behavior for "Filter by" in the column headers.
-             */
-            filterByColumn?: {
-                mode?: 'panel' | 'menu';
-            };
-            /**
-             * Configuration for a command to open the current item in the full SharePoint site.
-             */
-            openInSharePoint?: {
-                enabled?: boolean;
-                location?: 'header' | 'command-bar';
-            };
-            /**
-             * How to handle "Open in Desktop" protocol callbacks
-             */
-            openInDesktop?: {
-                /**
-                 * @default 'inline'
-                 */
-                mode: 'external' | 'inline' | 'host' | 'none';
-            };
-            /**
-             * How to handle specified values for `key` in custom commands
-             * in the tray, nav, or command bar.
-             */
-            custom?: {
-                actions?: {
-                    key: string;
-                    /**
-                     * Filters defining what types of items the action operates on.
-                     * If specified, the action will only be available for items which match the given filters.
-                     */
-                    filters?: `.${string}`[];
-                    /**
-                     * How the action is invoked.
-                     * 'host': Invokes a `custom` command message against the host app.
-                     * 'none': Disables the action.
-                     */
-                    mode?: 'host' | 'none';
-                    /**
-                     * Selection criteria to which the item applies.
-                     */
-                    selection?: 'single' | 'multiple' | 'current' | 'none';
-                }[];
-            };
+            type?: 'details' | 'compact-details' | 'tiles';
         };
         /**
-         * Specifies what types of items may be picked and where they come from.
+         * Configures scrolling behavior within the Browser.
          */
-        typesAndSources?: {
-            /**
-             * `filters` options: file extension, i.e. .xlsx, .docx, .ppt, etc.
-             * `filters` options: 'photo', 'folder', 'video', 'documentLibrary'
-             */
-            filters?: `.${string}`[];
+        scrolling?: {
+            enableStickyHeaders?: boolean;
         };
-        accessibility?: {
-            /**
-             * Whether or not to 'trap focus' within the component. If this is enabled, tab-stops will loop from
-             * the last element back to the left navigation automatically. This is useful if the components's frame
-             * is hosted as the only content of a modal overlay and focus should not jump to the outside content.
-             *
-             * @default `false`
-             */
-            enableFocusTrap?: boolean;
-            /**
-             * Whether or not the component should immediately grab focus once the content has loaded.
-             *
-             * @default `true`
-             */
-            trapFocusOnLoad?: boolean;
-            /**
-             * Whether or not to force the currently-focused element within the component to be highlighted.
-             * By default, the focused element is highlighted if the user navigates elements with the keyboard
-             * but not when the user interacts via the mouse. However, if a host application launches the component
-             * due to keyboard input is should set this flag to `true` to ensure continuity of behavior.
-             *
-             * @default `false`
-             */
-            showFocusOnLoad?: boolean;
-        };
-        /*
-        * Specifies which files browser theme is used
-        */
-        theme?: 'default' | 'dark' | 'lists' | 'teams' | 'teams-default' | 'teams-dark' | 'teams-contrast';
-        /**
-         * Specified how many items may be picked.
-         */
-        selection?: {
-            /**
-             * Whether or not the host expectes to be notified whenever selection changes.
-             */
-            enableNotifications?: boolean;
-        };
-        list?: {
-            /**
-             * A custom override for the initial list layout.
-             */
-            layout?: {
-                /**
-                 * Sets the preferred starting layout for the initial content.
-                 */
-                type?: 'details' | 'compact-details' | 'tiles';
-            };
-        };
-    }
+    };
 }
 ```
