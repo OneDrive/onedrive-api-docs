@@ -121,59 +121,6 @@ This outlines the full schema available to configure the btowser. These options 
              * Indicates that File Browser should start in the files shared with the user.
              */
             sharedWithMe?: {};
-            /**
-             * Indicates that File Browser should start in the user's lists.
-             */
-            myLists?: {};
-            /**
-             * Indicates that File Browser should start in the user's recent lists.
-             */
-            recentLists?: {};
-        };
-        /**
-         * If the entry location is to be loaded via a shortcut lens, where was the shortcut from?
-         */
-        shortcut?: {
-            sharePoint?: {
-                byPath?: {
-                    web?: string;
-                    list?: string;
-                    folder?: string;
-                };
-            };
-            teamChannel?: {
-                web?: string;
-                list?: string;
-                groupId?: string;
-                channelId?: string;
-                displayName?: string;
-            };
-            graph?: {
-                byId?: {
-                    driveId?: string;
-                    itemId?: string;
-                };
-            };
-        };
-        /**
-         * If the entry location is to be rendered in a OneUp configuration, what item should be 'focused'?
-         * The specified item will be rendered in context of the main item's children.
-         */
-        focus?: {
-            sharePoint?: {
-                byPath?: {
-                    web?: string;
-                    list?: string;
-                    folder?: string;
-                };
-            };
-
-            graph?: {
-                byId?: {
-                    driveId?: string;
-                    itemId?: string;
-                };
-            };
         };
         sortBy?: {
             /**
@@ -431,14 +378,6 @@ This outlines the full schema available to configure the btowser. These options 
              * Show "Quick access".
              */
             sharedLibraries?: boolean;
-            /**
-             * Show "My lists".
-             */
-            myLists?: boolean;
-            /**
-             * Show "Recent lists".
-             */
-            recentLists?: boolean;
         };
     };
     accessibility?: {
