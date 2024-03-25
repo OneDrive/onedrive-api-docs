@@ -1,7 +1,7 @@
 ---
 author: JeremyKelley
 ms.author: JeremyKe
-ms.date: 09/10/2017
+ms.date: 03/22/2024
 title: Hashes - OneDrive API
 ms.localizationpriority: Medium
 ---
@@ -37,17 +37,10 @@ Here is a JSON representation of the resource.
 | **crc32Hash**    | String | (Hex string). The CRC32 value of the file in little endian (if available). Read-only.            |
 | **quickXorHash** | String | (Base64 string). A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only. |
 
-**Note:** In some cases hash values may not be available. 
-If this is the case, the hash values on an item will be updated after the item is downloaded.
 
 ## Remarks
 
-***Note*** starting from _July 2023_ **quickXorHash** will be the only available property for both OneDrive for Business and OneDriver Personal.
-Everything else mentioned below is still valid until that date.
-
-In OneDrive for Business and SharePoint Server 2016, **sha1Hash** and **crc32Hash** are not available.
-
-In OneDrive Personal, **quickXorHash** is not available.
+***Note*** **quickXorHash** is the only value that is guaranteed to be available for both OneDrive for Business and OneDriver Personal.
 
 To calculate **quickXorHash** for a file, refer to the [QuickXorHash snippet](../../code-snippets/quickxorhash.md).
 
