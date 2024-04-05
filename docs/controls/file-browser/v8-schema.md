@@ -403,7 +403,11 @@ This outlines the full schema available to configure the btowser. These options 
          */
         showFocusOnLoad?: boolean;
     };
-    theme?: | 'default' | 'dark' | 'lists' | 'teams' | 'teams-default' | 'teams-dark' | 'teams-contrast';
+    /**
+     * The theme to use for the file-browser. Will change the coloring.
+     * Note: custom theme objects are expected in addition to the strings below
+     * @default 'default': Light theme
+    theme?: | 'default' | 'dark' | 'lists';
     navigation?: {
         /**
          * How navigation within the File Browser should work.
