@@ -407,6 +407,7 @@ This outlines the full schema available to configure the btowser. These options 
      * The theme to use for the file-browser. Will change the coloring.
      * Note: custom theme objects are expected in addition to the strings below
      * @default 'default': Light theme
+     */
     theme?: | 'default' | 'dark' | 'lists';
     navigation?: {
         /**
