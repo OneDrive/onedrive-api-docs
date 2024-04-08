@@ -371,10 +371,6 @@ This outlines the full schema available to configure the btowser. These options 
        */
       shared?: boolean;
       /**
-       * Show "Cloud storage". The host app must be Teams.
-       */
-      teamsCloudStorage?: boolean;
-      /**
        * Show "Quick access".
        */
       sharedLibraries?: boolean;

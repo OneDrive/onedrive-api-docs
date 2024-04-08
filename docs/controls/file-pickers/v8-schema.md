@@ -264,40 +264,14 @@ This outlines the full schema available to configure the picker. These options a
        */
       shared?: boolean;
       /**
-       * Show "Cloud storage". The host app must be Teams.
-       */
-      teamsCloudStorage?: boolean;
-      /**
        * Show "Quick access".
        */
       sharedLibraries?: boolean;
-      /**
-       * Show "Stock images".
-       * This pivot is only supported in OneDrive for Business
-       */
-      stockImages?: boolean;
-      /**
-       * Show "Bing search".
-       * This pivot is only supported in OneDrive for Business
-       */
-      bing?: boolean;
-      /**
-       * Show "My lists".
-       * This pivot is only supported in OneDrive for Business
-       */
-      myLists?: boolean;
       /**
        * Show "My organization".
        * This pivot is only supported in OneDrive for Business
        */
       myOrganization?: boolean;
-
-      /**
-       * Show "Recent lists".
-       * This pivot is only supported in OneDrive for Business
-       */
-      recentLists?: boolean;
-
       /**
        * Show the site pivot
        * This pivot is only supported in OneDrive for Business
