@@ -145,15 +145,6 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
        * This pivot is only available in OneDrive for Consumer
        */
       photos?: {};
-      /**
-       * Indicates that File Picker should start in the user's lists.
-       */
-      myLists?: {};
-      /**
-       * Indicates that File Picker should start in the user's recent lists.
-       * This pivot is only supported in OneDrive for Business
-       */
-      recentLists?: {};
     };
     sortBy?: {
       /**
@@ -345,12 +336,6 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
         urls?: {
           download?: boolean;
         };
-      };
-      /**
-       * Configures special handling for custom lists.
-       */
-      listItem?: {
-        fieldName?: string;
       };
     };
     /**
