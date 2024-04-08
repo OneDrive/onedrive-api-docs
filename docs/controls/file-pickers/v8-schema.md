@@ -415,7 +415,7 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
          * Filters defining what types of items the action operates on.
          * If specified, the action will only be available for items which match the given filters.
          */
-        filters?: `.${string}`[];
+        filters?: ExtFilters[];
         /**
          * How the action is invoked.
          * 'host': Invokes a `custom` command message against the host app.

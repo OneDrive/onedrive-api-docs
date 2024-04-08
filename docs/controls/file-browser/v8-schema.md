@@ -331,7 +331,7 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
      * `filters` options: file extension, i.e. .xlsx, .docx, .ppt, etc.
      * `filters` options: 'photo', 'folder', 'video', 'documentLibrary'
      */
-    filters?: `.${string}`[];
+    filters?: ExtFilters[];
     /**
      * Specifies a filter for *where* the item may come from.
      */
