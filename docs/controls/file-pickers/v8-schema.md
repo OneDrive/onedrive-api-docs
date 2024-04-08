@@ -12,6 +12,10 @@ ms.localizationpriority: High
 This outlines the full schema available to configure the picker. These options are passed as shown in the samples.
 
 ```TypeScript
+export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenote' | 'file' | 'media' | 'photo' | 'video' | 'audio' | 'document' | 'listItem' | 'playlist' | 'syntexTemplate' | 'syntexSnippet' | 'syntexField' | `.${string}`;
+
+//NOTE: IItem type references the following docs: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0#properties
+
 {
   sdk: "8.0";
   /**
@@ -36,10 +40,6 @@ This outlines the full schema available to configure the picker. These options a
      * Whether or not the client app must wait for a 'configure' command to be sent by the host before rendering.
      */
     waitForConfiguration?: boolean;
-    /**
-     * Whether or not the client app can re-establish a connection to the host after a reload.
-     */
-    restartable?: boolean;
     /**
      * Override timeout for acknowledgement messages.
      */
@@ -217,7 +217,7 @@ This outlines the full schema available to configure the picker. These options a
      * `filters` options: file extension, i.e. .xlsx, .docx, .ppt, etc.
      * `filters` options: 'photo', 'folder', 'video', 'documentLibrary'
      */
-    filters?: `.${string}`[];
+    filters?: ExtFilter[];
     /**
      * Specifies a filter for *where* the item may come from.
      */

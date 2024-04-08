@@ -12,6 +12,8 @@ ms.localizationpriority: High
 This outlines the full schema available to configure the btowser. These options are passed as shown in the samples.
 
 ```TS
+export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenote' | 'file' | 'media' | 'photo' | 'video' | 'audio' | 'document' | 'listItem' | 'playlist' | 'syntexTemplate' | 'syntexSnippet' | 'syntexField' | `.${string}`;
+
 {
   sdk: "8.0";
   messaging: {
@@ -32,10 +34,6 @@ This outlines the full schema available to configure the btowser. These options 
      * Whether or not the client app must wait for a 'configure' command to be sent by the host before rendering.
      */
     waitForConfiguration?: boolean;
-    /**
-     * Whether or not the client app can re-establish a connection to the host after a reload.
-     */
-    restartable?: boolean;
     /**
      * Override timeout for acknowledgement messages.
      */
@@ -192,7 +190,7 @@ This outlines the full schema available to configure the btowser. These options 
        * If no handler matches, the default behavior applies.
        */
       handlers?: {
-        filters?: `.${string}`[];
+        filters?: ExtFilter[];
         /**
          * Specifies the target for opening the item
          * - `none`: Do not allow the item to be opened.
