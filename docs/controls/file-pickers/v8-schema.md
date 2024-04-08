@@ -200,8 +200,9 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
    */
   typesAndSources?: {
     /**
-     * Configures the base type of item which will be displayed.
-     * Only items of this general type will be selectable.
+     * Specifies the general category of items picked. Switches between 'file' vs. 'folder' picker mode,
+     * or a general-purpose picker.
+     * @default 'all'
      */
     mode?: "files" | "folders" | "all";
     /**
