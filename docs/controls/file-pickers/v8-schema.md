@@ -103,10 +103,12 @@ This outlines the full schema available to configure the picker. These options a
     };
     /**
      * Indicates that File Picker should start in the Site Pivot
+     * This pivot is only supported in OneDrive for Business
      */
     site?: {};
     /**
      * Indicates that File Picker should start in the OAL (My Organization) Pivot
+     * This pivot is only supported in OneDrive for Business
      */
     myOrganization?: {};
     /**
@@ -118,7 +120,7 @@ This outlines the full schema available to configure the picker. These options a
        */
       files?: {
         /**
-         * Path segment for sub-folder within the user's OneDrive for business.
+         * Path segment for sub-folder within the user's OneDrive for Business.
          * @example
          *  'Pictures'
          * @example
@@ -140,7 +142,7 @@ This outlines the full schema available to configure the picker. These options a
       sharedWithMe?: {};
       /**
        * Indicates that File Picker should start in the user's photos.
-       * This Pivot is only available in consumer implementations
+       * This pivot is only available in OneDrive for Consumer
        */
       photos?: {};
       /**
@@ -149,6 +151,7 @@ This outlines the full schema available to configure the picker. These options a
       myLists?: {};
       /**
        * Indicates that File Picker should start in the user's recent lists.
+       * This pivot is only supported in OneDrive for Business
        */
       recentLists?: {};
     };
@@ -270,28 +273,34 @@ This outlines the full schema available to configure the picker. These options a
       sharedLibraries?: boolean;
       /**
        * Show "Stock images".
+       * This pivot is only supported in OneDrive for Business
        */
       stockImages?: boolean;
       /**
        * Show "Bing search".
+       * This pivot is only supported in OneDrive for Business
        */
       bing?: boolean;
       /**
        * Show "My lists".
+       * This pivot is only supported in OneDrive for Business
        */
       myLists?: boolean;
       /**
        * Show "My organization".
+       * This pivot is only supported in OneDrive for Business
        */
       myOrganization?: boolean;
 
       /**
        * Show "Recent lists".
+       * This pivot is only supported in OneDrive for Business
        */
       recentLists?: boolean;
 
       /**
        * Show the site pivot
+       * This pivot is only supported in OneDrive for Business
        */
       site?: boolean;
     };
@@ -621,7 +630,7 @@ This outlines the full schema available to configure the picker. These options a
       type?: "details" | "compact-details" | "tiles";
     };
     /**
-     * Configures scrolling behavior within the Browser.
+     * Configures scrolling behavior within the Picker.
      */
     scrolling?: {
       enableStickyHeaders?: boolean;

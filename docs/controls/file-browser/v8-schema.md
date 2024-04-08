@@ -354,15 +354,6 @@ This outlines the full schema available to configure the btowser. These options 
       };
     };
     /**
-     * Specifies filtering based on user access level.
-     */
-    access?: {
-      /**
-       * Filter for requires user access level for picked items. Default is `'read'`.
-       */
-      mode?: "read" | "read-write";
-    };
-    /**
      * Specifies which pivots the user may access while browsing files and lists.
      * Note that if a pivot is disabled here but still targeted in `entry`, it will still be visible in the nav.
      */
@@ -434,7 +425,7 @@ This outlines the full schema available to configure the btowser. These options 
      * Controls how selection works within the list.
      * @default 'multiple' for the Browser.
      */
-    mode?: "single" | "multiple" | "pick";
+    mode?: "single" | "multiple";
     /**
      * Whether or not to allow the user to maintain a selection across folders and pivots.
      */
@@ -485,7 +476,7 @@ This outlines the full schema available to configure the btowser. These options 
        * Type of action which will be performed when the command is clicked.
        * 'custom': Configured via `commands.custom`.
        */
-      action: "custom" | "pick" | "close" | "browse-this-device";
+      action: "custom" | "close" | "browse-this-device";
       /**
        * Name of a Fluent icon to use for the command button.
        */
