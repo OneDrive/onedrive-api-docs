@@ -374,6 +374,9 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
       sharedLibraries?: boolean;
     };
   };
+  /**
+    * Specifies accessibility cues such as auto-focus behaviors.
+    */
   accessibility?: {
     /**
      * Whether or not to 'trap focus' within the component. If this is enabled, tab-stops will loop from the last element back to the left navigation automatically.

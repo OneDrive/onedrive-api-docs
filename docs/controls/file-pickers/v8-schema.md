@@ -184,6 +184,23 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
      */
     enabled?: boolean;
     /**
+     * Indicates support for individual token types.
+     */
+    tokens?: {
+       /**
+        * @defaultValue true
+        */
+       graph?: boolean;
+       /**
+        * @defaultValue true
+        */
+       sharePoint?: boolean;
+       /**
+        * @defaultValue false
+        */
+       substrate?: boolean;
+    };
+    /**
      * Indicates that the host app can handle 'claims' challenges.
      */
     claimsChallenge?: {
@@ -429,6 +446,9 @@ export type ExtFilter = 'folder' | 'site' | 'documentLibrary' | 'list' | 'onenot
       }[];
     };
   };
+  /**
+   * Specifies accessibility cues such as auto-focus behaviors.
+   */
   accessibility?: {
     /**
      * Whether or not to 'trap focus' within the component. If this is enabled, tab-stops will loop from the last element back to the left navigation automatically.
