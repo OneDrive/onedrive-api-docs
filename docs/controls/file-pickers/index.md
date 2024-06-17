@@ -404,6 +404,15 @@ You will need to include a valid token with appropriate rights to read the file 
 
 If you grant `Files.ReadWrite.All` permissions to the application you are using for picker tokens a widget in the top menu will appear allowing you to upload files and folders to the OneDrive or SharePoint document library. No other configuration changes are required, this behavior is controlled by the application + user permissions. Note, that if the user does not have access to the location to upload, the picker will not show the option.
 
+## Branding Guidance
+
+Applications that integrate with the Microsoft OneDrive File Picker may also opt to promote their integration with OneDrive to customers.  Because OneDrive has both a consumer and commercial offering, the following options are available to display in 3rd party application interfaces:
+
+- Microsoft OneDrive (personal)
+    - May also be displayed as Microsoft OneDrive for personal 
+- Microsoft OneDrive (work/school)
+    - May also be displayed as Microsoft OneDrive for work or school
+
 <!-- {
   "type": "#page.annotation",
   "description": "SDKs to make integrating with OneDrive easy.",
