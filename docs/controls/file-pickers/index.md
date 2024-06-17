@@ -35,7 +35,14 @@ For Android, iOS, and UWP, this pattern depends on the OneDrive application bein
 
 [Microsoft Graph makes a wide variety of SDKs and sample code](https://aka.ms/graph-get-started) available for a number of developer platforms that enable you to quickly start writing code to leverage the Microsoft Graph and have access to files in OneDrive and SharePoint.
 
+## Branding Guidance
 
+Applications that integrate with the Microsoft OneDrive File Picker may also opt to promote their integration with OneDrive to customers.  Because OneDrive has both a consumer and commercial offering, the following options are available to display in 3rd party application interfaces:
+
+- Microsoft OneDrive (personal)
+    - May also be displayed as Microsoft OneDrive for personal 
+- Microsoft OneDrive (work/school)
+    - May also be displayed as Microsoft OneDrive for work or school
 
 <!-- {
   "type": "#page.annotation",

@@ -14,6 +14,10 @@
 *.sln.docstates
 *.userprefs
 
+tools/issue-manager/issue-store
+tools/issue-manager/lib
+tools/issue-manager/.env
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
