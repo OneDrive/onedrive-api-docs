@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: SpecialFolder - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # SpecialFolder resource type
 
@@ -43,14 +43,15 @@ If a user deletes one, it is recreated when written to again.
 
 ## Special folders
 
-Here are the special folders available in OneDrive Personal and OneDrive for Business.
+Here are the special folders available in OneDrive and OneDrive for Business.
 
 | Name        | Folder id    | Description                                                              |
 |:------------|:-------------|:-------------------------------------------------------------------------|
 | App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}` |
-| Camera Roll | `cameraroll` | The Camera Roll Backup folder. Not available in OneDrive for Business.   |
+| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
+| Desktop     | `desktop`    | The Desktop folder.                                                      |
 | Documents   | `documents`  | The Documents folder.                                                    |
-| Music       | `music`      | The Music folder. Not available in OneDrive for Business.                |
+| Music       | `music`      | The Music folder.                                                        |
 | Photos      | `photos`     | The Photos folder.                                                       |
 
 ## Remarks 

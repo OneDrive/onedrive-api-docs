@@ -1,9 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Subscription - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
+description: Learn about OneDrive's subscription resource type, its properties, and how it defines a single subscription at Microsoft's official site.
 ---
 # Subscription resource type
 

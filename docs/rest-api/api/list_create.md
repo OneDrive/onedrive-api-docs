@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/11/2017
 title: Create a SharePoint List
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Create a new list
 

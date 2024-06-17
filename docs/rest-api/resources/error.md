@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Error - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Error resource
 
@@ -44,8 +44,8 @@ properties:
 
 | Property name  | Value                  | Description\                                                                                               |
 |:---------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------|
-| **code**       | string                 | An error code string for the error that occured                                                            |
-| **message**    | string                 | A developer ready message about the error that occured. This should not be displayed to the user directly. |
+| **code**       | string                 | An error code string for the error that occurred                                                           |
+| **message**    | string                 | A developer ready message about the error that occurred. This should not be displayed to the user directly.|
 | **innererror** | error object           | Optional. Additional error objects that may be more specific than the top level error.                     |
 
 

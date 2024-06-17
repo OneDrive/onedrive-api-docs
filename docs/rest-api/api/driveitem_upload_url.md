@@ -1,19 +1,19 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Upload from a URL - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
-# Upload an item to OneDrive from a URL (preview)
+# Upload an item to OneDrive from a URL (retired)
+
+**Note: This feature has been retired and not promoted past the preview stage. Please see [blog post for more details](https://devblogs.microsoft.com/microsoft365dev/important-update-on-onedrive-url-upload-feature/).**
 
 Your app can upload an item to OneDrive by providing a URL.
 OneDrive will download the file directly from a remote server so your app doesn't have to upload the file's bytes.
 This is especially useful for mobile clients or browser add-ins, where the file contents aren't available, or are expensive to transfer.
 
 To upload large files see [Upload large files with an upload session](driveitem_createuploadsession.md).
-
-**Note:** You can only upload items from a URL to OneDrive personal.
 
 ## Permissions
 

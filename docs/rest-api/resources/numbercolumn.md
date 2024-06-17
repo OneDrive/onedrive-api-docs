@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/11/2017
 title: NumberColumn - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # NumberColumn resource type
 

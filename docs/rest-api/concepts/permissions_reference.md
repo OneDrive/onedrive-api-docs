@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Understanding OneDrive API permission scopes
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Permissions for OneDrive API
 
@@ -12,7 +12,7 @@ When a user signs in to your app they, or, in some cases, an administrator, are 
 If consent is given, your app is given access to the resources and APIs that it has requested.
 For apps that don't take a signed-in user, permissions can be pre-consented to by an administrator when the app is installed or during sign-up. 
 
-For more details about the full set of Microsoft Graph permissions, please see [Permissions reference for Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+For more details about the full set of Microsoft Graph permissions, please see [Permissions reference for Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions-reference).
 
 ## Files permissions
 
