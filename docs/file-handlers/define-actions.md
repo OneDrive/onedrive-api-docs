@@ -16,9 +16,7 @@ There are three built-in actions that a file handler can choose to support:
 * `newFile`: File type appears in the **New** menu in OneDrive and SharePoint.
 * `open`: Files can be opened by the file handler, which appears in the **Open** menu in OneDrive and SharePoint. Open actions are launched in a new browser tab.
 * `preview`: Files can be previewed by the file handler. Preview occurs when the user left-clicks on a file in OneDrive and SharePoint. Preview actions are loaded in an `<IFRAME>` element inside the OneDrive and SharePoint websites.
-
-Additional file handlers support a `custom` action type which allows a file handler to create application defined actions.
-These additional actions appear in the toolbar in OneDrive and SharePoint, and can be added to any file extension.
+* `custom`: Files can use a file handler to create application defined actions. These additional actions appear in the toolbar in OneDrive and SharePoint, and can be added to any file extension.
 
 ## Defining actions in the file handler manifest
 
@@ -143,14 +141,12 @@ Not all properties are required, depending on the type of action specified.
 
 | Parameter name | Type   | Description                                                                          |
 | -------------- | ------ | ------------------------------------------------------------------------------------ |
-| type           | string | A value of `newFile`, `open`, or `preview`. Required.                                |
+| type           | string | A value of `newFile`, `custom`, `open`, or `preview`. Required.                                |
 | url            | URL    | An `https://` URL for the endpoint that handles the file handler action. Required.   |
-| displayName    | string | A default locale string used for `type: "custom"` to represent the action. Optional. |
-| shortDisplayName    | string | A default locale string used for `type: "custom"` to represent the action in the toolbar or collapsed action menu. Optional. |
+| displayName    | string | A default locale string used to represent the action. Optional. Defaults to "Open in browser" for `type: "open"`. |
+| shortDisplayName    | string | A default locale string used to represent the action in the toolbar or collapsed action menu. Optional. |
 | availableOn    | object | A collection of properties the define where this action is available. Required.      |
 | icon           | displayIcon | An object containing URLs to icon images for this file type. Optional. |
-
-* The `displayName` property is only applicable to actions of type `custom` and is ignored for actions of any other type.
 
 ### AvailableOn Properties
 
