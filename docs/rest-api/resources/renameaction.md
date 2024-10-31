@@ -4,6 +4,7 @@ ms.author: dspektor
 ms.date: 09/14/2017
 title: RenameAction - OneDrive API
 ms.localizationpriority: Medium
+description: Learn how to use the RenameAction resource on Microsoft's OneDrive API to rename items. Available for SharePoint and OneDrive for Business.
 ---
 # RenameAction resource type
 

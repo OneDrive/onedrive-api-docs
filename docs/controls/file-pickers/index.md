@@ -7,7 +7,7 @@ title: OneDrive File Picker
 ms.localizationpriority: High
 ---
 
-# File picker
+# File Picker
 
 The File Picker v8 allows you to use the same functionality used within the M365 service within your solutions. Meaning as we iterate and improve the service, those new capabilities appear for your users!
 
@@ -30,9 +30,23 @@ To run the samples or use the control in your solution you will need to create a
    1. Add `Files.Read.All`, `Sites.Read.All`, Leave `User.Read` for Graph delegated permissions
    2. Add `AllSites.Read`, `MyFiles.Read` for SharePoint delegated permissions
 
-> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://docs.microsoft.com/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
+> If you are developing in [SharePoint Framework](https://aka.ms/spfx) you can [request these permissions](https://learn.microsoft.com/sharepoint/dev/spfx/use-aadhttpclient#request-permissions-to-an-azure-ad-application) in the application manifest with the resource "SharePoint" and "Microsoft Graph".
 
 > To allow the user to upload files and create folders within the Picker experience, you may request access to `Files.ReadWrite.All`, `Sites.ReadWrite.All`, `AllSites.Write`, and `MyFiles.Write`.
+
+## Permissions
+
+The file picker always operates using delegated permissions and as such can only ever access file and folders to which the current user already has access.
+
+At a minimum you must request the SharePoint MyFiles.Read permission to read files from a user's OneDrive and SharePoint sites.
+
+Please review the table below to understand what permission are required based on the operations you wish to perform. All permissions in this table refer to delegated permissions.
+
+| |Read|Write|
+|--|--|--|
+|OneDrive|SharePoint.MyFiles.Read<br />or<br />Graph.Files.Read|SharePoint.MyFiles.Write<br />or<br />Graph.Files.ReadWrite|
+|SharePoint Sites|SharePoint.MyFiles.Read<br />or<br />Graph.Files.Read<br />or<br />SharePoint.AllSites.Read|SharePoint.MyFiles.Write<br />or<br />Graph.Files.ReadWrite<br />or<br />SharePoint.AllSites.Write|
+|Teams Channels|Graph.ChannelSettings.Read.All and SharePoint.AllSites.Read|Graph.ChannelSettings.Read.All and SharePoint.AllSites.Write
 
 ## How it works
 
@@ -49,16 +63,33 @@ The following sections explain each step.
 
 ## Initiate the Picker
 
+- View [file picker configuration schema](./v8-schema.md).
+
 To initate the picker you need to create a "window" which can either be an iframe or a popup. Once you have a window you should construct a form and POST the form to the URL `{baseUrl}/_layouts/15/FilePicker.aspx` with the query string parameters defined.
 
 The `{baseUrl}` value above is either the SharePoint web url of the target web, or the user's onedrive. Some examples are: "https://tenant.sharepoint.com/sites/dev" or "https://tenant-my.sharepoint.com".
 
-- View [file picker configuration schema](./v8-schema.md).
+### OneDrive Consumer Configuration
+
+|name|descriptions|
+|---|---|
+|authority|https://login.microsoftonline.com/consumers|
+|Scope|OneDrive.ReadWrite or OneDrive.ReadOnly|
+|baseUrl|https://onedrive.live.com/picker|
+
+> When you request a token you will use the `OneDrive.ReadOnly` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
 
 ```TypeScript
 // create a new window. The Picker's recommended maximum size is 1080x680, but it can scale down to
 // a minimum size of 250x230 for very small screens or very large zoom.
 const win = window.open("", "Picker", "width=1080,height=680");
+
+// we need to get an authentication token to use in the form below (more information in auth section)
+const authToken = await getToken({
+    resource: baseUrl,
+    command: "authenticate",
+    type: "SharePoint",
+});
 
 // to use an iframe you can use code like:
 // const frame = document.getElementById("iframe-id");
@@ -90,11 +121,9 @@ form.setAttribute("method", "POST");
 // Create a hidden input element to send the OAuth token to the Picker.
 // This optional when using a popup window but required when using an iframe.
 const tokenInput = win.document.createElement("input");
-
 tokenInput.setAttribute("type", "hidden");
 tokenInput.setAttribute("name", "access_token");
 tokenInput.setAttribute("value", accessToken);
-
 form.appendChild(tokenInput);
 
 // append the form to the body
@@ -303,9 +332,86 @@ async function channelMessageListener(message: MessageEvent): Promise<void> {
 }
 ```
 
+
+## Get Token
+
+The control requires that we are able to provide it with authentication tokens based on the sent command. To do so we create a method that takes a command and returns a token as shown below. We are using the `@azure/msal-browser` package to handle the authentication work.
+
+> Currently the control relies on SharePoint tokens and not Graph, so you will need to ensure your resource is correct and you cannot reuse tokens for Graph calls.
+
+```TS
+import { PublicClientApplication, Configuration, SilentRequest } from "@azure/msal-browser";
+import { combine } from "@pnp/core";
+import { IAuthenticateCommand } from "./types";
+
+const app = new PublicClientApplication(msalParams);
+
+async function getToken(command: IAuthenticateCommand): Promise<string> {
+    let accessToken = "";
+    const authParams = { scopes: [`${combine(command.resource, ".default")}`] };
+
+    try {
+
+        // see if we have already the idtoken saved
+        const resp = await app.acquireTokenSilent(authParams!);
+        accessToken = resp.accessToken;
+
+    } catch (e) {
+
+        // per examples we fall back to popup
+        const resp = await app.loginPopup(authParams!);
+        app.setActiveAccount(resp.account);
+
+        if (resp.idToken) {
+
+            const resp2 = await app.acquireTokenSilent(authParams!);
+            accessToken = resp2.accessToken;
+
+        } else {
+
+            // throw the error that brought us here
+            throw e;
+        }
+    }
+
+    return accessToken;
+}
+```
+
+## Picked Item Results
+
+When an item is selected the picker will return, through the messaging channel, an array of selected items. While there is a set of information that may be returned the following is always guaranteed to be included:
+
+```TS
+{
+    "id": string,
+    "parentReference": {
+        "driveId": string
+    },
+    "@sharePoint.endpoint": string
+}
+```
+
+Using this you can construct a URL to make a GET request to get any information you need about the selected file. It would generally be of the form:
+
+```
+@sharePoint.endpoint + /drives/ + parentReference.driveId + /items/ + id
+```
+
+You will need to include a valid token with appropriate rights to read the file in the request.
+
 ## Uploading Files
 
 If you grant `Files.ReadWrite.All` permissions to the application you are using for picker tokens a widget in the top menu will appear allowing you to upload files and folders to the OneDrive or SharePoint document library. No other configuration changes are required, this behavior is controlled by the application + user permissions. Note, that if the user does not have access to the location to upload, the picker will not show the option.
+
+## Branding Guidance
+
+Applications that integrate with the Microsoft OneDrive File Picker may also opt to promote their integration with OneDrive to customers.  Because OneDrive has both a consumer and commercial offering, the following options are available to display in 3rd party application interfaces:
+
+- Microsoft OneDrive (personal)
+    - May also be displayed as Microsoft OneDrive for personal 
+- Microsoft OneDrive (work/school)
+    - May also be displayed as Microsoft OneDrive for work or school
 
 <!-- {
   "type": "#page.annotation",
