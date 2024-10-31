@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Check In Files - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Check-in changes to a DriveItem resource
 

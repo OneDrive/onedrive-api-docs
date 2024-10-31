@@ -1,10 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: What is an App Folder - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Using an App Folder to store user content without access to all files
 
@@ -15,8 +15,8 @@ Since it behaves like any other folder in the user's OneDrive, users can add, mo
 
 ## Getting authorization from the user
 
-To have your own app's folder, you must request either the `onedrive.appfolder` or `onedrive.readwrite` permission scope when getting an access token.
-For more details, see [authentication](../getting-started/authentication.md).
+To have your own app's folder, you must request either the `Files.ReadWrite.AppFolder` or `Files.ReadWrite` permission scope when getting an access token.
+For more details, see [authentication](../getting-started/authentication.md). Note, Business OneDrive accounts do not currently support the `Files.ReadWrite.AppFolder` permission.
 
 ## Creating your app's folder
 
@@ -34,10 +34,10 @@ Below are the most common calls your app can make to create the folder for the f
 ### Naming your app's folder
 
 When OneDrive creates your app's folder, it uses the Application name set at that point for the calling app id.
-You may change your app's folder name in the [Microsoft Application Registration Portal][1].
-If you choose to do so, you may localize your app's folder name by going to the [Microsoft Application Registration Portal][1] and editing your app's localization settings.
+You may change your app's folder name in the [Azure App registrations page][1].
+If you choose to do so, you may localize your app's folder name by going to the [Azure App registrations page][1] and editing your app's localization settings.
 
-[1]: https://apps.dev.microsoft.com
+[1]: https://aka.ms/AppRegistrations
 
 ## Working with your app's folder
 

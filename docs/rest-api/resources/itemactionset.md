@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/14/2017
 title: ItemActionSet - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # ItemActionSet resource type
 

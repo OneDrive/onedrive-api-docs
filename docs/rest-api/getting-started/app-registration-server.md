@@ -1,10 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Create an app with SharePoint Server 2016 - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Registering your app to use OneDrive API with SharePoint Server 2016
 

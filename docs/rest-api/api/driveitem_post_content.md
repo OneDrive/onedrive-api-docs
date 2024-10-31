@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Upload contents and metadata - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Multipart upload to OneDrive using POST
 
@@ -42,10 +42,10 @@ For more information about multipart/related encoding, see [RFC 2387](https://ww
 
 The uploaded document must contain exactly two parts:
 
-| Part name    | Type             | Description                                        |
+| Name         | Type             | Description                                        |
 |:-------------|:-----------------|:---------------------------------------------------|
 | **metadata** | application/json | The metadata values to use when creating the item. |
-| **content**  | various          | The binary content of the item being created.      |
+| **content**  | binary           | The binary content of the item being created.      |
 
 The request will be rejected if more than two parts are included.
 Each part must specify a **name** value in the `Content-Disposition` header that indicates which part it is.

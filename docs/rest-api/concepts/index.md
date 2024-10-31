@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: OneDrive API concepts overview
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # OneDrive integration concepts
 

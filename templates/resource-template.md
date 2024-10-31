@@ -31,7 +31,7 @@ The {type} resource has these properties.
 | Property name   | Type                                | Description                                   |
 |:----------------|:------------------------------------|:----------------------------------------------|
 | **id**          | string                              | The unique identifier for {type}.             |
-| **complexType** | [ComplexType](resource-template.md) | Complex type property with useful properties. |
+| **complexType** | [typeTemplate](resource-template.md) | Complex type property with useful properties. |
 
 ## Relationships
 

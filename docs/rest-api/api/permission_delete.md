@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Remove access to an item - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Delete a sharing permission from a file or folder
 

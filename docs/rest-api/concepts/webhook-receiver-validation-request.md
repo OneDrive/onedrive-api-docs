@@ -1,10 +1,10 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Validating webhook subscriptions - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Handling webhook validation requests
 
@@ -19,14 +19,14 @@ registered URL in the following format:
 ## Example validation request
 
 ```http
-POST https://contoso.azurewebsites.net/your/webhook/service?validationtoken={randomString}
+POST https://contoso.azurewebsites.net/your/webhook/service?validationToken={randomString}
 Content-Length: 0
 ```
 
 ## Response
 
 For the subscription to be created successfully, your service must respond
-to this request by returning the value of the **validationtoken** query string
+to this request by returning the value of the **validationToken** query string
 parameter as a plain-text response.
 
 ```http

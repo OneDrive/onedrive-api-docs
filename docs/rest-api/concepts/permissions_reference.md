@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Understanding OneDrive API permission scopes
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Permissions for OneDrive API
 

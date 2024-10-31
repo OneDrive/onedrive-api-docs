@@ -3,7 +3,7 @@ author: kevinlam
 ms.author: kevinlam
 ms.date: 2/23/2018
 title: Get short-lived embeddable link for preview purposes - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Embeddable file previews
 This action allows you to obtain short-lived embeddable URLs for an item.

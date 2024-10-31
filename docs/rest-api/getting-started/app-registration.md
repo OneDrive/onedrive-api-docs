@@ -1,16 +1,16 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: conceptual
 title: Create an app with Microsoft Graph - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Registering your app for Microsoft Graph
 
 To use the OneDrive from the Microsoft Graph, you need to first register your app and receive an Application ID to represent your application in API calls.
 
-For most applications, we recommend using the Microsoft Application Registration Portal.
+For most applications, we recommend using the Azure App registrations page.
 However, for some enterprise-class applications, your app may need features that are only available via the Azure Active Directory management portal.
 If you are unsure about which approach to use, see [Deciding between Azure AD and Azure AD v2.0 endpoints](https://aka.ms/graph-auth-overview#deciding-between-the-azure-ad-and-azure-ad-v2.0-endpoints).
 
@@ -18,12 +18,12 @@ If you are unsure about which approach to use, see [Deciding between Azure AD an
 
 To connect with Microsoft Graph, you'll need a work/school account or a Microsoft account.
 
-1. Go to the [Microsoft Application Registration Portal][1].
+1. Go to the [Azure App registrations page][1].
 2. When prompted, sign in with your account credentials.
 3. Find **My applications** and click **Add an app**.
 4. Enter your app's name and click **Create application**.
 
-[1]: https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com
+[1]: https://aka.ms/AppRegistrations/?referrer=https%3A%2F%2Fdev.onedrive.com
 
 After you've completed these steps, an application ID is created for your app and displayed on your new app's properties page.
 

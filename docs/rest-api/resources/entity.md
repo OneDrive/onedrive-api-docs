@@ -1,3 +1,10 @@
+---
+author: JeremyKelley
+ms.author: JeremyKe
+ms.date: 09/10/2017
+title: entity - OneDrive API
+ms.localizationpriority: Medium
+---
 # entity resource type
 
 ## Properties

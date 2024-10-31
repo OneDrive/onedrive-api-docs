@@ -4,7 +4,7 @@
 var pickerOptions = {
     /*
     * Required. Provide the AppId for a registered application. Register an
-    * app on https://apps.dev.microsoft.com
+    * app on https://aka.ms/AppRegistrations
     */
     clientId: "71a9aa4d-ae38-45e5-aeff-6c4679120247",
 
@@ -49,7 +49,7 @@ var pickerOptions = {
 var saverOptions = {
     /*
     * Required. Provide the AppId for a registered application. Register an
-    * app on https://apps.dev.microsoft.com
+    * app on https://aka.ms/AppRegistrations
     */
     clientId: "71a9aa4d-ae38-45e5-aeff-6c4679120247",
 

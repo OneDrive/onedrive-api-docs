@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/12/2017
 title: ContentTypeInfo - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # ContentTypeInfo resource type
 

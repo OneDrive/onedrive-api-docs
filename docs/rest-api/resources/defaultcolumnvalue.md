@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/12/2017
 title: DefaultColumnValue - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # DefaultColumnValue resource type
 

@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Get Special Folders - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Get a special folder by name
 
@@ -39,12 +39,12 @@ The follow special folder names are available in OneDrive and OneDrive for Busin
 
 | Name        | Folder id    | Description                                                              |
 |:------------|:-------------|:-------------------------------------------------------------------------|
-| Documents   | `documents`  | The Documents folder.                                                    |
-| Photos      | `photos`     | The Photos folder.                                                       |
-| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
 | App Root    | `approot`    | The application's personal folder. Usually in `/Apps/{Application Name}` |
+| Camera Roll | `cameraroll` | The Camera Roll Backup folder.                                           |
+| Desktop     | `desktop`    | The Desktop folder.                                                      |
+| Documents   | `documents`  | The Documents folder.                                                    |
 | Music       | `music`      | The Music folder.                                                        |
-
+| Photos      | `photos`     | The Photos folder.                                                       |
 
 ### Optional query parameters
 

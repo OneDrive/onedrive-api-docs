@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/11/2017
 title: List the SharePoint lists in a site
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # Enumerate lists in a site
 

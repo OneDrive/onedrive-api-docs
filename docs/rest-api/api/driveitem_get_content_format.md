@@ -1,9 +1,9 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Convert to other formats - OneDrive API
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Download a file in another format
 
@@ -85,3 +85,11 @@ See [Error Responses][error-response] for more info about how errors are returne
   "section": "documentation",
   "tocPath": "Items/Download formats"
 } -->
+
+### Known issues with HTML to PDF conversion
+
+(1)	For best performance validate that the HTML follows the XHTML standard. The component will not perform as well as modern web browsers at correctly parsing HTML that is not well-formed, for example if a table row is missing an end tag (</tr>).
+
+(2)	Under some circumstances non-Latin characters will not render as expected. For example, a set of predefined fonts are installed for languages like Chinese, but if the HTML does not specify a commonly known font the component under some circumstances will fail to determine which font to use and the character won’t be displayed properly.
+
+(3) Each html file is coverted to a A4-size PDF. When a single HTML line width is greater than the A4-size width the line will be truncated in the PDF rendering.

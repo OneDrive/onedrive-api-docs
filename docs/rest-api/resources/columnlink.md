@@ -3,7 +3,7 @@ author: daspek
 ms.author: dspektor
 ms.date: 09/12/2017
 title: ColumnLink - OneDrive API
-localization_priority: Normal
+ms.localizationpriority: Medium
 ---
 # ColumnLink resource type
 

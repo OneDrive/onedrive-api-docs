@@ -1,16 +1,16 @@
 ---
-author: rgregg
-ms.author: rgregg
+author: JeremyKelley
+ms.author: JeremyKe
 ms.date: 09/10/2017
 ms.topic: overview
 title: Integrate with OneDrive file handlers
-localization_priority: Priority
+ms.localizationpriority: High
 ---
 # Adding custom preview, open, and actions to files with File Handlers 2.0
 
-File handlers are a type of Office add-in that integrate custom file types into Office 365 the same way that Office file types are.
+File Handlers are a type of Microsoft 365 add-in that integrates custom file types into the service allowing you to provide rich experiences for any proprietary format.
 
-With file handlers, you can enable the following user experiences in OneDrive for Business and SharePoint document libraries:
+With File Handlers, you can enable the following user experiences in OneDrive for Business and SharePoint document libraries:
 
 * Customized file icons (for proprietary file extensions)
 * Create new files in the browser (for proprietary file extensions)
@@ -19,12 +19,12 @@ With file handlers, you can enable the following user experiences in OneDrive fo
 * [Custom actions that launch into your app](define-actions.md) (all file extensions)
 * Support multiple selection and acting on folders (custom actions only)
 
-Check out the [Markdown File Handler example project][markdown-file-handler] for more specifics.
+Check out the [file handler example solutions](#file-handler-example-solutions) for additional details.
 
 > [!IMPORTANT]
-> File Handler configurations are aggressively cached throughout the system for optimal performance. It may take 24 hours for any configuration changes to take effect. See [Registering](register-manually.md) for information about how to configure file handlers.
+> File Handler configurations are aggressively cached throughout the system for optimal performance. It may take 24-48 hours for any configuration changes to take effect. See [Registering](register-manually.md) for information about how to configure file handlers.
 
-## What's changed with file handlers 2.0
+## What's changed with File Handlers 2.0
 
 The 2.0 upgrade to file handlers enables additional scenarios for SharePoint Online and OneDrive for Business.
 
@@ -47,7 +47,7 @@ It can be hosted on any stack, including non-Microsoft stacks.
 File handlers uses Azure Active Directory to gain authorized access to Office 365 resources, so your application needs to be registered with Azure AD.
 For more information about registering an application with Azure AD, see [Registering your app for Microsoft Graph](../rest-api/getting-started/app-registration.md).
 
-For a complete example of a file handler, see the [Markdown-FileHandler on GitHub][markdown-file-handler].
+For a complete examples of a file handler, see the [list of available samples](#file-handler-example-solutions).
 
 ### File handler manifest
 
@@ -135,10 +135,13 @@ The **activation parameters** should be cached when the request comes in, either
 For the initial file handler request, it's likely that the file handler app will need to redirect the user to retrieve an accessToken via Azure Active Directory OAuth2 experience.
 The activation parameters will be lost if not persisted before this redirect occurs.
 
-You can see an example of using a data model object and handler method for caching the activation parameters in a cookie, in the [Markdown File Handler sample][markdown-file-handler].
+You can see an example of using a data model object and handler method for caching the activation parameters in a cookie, in either the C# or TypeScript examples [linked below in the example solutions](#file-handler-example-solutions).
 
-[GPXFileHandler]: https://github.com/OfficeDev/GPX-FileHandler
-[markdown-file-handler]: https://github.com/rgregg/o365-markdown-file-handler
+### File Handler example solutions
+
+- [GPXFileHandler](https://github.com/OfficeDev/GPX-FileHandler)
+- [markdown-file-handler (C#)](https://github.com/rgregg/o365-markdown-file-handler)
+- [markdown-file-handler (TypeScript)](https://github.com/pnp/contoso/tree/main/filehandler)
 
 ## Seamless authentication with file handlers 2.0
 
