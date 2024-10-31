@@ -4,6 +4,7 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Open from OneDrive in JavaScript
 ms.localizationpriority: High
+description: Learn how to integrate the OneDrive File Picker JavaScript SDK v7.2 into your application. Detailed guide on registration, SDK reference, file picker launch, and more.
 ---
 # Opening Files with the OneDrive File Picker JavaScript SDK v7.2
 

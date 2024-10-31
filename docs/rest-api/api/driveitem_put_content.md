@@ -42,7 +42,7 @@ PUT /users/{user-id}/drive/items/{item-id}/content
 PUT /drives/{drive-id}/items/{parent-id}:/{filename}:/content
 PUT /groups/{group-id}/drive/items/{parent-id}:/{filename}:/content
 PUT /me/drive/items/{parent-id}:/{filename}:/content
-PUT /sites/{site-id}/drive/items/{parent-id}:/{filename}:/content
+PUT /sites/{site-id}/drives/{drive-id}/{parent-id}:/{filename}:/content
 PUT /users/{user-id}/drive/items/{parent-id}:/{filename}:/content
 ```
 
