@@ -20,6 +20,7 @@
   "notification_subscribers": [
     "dspektor@microsoft.com"
   ],
+  "sync_notification_subscribers": null,
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/OneDrive/onedrive-api-docs",
   "git_repository_branch_open_to_public_contributors": "live",
@@ -30,7 +31,7 @@
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     }
   ],
