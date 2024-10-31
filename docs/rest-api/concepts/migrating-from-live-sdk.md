@@ -81,10 +81,10 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 | `GET /me`         | `GET /me`              | [Try it][1]. Returns the [user's profile][user], display name, and additional information. |
 | `GET /me/picture` | `GET /me/photo/$value` | [Try it][2]. Returns the [user's profile photo][user-photo].                                     |
 
-[1]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[2]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/photo/$value&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[user]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users
-[user-photo]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/profilephoto_get
+[1]: https://developer.microsoft.com/graph/graph-explorer?request=me/&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[2]: https://developer.microsoft.com/graph/graph-explorer?request=me/photo/$value&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[user]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/users
+[user-photo]: https://learn.microsoft.com/graph/api/profilephoto-get
 
 ## Contacts API
 
