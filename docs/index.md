@@ -47,8 +47,3 @@ Using the [SharePoint Framework](https://aka.ms/spfx) you can make use of capabi
 __File Handler__
 
 Building an [Office 365 file handler](./file-handlers/index.md) brings your application into the OneDrive and SharePoint user experience. File handlers give your app the ability to provide new capabilities for creating, previewing, opening, or manipulate files stored across Microsoft 365.
-
-## Integration Scenarios
-
-
-
