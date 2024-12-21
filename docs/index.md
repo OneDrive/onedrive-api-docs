@@ -43,7 +43,7 @@ Using the file picker, you can connect your existing application in a matter of 
 
 __SharePoint Framwork__
 
-Using the [SharePoint Framework](https://aka.ms/spfx) you can make use of capabilities like [viva connections dashboards](..docs/spfx/viva/get-started/build-first-sharepoint-adaptive-card-extension), [list view command sets](../sharepoint/dev/spfx/extensions/get-started/building-simple-cmdset-with-dialog-api), [webparts](../sharepoint/dev/spfx/web-parts/overview-client-side-web-parts), and [framework extensions](../sharepoint/dev/spfx/extensions/overview-extensions) embed your solution's capabilities directly within SharePoint, Teams, and Microsoft Viva.
+Using the [SharePoint Framework](https://aka.ms/spfx) you can make use of capabilities like [viva connections dashboards](sharepoint/dev/spfx/extensions//build-first-sharepoint-adaptive-card-extension.md), [list view command sets](sharepoint/dev/spfx/extensions/get-started/building-simple-cmdset-with-dialog-api.md), [webparts](sharepoint/dev/spfx/web-parts/overview-client-side-web-parts.md), and [framework extensions](sharepoint/dev/spfx/extensions/overview-extensions.md) embed your solution's capabilities directly within SharePoint, Teams, and Microsoft Viva.
 
 __File Handler__
 
