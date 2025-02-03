@@ -50,7 +50,7 @@ Using Microsoft Graph with Application permissions, you can obtain the full list
 GET /sites
 ```
 
-The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Delta query support for site enumeration is currently rolling out to the Microsoft Graph Beta version.  Please keep reading for more information about delta query.
+The sites enumeration API also supports the [delta query][] to get information about new sites created or changes to site structure.  Please keep reading for more information about delta query.
 
 To receive notifications about new site collections you can subscribe to web hooks using the Microsoft Graph [subscriptions][] endpoint.  The target resource for these notifications is **/sites**.  You will receive notifications when new site collections are created or deleted as well as when sub sites or lists are created.
 
