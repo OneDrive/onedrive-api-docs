@@ -1,5 +1,5 @@
 ---
-author: Simon Bourdages
+author: killerewok2000
 ms.author: Sibourda
 ms.date: 10/02/2025
 ms.topic: conceptual
