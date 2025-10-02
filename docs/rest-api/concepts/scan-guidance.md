@@ -1,6 +1,6 @@
 ---
 author: Simon Bourdages
-ms.author: Sibuourda
+ms.author: Sibourda
 ms.date: 10/02/2025
 ms.topic: conceptual
 title: Best practices for discovering files and detecting changes at scale
