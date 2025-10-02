@@ -115,7 +115,7 @@ you will need to configure details about your application with the following ste
    tenancy you registered it in, or across multiple tenancies.
 4. For web apps, generate the app secret and its duration.
 5. Specify the permission levels your app requires from the Office 365 API
-   applications in Azure using [app permissions](/office/office-365-management-api/get-started-with-office-365-management-apis).
+   applications in Azure using app permissions.
    Using OneDrive API or the file picker requires at least **Read user files**. Uploading, editing, or sharing files
    requires the **Read and write user files** permission.
 

@@ -24,16 +24,16 @@ To continue to integrate with Microsoft services, developers must update their a
 
 Similar to the capabilities of Live Connect, Microsoft Graph has a number of resources available depending on the type of user data your app interacts with:
 
-* [Microsoft account authentication](/graph/auth/)
-* [OneDrive files](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/onedrive)
-* [Outlook calendar](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/calendar)
-* [Outlook messages](/graph/outlook-mail-concept-overview)
-* [Personal contacts](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/contact)
-* [Profile and Identity API](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users)
+* [Microsoft account authentication](https://learn.microsoft.com/graph/auth/)
+* [OneDrive files](https://learn.microsoft.com/graph/api/resources/onedrive)
+* [Outlook calendar](https://learn.microsoft.com/graph/api/resources/calendar)
+* [Outlook messages](https://learn.microsoft.com/graph/outlook-mail-concept-overview)
+* [Personal contacts](https://learn.microsoft.com/graph/api/user-list-contacts)
+* [Profile and Identity API](https://learn.microsoft.com/graph/api/resources/user)
 
 ## Libraries
 
-Microsoft Graph offers [client libraries](https://developer.microsoft.com/en-us/graph/code-samples-and-sdks) for many platforms that can integrate with your application similar to Live SDK.
+Microsoft Graph offers [client libraries](https://developer.microsoft.com/graph/code-samples-and-sdks) for many platforms that can integrate with your application similar to Live SDK.
 
 ## Permissions
 
@@ -41,7 +41,7 @@ Microsoft Graph uses a different set of permission scopes than Live Connect.
 To access the Microsoft Graph APIs, your app will need to switch permission scopes.
 This requires your app to prompt the user for consent to sign in and consent to the new permissions.
 
-See the [Microsoft Graph permission reference](/graph/permissions-reference) for the complete details.
+See the [Microsoft Graph permission reference](https://learn.microsoft.com/graph/permissions-reference) for the complete details.
 
 | Live Connect Scope      | Microsoft Graph Permission | Description                                                                                                                     |
 | ----------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,10 +81,10 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 | `GET /me`         | `GET /me`              | [Try it][1]. Returns the [user's profile][user], display name, and additional information. |
 | `GET /me/picture` | `GET /me/photo/$value` | [Try it][2]. Returns the [user's profile photo][user-photo].                                     |
 
-[1]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[2]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/photo/$value&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[user]: https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users
-[user-photo]: /graph/api/profilephoto-get
+[1]: https://developer.microsoft.com/graph/graph-explorer?request=me/&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[2]: https://developer.microsoft.com/graph/graph-explorer?request=me/photo/$value&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[user]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/users
+[user-photo]: https://learn.microsoft.com/graph/api/profilephoto-get
 
 ## Contacts API
 
@@ -100,10 +100,10 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 | `GET /{contact-id}`  | `GET /me/contacts/{contact-id}` | [Try it][4]. Returns the data for a [specified contact][contacts].       |
 | `POST /{contact-id}` | `POST /me/contacts`             | Create a new [contact][create-contact].                    |
 
-[3]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/contacts&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[4]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/contacts/AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAAiIsqMbYjsT5e-T7KzowPTAAAYbuK-AAA=&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[contacts]: /graph/api/user-list-contacts
-[create-contact]: /graph/api/user-post-contacts
+[3]: https://developer.microsoft.com/graph/graph-explorer?request=me/contacts&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[4]: https://developer.microsoft.com/graph/graph-explorer?request=me/contacts/AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAAiIsqMbYjsT5e-T7KzowPTAAAYbuK-AAA=&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[contacts]: https://learn.microsoft.com/graph/api/user-list-contacts
+[create-contact]: https://learn.microsoft.com/graph/api/user-post-contacts
 
 ## Calendar API
 
@@ -119,11 +119,11 @@ You will need to use the Microsoft Graph SDK or update your JSON mapping to use 
 | `GET /{calendar-id}`  | `GET /me/events`    | [Try it][6] Return [events][events] from the user's calendars.   |
 | `POST /{calendar-id}` | `POST /me/events`   | Create a new [event][create-event] on the user's calendar.       |
 
-[5]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/calendars&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[6]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/events?$select=subject,body,bodyPreview,organizer,attendees,start,end,location&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[calendars]: /graph/api/user-list-calendars
-[events]: /graph/api/user-list-events
-[create-event]: /graph/api/user-post-events
+[5]: https://developer.microsoft.com/graph/graph-explorer?request=me/calendars&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[6]: https://developer.microsoft.com/graph/graph-explorer?request=me/events?$select=subject,body,bodyPreview,organizer,attendees,start,end,location&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[calendars]: https://learn.microsoft.com/graph/api/user-list-calendars
+[events]: https://learn.microsoft.com/graph/api/user-list-events
+[create-event]: https://learn.microsoft.com/graph/api/user-post-events
 
 ## OneDrive REST API
 
@@ -150,10 +150,10 @@ For the complete details on navigating the contents of a user's OneDrive, see [G
 | `GET /me/skydrive`                                  | `GET /me/drive/root`                       | [Try it][7]. Retrieve the root folder in the user's OneDrive.                                                                               |
 | `GET /skydrive/get_item_preview`                    | `GET /me/drive/items/{item-id}/thumbnails` | Returns the available thumbnails for a file or folder in OneDrive.                                                             |
 
-[7]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/drive&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[8]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/drive/items/01BYE5RZ5MYLM2SMX75ZBIPQZIHT6OAYPB&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[9]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/drive/root/children&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
-[12]: https://developer.microsoft.com/en-us/graph/graph-explorer?request=me/drive?$select=quota&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[7]: https://developer.microsoft.com/graph/graph-explorer?request=me/drive&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[8]: https://developer.microsoft.com/graph/graph-explorer?request=me/drive/items/01BYE5RZ5MYLM2SMX75ZBIPQZIHT6OAYPB&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[9]: https://developer.microsoft.com/graph/graph-explorer?request=me/drive/root/children&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
+[12]: https://developer.microsoft.com/graph/graph-explorer?request=me/drive?$select=quota&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com
 
 ## File Picker for web apps
 
@@ -163,4 +163,4 @@ Version 5 of the Live SDK (OneDrive file picker) will no longer be functional af
 
 ## Additional resources
 
-For more information about using Microsoft Graph, try the [Microsoft Graph Quick Start](https://developer.microsoft.com/en-us/graph/quick-start).
+For more information about using Microsoft Graph, try the [Microsoft Graph Quick Start](https://developer.microsoft.com/graph/quick-start).

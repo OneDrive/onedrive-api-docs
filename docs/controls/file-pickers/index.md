@@ -74,10 +74,10 @@ The `{baseUrl}` value above is either the SharePoint web url of the target web, 
 |name|descriptions|
 |---|---|
 |authority|https://login.microsoftonline.com/consumers|
-|Scope|OneDrive.ReadWrite or OneDrive.Read|
+|Scope|OneDrive.ReadWrite or OneDrive.ReadOnly|
 |baseUrl|https://onedrive.live.com/picker|
 
-> When you request a token you will use the `OneDrive.Read` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
+> When you request a token you will use the `OneDrive.ReadOnly` or `OneDrive.ReadWrite` when you request the token. When you request the permissions for your application you will select for `Files.Read` or `Files.ReadWrite` (or another Files.X scope).
 
 ```TypeScript
 // create a new window. The Picker's recommended maximum size is 1080x680, but it can scale down to
@@ -403,6 +403,15 @@ You will need to include a valid token with appropriate rights to read the file 
 ## Uploading Files
 
 If you grant `Files.ReadWrite.All` permissions to the application you are using for picker tokens a widget in the top menu will appear allowing you to upload files and folders to the OneDrive or SharePoint document library. No other configuration changes are required, this behavior is controlled by the application + user permissions. Note, that if the user does not have access to the location to upload, the picker will not show the option.
+
+## Branding Guidance
+
+Applications that integrate with the Microsoft OneDrive File Picker may also opt to promote their integration with OneDrive to customers.  Because OneDrive has both a consumer and commercial offering, the following options are available to display in 3rd party application interfaces:
+
+- Microsoft OneDrive (personal)
+    - May also be displayed as Microsoft OneDrive for personal 
+- Microsoft OneDrive (work/school)
+    - May also be displayed as Microsoft OneDrive for work or school
 
 <!-- {
   "type": "#page.annotation",

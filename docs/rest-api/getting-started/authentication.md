@@ -12,7 +12,7 @@ description: Learn how to authenticate and authorize your app for OneDrive acces
 Before your app can make requests to OneDrive, it needs a user to authenticate and authorize the application to have access to their data.
 The method for obtaining authorization differs depending on if your app is targeting OneDrive and SharePoint online, or SharePoint Server 2016.
 
-Microsoft Graph, OneDrive, and SharePoint support using a standard [OAuth2](/azure/active-directory/develop/v2-oauth2-auth-code-flow) or [Open ID Connect](http://openid.net/connect/) authorization flow.
+Microsoft Graph, OneDrive, and SharePoint support using a standard OAuth2 or [Open ID Connect](http://openid.net/connect/) authorization flow.
 Requests to Microsoft Graph are authenticated using bearer tokens obtained from one of these flows.
 
 ## Microsoft Graph (OneDrive and SharePoint online)
@@ -36,7 +36,7 @@ Hybrid customers also have the option to use AAD authentication.
 
 ### AAD authentication
 
-Hybrid customers, or on-premises customers who have [integrated their on-premises identities with AAD](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/) can use the OneDrive API with the standard [OAuth 2.0][oauth] authentication scheme to authenticate users and generate access tokens. 
+Hybrid customers, or on-premises customers who have [integrated their on-premises identities with AAD](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/) can use the OneDrive API with the standard OAuth 2.0 authentication scheme to authenticate users and generate access tokens. 
 OneDrive for Business uses [Azure Active Directory](https://portal.azure.com) to authenticate users and applications.
 
 | Method                         | Description                                          |
@@ -44,7 +44,6 @@ OneDrive for Business uses [Azure Active Directory](https://portal.azure.com) to
 | [Sign in](aad-oauth.md)        | Sign in to an AAD account and OneDrive for Business. |
 | [Refresh][aad-refresh]         | Refresh your access token.                           |
 
-[oauth]: /azure/active-directory/develop/v2-oauth2-auth-code-flow
 [aad-refresh]: aad-oauth.md#step-4-redeem-refresh-token-for-an-access-token-to-call-onedrive-api
 
 ### ACS authentication
@@ -54,8 +53,6 @@ SharePoint Server 2016 supports Windows, forms-based, and Security Assertion Mar
 
 To perform ACS app authentication, the application needs to obtain an access token from either the Microsoft Azure Access Control Service (ACS), or by self-signing an access token with a certificate that SharePoint Server 2016 trusts.
 Then, the access token asserts a request for access to a specific SharePoint resource and contains information that identifies the app and the associated user, instead of validating only the user’s credentials. 
-
-You can find more information about these three user authentication methods as well as ACS app authentication, in [Authentication Overview for SharePoint 2016](/sharepoint/security-for-sharepoint-server/authentication-overview).
 
 ### AD FS authentication
 

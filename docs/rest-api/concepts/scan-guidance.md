@@ -1,7 +1,7 @@
 ---
-author: JeremyKelley
-ms.author: JeremyKe
-ms.date: 09/10/2017
+author: killerewok2000
+ms.author: Sibourda
+ms.date: 10/02/2025
 ms.topic: conceptual
 title: Best practices for discovering files and detecting changes at scale
 ms.localizationpriority: High
@@ -29,6 +29,8 @@ The pattern will look like the following diagram.  This article goes into detail
 ![Scanning calling flow between Microsoft Graph and client application](../../media/ScanProcessFlow.png)
 
 Each of these elements may have several mechanisms to accomplish them in the Microsoft Graph API and existing SharePoint APIs.  The goal of this article is to give you the best way available today to complete each task.
+
+Throttling and / or performance slowdowns have a higher tendency to occur during peak hours than off-peak hours for large amounts of calls and / or bandwidth utilization. This is to help protect the service and ensure reliability for end users. Off peak hours are typically nights and weekends in your region’s time zone. Where your SharePoint tenant is set up determines your region’s time zone.
 
 ## Discover locations to scan
 

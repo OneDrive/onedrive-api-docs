@@ -8,6 +8,8 @@ ms.localizationpriority: Medium
 ---
 # Getting started with OneDrive API with SharePoint Server 2016
 
+> This article contains information that is no longer relevant
+
 To get started using the OneDrive API with SharePoint Server 2016, follow these steps.
 
 If you are using Microsoft Graph or connecting to OneDrive, OneDrive for Business, or SharePoint online, see [Getting started with OneDrive API](index.md).
