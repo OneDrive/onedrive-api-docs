@@ -78,7 +78,7 @@ var odOptions = {
 | **viewType** | The type of item that can be selected. The default value is `files`. You can specify `folders` to limit selection to _only_ folders or specify `all` which enables the selection of _both_ files and folders. |
 | **accountSwitchEnabled** | The default value is `true`, which renders the "Switch account" UI on the hosted File Picker page. |
 | **advanced**             | A collection of additional properties which can further customize the behavior of the picker, but are not necessary for most scenarios. See [Advanced Save Scenarios](#advanced-save-scenarios) for more details.                                 |
-| **nameConflictBehavior** | An optional parameter passed in for situation when an uploading file has name conflict with file in the destination folder. See the [parameter definition](../../../rest-api/resources/driveitem.md#instance-attributes) for more detail.     |
+| **nameConflictBehavior** | An optional parameter passed in for situation when an uploading file has name conflict with file in the destination folder. See the [parameter definition](https://learn.microsoft.com/en-us/graph/api/resources/driveitem) for more detail.     |
 | **success**              | Called when the file upload to the server is complete. The files parameter is a collection of metadata returned by the service for the uploaded file.                                                                                             |
 | **progress**             | Called at various points with a float between 0.0 and 100.0 to indicate the progress of the upload. This is called at least once with 100.0.                                                                                                      |
 | **cancel**               | Called when the user cancels the saver.                                                                                                                                                                                                           |
@@ -101,7 +101,7 @@ The following values are allowed for the `save()` action:
 ## 4. Handling the picker response object
 
 When the user is done picking file(s), the `success` callback receives `response` object.
-This object contains properties, include **value** property which is a collection of [Item resource](../../../rest-api/resources/driveitem.md) with a subset of the item's properties.
+This object contains properties, include **value** property which is a collection of [Item resource](https://learn.microsoft.com/en-us/graph/api/resources/driveitem) with a subset of the item's properties.
 
 When using the `save` action, this collection provides the item metadata for the newly uploaded file.
 For the `query` action, this collection will contain metadata for the selected folder.

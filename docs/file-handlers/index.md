@@ -45,7 +45,7 @@ A file handler is comprised of the following components:
 The file handler endpoint is a cloud-hosted app that contains the functional logic for creating, previewing, opening, and saving files of the type that it handles.
 It can be hosted on any stack, including non-Microsoft stacks.
 File handlers uses Azure Active Directory to gain authorized access to Office 365 resources, so your application needs to be registered with Azure AD.
-For more information about registering an application with Azure AD, see [Registering your app for Microsoft Graph](../rest-api/getting-started/app-registration.md).
+For more information about registering an application with Azure AD, see [Registering your app for Microsoft Graph](https://learn.microsoft.com/en-us/graph/auth-register-app-v2).
 
 For a complete examples of a file handler, see the [list of available samples](#file-handler-example-solutions).
 
