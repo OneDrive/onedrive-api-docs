@@ -1,3 +1,9 @@
 ---
+author: JeremyKelley
+ms.author: JeremyKe
+ms.date: 09/10/2017
+title: SpecialFolder - OneDrive API
+ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
+The **SpecialFolder** resource groups special folder-related data items into a single structure.

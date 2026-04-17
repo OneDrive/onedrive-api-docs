@@ -1,3 +1,9 @@
 ---
+author: JeremyKelley
+ms.author: JeremyKe
+ms.date: 09/10/2017
+title: Remove access to an item - OneDrive API
+ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
+Remove access to a [DriveItem](../resources/driveitem.md).

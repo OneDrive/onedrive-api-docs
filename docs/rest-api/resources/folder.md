@@ -1,3 +1,9 @@
 ---
+author: JeremyKelley
+ms.author: JeremyKe
+ms.date: 09/10/2017
+title: Folder - OneDrive API
+ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
+The **Folder** resource groups folder-related data on an item into a single structure.
