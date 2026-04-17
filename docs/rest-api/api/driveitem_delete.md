@@ -4,6 +4,6 @@ ms.author: JeremyKe
 ms.date: 09/10/2017
 title: Delete a file or folder - OneDrive API
 ms.localizationpriority: Medium
-redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
+redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-delete
 ---
 Delete a [DriveItem](../resources/driveitem.md) by using its ID or path.

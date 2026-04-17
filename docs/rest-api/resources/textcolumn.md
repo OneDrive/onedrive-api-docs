@@ -4,6 +4,6 @@ ms.author: JeremyKe
 ms.date: 09/11/2017
 title: TextColumn - OneDrive API
 ms.localizationpriority: Medium
-redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
+redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/textcolumn
 ---
 The **textColumn** on a [columnDefinition](columnDefinition.md) resource indicates that the column's values are text.
