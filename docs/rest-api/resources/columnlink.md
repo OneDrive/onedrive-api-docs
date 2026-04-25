@@ -6,4 +6,4 @@ title: ColumnLink - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/columnlink
 ---
-A **columnLink** on a [contentType][] attaches a site **columnDefinition** to that content type.
+A **columnLink** on a contentType attaches a site **columnDefinition** to that content type.

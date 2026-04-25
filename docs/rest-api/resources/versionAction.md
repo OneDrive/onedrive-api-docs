@@ -6,4 +6,4 @@ title: VersionAction - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/versionaction
 ---
-The presence of the **VersionAction** resource on an [**itemActivity**][activity] indicates that the activity caused a new version to be created.
+The presence of the **VersionAction** resource on an **itemActivity** indicates that the activity caused a new version to be created.

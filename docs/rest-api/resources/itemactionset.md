@@ -6,4 +6,4 @@ title: ItemActionSet - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/itemactionset
 ---
-The **ItemActionSet** resource provides information about the actions that made up an [activity][itemActivity] on an item.
+The **ItemActionSet** resource provides information about the actions that made up an activity on an item.

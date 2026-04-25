@@ -6,4 +6,4 @@ title: File Activities - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/activities-list
 ---
-List the recent [activities][] that took place on an item or under a hierarchy.
+List the recent activities that took place on an item or under a hierarchy.

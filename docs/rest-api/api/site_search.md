@@ -6,4 +6,4 @@ title: Find SharePoint sites by keyword - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/site-search
 ---
-Search across a SharePoint tenant for [sites][] that match provided keywords.
+Search across a SharePoint tenant for sites that match provided keywords.

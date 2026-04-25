@@ -6,4 +6,4 @@ title: ItemActivityTimeSet - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/itemactivitytimeset
 ---
-The **ItemActivityTimeSet** resource provides information about when an [activity][activity] on an item took place.
+The **ItemActivityTimeSet** resource provides information about when an activity on an item took place.

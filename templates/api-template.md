@@ -45,5 +45,9 @@ See the [Error Responses][error-response] topic for more info about how errors a
   "description": "Page description for SEO",
   "keywords": "Keywords for SEO",
   "section": "templates",
+  "suppressions": [
+    "Error: template-method-name:
+      Unable to locate a definition for resource type: microsoft.graph.drive"
+  ],
   "tocPath": "Path/In/TOC"
 } -->

@@ -6,4 +6,4 @@ title: List - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/list
 ---
-The **list** resource represents a list in a [site][].
+The **list** resource represents a list in a site.

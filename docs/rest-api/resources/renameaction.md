@@ -6,4 +6,4 @@ title: RenameAction - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/renameaction
 ---
-The presence of the **RenameAction** resource on an [**itemActivity**][activity] indicates that the activity renamed an item.
+The presence of the **RenameAction** resource on an **itemActivity** indicates that the activity renamed an item.

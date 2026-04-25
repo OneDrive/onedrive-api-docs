@@ -6,4 +6,4 @@ title: ListItem - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/listitem
 ---
-This resource represents an item in a SharePoint **[list][]**.
+This resource represents an item in a SharePoint **list**.
