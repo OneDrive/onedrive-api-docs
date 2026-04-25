@@ -6,4 +6,3 @@ title: Get short-lived embeddable link for preview purposes - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-preview
 ---
-This action allows you to obtain short-lived embeddable URLs for an item.

@@ -6,4 +6,3 @@ title: Send an invite to access an item - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-invite
 ---
-Sends a sharing invitation for a **DriveItem**.

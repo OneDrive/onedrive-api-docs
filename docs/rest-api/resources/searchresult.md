@@ -6,4 +6,3 @@ title: SearchResult - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/searchresult
 ---
-The **SearchResult** resource indicates than an item is the response to a search query.

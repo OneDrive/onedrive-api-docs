@@ -6,4 +6,3 @@ title: Authorization for OneDrive API for Microsoft Accounts
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
-> This topic contains information about authorizing an application using Microsoft accounts for OneDrive personal.

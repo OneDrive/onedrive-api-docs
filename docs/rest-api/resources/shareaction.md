@@ -6,4 +6,3 @@ title: ShareAction - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/shareaction
 ---
-The **ShareAction** resource provides information about an activity that shared an item.

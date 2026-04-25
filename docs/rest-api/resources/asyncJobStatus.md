@@ -6,4 +6,3 @@ title: AsyncJobStatus - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/asyncjobstatus
 ---
-This resource provides information on the status of a asynchronous job progress.

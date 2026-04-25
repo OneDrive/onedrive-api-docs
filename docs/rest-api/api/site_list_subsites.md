@@ -6,4 +6,3 @@ title: List the subsites for a SharePoint site - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/site-list-subsites
 ---
-Get a collection of subsites defined for a site.

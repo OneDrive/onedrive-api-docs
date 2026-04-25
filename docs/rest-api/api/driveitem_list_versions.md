@@ -6,4 +6,3 @@ title: List versions of a file - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-list-versions
 ---
-OneDrive and SharePoint can be configured to retain the history for files.

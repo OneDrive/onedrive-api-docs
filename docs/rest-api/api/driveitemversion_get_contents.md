@@ -6,4 +6,3 @@ title: Download a previous version - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitemversion-get-contents
 ---
-Retrieve the contents of a specific version of a [DriveItem](../resources/driveitem.md).

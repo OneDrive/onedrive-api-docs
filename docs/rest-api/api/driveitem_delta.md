@@ -6,4 +6,3 @@ title: Sync the contents of a drive - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-delta
 ---
-This method allows your app to track changes to a drive and its children over time.

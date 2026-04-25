@@ -6,4 +6,3 @@ title: Move a file or folder - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-move
 ---
-To move a DriveItem to a new parent item, your app requests to update the **parentReference** of the DriveItem to move.

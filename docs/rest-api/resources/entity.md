@@ -6,4 +6,3 @@ title: entity - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/entity
 ---
-| Property	   | Type	|Description|

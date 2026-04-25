@@ -6,4 +6,3 @@ title: Image - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/image
 ---
-The **Image** resource groups image-related properties into a single structure.

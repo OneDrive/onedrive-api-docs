@@ -6,4 +6,3 @@ title: IdentitySet - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/identityset
 ---
-The **IdentitySet** resource is a keyed collection of [identity](identity.md) resources.

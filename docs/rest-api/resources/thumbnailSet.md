@@ -6,4 +6,3 @@ title: ThumbnailSet - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/thumbnailset
 ---
-The **ThumbnailSet** resource is a keyed collection of [thumbnail](thumbnail.md) resources.

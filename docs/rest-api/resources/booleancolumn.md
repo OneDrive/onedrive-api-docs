@@ -6,4 +6,3 @@ title: BooleanColumn - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/booleancolumn
 ---
-The **booleanColumn** on a [columnDefinition](columnDefinition.md) resource indicates that the column holds a boolean value.

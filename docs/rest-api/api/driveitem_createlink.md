@@ -6,4 +6,3 @@ title: Share a file with a link - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-createlink
 ---
-You can use **createLink** action to share a [DriveItem](../resources/driveitem.md) via a sharing link.

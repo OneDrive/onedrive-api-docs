@@ -6,4 +6,3 @@ title: Access shared items - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/shares-get
 ---
-Access a shared [DriveItem](../resources/driveitem.md) or a collection of shared items by using a **shareId** or sharing URL.

@@ -6,4 +6,3 @@ title: Folder - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/folder
 ---
-The **Folder** resource groups folder-related data on an item into a single structure.

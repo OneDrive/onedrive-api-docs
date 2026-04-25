@@ -6,4 +6,3 @@ title: ItemReference - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/itemreference
 ---
-The **ItemReference** resource provides information necessary to address a [DriveItem](driveitem.md) via the API.

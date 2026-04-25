@@ -6,4 +6,3 @@ title: Error - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/error
 ---
-The error resource is returned whenever an error occurs in the processing

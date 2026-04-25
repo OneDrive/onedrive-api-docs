@@ -6,4 +6,3 @@ title: Access OneDrive and SharePoint via Microsoft Graph API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
-Access OneDrive and SharePoint files via the Microsoft Graph API.

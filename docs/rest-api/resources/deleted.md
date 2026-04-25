@@ -6,4 +6,3 @@ title: Deleted - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/deleted
 ---
-The **Deleted** resource indicates that the item has been deleted.

@@ -6,4 +6,3 @@ title: Convert to other formats - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-get-content-format
 ---
-Use this API to retrieve the contents of an item in a specific format.

@@ -6,4 +6,3 @@ title: SpecialFolder - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/specialfolder
 ---
-The **SpecialFolder** resource groups special folder-related data items into a single structure.

@@ -6,4 +6,3 @@ title: Resources and Facets - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
-The following resources are defined in the OneDrive API:

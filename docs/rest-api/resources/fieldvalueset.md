@@ -6,4 +6,3 @@ title: FieldValueSet - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/fieldvalueset
 ---
-Represents the column values in a [listItem](listItem.md) resource.

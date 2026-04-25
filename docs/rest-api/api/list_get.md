@@ -6,4 +6,3 @@ title: Get a SharePoint list
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/list-get
 ---
-Returns the metadata for a list.

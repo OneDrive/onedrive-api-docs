@@ -6,4 +6,3 @@ title: Get SharePoint site by path - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/site-getbypath
 ---
-Retrieve properties and relationships for a site resource.

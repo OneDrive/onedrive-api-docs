@@ -174,11 +174,11 @@ By setting properties within the  **availableOn** property, you can customize wh
     "Error: microsoft.graph.driveApp/application:
       Referenced type microsoft.graph.identity is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Error: microsoft.graph.driveAppAction/folder:
-      Referenced type object is not defined in the doc set! Potential suggestion: UNKNOWN",
+      Referenced type microsoft.graph.object is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Error: microsoft.graph.driveAppAction/web:
-      Referenced type object is not defined in the doc set! Potential suggestion: UNKNOWN",
+      Referenced type microsoft.graph.object is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Error: microsoft.graph.typeTemplate/items:
-      Referenced type driveItem is not defined in the doc set! Potential suggestion: UNKNOWN",
+      Referenced type microsoft.graph.driveItem is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
       Property 'file.extensions' found in markdown table but not in resource definition.",
     "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
@@ -188,7 +188,7 @@ By setting properties within the  **availableOn** property, you can customize wh
     "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
       Property 'web' found in markdown table but not in resource definition.",
     "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction/availableOn:
-      Type mismatch between example and table. Parameter name: availableOn; example type: (microsoft.graph.availableOn); table type: (object)"
+      Type mismatch between example and table. Parameter name: availableOn; example type: (microsoft.graph.availableOn); table type: (microsoft.graph.object)"
   ],
   "tocPath": "File handlers/Defining actions"
 } -->

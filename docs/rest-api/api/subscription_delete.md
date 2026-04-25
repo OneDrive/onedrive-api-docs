@@ -6,4 +6,3 @@ title: Remove a webhook subscription - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/subscription-delete
 ---
-Delete a subscription from a DriveItem.

@@ -6,4 +6,3 @@ title: CurrencyColumn - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/currencycolumn
 ---
-The **currencyColumn** on a [columnDefinition](columnDefinition.md) resource indicates that the column's values represent currency.

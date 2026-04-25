@@ -6,4 +6,3 @@ title: Identity - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/identity
 ---
-The **Identity** resource represents an identity of an _actor_.

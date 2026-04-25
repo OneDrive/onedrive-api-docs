@@ -6,4 +6,3 @@ title: Update a file or folder - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-update
 ---
-Update the metadata for a [DriveItem](../resources/driveitem.md) by ID or path.

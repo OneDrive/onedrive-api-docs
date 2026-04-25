@@ -6,4 +6,3 @@ title: Remove access to an item - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/permission-delete
 ---
-Remove access to a [DriveItem](../resources/driveitem.md).

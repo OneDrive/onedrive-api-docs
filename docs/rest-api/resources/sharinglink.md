@@ -6,4 +6,3 @@ title: SharingLink - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/sharinglink
 ---
-The **SharingLink** resource groups link-related data items into a single structure.

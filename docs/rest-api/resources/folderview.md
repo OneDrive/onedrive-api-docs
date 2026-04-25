@@ -6,4 +6,3 @@ title: FolderView - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/folderview
 ---
-The **FolderView** resource provides or sets recommendations on the user-experience of a folder.

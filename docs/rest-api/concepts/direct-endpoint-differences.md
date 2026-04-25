@@ -6,4 +6,3 @@ title: Understand differences between OneDrive API and Microsoft Graph
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/onedrive
 ---
-OneDrive API is available from several different API endpoints.

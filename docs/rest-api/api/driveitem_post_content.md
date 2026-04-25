@@ -6,4 +6,3 @@ title: Upload contents and metadata - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/driveitem-put-content
 ---
-The multipart upload method allows you to provide metadata about an item and the contents of the item in a single API call.

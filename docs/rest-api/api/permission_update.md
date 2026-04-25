@@ -6,4 +6,3 @@ title: Change sharing permissions - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/permission-update
 ---
-Update the properties of a sharing permission by patching the permission resource.

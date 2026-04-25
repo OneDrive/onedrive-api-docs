@@ -6,4 +6,3 @@ title: Get Drive - OneDrive API
 ms.localizationpriority: High
 redirect_url: https://learn.microsoft.com/en-us/graph/api/drive-get
 ---
-Retrieve the properties and relationships of a [Drive](../resources/drive.md) resource.

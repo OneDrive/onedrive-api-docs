@@ -6,4 +6,3 @@ title: ContentType - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/contenttype
 ---
-The **contentType** resource represents a _content type_ in SharePoint.

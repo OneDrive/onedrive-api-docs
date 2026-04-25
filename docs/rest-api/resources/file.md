@@ -6,4 +6,3 @@ title: File - OneDrive API
 ms.localizationpriority: Medium
 redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/file
 ---
-The **File** resource groups file-related data items into a single structure.
