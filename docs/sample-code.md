@@ -66,7 +66,7 @@ Additional samples for the Microsoft Graph are available from the [Microsoft Gra
   An iOS application to browse files using OneDrive API.
 
 * [OneDrive Sync Sample (Swift)](https://github.com/OneDrive/onedrive-sample-sync-ios)
-  An example application using the [delta](rest-api/api/driveitem_delta.md) API to
+  An example application using the [delta](https://learn.microsoft.com/en-us/graph/api/driveitem-delta) API to
   retrieve changes from the server and keep client state in sync.
 
 ## Android

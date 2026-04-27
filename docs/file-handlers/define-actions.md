@@ -171,10 +171,14 @@ By setting properties within the  **availableOn** property, you can customize wh
   "suppressions": [
     "Warning: /docs/file-handlers/define-actions.md:
       Found potential enums in resource example that weren't defined in a table:(newFile,open,preview,custom) are in resource, but () are in table",
+    "Error: microsoft.graph.driveApp/application:
+      Referenced type microsoft.graph.identity is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Error: microsoft.graph.driveAppAction/folder:
       Referenced type microsoft.graph.object is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Error: microsoft.graph.driveAppAction/web:
       Referenced type microsoft.graph.object is not defined in the doc set! Potential suggestion: UNKNOWN",
+    "Error: microsoft.graph.typeTemplate/items:
+      Referenced type microsoft.graph.driveItem is not defined in the doc set! Potential suggestion: UNKNOWN",
     "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:
       Property 'file.extensions' found in markdown table but not in resource definition.",
     "Warning: /docs/file-handlers/define-actions.md/microsoft.graph.driveAppAction:

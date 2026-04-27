@@ -4,44 +4,5 @@ ms.author: dspektor
 ms.date: 09/14/2017
 title: RenameAction - OneDrive API
 ms.localizationpriority: Medium
-description: Learn how to use the RenameAction resource on Microsoft's OneDrive API to rename items. Available for SharePoint and OneDrive for Business.
+redirect_url: https://learn.microsoft.com/en-us/graph/api/resources/renameaction
 ---
-# RenameAction resource type
-
-The presence of the **RenameAction** resource on an [**itemActivity**][activity] indicates that the activity renamed an item.
-
-[activity]: itemActivity.md
-
-## JSON representation
-
-<!-- {
-  "blockType": "resource",
-  "optionalProperties": [ ],
-  "@type": "microsoft.graph.renameAction"
-}-->
-
-```json
-{
-  "oldName": "string",
-  "newName": "string"
-}
-```
-
-## Properties
-
-| Property name | Type   | Description
-|:--------------|:-------|:----------------------------------------------------
-| oldName       | string | The previous name of the item.
-| newName       | string | The new name of the item.
-
-## Remarks
-
-Item activity records are currently only available on SharePoint and OneDrive for Business.
-
-<!-- {
-  "type": "#page.annotation",
-  "description": "The RenameAction object provides information about an activity that renamed an item.",
-  "keywords": "activities,activity,action,rename,renamed",
-  "section": "documentation",
-  "tocPath": "Resources/RenameAction"
-} -->

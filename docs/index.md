@@ -23,12 +23,9 @@ Our developer content is designed to help you learn how and why to integrate wit
 
 The best way to connect to OneDrive, OneDrive for Business, and SharePoint document libraries is the Microsoft Graph. Microsoft Graph provides a single API endpoint for accessing a variety of Microsoft services, and makes it easy to interconnect between different services.
 
-View the [API Reference](rest-api/index.md) for the complete details on accessing OneDrive and SharePoint via Microsoft Graph.
+View the [OneDrive API Reference on Microsoft Graph](https://learn.microsoft.com/en-us/graph/api/resources/onedrive) for the complete details on accessing OneDrive and SharePoint via Microsoft Graph.
 
 To learn more about Microsoft Graph, visit the [Microsoft Graph developer portal](https://graph.microsoft.com).
-
-OneDrive API is also available directly with SharePoint Server 2016.
-Learn more about using OneDrive API with SharePoint Server 2016 in the [release notes](rest-api/getting-started/release-notes.md).
 
 ## Service Integrations
 
