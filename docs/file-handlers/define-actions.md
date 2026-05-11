@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
-ms.topic: conceptual
+ms.topic: article
 title: Add custom actions to files - OneDrive
 ms.localizationpriority: Medium
 description: Learn how to specify actions for file handlers in OneDrive and SharePoint. Discover built-in actions and how to create custom actions for your application.

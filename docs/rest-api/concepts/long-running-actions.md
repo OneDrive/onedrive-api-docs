@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
-ms.topic: conceptual
+ms.topic: article
 title: Calling long running actions - OneDrive API
 ms.localizationpriority: Medium
 description: Learn how to handle long-running actions with Microsoft OneDrive's API. Understand how to request action status reports and monitor progress effectively.

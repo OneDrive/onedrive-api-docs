@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
-ms.topic: conceptual
+ms.topic: article
 title: Authorization for OneDrive API for Microsoft Accounts
 ms.localizationpriority: High
 ---
