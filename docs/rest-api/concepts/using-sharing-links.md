@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
-ms.topic: conceptual
+ms.topic: article
 title: Accessing shared files and folders - OneDrive API
 ms.localizationpriority: High
 ---

@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: JeremyKe
 ms.date: 09/10/2017
-ms.topic: conceptual
+ms.topic: article
 topic: Register a file handler with Azure Active Directory
 ms.localizationpriority: Medium
 ---
