@@ -2,7 +2,7 @@
 author: JeremyKelley
 ms.author: dspektor
 ms.date: 09/10/2017
-ms.topic: conceptual
+ms.topic: article
 title: Add custom metadata to items - OneDrive API
 ms.localizationpriority: Medium
 ---
