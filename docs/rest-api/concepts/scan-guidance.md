@@ -2,7 +2,7 @@
 author: killerewok2000
 ms.author: Sibourda
 ms.date: 10/02/2025
-ms.topic: conceptual
+ms.topic: article
 title: Best practices for discovering files and detecting changes at scale
 ms.localizationpriority: High
 ---
