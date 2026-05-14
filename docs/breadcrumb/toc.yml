@@ -2,6 +2,13 @@
   tocHref: /onedrive/developer
   topicHref: /onedrive/developer/index
   items:
+  - name: REST API
+    tocHref: /onedrive/developer/rest-api
+    topicHref: /onedrive/developer/rest-api/concepts/index
+    items:
+      - name: Concepts
+        tocHref: /onedrive/developer/rest-api/concepts
+        topicHref: /onedrive/developer/rest-api/concepts/index
   - name: File Handlers
     tocHref: /onedrive/developer/file-handlers
     topicHref: /onedrive/developer/file-handlers/index
