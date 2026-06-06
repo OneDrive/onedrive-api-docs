@@ -76,6 +76,7 @@ The Files.ReadWrite.AppFolder delegated permission is only valid for personal ac
 | _Sites.ReadWrite.All_   | Read and write items in all site collections                     | Allows the app to create, read, update, and delete documents and list items in all site collections without a signed in user. | Yes                    |
 | _Sites.Manage.All_      | Have full control of all site collections                        | Allows the app to manage and create lists, documents, and list items in all site collections without a signed-in user.        | Yes                    |
 | _Sites.FullControl.All_ | Create, edit, and delete items and lists in all site collections | Allows the app to have full control to SharePoint sites in all site collections without a signed-in user.                     | Yes                    |
+| _Sites.Selected_        | Create, edit, and delete items and lists in selected sites       | Allow the application to access a subset of site collections without a signed in user.                                        | Yes                    |
 
 
 ### Remarks
