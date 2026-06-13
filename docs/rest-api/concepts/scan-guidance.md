@@ -1,21 +1,24 @@
 ---
-author: killerewok2000
-ms.author: Sibourda
-ms.date: 10/02/2025
+author: patrick-rodgers
+ms.author: patrodg
+ms.date: 04/06/2026
 ms.topic: conceptual
-title: Best practices for discovering files and detecting changes at scale
+title: Best practices for scanning with SharePoint and OneDrive
 ms.localizationpriority: High
 ---
-# Best practices for discovering files and detecting changes at scale
-SharePoint and OneDrive store trillions of files.  It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level.  Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor an Office 365 tenant or OneDrive so that your application integrates with Office 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers. 
+# Best practices for scanning with SharePoint and OneDrive
+
+SharePoint and OneDrive store trillions of files. It is critical to use the right calling patterns when trying to understand all files and changes at scale. Historically, there are many APIs to access files at an atomic level. Many of these APIs are not efficient at a large scale but work well for a single user interaction. This guidance walks through how to monitor a Microsoft 365 tenant or OneDrive so that your application integrates with Microsoft 365 with maximum performance and efficiency. Applications that typically have this type of need are sync engines, backup providers, search indexers, classification engines, and data loss prevention providers.
 
 ## Getting the right permissions
-To build trust with users it is important to use the correct minimal set of [permission scopes][] needed for an app to function.  Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user.  To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope.  For access to SharePoint resources, including the list of all site collections, **Sites.Read.All** or **Sites.ReadWrite.All** is appropriate.  In order to process permissions correctly you will also need to request **Sites.FullControl.All**.
+
+To build trust with users it is important to use the correct minimal set of [permission scopes][] needed for an app to function. Most scanning applications will want to operate with Application permissions, this indicates your application is running independently of any particular user. To access files you should request either the **Files.Read.All** or **Files.ReadWrite.All** scope. For access to SharePoint resources, including the list of all site collections, **Sites.Read.All** or **Sites.ReadWrite.All** is appropriate. In order to process permissions correctly you will also need to request **Sites.FullControl.All**.
 
 ### Authorization types, permission scopes and users
-When you configure an application's permissions in Microsoft Azure you can choose between Application permissions and Delegated permissions.  As noted above, most scanning applications will want [Application permissions][].  Delegated permissions require your application to operate in the context of a signed in user rather than globally.  In the delegated model you are restricted to content that the current user has access to.
 
-One important aspect of permissions to note is that when an administrator grants permissions to an application requesting Application permissions (rather than Delegated permissions), the permission grant is being associated with the tenant and application, rather than the administrator user.  Although an administrator is required to grant the access, the access grant does not confer any special administrative permissions to the application, beyond access to the resource scopes requested by the application.
+When you configure an application's permissions in Microsoft Azure you can choose between Application permissions and Delegated permissions. As noted above, most scanning applications will want [Application permissions][]. Delegated permissions require your application to operate in the context of a signed in user rather than globally. In the delegated model you are restricted to content that the current user has access to.
+
+One important aspect of permissions to note is that when an administrator grants permissions to an application requesting Application permissions (rather than Delegated permissions), the permission grant is being associated with the tenant and application, rather than the administrator user. Although an administrator is required to grant the access, the access grant does not confer any special administrative permissions to the application, beyond access to the resource scopes requested by the application.
 
 ## Recommended calling pattern
 For applications that process large amounts of data from SharePoint and OneDrive, you should follow a consistent calling pattern like the following.
@@ -28,7 +31,7 @@ The pattern will look like the following diagram.  This article goes into detail
 
 ![Scanning calling flow between Microsoft Graph and client application](../../media/ScanProcessFlow.png)
 
-Each of these elements may have several mechanisms to accomplish them in the Microsoft Graph API and existing SharePoint APIs.  The goal of this article is to give you the best way available today to complete each task.
+Each of these elements may have several mechanisms to accomplish a given scenario in the Microsoft Graph API and existing SharePoint APIs.  The goal of this article is to give you the best way available today to complete each task.
 
 Throttling and / or performance slowdowns have a higher tendency to occur during peak hours than off-peak hours for large amounts of calls and / or bandwidth utilization. This is to help protect the service and ensure reliability for end users. Off peak hours are typically nights and weekends in your region’s time zone. Where your SharePoint tenant is set up determines your region’s time zone.
 
@@ -95,6 +98,15 @@ Webhooks are attached by using the subscriptions API for Microsoft Graph.  You c
 You will need to create a subscription that is associated with a specific resource (in this case a drive).  Drives support the “update” change type for webhooks.  An “update” indicates that content within the drive has changed or that new content has been added or deleted.  Webhook subscriptions have an associated timeout that needs to be periodically refreshed.  See the earlier-mentioned documentation on how to refresh your subscriptions.  We recommend using delta query with your last change token immediately after you subscribe to webhooks to ensure that you don’t miss any changes that happened between initial crawl and setting up your webhooks.
 
 Even with webhooks sending your application notifications, you may want to provide a periodic delta query to ensure that no changes are missed if it appears to have been a long time since a notification was received.  We recommend no more than once per day for this periodic check.  The delta query still allows you to easily catch up and not miss any changes in the system.
+
+### Webhook Subscription Limits
+|Entity|Limit|Notes|
+|---|---|---|
+|Tenant|none|There is no per-tenant limit on application subscriptions, however you may encounter throttling issues with too many subscriptions sending notifications. It is suggested to use webhooks for critical/frequently updated sites and polling via delta for the remainder.|
+|Site|100|-|
+|List|100|-|
+|Folder|10|Applies to consumer only|
+
 
 ### Receiving webhook notifications for security events
 OneDrive and SharePoint support sending your application notifications of security events.  To subscribe to these events you will need to add the "prefer:includesecuritywebhooks" header to your request to register a webhook.  Once the webhook is registered you will receive notifications when the permissions on an item change.  This header is applicable to SharePoint and OneDrive for Business but not consumer OneDrive accounts.
